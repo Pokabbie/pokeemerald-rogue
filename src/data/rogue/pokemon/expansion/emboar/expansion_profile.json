@@ -142,54 +142,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_HEAD_SMASH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_FLARE_BLITZ",
         "MOVE_SUPERPOWER",
         "MOVE_GRASS_KNOT",
@@ -198,26 +150,8 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6UU,"
       ]
     },
     {
@@ -230,10 +164,8 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -246,10 +178,8 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -262,10 +192,36 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -278,26 +234,8 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_WILD_CHARGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN7RU,"
       ]
     },
     {
@@ -310,10 +248,69 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

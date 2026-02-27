@@ -147,150 +147,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BLUE_FLARE",
-        "MOVE_GLACIATE",
-        "MOVE_U_TURN",
-        "MOVE_INCINERATE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLUE_FLARE",
-        "MOVE_GRASS_KNOT",
-        "MOVE_THUNDER",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLUE_FLARE",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CELEBRATE",
-        "MOVE_SEARING_SHOT",
-        "MOVE_STORED_POWER",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CELEBRATE",
-        "MOVE_STORED_POWER",
-        "MOVE_V_CREATE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENDURE",
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_REVERSAL"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_BLUE_FLARE",
-        "MOVE_GLACIATE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_V_CREATE",
         "MOVE_BOLT_STRIKE",
         "MOVE_GLACIATE",
@@ -299,91 +155,8 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_GLACIATE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_BLUE_FLARE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_FINAL_GAMBIT"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
@@ -396,33 +169,13 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
-        "GEN6MONOTYPE",
         "GEN7MONOTYPE",
         "GEN7MONOTYPE",
         "GEN8MONOTYPE",
         "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
@@ -435,142 +188,9 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_U_TURN",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BLUE_FLARE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_SKILL_SWAP",
-        "MOVE_WILL_O_WISP",
-        "MOVE_BOLT_STRIKE"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_U_TURN",
-        "MOVE_BOLT_STRIKE",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_V_CREATE",
-        "MOVE_U_TURN",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_VICTORY_STAR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN8NATIONALDEX"
+        "GEN7OU,"
       ]
     },
     {
@@ -583,10 +203,22 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1,"
       ]
     },
     {
@@ -599,10 +231,22 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_SKILL_SWAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_BOLT_STRIKE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
       ]
     },
     {
@@ -615,10 +259,305 @@
       "Ability": "ABILITY_VICTORY_STAR",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_REVERSAL"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BLUE_FLARE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_U_TURN",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_SEARING_SHOT",
+        "MOVE_STORED_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_GLACIATE",
+        "MOVE_U_TURN",
+        "MOVE_INCINERATE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_STORED_POWER",
+        "MOVE_V_CREATE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_BLUE_FLARE",
+        "MOVE_GLACIATE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_BLUE_FLARE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_GLACIATE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_U_TURN",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_FINAL_GAMBIT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

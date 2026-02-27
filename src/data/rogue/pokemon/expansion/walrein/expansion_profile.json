@@ -125,70 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SURF",
-        "MOVE_ICE_BEAM",
-        "MOVE_BLIZZARD"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROAR",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ROAR",
         "MOVE_IRON_HEAD",
         "MOVE_SURF",
@@ -197,26 +133,8 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -229,10 +147,65 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROAR",
+        "MOVE_IRON_HEAD",
+        "MOVE_SURF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_IRON_HEAD",
+        "MOVE_SURF",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -245,10 +218,22 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_IRON_HEAD",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

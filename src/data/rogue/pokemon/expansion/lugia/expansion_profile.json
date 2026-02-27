@@ -132,146 +132,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AEROBLAST",
-        "MOVE_CALM_MIND",
         "MOVE_ROOST",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AEROBLAST",
-        "MOVE_IRON_HEAD",
-        "MOVE_ROOST",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AEROBLAST",
-        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
         "MOVE_IRON_HEAD",
         "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AEROBLAST",
-        "MOVE_ROOST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AEROBLAST",
-        "MOVE_ROOST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ROOST",
-        "MOVE_AEROBLAST",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WHIRLWIND",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_AEROBLAST",
-        "MOVE_IRON_HEAD",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_ICE_BEAM",
-        "MOVE_WHIRLWIND",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -284,10 +154,36 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AEROBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AEROBLAST",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROOST",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
@@ -300,26 +196,106 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
+        "MOVE_IRON_HEAD",
         "MOVE_ROOST",
-        "MOVE_WHIRLWIND",
+        "MOVE_AEROBLAST",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AEROBLAST",
+        "MOVE_ROOST",
         "MOVE_IRON_HEAD",
         "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_ICE_BEAM",
+        "MOVE_WHIRLWIND",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_AEROBLAST",
+        "MOVE_IRON_HEAD",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WHIRLWIND",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AEROBLAST",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AEROBLAST",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

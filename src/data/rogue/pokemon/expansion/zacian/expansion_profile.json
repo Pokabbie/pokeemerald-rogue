@@ -117,26 +117,8 @@
       "Ability": "ABILITY_INTREPID_SWORD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_CRUNCH",
-        "MOVE_WILD_CHARGE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_INTREPID_SWORD",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8ANYTHINGGOES,"
       ]
     },
     {
@@ -149,10 +131,23 @@
       "Ability": "ABILITY_INTREPID_SWORD",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CRUNCH",
+        "MOVE_WILD_CHARGE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTREPID_SWORD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UBERS,"
       ]
     }
   ]

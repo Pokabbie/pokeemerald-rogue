@@ -108,34 +108,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_GIGA_DRAIN",
         "MOVE_ENCORE",
-        "MOVE_LEECH_SEED"
+        "MOVE_KNOCK_OFF",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_LEECH_SEED",
-        "MOVE_ENCORE",
-        "MOVE_MEMENTO"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -148,26 +131,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -180,26 +145,22 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_GIGA_DRAIN",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_STUN_SPORE",
-        "MOVE_MEMENTO"
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ENCORE",
+        "MOVE_LEECH_SEED"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -212,10 +173,22 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_LEECH_SEED",
+        "MOVE_ENCORE",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

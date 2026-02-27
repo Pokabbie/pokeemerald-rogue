@@ -110,10 +110,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

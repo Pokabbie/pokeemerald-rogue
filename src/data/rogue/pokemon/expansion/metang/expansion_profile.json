@@ -122,18 +122,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
         "MOVE_METEOR_MASH",
         "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
         "MOVE_BULLET_PUNCH"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -146,42 +144,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -194,10 +158,22 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -210,10 +186,22 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

@@ -135,102 +135,6 @@
     {
       "Moves": [
         "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FIRE_BLAST",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_LASER_FOCUS"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
         "MOVE_SLUDGE_WAVE",
         "MOVE_NASTY_PLOT",
         "MOVE_FIRE_BLAST"
@@ -238,58 +142,8 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_DRAGONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7UBERS,"
       ]
     },
     {
@@ -302,74 +156,22 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN7DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PROTECT",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_POISONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PROTECT",
-        "MOVE_DRAGON_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DRACO_METEOR",
         "MOVE_FIRE_BLAST"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -383,9 +185,8 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -398,10 +199,22 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -414,10 +227,151 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_LASER_FOCUS"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1",
+        "GEN81V1,"
       ]
     }
   ]

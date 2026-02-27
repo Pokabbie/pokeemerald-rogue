@@ -128,50 +128,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
         "MOVE_TAUNT",
-        "MOVE_EARTHQUAKE"
+        "MOVE_ENDEAVOR",
+        "MOVE_HEAD_SMASH"
       ],
       "Ability": "ABILITY_DEFEATIST",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": null,
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN6RU,"
       ]
     },
     {
@@ -184,122 +150,61 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
+        "MOVE_ACROBATICS",
         "MOVE_STONE_EDGE",
-        "MOVE_METEOR_BEAM",
-        "MOVE_AIR_SLASH"
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN8NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_OUTRAGE",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_EARTHQUAKE",
+        "MOVE_ACROBATICS",
+        "MOVE_ROOST",
         "MOVE_TAUNT",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ENDEAVOR",
+        "MOVE_HEAD_SMASH"
       ],
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_FLY",
-        "MOVE_OUTRAGE",
-        "MOVE_HEAT_WAVE"
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_FLY",
-        "MOVE_SWITCHEROO",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_FLY",
-        "MOVE_SWITCHEROO",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SWITCHEROO",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN6NU,"
       ]
     },
     {
@@ -312,26 +217,36 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_HEAD_SMASH",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_OUTRAGE"
+        "MOVE_FLY",
+        "MOVE_SWITCHEROO",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_FLY",
+        "MOVE_SWITCHEROO",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1,"
       ]
     },
     {
@@ -344,75 +259,8 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_AIR_SLASH",
-        "MOVE_EARTH_POWER",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_ENDEAVOR",
-        "MOVE_HEAD_SMASH"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_ENDEAVOR",
-        "MOVE_HEAD_SMASH"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU",
-        "GEN8PU"
+        "GEN7NU,"
       ]
     },
     {
@@ -425,10 +273,121 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_FLY",
+        "MOVE_OUTRAGE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_METEOR_BEAM",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_OUTRAGE",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SWITCHEROO",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     }
   ]

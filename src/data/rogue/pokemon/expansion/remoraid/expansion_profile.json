@@ -113,11 +113,9 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

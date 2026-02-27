@@ -116,18 +116,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_VOLT_SWITCH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECYCLE",
         "MOVE_THUNDERBOLT",
-        "MOVE_TERA_BLAST"
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_CHEEK_POUCH",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_PETAYA_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -140,42 +138,8 @@
       "Ability": "ABILITY_CHEEK_POUCH",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECYCLE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_CHEEK_POUCH",
-      "Item": "ITEM_STARF_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_RECYCLE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_CHEEK_POUCH",
-      "Item": "ITEM_PETAYA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -189,9 +153,22 @@
       "Item": "ITEM_PETAYA_BERRY",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -204,10 +181,22 @@
       "Ability": "ABILITY_PICKUP",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

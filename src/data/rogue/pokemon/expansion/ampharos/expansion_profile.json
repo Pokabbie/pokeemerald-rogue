@@ -147,116 +147,86 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE"
       ],
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_COTTON_GUARD",
         "MOVE_THUNDERBOLT",
-        "MOVE_EERIE_IMPULSE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COTTON_GUARD",
-        "MOVE_THUNDERBOLT",
-        "MOVE_EERIE_IMPULSE",
-        "MOVE_REST"
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DISCHARGE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_EERIE_IMPULSE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_PULSE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_AGILITY",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_AMPHAROSITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_PULSE",
+        "MOVE_AGILITY",
         "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
         "MOVE_FOCUS_BLAST",
         "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_AMPHAROSITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7RU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
       ]
     },
     {
@@ -269,42 +239,8 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_AMPHAROSITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ELECTROWEB",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ELECTROWEB",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
+        "GEN6UU,"
       ]
     },
     {
@@ -318,41 +254,37 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
         "MOVE_VOLT_SWITCH",
-        "MOVE_DRAGON_PULSE"
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_DRAGON_PULSE"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7RU,"
       ]
     },
     {
@@ -365,43 +297,96 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_AMPHAROSITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
+        "MOVE_ELECTROWEB",
         "MOVE_THUNDERBOLT",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_AMPHAROSITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_VOLT_SWITCH"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_AMPHAROSITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_AGILITY",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -415,9 +400,22 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_TERRAIN_EXTENDER",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -431,9 +429,36 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1,"
       ]
     },
     {
@@ -446,42 +471,8 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DISCHARGE"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_TERRAIN_EXTENDER",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_POWER_GEM"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN9PU,"
       ]
     }
   ]

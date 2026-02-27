@@ -106,54 +106,6 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_STONE_EDGE",
         "MOVE_KNOCK_OFF",
         "MOVE_EARTHQUAKE"
@@ -161,156 +113,10 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN6PU",
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_X_SCISSOR",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_X_SCISSOR",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_X_SCISSOR",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -323,10 +129,162 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_X_SCISSOR",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_X_SCISSOR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

@@ -85,7 +85,6 @@
     "MOVE_GIGA_IMPACT",
     "MOVE_GLARE",
     "MOVE_GRASS_KNOT",
-    "MOVE_HIDDEN_POWER",
     "MOVE_HYPER_BEAM",
     "MOVE_HYPER_VOICE",
     "MOVE_IRON_TAIL",
@@ -111,7 +110,6 @@
     "MOVE_SUNNY_DAY",
     "MOVE_SURF",
     "MOVE_SWIFT",
-    "MOVE_TERA_BLAST",
     "MOVE_THUNDER",
     "MOVE_THUNDER_PUNCH",
     "MOVE_THUNDER_WAVE",
@@ -124,34 +122,74 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYPER_VOICE",
         "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_GRASS_KNOT"
+        "MOVE_HYPER_VOICE",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_THUNDERBOLT"
       ],
       "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_GLARE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HYPER_VOICE",
         "MOVE_THUNDERBOLT",
-        "MOVE_GRASS_KNOT"
+        "MOVE_SURF"
       ],
       "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6UU",
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SURF",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU,"
       ]
     },
     {
@@ -164,173 +202,8 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_GRASS_KNOT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_GRASS_KNOT",
-        "MOVE_U_TURN",
-        "MOVE_HYPER_VOICE"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HYPER_VOICE",
-        "MOVE_GRASS_KNOT",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HYPER_VOICE",
-        "MOVE_GRASS_KNOT",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HYPER_VOICE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_DARK_PULSE"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_GRASS_KNOT",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SURF",
-        "MOVE_HYPER_VOICE"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HYPER_VOICE",
-        "MOVE_SIGNAL_BEAM",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HYPER_VOICE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN7NU"
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -343,10 +216,8 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
       ]
     },
     {
@@ -359,26 +230,121 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_U_TURN",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_THUNDERBOLT",
         "MOVE_HYPER_VOICE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_GLARE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GRASS_KNOT",
         "MOVE_SURF"
       ],
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

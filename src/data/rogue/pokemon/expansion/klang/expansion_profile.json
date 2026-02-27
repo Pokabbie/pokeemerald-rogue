@@ -89,6 +89,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_GEAR_GRIND",
         "MOVE_SHIFT_GEAR",
         "MOVE_REST",
@@ -97,10 +111,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -113,26 +125,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHIFT_GEAR",
-        "MOVE_GEAR_GRIND",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -145,10 +139,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -161,10 +153,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     }
   ]

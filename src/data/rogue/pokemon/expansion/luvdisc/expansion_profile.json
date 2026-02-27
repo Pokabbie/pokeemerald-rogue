@@ -112,10 +112,8 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_DESTINY_KNOT",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -129,9 +127,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     }
   ]

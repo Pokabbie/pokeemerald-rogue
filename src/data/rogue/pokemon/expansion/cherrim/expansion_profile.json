@@ -100,22 +100,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GROWTH",
-        "MOVE_SOLAR_BLADE",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_WEATHER_BALL"
-      ],
-      "Ability": "ABILITY_FLOWER_GIFT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HEALING_WISH",
         "MOVE_ENERGY_BALL",
         "MOVE_HIDDEN_POWER",
@@ -125,9 +109,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -140,10 +123,22 @@
       "Ability": "ABILITY_FLOWER_GIFT",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

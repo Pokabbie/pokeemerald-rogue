@@ -121,10 +121,37 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -137,27 +164,22 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
+        "MOVE_EXTREME_SPEED",
         "MOVE_DRAGON_DANCE",
         "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_IRON_TAIL"
+        "MOVE_WATERFALL"
       ],
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -170,10 +192,8 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     },
     {
@@ -186,42 +206,8 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_WATERFALL"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN9LC,"
       ]
     }
   ]

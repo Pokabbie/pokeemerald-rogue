@@ -129,18 +129,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
         "MOVE_JET_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PROTECT"
+        "MOVE_FLIP_TURN",
+        "MOVE_WAVE_CRASH",
+        "MOVE_ZEN_HEADBUTT"
       ],
       "Ability": "ABILITY_ZERO_TO_HERO",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -153,10 +152,67 @@
       "Ability": "ABILITY_ZERO_TO_HERO",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_JET_PUNCH",
+        "MOVE_FLIP_TURN",
+        "MOVE_WAVE_CRASH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ZERO_TO_HERO",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_JET_PUNCH",
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ZERO_TO_HERO",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_JET_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ZERO_TO_HERO",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_JET_PUNCH",
+        "MOVE_FLIP_TURN",
+        "MOVE_WAVE_CRASH",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_ZERO_TO_HERO",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -169,10 +225,8 @@
       "Ability": "ABILITY_ZERO_TO_HERO",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
@@ -185,74 +239,8 @@
       "Ability": "ABILITY_ZERO_TO_HERO",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_JET_PUNCH",
-        "MOVE_FLIP_TURN",
-        "MOVE_WAVE_CRASH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ZERO_TO_HERO",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_JET_PUNCH",
-        "MOVE_FLIP_TURN",
-        "MOVE_WAVE_CRASH",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_ZERO_TO_HERO",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_JET_PUNCH",
-        "MOVE_FLIP_TURN",
-        "MOVE_WAVE_CRASH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_ZERO_TO_HERO",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_JET_PUNCH",
-        "MOVE_WAVE_CRASH",
-        "MOVE_FLIP_TURN",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ZERO_TO_HERO",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

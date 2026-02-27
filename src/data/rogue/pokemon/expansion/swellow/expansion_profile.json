@@ -99,18 +99,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_HEAT_WAVE",
-        "MOVE_AIR_SLASH",
-        "MOVE_U_TURN"
+        "MOVE_FACADE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK"
       ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6RU,"
       ]
     },
     {
@@ -123,42 +121,8 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_U_TURN",
-        "MOVE_HEAT_WAVE",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FACADE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN6NU,"
       ]
     },
     {
@@ -171,58 +135,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_BOOMBURST",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_FACADE",
-        "MOVE_BOOMBURST"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6NU,"
       ]
     },
     {
@@ -235,10 +149,78 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_U_TURN",
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_FACADE",
+        "MOVE_BOOMBURST"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BOOMBURST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
       ]
     }
   ]

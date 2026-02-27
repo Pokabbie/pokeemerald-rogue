@@ -124,18 +124,45 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BLOCK",
-        "MOVE_REST",
-        "MOVE_NOBLE_ROAR",
-        "MOVE_IRON_HEAD"
+        "MOVE_SUBSTITUTE",
+        "MOVE_AQUA_RING",
+        "MOVE_PROTECT",
+        "MOVE_SCALD"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU",
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_AQUA_RING",
+        "MOVE_PROTECT",
+        "MOVE_BLOCK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -149,58 +176,22 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_AQUA_RING",
-        "MOVE_PROTECT",
-        "MOVE_BLOCK"
+        "MOVE_BLOCK",
+        "MOVE_REST",
+        "MOVE_NOBLE_ROAR",
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_AQUA_RING",
-        "MOVE_PROTECT",
-        "MOVE_SCALD"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU,"
       ]
     }
   ]

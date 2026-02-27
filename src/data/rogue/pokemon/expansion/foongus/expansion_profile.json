@@ -94,18 +94,19 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SPORE",
         "MOVE_GIGA_DRAIN",
         "MOVE_SLUDGE_BOMB",
-        "MOVE_SPORE",
         "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC",
+        "GEN7LC",
+        "GEN8LC",
+        "GEN9LC,"
       ]
     },
     {
@@ -118,29 +119,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC",
-        "GEN8LC",
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -153,11 +133,24 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

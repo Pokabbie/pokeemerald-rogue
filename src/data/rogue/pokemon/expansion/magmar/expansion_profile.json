@@ -122,6 +122,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FIRE_BLAST",
         "MOVE_FOCUS_BLAST",
         "MOVE_HIDDEN_POWER",
@@ -131,25 +145,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_OVERHEAT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -162,26 +159,22 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_MACH_PUNCH",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_FIRE_BLAST",
+        "MOVE_OVERHEAT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
       ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU,"
       ]
     }
   ]

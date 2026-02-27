@@ -121,38 +121,6 @@
     {
       "Moves": [
         "MOVE_CRUNCH",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_OUTRAGE",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
         "MOVE_OUTRAGE",
         "MOVE_SUPERPOWER",
         "MOVE_HEAD_SMASH"
@@ -160,10 +128,22 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -176,10 +156,22 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU,"
       ]
     },
     {
@@ -192,10 +184,22 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_OUTRAGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

@@ -118,34 +118,73 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AURA_SPHERE",
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND",
-        "MOVE_SURF"
+        "MOVE_ICY_WIND"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
+        "MOVE_SURF",
         "MOVE_HYDRO_PUMP",
         "MOVE_SECRET_SWORD",
-        "MOVE_AIR_SLASH"
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN6OU",
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_QUICK_GUARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
       ]
     },
     {
@@ -158,107 +197,23 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU",
-        "GEN8OU"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SECRET_SWORD",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_SECRET_SWORD",
         "MOVE_SURF",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_SUBSTITUTE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD"
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SURF",
-        "MOVE_ICY_WIND",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_TAUNT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_SURF",
-        "MOVE_SECRET_SWORD"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN7OU,"
       ]
     },
     {
@@ -271,42 +226,8 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD",
-        "MOVE_CALM_MIND",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD",
-        "MOVE_CALM_MIND",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN71V1,"
       ]
     },
     {
@@ -320,224 +241,23 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_SECRET_SWORD",
-        "MOVE_QUICK_GUARD",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_AIR_SLASH",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_ICY_WIND",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
-        "MOVE_AIR_SLASH",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
         "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
-        "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SECRET_SWORD",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SECRET_SWORD"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN8NATIONALDEX",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_AURA_SPHERE",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9UU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -550,58 +270,8 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_SECRET_SWORD",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_SECRET_SWORD",
-        "MOVE_ICY_WIND",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_SECRET_SWORD",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -614,26 +284,279 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_SURF",
         "MOVE_SECRET_SWORD",
+        "MOVE_ICY_WIND",
+        "MOVE_SURF",
         "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_MYSTIC_WATER",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_SPHERE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VACUUM_WAVE",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

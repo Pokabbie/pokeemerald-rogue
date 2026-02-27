@@ -98,10 +98,8 @@
       "Ability": "ABILITY_COMPETITIVE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

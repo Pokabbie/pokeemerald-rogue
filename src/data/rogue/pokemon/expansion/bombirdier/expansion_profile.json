@@ -124,17 +124,46 @@
     {
       "Moves": [
         "MOVE_KNOCK_OFF",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_BIG_PECKS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU,"
       ]
     },
     {
@@ -147,10 +176,98 @@
       "Ability": "ABILITY_ROCKY_PAYLOAD",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_STONE_EDGE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     },
     {
@@ -163,42 +280,8 @@
       "Ability": "ABILITY_BIG_PECKS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BIG_PECKS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PARTING_SHOT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BIG_PECKS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9PU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

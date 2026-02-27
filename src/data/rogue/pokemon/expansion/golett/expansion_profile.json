@@ -137,11 +137,9 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -154,26 +152,8 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_POLTERGEIST",
-        "MOVE_DYNAMIC_PUNCH",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -186,10 +166,22 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_POLTERGEIST",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

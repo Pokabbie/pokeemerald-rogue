@@ -108,10 +108,8 @@
       "Ability": "ABILITY_POISON_POINT",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

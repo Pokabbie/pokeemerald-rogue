@@ -85,7 +85,6 @@
     "MOVE_HYPER_BEAM",
     "MOVE_LEECH_LIFE",
     "MOVE_LUNGE",
-    "MOVE_MORNING_SUN",
     "MOVE_NIGHT_SHADE",
     "MOVE_POUNCE",
     "MOVE_PROTECT",
@@ -117,64 +116,14 @@
       "Moves": [
         "MOVE_QUIVER_DANCE",
         "MOVE_BUG_BUZZ",
-        "MOVE_PSYCHIC",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_BUG_BUZZ",
         "MOVE_SLEEP_POWDER",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_BUG_BUZZ",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_BUG_BUZZ",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_BUGINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -187,10 +136,22 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
       ]
     },
     {
@@ -203,10 +164,50 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_BUGINIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_DISABLE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

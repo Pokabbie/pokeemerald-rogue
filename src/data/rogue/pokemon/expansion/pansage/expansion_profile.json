@@ -132,15 +132,13 @@
         "MOVE_BULLET_SEED",
         "MOVE_KNOCK_OFF",
         "MOVE_LOW_SWEEP",
-        "MOVE_GUNK_SHOT"
+        "MOVE_ROCK_TOMB"
       ],
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -148,15 +146,13 @@
         "MOVE_BULLET_SEED",
         "MOVE_KNOCK_OFF",
         "MOVE_LOW_SWEEP",
-        "MOVE_ROCK_TOMB"
+        "MOVE_GUNK_SHOT"
       ],
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

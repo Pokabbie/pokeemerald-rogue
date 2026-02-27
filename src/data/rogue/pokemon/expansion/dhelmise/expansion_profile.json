@@ -132,18 +132,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ANCHOR_SHOT",
-        "MOVE_POLTERGEIST",
+        "MOVE_RAPID_SPIN",
         "MOVE_POWER_WHIP",
-        "MOVE_PROTECT"
+        "MOVE_ANCHOR_SHOT",
+        "MOVE_REST"
       ],
       "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN7RU,"
       ]
     },
     {
@@ -156,26 +154,8 @@
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_POWER_WHIP",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN7RU,"
       ]
     },
     {
@@ -188,11 +168,9 @@
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_STEELIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU",
-        "GEN7NU"
+        "GEN7NU,"
       ]
     },
     {
@@ -205,74 +183,8 @@
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_POLTERGEIST",
-        "MOVE_RAPID_SPIN",
-        "MOVE_ANCHOR_SHOT"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_POLTERGEIST",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_POLTERGEIST",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
+        "GEN7NU,"
       ]
     },
     {
@@ -285,58 +197,50 @@
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_POWER_WHIP",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2017,"
       ]
     },
     {
       "Moves": [
         "MOVE_POWER_WHIP",
-        "MOVE_RAPID_SPIN",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
         "MOVE_POLTERGEIST",
+        "MOVE_RAPID_SPIN",
         "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_POWER_WHIP",
-        "MOVE_ANCHOR_SHOT",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_POWER_WHIP",
-        "MOVE_POLTERGEIST",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_STEELWORKER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
+        "GEN8UU,"
       ]
     },
     {
@@ -349,10 +253,78 @@
       "Ability": "ABILITY_STEELWORKER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_POLTERGEIST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_POLTERGEIST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_POLTERGEIST",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_POLTERGEIST",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ANCHOR_SHOT"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCHOR_SHOT",
+        "MOVE_POLTERGEIST",
+        "MOVE_POWER_WHIP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8VGC2020,"
       ]
     }
   ]

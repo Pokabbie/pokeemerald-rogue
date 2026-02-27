@@ -122,10 +122,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

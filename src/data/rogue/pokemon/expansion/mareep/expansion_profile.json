@@ -115,10 +115,8 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -131,10 +129,8 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

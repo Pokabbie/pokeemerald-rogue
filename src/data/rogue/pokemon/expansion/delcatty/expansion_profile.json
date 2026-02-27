@@ -75,22 +75,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_RETURN",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_NORMALIZE",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUBSTITUTE",
         "MOVE_CALM_MIND",
         "MOVE_HYPER_VOICE",
@@ -99,10 +83,22 @@
       "Ability": "ABILITY_WONDER_SKIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NORMALIZE",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

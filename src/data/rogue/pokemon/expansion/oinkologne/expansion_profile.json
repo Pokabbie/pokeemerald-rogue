@@ -118,10 +118,8 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

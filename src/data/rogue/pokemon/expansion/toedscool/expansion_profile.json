@@ -126,6 +126,21 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_MYCELIUM_MIGHT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_EARTH_POWER",
         "MOVE_KNOCK_OFF",
         "MOVE_SPORE"
@@ -133,26 +148,8 @@
       "Ability": "ABILITY_MYCELIUM_MIGHT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTH_POWER",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_MYCELIUM_MIGHT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

@@ -106,38 +106,6 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_THROAT_CHOP",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_NO_RETREAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_NO_RETREAT",
         "MOVE_THROAT_CHOP",
         "MOVE_IRON_HEAD"
@@ -145,10 +113,22 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_THROAT_CHOP",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -161,10 +141,22 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

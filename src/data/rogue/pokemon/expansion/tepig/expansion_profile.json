@@ -116,15 +116,13 @@
         "MOVE_FLARE_BLITZ",
         "MOVE_HEAD_SMASH",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
+        "MOVE_WILD_CHARGE"
       ],
-      "Ability": "ABILITY_THICK_FAT",
+      "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -132,15 +130,13 @@
         "MOVE_FLARE_BLITZ",
         "MOVE_HEAD_SMASH",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_WILD_CHARGE"
+        "MOVE_SUPERPOWER"
       ],
-      "Ability": "ABILITY_BLAZE",
+      "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

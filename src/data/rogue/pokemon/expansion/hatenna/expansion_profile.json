@@ -102,10 +102,8 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

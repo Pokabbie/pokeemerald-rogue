@@ -101,18 +101,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FACADE",
-        "MOVE_CURSE",
-        "MOVE_AMNESIA",
-        "MOVE_RECOVER"
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_EARTH_POWER",
+        "MOVE_YAWN"
       ],
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -125,26 +123,22 @@
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_RECOVER",
-        "MOVE_EARTH_POWER",
-        "MOVE_YAWN"
+        "MOVE_FACADE",
+        "MOVE_CURSE",
+        "MOVE_AMNESIA",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC,"
       ]
     },
     {
@@ -157,10 +151,23 @@
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     },
     {
@@ -173,26 +180,8 @@
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

@@ -96,18 +96,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
         "MOVE_HIGH_JUMP_KICK",
         "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_FLARE_BLITZ",
+        "MOVE_GUNK_SHOT"
       ],
       "Ability": "ABILITY_LIBERO",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -120,26 +118,22 @@
       "Ability": "ABILITY_LIBERO",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
+        "MOVE_FLARE_BLITZ",
         "MOVE_HIGH_JUMP_KICK",
         "MOVE_U_TURN",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_GUNK_SHOT"
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_LIBERO",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN9ZU,"
       ]
     }
   ]

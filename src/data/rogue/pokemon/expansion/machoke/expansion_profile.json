@@ -126,42 +126,8 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMIC_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_DYNAMIC_PUNCH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -174,10 +140,36 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

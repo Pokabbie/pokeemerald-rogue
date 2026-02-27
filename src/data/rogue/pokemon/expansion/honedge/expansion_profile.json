@@ -105,26 +105,8 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_IRON_HEAD",
-        "MOVE_SACRED_SWORD",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -137,11 +119,23 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SACRED_SWORD",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -154,10 +148,8 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

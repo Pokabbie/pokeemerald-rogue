@@ -160,18 +160,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FACADE",
         "MOVE_KNOCK_OFF",
-        "MOVE_OBSTRUCT",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_FACADE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SWITCHEROO"
       ],
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8UBERS,"
       ]
     },
     {
@@ -184,26 +182,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FACADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWITCHEROO",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8UU,"
       ]
     },
     {
@@ -216,26 +196,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_FACADE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8UU,"
       ]
     },
     {
@@ -248,10 +210,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
@@ -264,10 +224,36 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWITCHEROO",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_OBSTRUCT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

@@ -92,17 +92,41 @@
     {
       "Moves": [
         "MOVE_ACROBATICS",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_GALE_WINGS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_U_TURN",
+        "MOVE_OVERHEAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GALE_WINGS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
         "MOVE_SWORDS_DANCE",
         "MOVE_U_TURN",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -115,10 +139,21 @@
       "Ability": "ABILITY_GALE_WINGS",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_GALE_WINGS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -131,59 +166,8 @@
       "Ability": "ABILITY_GALE_WINGS",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_U_TURN",
-        "MOVE_OVERHEAT",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_U_TURN",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_U_TURN",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN8LC,"
       ]
     }
   ]

@@ -81,18 +81,60 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HIDDEN_POWER",
         "MOVE_LEAF_STORM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_GUNK_SHOT"
       ],
       "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_FIGHTINIUM_Z",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_BOMB",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -105,10 +147,66 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SEED_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU,"
       ]
     },
     {
@@ -122,74 +220,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SEED_BOMB",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SUPERPOWER",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU",
-        "GEN7PU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -203,42 +235,23 @@
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEAF_STORM",
         "MOVE_FOCUS_BLAST",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_GIGA_DRAIN"
       ],
       "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU",
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SEED_BOMB",
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU,"
       ]
     }
   ]

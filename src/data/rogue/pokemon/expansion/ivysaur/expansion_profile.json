@@ -107,6 +107,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_GROWTH",
         "MOVE_SLUDGE_BOMB",
         "MOVE_SOLAR_BEAM",
@@ -114,11 +128,10 @@
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
+      "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -132,9 +145,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -147,26 +159,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -179,10 +173,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

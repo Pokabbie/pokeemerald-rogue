@@ -99,9 +99,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -114,10 +113,8 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_LONELY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

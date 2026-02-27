@@ -130,58 +130,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEALING_WISH",
-        "MOVE_RECOVER",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_RECOVER",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -194,58 +144,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM",
         "MOVE_RECOVER",
-        "MOVE_PSYCHIC",
-        "MOVE_DEFOG",
-        "MOVE_HEAL_BELL"
+        "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_PSYCHIC",
-        "MOVE_STORED_POWER",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_HEALING_WISH",
-        "MOVE_PSYCHIC",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_MENTAL_HERB",
+      "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -258,10 +200,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_DEFOG",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_STORED_POWER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

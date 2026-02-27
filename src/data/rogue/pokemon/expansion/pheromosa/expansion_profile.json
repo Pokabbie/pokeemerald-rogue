@@ -110,66 +110,58 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_U_TURN",
+        "MOVE_LOW_KICK",
         "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
+        "MOVE_THROAT_CHOP"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_U_TURN",
-        "MOVE_PROTECT",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_BEAM",
         "MOVE_POISON_JAB"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_FOCUS_BLAST",
         "MOVE_ICE_BEAM",
-        "MOVE_BUG_BUZZ",
-        "MOVE_HYPER_BEAM"
+        "MOVE_U_TURN",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -182,106 +174,8 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_LUNGE",
-        "MOVE_POISON_JAB",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POISON_JAB",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_THROAT_CHOP",
-        "MOVE_GIGA_IMPACT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_U_TURN",
-        "MOVE_ICE_BEAM",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POISON_JAB",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -294,10 +188,8 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -310,10 +202,22 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7VGC2017,"
       ]
     },
     {
@@ -326,26 +230,36 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN7VGC2017,"
       ]
     },
     {
       "Moves": [
-        "MOVE_LUNGE",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_ICE_BEAM"
+        "MOVE_ICE_BEAM",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_LUNGE",
+        "MOVE_POISON_JAB",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
       ]
     },
     {
@@ -358,42 +272,22 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POISON_JAB"
+        "MOVE_LUNGE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_U_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THROAT_CHOP"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN71V1,"
       ]
     },
     {
@@ -406,10 +300,8 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8UBERS,"
       ]
     },
     {
@@ -422,58 +314,120 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8UBERS,"
       ]
     },
     {
       "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
         "MOVE_U_TURN",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_TRIPLE_AXEL",
         "MOVE_THROAT_CHOP"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
         "MOVE_HIGH_JUMP_KICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_THROAT_CHOP",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
         "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_JUMP_KICK",
         "MOVE_POISON_JAB"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_U_TURN",
-        "MOVE_LOW_KICK",
-        "MOVE_ICE_BEAM",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
         "MOVE_THROAT_CHOP"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN8ANYTHINGGOES,"
       ]
     }
   ]

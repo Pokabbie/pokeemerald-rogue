@@ -108,10 +108,8 @@
       "Ability": "ABILITY_WATER_BUBBLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

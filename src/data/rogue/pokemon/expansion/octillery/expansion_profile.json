@@ -124,6 +124,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ENERGY_BALL",
         "MOVE_ICE_BEAM",
         "MOVE_FLAMETHROWER",
@@ -132,74 +146,8 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SUCTION_CUPS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_ENERGY_BALL",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -212,10 +160,50 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

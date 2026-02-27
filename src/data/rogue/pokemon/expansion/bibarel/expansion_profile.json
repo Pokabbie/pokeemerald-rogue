@@ -136,10 +136,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -152,10 +150,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -168,43 +164,8 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_AQUA_JET",
-        "MOVE_RETURN",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU",
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_RETURN",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -217,10 +178,37 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_AQUA_JET",
+        "MOVE_RETURN",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

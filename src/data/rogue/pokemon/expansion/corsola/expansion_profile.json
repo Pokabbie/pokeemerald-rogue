@@ -114,18 +114,58 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
         "MOVE_SCALD",
         "MOVE_RECOVER",
-        "MOVE_STEALTH_ROCK",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -138,10 +178,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -154,42 +192,22 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RECOVER",
         "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RECOVER",
-        "MOVE_SCALD",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -202,42 +220,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SCALD",
-        "MOVE_RECOVER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SCALD",
-        "MOVE_RECOVER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN8ZU,"
       ]
     }
   ]

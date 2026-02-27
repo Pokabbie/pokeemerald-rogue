@@ -110,10 +110,8 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     }
   ]

@@ -142,70 +142,6 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
-        "MOVE_EARTH_POWER",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_EARTH_POWER",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_STEALTH_ROCK",
         "MOVE_EARTH_POWER",
         "MOVE_SUBSTITUTE"
@@ -213,11 +149,51 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU,"
       ]
     },
     {
@@ -230,10 +206,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -246,10 +234,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
@@ -262,10 +248,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     }
   ]

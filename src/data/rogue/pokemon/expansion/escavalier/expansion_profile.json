@@ -131,103 +131,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_REST",
-        "MOVE_IRON_HEAD",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_MEGAHORN",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU",
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_MEGAHORN",
-        "MOVE_DRILL_RUN",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_MEGAHORN",
-        "MOVE_DRILL_RUN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_MEGAHORN",
         "MOVE_IRON_HEAD",
         "MOVE_KNOCK_OFF",
@@ -236,90 +139,8 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_PROTECT",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_PURSUIT",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_PURSUIT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGAHORN",
-        "MOVE_IRON_HEAD",
-        "MOVE_PURSUIT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6UU,"
       ]
     },
     {
@@ -332,74 +153,64 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_METAL_BURST",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_IRON_HEAD",
         "MOVE_MEGAHORN",
-        "MOVE_DRILL_RUN"
+        "MOVE_DRILL_RUN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_MEGAHORN",
         "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF"
+        "MOVE_PURSUIT",
+        "MOVE_DRILL_RUN"
       ],
       "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6RU,"
       ]
     },
     {
@@ -412,10 +223,163 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MEGAHORN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU",
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_IRON_HEAD",
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST",
+        "MOVE_IRON_HEAD",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     }
   ]

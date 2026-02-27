@@ -113,38 +113,6 @@
       "Moves": [
         "MOVE_ERUPTION",
         "MOVE_EXTRASENSORY",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_EXTRASENSORY",
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_EXTRASENSORY",
         "MOVE_HIDDEN_POWER",
         "MOVE_FIRE_BLAST"
       ],
@@ -152,9 +120,22 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_EXTRASENSORY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -168,9 +149,22 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_EXTRASENSORY",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

@@ -134,10 +134,8 @@
       "Ability": "ABILITY_PICKUP",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -150,10 +148,8 @@
       "Ability": "ABILITY_GLUTTONY",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -166,11 +162,9 @@
       "Ability": "ABILITY_GLUTTONY",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU",
-        "GEN8RU"
+        "GEN8RU,"
       ]
     },
     {
@@ -183,10 +177,8 @@
       "Ability": "ABILITY_GLUTTONY",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
@@ -199,10 +191,8 @@
       "Ability": "ABILITY_GLUTTONY",
       "Item": "ITEM_AGUAV_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -215,10 +205,8 @@
       "Ability": "ABILITY_GLUTTONY",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN8RU,"
       ]
     }
   ]

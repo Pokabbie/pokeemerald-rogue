@@ -116,18 +116,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_LAVA_PLUME",
-        "MOVE_CLEAR_SMOG",
-        "MOVE_MEMENTO",
+        "MOVE_RECOVER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
         "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -140,26 +138,22 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_EARTH_POWER",
+        "MOVE_LAVA_PLUME",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_MEMENTO",
         "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

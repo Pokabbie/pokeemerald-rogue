@@ -122,138 +122,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_EARTH_POWER",
-        "MOVE_SCALD"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_EARTH_POWER",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_SCALD",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_SURF",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_SURF",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF",
-        "MOVE_SHELL_SMASH",
-        "MOVE_METEOR_BEAM"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
@@ -267,9 +137,8 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -283,41 +152,52 @@
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ICE_BEAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
         "MOVE_SCALD",
-        "MOVE_EARTH_POWER"
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN6NU",
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_SCALD",
+        "MOVE_SURF"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_METEOR_BEAM",
-        "MOVE_SURF",
-        "MOVE_ICE_BEAM"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_SCALD",
+        "MOVE_PROTECT"
       ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -331,25 +211,78 @@
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
-        "MOVE_SURF",
         "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -359,47 +292,66 @@
         "MOVE_ICE_BEAM",
         "MOVE_ROCK_SLIDE"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LETSGOOU"
+        "GEN7LETSGOOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_SCALD",
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_METEOR_BEAM",
+        "MOVE_SURF",
         "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU",
-        "GEN6NU",
-        "GEN7PU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_SCALD",
-        "MOVE_PROTECT"
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF",
+        "MOVE_EARTH_POWER"
       ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_SHELL_SMASH",
+        "MOVE_METEOR_BEAM"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     }
   ]

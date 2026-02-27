@@ -118,38 +118,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_BULLET_SEED"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_BULLET_SEED"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SWORDS_DANCE",
         "MOVE_BULLET_SEED",
         "MOVE_ACROBATICS",
@@ -158,10 +126,22 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -174,10 +154,8 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -190,10 +168,22 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_GRASSY_SEED",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

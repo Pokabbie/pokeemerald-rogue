@@ -108,18 +108,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ACROBATICS",
         "MOVE_HYDRO_PUMP",
-        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_BERRY_JUICE",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -133,57 +132,23 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_RASH",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
+        "MOVE_ACROBATICS",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN",
+        "MOVE_SUBSTITUTE",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -196,10 +161,38 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -212,10 +205,8 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

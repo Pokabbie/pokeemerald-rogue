@@ -139,6 +139,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_EXTREME_SPEED",
         "MOVE_VOLT_SWITCH",
         "MOVE_KNOCK_OFF",
@@ -148,9 +162,50 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_LONELY",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -163,74 +218,8 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_VOLT_TACKLE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_SURF",
-        "MOVE_GRASS_KNOT",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_IRON_TAIL",
-        "MOVE_VOLT_TACKLE",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8PU,"
       ]
     },
     {
@@ -243,26 +232,50 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_IRON_TAIL",
         "MOVE_VOLT_TACKLE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_VOLT_SWITCH"
+        "MOVE_QUICK_ATTACK"
       ],
-      "Ability": "ABILITY_STATIC",
+      "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SURF",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     },
     {
@@ -275,42 +288,8 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_TACKLE",
-        "MOVE_FAKE_OUT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_TACKLE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

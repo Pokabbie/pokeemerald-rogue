@@ -144,248 +144,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BABY_DOLL_EYES",
-        "MOVE_AMNESIA",
-        "MOVE_REST",
-        "MOVE_LUCKY_CHANT"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1",
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SURF",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SURF",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_WISH",
-        "MOVE_HEAL_BELL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_BABY_DOLL_EYES",
-        "MOVE_AMNESIA",
-        "MOVE_LUCKY_CHANT"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SIMPLE_BEAM",
-        "MOVE_PROTECT",
-        "MOVE_TRICK_ROOM",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_HEAL_BELL",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WISH",
         "MOVE_HEAL_BELL",
         "MOVE_PROTECT",
@@ -394,12 +152,178 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
         "GEN6PU",
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
@@ -412,90 +336,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_HEALER",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_AUDINITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN6NU,"
       ]
     },
     {
@@ -508,26 +350,65 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_BABY_DOLL_EYES",
+        "MOVE_AMNESIA",
+        "MOVE_LUCKY_CHANT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEAL_BELL"
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU,"
       ]
     },
     {
@@ -540,11 +421,80 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU",
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIMPLE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BABY_DOLL_EYES",
+        "MOVE_AMNESIA",
+        "MOVE_REST",
+        "MOVE_LUCKY_CHANT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1",
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     }
   ]

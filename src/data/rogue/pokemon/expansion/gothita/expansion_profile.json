@@ -113,6 +113,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_PSYCHIC",
         "MOVE_REST",
@@ -121,10 +135,22 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -137,10 +163,9 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_PSYCHIC",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN9LC,"
       ]
     },
     {
@@ -153,42 +178,8 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_SHADOW_TAG",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_PSYCHIC",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_SHADOW_TAG",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN9LC,"
       ]
     }
   ]

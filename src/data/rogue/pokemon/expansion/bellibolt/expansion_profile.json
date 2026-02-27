@@ -102,18 +102,32 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MUDDY_WATER",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PARABOLIC_CHARGE",
-        "MOVE_SOAK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_THUNDER"
+        "MOVE_SLACK_OFF",
+        "MOVE_MUDDY_WATER",
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_ELECTROMORPHOSIS",
-      "Item": "ITEM_MENTAL_HERB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN9RU,"
       ]
     },
     {
@@ -126,10 +140,38 @@
       "Ability": "ABILITY_ELECTROMORPHOSIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC",
+        "MOVE_MUDDY_WATER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SLACK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MUDDY_WATER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     },
     {
@@ -142,10 +184,9 @@
       "Ability": "ABILITY_ELECTROMORPHOSIS",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
@@ -158,58 +199,23 @@
       "Ability": "ABILITY_ELECTROMORPHOSIS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TOXIC",
-        "MOVE_MUDDY_WATER",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SLACK_OFF"
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SOAK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_THUNDER"
       ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_MUDDY_WATER",
-        "MOVE_TOXIC",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SLACK_OFF",
-        "MOVE_TOXIC",
-        "MOVE_MUDDY_WATER"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN91V1,"
       ]
     }
   ]

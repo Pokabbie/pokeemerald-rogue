@@ -136,98 +136,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SUBSTITUTE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_CLOUD_NINE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_RAIN_DANCE",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_RAIN_DANCE"
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_CLOUD_NINE",
-      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SURF",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FLIP_TURN",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_CLOUD_NINE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_RAIN_DANCE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -240,58 +158,37 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYCHIC",
         "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_CLOUD_NINE",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF",
-        "MOVE_NASTY_PLOT",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN6ZU,"
       ]
     },
     {
@@ -305,25 +202,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAIN_DANCE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -336,10 +216,22 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAIN_DANCE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -352,10 +244,92 @@
       "Ability": "ABILITY_CLOUD_NINE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLIP_TURN",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

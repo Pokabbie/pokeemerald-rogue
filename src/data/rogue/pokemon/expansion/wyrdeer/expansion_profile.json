@@ -134,10 +134,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

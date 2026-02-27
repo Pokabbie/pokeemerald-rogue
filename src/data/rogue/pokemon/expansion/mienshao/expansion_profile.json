@@ -117,50 +117,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_ICE_SPINNER",
-        "MOVE_U_TURN"
+        "MOVE_STONE_EDGE"
       ],
-      "Ability": "ABILITY_REGENERATOR",
+      "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN6UU",
+        "GEN7UU,"
       ]
     },
     {
@@ -173,27 +140,36 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_HIGH_JUMP_KICK",
-        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT"
       ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU",
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
@@ -206,26 +182,23 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN9UU,"
       ]
     },
     {
@@ -238,10 +211,54 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU",
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     }
   ]

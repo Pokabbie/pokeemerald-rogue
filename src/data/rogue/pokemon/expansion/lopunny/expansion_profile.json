@@ -100,7 +100,6 @@
     "MOVE_FIRE_PUNCH",
     "MOVE_FLING",
     "MOVE_FOCUS_BLAST",
-    "MOVE_FRUSTRATION",
     "MOVE_GIGA_IMPACT",
     "MOVE_GRASS_KNOT",
     "MOVE_HELPING_HAND",
@@ -144,210 +143,86 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_CLOSE_COMBAT",
+        "MOVE_LOW_KICK",
         "MOVE_RETURN",
-        "MOVE_U_TURN"
+        "MOVE_FAKE_OUT",
+        "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN6UBERS,"
       ]
     },
     {
       "Moves": [
+        "MOVE_LOW_KICK",
+        "MOVE_RETURN",
         "MOVE_FAKE_OUT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FRUSTRATION",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FRUSTRATION",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_QUICK_ATTACK"
+        "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
         "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
         "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_RETURN",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN7BATTLESPOTSINGLES"
+        "GEN6OU,"
       ]
     },
     {
@@ -360,8 +235,6 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
         "GEN6BATTLESPOTSINGLES",
@@ -369,328 +242,7 @@
         "GEN6MONOTYPE",
         "GEN7OU",
         "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_RETURN",
-        "MOVE_MUD_SPORT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_RETURN",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FRUSTRATION",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FRUSTRATION",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_RETURN",
-        "MOVE_FAKE_OUT",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_RETURN",
-        "MOVE_FAKE_OUT",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LOW_KICK",
-        "MOVE_RETURN",
-        "MOVE_FAKE_OUT",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LOW_KICK",
-        "MOVE_RETURN",
-        "MOVE_FAKE_OUT",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_ENCORE",
-        "MOVE_RETURN",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_LOPUNNITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_SWITCHEROO",
-        "MOVE_HIGH_JUMP_KICK",
-        "MOVE_SPLASH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -703,26 +255,177 @@
       "Ability": "ABILITY_KLUTZ",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU",
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWITCHEROO",
-        "MOVE_HEALING_WISH",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
       ],
-      "Ability": "ABILITY_KLUTZ",
-      "Item": "ITEM_ASSAULT_VEST",
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
@@ -735,10 +438,176 @@
       "Ability": "ABILITY_KLUTZ",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SWITCHEROO",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SPLASH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_MUD_SPORT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_HEALING_WISH",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_KLUTZ",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -751,10 +620,51 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RETURN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE",
+        "MOVE_RETURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

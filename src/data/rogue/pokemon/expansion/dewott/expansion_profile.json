@@ -123,10 +123,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

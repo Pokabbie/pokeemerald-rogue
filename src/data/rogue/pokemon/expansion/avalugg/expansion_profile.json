@@ -132,31 +132,28 @@
         "MOVE_AVALANCHE",
         "MOVE_RAPID_SPIN",
         "MOVE_RECOVER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AVALANCHE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
         "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_AVALANCHE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU,"
       ]
     },
     {
@@ -164,15 +161,41 @@
         "MOVE_AVALANCHE",
         "MOVE_RAPID_SPIN",
         "MOVE_RECOVER",
-        "MOVE_IRON_HEAD"
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_AVALANCHE",
+        "MOVE_ROAR",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_AVALANCHE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -185,10 +208,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN7OU,"
       ]
     },
     {
@@ -201,10 +222,36 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_AVALANCHE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AVALANCHE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -217,237 +264,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_RECOVER",
-        "MOVE_ICICLE_SPEAR"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_MIRROR_COAT",
-        "MOVE_AVALANCHE",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_RECOVER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_BODY_PRESS",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_BULLDOZE",
-        "MOVE_BODY_PRESS",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MIRROR_COAT",
-        "MOVE_BODY_PRESS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICICLE_SPEAR"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_AVALANCHE",
-        "MOVE_BODY_PRESS",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_AVALANCHE",
-        "MOVE_ROAR",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_AVALANCHE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_AVALANCHE",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_BODY_PRESS",
-        "MOVE_AVALANCHE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU",
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN71V1,"
       ]
     },
     {
@@ -460,26 +278,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_ROAR",
-        "MOVE_BODY_PRESS",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -492,10 +292,37 @@
       "Ability": "ABILITY_ICE_BODY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_BODY_PRESS",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_BODY_PRESS",
+        "MOVE_AVALANCHE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ZU",
+        "GEN9NU,"
       ]
     },
     {
@@ -508,42 +335,150 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
         "MOVE_RECOVER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_AVALANCHE",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_BODY_PRESS",
+        "MOVE_HEAVY_SLAM",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_RAPID_SPIN",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_BULLDOZE",
         "MOVE_BODY_PRESS",
-        "MOVE_AVALANCHE"
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIRROR_COAT",
+        "MOVE_BODY_PRESS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_AVALANCHE",
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROAR",
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_AVALANCHE",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_MIRROR_COAT",
+        "MOVE_AVALANCHE",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_AVALANCHE",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -556,10 +491,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

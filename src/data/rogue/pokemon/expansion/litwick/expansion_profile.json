@@ -124,26 +124,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEMENTO",
-        "MOVE_TRICK_ROOM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -156,10 +138,22 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEMENTO",
+        "MOVE_TRICK_ROOM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -172,10 +166,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

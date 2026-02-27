@@ -135,98 +135,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL",
+        "MOVE_SPIKES",
+        "MOVE_ENCORE",
         "MOVE_FINAL_GAMBIT",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SPIKES",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SPIKES",
-        "MOVE_SLUDGE_BOMB"
+        "MOVE_BUG_BUZZ"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ENCORE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU,"
       ]
     },
     {
@@ -240,73 +172,50 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_BUG_BUZZ",
-        "MOVE_SLUDGE_BOMB",
         "MOVE_FOCUS_BLAST",
-        "MOVE_ENERGY_BALL"
+        "MOVE_SPIKES",
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_BUG_BUZZ",
-        "MOVE_SLUDGE_BOMB",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
         "MOVE_FOCUS_BLAST",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_ENERGY_BALL",
+        "MOVE_SPIKES"
       ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_ACID_SPRAY",
-        "MOVE_ENCORE",
-        "MOVE_STRUGGLE_BUG"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_PSYCHIC_SEED",
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_ACID_SPRAY",
-        "MOVE_PROTECT",
-        "MOVE_STRUGGLE_BUG"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_PSYCHIC_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7NU,"
       ]
     },
     {
@@ -319,42 +228,50 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
         "MOVE_BUG_BUZZ",
-        "MOVE_KNOCK_OFF",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SPIKES",
+        "MOVE_ENERGY_BALL"
       ],
       "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_ENCORE",
         "MOVE_FINAL_GAMBIT",
-        "MOVE_BUG_BUZZ"
+        "MOVE_ACID_SPRAY",
+        "MOVE_PROTECT",
+        "MOVE_STRUGGLE_BUG"
       ],
       "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_PSYCHIC_SEED",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ACID_SPRAY",
+        "MOVE_ENCORE",
+        "MOVE_STRUGGLE_BUG"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018,"
       ]
     },
     {
@@ -367,26 +284,64 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_THROAT_SPRAY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_ENCORE",
-        "MOVE_BUG_BUZZ"
+        "MOVE_BUG_BUZZ",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -399,10 +354,22 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

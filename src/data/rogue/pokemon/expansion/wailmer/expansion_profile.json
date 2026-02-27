@@ -120,34 +120,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ICE_BEAM",
         "MOVE_WATER_SPOUT",
-        "MOVE_SCALD",
-        "MOVE_HYDRO_PUMP"
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_WATER_VEIL",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SPOUT",
-        "MOVE_SCALD",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -160,10 +143,22 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SPOUT",
+        "MOVE_SCALD",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -177,25 +172,22 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_WATER_SPOUT",
+        "MOVE_SCALD",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_WATER_VEIL",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

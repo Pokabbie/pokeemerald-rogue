@@ -171,18 +171,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_EXPLOSION",
-        "MOVE_U_TURN",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SHADOW_CLAW"
       ],
       "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -195,58 +193,8 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MULTI_ATTACK",
-        "MOVE_U_TURN",
-        "MOVE_CRUNCH",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MULTI_ATTACK",
-        "MOVE_U_TURN",
-        "MOVE_CRUNCH",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MULTI_ATTACK",
-        "MOVE_U_TURN",
-        "MOVE_EXPLOSION",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -259,26 +207,50 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_PARTING_SHOT",
-        "MOVE_SHADOW_CLAW"
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
       ],
       "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_NORMALIUM_Z",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_EXPLOSION",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -291,10 +263,22 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

@@ -112,98 +112,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_POWER_GEM",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_METEOR_BEAM"
-      ],
-      "Ability": "ABILITY_STEAM_ENGINE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_BODY_PRESS",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SCALD"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
         "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER"
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_FLAMETHROWER",
-        "MOVE_POWER_GEM"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN8PU,"
       ]
     },
     {
@@ -216,10 +134,22 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -232,26 +162,22 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_FLAMETHROWER"
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_METEOR_BEAM"
       ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_STEAM_ENGINE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN8VGC2020,"
       ]
     },
     {
@@ -264,42 +190,79 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
         "MOVE_RAPID_SPIN",
-        "MOVE_ROCK_BLAST",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_POWER_GEM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
         "MOVE_FLAMETHROWER"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN9NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
         "MOVE_FLAMETHROWER",
-        "MOVE_RAPID_SPIN"
+        "MOVE_BODY_PRESS",
+        "MOVE_RAPID_SPIN",
+        "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

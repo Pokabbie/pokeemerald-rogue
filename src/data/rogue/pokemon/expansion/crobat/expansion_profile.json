@@ -124,129 +124,15 @@
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
         "MOVE_U_TURN",
+        "MOVE_DEFOG",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROOST",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUPER_FANG",
-        "MOVE_TAUNT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_TAUNT",
-        "MOVE_CROSS_POISON",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN6UU,"
       ]
     },
     {
@@ -259,27 +145,8 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_CROSS_POISON",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6MONOTYPE"
+        "GEN6UU,"
       ]
     },
     {
@@ -292,123 +159,23 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_U_TURN",
-        "MOVE_DEFOG",
+        "MOVE_CROSS_POISON",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_HEAT_WAVE",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_TAUNT",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -421,26 +188,8 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAILWIND",
-        "MOVE_CROSS_POISON",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN6VGC2016,"
       ]
     },
     {
@@ -453,10 +202,149 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPER_FANG",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_TAUNT",
+        "MOVE_CROSS_POISON",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_CROSS_POISON",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HEAT_WAVE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU,"
       ]
     },
     {
@@ -469,10 +357,64 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

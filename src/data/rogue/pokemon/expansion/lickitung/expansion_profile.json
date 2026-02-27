@@ -118,22 +118,6 @@
     {
       "Moves": [
         "MOVE_WISH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BODY_SLAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
         "MOVE_PROTECT",
         "MOVE_BODY_SLAM",
         "MOVE_KNOCK_OFF"
@@ -141,12 +125,24 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC",
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_SLAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -159,11 +155,9 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

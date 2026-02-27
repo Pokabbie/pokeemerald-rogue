@@ -127,22 +127,6 @@
     {
       "Moves": [
         "MOVE_BULK_UP",
-        "MOVE_FACADE",
-        "MOVE_SLACK_OFF",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
         "MOVE_SLACK_OFF",
         "MOVE_TAUNT",
         "MOVE_RETURN"
@@ -150,10 +134,22 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_FACADE",
+        "MOVE_SLACK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -166,10 +162,8 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     }
   ]

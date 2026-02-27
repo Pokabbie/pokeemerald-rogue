@@ -93,82 +93,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULLET_SEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_SPIKES",
         "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_SPIKES",
         "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_IRON_BARBS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEECH_SEED",
-        "MOVE_SPIKES",
-        "MOVE_GYRO_BALL",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN6NU",
+        "GEN8PU,"
       ]
     },
     {
@@ -181,155 +130,8 @@
       "Ability": "ABILITY_IRON_BARBS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEECH_SEED",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_GYRO_BALL",
-        "MOVE_LEECH_SEED",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_LEECH_SEED",
-        "MOVE_GYRO_BALL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_LEECH_SEED",
-        "MOVE_PROTECT",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_LEECH_SEED",
-        "MOVE_PROTECT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_GYRO_BALL",
-        "MOVE_LEECH_SEED",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_BULLET_SEED"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LEECH_SEED",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_BULLET_SEED"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN6NU,"
       ]
     },
     {
@@ -342,10 +144,176 @@
       "Ability": "ABILITY_IRON_BARBS",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LEECH_SEED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

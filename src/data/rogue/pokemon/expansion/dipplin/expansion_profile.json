@@ -106,22 +106,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GROWTH",
-        "MOVE_RECOVER",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RECOVER",
         "MOVE_GIGA_DRAIN",
         "MOVE_DRAGON_TAIL",
@@ -130,10 +114,23 @@
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_RECOVER",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

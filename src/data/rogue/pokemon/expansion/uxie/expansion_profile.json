@@ -127,85 +127,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DRAINING_KISS",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ELECTRIC_SEED",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DRAINING_KISS",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DRAINING_KISS",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_PSYCHIC",
         "MOVE_U_TURN",
         "MOVE_STEALTH_ROCK",
@@ -214,152 +135,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_ENCORE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MEMENTO",
-        "MOVE_ENCORE",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYSHOCK",
+        "MOVE_U_TURN",
         "MOVE_YAWN",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAINING_KISS"
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_MEMENTO",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_PSYCHIC",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN6RU,"
       ]
     },
     {
@@ -372,74 +163,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_YAWN",
-        "MOVE_MEMENTO"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_YAWN",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUNNY_DAY",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MEMENTO",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN6RU,"
       ]
     },
     {
@@ -452,11 +177,107 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU",
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYSHOCK",
+        "MOVE_YAWN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_YAWN",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_MEMENTO",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DRAINING_KISS",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -469,10 +290,165 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DRAINING_KISS",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MEMENTO",
+        "MOVE_ENCORE",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MEMENTO",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_PSYCHIC",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DRAINING_KISS",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_STORED_POWER",
+        "MOVE_DRAINING_KISS",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

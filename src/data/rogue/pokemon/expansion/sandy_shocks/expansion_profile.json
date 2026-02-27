@@ -123,6 +123,36 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EARTH_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_EARTH_POWER",
         "MOVE_TERA_BLAST",
         "MOVE_THUNDERBOLT",
@@ -131,10 +161,38 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU,"
       ]
     },
     {
@@ -147,26 +205,8 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_POWER_GEM",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
       ]
     },
     {
@@ -179,10 +219,22 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAVITY",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -195,58 +247,8 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRAVITY",
-        "MOVE_EARTH_POWER",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_EARTH_POWER",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_EARTH_POWER",
-        "MOVE_TERA_BLAST",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

@@ -108,22 +108,6 @@
     {
       "Moves": [
         "MOVE_SOLAR_BEAM",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WEATHER_BALL"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
         "MOVE_SLUDGE_BOMB",
         "MOVE_WEATHER_BALL",
         "MOVE_SLEEP_POWDER"
@@ -131,10 +115,22 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -147,10 +143,23 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_POISONIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     },
     {
@@ -163,10 +172,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

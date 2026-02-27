@@ -86,18 +86,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_TAIL_SLAP",
         "MOVE_BULLET_SEED",
         "MOVE_ROCK_BLAST",
-        "MOVE_TAIL_SLAP",
-        "MOVE_TRIPLE_AXEL"
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN6RU,"
       ]
     },
     {
@@ -110,27 +108,38 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_BULLET_SEED",
         "MOVE_TAIL_SLAP",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_BULLET_SEED",
         "MOVE_ROCK_BLAST",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7NU",
+        "GEN8NU,"
       ]
     },
     {
@@ -143,43 +152,66 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_PROTECTIVE_PADS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAIL_SLAP",
         "MOVE_BULLET_SEED",
-        "MOVE_ROCK_BLAST",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TAIL_SLAP",
-        "MOVE_BULLET_SEED",
         "MOVE_ROCK_BLAST",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU",
-        "GEN8NU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TAIL_SLAP",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TIDY_UP",
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TIDY_UP",
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     },
     {
@@ -192,58 +224,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAIL_SLAP",
-        "MOVE_ROCK_BLAST",
-        "MOVE_BULLET_SEED",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAIL_SLAP",
-        "MOVE_U_TURN",
-        "MOVE_BULLET_SEED",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TIDY_UP",
-        "MOVE_TAIL_SLAP",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

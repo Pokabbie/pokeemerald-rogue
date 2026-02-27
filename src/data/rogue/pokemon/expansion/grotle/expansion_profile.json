@@ -105,5 +105,20 @@
     "MOVE_WORRY_SEED",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BULLET_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    }
+  ]
 }

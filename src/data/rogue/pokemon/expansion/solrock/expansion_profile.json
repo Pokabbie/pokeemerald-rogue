@@ -134,54 +134,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_REFLECT",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORNING_SUN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MORNING_SUN",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_MORNING_SUN",
         "MOVE_WILL_O_WISP",
@@ -190,26 +142,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_SLIDE",
+        "MOVE_MORNING_SUN",
         "MOVE_WILL_O_WISP",
-        "MOVE_MORNING_SUN"
+        "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -222,26 +198,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_STONE_EDGE",
-        "MOVE_WILL_O_WISP",
-        "MOVE_MORNING_SUN"
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_POLISH"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -254,26 +226,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_SLIDE",
         "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_MORNING_SUN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP",
         "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU,"
       ]
     }
   ]

@@ -125,6 +125,21 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_MOONBLAST",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_GIGA_DRAIN",
         "MOVE_LEECH_SEED",
         "MOVE_TOXIC",
@@ -133,10 +148,22 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -149,26 +176,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -181,10 +190,22 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -197,26 +218,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN71V1,"
       ]
     },
     {
@@ -229,42 +232,37 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_MOONBLAST",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STRENGTH_SAP",
         "MOVE_QUIVER_DANCE",
         "MOVE_GIGA_DRAIN",
+        "MOVE_STRENGTH_SAP",
         "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

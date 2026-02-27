@@ -114,11 +114,9 @@
       "Ability": "ABILITY_PICKUP",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -131,11 +129,9 @@
       "Ability": "ABILITY_PICKUP",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

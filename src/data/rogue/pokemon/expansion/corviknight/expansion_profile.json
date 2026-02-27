@@ -99,11 +99,8 @@
     "MOVE_REFLECT",
     "MOVE_REST",
     "MOVE_REVERSAL",
-    "MOVE_ROCK_SMASH",
     "MOVE_ROOST",
-    "MOVE_SAND_ATTACK",
     "MOVE_SCARY_FACE",
-    "MOVE_SKY_ATTACK",
     "MOVE_SLEEP_TALK",
     "MOVE_SPITE",
     "MOVE_STEEL_BEAM",
@@ -121,38 +118,6 @@
     {
       "Moves": [
         "MOVE_BODY_PRESS",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_HEAD",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
         "MOVE_U_TURN",
         "MOVE_DEFOG",
         "MOVE_ROOST"
@@ -160,218 +125,22 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_U_TURN",
         "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_BULK_UP",
-        "MOVE_ROOST",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_BULK_UP",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_MARANGA_BERRY",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
         "MOVE_DEFOG",
         "MOVE_BODY_PRESS",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_IRON_HEAD",
-        "MOVE_ROOST",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_TAUNT",
-        "MOVE_BULK_UP",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_BODY_PRESS",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_BODY_PRESS",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_BODY_PRESS",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8OU,"
       ]
     },
     {
@@ -384,26 +153,178 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
         "MOVE_DEFOG",
-        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9OU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_BODY_PRESS",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_DEFENSE",
         "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_TAUNT",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BULK_UP",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROOST",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_ROOST",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_TAUNT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
       ]
     },
     {
@@ -416,90 +337,36 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_ROOST",
-        "MOVE_TAUNT",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_MARANGA_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
         "MOVE_DEFOG",
+        "MOVE_BODY_PRESS",
+        "MOVE_U_TURN",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN8MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
+        "MOVE_BULK_UP",
+        "MOVE_BRAVE_BIRD",
         "MOVE_ROOST",
-        "MOVE_DEFOG"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_MIRROR_ARMOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -512,26 +379,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -544,10 +393,36 @@
       "Ability": "ABILITY_MIRROR_ARMOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
@@ -560,142 +435,157 @@
       "Ability": "ABILITY_MIRROR_ARMOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
         "MOVE_BODY_PRESS",
+        "MOVE_U_TURN",
         "MOVE_DEFOG",
-        "MOVE_BRAVE_BIRD"
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9UBERS,"
       ]
     },
     {
       "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
         "MOVE_ROOST",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_HEAD"
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_MIRROR_ARMOR",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_ROOST",
         "MOVE_BRAVE_BIRD",
-        "MOVE_BULK_UP",
-        "MOVE_BODY_PRESS"
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
       ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_MARANGA_BERRY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
         "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_BODY_PRESS",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_MIRROR_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_BODY_PRESS",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN",
-        "MOVE_BODY_PRESS"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX",
-        "GEN9OU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
         "MOVE_IRON_DEFENSE",
-        "MOVE_TAUNT",
-        "MOVE_IRON_HEAD"
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_MARANGA_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN91V1,"
       ]
     },
     {
@@ -708,58 +598,108 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_BULK_UP",
         "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_BODY_PRESS",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_MIRROR_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BODY_PRESS",
+        "MOVE_DEFOG",
         "MOVE_BRAVE_BIRD"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_ROOST",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_MARANGA_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_ROOST",
-        "MOVE_SUBSTITUTE",
-        "MOVE_IRON_HEAD"
+        "MOVE_DEFOG",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

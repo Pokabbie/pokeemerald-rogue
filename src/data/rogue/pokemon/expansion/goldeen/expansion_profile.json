@@ -97,22 +97,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BOUNCE",
-        "MOVE_WATERFALL",
-        "MOVE_DRILL_RUN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WATERFALL",
         "MOVE_DRILL_RUN",
         "MOVE_KNOCK_OFF",
@@ -121,10 +105,22 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOUNCE",
+        "MOVE_WATERFALL",
+        "MOVE_DRILL_RUN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

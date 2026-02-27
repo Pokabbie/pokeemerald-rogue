@@ -158,148 +158,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_SHIFT_GEAR",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
         "MOVE_OVERDRIVE",
         "MOVE_SLUDGE_WAVE",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_OVERDRIVE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SNARL"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_OVERDRIVE",
-        "MOVE_ENCORE",
-        "MOVE_SHIFT_GEAR"
-      ],
-      "Ability": "ABILITY_PUNK_ROCK",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_LONELY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERDRIVE",
-        "MOVE_BOOMBURST",
-        "MOVE_SLUDGE_WAVE",
         "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8MONOTYPE"
+        "GEN8OU,"
       ]
     },
     {
@@ -312,10 +180,51 @@
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
@@ -328,26 +237,81 @@
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_OVERDRIVE",
+        "MOVE_ENCORE",
+        "MOVE_SHIFT_GEAR"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_OVERDRIVE",
-        "MOVE_SLUDGE_WAVE",
         "MOVE_BOOMBURST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB",
         "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN8OU"
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     },
     {
@@ -355,15 +319,73 @@
         "MOVE_SHIFT_GEAR",
         "MOVE_BOOMBURST",
         "MOVE_OVERDRIVE",
-        "MOVE_SLUDGE_WAVE"
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
+      "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SNARL",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     },
     {
@@ -376,10 +398,8 @@
       "Ability": "ABILITY_PUNK_ROCK",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

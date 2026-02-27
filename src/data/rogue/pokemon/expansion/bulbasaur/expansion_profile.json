@@ -107,50 +107,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CELEBRATE",
         "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLEEP_POWDER",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_NORMALIUM_Z",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_LEECH_SEED",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -164,9 +131,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -179,26 +145,51 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
+        "MOVE_CELEBRATE",
         "MOVE_SLUDGE_BOMB",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_SLEEP_POWDER",
+        "MOVE_GIGA_DRAIN",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

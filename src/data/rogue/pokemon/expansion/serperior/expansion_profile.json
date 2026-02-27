@@ -117,49 +117,148 @@
     {
       "Moves": [
         "MOVE_LEAF_STORM",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_GASTRO_ACID",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_GLARE"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU",
+        "GEN9NATIONALDEX,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
         "MOVE_DRAGON_PULSE",
-        "MOVE_GIGA_DRAIN",
+        "MOVE_GLARE",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_PROTECT",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_LEAF_STORM"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_OCCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN61V1,"
       ]
     },
     {
@@ -172,90 +271,66 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
         "MOVE_DRAGON_PULSE",
-        "MOVE_GLARE",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_GLARE",
+        "MOVE_GIGA_DRAIN",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6DOUBLESOU"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
         "MOVE_DRAGON_PULSE",
-        "MOVE_GLARE",
-        "MOVE_SUBSTITUTE"
+        "MOVE_GIGA_DRAIN",
+        "MOVE_GLARE"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
-        "MOVE_DRAGON_PULSE",
+        "MOVE_TAUNT",
+        "MOVE_GLARE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
         "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
+        "MOVE_SUBSTITUTE",
+        "MOVE_GLARE"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_FRENZY_PLANT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_MIRROR_COAT"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN7OU,"
       ]
     },
     {
@@ -268,60 +343,81 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
-        "MOVE_GLARE",
         "MOVE_DRAGON_PULSE",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_GASTRO_ACID",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7DOUBLESOU,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER",
         "MOVE_GLARE",
-        "MOVE_DRAGON_PULSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_REFLECT",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
         "MOVE_LEAF_STORM",
-        "MOVE_GLARE",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
+        "MOVE_GLARE"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU",
-        "GEN7OU",
-        "GEN9NATIONALDEX"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -334,155 +430,8 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GLARE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_CHESTO_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GLARE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GLARE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_TAUNT",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1",
-        "GEN91V1"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -496,9 +445,8 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -512,105 +460,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_PROTECT",
-        "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_REFLECT",
-        "MOVE_SYNTHESIS",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_LEECH_SEED",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_TAUNT",
-        "MOVE_GLARE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_TERA_BLAST",
-        "MOVE_GLARE",
-        "MOVE_DRAGON_PULSE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_TERA_BLAST",
-        "MOVE_GLARE",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
-      "SourceTiers": [
-        "GEN9UU"
+        "GEN7VGC2018,"
       ]
     },
     {
@@ -623,10 +474,36 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GLARE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
       ]
     },
     {
@@ -640,57 +517,113 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_REFLECT",
         "MOVE_LEAF_STORM",
-        "MOVE_TAUNT"
+        "MOVE_DRAGON_PULSE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LIGHT_CLAY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
         "MOVE_LEAF_STORM",
-        "MOVE_GLARE"
+        "MOVE_TERA_BLAST",
+        "MOVE_GLARE",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LIGHT_CLAY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN9OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_SYNTHESIS",
         "MOVE_LEAF_STORM",
-        "MOVE_GLARE"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_ROCKY_HELMET",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_FRENZY_PLANT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GLARE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

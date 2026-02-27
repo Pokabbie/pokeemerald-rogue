@@ -131,99 +131,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_LIQUIDATION",
         "MOVE_SHELL_SMASH",
-        "MOVE_STONE_EDGE",
-        "MOVE_CROSS_CHOP"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAZOR_SHELL",
-        "MOVE_SHELL_SMASH",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RAZOR_SHELL",
         "MOVE_STONE_EDGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_SWITCHEROO"
+        "MOVE_POISON_JAB"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_GRASS_KNOT",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_STONE_EDGE",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_STONE_EDGE",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_ROCKIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU",
-        "GEN7RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -236,26 +153,36 @@
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
         "MOVE_RAZOR_SHELL",
         "MOVE_STONE_EDGE",
-        "MOVE_POISON_JAB"
+        "MOVE_SUPERPOWER",
+        "MOVE_SWITCHEROO"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAZOR_SHELL",
+        "MOVE_SHELL_SMASH",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
@@ -268,10 +195,65 @@
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_STONE_EDGE",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_STONE_EDGE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_SHELL_SMASH",
+        "MOVE_STONE_EDGE",
+        "MOVE_CROSS_CHOP"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_GRASS_KNOT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     }
   ]

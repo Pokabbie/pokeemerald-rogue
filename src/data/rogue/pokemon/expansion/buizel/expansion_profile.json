@@ -115,22 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_ICE_PUNCH",
-        "MOVE_WATERFALL",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_AQUA_TAIL",
         "MOVE_ICE_PUNCH",
         "MOVE_BRICK_BREAK",
@@ -139,10 +123,22 @@
       "Ability": "ABILITY_WATER_VEIL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_PUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -156,9 +152,8 @@
       "Item": "ITEM_ICIUM_Z",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -171,10 +166,9 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     },
     {
@@ -187,10 +181,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

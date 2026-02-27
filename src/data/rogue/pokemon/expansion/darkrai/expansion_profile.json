@@ -104,183 +104,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_DARK_VOID",
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_HYPNOSIS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_DARK_VOID"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_HYPNOSIS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_DREAM_EATER"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES",
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_HYPNOSIS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_DREAM_EATER"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_WIDE_LENS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_PSYCHIC",
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PSYCHIC",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_TRICK",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_VOID",
-        "MOVE_DARK_PULSE",
-        "MOVE_NASTY_PLOT",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_BAD_DREAMS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DARK_VOID",
         "MOVE_DARK_PULSE",
         "MOVE_NASTY_PLOT",
@@ -289,10 +112,22 @@
       "Ability": "ABILITY_BAD_DREAMS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_DARK_VOID",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS,"
       ]
     },
     {
@@ -305,10 +140,22 @@
       "Ability": "ABILITY_BAD_DREAMS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_VOID",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
@@ -321,26 +168,51 @@
       "Ability": "ABILITY_BAD_DREAMS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
         "MOVE_DARK_PULSE",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SLUDGE_BOMB"
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_VOID"
       ],
       "Ability": "ABILITY_BAD_DREAMS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DREAM_EATER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES",
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_TRICK",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS,"
       ]
     },
     {
@@ -353,10 +225,106 @@
       "Ability": "ABILITY_BAD_DREAMS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DREAM_EATER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

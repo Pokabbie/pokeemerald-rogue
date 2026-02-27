@@ -131,50 +131,30 @@
     {
       "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE",
         "MOVE_U_TURN",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
         "MOVE_EARTHQUAKE",
-        "MOVE_U_TURN",
         "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6OU",
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU,"
       ]
     },
     {
@@ -187,26 +167,82 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_ROCK_SLIDE",
         "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_ROCK_SLIDE",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE",
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU,"
       ]
     },
     {
@@ -219,10 +255,36 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_TRICK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
@@ -235,94 +297,8 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_TRICK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN6MONOTYPE",
-        "GEN8UU"
+        "GEN81V1,"
       ]
     }
   ]

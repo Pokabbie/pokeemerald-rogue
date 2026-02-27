@@ -156,58 +156,24 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
         "MOVE_KNOCK_OFF",
-        "MOVE_TRICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_AURA_SPHERE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_THUNDERBOLT"
+        "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9OU,"
       ]
     },
     {
@@ -220,26 +186,9 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9OU,"
       ]
     },
     {
@@ -252,74 +201,8 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_DISABLE",
-        "MOVE_ENCORE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN9OU,"
       ]
     },
     {
@@ -332,10 +215,68 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MOONBLAST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -348,58 +289,181 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_PROTECT",
+        "MOVE_DISABLE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
         "MOVE_THUNDERBOLT",
-        "MOVE_TRICK"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICY_WIND"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_REVERSAL",
         "MOVE_MOONBLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_CALM_MIND"
+        "MOVE_DISABLE"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_ICE_PUNCH",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DISABLE",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MOONBLAST",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_MOONBLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     },
     {
       "Moves": [
         "MOVE_MOONBLAST",
         "MOVE_THUNDERBOLT",
-        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK",
         "MOVE_SHADOW_BALL"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_AURA_SPHERE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -412,122 +476,8 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIRIT_BREAK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIRIT_BREAK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MOONBLAST",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIRIT_BREAK",
-        "MOVE_MOONBLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -540,10 +490,22 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     },
     {
@@ -556,10 +518,22 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

@@ -115,18 +115,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ENDEAVOR",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_ZING_ZAP",
+        "MOVE_IRON_HEAD",
         "MOVE_NUZZLE"
       ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_SHELL_BELL",
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZING_ZAP",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN8NU,"
       ]
     },
     {
@@ -139,10 +152,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN7DOUBLESOU,"
       ]
     },
     {
@@ -155,26 +166,8 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_SERIOUS",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_ZING_ZAP",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -187,58 +180,22 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN7VGC2017,"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT",
         "MOVE_SPIKY_SHIELD",
-        "MOVE_ZING_ZAP"
-      ],
-      "Ability": "ABILITY_IRON_BARBS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
         "MOVE_ZING_ZAP",
-        "MOVE_U_TURN",
         "MOVE_NUZZLE"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NUZZLE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_REVERSAL",
-        "MOVE_ZING_ZAP"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LIECHI_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN7VGC2018,"
       ]
     },
     {
@@ -251,42 +208,22 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_SHELL_BELL",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_ZING_ZAP",
-        "MOVE_IRON_HEAD",
-        "MOVE_NUZZLE"
+        "MOVE_NUZZLE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_REVERSAL",
+        "MOVE_ZING_ZAP"
       ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
+        "GEN71V1,"
       ]
     },
     {
@@ -299,27 +236,22 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ZING_ZAP",
         "MOVE_IRON_HEAD",
+        "MOVE_ZING_ZAP",
         "MOVE_U_TURN",
         "MOVE_NUZZLE"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU",
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
@@ -332,10 +264,50 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_ZING_ZAP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDEAVOR",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SHELL_BELL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     }
   ]

@@ -128,18 +128,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ANCIENT_POWER"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -152,42 +150,8 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_GEM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TERA_BLAST"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ANCIENT_POWER",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -200,26 +164,23 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_WILL_O_WISP",
-        "MOVE_RECOVER"
+        "MOVE_SHELL_SMASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -232,10 +193,36 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SHELL_SMASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

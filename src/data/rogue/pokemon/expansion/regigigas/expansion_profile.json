@@ -116,18 +116,44 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT",
+        "MOVE_RETURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_CRUSH_GRIP"
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DRAIN_PUNCH"
       ],
       "Ability": "ABILITY_SLOW_START",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLOW_START",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_SLOW_START",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -140,74 +166,8 @@
       "Ability": "ABILITY_SLOW_START",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SLOW_START",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_BODY_SLAM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SLOW_START",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BODY_SLAM"
-      ],
-      "Ability": "ABILITY_SLOW_START",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_SLOW_START",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -220,26 +180,50 @@
       "Ability": "ABILITY_SLOW_START",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDER_WAVE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
         "MOVE_KNOCK_OFF",
-        "MOVE_RETURN",
-        "MOVE_DRAIN_PUNCH"
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_SLOW_START",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BODY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_SLOW_START",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRUSH_GRIP"
+      ],
+      "Ability": "ABILITY_SLOW_START",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
       ]
     }
   ]

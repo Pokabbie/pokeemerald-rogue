@@ -86,10 +86,8 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

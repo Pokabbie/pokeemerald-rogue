@@ -116,17 +116,88 @@
       "Moves": [
         "MOVE_STONE_AXE",
         "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_NIGHT_SLASH",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SHARPNESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -139,92 +210,8 @@
       "Ability": "ABILITY_SHARPNESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_AXE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_AXE",
-        "MOVE_NIGHT_SLASH",
-        "MOVE_U_TURN",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_AXE",
-        "MOVE_U_TURN",
-        "MOVE_X_SCISSOR",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_AXE",
-        "MOVE_X_SCISSOR",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_AXE",
-        "MOVE_X_SCISSOR",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

@@ -138,10 +138,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

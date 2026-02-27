@@ -136,6 +136,96 @@
     {
       "Moves": [
         "MOVE_TORCH_SONG",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9UBERS",
+        "GEN9UU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
         "MOVE_BLAST_BURN",
         "MOVE_ENCORE",
         "MOVE_ENDURE"
@@ -143,92 +233,24 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_BLAST_BURN",
         "MOVE_WILL_O_WISP",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TORCH_SONG",
-        "MOVE_EARTH_POWER",
-        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
         "MOVE_SLACK_OFF"
       ],
       "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_HEX",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS",
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_HEX",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_HEX",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN91V1,"
       ]
     },
     {
@@ -241,140 +263,23 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_MARANGA_BERRY",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
-        "MOVE_SHADOW_BALL",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
+        "MOVE_BLAST_BURN",
         "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
+        "MOVE_ENDURE"
       ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UBERS",
-        "GEN9UU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_SLACK_OFF",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_WILL_O_WISP",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TORCH_SONG",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ENCORE",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
@@ -387,10 +292,93 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_WILL_O_WISP",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TORCH_SONG",
+        "MOVE_SLACK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

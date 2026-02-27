@@ -132,6 +132,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_IRON_TAIL",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_DRAGON_CLAW",
         "MOVE_OUTRAGE",
         "MOVE_SUPERPOWER",
@@ -140,10 +154,50 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_POISON_JAB",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_POISON_JAB",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -156,58 +210,8 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_POISON_JAB",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_OUTRAGE",
-        "MOVE_STOMPING_TANTRUM"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_IRON_TAIL",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC,"
       ]
     },
     {
@@ -220,42 +224,23 @@
       "Ability": "ABILITY_UNNERVE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
+      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
+        "MOVE_FIRST_IMPRESSION",
         "MOVE_OUTRAGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_POISON_JAB",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_OUTRAGE"
+        "MOVE_STOMPING_TANTRUM"
       ],
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN9LC,"
       ]
     }
   ]

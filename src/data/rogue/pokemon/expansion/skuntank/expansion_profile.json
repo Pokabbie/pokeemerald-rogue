@@ -127,6 +127,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_POISON_JAB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_DARK_PULSE",
         "MOVE_FIRE_BLAST",
         "MOVE_HIDDEN_POWER",
@@ -136,201 +150,8 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_NASTY_PLOT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_DARK_PULSE",
-        "MOVE_ACID_SPRAY",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_DARKINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_DARK_PULSE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_CRUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_DEFOG",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_DEFOG",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_DEFOG",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_POISON_JAB",
-        "MOVE_CRUNCH",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_POISON_JAB",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_POISON_JAB",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -343,10 +164,8 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -359,26 +178,192 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
+        "MOVE_PURSUIT",
         "MOVE_SUCKER_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PURSUIT",
         "MOVE_POISON_JAB",
+        "MOVE_CRUNCH",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DARK_PULSE",
+        "MOVE_ACID_SPRAY",
         "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_DEFOG",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_DEFOG",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DARK_PULSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_NASTY_PLOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DEFOG",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_CRUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

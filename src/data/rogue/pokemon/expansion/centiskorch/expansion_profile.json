@@ -109,11 +109,9 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU",
-        "GEN8PU"
+        "GEN8PU,"
       ]
     }
   ]

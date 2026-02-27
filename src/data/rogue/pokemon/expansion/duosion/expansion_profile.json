@@ -117,22 +117,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
-        "MOVE_SIGNAL_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_PSYSHOCK",
         "MOVE_ACID_ARMOR",
         "MOVE_RECOVER"
@@ -140,26 +124,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_RECOVER",
-        "MOVE_PSYCHIC",
-        "MOVE_ACID_ARMOR"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -172,42 +138,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_RECOVER",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_RECOVER",
-        "MOVE_SIGNAL_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -221,9 +153,64 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_RECOVER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_ACID_ARMOR"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

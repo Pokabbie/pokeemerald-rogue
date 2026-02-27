@@ -125,10 +125,8 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -141,10 +139,8 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -157,10 +153,8 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

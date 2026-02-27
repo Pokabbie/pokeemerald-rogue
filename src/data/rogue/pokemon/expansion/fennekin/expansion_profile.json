@@ -121,25 +121,8 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_MAGICIAN",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -152,10 +135,22 @@
       "Ability": "ABILITY_MAGICIAN",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

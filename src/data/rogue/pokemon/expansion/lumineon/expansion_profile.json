@@ -107,12 +107,10 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN7PU",
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -125,10 +123,8 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -141,10 +137,8 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

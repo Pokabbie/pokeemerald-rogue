@@ -116,118 +116,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BULK_UP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_BULK_UP",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_BULK_UP",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_SUPERPOWER",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RETURN",
         "MOVE_SUPERPOWER",
         "MOVE_SHADOW_CLAW",
@@ -236,58 +124,8 @@
       "Ability": "ABILITY_FLUFFY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_PROTECT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_MAGO_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DARKEST_LARIAT"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_SHADOW_CLAW"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN7UU,"
       ]
     },
     {
@@ -300,10 +138,64 @@
       "Ability": "ABILITY_FLUFFY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017,"
       ]
     },
     {
@@ -316,10 +208,92 @@
       "Ability": "ABILITY_FLUFFY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_BULK_UP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULK_UP",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_BULK_UP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

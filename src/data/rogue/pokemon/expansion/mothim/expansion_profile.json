@@ -118,26 +118,9 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_RASH",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH",
-        "MOVE_U_TURN",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -150,10 +133,22 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

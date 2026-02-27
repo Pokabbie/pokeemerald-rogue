@@ -69,34 +69,32 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PROTECT",
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_ENERGY_BALL"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_COUNTER",
-        "MOVE_PROTECT"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -109,75 +107,23 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_PUNCH",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_SHED_SHELL",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_HIDDEN_POWER",
+        "MOVE_COUNTER",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -191,25 +137,50 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_SHED_SHELL",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
         "MOVE_PROTECT",
         "MOVE_COUNTER"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     },
     {
@@ -222,10 +193,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

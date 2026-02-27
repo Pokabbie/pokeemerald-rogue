@@ -118,54 +118,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_LAST_RESPECTS",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_CRUNCH",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_SAND_RUSH",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NIGHT_SHADE",
-        "MOVE_ROAR",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POLTERGEIST",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_SAND_RUSH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_POLTERGEIST",
         "MOVE_PLAY_ROUGH",
         "MOVE_SHADOW_SNEAK",
@@ -174,10 +126,66 @@
       "Ability": "ABILITY_SAND_RUSH",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SHADE",
+        "MOVE_BODY_PRESS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_BODY_PRESS",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_BODY_PRESS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAST_RESPECTS",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CRUNCH",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

@@ -129,38 +129,6 @@
     {
       "Moves": [
         "MOVE_ICE_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_LOVELY_KISS"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_LOVELY_KISS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
         "MOVE_LOVELY_KISS",
         "MOVE_PSYSHOCK",
         "MOVE_FOCUS_BLAST"
@@ -168,106 +136,8 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_LOVELY_KISS",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_LOVELY_KISS"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LOVELY_KISS",
-        "MOVE_ICE_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LOVELY_KISS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -280,10 +150,64 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_LOVELY_KISS",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOVELY_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -296,10 +220,64 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_LOVELY_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOVELY_KISS",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

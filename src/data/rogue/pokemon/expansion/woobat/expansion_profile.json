@@ -118,22 +118,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_AIR_SLASH",
-        "MOVE_STORED_POWER",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_STORED_POWER",
         "MOVE_HEAT_WAVE",
         "MOVE_ROOST"
@@ -141,11 +125,23 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_STORED_POWER",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     }
   ]

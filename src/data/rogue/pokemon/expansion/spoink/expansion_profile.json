@@ -125,9 +125,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

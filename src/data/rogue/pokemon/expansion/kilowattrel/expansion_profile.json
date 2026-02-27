@@ -105,34 +105,76 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
         "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_U_TURN",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
         "MOVE_U_TURN",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
+      "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_DISCHARGE",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_METRONOME",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9PU,"
       ]
     },
     {
@@ -145,10 +187,22 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_DISCHARGE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_METRONOME",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -161,10 +215,8 @@
       "Ability": "ABILITY_COMPETITIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -177,42 +229,8 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HURRICANE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HURRICANE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

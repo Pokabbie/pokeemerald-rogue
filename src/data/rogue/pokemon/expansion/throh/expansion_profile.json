@@ -107,38 +107,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_STORM_THROW",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CIRCLE_THROW",
-        "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CIRCLE_THROW",
         "MOVE_REST",
         "MOVE_SLEEP_TALK",
@@ -147,10 +115,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -163,26 +129,22 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_STORM_THROW",
         "MOVE_KNOCK_OFF",
-        "MOVE_CIRCLE_THROW",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_SUBSTITUTE"
       ],
-      "Ability": "ABILITY_GUTS",
+      "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -195,10 +157,36 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CIRCLE_THROW",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CIRCLE_THROW",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

@@ -124,38 +124,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUNNY_DAY",
         "MOVE_U_TURN",
         "MOVE_ENCORE",
@@ -164,42 +132,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUNNY_DAY",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUNNY_DAY",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -212,42 +146,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_ENCORE",
-        "MOVE_DEFOG",
-        "MOVE_SUNNY_DAY"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_ENCORE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -260,10 +160,78 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_DEFOG",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

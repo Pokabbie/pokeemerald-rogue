@@ -117,18 +117,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAMETHROWER",
         "MOVE_ENERGY_BALL",
-        "MOVE_WEATHER_BALL",
-        "MOVE_OVERHEAT",
-        "MOVE_HYPNOSIS"
+        "MOVE_QUICK_ATTACK"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -141,26 +139,8 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
-        "MOVE_OVERHEAT",
-        "MOVE_ENERGY_BALL",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -173,10 +153,36 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     },
     {
@@ -189,26 +195,8 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ENERGY_BALL",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN9RU,"
       ]
     }
   ]

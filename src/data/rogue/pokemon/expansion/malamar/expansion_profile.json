@@ -125,185 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT",
-        "MOVE_TOPSY_TURVY"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_DARKINIUM_Z",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU",
-        "GEN7NU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUPERPOWER",
         "MOVE_KNOCK_OFF",
         "MOVE_REST",
@@ -312,10 +133,8 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -326,44 +145,38 @@
         "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LUM_BERRY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUPERPOWER",
         "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_TOPSY_TURVY"
+        "MOVE_SUPERPOWER",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SUPERPOWER",
-        "MOVE_PSYCHO_CUT",
         "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
         "MOVE_REST"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN6NU,"
       ]
     },
     {
@@ -376,10 +189,95 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN7NU",
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_TOPSY_TURVY"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_TOPSY_TURVY"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
       ]
     },
     {
@@ -392,10 +290,66 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

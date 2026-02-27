@@ -145,146 +145,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TOXIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_ROOST",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
         "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_ROOST",
         "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_TOXIC",
         "MOVE_FACADE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_TOXIC",
-        "MOVE_KNOCK_OFF"
+        "MOVE_ROOST",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FACADE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
@@ -292,31 +176,27 @@
         "MOVE_EARTHQUAKE",
         "MOVE_PROTECT",
         "MOVE_TOXIC",
-        "MOVE_SPIKES"
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN6DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_PROTECT",
-        "MOVE_TOXIC",
-        "MOVE_SPIKES"
+        "MOVE_SUBSTITUTE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GUILLOTINE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -329,91 +209,93 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
         "MOVE_PROTECT",
-        "MOVE_TOXIC",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
         "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
         "MOVE_ROOST",
-        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_SWORDS_DANCE",
         "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FACADE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
@@ -426,58 +308,65 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_TOXIC"
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_GUILLOTINE"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -490,10 +379,125 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FACADE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FACADE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -506,123 +510,8 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT",
-        "MOVE_GUILLOTINE"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TAUNT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_SPIKES",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_SPIKES",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -635,10 +524,8 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -651,91 +538,51 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE",
+        "MOVE_SPIKES",
         "MOVE_EARTHQUAKE",
-        "MOVE_GUILLOTINE"
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
+        "MOVE_EARTHQUAKE",
         "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_TOXIC",
-        "MOVE_EARTHQUAKE"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN6MONOTYPE"
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
         "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TOXIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_ROOST",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TAUNT"
+        "MOVE_DEFOG",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN9NATIONALDEXAG,"
       ]
     },
     {
@@ -748,90 +595,78 @@
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_SWORDS_DANCE",
         "MOVE_EARTHQUAKE",
-        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_EARTHQUAKE",
-        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7OU"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FACADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_POISON_HEAL",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_ROOST",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FACADE"
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_POISON_HEAL",
       "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

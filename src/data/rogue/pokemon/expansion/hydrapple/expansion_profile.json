@@ -125,33 +125,61 @@
     {
       "Moves": [
         "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
         "MOVE_EARTH_POWER",
         "MOVE_FICKLE_BEAM"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FICKLE_BEAM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FICKLE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -164,74 +192,9 @@
       "Ability": "ABILITY_SUPERSWEET_SYRUP",
       "Item": "ITEM_YACHE_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FICKLE_BEAM",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_FICKLE_BEAM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN91V1,"
       ]
     },
     {
@@ -244,10 +207,9 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -260,10 +222,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

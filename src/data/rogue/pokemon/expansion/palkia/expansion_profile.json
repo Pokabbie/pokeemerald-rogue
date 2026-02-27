@@ -123,86 +123,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SCALE_SHOT",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_SURF",
-        "MOVE_REST",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LUSTROUS_ORB",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SPACIAL_REND",
-        "MOVE_THUNDER",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LUSTROUS_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SPACIAL_REND",
-        "MOVE_THUNDER",
-        "MOVE_FOCUS_PUNCH"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDER",
-        "MOVE_SPACIAL_REND",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPACIAL_REND",
         "MOVE_HYDRO_PUMP",
         "MOVE_THUNDER",
@@ -211,26 +131,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPACIAL_REND",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDER",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LUSTROUS_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -243,10 +145,78 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SPACIAL_REND",
+        "MOVE_THUNDER",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SPACIAL_REND",
+        "MOVE_THUNDER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LUSTROUS_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPACIAL_REND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LUSTROUS_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER",
+        "MOVE_SPACIAL_REND",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
@@ -259,10 +229,22 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LUSTROUS_ORB",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
       ]
     },
     {
@@ -275,10 +257,9 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
       ]
     }
   ]

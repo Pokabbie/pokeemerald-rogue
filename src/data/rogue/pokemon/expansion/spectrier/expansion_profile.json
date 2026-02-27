@@ -105,134 +105,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DISABLE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DISABLE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SUBSTITUTE",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX",
-        "MOVE_MUD_SHOT"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_WILL_O_WISP",
-        "MOVE_TAUNT",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEX",
-        "MOVE_HYPER_BEAM",
-        "MOVE_WILL_O_WISP",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEX",
-        "MOVE_HYPER_BEAM",
-        "MOVE_WILL_O_WISP",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEX",
-        "MOVE_MUD_SHOT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HEX",
         "MOVE_WILL_O_WISP",
         "MOVE_SUBSTITUTE",
@@ -241,106 +113,36 @@
       "Ability": "ABILITY_GRIM_NEIGH",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN8UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHADOW_BALL",
-        "MOVE_DRAINING_KISS",
-        "MOVE_HEX",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_DRAINING_KISS",
+        "MOVE_MUD_SHOT",
         "MOVE_NASTY_PLOT",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN8DOUBLESOU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHADOW_BALL",
-        "MOVE_DRAINING_KISS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE"
+        "MOVE_HYPER_BEAM",
+        "MOVE_WILL_O_WISP",
+        "MOVE_NASTY_PLOT"
       ],
       "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_HEX",
-        "MOVE_DARK_PULSE",
-        "MOVE_MUD_SHOT"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
@@ -353,10 +155,36 @@
       "Ability": "ABILITY_GRIM_NEIGH",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DISABLE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
@@ -369,90 +197,36 @@
       "Ability": "ABILITY_GRIM_NEIGH",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_HYPER_BEAM",
-        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
         "MOVE_MUD_SHOT"
       ],
       "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_HYPER_BEAM",
-        "MOVE_WILL_O_WISP",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MUD_SHOT",
-        "MOVE_NASTY_PLOT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_TERA_BLAST",
-        "MOVE_WILL_O_WISP",
-        "MOVE_DARK_PULSE"
-      ],
-      "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
         "MOVE_CALM_MIND",
         "MOVE_WILL_O_WISP",
+        "MOVE_HYPER_BEAM",
         "MOVE_HEX"
       ],
       "Ability": "ABILITY_GRIM_NEIGH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN81V1,"
       ]
     },
     {
@@ -465,10 +239,110 @@
       "Ability": "ABILITY_GRIM_NEIGH",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEX",
+        "MOVE_DARK_PULSE",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_TERA_BLAST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DISABLE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1,"
       ]
     },
     {
@@ -481,10 +355,50 @@
       "Ability": "ABILITY_GRIM_NEIGH",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRAINING_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRIM_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

@@ -124,10 +124,22 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -141,25 +153,23 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_DARK_PULSE",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HURRICANE"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH"
       ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -172,26 +182,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -204,10 +196,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -220,10 +210,22 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

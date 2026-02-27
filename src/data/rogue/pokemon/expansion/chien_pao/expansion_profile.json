@@ -121,16 +121,45 @@
       "Moves": [
         "MOVE_CRUNCH",
         "MOVE_ICICLE_CRASH",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_ICE_SHARD"
+        "MOVE_ICE_SHARD",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_SHARD",
+        "MOVE_SACRED_SWORD"
       ],
       "Ability": "ABILITY_SWORD_OF_RUIN",
       "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICE_SPINNER",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UBERS,"
       ]
     },
     {
@@ -143,26 +172,8 @@
       "Ability": "ABILITY_SWORD_OF_RUIN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_SPINNER",
-        "MOVE_ICE_SHARD",
-        "MOVE_CRUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SWORD_OF_RUIN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -173,76 +184,54 @@
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SWORD_OF_RUIN",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_SACRED_SWORD",
         "MOVE_ICE_SPINNER",
-        "MOVE_THROAT_CHOP",
-        "MOVE_ICY_WIND",
+        "MOVE_SUCKER_PUNCH",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SWORD_OF_RUIN",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
       "Moves": [
         "MOVE_ICICLE_CRASH",
+        "MOVE_ICE_SHARD",
+        "MOVE_THROAT_CHOP",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CRUNCH",
-        "MOVE_SUCKER_PUNCH",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_GIGA_IMPACT",
         "MOVE_ICE_SHARD"
       ],
       "Ability": "ABILITY_SWORD_OF_RUIN",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_THROAT_CHOP",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_SACRED_SWORD"
-      ],
-      "Ability": "ABILITY_SWORD_OF_RUIN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_SWORD",
-        "MOVE_ICE_SPINNER",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SWORD_OF_RUIN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN91V1,"
       ]
     },
     {
@@ -255,26 +244,92 @@
       "Ability": "ABILITY_SWORD_OF_RUIN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_SPINNER",
+        "MOVE_ICE_SHARD",
+        "MOVE_CRUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SACRED_SWORD",
+        "MOVE_ICE_SHARD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_SWORDS_DANCE",
         "MOVE_ICICLE_CRASH",
-        "MOVE_CRUNCH",
+        "MOVE_SACRED_SWORD",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_SWORD_OF_RUIN",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_SHARD",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_SWORD",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_CRASH"
+      ],
+      "Ability": "ABILITY_SWORD_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

@@ -126,162 +126,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_AMNESIA",
-        "MOVE_RECOVER",
-        "MOVE_SEISMIC_TOSS"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_HYDRO_PUMP",
         "MOVE_RECOVER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_RECOVER",
         "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TOXIC",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_HAZE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
         "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_TOXIC",
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_RECOVER",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC"
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6OU",
+        "GEN6NU,"
       ]
     },
     {
@@ -294,127 +163,53 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU",
         "GEN7OU",
-        "GEN8OU"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_RECOVER",
         "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE",
         "MOVE_TOXIC",
-        "MOVE_RECOVER"
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
         "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
         "MOVE_EARTHQUAKE",
         "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6RU",
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
         "MOVE_EARTHQUAKE",
         "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
         "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU",
-        "GEN8ANYTHINGGOES",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN6NU,"
       ]
     },
     {
@@ -427,27 +222,8 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU",
-        "GEN8NATIONALDEX"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -460,74 +236,8 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -540,60 +250,23 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU",
-        "GEN8UU"
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_RECOVER",
-        "MOVE_TOXIC",
         "MOVE_HYDRO_PUMP",
-        "MOVE_EARTHQUAKE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6OU",
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TOXIC",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -606,10 +279,280 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8ANYTHINGGOES",
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_AMNESIA",
+        "MOVE_RECOVER",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9UU",
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

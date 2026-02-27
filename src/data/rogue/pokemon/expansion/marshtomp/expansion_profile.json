@@ -133,26 +133,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_DAMP",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     }
   ]

@@ -114,22 +114,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_EARLY_BIRD",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_LEAF_STORM",
         "MOVE_EARTH_POWER",
         "MOVE_HIDDEN_POWER",
@@ -139,9 +123,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -154,10 +137,22 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

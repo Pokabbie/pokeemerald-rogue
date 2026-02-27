@@ -83,7 +83,6 @@
     "MOVE_BUG_BUZZ",
     "MOVE_CONFUSE_RAY",
     "MOVE_DRAINING_KISS",
-    "MOVE_ENDEAVOR",
     "MOVE_ENDURE",
     "MOVE_ENERGY_BALL",
     "MOVE_FACADE",
@@ -123,28 +122,10 @@
         "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_ENERGY_BALL",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -157,44 +138,10 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
         "GEN6NU",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_ENDEAVOR"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -207,10 +154,22 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
@@ -223,42 +182,36 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLEEP_POWDER",
-        "MOVE_HURRICANE",
         "MOVE_QUIVER_DANCE",
-        "MOVE_SUBSTITUTE"
+        "MOVE_HURRICANE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN7NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLEEP_POWDER",
         "MOVE_QUIVER_DANCE",
         "MOVE_HURRICANE",
+        "MOVE_SLEEP_POWDER",
         "MOVE_BUG_BUZZ"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7NU,"
       ]
     },
     {
@@ -271,10 +224,8 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN71V1,"
       ]
     },
     {
@@ -287,26 +238,36 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN7ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
         "MOVE_SLEEP_POWDER",
+        "MOVE_HURRICANE",
         "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

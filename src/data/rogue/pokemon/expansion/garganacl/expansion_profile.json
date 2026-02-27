@@ -140,158 +140,10 @@
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_SALT_CURE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_RECOVER",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9OU",
-        "GEN9NATIONALDEX",
-        "GEN9NATIONALDEXAG",
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_RECOVER",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_RECOVER",
-        "MOVE_PROTECT",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_RECOVER",
-        "MOVE_PROTECT",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PROTECT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -304,10 +156,157 @@
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXAG",
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER",
+        "MOVE_SALT_CURE"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SALT_CURE",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER",
+        "MOVE_WIDE_GUARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SALT_CURE",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

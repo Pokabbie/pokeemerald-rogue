@@ -131,18 +131,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_HAZE",
-        "MOVE_ROOST",
-        "MOVE_SCALD"
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SCALD",
+        "MOVE_AIR_SLASH"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6NU,"
       ]
     },
     {
@@ -155,26 +153,8 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_SCALD",
-        "MOVE_ROOST",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6NU,"
       ]
     },
     {
@@ -187,106 +167,8 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_SCALD",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_SCALD",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_SCALD",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_SCALD",
-        "MOVE_DEFOG",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_SCALD",
-        "MOVE_DEFOG",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_SCALD",
-        "MOVE_HAZE",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6NU,"
       ]
     },
     {
@@ -299,26 +181,64 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SCALD",
+        "MOVE_DEFOG",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SCALD",
+        "MOVE_ROOST",
         "MOVE_DEFOG",
-        "MOVE_HAZE",
-        "MOVE_ROOST"
+        "MOVE_HAZE"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_SCALD",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -331,42 +251,36 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
+        "MOVE_DEFOG",
         "MOVE_SCALD",
-        "MOVE_HAZE",
-        "MOVE_IRON_HEAD",
-        "MOVE_ROOST"
+        "MOVE_ROOST",
+        "MOVE_HAZE"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SCALD",
-        "MOVE_HURRICANE",
         "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_SCALD",
         "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN8NU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -379,42 +293,36 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_SCALD",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SCALD",
+        "MOVE_HURRICANE",
         "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_AIR_SLASH"
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN8NU,"
       ]
     },
     {
@@ -427,26 +335,78 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_IRON_HEAD",
         "MOVE_SCALD",
-        "MOVE_AIR_SLASH"
+        "MOVE_HAZE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_DEFOG",
+        "MOVE_HAZE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_HAZE",
+        "MOVE_ROOST",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SCALD",
+        "MOVE_HAZE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SCALD",
+        "MOVE_DEFOG",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

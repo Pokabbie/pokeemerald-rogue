@@ -134,34 +134,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_ROOST",
-        "MOVE_HEAL_BELL",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_SEISMIC_TOSS",
         "MOVE_ROOST",
         "MOVE_DEFOG",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_HEAL_BELL"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6UU,"
       ]
     },
     {
@@ -174,26 +156,36 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SEISMIC_TOSS",
+        "MOVE_DAZZLING_GLEAM",
         "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_HEAL_BELL"
+        "MOVE_HEAL_BELL",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

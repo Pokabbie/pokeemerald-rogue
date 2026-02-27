@@ -140,9 +140,8 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     }
   ]

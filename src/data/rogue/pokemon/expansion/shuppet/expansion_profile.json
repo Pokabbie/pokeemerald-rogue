@@ -119,11 +119,9 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

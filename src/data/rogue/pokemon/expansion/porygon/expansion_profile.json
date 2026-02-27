@@ -103,82 +103,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_TRI_ATTACK",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TRI_ATTACK",
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRI_ATTACK",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRI_ATTACK",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TRI_ATTACK",
         "MOVE_PSYCHIC",
-        "MOVE_AGILITY",
+        "MOVE_THUNDER_WAVE",
         "MOVE_RECOVER"
       ],
-      "Ability": "ABILITY_DOWNLOAD",
+      "Ability": "ABILITY_TRACE",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -192,9 +126,8 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -208,25 +141,36 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_TRI_ATTACK",
         "MOVE_PSYCHIC",
-        "MOVE_THUNDER_WAVE",
+        "MOVE_AGILITY",
         "MOVE_RECOVER"
       ],
-      "Ability": "ABILITY_TRACE",
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -239,10 +183,50 @@
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

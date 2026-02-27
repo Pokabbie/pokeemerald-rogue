@@ -137,27 +137,9 @@
       ],
       "Ability": "ABILITY_TURBOBLAZE",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLUE_FLARE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_ROOST",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_TURBOBLAZE",
-      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -170,26 +152,22 @@
       "Ability": "ABILITY_TURBOBLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_BLUE_FLARE",
-        "MOVE_EARTH_POWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FUSION_FLARE"
+        "MOVE_DRACO_METEOR",
+        "MOVE_ROOST",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_TURBOBLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN8UBERS,"
       ]
     },
     {
@@ -202,10 +180,8 @@
       "Ability": "ABILITY_TURBOBLAZE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
@@ -218,10 +194,22 @@
       "Ability": "ABILITY_TURBOBLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FUSION_FLARE"
+      ],
+      "Ability": "ABILITY_TURBOBLAZE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

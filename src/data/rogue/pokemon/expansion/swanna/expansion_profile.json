@@ -108,18 +108,45 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLIP_TURN",
+        "MOVE_HURRICANE",
+        "MOVE_HYDRO_PUMP",
         "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_HURRICANE"
+        "MOVE_ROOST"
       ],
-      "Ability": "ABILITY_BIG_PECKS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7PU,"
       ]
     },
     {
@@ -132,10 +159,8 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -148,91 +173,8 @@
       "Ability": "ABILITY_BIG_PECKS",
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU",
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_ROOST",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MIRROR_MOVE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_BIG_PECKS",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -245,10 +187,50 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIRROR_MOVE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

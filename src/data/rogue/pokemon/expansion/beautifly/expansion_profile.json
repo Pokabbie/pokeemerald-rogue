@@ -107,9 +107,8 @@
       "Item": "ITEM_BUGINIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     }
   ]

@@ -108,9 +108,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

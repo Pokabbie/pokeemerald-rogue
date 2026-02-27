@@ -139,22 +139,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_TELEPORT",
-        "MOVE_SUNSTEEL_STRIKE",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_FULL_METAL_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUNSTEEL_STRIKE",
         "MOVE_FLARE_BLITZ",
         "MOVE_EARTHQUAKE",
@@ -163,10 +147,22 @@
       "Ability": "ABILITY_FULL_METAL_BODY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_TELEPORT",
+        "MOVE_SUNSTEEL_STRIKE",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FULL_METAL_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8UBERS,"
       ]
     },
     {
@@ -179,10 +175,8 @@
       "Ability": "ABILITY_FULL_METAL_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8ANYTHINGGOES,"
       ]
     }
   ]

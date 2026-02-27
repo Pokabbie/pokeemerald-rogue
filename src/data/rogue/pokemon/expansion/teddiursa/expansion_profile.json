@@ -131,10 +131,8 @@
       "Ability": "ABILITY_QUICK_FEET",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -147,10 +145,8 @@
       "Ability": "ABILITY_QUICK_FEET",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -163,10 +159,8 @@
       "Ability": "ABILITY_QUICK_FEET",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

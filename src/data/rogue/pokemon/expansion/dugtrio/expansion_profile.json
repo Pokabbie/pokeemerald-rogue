@@ -118,18 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MEMENTO",
         "MOVE_EARTHQUAKE",
-        "MOVE_REVERSAL",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SLUDGE_WAVE"
+        "MOVE_SUBSTITUTE"
       ],
-      "Ability": "ABILITY_ARENA_TRAP",
+      "Ability": "ABILITY_SAND_FORCE",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
@@ -142,26 +140,8 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_GROUNDIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_MEMENTO",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
@@ -174,42 +154,8 @@
       "Ability": "ABILITY_SAND_FORCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_REVERSAL",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_FORCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -222,26 +168,8 @@
       "Ability": "ABILITY_SAND_FORCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_FORCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -254,10 +182,22 @@
       "Ability": "ABILITY_SAND_FORCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_FORCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -267,13 +207,65 @@
         "MOVE_ROCK_SLIDE",
         "MOVE_STEALTH_ROCK"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LETSGOOU"
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_REVERSAL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_MEMENTO",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_FORCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_REVERSAL",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -286,26 +278,8 @@
       "Ability": "ABILITY_SAND_FORCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MEMENTO",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SAND_FORCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
+        "GEN9PU,"
       ]
     }
   ]

@@ -104,66 +104,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_MOTOR_DRIVE",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
         "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MOTOR_DRIVE",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_DISCHARGE",
-        "MOVE_ENCORE",
-        "MOVE_ELECTROWEB"
-      ],
-      "Ability": "ABILITY_MOTOR_DRIVE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
+        "MOVE_ROOST",
+        "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_MOTOR_DRIVE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -176,26 +126,21 @@
       "Ability": "ABILITY_MOTOR_DRIVE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_U_TURN",
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
         "MOVE_ROOST",
-        "MOVE_ENCORE"
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_MOTOR_DRIVE",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -208,10 +153,49 @@
       "Ability": "ABILITY_MOTOR_DRIVE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DISCHARGE",
+        "MOVE_ENCORE",
+        "MOVE_ELECTROWEB"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -224,10 +208,8 @@
       "Ability": "ABILITY_MOTOR_DRIVE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

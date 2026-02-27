@@ -102,18 +102,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_RAGE_POWDER",
         "MOVE_SPORE",
-        "MOVE_WIDE_GUARD",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_SYNTHESIS",
+        "MOVE_SEED_BOMB",
+        "MOVE_KNOCK_OFF"
       ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_AGUAV_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN6PU,"
       ]
     },
     {
@@ -126,26 +124,22 @@
       "Ability": "ABILITY_DRY_SKIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_RAGE_POWDER",
         "MOVE_SPORE",
-        "MOVE_SYNTHESIS",
-        "MOVE_SEED_BOMB",
-        "MOVE_KNOCK_OFF"
+        "MOVE_WIDE_GUARD",
+        "MOVE_GIGA_DRAIN"
       ],
-      "Ability": "ABILITY_DRY_SKIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7VGC2018,"
       ]
     }
   ]

@@ -131,96 +131,14 @@
       "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_OUTRAGE",
-        "MOVE_LOW_KICK",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_POISON_JAB",
-        "MOVE_STOMPING_TANTRUM"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
         "MOVE_SUPERPOWER",
         "MOVE_IRON_TAIL"
       ],
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_POISON_JAB",
-        "MOVE_OUTRAGE",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_POISON_JAB",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -233,10 +151,22 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_LOW_KICK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -249,10 +179,64 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_POISON_JAB",
+        "MOVE_OUTRAGE",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_POISON_JAB",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_POISON_JAB",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

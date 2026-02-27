@@ -138,70 +138,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_WISH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPNOSIS",
-        "MOVE_BELLY_DRUM",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DRAINING_KISS",
-        "MOVE_NASTY_PLOT",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WISH",
         "MOVE_PROTECT",
         "MOVE_PSYCHIC",
@@ -210,26 +146,8 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -242,10 +160,50 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_BELLY_DRUM",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DRAINING_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

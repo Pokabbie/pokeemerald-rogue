@@ -156,82 +156,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BATON_PASS",
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_SHELL_BELL",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_BATON_PASS"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
         "MOVE_SHADOW_BALL",
-        "MOVE_MORNING_SUN"
+        "MOVE_REFLECT"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS",
-        "MOVE_MORNING_SUN"
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN6UU",
+        "GEN8NU,"
       ]
     },
     {
@@ -244,172 +193,8 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DRAINING_KISS",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9NU",
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYSHOCK",
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
+        "GEN6UU,"
       ]
     },
     {
@@ -422,91 +207,22 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
         "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
         "MOVE_MORNING_SUN"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_PSYCHIUM_Z",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_GRASS_KNOT",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_REFLECT"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN8NU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -519,167 +235,36 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
         "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
         "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT",
         "MOVE_TRICK"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_SHADOW_BALL",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_TERA_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
         "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STORED_POWER",
-        "MOVE_BATON_PASS",
         "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM"
+        "MOVE_SHADOW_BALL"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_DETECT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_MAGO_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -692,40 +277,106 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STORED_POWER",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_KEE_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
         "MOVE_SHADOW_BALL"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_EJECT_BUTTON",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN6ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -738,10 +389,249 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_DETECT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SHELL_BELL",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAINING_KISS",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_TERA_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_WEATHER_BALL",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_BATON_PASS",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

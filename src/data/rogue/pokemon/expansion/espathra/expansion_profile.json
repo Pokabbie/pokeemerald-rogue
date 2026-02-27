@@ -129,33 +129,16 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_BATON_PASS",
-        "MOVE_PROTECT",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_BATON_PASS",
         "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM"
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -168,42 +151,8 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_ELECTRIC_SEED",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_FEATHER_DANCE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_CLEAR_AMULET",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_PSYCHIC",
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -216,10 +165,64 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_PETAYA_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BATON_PASS",
+        "MOVE_PROTECT",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BATON_PASS",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

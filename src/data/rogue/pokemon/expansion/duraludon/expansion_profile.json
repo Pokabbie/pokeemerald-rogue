@@ -114,47 +114,27 @@
         "MOVE_DRACO_METEOR",
         "MOVE_FLASH_CANNON",
         "MOVE_BODY_PRESS",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_LIGHT_METAL",
-      "Item": "ITEM_EJECT_PACK",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FLASH_CANNON",
-        "MOVE_BODY_PRESS",
         "MOVE_THUNDERBOLT"
       ],
       "Ability": "ABILITY_LIGHT_METAL",
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLASH_CANNON",
         "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON",
         "MOVE_BODY_PRESS",
         "MOVE_STEALTH_ROCK"
       ],
-      "Ability": "ABILITY_HEAVY_METAL",
-      "Item": "ITEM_EVIOLITE",
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_EJECT_PACK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN8NU,"
       ]
     },
     {
@@ -167,10 +147,8 @@
       "Ability": "ABILITY_LIGHT_METAL",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
@@ -183,42 +161,8 @@
       "Ability": "ABILITY_STALWART",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_LIGHT_METAL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_LIGHT_METAL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8VGC2020,"
       ]
     },
     {
@@ -231,10 +175,51 @@
       "Ability": "ABILITY_LIGHT_METAL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     }
   ]

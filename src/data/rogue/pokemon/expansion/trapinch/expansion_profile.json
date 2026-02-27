@@ -104,10 +104,8 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -120,42 +118,37 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
         "MOVE_STONE_EDGE",
-        "MOVE_FEINT",
+        "MOVE_CRUNCH",
         "MOVE_FIRST_IMPRESSION"
       ],
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
+      "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_BUG",
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER",
-        "MOVE_FEINT"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN9LC,"
       ]
     }
   ]

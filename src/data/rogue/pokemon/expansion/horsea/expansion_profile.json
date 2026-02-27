@@ -97,22 +97,6 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_RAIN_DANCE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
         "MOVE_SUBSTITUTE",
         "MOVE_HIDDEN_POWER"
       ],
@@ -120,9 +104,23 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAIN_DANCE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

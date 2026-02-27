@@ -140,6 +140,20 @@
     {
       "Moves": [
         "MOVE_BOOMBURST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
         "MOVE_FIRE_BLAST",
         "MOVE_FOCUS_BLAST",
         "MOVE_SURF"
@@ -147,10 +161,22 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_SURF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU,"
       ]
     },
     {
@@ -163,42 +189,8 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SURF",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
+        "GEN7RU,"
       ]
     },
     {
@@ -211,26 +203,22 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_BOOMBURST",
+        "MOVE_FOCUS_BLAST",
         "MOVE_SURF",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_OVERHEAT"
       ],
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN8NU,"
       ]
     }
   ]

@@ -149,17 +149,16 @@
     {
       "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_FACADE",
         "MOVE_SUPERPOWER",
-        "MOVE_FLAME_CHARGE"
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DOUBLE_EDGE"
       ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6NU",
+        "GEN6PU,"
       ]
     },
     {
@@ -172,11 +171,9 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -189,45 +186,10 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN7ZU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_DOUBLE_EDGE"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU",
-        "GEN6PU"
+        "GEN8PU,"
       ]
     },
     {
@@ -240,10 +202,36 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FACADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -256,10 +244,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

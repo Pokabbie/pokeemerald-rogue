@@ -136,6 +136,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_HEAD_SMASH",
         "MOVE_EARTHQUAKE",
         "MOVE_SUCKER_PUNCH",
@@ -144,26 +158,8 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_WOOD_HAMMER"
-      ],
-      "Ability": "ABILITY_ROCK_HEAD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -176,42 +172,22 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_HEAD_SMASH",
         "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_WOOD_HAMMER"
       ],
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN9ZU,"
       ]
     }
   ]

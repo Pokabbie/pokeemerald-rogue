@@ -115,52 +115,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_PSYSHOCK",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_PSYSHOCK",
         "MOVE_DRAINING_KISS",
         "MOVE_MYSTICAL_FIRE"
@@ -168,266 +122,11 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU",
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_DRAINING_KISS",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK_ROOM",
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK_ROOM",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_BIG_ROOT",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEALING_WISH",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_DRAINING_KISS",
-        "MOVE_HEALING_WISH",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_DRAINING_KISS",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_NUZZLE",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     },
     {
@@ -440,104 +139,64 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NUZZLE",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYSHOCK",
+        "MOVE_CALM_MIND",
         "MOVE_DRAINING_KISS",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_CALM_MIND"
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE",
         "MOVE_DRAINING_KISS",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_NUZZLE"
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_TRICK_ROOM",
         "MOVE_MYSTICAL_FIRE",
-        "MOVE_DAZZLING_GLEAM"
+        "MOVE_DRAINING_KISS",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TRICK_ROOM",
+        "MOVE_EXPANDING_FORCE",
         "MOVE_DAZZLING_GLEAM",
-        "MOVE_HEALING_WISH"
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN8DOUBLESOU,"
       ]
     },
     {
@@ -550,10 +209,196 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAINING_KISS",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAINING_KISS",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK_ROOM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DRAINING_KISS",
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -566,10 +411,36 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_BIG_ROOT",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
@@ -582,10 +453,22 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

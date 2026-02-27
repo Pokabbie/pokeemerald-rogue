@@ -100,86 +100,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PSYCHIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WISH",
         "MOVE_PROTECT",
         "MOVE_CALM_MIND",
@@ -188,10 +108,22 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -204,11 +136,65 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC"
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

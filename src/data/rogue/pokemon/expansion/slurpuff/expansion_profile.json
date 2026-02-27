@@ -110,34 +110,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BELLY_DRUM",
         "MOVE_PLAY_ROUGH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BELLY_DRUM",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_DRAIN_PUNCH",
         "MOVE_RETURN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -150,26 +132,36 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_COTTON_GUARD",
-        "MOVE_REST",
+        "MOVE_PLAY_ROUGH",
         "MOVE_BELLY_DRUM",
-        "MOVE_PLAY_ROUGH"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_YAWN",
+        "MOVE_MAGIC_COAT",
+        "MOVE_MISTY_EXPLOSION"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UBERS,"
       ]
     },
     {
@@ -182,59 +174,23 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU",
-        "GEN8RU"
+        "GEN8RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PLAY_ROUGH",
         "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN"
+        "MOVE_FACADE"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MAGIC_COAT",
-        "MOVE_MISTY_EXPLOSION",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8RU,"
       ]
     },
     {
@@ -247,26 +203,36 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_REST",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_STICKY_WEB",
-        "MOVE_YAWN",
         "MOVE_MAGIC_COAT",
-        "MOVE_MISTY_EXPLOSION"
+        "MOVE_MISTY_EXPLOSION",
+        "MOVE_YAWN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8ANYTHINGGOES,"
       ]
     }
   ]

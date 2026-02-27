@@ -144,10 +144,8 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -160,10 +158,8 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     }
   ]

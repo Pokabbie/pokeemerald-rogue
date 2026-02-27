@@ -113,66 +113,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ENTRAINMENT",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_PROTECT",
-        "MOVE_STOMPING_TANTRUM"
-      ],
-      "Ability": "ABILITY_TRUANT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
         "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
         "MOVE_ROCK_SLIDE",
         "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_SUPERPOWER",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HONE_CLAWS",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUPERPOWER",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_STEELIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -185,106 +135,8 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HONE_CLAWS",
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HONE_CLAWS",
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_X_SCISSOR",
-        "MOVE_HONE_CLAWS",
-        "MOVE_FIRST_IMPRESSION"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_X_SCISSOR",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_X_SCISSOR",
-        "MOVE_STONE_EDGE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN6UU,"
       ]
     },
     {
@@ -297,10 +149,78 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020,"
       ]
     },
     {
@@ -313,26 +233,64 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_X_SCISSOR",
-        "MOVE_IRON_HEAD",
+        "MOVE_ENTRAINMENT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_TRUANT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_SUPERPOWER",
         "MOVE_ROCK_SLIDE",
-        "MOVE_SUPERPOWER"
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

@@ -125,42 +125,8 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_BULLET_SEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULLET_SEED",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROCK_BLAST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -173,10 +139,36 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROCK_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

@@ -64,17 +64,15 @@
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
-        "MOVE_ICE_BEAM",
         "MOVE_SURF",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
       ],
-      "Ability": "ABILITY_RATTLED",
+      "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_DEEP_SEA_TOOTH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -87,10 +85,8 @@
       "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_DEEP_SEA_TOOTH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -104,25 +100,23 @@
       "Item": "ITEM_DEEP_SEA_TOOTH",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
-        "MOVE_SURF",
         "MOVE_ICE_BEAM",
-        "MOVE_SUBSTITUTE"
+        "MOVE_SURF",
+        "MOVE_HIDDEN_POWER"
       ],
-      "Ability": "ABILITY_SHELL_ARMOR",
+      "Ability": "ABILITY_RATTLED",
       "Item": "ITEM_DEEP_SEA_TOOTH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

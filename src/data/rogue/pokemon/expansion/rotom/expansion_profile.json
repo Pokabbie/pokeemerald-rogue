@@ -102,66 +102,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_THUNDER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
         "MOVE_SHADOW_BALL",
-        "MOVE_VOLT_SWITCH"
+        "MOVE_TRICK"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ELECTRIUM_Z",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HEX",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -174,58 +138,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_SPELL_TAG",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_THUNDERBOLT",
         "MOVE_VOLT_SWITCH",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
         "MOVE_TRICK"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -238,75 +166,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU",
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_DEFOG",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -319,26 +180,121 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_VOLT_SWITCH",
         "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_THUNDER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_VOLT_SWITCH",
         "MOVE_TRICK"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7NU",
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
@@ -351,60 +307,114 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU",
         "GEN8ZU",
-        "GEN9NU"
+        "GEN9NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SHADOW_BALL",
-        "MOVE_WILL_O_WISP",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_DEFOG",
         "MOVE_WILL_O_WISP",
         "MOVE_HEX",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_PAIN_SPLIT"
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

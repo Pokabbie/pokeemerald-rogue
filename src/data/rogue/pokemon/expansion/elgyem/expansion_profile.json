@@ -118,9 +118,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -134,9 +133,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

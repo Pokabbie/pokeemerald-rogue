@@ -128,42 +128,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_STRONG_JAW",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_STRONG_JAW",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN8RU,"
       ]
     },
     {
@@ -176,10 +142,37 @@
       "Ability": "ABILITY_STRONG_JAW",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     },
     {
@@ -192,10 +185,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

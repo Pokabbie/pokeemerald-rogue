@@ -116,162 +116,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MOONBLAST",
         "MOVE_SHADOW_BALL",
-        "MOVE_ENERGY_BALL",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
         "MOVE_PSYSHOCK",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_THUNDERBOLT",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_THUNDERBOLT",
         "MOVE_POWER_GEM"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MOONBLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MOONBLAST",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -284,26 +139,149 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHADOW_BALL",
         "MOVE_MOONBLAST",
-        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
         "MOVE_POWER_GEM"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

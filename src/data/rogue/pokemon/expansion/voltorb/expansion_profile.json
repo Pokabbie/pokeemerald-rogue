@@ -119,26 +119,8 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -152,25 +134,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_EXPLOSION",
-        "MOVE_THUNDERBOLT",
-        "MOVE_LIGHT_SCREEN"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -183,10 +148,36 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EXPLOSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

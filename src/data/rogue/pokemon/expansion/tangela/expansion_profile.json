@@ -112,87 +112,6 @@
     {
       "Moves": [
         "MOVE_GIGA_DRAIN",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
         "MOVE_LEECH_SEED",
         "MOVE_KNOCK_OFF",
         "MOVE_PROTECT"
@@ -200,74 +119,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_LEECH_SEED",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_SYNTHESIS",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
+        "GEN6UU,"
       ]
     },
     {
@@ -281,25 +134,23 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_SEED",
-        "MOVE_SLUDGE_BOMB"
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7RU"
+        "GEN6NU,"
       ]
     },
     {
@@ -313,9 +164,80 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -325,13 +247,66 @@
         "MOVE_MEGA_DRAIN",
         "MOVE_REFLECT"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LETSGOOU"
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

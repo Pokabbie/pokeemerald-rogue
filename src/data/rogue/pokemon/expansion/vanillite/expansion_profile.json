@@ -107,9 +107,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MILD",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -123,9 +122,8 @@
       "Item": "ITEM_ICIUM_Z",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

@@ -106,64 +106,28 @@
       "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_DRAGON_CLAW",
-        "MOVE_CRUNCH",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
         "MOVE_ROCK_SLIDE",
         "MOVE_FIRE_FANG"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_FIRE_FANG",
+        "MOVE_DRAGON_CLAW",
         "MOVE_CRUNCH",
-        "MOVE_ZEN_HEADBUTT"
+        "MOVE_FIRE_FANG"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_FIRE_FANG",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -176,10 +140,36 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FIRE_FANG",
+        "MOVE_CRUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_FIRE_FANG",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

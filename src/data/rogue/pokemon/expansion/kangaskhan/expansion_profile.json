@@ -139,6 +139,275 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_CRUNCH",
+        "MOVE_POWER_UP_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_CRUNCH",
+        "MOVE_POWER_UP_PUNCH"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_LOW_KICK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_LOW_KICK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_LOW_KICK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_LOW_KICK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_DOUBLE_EDGE",
         "MOVE_LOW_KICK",
         "MOVE_SUCKER_PUNCH",
@@ -147,283 +416,64 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_KANGASKHANITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6VGC2016,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_BULLDOZE",
-        "MOVE_CIRCLE_THROW"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_LAST_RESORT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_BODY_SLAM"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
         "MOVE_RETURN",
-        "MOVE_CRUNCH",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_LOW_KICK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DOUBLE_EDGE",
         "MOVE_POWER_UP_PUNCH"
       ],
       "Ability": "ABILITY_PARENTAL_BOND",
       "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6VGC2016,"
       ]
     },
     {
       "Moves": [
+        "MOVE_POWER_UP_PUNCH",
         "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_CRUNCH",
-        "MOVE_POWER_UP_PUNCH"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_BODY_SLAM"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_PARENTAL_BOND",
       "Item": "ITEM_KANGASKHANITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
@@ -436,169 +486,50 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_KANGASKHANITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_FAKE_OUT",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_POWER_UP_PUNCH",
         "MOVE_SUCKER_PUNCH",
         "MOVE_BODY_SLAM"
       ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_POWER_UP_PUNCH"
-      ],
       "Ability": "ABILITY_PARENTAL_BOND",
       "Item": "ITEM_KANGASKHANITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DOUBLE_EDGE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_DOUBLE_EDGE"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
         "MOVE_DOUBLE_EDGE",
         "MOVE_EARTHQUAKE",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
+      "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7PU,"
       ]
     },
     {
@@ -611,139 +542,8 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_FAKE_OUT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_LOW_KICK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_LOW_KICK",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PARENTAL_BOND",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_SCRAPPY",
-      "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
+        "GEN7PU,"
       ]
     },
     {
@@ -756,26 +556,50 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUCKER_PUNCH",
         "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DOUBLE_EDGE",
         "MOVE_EARTHQUAKE",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_PARENTAL_BOND",
       "Item": "ITEM_KANGASKHANITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -788,10 +612,77 @@
       "Ability": "ABILITY_PARENTAL_BOND",
       "Item": "ITEM_KANGASKHANITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_CIRCLE_THROW"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PARENTAL_BOND",
+      "Item": "ITEM_KANGASKHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -804,10 +695,35 @@
       "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_LAST_RESORT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8VGC2020,"
       ]
     }
   ]

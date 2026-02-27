@@ -114,10 +114,8 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     }
   ]

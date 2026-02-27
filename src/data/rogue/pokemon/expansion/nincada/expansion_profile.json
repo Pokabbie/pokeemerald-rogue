@@ -81,10 +81,8 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

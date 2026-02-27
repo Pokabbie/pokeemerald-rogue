@@ -119,11 +119,9 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -136,10 +134,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     }
   ]

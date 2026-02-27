@@ -96,70 +96,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_X_SCISSOR",
-        "MOVE_RAPID_SPIN",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_BLAST"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_BLAST"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_RAPID_SPIN",
         "MOVE_ROCK_BLAST",
@@ -168,10 +104,8 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -184,10 +118,64 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_X_SCISSOR",
+        "MOVE_RAPID_SPIN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

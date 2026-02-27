@@ -51,32 +51,28 @@
       "Moves": [
         "MOVE_SPIKES",
         "MOVE_TAUNT",
-        "MOVE_AQUA_JET",
-        "MOVE_SCALD"
-      ],
-      "Ability": "ABILITY_WIMP_OUT",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_TAUNT",
         "MOVE_SCALD",
         "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_WIMP_OUT",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_AQUA_JET",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_WIMP_OUT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

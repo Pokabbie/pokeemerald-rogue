@@ -114,49 +114,15 @@
     {
       "Moves": [
         "MOVE_FAKE_OUT",
-        "MOVE_KNOCK_OFF",
         "MOVE_RETURN",
-        "MOVE_U_TURN"
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -169,26 +135,50 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RETURN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
         "MOVE_FAKE_OUT",
         "MOVE_RETURN",
-        "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -201,10 +191,8 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     }
   ]

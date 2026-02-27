@@ -154,18 +154,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_SHADOW_SNEAK",
-        "MOVE_ICE_BEAM"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -178,26 +190,8 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -210,42 +204,36 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SHADOW_SNEAK",
-        "MOVE_SUCKER_PUNCH",
         "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
         "MOVE_FAKE_OUT"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN7ZU,"
       ]
     }
   ]

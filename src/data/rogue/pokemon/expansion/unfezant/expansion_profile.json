@@ -91,18 +91,72 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_U_TURN",
-        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
         "MOVE_NIGHT_SLASH"
       ],
       "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8PU,"
       ]
     },
     {
@@ -115,74 +169,22 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_U_TURN",
-        "MOVE_QUICK_ATTACK",
+        "MOVE_FACADE",
         "MOVE_NIGHT_SLASH"
       ],
       "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_SCOPE_LENS",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_NIGHT_SLASH",
-        "MOVE_STEEL_WING",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAILWIND",
-        "MOVE_HYPNOSIS",
-        "MOVE_U_TURN",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAILWIND",
-        "MOVE_HYPNOSIS",
-        "MOVE_U_TURN",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -195,42 +197,8 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_NIGHT_SLASH",
-        "MOVE_RETURN",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_RETURN",
-        "MOVE_NIGHT_SLASH",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN8ZU,"
       ]
     }
   ]

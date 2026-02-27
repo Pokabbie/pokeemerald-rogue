@@ -120,86 +120,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_BARRIER",
-        "MOVE_MOONLIGHT",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_BARRIER",
-        "MOVE_REST",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_BARRIER",
-        "MOVE_STORED_POWER",
-        "MOVE_MOONLIGHT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_MOONLIGHT",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_FAIRIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_MOONLIGHT",
-        "MOVE_PSYCHIC",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": null,
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_PSYSHOCK",
         "MOVE_MOONLIGHT",
         "MOVE_SIGNAL_BEAM"
@@ -207,42 +127,22 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MOONLIGHT",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONLIGHT",
         "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC"
+        "MOVE_BARRIER",
+        "MOVE_MOONLIGHT",
+        "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -255,10 +155,91 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_REST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_STORED_POWER",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -271,10 +252,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

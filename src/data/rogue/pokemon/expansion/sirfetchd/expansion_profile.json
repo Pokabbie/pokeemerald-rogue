@@ -121,11 +121,9 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU",
-        "GEN8RU"
+        "GEN8RU,"
       ]
     },
     {
@@ -138,10 +136,8 @@
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     }
   ]

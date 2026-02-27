@@ -110,22 +110,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_HEAVY_SLAM",
         "MOVE_ROCK_BLAST",
@@ -134,10 +118,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -150,10 +132,22 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

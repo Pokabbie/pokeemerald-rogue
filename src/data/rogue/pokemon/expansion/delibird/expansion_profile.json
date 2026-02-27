@@ -79,22 +79,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_SPIKES",
-        "MOVE_DESTINY_BOND",
-        "MOVE_FREEZE_DRY"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPIKES",
         "MOVE_RAPID_SPIN",
         "MOVE_ICY_WIND",
@@ -103,11 +87,9 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -120,10 +102,22 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_DESTINY_BOND",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

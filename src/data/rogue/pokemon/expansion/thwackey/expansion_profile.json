@@ -103,33 +103,15 @@
     {
       "Moves": [
         "MOVE_GRASSY_GLIDE",
-        "MOVE_ACROBATICS",
         "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRASSY_GLIDE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT",
+        "MOVE_WOOD_HAMMER",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_TERRAIN_EXTENDER",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN8PU,"
       ]
     },
     {
@@ -142,42 +124,8 @@
       "Ability": "ABILITY_GRASSY_SURGE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRASSY_GLIDE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRASSY_GLIDE",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN8PU,"
       ]
     },
     {
@@ -190,58 +138,8 @@
       "Ability": "ABILITY_GRASSY_SURGE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRASSY_GLIDE",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_TERRAIN_EXTENDER",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_GRASSY_GLIDE",
-        "MOVE_U_TURN",
-        "MOVE_WOOD_HAMMER"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -254,42 +152,80 @@
       "Ability": "ABILITY_GRASSY_SURGE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
         "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT"
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_GRASSY_SURGE",
-      "Item": "ITEM_TERRAIN_EXTENDER",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN8ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
         "MOVE_GRASSY_GLIDE",
         "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_GRASSY_SURGE",
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

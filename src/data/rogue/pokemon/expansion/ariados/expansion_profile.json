@@ -138,38 +138,6 @@
     {
       "Moves": [
         "MOVE_STICKY_WEB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_LEECH_LIFE"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MEGAHORN",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
         "MOVE_TOXIC_SPIKES",
         "MOVE_MEGAHORN",
         "MOVE_SUCKER_PUNCH"
@@ -177,11 +145,23 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MEGAHORN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -194,26 +174,8 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_POISON_JAB",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU,"
       ]
     },
     {
@@ -226,10 +188,36 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_POISON_JAB",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

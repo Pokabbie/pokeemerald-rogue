@@ -110,213 +110,18 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STICKY_WEB"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
         "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
         "MOVE_QUIVER_DANCE"
       ],
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_U_TURN",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_U_TURN",
-        "MOVE_STICKY_WEB"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ",
-        "MOVE_QUIVER_DANCE"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ",
-        "MOVE_STUN_SPORE"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU",
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_STICKY_WEB",
-        "MOVE_STUN_SPORE",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_MOONBLAST",
-        "MOVE_BUG_BUZZ",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FAIRIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_MOONBLAST",
-        "MOVE_ROOST",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_MOONBLAST",
-        "MOVE_TERA_BLAST",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ",
-        "MOVE_STUN_SPORE",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UBERS",
+        "GEN9ANYTHINGGOES",
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -330,73 +135,9 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_POUNCE",
-        "MOVE_STUN_SPORE"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_SKILL_SWAP",
-        "MOVE_STUN_SPORE"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -410,123 +151,65 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STICKY_WEB",
         "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_POUNCE"
+        "MOVE_BUG_BUZZ",
+        "MOVE_U_TURN",
+        "MOVE_STICKY_WEB"
       ],
       "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STICKY_WEB",
+        "MOVE_QUIVER_DANCE",
         "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
+        "MOVE_BUG_BUZZ",
         "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STICKY_WEB",
         "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
         "MOVE_QUIVER_DANCE"
       ],
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS",
-        "GEN9ANYTHINGGOES",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_SKILL_SWAP"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_SKILL_SWAP"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MOONBLAST",
-        "MOVE_STUN_SPORE",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -539,11 +222,52 @@
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU",
-        "GEN8UU"
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU",
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_MOONBLAST",
+        "MOVE_ROOST",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
@@ -556,26 +280,180 @@
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STICKY_WEB",
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_STUN_SPORE",
         "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_LIGHT_CLAY",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_STICKY_WEB",
+        "MOVE_QUIVER_DANCE"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_POUNCE"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_SKILL_SWAP"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_POUNCE"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MOONBLAST",
+        "MOVE_STUN_SPORE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STICKY_WEB",
+        "MOVE_STUN_SPORE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

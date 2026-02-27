@@ -153,50 +153,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SWORDS_DANCE",
         "MOVE_ICICLE_CRASH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_AQUA_JET",
         "MOVE_SUPERPOWER",
-        "MOVE_PLAY_ROUGH"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
         "MOVE_AQUA_JET",
-        "MOVE_SUPERPOWER",
-        "MOVE_PLAY_ROUGH"
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -209,90 +175,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_SUPERPOWER",
-        "MOVE_AQUA_JET",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_SUPERPOWER",
-        "MOVE_AQUA_JET",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_CRASH",
-        "MOVE_SUPERPOWER",
-        "MOVE_THROAT_CHOP",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_ICIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ICICLE_CRASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN6PU,"
       ]
     },
     {
@@ -305,26 +189,92 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ICICLE_SPEAR",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_THROAT_CHOP",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_AQUA_JET",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_LOADED_DICE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9PU,"
       ]
     }
   ]

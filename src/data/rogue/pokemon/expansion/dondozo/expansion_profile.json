@@ -109,70 +109,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AVALANCHE",
-        "MOVE_FISSURE",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CURSE",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CURSE",
-        "MOVE_WATERFALL",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CURSE",
-        "MOVE_WATERFALL",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_LIQUIDATION",
         "MOVE_REST",
         "MOVE_CURSE",
@@ -181,10 +117,9 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -197,60 +132,54 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9UBERS",
         "GEN9NATIONALDEX",
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_BODY_PRESS",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
         "MOVE_WATERFALL",
-        "MOVE_BODY_PRESS",
+        "MOVE_CURSE",
         "MOVE_REST",
         "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATERFALL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_BODY_PRESS",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
         "MOVE_CURSE",
         "MOVE_REST",
         "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
+      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -263,10 +192,50 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_WATERFALL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_WATERFALL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

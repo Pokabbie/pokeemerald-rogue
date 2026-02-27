@@ -108,18 +108,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SEED_BOMB",
         "MOVE_SUCKER_PUNCH",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_SEED_BOMB",
         "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
+      "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
       ]
     }
   ]

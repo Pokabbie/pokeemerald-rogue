@@ -115,22 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_BUG_BUZZ",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SIGNAL_BEAM",
         "MOVE_LEAF_STORM",
         "MOVE_GIGA_DRAIN",
@@ -140,9 +124,23 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

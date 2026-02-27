@@ -108,27 +108,9 @@
       ],
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BUG_BUZZ",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SHIELD_DUST",
-      "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -141,10 +123,22 @@
       "Ability": "ABILITY_SHIELD_DUST",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

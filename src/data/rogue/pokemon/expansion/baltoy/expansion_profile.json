@@ -126,17 +126,29 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
-        "MOVE_PSYCHIC",
         "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
         "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -149,42 +161,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -197,10 +175,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_PSYCHIC",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

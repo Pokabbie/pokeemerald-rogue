@@ -115,6 +115,35 @@
     {
       "Moves": [
         "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
         "MOVE_CHATTER",
         "MOVE_HEAT_WAVE",
         "MOVE_NASTY_PLOT"
@@ -122,42 +151,8 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_CHATTER",
-        "MOVE_HEAT_WAVE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_KEEN_EYE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_CHATTER",
-        "MOVE_HEAT_WAVE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TANGLED_FEET",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -171,10 +166,9 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -188,25 +182,8 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_HEAT_WAVE",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TANGLED_FEET",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN6PU,"
       ]
     },
     {
@@ -219,10 +196,8 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -234,10 +209,22 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -250,26 +237,22 @@
       "Ability": "ABILITY_TANGLED_FEET",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SUBSTITUTE",
         "MOVE_BOOMBURST",
-        "MOVE_CHATTER"
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
       ],
-      "Ability": "ABILITY_TANGLED_FEET",
-      "Item": "ITEM_LEFTOVERS",
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7ZU,"
       ]
     }
   ]

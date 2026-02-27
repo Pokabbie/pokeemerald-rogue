@@ -106,34 +106,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_ROOST",
         "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUBSTITUTE",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN6RU,"
       ]
     },
     {
@@ -146,26 +128,36 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DEFOG",
         "MOVE_ROOST",
+        "MOVE_DEFOG",
         "MOVE_BRAVE_BIRD",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -178,42 +170,22 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
         "MOVE_BRAVE_BIRD",
-        "MOVE_TAUNT",
-        "MOVE_SUBSTITUTE"
+        "MOVE_SUBSTITUTE",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN7NU,"
       ]
     },
     {
@@ -226,10 +198,8 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
       ]
     },
     {
@@ -242,10 +212,22 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

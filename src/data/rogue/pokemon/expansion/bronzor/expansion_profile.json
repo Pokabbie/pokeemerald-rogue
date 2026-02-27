@@ -115,150 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYPNOSIS",
-        "MOVE_PSYWAVE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPNOSIS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYWAVE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYWAVE",
-        "MOVE_HYPNOSIS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYWAVE",
-        "MOVE_HYPNOSIS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYWAVE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_HYPNOSIS",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_FLASH_CANNON",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_HYPNOSIS",
-        "MOVE_RECYCLE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_REFLECT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_RECYCLE",
-        "MOVE_HYPNOSIS"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_PSYWAVE",
         "MOVE_HYPNOSIS",
@@ -267,11 +123,37 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYWAVE",
+        "MOVE_HYPNOSIS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYWAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYPNOSIS",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU,"
       ]
     },
     {
@@ -284,10 +166,64 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_HYPNOSIS",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYWAVE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_PSYWAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYWAVE",
+        "MOVE_HYPNOSIS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     },
     {
@@ -300,10 +236,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_RECYCLE",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_FLASH_CANNON",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

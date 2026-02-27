@@ -114,88 +114,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC",
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRABHAMMER",
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRABHAMMER",
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CRABHAMMER",
         "MOVE_KNOCK_OFF",
         "MOVE_AQUA_JET",
@@ -204,26 +122,8 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_CRABHAMMER",
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -236,10 +136,95 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN9LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

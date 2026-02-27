@@ -109,87 +109,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_PROTECT",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_PROTECT",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BUG_BUZZ",
         "MOVE_AIR_SLASH",
         "MOVE_GIGA_DRAIN",
@@ -198,10 +117,52 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -214,10 +175,8 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
@@ -230,10 +189,22 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -246,43 +217,51 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
         "MOVE_AIR_SLASH",
-        "MOVE_HIDDEN_POWER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PROTECT",
         "MOVE_GIGA_DRAIN"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
         "MOVE_BUG_BUZZ",
         "MOVE_AIR_SLASH",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_TERA_BLAST",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_THROAT_SPRAY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN6UU",
-        "GEN7RU"
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_TERA_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     }
   ]

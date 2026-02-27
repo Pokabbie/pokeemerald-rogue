@@ -139,154 +139,6 @@
     {
       "Moves": [
         "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6MONOTYPE",
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_PROTECT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
         "MOVE_SLUDGE_WAVE",
         "MOVE_ICE_BEAM",
         "MOVE_FLAMETHROWER"
@@ -294,221 +146,10 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
         "GEN6OU",
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_ICE_BEAM",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_TOXIC",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_PUNCH",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN8NATIONALDEX,"
       ]
     },
     {
@@ -521,10 +162,81 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE",
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
       ]
     },
     {
@@ -537,10 +249,88 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TOXIC",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POISON_JAB"
+      ],
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -553,10 +343,150 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     }
   ]

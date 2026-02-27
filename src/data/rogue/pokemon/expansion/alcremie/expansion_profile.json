@@ -164,18 +164,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_DAZZLING_GLEAM",
         "MOVE_CALM_MIND",
-        "MOVE_ACID_ARMOR",
-        "MOVE_DRAINING_KISS",
-        "MOVE_STORED_POWER"
+        "MOVE_AROMATHERAPY"
       ],
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -188,42 +200,8 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_RECOVER",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_RECOVER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     },
     {
@@ -236,10 +214,22 @@
       "Ability": "ABILITY_SWEET_VEIL",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_RECOVER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -252,26 +242,37 @@
       "Ability": "ABILITY_SWEET_VEIL",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN8VGC2020,"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_DAZZLING_GLEAM",
         "MOVE_CALM_MIND",
-        "MOVE_AROMATHERAPY"
+        "MOVE_ACID_ARMOR",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ACID_ARMOR",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN9ZU,"
       ]
     }
   ]

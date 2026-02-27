@@ -109,22 +109,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MOONLIGHT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TRICK_ROOM",
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
@@ -133,10 +117,22 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

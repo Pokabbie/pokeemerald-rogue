@@ -91,10 +91,8 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

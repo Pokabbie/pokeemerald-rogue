@@ -145,54 +145,6 @@
     {
       "Moves": [
         "MOVE_ERUPTION",
-        "MOVE_EXTRASENSORY",
-        "MOVE_FLAMETHROWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_MIRACLE_SEED",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SCORCHING_SANDS"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SCORCHING_SANDS"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
         "MOVE_FIRE_BLAST",
         "MOVE_HIDDEN_POWER",
         "MOVE_FOCUS_BLAST"
@@ -201,25 +153,8 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN6RU,"
       ]
     },
     {
@@ -232,10 +167,38 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_EXTRASENSORY",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_MIRACLE_SEED",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7NU,"
       ]
     },
     {
@@ -249,25 +212,8 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_SHADOW_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN7NU,"
       ]
     },
     {
@@ -281,9 +227,67 @@
       "Item": "ITEM_BRIGHT_POWDER",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

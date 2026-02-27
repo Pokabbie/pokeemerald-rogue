@@ -103,22 +103,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_ORAN_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUBSTITUTE",
         "MOVE_SLEEP_POWDER",
         "MOVE_GIGA_DRAIN",
@@ -127,10 +111,22 @@
       "Ability": "ABILITY_HARVEST",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -143,10 +139,8 @@
       "Ability": "ABILITY_HARVEST",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

@@ -134,10 +134,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_LONELY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -150,10 +148,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_LONELY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -166,10 +162,8 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

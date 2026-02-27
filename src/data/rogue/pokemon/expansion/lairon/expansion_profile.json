@@ -115,23 +115,7 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_SUPERPOWER",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_ROCK_HEAD",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_POLISH",
+        "MOVE_STEALTH_ROCK",
         "MOVE_HEAD_SMASH",
         "MOVE_SUPERPOWER",
         "MOVE_HEAVY_SLAM"
@@ -139,10 +123,8 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -155,15 +137,27 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SUPERPOWER",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
         "MOVE_HEAD_SMASH",
         "MOVE_SUPERPOWER",
         "MOVE_HEAVY_SLAM"
@@ -171,10 +165,8 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     }
   ]

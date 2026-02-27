@@ -126,22 +126,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_LEECH_SEED",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPIKES",
         "MOVE_BULLET_SEED",
         "MOVE_ENDEAVOR",
@@ -150,10 +134,22 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -166,10 +162,8 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -180,12 +174,9 @@
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": null,
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

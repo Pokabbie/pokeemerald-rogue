@@ -121,10 +121,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_WATMEL_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -137,10 +135,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     }
   ]

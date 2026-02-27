@@ -160,86 +160,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SYNTHESIS",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SYNTHESIS",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_SPIKES",
-        "MOVE_SYNTHESIS",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_LEECH_SEED",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_SUPER_FANG"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_LEECH_SEED",
         "MOVE_DRAIN_PUNCH",
         "MOVE_SPIKES",
@@ -248,58 +168,22 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_SPIKES",
         "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE",
         "MOVE_SPIKY_SHIELD",
-        "MOVE_WOOD_HAMMER"
+        "MOVE_DRAIN_PUNCH"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_GRASSIUM_Z",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_BODY_PRESS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_BODY_PRESS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN6UU,"
       ]
     },
     {
@@ -312,26 +196,8 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_LEECH_SEED",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -344,10 +210,36 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_LEECH_SEED",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -360,42 +252,94 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKY_SHIELD",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_LEECH_SEED",
-        "MOVE_SPIKES"
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKY_SHIELD",
         "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_DRAIN_PUNCH",
-        "MOVE_SPIKES"
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_SYNTHESIS",
+        "MOVE_WOOD_HAMMER"
       ],
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     }
   ]

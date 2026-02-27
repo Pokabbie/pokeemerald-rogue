@@ -124,10 +124,8 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -140,10 +138,8 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     }
   ]

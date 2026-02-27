@@ -88,6 +88,7 @@
     "MOVE_HEAVY_SLAM",
     "MOVE_HELPING_HAND",
     "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_HAMMER",
     "MOVE_KNOCK_OFF",
     "MOVE_LIGHT_SCREEN",
     "MOVE_METAL_CLAW",
@@ -117,17 +118,16 @@
     {
       "Moves": [
         "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
         "MOVE_ENCORE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_ICE_HAMMER"
       ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_LEFTOVERS",
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9OU,"
       ]
     },
     {
@@ -140,10 +140,9 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
       ]
     },
     {
@@ -151,47 +150,13 @@
         "MOVE_GIGATON_HAMMER",
         "MOVE_KNOCK_OFF",
         "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGATON_HAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_MOLD_BREAKER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGATON_HAMMER",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_ENCORE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_PICKPOCKET",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN9UU,"
       ]
     },
     {
@@ -204,10 +169,23 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_ENCORE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1,"
       ]
     },
     {
@@ -220,42 +198,36 @@
       "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9NATIONALDEXAG,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_GIGATON_HAMMER",
-        "MOVE_ENCORE",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PICKPOCKET",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_GIGATON_HAMMER",
         "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
       ],
-      "Ability": "ABILITY_PICKPOCKET",
+      "Ability": "ABILITY_MOLD_BREAKER",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

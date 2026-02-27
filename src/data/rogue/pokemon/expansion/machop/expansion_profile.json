@@ -123,16 +123,14 @@
       "Moves": [
         "MOVE_DYNAMIC_PUNCH",
         "MOVE_KNOCK_OFF",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
       ],
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -145,27 +143,23 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_DYNAMIC_PUNCH",
         "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_POISON_JAB"
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

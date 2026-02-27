@@ -105,31 +105,14 @@
         "MOVE_FREEZE_DRY",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
         "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "TeraType": "TYPE_ICE",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -142,26 +125,9 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_ICE",
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FREEZE_DRY",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -174,26 +140,8 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FREEZE_DRY",
-        "MOVE_ICE_BEAM",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -206,10 +154,9 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -222,10 +169,50 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

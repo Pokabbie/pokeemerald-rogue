@@ -120,18 +120,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SWORDS_DANCE",
         "MOVE_BRAVE_BIRD",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_FIRST_IMPRESSION"
+        "MOVE_LEAF_BLADE",
+        "MOVE_QUICK_ATTACK"
       ],
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -144,26 +142,22 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_BRAVE_BIRD",
-        "MOVE_LEAF_BLADE",
-        "MOVE_QUICK_ATTACK"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FIRST_IMPRESSION"
       ],
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU,"
       ]
     }
   ]

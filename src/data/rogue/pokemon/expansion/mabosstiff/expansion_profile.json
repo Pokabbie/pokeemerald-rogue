@@ -100,6 +100,7 @@
     "MOVE_PSYCHIC_FANGS",
     "MOVE_RAIN_DANCE",
     "MOVE_REST",
+    "MOVE_RETALIATE",
     "MOVE_REVERSAL",
     "MOVE_ROAR",
     "MOVE_SCARY_FACE",
@@ -127,10 +128,24 @@
       "Ability": "ABILITY_STAKEOUT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_RETALIATE"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     },
     {
@@ -143,10 +158,8 @@
       "Ability": "ABILITY_STAKEOUT",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

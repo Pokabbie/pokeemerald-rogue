@@ -108,82 +108,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_BEAT_UP",
         "MOVE_FINAL_GAMBIT",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BEAT_UP"
       ],
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_BEAT_UP",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_BEAT_UP",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_BEAT_UP",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -196,90 +130,8 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_BEAT_UP"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_FINAL_GAMBIT",
-        "MOVE_BEAT_UP"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_ARENA_TRAP",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -292,10 +144,8 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -308,10 +158,50 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BEAT_UP"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -324,10 +214,92 @@
       "Ability": "ABILITY_ARENA_TRAP",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BEAT_UP",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BEAT_UP",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BEAT_UP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BEAT_UP",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

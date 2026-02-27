@@ -155,18 +155,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CHARM",
-        "MOVE_MOONLIGHT",
-        "MOVE_FOUL_PLAY",
-        "MOVE_SNARL"
+        "MOVE_PROTECT",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_FOUL_PLAY"
       ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_FAIRIUM_Z",
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU,"
       ]
     },
     {
@@ -179,12 +192,24 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU",
         "GEN7UU",
-        "GEN7UU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_MOONLIGHT",
+        "MOVE_TOXIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -197,170 +222,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_MOONLIGHT",
-        "MOVE_TOXIC",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_MOONLIGHT",
-        "MOVE_TOXIC",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_PROTECT",
-        "MOVE_WISH",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_TOXIC",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_WISH",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_WISH",
-        "MOVE_TOXIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_WISH",
-        "MOVE_TOXIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_YAWN",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_WISH",
-        "MOVE_HEAL_BELL",
-        "MOVE_FOUL_PLAY"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
+        "GEN61V1,"
       ]
     },
     {
@@ -373,10 +236,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
@@ -389,26 +250,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_FOUL_PLAY",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
+        "GEN6MONOTYPE,"
       ]
     },
     {
@@ -421,11 +264,37 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU",
-        "GEN8RU"
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_MOONLIGHT",
+        "MOVE_TOXIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_MOONLIGHT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1,"
       ]
     },
     {
@@ -438,10 +307,8 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -454,27 +321,136 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_TOXIC",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
         "MOVE_WISH",
+        "MOVE_FOUL_PLAY",
         "MOVE_PROTECT",
-        "MOVE_HEAL_BELL",
-        "MOVE_FOUL_PLAY"
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL"
       ],
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU",
-        "GEN7RU"
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_YAWN",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

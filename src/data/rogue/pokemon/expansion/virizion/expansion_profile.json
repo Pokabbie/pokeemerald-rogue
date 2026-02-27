@@ -116,6 +116,34 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LEAF_BLADE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_GIGA_DRAIN",
         "MOVE_FOCUS_BLAST",
@@ -125,89 +153,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_STONE_EDGE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE",
-        "MOVE_MEGAHORN",
-        "MOVE_SUNNY_DAY"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BOUNCE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -220,58 +167,22 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_CLOSE_COMBAT",
         "MOVE_LEAF_BLADE",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ROCK",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_STONE_EDGE"
+        "MOVE_STONE_EDGE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN6BATTLESPOTDOUBLES,"
       ]
     },
     {
@@ -284,26 +195,78 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SWORDS_DANCE",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE",
-        "MOVE_SYNTHESIS"
+        "MOVE_LEAF_BLADE",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LUM_BERRY",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BOUNCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_MEGAHORN",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -311,15 +274,59 @@
         "MOVE_SWORDS_DANCE",
         "MOVE_LEAF_BLADE",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE"
+        "MOVE_ZEN_HEADBUTT"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_PSYCHIC",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LEAF_BLADE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

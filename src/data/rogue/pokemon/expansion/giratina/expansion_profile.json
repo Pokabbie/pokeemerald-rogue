@@ -117,83 +117,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_REST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS",
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE",
         "MOVE_WILL_O_WISP",
-        "MOVE_REST"
+        "MOVE_ROAR",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WILL_O_WISP",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_WILL_O_WISP",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_TAIL",
-        "MOVE_WILL_O_WISP",
-        "MOVE_DEFOG",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -206,10 +139,80 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_REST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7UBERS",
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_TAIL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DEFOG",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9UBERS,"
       ]
     },
     {
@@ -222,26 +225,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROAR",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

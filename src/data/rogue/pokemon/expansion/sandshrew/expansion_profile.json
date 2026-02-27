@@ -132,50 +132,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
         "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_RUSH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_SAND_RUSH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_LEECH_LIFE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_RUSH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN6ZU,"
       ]
     },
     {
@@ -188,10 +154,22 @@
       "Ability": "ABILITY_SAND_RUSH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -204,42 +182,36 @@
       "Ability": "ABILITY_SAND_RUSH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
         "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_SAND_RUSH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_LEECH_LIFE",
-        "MOVE_RAPID_SPIN"
+        "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_SAND_RUSH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_BUG",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

@@ -121,162 +121,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
         "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
+        "MOVE_FLASH_CANNON",
         "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDER",
-        "MOVE_POWER_GEM"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FLASH_CANNON",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_DRACO_METEOR",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ADAMANT_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_DRACO_METEOR",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROAR_OF_TIME",
-        "MOVE_STEEL_BEAM"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROAR_OF_TIME",
-        "MOVE_AURA_SPHERE",
-        "MOVE_FLASH_CANNON",
-        "MOVE_DRAGON_PULSE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -289,26 +143,149 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROAR_OF_TIME",
+        "MOVE_AURA_SPHERE",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_DRACO_METEOR",
-        "MOVE_FLASH_CANNON",
+        "MOVE_FIRE_BLAST",
         "MOVE_THUNDER"
       ],
       "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_SHUCA_BERRY",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ADAMANT_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROAR_OF_TIME",
+        "MOVE_STEEL_BEAM"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS,"
       ]
     }
   ]

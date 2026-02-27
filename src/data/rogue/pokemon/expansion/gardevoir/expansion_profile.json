@@ -160,6 +160,67 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HEALING_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_MOONBLAST",
         "MOVE_PSYSHOCK",
@@ -168,298 +229,36 @@
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_TRICK_ROOM",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
         "MOVE_MOONBLAST",
-        "MOVE_TRICK_ROOM"
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
       ],
-      "Ability": "ABILITY_TELEPATHY",
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TRACE",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_BEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_HYPER_VOICE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_BEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_HYPER_VOICE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_BEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HYPER_VOICE"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_ICY_WIND",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_ICY_WIND",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_HYPER_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PROTECT",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PROTECT",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PROTECT",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_PSYSHOCK",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
+        "GEN6UU,"
       ]
     },
     {
@@ -469,14 +268,26 @@
         "MOVE_TRICK_ROOM",
         "MOVE_PROTECT"
       ],
-      "Ability": "ABILITY_PIXILATE",
+      "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU",
-        "GEN7DOUBLESOU"
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
       ]
     },
     {
@@ -486,132 +297,40 @@
         "MOVE_TRICK_ROOM",
         "MOVE_PROTECT"
       ],
-      "Ability": "ABILITY_TRACE",
+      "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU",
-        "GEN7DOUBLESOU"
+        "GEN7DOUBLESOU,"
       ]
     },
     {
       "Moves": [
         "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
         "MOVE_CALM_MIND",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_PSYSHOCK",
-        "MOVE_TAUNT",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6DOUBLESOU,"
       ]
     },
     {
@@ -624,361 +343,8 @@
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_DISABLE",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HEALING_WISH",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_ENERGY_BALL",
-        "MOVE_EXPANDING_FORCE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_HEALING_WISH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_ICY_WIND",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_PSYSHOCK",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK",
-        "MOVE_MYSTICAL_FIRE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -991,42 +357,204 @@
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_TAUNT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
         "MOVE_MOONBLAST",
-        "MOVE_TRICK",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_ICY_WIND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_ENCORE",
         "MOVE_DISABLE",
-        "MOVE_PSYSHOCK"
+        "MOVE_HYPER_VOICE"
       ],
       "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_TRICK",
-        "MOVE_MYSTICAL_FIRE",
-        "MOVE_PSYCHIC"
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_HYPER_VOICE"
       ],
       "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_ICY_WIND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1,"
       ]
     },
     {
@@ -1039,90 +567,134 @@
       "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
         "MOVE_ENCORE",
         "MOVE_DISABLE",
         "MOVE_HYPER_VOICE"
       ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_WILL_O_WISP"
+      ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_MOONBLAST",
         "MOVE_PSYCHIC",
-        "MOVE_HEALING_WISH",
         "MOVE_FOCUS_BLAST",
-        "MOVE_ENERGY_BALL"
+        "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_VACUUM_WAVE"
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_WILL_O_WISP"
       ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYSHOCK",
-        "MOVE_MOONBLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_CALM_MIND",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
@@ -1135,42 +707,92 @@
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_HYPER_VOICE"
+        "MOVE_PSYSHOCK",
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN61V1"
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
       ]
     },
     {
       "Moves": [
         "MOVE_TRICK_ROOM",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_HYPER_VOICE"
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN7VGC2018,"
       ]
     },
     {
@@ -1183,122 +805,331 @@
       "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7VGC2018,"
       ]
     },
     {
       "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
         "MOVE_TRICK_ROOM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_HYPER_VOICE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_HYPER_VOICE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_HYPER_VOICE",
         "MOVE_PSYCHIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ENCORE",
         "MOVE_PSYSHOCK",
-        "MOVE_HYPER_BEAM"
+        "MOVE_CALM_MIND"
       ],
       "Ability": "ABILITY_PIXILATE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ENCORE",
+        "MOVE_MOONBLAST",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
         "MOVE_PSYSHOCK",
-        "MOVE_HYPER_BEAM"
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_PSYSHOCK",
-        "MOVE_HYPER_VOICE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_PSYSHOCK",
-        "MOVE_HYPER_VOICE",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_ICY_WIND",
+        "MOVE_MYSTICAL_FIRE"
       ],
       "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_GARDEVOIRITE",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_DISABLE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PROTECT",
-        "MOVE_HYPER_VOICE",
-        "MOVE_WILL_O_WISP"
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_MOONBLAST"
       ],
-      "Ability": "ABILITY_PIXILATE",
-      "Item": "ITEM_GARDEVOIRITE",
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN81V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_DISABLE",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEALING_WISH",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_ENERGY_BALL",
+        "MOVE_EXPANDING_FORCE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
         "MOVE_HYPER_VOICE",
-        "MOVE_WILL_O_WISP"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_MYSTICAL_FIRE"
       ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_GARDEVOIRITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

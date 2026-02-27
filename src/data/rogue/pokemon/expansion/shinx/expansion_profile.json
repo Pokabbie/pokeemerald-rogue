@@ -110,22 +110,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_WILD_CHARGE",
-        "MOVE_THIEF",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WILD_CHARGE",
         "MOVE_THIEF",
         "MOVE_VOLT_SWITCH",
@@ -134,10 +118,22 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILD_CHARGE",
+        "MOVE_THIEF",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

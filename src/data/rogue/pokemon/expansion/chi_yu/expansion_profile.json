@@ -117,50 +117,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_FLAMETHROWER",
         "MOVE_OVERHEAT",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_BEADS_OF_RUIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
         "MOVE_FLAMETHROWER",
-        "MOVE_PSYCHIC",
-        "MOVE_OVERHEAT"
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE"
       ],
       "Ability": "ABILITY_BEADS_OF_RUIN",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SNARL",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_BEADS_OF_RUIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -173,42 +140,9 @@
       "Ability": "ABILITY_BEADS_OF_RUIN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_DARK_PULSE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SNARL"
-      ],
-      "Ability": "ABILITY_BEADS_OF_RUIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_DARK_PULSE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SNARL"
-      ],
-      "Ability": "ABILITY_BEADS_OF_RUIN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -221,26 +155,81 @@
       "Ability": "ABILITY_BEADS_OF_RUIN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_OVERHEAT",
+        "MOVE_DARK_PULSE",
         "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DARK_PULSE"
+        "MOVE_OVERHEAT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SNARL"
       ],
       "Ability": "ABILITY_BEADS_OF_RUIN",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
+      "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SNARL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

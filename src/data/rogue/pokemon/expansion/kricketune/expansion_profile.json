@@ -105,22 +105,6 @@
     {
       "Moves": [
         "MOVE_STICKY_WEB",
-        "MOVE_ENDEAVOR",
-        "MOVE_TAUNT",
-        "MOVE_BUG_BITE"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
         "MOVE_TAUNT",
         "MOVE_ENDEAVOR",
         "MOVE_KNOCK_OFF"
@@ -128,10 +112,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -144,10 +126,22 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_ENDEAVOR",
+        "MOVE_TAUNT",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -160,10 +154,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

@@ -123,10 +123,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

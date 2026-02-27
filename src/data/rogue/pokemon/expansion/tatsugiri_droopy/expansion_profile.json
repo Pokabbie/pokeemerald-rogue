@@ -1,0 +1,89 @@
+{
+  "Species": [
+    "SPECIES_TATSUGIRI_DROOPY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COUNTER",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LUNGE",
+    "MOVE_MUDDY_WATER",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

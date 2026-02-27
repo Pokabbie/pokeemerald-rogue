@@ -113,54 +113,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_FLAMETHROWER",
         "MOVE_TERA_BLAST",
         "MOVE_GIGA_DRAIN",
@@ -169,10 +121,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     },
     {
@@ -185,10 +135,8 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     },
     {
@@ -201,10 +149,22 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

@@ -127,6 +127,20 @@
     {
       "Moves": [
         "MOVE_EARTH_POWER",
+        "MOVE_LAVA_PLUME",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
         "MOVE_FIRE_BLAST",
         "MOVE_FLAME_CHARGE",
         "MOVE_GROWTH"
@@ -134,10 +148,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -150,42 +162,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_LAVA_PLUME",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ANCIENT_POWER"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAME_CHARGE",
-        "MOVE_EARTH_POWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_GROWTH"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -198,10 +176,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -214,10 +190,23 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

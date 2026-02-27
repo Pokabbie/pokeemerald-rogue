@@ -144,6 +144,82 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLOWER_TRICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLOWER_TRICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FLOWER_TRICK",
         "MOVE_KNOCK_OFF",
         "MOVE_PLAY_ROUGH",
@@ -152,238 +228,9 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_GIGA_IMPACT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_PLAY_ROUGH"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU",
-        "GEN9NATIONALDEX",
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_IMPACT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLOWER_TRICK",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PLAY_ROUGH"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_FLOWER_TRICK",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_FLOWER_TRICK",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TRIPLE_AXEL",
-        "MOVE_FLOWER_TRICK"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN91V1,"
       ]
     },
     {
@@ -396,10 +243,82 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

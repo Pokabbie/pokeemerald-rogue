@@ -114,10 +114,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

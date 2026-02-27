@@ -118,10 +118,8 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -134,11 +132,9 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC"
+        "GEN8LC,"
       ]
     },
     {
@@ -151,10 +147,8 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

@@ -113,22 +113,6 @@
     {
       "Moves": [
         "MOVE_RAIN_DANCE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_FORECAST",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAIN_DANCE",
         "MOVE_SUNNY_DAY",
         "MOVE_SNOWSCAPE",
         "MOVE_WEATHER_BALL"
@@ -136,10 +120,22 @@
       "Ability": "ABILITY_FORECAST",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

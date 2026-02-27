@@ -105,22 +105,6 @@
     {
       "Moves": [
         "MOVE_U_TURN",
-        "MOVE_DISCHARGE",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
         "MOVE_GIGA_DRAIN",
         "MOVE_SUPER_FANG"
@@ -128,10 +112,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_DISCHARGE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

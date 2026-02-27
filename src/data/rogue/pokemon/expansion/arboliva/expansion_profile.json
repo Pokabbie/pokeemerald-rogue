@@ -115,18 +115,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_LEECH_SEED",
         "MOVE_GIGA_DRAIN",
         "MOVE_EARTH_POWER",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_LEECH_SEED"
+        "MOVE_STRENGTH_SAP"
       ],
       "Ability": "ABILITY_SEED_SOWER",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9NU,"
       ]
     },
     {
@@ -138,10 +136,9 @@
       "Ability": "ABILITY_SEED_SOWER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     },
     {
@@ -152,44 +149,40 @@
         "MOVE_STRENGTH_SAP"
       ],
       "Ability": "ABILITY_SEED_SOWER",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_EJECT_PACK",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEECH_SEED",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTH_POWER",
-        "MOVE_STRENGTH_SAP"
-      ],
-      "Ability": "ABILITY_SEED_SOWER",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN9ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STRENGTH_SAP",
-        "MOVE_GIGA_DRAIN",
         "MOVE_TERA_BLAST",
+        "MOVE_GIGA_DRAIN",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_SEED_SOWER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
+      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SEED_SOWER",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

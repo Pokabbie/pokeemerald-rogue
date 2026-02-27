@@ -99,42 +99,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_POLLEN_PUFF"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
+        "GEN8NU,"
       ]
     },
     {
@@ -147,10 +113,36 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_POLLEN_PUFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
@@ -163,10 +155,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     }
   ]

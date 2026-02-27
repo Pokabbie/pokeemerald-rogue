@@ -128,26 +128,8 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_STICKY_WEB",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8ZU,"
       ]
     },
     {
@@ -160,10 +142,22 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_STICKY_WEB",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -176,10 +170,8 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
       ]
     }
   ]

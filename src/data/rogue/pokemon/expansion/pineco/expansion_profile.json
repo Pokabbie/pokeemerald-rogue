@@ -114,34 +114,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_EXPLOSION",
         "MOVE_STEALTH_ROCK",
-        "MOVE_BULLDOZE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_SPIKES",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TOXIC_SPIKES"
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6LC,"
       ]
     },
     {
@@ -154,42 +136,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SPIKES",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_RAPID_SPIN",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -202,10 +150,50 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

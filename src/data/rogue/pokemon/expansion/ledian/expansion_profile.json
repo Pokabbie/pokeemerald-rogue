@@ -109,22 +109,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_REFLECT",
         "MOVE_LIGHT_SCREEN",
         "MOVE_ENCORE",
@@ -133,10 +117,22 @@
       "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

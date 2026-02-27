@@ -132,164 +132,72 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
-        "MOVE_AURA_SPHERE",
-        "MOVE_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HAPPY_HOUR",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDERBOLT",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HAPPY_HOUR",
-        "MOVE_STORED_POWER",
         "MOVE_IRON_HEAD",
-        "MOVE_AURA_SPHERE"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_BODY_SLAM",
-        "MOVE_WISH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HAPPY_HOUR",
-        "MOVE_STORED_POWER",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HAPPY_HOUR",
-        "MOVE_STORED_POWER",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HAPPY_HOUR",
         "MOVE_U_TURN",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HAPPY_HOUR",
-        "MOVE_U_TURN",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_HEART_STAMP",
-        "MOVE_FIRE_PUNCH",
+        "MOVE_HEALING_WISH",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_IRON_HEAD",
-        "MOVE_ICE_PUNCH",
-        "MOVE_TRICK",
-        "MOVE_U_TURN"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU,"
       ]
     },
     {
@@ -303,73 +211,8 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_MILD",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
       ]
     },
     {
@@ -382,58 +225,8 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6OU,"
       ]
     },
     {
@@ -446,173 +239,8 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_HEALING_WISH",
-        "MOVE_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_TRICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN8MONOTYPE",
-        "GEN9UU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_TRICK",
-        "MOVE_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_WISH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_WISH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN6OU,"
       ]
     },
     {
@@ -625,59 +253,64 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_U_TURN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_IRON_HEAD",
-        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN7OU,"
       ]
     },
     {
@@ -690,42 +323,65 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_IRON_HEAD",
         "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_HEALING_WISH",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HEART_STAMP",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STORED_POWER",
-        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_PSYCHIC",
         "MOVE_THUNDERBOLT",
-        "MOVE_HAPPY_HOUR"
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
@@ -738,26 +394,22 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
         "MOVE_IRON_HEAD",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_U_TURN",
+        "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -770,26 +422,67 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
         "MOVE_IRON_HEAD",
-        "MOVE_U_TURN"
+        "MOVE_U_TURN",
+        "MOVE_TRICK",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU"
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE",
+        "GEN9UU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU,"
       ]
     },
     {
@@ -802,26 +495,248 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN8UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
-        "MOVE_THUNDER_WAVE",
         "MOVE_IRON_HEAD",
-        "MOVE_PROTECT"
+        "MOVE_U_TURN",
+        "MOVE_WISH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_U_TURN",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_AURA_SPHERE",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_IRON_HEAD",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_SLAM",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TRICK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HAPPY_HOUR"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_U_TURN",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

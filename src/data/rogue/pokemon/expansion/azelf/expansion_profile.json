@@ -126,118 +126,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_PSYSHOCK",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYSHOCK",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYSHOCK",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ADRENALINE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DRAINING_KISS",
-        "MOVE_FLAMETHROWER",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FLAMETHROWER",
-        "MOVE_U_TURN",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_TAUNT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EXPLOSION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_EXPLOSION",
         "MOVE_SKILL_SWAP",
@@ -246,10 +134,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
       ]
     },
     {
@@ -262,10 +148,36 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_EXPLOSION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ADRENALINE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
       ]
     },
     {
@@ -278,43 +190,124 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU",
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
         "MOVE_TAUNT",
-        "MOVE_EXPLOSION",
-        "MOVE_FLAMETHROWER"
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_EXPLOSION",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_FOCUS_SASH",
+      "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYSHOCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     }
   ]

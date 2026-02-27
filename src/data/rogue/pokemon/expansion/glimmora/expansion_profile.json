@@ -87,7 +87,6 @@
     "MOVE_HYPER_BEAM",
     "MOVE_IRON_DEFENSE",
     "MOVE_LIGHT_SCREEN",
-    "MOVE_MEMENTO",
     "MOVE_METEOR_BEAM",
     "MOVE_MUD_SHOT",
     "MOVE_POWER_GEM",
@@ -118,18 +117,178 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
         "MOVE_MORTAL_SPIN",
-        "MOVE_POWER_GEM",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM"
       ],
       "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MUD_SHOT",
+        "MOVE_MORTAL_SPIN"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CORROSION",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -142,122 +301,8 @@
       "Ability": "ABILITY_TOXIC_DEBRIS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_MORTAL_SPIN",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_EARTH_POWER",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORTAL_SPIN",
-        "MOVE_POWER_GEM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORTAL_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORTAL_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_POWER_GEM"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORTAL_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_POWER_GEM"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MORTAL_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_POWER_GEM",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9MONOTYPE,"
       ]
     },
     {
@@ -270,124 +315,50 @@
       "Ability": "ABILITY_TOXIC_DEBRIS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_MEMENTO",
-        "MOVE_MUD_SHOT",
-        "MOVE_MORTAL_SPIN"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MORTAL_SPIN",
-        "MOVE_MUD_SHOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_MORTAL_SPIN",
         "MOVE_POWER_GEM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MORTAL_SPIN",
-        "MOVE_POWER_GEM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MORTAL_SPIN",
-        "MOVE_SPIKES",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TOXIC",
-        "MOVE_POWER_GEM",
-        "MOVE_EARTH_POWER",
         "MOVE_STEALTH_ROCK"
       ],
-      "Ability": "ABILITY_CORROSION",
+      "Ability": "ABILITY_TOXIC_DEBRIS",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORTAL_SPIN",
+        "MOVE_POWER_GEM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

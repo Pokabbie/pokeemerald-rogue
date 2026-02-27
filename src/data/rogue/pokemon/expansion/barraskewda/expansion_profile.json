@@ -88,52 +88,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_FLIP_TURN",
-        "MOVE_AQUA_JET"
+        "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLIP_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_LIQUIDATION",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN8OU",
+        "GEN8OU,"
       ]
     },
     {
@@ -146,26 +111,8 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_JET",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN8NATIONALDEX,"
       ]
     },
     {
@@ -178,140 +125,8 @@
       "Ability": "ABILITY_PROPELLER_TAIL",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLIP_TURN",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLIP_TURN",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLIP_TURN",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHIC_FANGS",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_AQUA_JET",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN8VGC2020,"
       ]
     },
     {
@@ -324,10 +139,127 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9UU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLIP_TURN",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9RU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

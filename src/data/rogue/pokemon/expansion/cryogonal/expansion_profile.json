@@ -122,18 +122,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FREEZE_DRY",
         "MOVE_RAPID_SPIN",
         "MOVE_RECOVER",
-        "MOVE_FLASH_CANNON"
+        "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -147,137 +159,22 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
         "MOVE_FREEZE_DRY",
         "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_RECOVER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_RECOVER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FREEZE_DRY",
         "MOVE_RECOVER",
         "MOVE_FLASH_CANNON"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FREEZE_DRY",
-        "MOVE_RECOVER",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FREEZE_DRY",
-        "MOVE_RECOVER",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_NEVER_MELT_ICE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN6PU,"
       ]
     },
     {
@@ -291,9 +188,8 @@
       "Item": "ITEM_ICIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -307,9 +203,36 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
@@ -322,10 +245,65 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_FREEZE_DRY",
+        "MOVE_RECOVER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

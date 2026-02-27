@@ -114,6 +114,20 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
+        "MOVE_FAKE_OUT",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_AQUA_JET",
         "MOVE_FAKE_OUT",
         "MOVE_HYDRO_PUMP"
@@ -121,10 +135,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -137,26 +149,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FAKE_OUT",
-        "MOVE_WATERFALL",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -169,10 +163,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     }
   ]

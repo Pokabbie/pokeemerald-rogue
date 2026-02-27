@@ -119,54 +119,6 @@
     {
       "Moves": [
         "MOVE_GIGA_DRAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_RECOVER",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_RECOVER",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
         "MOVE_RECOVER",
         "MOVE_THUNDER_WAVE",
         "MOVE_STEALTH_ROCK"
@@ -174,10 +126,36 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
       ]
     },
     {
@@ -190,10 +168,179 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LEAF_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_AURA_SPHERE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
       ]
     },
     {
@@ -206,10 +353,22 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_RECOVER",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
@@ -222,10 +381,36 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_OCCA_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
       ]
     },
     {
@@ -239,265 +424,8 @@
       "Item": "ITEM_GROUNDIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTH_POWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_RECOVER",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_AURA_SPHERE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_EARTH_POWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_RECOVER",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_NASTY_PLOT",
-        "MOVE_EARTH_POWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_RECOVER",
-        "MOVE_LEECH_SEED",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_RECOVER",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LEAF_STORM",
-        "MOVE_PSYCHIC",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RECOVER",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK",
-        "MOVE_RECOVER",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_LEAF_BLADE"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     }
   ]

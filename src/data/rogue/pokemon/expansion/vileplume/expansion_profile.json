@@ -125,10 +125,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -142,9 +140,8 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -157,27 +154,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_CORROSIVE_GAS"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU",
-        "GEN8NU"
+        "GEN6NU,"
       ]
     },
     {
@@ -190,26 +168,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_POISONIUM_Z",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_STRENGTH_SAP"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN7RU,"
       ]
     },
     {
@@ -222,26 +182,23 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN7RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLUDGE_WAVE",
         "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
         "MOVE_STRENGTH_SAP",
-        "MOVE_LEECH_SEED"
+        "MOVE_CORROSIVE_GAS"
       ],
       "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN8RU",
+        "GEN8NU,"
       ]
     },
     {
@@ -254,10 +211,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN8RU,"
       ]
     },
     {
@@ -270,10 +225,38 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
+        "GEN8NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     }
   ]

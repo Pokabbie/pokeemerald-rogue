@@ -127,10 +127,22 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -143,58 +155,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -207,26 +169,50 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
         "MOVE_GIGA_DRAIN",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -239,10 +225,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

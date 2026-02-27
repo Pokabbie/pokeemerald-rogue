@@ -48,10 +48,9 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_PSYCHIC",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU"
+        "GEN7PU,"
       ]
     }
   ]

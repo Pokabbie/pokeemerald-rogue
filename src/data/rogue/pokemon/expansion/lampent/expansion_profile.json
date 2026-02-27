@@ -125,26 +125,22 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAUNT",
         "MOVE_FIRE_BLAST",
         "MOVE_SHADOW_BALL",
-        "MOVE_ENERGY_BALL"
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
       ],
       "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_EVIOLITE",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     }
   ]

@@ -107,118 +107,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RECYCLE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RECYCLE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_STEEL_BEAM"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_TERA_BLAST"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_CHARGE_BEAM",
-        "MOVE_FLASH_CANNON",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_MAGNET_PULL",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_WAVE",
-        "MOVE_RECYCLE",
-        "MOVE_PROTECT",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLASH_CANNON",
-        "MOVE_TERA_BLAST",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_MAGNET_PULL",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_THUNDERBOLT",
         "MOVE_FLASH_CANNON",
         "MOVE_VOLT_SWITCH",
@@ -227,10 +115,8 @@
       "Ability": "ABILITY_MAGNET_PULL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -243,43 +129,9 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLASH_CANNON",
-        "MOVE_RECYCLE",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLASH_CANNON",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -293,25 +145,8 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLASH_CANNON",
-        "MOVE_THUNDERBOLT",
-        "MOVE_STEEL_BEAM"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -325,9 +160,150 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STEEL_BEAM"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_RECYCLE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STEEL_BEAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECYCLE",
+        "MOVE_PROTECT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

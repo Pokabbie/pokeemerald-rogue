@@ -121,163 +121,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SLEEP_POWDER",
         "MOVE_GIGA_DRAIN",
         "MOVE_KNOCK_OFF",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
         "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_POWER_WHIP"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
+        "GEN6OU,"
       ]
     },
     {
@@ -291,41 +145,68 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_POWER_WHIP",
         "MOVE_KNOCK_OFF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLEEP_POWDER",
         "MOVE_GIGA_DRAIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
@@ -338,10 +219,109 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
       ]
     }
   ]

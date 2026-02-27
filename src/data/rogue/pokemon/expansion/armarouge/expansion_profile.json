@@ -130,6 +130,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AURA_SPHERE",
+        "MOVE_STORED_POWER",
+        "MOVE_ARMOR_CANNON"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ARMOR_CANNON",
         "MOVE_ENDURE",
         "MOVE_EXPANDING_FORCE",
@@ -138,10 +152,38 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_ARMOR_CANNON",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ARMOR_CANNON",
+        "MOVE_STORED_POWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     },
     {
@@ -154,10 +196,8 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9RU,"
       ]
     },
     {
@@ -170,90 +210,9 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ARMOR_CANNON",
-        "MOVE_PSYSHOCK",
-        "MOVE_ENERGY_BALL",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ARMOR_CANNON",
-        "MOVE_PSYSHOCK",
-        "MOVE_ENERGY_BALL",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_AURA_SPHERE",
-        "MOVE_STORED_POWER",
-        "MOVE_ARMOR_CANNON"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_AURA_SPHERE",
-        "MOVE_STORED_POWER",
-        "MOVE_ARMOR_CANNON"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -266,10 +225,36 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER",
+        "MOVE_STORED_POWER",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AURA_SPHERE",
+        "MOVE_STORED_POWER",
+        "MOVE_ARMOR_CANNON"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

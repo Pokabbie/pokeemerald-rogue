@@ -144,10 +144,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_CHILAN_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -160,10 +158,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_KASIB_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     }
   ]

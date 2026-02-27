@@ -133,22 +133,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_FLARE_BLITZ",
         "MOVE_CLOSE_COMBAT",
         "MOVE_MACH_PUNCH",
@@ -157,42 +141,36 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MACH_PUNCH",
+        "MOVE_SWORDS_DANCE",
         "MOVE_CLOSE_COMBAT",
         "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN"
+        "MOVE_MACH_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MACH_PUNCH",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_U_TURN"
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_MACH_PUNCH"
       ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_EVIOLITE",
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -206,9 +184,22 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
       ]
     },
     {
@@ -221,26 +212,22 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
+        "MOVE_MACH_PUNCH",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_MACH_PUNCH"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU,"
       ]
     }
   ]

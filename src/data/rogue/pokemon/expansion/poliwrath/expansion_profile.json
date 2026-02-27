@@ -98,263 +98,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_SUBSTITUTE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CIRCLE_THROW",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HYPNOSIS",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CIRCLE_THROW",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CIRCLE_THROW",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU",
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CIRCLE_THROW",
-        "MOVE_WATERFALL",
-        "MOVE_FOCUS_PUNCH",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_CIRCLE_THROW",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HYPNOSIS",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BELLY_DRUM"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_REST",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_REST",
         "MOVE_SLEEP_TALK",
         "MOVE_HYDRO_PUMP",
@@ -363,42 +106,37 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_HYPNOSIS",
-        "MOVE_WATERFALL",
-        "MOVE_SEISMIC_TOSS"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
         "MOVE_CIRCLE_THROW",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_PUNCH"
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6RU",
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
@@ -411,10 +149,90 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HYPNOSIS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CIRCLE_THROW",
+        "MOVE_WATERFALL",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CIRCLE_THROW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HYPNOSIS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_CIRCLE_THROW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_HYPNOSIS",
+        "MOVE_WATERFALL",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
       ]
     },
     {
@@ -424,13 +242,151 @@
         "MOVE_ICE_PUNCH",
         "MOVE_HYPNOSIS"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LETSGOOU"
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CIRCLE_THROW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_CIRCLE_THROW",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_REST",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

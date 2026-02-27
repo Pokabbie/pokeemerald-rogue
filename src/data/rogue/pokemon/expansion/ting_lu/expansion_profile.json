@@ -121,17 +121,75 @@
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_WHIRLWIND",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_RUINATION",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
       ],
       "Ability": "ABILITY_VESSEL_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -144,156 +202,8 @@
       "Ability": "ABILITY_VESSEL_OF_RUIN",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_REST",
-        "MOVE_RUINATION",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RUINATION",
-        "MOVE_SPIKES",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RUINATION",
-        "MOVE_SPIKES",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RUINATION",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RUINATION",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND",
-        "MOVE_SPIKES",
-        "MOVE_RUINATION"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RUINATION"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU",
-        "GEN9NATIONALDEX"
+        "GEN91V1,"
       ]
     },
     {
@@ -306,58 +216,9 @@
       "Ability": "ABILITY_VESSEL_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RUINATION",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_VESSEL_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9ANYTHINGGOES,"
       ]
     },
     {
@@ -370,10 +231,93 @@
       "Ability": "ABILITY_VESSEL_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

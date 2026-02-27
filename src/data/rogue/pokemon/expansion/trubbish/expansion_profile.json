@@ -110,66 +110,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_RECYCLE",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECYCLE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPIKES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_EXPLOSION",
-        "MOVE_GIGA_DRAIN"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PAIN_SPLIT"
       ],
       "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_EXPLOSION",
-        "MOVE_GUNK_SHOT",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -182,27 +132,51 @@
       "Ability": "ABILITY_STICKY_HOLD",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_RECYCLE",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_GUNK_SHOT",
-        "MOVE_PAIN_SPLIT"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_EXPLOSION",
+        "MOVE_GIGA_DRAIN"
       ],
       "Ability": "ABILITY_STICKY_HOLD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN8LC,"
       ]
     }
   ]

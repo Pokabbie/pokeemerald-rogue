@@ -110,11 +110,9 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -127,26 +125,8 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRILL_PECK",
-        "MOVE_DRILL_RUN",
-        "MOVE_U_TURN",
-        "MOVE_FOCUS_ENERGY"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -159,10 +139,22 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRILL_PECK",
+        "MOVE_DRILL_RUN",
+        "MOVE_U_TURN",
+        "MOVE_FOCUS_ENERGY"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

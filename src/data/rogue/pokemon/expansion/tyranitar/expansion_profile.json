@@ -181,311 +181,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PROTECT",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_STONE_EDGE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_ROCK_TOMB",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
         "MOVE_STEALTH_ROCK",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_LOW_KICK",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
+        "MOVE_PURSUIT",
         "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT"
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN6BATTLESPOTDOUBLES"
+        "GEN6UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
         "MOVE_STONE_EDGE",
         "MOVE_CRUNCH",
+        "MOVE_PURSUIT",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN6MONOTYPE"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -498,937 +217,37 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_TYRANITARITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS",
-        "GEN6UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
         "MOVE_STONE_EDGE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7OU",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_STONE_EDGE",
-        "MOVE_IRON_HEAD",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
         "MOVE_PURSUIT",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_ROCK_TOMB",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_LOW_KICK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE",
-        "MOVE_LOW_KICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_FOUL_PLAY",
-        "MOVE_REST",
-        "MOVE_ROCK_TOMB"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_FOUL_PLAY",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_FOUL_PLAY",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_BLAST",
-        "MOVE_CRUNCH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN6DOUBLESOU",
-        "GEN7DOUBLESOU",
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_DARKINIUM_Z",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_CRUNCH",
-        "MOVE_PURSUIT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PROTECT",
-        "MOVE_CRUNCH",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PROTECT",
         "MOVE_SUPERPOWER",
-        "MOVE_LASH_OUT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PURSUIT",
-        "MOVE_FOUL_PLAY",
-        "MOVE_EARTHQUAKE"
+        "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_TOMB",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1",
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_TOMB",
-        "MOVE_FOUL_PLAY",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_TOMB",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ROCK",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_TOMB",
-        "MOVE_ICE_PUNCH",
-        "MOVE_CRUNCH",
-        "MOVE_COUNTER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
         "MOVE_CRUNCH",
         "MOVE_SUPERPOWER",
         "MOVE_PURSUIT"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU",
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_BEAM",
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SMOOTH_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_BEAM",
-        "MOVE_ROAR",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SMOOTH_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_BEAM",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PURSUIT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_FOUL_PLAY",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_FOUL_PLAY",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_DRAGON_TAIL"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7OU"
+        "GEN6OU,"
       ]
     },
     {
@@ -1441,58 +260,168 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_DANCE",
         "MOVE_STONE_EDGE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_FIRE_BLAST"
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6OU",
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6DOUBLESOU",
+        "GEN7DOUBLESOU",
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROAR",
         "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
+      "Item": "ITEM_SMOOTH_ROCK",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
         "MOVE_STONE_EDGE",
-        "MOVE_FIRE_BLAST"
+        "MOVE_PURSUIT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7OU,"
       ]
     },
     {
@@ -1505,58 +434,397 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_TYRANITARITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STONE_EDGE",
         "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ENDURE"
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PURSUIT"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CUSTAP_BERRY",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_ICE_PUNCH",
+        "MOVE_CRUNCH",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_LOW_KICK",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_STONE_EDGE",
         "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UBERS",
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PURSUIT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH"
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SMOOTH_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -1569,26 +837,122 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STONE_EDGE",
         "MOVE_CRUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_DANCE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_TYRANITARITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018",
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1",
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_ROCK_TOMB",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
       ]
     },
     {
@@ -1601,75 +965,8 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_ICE_BEAM",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_PURSUIT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_PURSUIT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -1682,91 +979,37 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_PURSUIT",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS",
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
         "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_THUNDER_WAVE",
         "MOVE_FIRE_BLAST"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_SUPERPOWER",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_SUPERPOWER",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
         "MOVE_DRAGON_DANCE",
-        "MOVE_CRUNCH",
-        "MOVE_ICE_PUNCH"
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -1779,123 +1022,260 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_TYRANITARITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
         "MOVE_STONE_EDGE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_TYRANITARITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
         "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
         "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_STONE_EDGE",
-        "MOVE_ICE_PUNCH",
         "MOVE_CRUNCH",
-        "MOVE_SUPERPOWER"
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT",
+        "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_TYRANITARITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
         "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_BEAM",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
         "MOVE_EARTHQUAKE",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
       "Moves": [
+        "MOVE_DRAGON_DANCE",
         "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT",
-        "MOVE_ICE_PUNCH",
+        "MOVE_IRON_HEAD",
         "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN8BATTLESTADIUMSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STONE_EDGE",
-        "MOVE_PURSUIT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_FOUL_PLAY",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_BLAST",
+        "MOVE_CRUNCH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
         "MOVE_SUPERPOWER",
-        "MOVE_CRUNCH"
+        "MOVE_LASH_OUT"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ROCK_TOMB",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1,"
       ]
     },
     {
@@ -1908,10 +1288,381 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SMOOTH_ROCK",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_TYRANITARITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

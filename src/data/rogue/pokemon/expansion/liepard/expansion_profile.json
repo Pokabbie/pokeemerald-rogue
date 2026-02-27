@@ -106,48 +106,14 @@
       "Moves": [
         "MOVE_ENCORE",
         "MOVE_KNOCK_OFF",
-        "MOVE_COPYCAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_COPYCAT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BLACK_GLASSES",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6RU,"
       ]
     },
     {
@@ -160,42 +126,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_ENCORE",
-        "MOVE_FOUL_PLAY",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FOUL_PLAY",
-        "MOVE_ENCORE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6RU,"
       ]
     },
     {
@@ -208,42 +140,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BLACK_GLASSES",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_BLACK_GLASSES",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -256,74 +154,22 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
         "MOVE_RAIN_DANCE",
         "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_COPYCAT",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_ENCORE",
-        "MOVE_SUNNY_DAY"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_ENCORE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -336,26 +182,78 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BLACK_GLASSES",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DARK_PULSE",
-        "MOVE_COPYCAT",
-        "MOVE_ENCORE"
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_ENCORE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_COPYCAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -368,26 +266,50 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BLACK_GLASSES",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_KNOCK_OFF",
         "MOVE_RAIN_DANCE",
         "MOVE_ENCORE",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_COPYCAT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
       ]
     },
     {
@@ -400,10 +322,50 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_COPYCAT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_COPYCAT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

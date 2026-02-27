@@ -123,6 +123,20 @@
     {
       "Moves": [
         "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
         "MOVE_ROAR",
         "MOVE_SEED_BOMB",
         "MOVE_SYNTHESIS"
@@ -130,42 +144,8 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_SYNTHESIS",
-        "MOVE_ROAR",
-        "MOVE_SEED_BOMB"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_SYNTHESIS",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_SUPER_FANG"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -178,26 +158,36 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_TAUNT",
-        "MOVE_WOOD_HAMMER",
-        "MOVE_ZEN_HEADBUTT"
+        "MOVE_SYNTHESIS",
+        "MOVE_ROAR",
+        "MOVE_SEED_BOMB"
       ],
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

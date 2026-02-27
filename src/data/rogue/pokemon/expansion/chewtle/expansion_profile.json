@@ -82,10 +82,9 @@
       "Ability": "ABILITY_STRONG_JAW",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

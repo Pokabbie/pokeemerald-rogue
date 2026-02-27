@@ -165,82 +165,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
         "MOVE_FOCUS_BLAST",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST",
         "MOVE_HEALING_WISH"
       ],
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_PSYSHOCK",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_FILTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU",
+        "GEN7ZU,"
       ]
     },
     {
@@ -253,75 +202,8 @@
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_TRICK",
-        "MOVE_HEALING_WISH"
-      ],
-      "Ability": "ABILITY_FILTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -334,10 +216,106 @@
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

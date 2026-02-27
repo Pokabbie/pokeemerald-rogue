@@ -86,10 +86,8 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

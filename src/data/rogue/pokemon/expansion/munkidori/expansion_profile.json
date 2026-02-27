@@ -111,18 +111,47 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_PSYSHOCK",
+        "MOVE_GRASS_KNOT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_SLUDGE_WAVE",
         "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYSHOCK",
+        "MOVE_U_TURN",
         "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_TOXIC_CHAIN",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
       ]
     },
     {
@@ -135,58 +164,8 @@
       "Ability": "ABILITY_TOXIC_CHAIN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_PSYSHOCK",
-        "MOVE_GRASS_KNOT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN9MONOTYPE,"
       ]
     }
   ]

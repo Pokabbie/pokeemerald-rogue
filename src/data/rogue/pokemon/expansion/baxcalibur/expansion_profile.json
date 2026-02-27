@@ -123,50 +123,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_SHARD",
         "MOVE_ICICLE_SPEAR",
-        "MOVE_GLAIVE_RUSH"
-      ],
-      "Ability": "ABILITY_THERMAL_EXCHANGE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_GLAIVE_RUSH",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_EARTHQUAKE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
       ],
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9UBERS,"
       ]
     },
     {
       "Moves": [
-        "MOVE_GLAIVE_RUSH",
-        "MOVE_ICE_SHARD",
-        "MOVE_ICICLE_CRASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SCALE_SHOT",
         "MOVE_DRAGON_DANCE"
       ],
       "Ability": "ABILITY_THERMAL_EXCHANGE",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN9UBERS,"
       ]
     },
     {
@@ -179,58 +160,9 @@
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_CLEAR_AMULET",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_GLAIVE_RUSH"
-      ],
-      "Ability": "ABILITY_THERMAL_EXCHANGE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SCALE_SHOT",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_THERMAL_EXCHANGE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_GLAIVE_RUSH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_THERMAL_EXCHANGE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -243,10 +175,8 @@
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9DOUBLESOU,"
       ]
     },
     {
@@ -259,10 +189,9 @@
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
       ]
     },
     {
@@ -275,10 +204,66 @@
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GLAIVE_RUSH",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_THERMAL_EXCHANGE",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_GLAIVE_RUSH"
+      ],
+      "Ability": "ABILITY_THERMAL_EXCHANGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_GLAIVE_RUSH"
+      ],
+      "Ability": "ABILITY_THERMAL_EXCHANGE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GLAIVE_RUSH",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_THERMAL_EXCHANGE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

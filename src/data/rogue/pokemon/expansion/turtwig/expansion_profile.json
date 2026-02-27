@@ -108,22 +108,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_TERA_BLAST",
-        "MOVE_EARTH_POWER",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_SYNTHESIS",
         "MOVE_BULLET_SEED",
@@ -132,11 +116,23 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_TERA_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

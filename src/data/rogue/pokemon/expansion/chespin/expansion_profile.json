@@ -112,18 +112,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_SPIKES",
+        "MOVE_SEED_BOMB",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -136,10 +134,8 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -152,42 +148,8 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_BULLET_SEED",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_SEED_BOMB",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -200,10 +162,37 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

@@ -127,65 +127,90 @@
     {
       "Moves": [
         "MOVE_KNOCK_OFF",
-        "MOVE_FOUL_PLAY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RUINATION",
         "MOVE_LEECH_SEED",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_TABLETS_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_KNOCK_OFF",
         "MOVE_FOUL_PLAY",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
         "MOVE_PROTECT",
-        "MOVE_LEECH_SEED"
+        "MOVE_RUINATION"
       ],
       "Ability": "ABILITY_TABLETS_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9PU,"
       ]
     },
     {
       "Moves": [
         "MOVE_LEECH_SEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BODY_PRESS",
-        "MOVE_RUINATION"
-      ],
-      "Ability": "ABILITY_TABLETS_OF_RUIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEECH_SEED",
-        "MOVE_KNOCK_OFF",
         "MOVE_PROTECT",
-        "MOVE_RUINATION"
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY"
       ],
       "Ability": "ABILITY_TABLETS_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9PU,"
       ]
     },
     {
@@ -198,10 +223,23 @@
       "Ability": "ABILITY_TABLETS_OF_RUIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES"
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_PRESS",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
       ]
     }
   ]

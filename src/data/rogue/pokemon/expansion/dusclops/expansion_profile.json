@@ -90,7 +90,6 @@
     "MOVE_CONFUSE_RAY",
     "MOVE_CURSE",
     "MOVE_DARK_PULSE",
-    "MOVE_EARTHQUAKE",
     "MOVE_ENDURE",
     "MOVE_FACADE",
     "MOVE_FIRE_PUNCH",
@@ -115,7 +114,6 @@
     "MOVE_PAIN_SPLIT",
     "MOVE_PHANTOM_FORCE",
     "MOVE_POLTERGEIST",
-    "MOVE_POWER_UP_PUNCH",
     "MOVE_PROTECT",
     "MOVE_PSYCH_UP",
     "MOVE_PSYCHIC",
@@ -140,6 +138,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_REST",
         "MOVE_WILL_O_WISP",
@@ -148,170 +160,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_UP_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SEISMIC_TOSS"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SPITE",
-        "MOVE_MEAN_LOOK",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_REST",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_WILL_O_WISP",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_NIGHT_SHADE",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_ALLY_SWITCH"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_ALLY_SWITCH",
-        "MOVE_CURSE"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_CURSE",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_HAZE",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_NIGHT_SHADE",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -324,26 +174,64 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
         "MOVE_WILL_O_WISP",
         "MOVE_PAIN_SPLIT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_HEX"
+        "MOVE_CURSE",
+        "MOVE_TRICK_ROOM"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SPITE",
+        "MOVE_MEAN_LOOK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -356,10 +244,92 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_REST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_ALLY_SWITCH",
+        "MOVE_CURSE"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_HAZE",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_ALLY_SWITCH"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

@@ -48,5 +48,20 @@
     "MOVE_THUNDER_WAVE",
     "MOVE_THUNDERBOLT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ACID_ARMOR",
+        "MOVE_REST",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    }
+  ]
 }

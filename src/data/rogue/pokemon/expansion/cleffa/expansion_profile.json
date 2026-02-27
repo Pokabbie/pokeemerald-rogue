@@ -102,11 +102,9 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

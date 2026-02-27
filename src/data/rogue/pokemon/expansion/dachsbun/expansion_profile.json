@@ -109,18 +109,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_ROAR",
         "MOVE_WISH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_PROTECT",
-        "MOVE_BODY_PRESS"
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_WELL_BAKED_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU,"
       ]
     },
     {
@@ -133,26 +132,22 @@
       "Ability": "ABILITY_WELL_BAKED_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
       ]
     },
     {
       "Moves": [
         "MOVE_WISH",
-        "MOVE_PROTECT",
         "MOVE_PLAY_ROUGH",
-        "MOVE_ROAR"
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS"
       ],
       "Ability": "ABILITY_WELL_BAKED_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9PU,"
       ]
     }
   ]

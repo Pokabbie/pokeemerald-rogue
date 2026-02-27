@@ -127,22 +127,6 @@
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_KNOCK_OFF",
         "MOVE_PURSUIT",
         "MOVE_STONE_EDGE"
@@ -150,26 +134,22 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
         "MOVE_EARTHQUAKE",
         "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -182,10 +162,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -198,26 +176,22 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_EARTHQUAKE",
         "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -230,10 +204,22 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

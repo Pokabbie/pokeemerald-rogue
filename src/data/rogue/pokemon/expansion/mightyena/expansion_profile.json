@@ -136,6 +136,22 @@
     {
       "Moves": [
         "MOVE_CRUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6ZU",
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
         "MOVE_PLAY_ROUGH",
         "MOVE_SUCKER_PUNCH",
         "MOVE_IRON_TAIL"
@@ -143,10 +159,8 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -159,43 +173,8 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_BLACK_GLASSES",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7PU"
+        "GEN7ZU,"
       ]
     }
   ]

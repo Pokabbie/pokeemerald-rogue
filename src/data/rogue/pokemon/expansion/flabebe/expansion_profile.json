@@ -106,22 +106,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
-        "MOVE_MOONBLAST",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_FLOWER_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_SYNTHESIS",
         "MOVE_MOONBLAST",
         "MOVE_PSYCHIC"
@@ -129,10 +113,22 @@
       "Ability": "ABILITY_FLOWER_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FLOWER_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

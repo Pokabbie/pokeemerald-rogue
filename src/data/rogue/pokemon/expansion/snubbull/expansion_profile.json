@@ -144,6 +144,34 @@
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
         "MOVE_CLOSE_COMBAT",
         "MOVE_FIRE_PUNCH",
         "MOVE_THUNDER_WAVE"
@@ -151,10 +179,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -167,26 +193,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THIEF",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -199,74 +207,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_PSYCHIC_FANGS",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_THIEF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_THIEF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_THIEF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_THIEF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -279,10 +221,51 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THIEF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THIEF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

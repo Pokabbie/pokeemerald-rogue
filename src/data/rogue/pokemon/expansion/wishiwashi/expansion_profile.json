@@ -111,9 +111,8 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
@@ -126,10 +125,8 @@
       "Ability": "ABILITY_SCHOOLING",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -142,10 +139,8 @@
       "Ability": "ABILITY_SCHOOLING",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     },
     {
@@ -158,10 +153,8 @@
       "Ability": "ABILITY_SCHOOLING",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     }
   ]

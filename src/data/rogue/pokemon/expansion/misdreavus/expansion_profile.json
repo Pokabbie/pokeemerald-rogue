@@ -120,18 +120,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_WILL_O_WISP",
         "MOVE_TAUNT",
+        "MOVE_FOUL_PLAY",
         "MOVE_PAIN_SPLIT"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -145,73 +157,8 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_MEAN_LOOK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_MEMENTO"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_DRAINING_KISS",
-        "MOVE_HEX",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_TAUNT",
-        "MOVE_FOUL_PLAY",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -224,10 +171,50 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_MEAN_LOOK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_DRAINING_KISS",
+        "MOVE_HEX",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     }
   ]

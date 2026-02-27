@@ -122,22 +122,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_SLAM",
-        "MOVE_MILK_DRINK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_MILK_DRINK",
         "MOVE_BODY_SLAM",
         "MOVE_HEAL_BELL",
@@ -146,75 +130,37 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MILK_DRINK",
         "MOVE_BODY_SLAM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_MILK_DRINK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_MILK_DRINK",
+        "MOVE_STEALTH_ROCK",
         "MOVE_SEISMIC_TOSS",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_MILK_DRINK",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEAL_BELL"
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MILK_DRINK",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7NU,"
       ]
     },
     {
@@ -227,10 +173,64 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_BODY_SLAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -243,26 +243,8 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_MILK_DRINK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN8ZU,"
       ]
     }
   ]

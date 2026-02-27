@@ -107,34 +107,16 @@
     {
       "Moves": [
         "MOVE_LEAF_STORM",
-        "MOVE_DEFOG",
-        "MOVE_SYNTHESIS",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7PU",
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_ENERGY_BALL",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -147,74 +129,8 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SYNTHESIS",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SYNTHESIS",
-        "MOVE_GLARE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SYNTHESIS",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -228,9 +144,83 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DEFOG",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SYNTHESIS",
+        "MOVE_GLARE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
       ]
     }
   ]

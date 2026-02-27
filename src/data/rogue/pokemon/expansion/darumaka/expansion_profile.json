@@ -112,33 +112,15 @@
       "Moves": [
         "MOVE_FLARE_BLITZ",
         "MOVE_U_TURN",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
         "MOVE_ROCK_SLIDE",
         "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -151,11 +133,23 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

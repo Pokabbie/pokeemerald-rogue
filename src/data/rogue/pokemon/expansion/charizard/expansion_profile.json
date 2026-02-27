@@ -145,66 +145,151 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_BLAST_BURN"
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN6OU",
+        "GEN8NATIONALDEX,"
       ]
     },
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
         "MOVE_FIRE_BLAST",
-        "MOVE_HOLD_HANDS",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_NORMALIUM_Z",
+      "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN6OU",
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_BELLY_DRUM"
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROOST",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8OU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FIRE_BLAST"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7RU"
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROOST",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROOST",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU,"
       ]
     },
     {
@@ -217,432 +302,8 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_ROOST",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SCORCHING_SANDS"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_WEATHER_BALL",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BELLY_DRUM",
-        "MOVE_ACROBATICS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLAST_BURN",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLAST_BURN",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_CLAW",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_CLAW",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7OU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_OUTRAGE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_OUTRAGE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_TAIL",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_ROOST"
-      ],
-      "Ability": null,
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU",
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": null,
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU",
-        "GEN7LETSGOOU"
+        "GEN6RU,"
       ]
     },
     {
@@ -656,257 +317,138 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
         "MOVE_WILL_O_WISP",
         "MOVE_ROOST"
       ],
-      "Ability": null,
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_BLAZE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LETSGOOU",
-        "GEN7LETSGOOU"
+        "GEN6NU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
         "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
         "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_DEFOG"
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN6MONOTYPE",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN6MONOTYPE",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAME_CHARGE",
-        "MOVE_OUTRAGE",
         "MOVE_FLARE_BLITZ",
-        "MOVE_WILL_O_WISP"
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAME_CHARGE",
-        "MOVE_OUTRAGE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_WILL_O_WISP"
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_AIR_SLASH",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_AIR_SLASH",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_BELLY_DRUM",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_DRAGON_PULSE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_OVERHEAT",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FOCUS_BLAST",
         "MOVE_SOLAR_BEAM",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_ROOST"
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_HURRICANE",
-        "MOVE_FOCUS_BLAST",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -919,11 +461,68 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN61V1",
+        "GEN61V1",
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -936,271 +535,366 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRAGON_DANCE",
         "MOVE_ROOST"
       ],
-      "Ability": "ABILITY_BLAZE",
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_SCORCHING_SANDS",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
+        "MOVE_SUBSTITUTE",
         "MOVE_DRAGON_DANCE",
-        "MOVE_PROTECT"
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ"
       ],
-      "Ability": "ABILITY_BLAZE",
+      "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6DOUBLESOU"
+        "GEN61V1",
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
         "MOVE_DRAGON_DANCE",
-        "MOVE_PROTECT"
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6DOUBLESOU"
+        "GEN61V1",
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_OUTRAGE",
         "MOVE_FLARE_BLITZ",
         "MOVE_FLAME_CHARGE",
-        "MOVE_OUTRAGE",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_DRAGON_DANCE"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN61V1",
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_OUTRAGE",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_BELLY_DRUM"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_PROTECT",
+        "MOVE_COUNTER",
         "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW"
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_PROTECT",
-        "MOVE_ROOST",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
         "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHARIZARDITE_X",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_AIR_SLASH",
-        "MOVE_PROTECT",
-        "MOVE_SOLAR_BEAM"
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_PROTECT",
         "MOVE_SOLAR_BEAM",
-        "MOVE_TAILWIND"
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_AIR_SLASH"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN6ANYTHINGGOES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAT_WAVE",
+        "MOVE_FIRE_BLAST",
         "MOVE_SOLAR_BEAM",
-        "MOVE_AIR_SLASH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN6MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEAT_WAVE",
+        "MOVE_FIRE_BLAST",
         "MOVE_SOLAR_BEAM",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAT_WAVE",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU,"
       ]
     },
     {
@@ -1214,137 +908,135 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SCORCHING_SANDS",
-        "MOVE_WILL_O_WISP"
+        "MOVE_AIR_SLASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HOLD_HANDS",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN7NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_PROTECT",
         "MOVE_HEAT_WAVE",
         "MOVE_SOLAR_BEAM",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DEFOG",
-        "MOVE_AIR_SLASH"
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7DOUBLESOU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
-        "MOVE_FLAMETHROWER",
-        "MOVE_HURRICANE",
-        "MOVE_WILL_O_WISP"
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_BLAST_BURN",
-        "MOVE_AIR_SLASH",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP",
         "MOVE_ROOST",
-        "MOVE_FLAMETHROWER"
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE"
       ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_AIR_SLASH"
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
       ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -1358,58 +1050,317 @@
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
         "MOVE_SOLAR_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT",
-        "MOVE_FIRE_BLAST"
+        "MOVE_TAILWIND"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_ROOST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLAST_BURN",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLAST_BURN",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN71V1,"
       ]
     },
     {
       "Moves": [
         "MOVE_SOLAR_BEAM",
+        "MOVE_BLAST_BURN",
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_TAIL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_ROOST"
+      ],
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST"
+      ],
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_AIR_SLASH",
         "MOVE_FLAMETHROWER",
-        "MOVE_ROOST",
+        "MOVE_ROOST"
+      ],
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAMETHROWER",
         "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARIZARDITE_Y",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU",
-        "GEN7OU"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_HEAT_WAVE",
-        "MOVE_AIR_SLASH",
-        "MOVE_PROTECT"
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ROOST"
       ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARIZARDITE_Y",
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6DOUBLESOU"
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU,"
       ]
     },
     {
@@ -1422,269 +1373,36 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN8RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ACROBATICS",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_OUTRAGE",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_OUTRAGE",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROOST",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
-        "MOVE_OVERHEAT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
+        "MOVE_AIR_SLASH",
         "MOVE_SOLAR_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WEATHER_BALL",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_SCORCHING_SANDS",
-        "MOVE_FIRE_BLAST"
+        "MOVE_OVERHEAT"
       ],
-      "Ability": "ABILITY_SOLAR_POWER",
+      "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN8NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_WEATHER_BALL",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_SCORCHING_SANDS",
-        "MOVE_ROOST"
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_Y",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_ROOST",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_ROOST",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_CHARIZARDITE_X",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN8PU,"
       ]
     },
     {
@@ -1697,10 +1415,278 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DEFOG",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BLAST_BURN"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_AIR_SLASH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_AIR_SLASH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_OVERHEAT",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_BELLY_DRUM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_X",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARIZARDITE_Y",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

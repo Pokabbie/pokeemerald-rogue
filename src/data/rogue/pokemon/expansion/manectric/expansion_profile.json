@@ -113,67 +113,211 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ENDURE",
-        "MOVE_MAGNET_RISE",
+        "MOVE_VOLT_SWITCH",
         "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLAMETHROWER",
         "MOVE_OVERHEAT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER"
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6BATTLESPOTDOUBLES,"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
         "MOVE_OVERHEAT",
-        "MOVE_SIGNAL_BEAM"
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN61V1"
+        "GEN6BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016,"
       ]
     },
     {
@@ -187,476 +331,38 @@
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1"
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_MAGNET_RISE",
         "MOVE_THUNDERBOLT",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLAMETHROWER",
         "MOVE_OVERHEAT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN61V1",
+        "GEN61V1,"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_PROTECT",
-        "MOVE_SNARL",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_PROTECT",
-        "MOVE_THUNDER",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SNARL",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SNARL",
-        "MOVE_OVERHEAT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
         "MOVE_THUNDERBOLT",
         "MOVE_FLAMETHROWER",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_OVERHEAT",
+        "MOVE_SIGNAL_BEAM"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU",
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MANECTITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN61V1,"
       ]
     },
     {
@@ -670,9 +376,212 @@
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SNARL",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SNARL",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PROTECT",
+        "MOVE_SNARL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
       ]
     },
     {
@@ -686,25 +595,81 @@
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
         "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
         "MOVE_HIDDEN_POWER",
-        "MOVE_OVERHEAT"
+        "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MANECTITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     },
     {
@@ -717,10 +682,8 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8ZU,"
       ]
     }
   ]

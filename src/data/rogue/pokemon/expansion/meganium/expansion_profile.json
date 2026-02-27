@@ -129,22 +129,6 @@
     {
       "Moves": [
         "MOVE_AROMATHERAPY",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SYNTHESIS",
-        "MOVE_DRAGON_TAIL"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AROMATHERAPY",
         "MOVE_SYNTHESIS",
         "MOVE_GIGA_DRAIN",
         "MOVE_DRAGON_TAIL"
@@ -152,10 +136,8 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -168,43 +150,9 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SYNTHESIS",
-        "MOVE_AROMATHERAPY",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SERIOUS",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PETAL_BLIZZARD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN7ZU,"
       ]
     },
     {
@@ -217,10 +165,50 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PETAL_BLIZZARD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AROMATHERAPY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_AROMATHERAPY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SERIOUS",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     }
   ]

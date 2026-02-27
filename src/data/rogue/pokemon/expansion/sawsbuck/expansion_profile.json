@@ -117,34 +117,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DOUBLE_EDGE",
+        "MOVE_SWORDS_DANCE",
         "MOVE_HORN_LEECH",
-        "MOVE_JUMP_KICK",
-        "MOVE_HEADBUTT"
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_JUMP_KICK"
       ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU",
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DOUBLE_EDGE",
         "MOVE_HORN_LEECH",
+        "MOVE_SWORDS_DANCE",
         "MOVE_JUMP_KICK",
         "MOVE_MEGAHORN"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -157,26 +154,8 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HORN_LEECH",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_JUMP_KICK",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU,"
       ]
     },
     {
@@ -189,74 +168,36 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_HORN_LEECH",
-        "MOVE_JUMP_KICK",
         "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_DOUBLE_EDGE",
         "MOVE_HORN_LEECH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_HEADBUTT",
-        "MOVE_HIGH_HORSEPOWER"
+        "MOVE_JUMP_KICK"
       ],
-      "Ability": "ABILITY_SERENE_GRACE",
+      "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN6ZU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_DOUBLE_EDGE",
         "MOVE_HORN_LEECH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_JUMP_KICK",
-        "MOVE_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HORN_LEECH",
-        "MOVE_SWORDS_DANCE",
         "MOVE_JUMP_KICK",
         "MOVE_MEGAHORN"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -269,43 +210,78 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
         "MOVE_HORN_LEECH",
-        "MOVE_JUMP_KICK"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_JUMP_KICK",
+        "MOVE_HEADBUTT"
       ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LIFE_ORB",
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HORN_LEECH",
+        "MOVE_JUMP_KICK",
+        "MOVE_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_HORN_LEECH",
         "MOVE_DOUBLE_EDGE",
-        "MOVE_JUMP_KICK"
+        "MOVE_JUMP_KICK",
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_JUMP_KICK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HEADBUTT",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU",
-        "GEN6PU"
+        "GEN9PU,"
       ]
     }
   ]

@@ -122,10 +122,8 @@
       "Ability": "ABILITY_STAKEOUT",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

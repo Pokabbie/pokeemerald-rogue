@@ -111,34 +111,44 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLIP_TURN",
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HYDRO_PUMP",
-        "MOVE_RAPID_SPIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_TOXIC_SPIKES"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HAZE",
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_LIQUID_OOZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC,"
       ]
     },
     {
@@ -151,10 +161,36 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     },
     {
@@ -168,41 +204,22 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_HAZE",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_LIQUID_OOZE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
         "MOVE_HYDRO_PUMP",
-        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC_SPIKES",
         "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_LIQUID_OOZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN7LC,"
       ]
     },
     {
@@ -215,74 +232,22 @@
       "Ability": "ABILITY_LIQUID_OOZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN8LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
         "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LIQUID_OOZE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_LIQUID_OOZE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_KNOCK_OFF",
-        "MOVE_HYDRO_PUMP",
         "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_LIQUID_OOZE",
-      "Item": "ITEM_BERRY_JUICE",
+      "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LIQUID_OOZE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC,"
       ]
     }
   ]

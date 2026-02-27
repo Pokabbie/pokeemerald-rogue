@@ -129,18 +129,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SUBSTITUTE",
         "MOVE_ACROBATICS",
-        "MOVE_SHADOW_BALL",
         "MOVE_WILL_O_WISP",
-        "MOVE_DESTINY_BOND"
+        "MOVE_HEX"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6NU,"
       ]
     },
     {
@@ -153,58 +151,8 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_LIECHI_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BATON_PASS",
-        "MOVE_MINIMIZE",
-        "MOVE_STOCKPILE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BATON_PASS",
-        "MOVE_MINIMIZE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BATON_PASS",
-        "MOVE_MINIMIZE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN6PU,"
       ]
     },
     {
@@ -218,57 +166,36 @@
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
+        "MOVE_ACROBATICS",
         "MOVE_SHADOW_BALL",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_ELECTRIC_SEED",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_STRENGTH_SAP",
         "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
+        "MOVE_DESTINY_BOND"
       ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DESTINY_BOND",
-        "MOVE_SHADOW_BALL",
-        "MOVE_PHANTOM_FORCE",
-        "MOVE_ACROBATICS"
+        "MOVE_BATON_PASS",
+        "MOVE_MINIMIZE",
+        "MOVE_STOCKPILE",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -281,154 +208,8 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_ACROBATICS",
-        "MOVE_DESTINY_BOND",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_TAILWIND",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_GUST"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_TAILWIND",
-        "MOVE_WILL_O_WISP",
-        "MOVE_DISABLE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_PSYCHIC_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_TAILWIND",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SUNNY_DAY"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_PSYCHIC_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STRENGTH_SAP",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STRENGTH_SAP",
-        "MOVE_SHADOW_BALL",
-        "MOVE_WILL_O_WISP",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ACROBATICS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ACROBATICS",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN7RU,"
       ]
     },
     {
@@ -442,9 +223,221 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ACROBATICS",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAILWIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAILWIND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAILWIND",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GUST"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DEFOG",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_MINIMIZE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_MINIMIZE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

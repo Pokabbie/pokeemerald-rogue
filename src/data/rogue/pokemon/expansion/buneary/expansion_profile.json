@@ -125,70 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEALING_WISH",
-        "MOVE_RETURN",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RETURN",
         "MOVE_DRAIN_PUNCH",
         "MOVE_HEALING_WISH",
@@ -197,26 +133,8 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPLASH",
-        "MOVE_RETURN",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -229,10 +147,78 @@
       "Ability": "ABILITY_KLUTZ",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPLASH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC,"
       ]
     }
   ]

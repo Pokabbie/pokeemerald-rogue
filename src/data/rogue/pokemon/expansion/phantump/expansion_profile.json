@@ -118,18 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FORESTS_CURSE",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_HORN_LEECH",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HORN_LEECH"
       ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -142,10 +140,8 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -158,26 +154,22 @@
       "Ability": "ABILITY_HARVEST",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_LEECH_SEED",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HORN_LEECH"
+        "MOVE_FORESTS_CURSE",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_SLIDE"
       ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_ORAN_BERRY",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

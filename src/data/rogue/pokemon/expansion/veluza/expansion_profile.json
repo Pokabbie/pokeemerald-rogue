@@ -100,18 +100,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_FILLET_AWAY",
         "MOVE_AQUA_CUTTER",
         "MOVE_PSYCHO_CUT",
-        "MOVE_FILLET_AWAY",
-        "MOVE_NIGHT_SLASH"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_SHARPNESS",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU,"
       ]
     },
     {
@@ -124,10 +123,22 @@
       "Ability": "ABILITY_SHARPNESS",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_CUTTER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_FILLET_AWAY",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU,"
       ]
     },
     {
@@ -140,11 +151,9 @@
       "Ability": "ABILITY_SHARPNESS",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU",
-        "GEN9ZU"
+        "GEN9ZU,"
       ]
     }
   ]

@@ -65,8 +65,6 @@
     }
   ],
   "TutorMoves": [
-    "MOVE_BEAT_UP",
-    "MOVE_BLOCK",
     "MOVE_BULLET_SEED",
     "MOVE_CONFUSE_RAY",
     "MOVE_CURSE",
@@ -93,7 +91,6 @@
     "MOVE_SCARY_FACE",
     "MOVE_SEED_BOMB",
     "MOVE_SHADOW_BALL",
-    "MOVE_SHADOW_SNEAK",
     "MOVE_SKITTER_SMACK",
     "MOVE_SLEEP_TALK",
     "MOVE_SOLAR_BEAM",
@@ -108,114 +105,46 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_POLTERGEIST",
         "MOVE_POWER_WHIP",
-        "MOVE_RAPID_SPIN",
         "MOVE_STRENGTH_SAP"
       ],
       "Ability": "ABILITY_WIND_RIDER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9RU,"
       ]
     },
     {
       "Moves": [
         "MOVE_POLTERGEIST",
         "MOVE_POWER_WHIP",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_TERA_BLAST"
+        "MOVE_STRENGTH_SAP",
+        "MOVE_RAPID_SPIN"
       ],
-      "Ability": "ABILITY_WIND_RIDER",
-      "Item": "ITEM_CHOICE_BAND",
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9NU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_WIND_RIDER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
+        "MOVE_LEECH_SEED",
         "MOVE_POLTERGEIST",
-        "MOVE_POWER_WHIP",
+        "MOVE_RAPID_SPIN",
         "MOVE_STRENGTH_SAP"
       ],
-      "Ability": "ABILITY_WIND_RIDER",
+      "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_POLTERGEIST",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_WIND_RIDER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_POWER_WHIP",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_POLTERGEIST"
-      ],
-      "Ability": "ABILITY_WIND_RIDER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_SPIKES",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_POLTERGEIST"
-      ],
-      "Ability": "ABILITY_WIND_RIDER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9NU,"
       ]
     },
     {
@@ -228,10 +157,50 @@
       "Ability": "ABILITY_WIND_RIDER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

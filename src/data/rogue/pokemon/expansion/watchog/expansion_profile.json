@@ -150,11 +150,9 @@
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU"
+        "GEN7PU,"
       ]
     }
   ]

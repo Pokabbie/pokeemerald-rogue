@@ -103,17 +103,16 @@
     {
       "Moves": [
         "MOVE_FLAMETHROWER",
-        "MOVE_SLACK_OFF",
         "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF",
         "MOVE_ROAR"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9NU,"
       ]
     }
   ]

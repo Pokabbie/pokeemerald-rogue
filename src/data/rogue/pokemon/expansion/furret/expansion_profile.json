@@ -129,18 +129,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_TIDY_UP",
-        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
         "MOVE_DOUBLE_EDGE",
-        "MOVE_U_TURN"
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRICK"
       ],
       "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN6PU,"
       ]
     },
     {
@@ -153,26 +151,22 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_DOUBLE_EDGE",
+        "MOVE_TIDY_UP",
         "MOVE_KNOCK_OFF",
-        "MOVE_TRICK"
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN9PU,"
       ]
     }
   ]

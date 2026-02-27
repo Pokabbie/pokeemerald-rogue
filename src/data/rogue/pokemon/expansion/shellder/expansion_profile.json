@@ -99,102 +99,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_ROCK_BLAST",
-        "MOVE_LIQUIDATION",
-        "MOVE_SHELL_SMASH"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_ROCK_BLAST",
-        "MOVE_SHELL_SMASH",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_BLAST",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_BLAST",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_ROCK_BLAST",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_ROCK_BLAST",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SHELL_SMASH",
         "MOVE_ICICLE_SPEAR",
         "MOVE_ROCK_BLAST",
@@ -203,10 +107,93 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     },
     {
@@ -219,10 +206,8 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9LC"
+        "GEN9LC,"
       ]
     }
   ]

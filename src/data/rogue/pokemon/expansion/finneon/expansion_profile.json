@@ -106,11 +106,10 @@
       ],
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_BOLD",
+      "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -122,11 +121,10 @@
       ],
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_TIMID",
+      "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
       ]
     }
   ]

@@ -149,34 +149,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_GRASS_KNOT"
+        "MOVE_ROAR",
+        "MOVE_YAWN",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PETAYA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_FLASH_CANNON",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROOST"
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DEFOG"
       ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN6UU,"
       ]
     },
     {
@@ -189,42 +185,36 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_HYDRO_CANNON",
+        "MOVE_AGILITY",
+        "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_ENDURE"
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_ICE_BEAM",
         "MOVE_HYDRO_PUMP",
-        "MOVE_SURF"
+        "MOVE_DEFOG",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ICE_BEAM"
       ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN6UU,"
       ]
     },
     {
@@ -237,218 +227,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_CANNON",
-        "MOVE_LASER_FOCUS",
-        "MOVE_ICY_WIND",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_CANNON",
-        "MOVE_LASER_FOCUS",
-        "MOVE_YAWN",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DEFOG",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DEFOG",
-        "MOVE_YAWN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_FLASH_CANNON",
-        "MOVE_ROOST",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLASH_CANNON",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ROAR",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ROAR",
-        "MOVE_YAWN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_SURF",
-        "MOVE_FLASH_CANNON",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_SURF",
-        "MOVE_FLIP_TURN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN61V1,"
       ]
     },
     {
@@ -461,75 +241,51 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN7MONOTYPE"
+        "GEN7MONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SURF",
-        "MOVE_FLASH_CANNON",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_GRASS_KNOT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_KNOCK_OFF",
-        "MOVE_FLIP_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_COMPETITIVE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_ROOST",
         "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF"
+        "MOVE_FLASH_CANNON"
       ],
-      "Ability": "ABILITY_COMPETITIVE",
+      "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN6MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DEFOG",
+        "MOVE_YAWN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU,"
       ]
     },
     {
@@ -542,10 +298,221 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_LASER_FOCUS",
+        "MOVE_YAWN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_LASER_FOCUS",
+        "MOVE_ICY_WIND",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SURF",
+        "MOVE_FLIP_TURN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_HAZE",
+        "MOVE_FLIP_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SURF",
+        "MOVE_FLIP_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SURF",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLIP_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SURF",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_FLASH_CANNON",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ROOST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

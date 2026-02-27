@@ -99,65 +99,16 @@
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
-        "MOVE_JUMP_KICK",
         "MOVE_KNOCK_OFF",
-        "MOVE_QUICK_ATTACK"
+        "MOVE_RETURN",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_JUMP_KICK",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_EARLY_BIRD",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_JUMP_KICK",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_EARLY_BIRD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_EARLY_BIRD",
-      "Item": "ITEM_SKY_PLATE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -170,26 +121,65 @@
       "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
       ]
     },
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_KNOCK_OFF",
-        "MOVE_RETURN",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_JUMP_KICK",
+        "MOVE_QUICK_ATTACK"
       ],
       "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_JUMP_KICK",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_SKY_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9LC,"
       ]
     }
   ]

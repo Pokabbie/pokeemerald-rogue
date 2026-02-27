@@ -105,10 +105,8 @@
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN7LC,"
       ]
     }
   ]

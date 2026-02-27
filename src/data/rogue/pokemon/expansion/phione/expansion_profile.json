@@ -88,22 +88,6 @@
     {
       "Moves": [
         "MOVE_RAIN_DANCE",
-        "MOVE_HEAL_BELL",
-        "MOVE_SCALD",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAIN_DANCE",
         "MOVE_REST",
         "MOVE_SCALD",
         "MOVE_U_TURN"
@@ -111,10 +95,22 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HEAL_BELL",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU,"
       ]
     },
     {
@@ -127,10 +123,8 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

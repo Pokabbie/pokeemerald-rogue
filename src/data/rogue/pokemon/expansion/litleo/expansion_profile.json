@@ -122,25 +122,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_RETURN",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_WILD_CHARGE"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC,"
       ]
     },
     {
@@ -153,10 +136,22 @@
       "Ability": "ABILITY_UNNERVE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6LC,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_RETURN",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC,"
       ]
     }
   ]

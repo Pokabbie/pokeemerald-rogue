@@ -134,182 +134,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_PSYCHIC",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_PSYCHIC",
-        "MOVE_PSYSHOCK",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MEGA_DRAIN",
-        "MOVE_PSYCHIC",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_LEECH_SEED"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_LEECH_SEED",
-        "MOVE_PSYWAVE"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_IAPAPA_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_MEGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_PSYCHIC",
-        "MOVE_PROTECT",
-        "MOVE_SUNNY_DAY"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SOLAR_BEAM",
         "MOVE_PSYSHOCK",
         "MOVE_HIDDEN_POWER",
@@ -319,9 +143,22 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU,"
       ]
     },
     {
@@ -335,9 +172,146 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_PSYWAVE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LETSGOOU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU,"
       ]
     }
   ]

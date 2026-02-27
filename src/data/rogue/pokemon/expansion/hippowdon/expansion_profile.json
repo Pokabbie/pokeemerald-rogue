@@ -126,68 +126,15 @@
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_SLACK_OFF",
-        "MOVE_ICE_FANG",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SLACK_OFF",
         "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_SLACK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN7OU",
-        "GEN8MONOTYPE",
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SLACK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
+        "GEN6OU,"
       ]
     },
     {
@@ -200,205 +147,9 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SLACK_OFF",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SLACK_OFF",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SLACK_OFF",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_SLACK_OFF",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEX,"
       ]
     },
     {
@@ -411,10 +162,8 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -427,10 +176,22 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -443,29 +204,28 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE",
         "GEN7OU",
         "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8NATIONALDEXMONOTYPE,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_EARTHQUAKE",
         "MOVE_SLACK_OFF",
+        "MOVE_STEALTH_ROCK",
         "MOVE_WHIRLWIND"
       ],
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6MONOTYPE",
+        "GEN7OU",
+        "GEN8MONOTYPE",
+        "GEN9UU,"
       ]
     },
     {
@@ -478,74 +238,36 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_EARTHQUAKE",
-        "MOVE_YAWN",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_FANG",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SLACK_OFF"
-      ],
-      "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
         "MOVE_WHIRLWIND"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_WHIRLWIND",
-        "MOVE_EARTHQUAKE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_FANG",
+        "MOVE_YAWN"
       ],
       "Ability": "ABILITY_SAND_STREAM",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -558,10 +280,238 @@
       "Ability": "ABILITY_SAND_STREAM",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SLACK_OFF",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_SLACK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_WHIRLWIND",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SLACK_OFF",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLACK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SAND_STREAM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

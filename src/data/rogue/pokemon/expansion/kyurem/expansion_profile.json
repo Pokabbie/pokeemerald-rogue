@@ -127,114 +127,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
         "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER"
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN6OU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
         "MOVE_EARTH_POWER",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_NOBLE_ROAR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FREEZE_DRY",
-        "MOVE_GLACIATE",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FREEZE_DRY",
-        "MOVE_GLACIATE",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FREEZE_DRY",
-        "MOVE_GLACIATE",
         "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_GLACIATE",
-        "MOVE_EARTH_POWER",
-        "MOVE_FREEZE_DRY"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HABAN_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN6UU,"
       ]
     },
     {
@@ -247,26 +164,22 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRACO_METEOR",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
         "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
       ]
     },
     {
@@ -279,367 +192,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_FREEZE_DRY"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_GLACIATE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HABAN_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_NEVER_MELT_ICE",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_TERA_BLAST",
-        "MOVE_SCALE_SHOT"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ICICLE_SPEAR",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_FREEZE_DRY",
-        "MOVE_REFLECT",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_DRACO_METEOR",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_DRACO_METEOR",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_ICE_BEAM",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_NEVER_MELT_ICE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_ICE_BEAM",
-        "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GLACIATE",
-        "MOVE_EARTH_POWER",
-        "MOVE_FREEZE_DRY",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN6UU,"
       ]
     },
     {
@@ -652,26 +206,51 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_METRONOME",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU,"
       ]
     },
     {
       "Moves": [
         "MOVE_ICE_BEAM",
-        "MOVE_DRACO_METEOR",
+        "MOVE_SUBSTITUTE",
         "MOVE_EARTH_POWER",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN7UU,"
       ]
     },
     {
@@ -684,122 +263,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_DRACO_METEOR",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LASER_FOCUS",
-        "MOVE_FREEZE_DRY",
-        "MOVE_NOBLE_ROAR",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_ROSELI_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NOBLE_ROAR",
-        "MOVE_ROOST",
-        "MOVE_GLACIATE",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HABAN_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN7UU,"
       ]
     },
     {
@@ -812,156 +277,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_ICIUM_Z",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_METRONOME",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_METRONOME",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICICLE_SPEAR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICICLE_SPEAR"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_CHOPLE_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_FREEZE_DRY",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROOST",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
+        "GEN71V1,"
       ]
     },
     {
@@ -974,10 +291,542 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_METRONOME",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NOBLE_ROAR",
+        "MOVE_ROOST",
+        "MOVE_GLACIATE",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HABAN_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_GLACIATE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HABAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FREEZE_DRY",
+        "MOVE_GLACIATE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FREEZE_DRY",
+        "MOVE_GLACIATE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LASER_FOCUS",
+        "MOVE_FREEZE_DRY",
+        "MOVE_NOBLE_ROAR",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROSELI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GLACIATE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_NOBLE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_GLACIATE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HABAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FREEZE_DRY",
+        "MOVE_REFLECT",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FREEZE_DRY",
+        "MOVE_GLACIATE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE,"
       ]
     }
   ]

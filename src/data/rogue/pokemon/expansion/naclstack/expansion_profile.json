@@ -113,26 +113,24 @@
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9NU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_PRESS",
         "MOVE_SALT_CURE",
-        "MOVE_PROTECT",
-        "MOVE_RECOVER",
-        "MOVE_CURSE"
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
+      "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU,"
       ]
     },
     {
@@ -145,26 +143,8 @@
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SALT_CURE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RECOVER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PURIFYING_SALT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN9PU,"
       ]
     },
     {
@@ -177,10 +157,24 @@
       "Ability": "ABILITY_PURIFYING_SALT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_SALT_CURE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PURIFYING_SALT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ZU,"
       ]
     }
   ]

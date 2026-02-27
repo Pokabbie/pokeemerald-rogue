@@ -127,64 +127,14 @@
       "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SACRED_FIRE",
         "MOVE_EARTHQUAKE",
         "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -197,91 +147,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SACRED_FIRE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9UBERS",
-        "GEN9ANYTHINGGOES"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -294,42 +161,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN6UBERS,"
       ]
     },
     {
@@ -342,26 +175,50 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6VGC2016,"
       ]
     },
     {
       "Moves": [
         "MOVE_SACRED_FIRE",
         "MOVE_BRAVE_BIRD",
-        "MOVE_RECOVER",
-        "MOVE_SUBSTITUTE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN6ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SACRED_FIRE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS,"
       ]
     },
     {
@@ -374,42 +231,22 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
       "Moves": [
         "MOVE_SACRED_FIRE",
         "MOVE_BRAVE_BIRD",
-        "MOVE_RECOVER",
-        "MOVE_WHIRLWIND"
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN7UBERS,"
       ]
     },
     {
@@ -422,106 +259,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_WHIRLWIND",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_WHIRLWIND"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_DEFOG",
-        "MOVE_WHIRLWIND",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_RECOVER",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_FIRE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN7UBERS,"
       ]
     },
     {
@@ -534,10 +273,237 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_WHIRLWIND",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_WHIRLWIND",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_WHIRLWIND",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UBERS,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RECOVER",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG,"
       ]
     }
   ]

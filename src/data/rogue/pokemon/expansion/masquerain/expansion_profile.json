@@ -67,6 +67,7 @@
     "MOVE_BUG_BITE",
     "MOVE_BUG_BUZZ",
     "MOVE_CHILLING_WATER",
+    "MOVE_DEFOG",
     "MOVE_DUAL_WINGBEAT",
     "MOVE_ENDURE",
     "MOVE_ENERGY_BALL",
@@ -93,6 +94,7 @@
     "MOVE_PSYCH_UP",
     "MOVE_RAIN_DANCE",
     "MOVE_REST",
+    "MOVE_ROOST",
     "MOVE_SCARY_FACE",
     "MOVE_SHADOW_BALL",
     "MOVE_SKITTER_SMACK",
@@ -116,34 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STICKY_WEB"
+        "MOVE_STICKY_WEB",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH",
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STICKY_WEB"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
+        "GEN6NU,"
       ]
     },
     {
@@ -156,11 +140,9 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU"
+        "GEN6ZU,"
       ]
     },
     {
@@ -173,26 +155,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ",
-        "MOVE_HURRICANE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN6PU,"
       ]
     },
     {
@@ -205,10 +169,50 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU,"
       ]
     },
     {
@@ -221,10 +225,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9PU,"
       ]
     }
   ]

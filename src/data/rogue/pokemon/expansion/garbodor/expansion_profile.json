@@ -126,100 +126,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
         "MOVE_SPIKES",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_TOXIC_PLATE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_TOXIC_SPIKES",
         "MOVE_GUNK_SHOT",
-        "MOVE_SPIKES",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_PAIN_SPLIT"
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU",
-        "GEN8NU"
+        "GEN6RU,"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
         "MOVE_SPIKES",
         "MOVE_TOXIC_SPIKES",
-        "MOVE_DRAIN_PUNCH"
+        "MOVE_GUNK_SHOT",
+        "MOVE_SEED_BOMB"
       ],
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU",
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_STOMPING_TANTRUM"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_TOXIC",
-        "MOVE_SPIKES",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN6NU,"
       ]
     },
     {
@@ -232,10 +162,80 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_TOXIC_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8NU,"
       ]
     },
     {
@@ -248,42 +248,22 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8PU,"
       ]
     },
     {
       "Moves": [
+        "MOVE_GUNK_SHOT",
         "MOVE_SPIKES",
         "MOVE_TOXIC_SPIKES",
-        "MOVE_GUNK_SHOT",
-        "MOVE_SEED_BOMB"
+        "MOVE_STOMPING_TANTRUM"
       ],
       "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_ROCKY_HELMET",
+      "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_GUNK_SHOT",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN8PU,"
       ]
     }
   ]

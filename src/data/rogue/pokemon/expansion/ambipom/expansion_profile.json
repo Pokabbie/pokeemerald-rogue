@@ -133,16 +133,54 @@
     {
       "Moves": [
         "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_LAST_RESORT"
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6UU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_LOW_KICK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_LAST_RESORT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES,"
       ]
     },
     {
@@ -155,56 +193,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_GIGA_IMPACT",
-        "MOVE_TICKLE",
-        "MOVE_LOW_SWEEP"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
+        "GEN61V1,"
       ]
     },
     {
@@ -217,41 +207,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_LAST_RESORT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_RETURN",
-        "MOVE_LOW_KICK",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
+        "GEN7RU,"
       ]
     },
     {
@@ -264,57 +221,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_TAIL_SLAP",
-        "MOVE_LAST_RESORT"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DOUBLE_HIT"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DOUBLE_HIT"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
+        "GEN7NU,"
       ]
     },
     {
@@ -327,10 +235,62 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN7NU,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_TAIL_SLAP",
+        "MOVE_LAST_RESORT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_TICKLE",
+        "MOVE_LOW_SWEEP"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_LAST_RESORT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1,"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DOUBLE_HIT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU,"
       ]
     },
     {
@@ -341,12 +301,11 @@
         "MOVE_TRIPLE_AXEL"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
+      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU,"
       ]
     }
   ]
