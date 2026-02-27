@@ -227,3 +227,6 @@ const u16 gMetatileAttributes_FacilityGalactic[] = INCBIN_U16("data/tilesets/sec
 
 const u16 gMetatiles_CaveAlt[] = INCBIN_U16("data/tilesets/secondary/cave_alt/metatiles.bin");
 const u16 gMetatileAttributes_CaveAlt[] = INCBIN_U16("data/tilesets/secondary/cave_alt/metatile_attributes.bin");
+
+const u16 gMetatiles_AdventurePaths[] = INCBIN_U16("data/tilesets/secondary/adventure_paths/metatiles.bin");
+const u16 gMetatileAttributes_AdventurePaths[] = INCBIN_U16("data/tilesets/secondary/adventure_paths/metatile_attributes.bin");
