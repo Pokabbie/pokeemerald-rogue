@@ -1083,7 +1083,8 @@ static bool8 Transition_StartIntro(struct Task *task)
 {
     SetWeatherScreenFadeOut();
     CpuCopy32(gPlttBufferFaded, gPlttBufferUnfaded, PLTT_SIZE);
-    if (sTasks_Intro[task->tTransitionId] != NULL)
+    
+    if (sTasks_Intro[task->tTransitionId] != NULL && gSaveBlock2Ptr->optionsFadeSpeed == OPTIONS_TEXT_SPEED_SLOW)
     {
         CreateTask(sTasks_Intro[task->tTransitionId], 4);
         task->tState++;
@@ -1111,9 +1112,17 @@ static bool8 Transition_WaitForIntro(struct Task *task)
 
 static bool8 Transition_StartMain(struct Task *task)
 {
-    CreateTask(sTasks_Main[task->tTransitionId], 0);
-    task->tState++;
-    return FALSE;
+    if(gSaveBlock2Ptr->optionsFadeSpeed == OPTIONS_TEXT_SPEED_FAST)
+    {
+        task->tTransitionDone = TRUE;
+        return FALSE;
+    }
+    else
+    {
+        CreateTask(sTasks_Main[task->tTransitionId], 0);
+        task->tState++;
+        return FALSE;
+    }
 }
 
 static bool8 Transition_WaitForMain(struct Task *task)
