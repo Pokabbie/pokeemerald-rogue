@@ -60,6 +60,9 @@ bool8 Rogue_GetRevisionModeActive()
 // Swap to force runtime resolution
 //#define ROGUE_BAKE_INVALID
 #define ROGUE_BAKE_VALID
+
+extern const u8 *const gMoveDescriptionPointers_Revised[MOVES_COUNT - 1];
+extern const u8 *const gAbilityDescriptionPointers_Revised[ABILITIES_COUNT];
 #endif
 
 extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
@@ -2017,272 +2020,39 @@ u16 Rogue_GetPokemonSpecialMoveUsage(u16 move)
     }
 }
 
-#ifndef ROGUE_BAKING
 bool8 Rogue_HasMoveBeenRevised(u16 move)
 {
+#ifndef ROGUE_BAKING
     if(Rogue_GetRevisionModeActive())
     {
         return memcmp(&gBattleMoves_Mainline[move], &gBattleMoves_Revised[move], sizeof(struct BattleMove)) != 0;
     }
+#endif
 
     return FALSE;
 }
-#endif
 
-#ifndef ROGUE_EXPANSION
-
-static const u8 sBoneRushDescription[] = _(
-    "Strikes the foe with a bone\n"
-    "in hand twice.");
-
-static const u8 sBulletSeedDescription[] = _(
-    "Shoots 2 seeds in a row\n"
-    "to strike the foe.");
-
-static const u8 sDragonClawDescription[] = _(
-    "Slashes with claws, etc. Has\n"
-    "a high critical-hit ratio.");
-
-static const u8 sDrillPeckDescription[] = _(
-    "Stabs with beak, etc. Has\n"
-    "a high critical-hit ratio.");
-
-static const u8 sEggBombDescription[] = _(
-    "An egg is hurled at the foe.\n"
-    "also hurts the user.");
-    
-static const u8 sHyperVoiceDescription[] = _(
-    "A loud attack that may\n"
-    "lower the foe's DEF.");
-    
-static const u8 sJumpKickDescription[] = _(
-    "A strong jumping kick.May\n"
-    "cause paralysis.");
-
-static const u8 sLickDescription[] = _(
-    "Licks with a long tongue to\n"
-    "injure. Will also paralyze.");
-    
-static const u8 sPsywaveDescription[] = _(
-    "Inflicts damage identical\n"
-    "to the user's level.");
-
-static const u8 sRazorWindDescription[] = _(
-    "Slashes with wind. Has\n"
-    "a high critical-hit ratio.");
-
-static const u8 sRockSmashDescription[] = _(
-    "A rock-crushing attack\n"
-    "that will lower DEFENSE.");
-
-static const u8 sShadowBallDescription[] = _(
-    "Hurls a black blob that may\n"
-    "lower the foe's DEF.");
-
-static const u8 sSpitUpDescription[] = _(
-    "Spits up stomach contents.\n"
-    "(No need to Stockpile).");
-
-static const u8 sSwallowDescription[] = _(
-    "Recovers up to half the\n"
-    "user's maximum HP.");
-    
-
-static const u8 sWaterfallDescription[] = _(
-    "A ramming attack that may\n"
-    "cause flinching.");
-
-static const u8 sAirSlashDescription[] = _(
-    "Attacks with a blade of\n"
-    "air. May cause flinching.");
-
-static const u8 sAquaJetDescription[] = _(
-    "Strikes first by dashing\n"
-    "at the foe at a high speed.");
-
-static const u8 sBraveBirdDescription[] = _(
-    "A low altitude charge that\n"
-    "also hurts the user.");
-
-static const u8 sBugBuzzDescription[] = _(
-    "A damaging wave that may\n"
-    "lower DEF.");
-
-static const u8 sBulletPunchDescription[] = _(
-    "Punches as fast as a bul-\n"
-    "let. It always hits first.");
-
-static const u8 sDarkPulseDescription[] = _(
-    "Attacks with a horrible\n"
-    "aura. May cause flinching.");
-
-static const u8 sDoubleIronBashDescription[] = _(
-    "The user spins and hits with\n"
-    "its arms.");
-
-static const u8 sDracoMeteorDescription[] = _(
-    "Casts comets onto the foe.\n"
-    "Harshly lowers the SP. ATK.");
-
-static const u8 sDrillRunDescription[] = _(
-    "Spins its body like a drill.\n"
-    "High critical-hit ratio.");
-    
-static const u8 sDualWingbeatDescription[] = _(
-    "User slams the target with\n"
-    "wings and hits twice in a row.");
-    
-static const u8 sEarthPowerDescription[] = _(
-    "Makes the ground erupt with\n"
-    "power. May lower SP. DEF.");
-
-static const u8 sFirePledgeDescription[] = _(
-    "Attacks with a column of\n"
-    "fire.");
-
-static const u8 sFlashCannonDescription[] = _(
-    "Releases a blast of light\n"
-    "that may lower DEF.");
-
-static const u8 sForcePalmDescription[] = _(
-    "A shock wave attack that\n"
-    "may paralyze the foe.");
-
-static const u8 sHeadSmashDescription[] = _(
-    "A life-risking headbutt that\n"
-    "seriously hurts the user.");
-
-static const u8 sIceShardDescription[] = _(
-    "Hurls a chunk of ice that\n"
-    "always strike first.");
-
-static const u8 sIcicleCrashDescription[] = _(
-    "Drops large icicles on the\n"
-    "foe. May cause flinching.");
-
-static const u8 sOminousWindDescription[] = _(
-    "A repulsive attack that may\n"
-    "raise all stats.");
-
-static const u8 sNightSlashDescription[] = _(
-    "Hits as soon as possible.\n"
-    "High critical-hit ratio.");
-
-static const u8 sShadowSneakDescription[] = _(
-    "Extends the user's shadow\n"
-    "to strike first.");
-
-static const u8 sXScissorDescription[] = _(
-    "Slashes the foe with crossed\n"
-    "scythes, claws, etc.");
-
-#endif
 
 u8 const* Rogue_TryOverrideMoveDescription(u16 move)
 {
+#ifndef ROGUE_BAKING
+    if(move != MOVE_NONE && Rogue_GetRevisionModeActive())
+    {
+        return gMoveDescriptionPointers_Revised[move - 1];
+    }
+#endif
+
+    return NULL;
+}
+
+u8 const* Rogue_TryOverrideAbilityDescription(u16 ability)
+{
+#ifndef ROGUE_BAKING
     if(Rogue_GetRevisionModeActive())
     {
-#ifdef ROGUE_EXPANSION
-
-#else
-        switch (move)
-        {
-        case MOVE_BONE_RUSH:
-            return sBoneRushDescription;
-
-        case MOVE_BULLET_SEED:
-            return sBulletSeedDescription;
-
-        case MOVE_DRAGON_CLAW:
-            return sDragonClawDescription;
-
-        case MOVE_DRILL_PECK:
-            return sDrillPeckDescription;
-
-        case MOVE_EGG_BOMB:
-            return sEggBombDescription;
-
-        case MOVE_HYPER_VOICE:
-            return sHyperVoiceDescription;
-
-        case MOVE_JUMP_KICK:
-            return sJumpKickDescription;
-
-        case MOVE_LICK:
-            return sLickDescription;
-
-        case MOVE_PSYWAVE:
-            return sPsywaveDescription;
-
-        case MOVE_RAZOR_WIND:
-            return sRazorWindDescription;
-
-        case MOVE_ROCK_SMASH:
-            return sRockSmashDescription;
-
-        case MOVE_SHADOW_BALL:
-            return sShadowBallDescription;
-
-        case MOVE_SPIT_UP:
-            return sSpitUpDescription;
-
-        case MOVE_SWALLOW:
-            return sSwallowDescription;
-
-        case MOVE_WATERFALL:
-            return sWaterfallDescription;
-
-
-        case MOVE_AIR_SLASH:
-            return sAirSlashDescription;
-        case MOVE_AQUA_JET:
-            return sAquaJetDescription;
-        case MOVE_BRAVE_BIRD:
-            return sBraveBirdDescription;
-        case MOVE_BUG_BUZZ:
-            return sBugBuzzDescription;
-
-        case MOVE_BULLET_PUNCH:
-            return sBulletPunchDescription;
-        case MOVE_DARK_PULSE:
-            return sDarkPulseDescription;
-        case MOVE_DOUBLE_IRON_BASH:
-            return sDoubleIronBashDescription;
-        case MOVE_DRACO_METEOR:
-            return sDracoMeteorDescription;
-
-        case MOVE_DRILL_RUN:
-            return sDrillRunDescription;
-        case MOVE_DUAL_WINGBEAT:
-            return sDualWingbeatDescription;
-        case MOVE_EARTH_POWER:
-            return sEarthPowerDescription;
-        case MOVE_FIRE_PLEDGE:
-            return sFirePledgeDescription;
-
-        case MOVE_FLASH_CANNON:
-            return sFlashCannonDescription;
-        case MOVE_FORCE_PALM:
-            return sForcePalmDescription;
-        case MOVE_HEAD_SMASH:
-            return sHeadSmashDescription;
-        case MOVE_ICE_SHARD:
-            return sIceShardDescription;
-
-        case MOVE_ICICLE_CRASH:
-            return sIcicleCrashDescription;
-        case MOVE_NIGHT_SLASH:
-            return sNightSlashDescription;
-        case MOVE_OMINOUS_WIND:
-            return sOminousWindDescription;
-        case MOVE_SHADOW_SNEAK:
-            return sShadowSneakDescription;
-
-        case MOVE_X_SCISSOR:
-            return sXScissorDescription;
-        }
-#endif
+        return gAbilityDescriptionPointers_Revised[ability];
     }
+#endif
 
     return NULL;
 }

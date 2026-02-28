@@ -54,6 +54,8 @@ u16 Rogue_GetPokemonSpecialMoveUsage(u16 move);
 bool8 Rogue_HasMoveBeenRevised(u16 move);
 u8 const* Rogue_TryOverrideMoveDescription(u16 move);
 
+u8 const* Rogue_TryOverrideAbilityDescription(u16 ability);
+
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetMaxEvolutionCount(u16 species);
 u8 Rogue_GetActiveEvolutionCount(u16 species);

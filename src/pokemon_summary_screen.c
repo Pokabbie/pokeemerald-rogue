@@ -337,6 +337,7 @@ static void SummaryScreen_DestroyAnimDelayTask(void);
 
 // const rom data
 #include "data/text/move_descriptions.h"
+#include "data/text/move_descriptions_revised.h"
 #include "data/text/nature_names.h"
 
 static const struct BgTemplate sBgTemplates[] =
@@ -3237,13 +3238,31 @@ static void PrintMonOTID(void)
 static void PrintMonAbilityName(void)
 {
     u8 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID);
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, 1);
+    u8 baseAbility = GetAbilityBySpecies_ForRevised(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID, FALSE);
+
+    if(ability != baseAbility)
+    {        
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, SUMMARY_TEXT_COLOR_BLUE); // SUMMARY_TEXT_COLOR_BLUE_REVISED
+    }
+    else
+    {
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, 1);
+    }
 }
 
 static void PrintMonAbilityDescription(void)
 {
     u8 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID);
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityDescriptionPointers[ability], 0, 17, 0, 0);
+    u8 const* overrideDesc = Rogue_TryOverrideAbilityDescription(ability);           
+    
+    if(overrideDesc != NULL)
+    {        
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), overrideDesc, 0, 17, 0, SUMMARY_TEXT_COLOR_BLUE_REVISED);
+    }
+    else
+    {
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityDescriptionPointers[ability], 0, 17, 0, 0);
+    }
 }
 
 static void BufferMonTrainerMemo(void)
