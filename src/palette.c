@@ -180,13 +180,22 @@ bool8 BeginNormalPaletteFade(u32 selectedPalettes, s8 delay, u8 startY, u8 targe
     }
     else
     {
-        // RogueNote: Always fast fades (Default 2)
         gPaletteFade.deltaY = 4;
 
         if (delay < 0)
         {
             gPaletteFade.deltaY += (delay * -1);
             delay = 0;
+        }
+
+        // RogueNote: Fast fades
+        if(gSaveBlock2Ptr->optionsFadeSpeed == OPTIONS_TEXT_SPEED_MID)
+        {
+            gPaletteFade.deltaY = 8;
+        }
+        else if(gSaveBlock2Ptr->optionsFadeSpeed == OPTIONS_TEXT_SPEED_FAST)
+        {
+            gPaletteFade.deltaY = 250;
         }
 
         gPaletteFade_selectedPalettes = selectedPalettes;
@@ -479,7 +488,7 @@ static u8 UpdateNormalPaletteFade(void)
             }
             else
             {
-                s8 val;
+                s32 val;
 
                 if (!gPaletteFade.yDec)
                 {

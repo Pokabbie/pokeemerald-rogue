@@ -49,7 +49,7 @@ struct PaletteFadeControl
     u16 softwareFadeFinishingCounter:5;
     bool16 softwareFadeFinishing:1;
     bool16 objPaletteToggle:1;
-    u8 deltaY:4; // rate of change of blend coefficient
+    u8 deltaY:8; // rate of change of blend coefficient
 };
 
 extern struct PaletteFadeControl gPaletteFade;

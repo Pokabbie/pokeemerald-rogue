@@ -1,6 +1,16 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_AdventurePaths
+#define METATILE_AdventurePaths_SandPath_Horizontal          0x200
+#define METATILE_AdventurePaths_SandPath_Horizontal_Blocked  0x202
+#define METATILE_AdventurePaths_SandPath_Horizontal_EndEast  0x205
+#define METATILE_AdventurePaths_SandPath_Horizontal_EndWest  0x204
+#define METATILE_AdventurePaths_SandPath_Vertical            0x201
+#define METATILE_AdventurePaths_SandPath_Vertical_Blocked    0x203
+#define METATILE_AdventurePaths_SandPath_Vertical_EndNorth   0x206
+#define METATILE_AdventurePaths_SandPath_Vertical_EndSouth   0x207
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
@@ -256,6 +266,7 @@
 #define METATILE_GeneralHub_SandPath_Conn_NorthWest                0x12A
 #define METATILE_GeneralHub_SandPath_Conn_SouthEast                0x118
 #define METATILE_GeneralHub_SandPath_Conn_SouthWest                0x11A
+#define METATILE_GeneralHub_SandPath_Stone                         0x0E2
 #define METATILE_GeneralHub_StonePath_Centre                       0x109
 #define METATILE_GeneralHub_StonePath_Conn_EastWest_North          0x111
 #define METATILE_GeneralHub_StonePath_Conn_EastWest_South          0x101

@@ -1271,6 +1271,34 @@ bool8 RogueAdv_IsViewingPath()
     return gRogueAdvPath.isOverviewActive != 0;
 }
 
+static bool32 IsPathMetatile(u32 tile)
+{
+    switch (tile)
+    {
+    case METATILE_GeneralHub_SandPath_Centre:
+    case METATILE_GeneralHub_SandPath_Conn_EastWest_North:
+    case METATILE_GeneralHub_SandPath_Conn_EastWest_South:
+    case METATILE_GeneralHub_SandPath_Conn_NorthEast:
+    case METATILE_GeneralHub_SandPath_Conn_NorthSouth_East:
+    case METATILE_GeneralHub_SandPath_Conn_NorthSouth_West:
+    case METATILE_GeneralHub_SandPath_Conn_NorthWest:
+    case METATILE_GeneralHub_SandPath_Conn_SouthEast:
+    case METATILE_GeneralHub_SandPath_Conn_SouthWest:
+    case METATILE_GeneralHub_SandPath_Stone:
+    case METATILE_AdventurePaths_SandPath_Horizontal:
+    case METATILE_AdventurePaths_SandPath_Horizontal_Blocked:
+    case METATILE_AdventurePaths_SandPath_Horizontal_EndEast:
+    case METATILE_AdventurePaths_SandPath_Horizontal_EndWest:
+    case METATILE_AdventurePaths_SandPath_Vertical:
+    case METATILE_AdventurePaths_SandPath_Vertical_Blocked:
+    case METATILE_AdventurePaths_SandPath_Vertical_EndNorth:
+    case METATILE_AdventurePaths_SandPath_Vertical_EndSouth:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueAdv_ApplyAdventureMetatiles()
 {
     struct Coords16 treesCoords[24];
@@ -1311,23 +1339,23 @@ void RogueAdv_ApplyAdventureMetatiles()
         if(ShouldBlockObjectEvent(&gRogueAdvPath.rooms[i]))
         {
             // Place rock to block way back
-            MapGridSetMetatileIdAt(x + 2, y, METATILE_General_SandPit_Stone | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(x + 2, y, METATILE_GeneralHub_SandPath_Stone | MAPGRID_COLLISION_MASK);
         }
         else
         {
-            MapGridSetMetatileIdAt(x + 2, y, METATILE_General_SandPit_Center);
+            MapGridSetMetatileIdAt(x + 2, y, METATILE_GeneralHub_SandPath_Centre);
         }
 
         // Place connecting tiles infront
         //
         // ROOM_CONNECTION_MASK_MID (Always needed)
-        MapGridSetMetatileIdAt(x + 1, y + 0, METATILE_General_SandPit_Center);
+        MapGridSetMetatileIdAt(x + 1, y + 0, METATILE_GeneralHub_SandPath_Centre);
         
         if((gRogueAdvPath.rooms[i].connectionMask & ROOM_CONNECTION_MASK_TOP) != 0)
-            MapGridSetMetatileIdAt(x + 1, y + 1, METATILE_General_SandPit_Center);
+            MapGridSetMetatileIdAt(x + 1, y + 1, METATILE_GeneralHub_SandPath_Centre);
 
         if((gRogueAdvPath.rooms[i].connectionMask & ROOM_CONNECTION_MASK_BOT) != 0)
-            MapGridSetMetatileIdAt(x + 1, y - 1, METATILE_General_SandPit_Center);
+            MapGridSetMetatileIdAt(x + 1, y - 1, METATILE_GeneralHub_SandPath_Centre);
 
         // Place connecting tiles behind (Unless we're the final node)
         //
@@ -1337,9 +1365,9 @@ void RogueAdv_ApplyAdventureMetatiles()
             {
                 if(j == 1 && IsObjectEventVisible(&gRogueAdvPath.rooms[i]))
                     // Place stone to block interacting from the back
-                    MapGridSetMetatileIdAt(x + 2 + j, y, METATILE_General_SandPit_Stone | MAPGRID_COLLISION_MASK);
+                    MapGridSetMetatileIdAt(x + 2 + j, y, METATILE_GeneralHub_SandPath_Stone | MAPGRID_COLLISION_MASK);
                 else
-                    MapGridSetMetatileIdAt(x + 2 + j, y, METATILE_General_SandPit_Center);
+                    MapGridSetMetatileIdAt(x + 2 + j, y, METATILE_GeneralHub_SandPath_Centre);
             }
         }
     }
@@ -1369,7 +1397,7 @@ void RogueAdv_ApplyAdventureMetatiles()
 
         for(i = minY; i <= maxY; ++i)
         {
-            MapGridSetMetatileIdAt(x + 1, i, METATILE_General_SandPit_Center);
+            MapGridSetMetatileIdAt(x + 1, i, METATILE_GeneralHub_SandPath_Centre);
         }
     }
 
@@ -1401,6 +1429,70 @@ void RogueAdv_ApplyAdventureMetatiles()
                     MapGridSetMetatileIdAt(x + sTreeDecorationMetatiles[i].x, y + sTreeDecorationMetatiles[i].y, METATILE_General_Grass | MAPGRID_COLLISION_MASK);
                 }
             }
+        }
+    }
+
+    // Pretty up the paths
+    for(y = 0; y < gMapHeader.mapLayout->height; ++y)
+    for(x = 0; x < gMapHeader.mapLayout->width; ++x)
+    {
+        metatile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+        if(metatile == METATILE_GeneralHub_SandPath_Centre)
+        {
+            bool32 left = IsPathMetatile(MapGridGetMetatileIdAt(x + MAP_OFFSET - 1, y + MAP_OFFSET + 0));
+            bool32 right = IsPathMetatile(MapGridGetMetatileIdAt(x + MAP_OFFSET + 1, y + MAP_OFFSET + 0));
+            bool32 up = IsPathMetatile(MapGridGetMetatileIdAt(x + MAP_OFFSET + 0, y + MAP_OFFSET - 1));
+            bool32 down = IsPathMetatile(MapGridGetMetatileIdAt(x + MAP_OFFSET + 0, y + MAP_OFFSET + 1));
+
+            // -
+            if(left && right && !up && !down)
+                metatile = METATILE_AdventurePaths_SandPath_Horizontal;
+            // |
+            else if(!left && !right && up && down)
+                metatile = METATILE_AdventurePaths_SandPath_Vertical;
+
+            // |-
+            else if(!left && right && !up && down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_SouthEast;
+            // -|
+            else if(left && !right && !up && down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_SouthWest;
+            // _|
+            else if(left && !right && up && !down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_NorthWest;
+            // |_
+            else if(!left && right && up && !down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_NorthEast;
+
+            // _|_
+            else if(left && right && up && !down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_EastWest_North;
+            // -|-
+            else if(left && right && !up && down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_EastWest_South;
+            // -+
+            else if(left && !right && up && down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_NorthSouth_West;
+            // +-
+            else if(!left && right && up && down)
+                metatile = METATILE_GeneralHub_SandPath_Conn_NorthSouth_East;
+
+            // --x
+            else if(left && !right && !up && !down)
+                metatile = METATILE_AdventurePaths_SandPath_Horizontal_EndEast;
+            // x--
+            else if(!left && right && !up && !down)
+                metatile = METATILE_AdventurePaths_SandPath_Horizontal_EndWest;
+
+
+            if(metatile != METATILE_GeneralHub_SandPath_Centre)
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, metatile);
+
+        }
+        else if(metatile == METATILE_GeneralHub_SandPath_Stone)
+        {
+            MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_AdventurePaths_SandPath_Horizontal_Blocked | MAPGRID_COLLISION_MASK);
         }
     }
 }
