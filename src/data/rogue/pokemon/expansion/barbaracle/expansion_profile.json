@@ -140,7 +140,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7RU",
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -239,7 +239,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     }
   ]

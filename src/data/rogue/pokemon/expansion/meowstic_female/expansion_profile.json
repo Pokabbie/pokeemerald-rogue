@@ -143,7 +143,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

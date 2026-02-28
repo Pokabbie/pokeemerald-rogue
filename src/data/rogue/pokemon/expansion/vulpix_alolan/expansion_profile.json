@@ -128,7 +128,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

@@ -137,7 +137,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

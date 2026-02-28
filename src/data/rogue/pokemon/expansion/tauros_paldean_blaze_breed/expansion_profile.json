@@ -122,7 +122,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN9NU",
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -167,7 +167,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

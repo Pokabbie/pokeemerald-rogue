@@ -130,7 +130,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7UBERS",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "SourceTiers": [
         "GEN7OU",
         "GEN7UU",
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -188,7 +188,7 @@
       "Item": "ITEM_MIMIKIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Item": "ITEM_MIMIKIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Item": "ITEM_MIMIKIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "Item": "ITEM_MIMIKIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -244,7 +244,7 @@
       "Item": "ITEM_MIMIKIUM_Z",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -258,7 +258,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -287,7 +287,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7ANYTHINGGOES",
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -301,7 +301,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -315,7 +315,7 @@
       "Item": "ITEM_RED_CARD",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -329,7 +329,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -343,7 +343,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -359,7 +359,7 @@
       "SourceTiers": [
         "GEN8OU",
         "GEN8MONOTYPE",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -373,7 +373,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -387,7 +387,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -401,7 +401,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -418,7 +418,7 @@
         "GEN8NATIONALDEX",
         "GEN8MONOTYPE",
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -432,7 +432,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -446,7 +446,7 @@
       "Item": "ITEM_KEE_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -460,7 +460,7 @@
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -474,7 +474,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -488,7 +488,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -502,7 +502,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -516,7 +516,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -531,7 +531,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -545,7 +545,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -560,7 +560,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -574,7 +574,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -588,7 +588,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -602,7 +602,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

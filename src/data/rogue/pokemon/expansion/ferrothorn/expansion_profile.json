@@ -116,7 +116,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -131,7 +131,7 @@
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN6UBERS",
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -314,7 +314,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6ANYTHINGGOES",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -328,7 +328,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -342,7 +342,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -356,7 +356,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -370,7 +370,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -384,7 +384,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -398,7 +398,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -412,7 +412,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -426,7 +426,7 @@
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -440,7 +440,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -454,7 +454,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -468,7 +468,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -482,7 +482,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -497,7 +497,7 @@
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
         "GEN7VGC2018",
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -511,7 +511,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -525,7 +525,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -539,7 +539,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -553,7 +553,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -567,7 +567,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -581,7 +581,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -595,7 +595,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -609,7 +609,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -623,7 +623,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -637,7 +637,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -651,7 +651,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -665,7 +665,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -679,7 +679,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -693,7 +693,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -707,7 +707,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -721,7 +721,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -735,7 +735,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -749,7 +749,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -763,7 +763,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -777,7 +777,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -791,7 +791,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -805,7 +805,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -819,7 +819,7 @@
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -833,7 +833,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -847,7 +847,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -861,7 +861,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -875,7 +875,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -889,7 +889,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -903,7 +903,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -917,7 +917,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -931,7 +931,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -945,7 +945,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -959,7 +959,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -973,7 +973,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     }
   ]

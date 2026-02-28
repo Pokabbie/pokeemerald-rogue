@@ -110,7 +110,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -124,7 +124,7 @@
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -138,7 +138,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     }
   ]

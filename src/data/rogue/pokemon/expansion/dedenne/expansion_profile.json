@@ -125,7 +125,7 @@
       "Item": "ITEM_PETAYA_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_STARF_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

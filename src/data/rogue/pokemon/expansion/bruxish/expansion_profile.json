@@ -110,7 +110,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -124,7 +124,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -138,7 +138,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_PSYCHIC",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_PSYCHIC",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -287,7 +287,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

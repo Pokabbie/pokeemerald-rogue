@@ -94,7 +94,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -108,7 +108,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

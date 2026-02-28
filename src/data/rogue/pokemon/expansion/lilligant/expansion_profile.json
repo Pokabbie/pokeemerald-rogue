@@ -133,7 +133,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -190,7 +190,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -218,7 +218,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -260,7 +260,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -274,7 +274,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -288,7 +288,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -303,7 +303,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -317,7 +317,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

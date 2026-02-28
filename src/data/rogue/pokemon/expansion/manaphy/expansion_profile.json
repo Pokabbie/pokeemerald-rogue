@@ -116,7 +116,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -130,7 +130,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_SAFETY_GOGGLES",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -313,7 +313,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -327,7 +327,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -341,7 +341,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -355,7 +355,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -369,7 +369,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -383,7 +383,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -397,7 +397,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -411,7 +411,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

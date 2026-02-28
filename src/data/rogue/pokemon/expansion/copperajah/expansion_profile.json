@@ -123,7 +123,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     }
   ]

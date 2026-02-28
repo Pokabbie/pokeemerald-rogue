@@ -147,7 +147,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -161,7 +161,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -175,7 +175,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -245,7 +245,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -259,7 +259,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -273,7 +273,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -287,7 +287,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -301,7 +301,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -315,7 +315,7 @@
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -329,7 +329,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -343,7 +343,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -357,7 +357,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -371,7 +371,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -385,7 +385,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -400,7 +400,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -414,7 +414,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -428,7 +428,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -443,7 +443,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -458,7 +458,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -473,7 +473,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -487,7 +487,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -501,7 +501,7 @@
       "Item": "ITEM_BLACK_GLASSES",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

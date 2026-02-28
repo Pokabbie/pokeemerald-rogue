@@ -130,7 +130,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -200,7 +200,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -214,7 +214,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -228,7 +228,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -270,7 +270,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -284,7 +284,7 @@
       "Item": "ITEM_SHED_SHELL",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -298,7 +298,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -312,7 +312,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -326,7 +326,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -340,7 +340,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -368,7 +368,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -382,7 +382,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -396,7 +396,7 @@
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -410,7 +410,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -424,7 +424,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -453,7 +453,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8OU",
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -468,7 +468,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8UU",
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -482,7 +482,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -496,7 +496,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -510,7 +510,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -524,7 +524,7 @@
       "Item": "ITEM_RED_CARD",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -538,7 +538,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -552,7 +552,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -566,7 +566,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -580,7 +580,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -594,7 +594,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -608,7 +608,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -623,7 +623,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -638,7 +638,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -653,7 +653,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -667,7 +667,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -681,7 +681,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -695,7 +695,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -709,7 +709,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

@@ -138,7 +138,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6NU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     }
   ]

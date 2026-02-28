@@ -127,7 +127,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

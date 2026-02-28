@@ -140,7 +140,7 @@
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -167,7 +167,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -276,7 +276,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -290,7 +290,7 @@
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -305,7 +305,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     }
   ]

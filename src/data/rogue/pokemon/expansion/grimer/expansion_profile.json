@@ -136,7 +136,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

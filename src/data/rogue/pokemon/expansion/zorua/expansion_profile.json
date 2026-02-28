@@ -126,7 +126,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Nature": "NATURE_NAIVE",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

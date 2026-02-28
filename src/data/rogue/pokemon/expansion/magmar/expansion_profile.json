@@ -131,7 +131,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     }
   ]

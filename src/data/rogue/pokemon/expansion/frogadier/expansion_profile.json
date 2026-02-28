@@ -122,7 +122,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

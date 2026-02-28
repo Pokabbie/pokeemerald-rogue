@@ -123,7 +123,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

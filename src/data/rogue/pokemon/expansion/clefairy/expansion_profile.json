@@ -180,7 +180,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -264,7 +264,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -292,7 +292,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -306,7 +306,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -320,7 +320,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -334,7 +334,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -348,7 +348,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -362,7 +362,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -376,7 +376,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -390,7 +390,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -404,7 +404,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -418,7 +418,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -432,7 +432,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -446,7 +446,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     }
   ]

@@ -162,7 +162,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -281,7 +281,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

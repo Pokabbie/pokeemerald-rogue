@@ -137,7 +137,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -277,7 +277,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -291,7 +291,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -305,7 +305,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -319,7 +319,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -333,7 +333,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -347,7 +347,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -361,7 +361,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -375,7 +375,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -389,7 +389,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -403,7 +403,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     }
   ]

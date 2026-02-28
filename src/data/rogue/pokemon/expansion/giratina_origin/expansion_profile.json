@@ -126,7 +126,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -224,7 +224,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -252,7 +252,7 @@
       "Item": "ITEM_GRISEOUS_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -296,7 +296,7 @@
       "Item": "ITEM_GRISEOUS_CORE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -311,7 +311,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -326,7 +326,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -340,7 +340,7 @@
       "Item": "ITEM_GRISEOUS_CORE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

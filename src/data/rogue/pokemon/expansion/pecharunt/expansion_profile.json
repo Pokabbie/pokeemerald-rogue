@@ -98,7 +98,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -128,7 +128,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -260,7 +260,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -274,7 +274,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -288,7 +288,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

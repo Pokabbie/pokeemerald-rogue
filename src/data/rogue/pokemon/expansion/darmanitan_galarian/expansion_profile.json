@@ -137,7 +137,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8UBERS",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "SourceTiers": [
         "GEN8UBERS",
         "GEN8BATTLESTADIUMSINGLES",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -239,7 +239,7 @@
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8ANYTHINGGOES",
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -296,7 +296,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -310,7 +310,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     }
   ]

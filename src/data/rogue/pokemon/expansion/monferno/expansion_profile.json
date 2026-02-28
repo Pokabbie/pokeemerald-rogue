@@ -142,7 +142,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

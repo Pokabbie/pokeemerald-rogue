@@ -137,7 +137,7 @@
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

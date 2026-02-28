@@ -135,7 +135,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -163,7 +163,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -205,7 +205,7 @@
       "Item": "ITEM_TOXIC_PLATE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7NU",
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN8NU",
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     }
   ]

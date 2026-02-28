@@ -134,7 +134,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     }
   ]

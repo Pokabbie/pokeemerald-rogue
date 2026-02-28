@@ -119,7 +119,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

@@ -138,7 +138,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_PETAYA_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

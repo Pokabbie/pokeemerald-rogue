@@ -119,7 +119,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -147,7 +147,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -161,7 +161,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -175,7 +175,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -190,7 +190,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -205,7 +205,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -234,7 +234,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

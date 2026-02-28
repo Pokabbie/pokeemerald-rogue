@@ -114,7 +114,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -128,7 +128,7 @@
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

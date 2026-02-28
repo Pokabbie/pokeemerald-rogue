@@ -131,7 +131,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6UU",
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6UU",
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -188,7 +188,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -218,7 +218,7 @@
       "SourceTiers": [
         "GEN6NU",
         "GEN6NU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -260,7 +260,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -274,7 +274,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -288,7 +288,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -302,7 +302,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -316,7 +316,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -330,7 +330,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -344,7 +344,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -358,7 +358,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -372,7 +372,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -386,7 +386,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -401,7 +401,7 @@
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
         "GEN7PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -415,7 +415,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -430,7 +430,7 @@
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
         "GEN7DOUBLESOU",
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -444,7 +444,7 @@
       "Item": "ITEM_ABOMASITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -459,7 +459,7 @@
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
         "GEN71V1",
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -473,7 +473,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -487,7 +487,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -501,7 +501,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -515,7 +515,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -529,7 +529,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -543,7 +543,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -557,7 +557,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -571,7 +571,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -586,7 +586,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -601,7 +601,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -615,7 +615,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -629,7 +629,7 @@
       "Item": "ITEM_EJECT_PACK",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -644,7 +644,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -659,7 +659,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_ICE",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -673,7 +673,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -687,7 +687,7 @@
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -701,7 +701,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

@@ -159,7 +159,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6OU",
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6RU",
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -248,7 +248,7 @@
         "GEN61V1",
         "GEN71V1",
         "GEN71V1",
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -292,7 +292,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -306,7 +306,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -320,7 +320,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -334,7 +334,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -349,7 +349,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7RU",
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -364,7 +364,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -380,7 +380,7 @@
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN9NU",
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -394,7 +394,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -408,7 +408,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -423,7 +423,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -452,7 +452,7 @@
       "Item": "ITEM_MEDICHAMITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     }
   ]

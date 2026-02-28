@@ -133,7 +133,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

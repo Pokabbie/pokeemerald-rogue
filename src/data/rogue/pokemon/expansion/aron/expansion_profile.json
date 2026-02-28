@@ -127,7 +127,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_SHELL_BELL",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

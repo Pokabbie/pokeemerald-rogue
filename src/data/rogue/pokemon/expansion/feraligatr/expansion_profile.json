@@ -152,7 +152,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6OU",
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -237,7 +237,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     }
   ]

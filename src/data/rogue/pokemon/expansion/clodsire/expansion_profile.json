@@ -126,7 +126,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN9UBERS",
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -200,7 +200,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -214,7 +214,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -228,7 +228,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

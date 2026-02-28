@@ -118,7 +118,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -132,7 +132,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -188,7 +188,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

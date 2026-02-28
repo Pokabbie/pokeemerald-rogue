@@ -118,7 +118,7 @@
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "Nature": "NATURE_RASH",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

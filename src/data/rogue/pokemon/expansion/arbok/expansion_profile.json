@@ -161,7 +161,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "SourceTiers": [
         "GEN6NU",
         "GEN7PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6PU",
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -234,7 +234,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -248,7 +248,7 @@
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

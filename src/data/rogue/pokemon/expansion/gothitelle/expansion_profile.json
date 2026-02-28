@@ -130,7 +130,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN6DOUBLESOU",
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -244,7 +244,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -258,7 +258,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Item": "ITEM_AGUAV_BERRY",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -286,7 +286,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -300,7 +300,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -314,7 +314,7 @@
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -328,7 +328,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -342,7 +342,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -357,7 +357,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -372,7 +372,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -386,7 +386,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

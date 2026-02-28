@@ -140,7 +140,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6RU",
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Nature": "NATURE_HASTY",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6NU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_LONELY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -240,7 +240,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -254,7 +254,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -268,7 +268,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     }
   ]

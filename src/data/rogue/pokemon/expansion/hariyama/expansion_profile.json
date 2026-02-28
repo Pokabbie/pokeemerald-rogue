@@ -152,7 +152,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -167,7 +167,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6NU",
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -195,7 +195,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -209,7 +209,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -223,7 +223,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -237,7 +237,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -279,7 +279,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -308,7 +308,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -323,7 +323,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -338,7 +338,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9NU",
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -368,7 +368,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -383,7 +383,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -398,7 +398,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

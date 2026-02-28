@@ -170,7 +170,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -240,7 +240,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -254,7 +254,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -268,7 +268,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6ANYTHINGGOES",
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -298,7 +298,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -312,7 +312,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -326,7 +326,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -342,7 +342,7 @@
       "SourceTiers": [
         "GEN7OU",
         "GEN8NATIONALDEX",
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -360,7 +360,7 @@
         "GEN7DOUBLESOU",
         "GEN7BATTLESPOTSINGLES",
         "GEN7BATTLESPOTSINGLES",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -374,7 +374,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -388,7 +388,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -400,7 +400,7 @@
       ],
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -412,7 +412,7 @@
       ],
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -428,7 +428,7 @@
       "SourceTiers": [
         "GEN7MONOTYPE",
         "GEN8OU",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -442,7 +442,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -456,7 +456,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -472,7 +472,7 @@
       "SourceTiers": [
         "GEN8UU",
         "GEN8NATIONALDEX",
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -486,7 +486,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -500,7 +500,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -514,7 +514,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -528,7 +528,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -542,7 +542,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -556,7 +556,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -571,7 +571,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -585,7 +585,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

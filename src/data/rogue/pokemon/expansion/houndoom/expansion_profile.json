@@ -141,7 +141,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -240,7 +240,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_WATER",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -254,7 +254,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -268,7 +268,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -296,7 +296,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -310,7 +310,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -324,7 +324,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -338,7 +338,7 @@
       "Item": "ITEM_HOUNDOOMINITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -352,7 +352,7 @@
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -367,7 +367,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -381,7 +381,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -395,7 +395,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

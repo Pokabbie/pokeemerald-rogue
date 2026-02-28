@@ -126,7 +126,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_POISONIUM_Z",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8RU",
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -241,7 +241,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     }
   ]

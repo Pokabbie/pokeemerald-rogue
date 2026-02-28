@@ -121,7 +121,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -135,7 +135,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -163,7 +163,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Nature": "NATURE_SASSY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Nature": "NATURE_SASSY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

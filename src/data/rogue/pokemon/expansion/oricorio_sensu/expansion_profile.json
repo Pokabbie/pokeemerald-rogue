@@ -117,7 +117,7 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -131,7 +131,7 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

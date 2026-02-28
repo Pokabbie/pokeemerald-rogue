@@ -100,7 +100,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -114,7 +114,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -128,7 +128,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Item": "ITEM_HABAN_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -241,7 +241,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -286,7 +286,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -302,7 +302,7 @@
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
         "GEN91V1",
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -317,7 +317,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -332,7 +332,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -347,7 +347,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -362,7 +362,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -377,7 +377,7 @@
       "Nature": "NATURE_HASTY",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -392,7 +392,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -406,7 +406,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -420,7 +420,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

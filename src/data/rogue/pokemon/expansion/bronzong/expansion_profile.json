@@ -150,7 +150,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -167,7 +167,7 @@
         "GEN6UU",
         "GEN6RU",
         "GEN6RU",
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "Item": "ITEM_MACHO_BRACE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN6UU",
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Item": "ITEM_MACHO_BRACE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -224,7 +224,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -252,7 +252,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -280,7 +280,7 @@
       "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -294,7 +294,7 @@
       "Item": "ITEM_LAGGING_TAIL",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -308,7 +308,7 @@
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -322,7 +322,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -336,7 +336,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -350,7 +350,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -364,7 +364,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -378,7 +378,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -392,7 +392,7 @@
       "Item": "ITEM_ODD_INCENSE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -407,7 +407,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -421,7 +421,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -436,7 +436,7 @@
       "Nature": "NATURE_SASSY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -451,7 +451,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -465,7 +465,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -480,7 +480,7 @@
       "Nature": "NATURE_SASSY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -495,7 +495,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -509,7 +509,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

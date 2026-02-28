@@ -141,7 +141,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -286,7 +286,7 @@
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -301,7 +301,7 @@
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -315,7 +315,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -329,7 +329,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -344,7 +344,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -358,7 +358,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -372,7 +372,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -386,7 +386,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -400,7 +400,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -414,7 +414,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -428,7 +428,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -443,7 +443,7 @@
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
         "GEN7DOUBLESOU",
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -457,7 +457,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -471,7 +471,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -485,7 +485,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -499,7 +499,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -513,7 +513,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -527,7 +527,7 @@
       "Item": "ITEM_CAMERUPTITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -541,7 +541,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

@@ -106,7 +106,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -190,7 +190,7 @@
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -234,7 +234,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -248,7 +248,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -308,7 +308,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

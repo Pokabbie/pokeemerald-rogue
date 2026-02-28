@@ -123,7 +123,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8UU",
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Item": "ITEM_LEEK",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     }
   ]

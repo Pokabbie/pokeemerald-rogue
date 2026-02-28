@@ -131,7 +131,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -223,7 +223,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -262,7 +262,7 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -276,7 +276,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -290,7 +290,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     }
   ]

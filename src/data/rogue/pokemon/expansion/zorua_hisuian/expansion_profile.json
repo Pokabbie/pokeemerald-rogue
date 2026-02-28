@@ -125,7 +125,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

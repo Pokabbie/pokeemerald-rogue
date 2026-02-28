@@ -129,7 +129,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9NU",
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

@@ -124,7 +124,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -138,7 +138,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

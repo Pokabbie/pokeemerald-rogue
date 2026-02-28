@@ -144,7 +144,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -188,7 +188,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -218,7 +218,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     }
   ]

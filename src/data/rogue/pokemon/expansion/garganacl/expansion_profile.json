@@ -143,7 +143,7 @@
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9OU",
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -176,7 +176,7 @@
         "GEN9NATIONALDEX",
         "GEN9NATIONALDEXAG",
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -264,7 +264,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -292,7 +292,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -306,7 +306,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

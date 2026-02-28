@@ -125,7 +125,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN6NU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -167,7 +167,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -195,7 +195,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -209,7 +209,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -223,7 +223,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -237,7 +237,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -279,7 +279,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

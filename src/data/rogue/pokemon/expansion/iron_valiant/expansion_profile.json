@@ -158,7 +158,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -188,7 +188,7 @@
       "Nature": "NATURE_NAIVE",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -247,7 +247,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -262,7 +262,7 @@
       "Nature": "NATURE_NAIVE",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -276,7 +276,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -291,7 +291,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -306,7 +306,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -336,7 +336,7 @@
       "Nature": "NATURE_NAIVE",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -351,7 +351,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -365,7 +365,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -379,7 +379,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -393,7 +393,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -407,7 +407,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -421,7 +421,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -435,7 +435,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -449,7 +449,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -463,7 +463,7 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -477,7 +477,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -491,7 +491,7 @@
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -505,7 +505,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -519,7 +519,7 @@
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -533,7 +533,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

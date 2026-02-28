@@ -123,7 +123,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_BUGINIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Item": "ITEM_BUGINIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       ],
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_BUG",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_BUG",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

@@ -130,7 +130,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -244,7 +244,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -258,7 +258,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

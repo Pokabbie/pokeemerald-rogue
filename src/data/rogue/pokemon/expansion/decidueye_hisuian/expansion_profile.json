@@ -141,7 +141,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Nature": "NATURE_RELAXED",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

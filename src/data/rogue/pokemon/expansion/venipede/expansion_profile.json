@@ -99,7 +99,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -127,7 +127,7 @@
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_SERIOUS",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

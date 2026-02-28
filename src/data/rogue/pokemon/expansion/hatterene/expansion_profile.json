@@ -126,7 +126,7 @@
         "GEN8OU",
         "GEN9MONOTYPE",
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -224,7 +224,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -252,7 +252,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -280,7 +280,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -295,7 +295,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -309,7 +309,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -324,7 +324,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -339,7 +339,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN9OU",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -369,7 +369,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -384,7 +384,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -398,7 +398,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -412,7 +412,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -426,7 +426,7 @@
       "Item": "ITEM_BIG_ROOT",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -440,7 +440,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -454,7 +454,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -468,7 +468,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

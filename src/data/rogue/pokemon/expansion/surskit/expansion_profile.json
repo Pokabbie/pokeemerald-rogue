@@ -102,7 +102,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -116,7 +116,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     }
   ]

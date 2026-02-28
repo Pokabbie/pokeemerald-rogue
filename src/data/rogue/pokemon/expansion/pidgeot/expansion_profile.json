@@ -108,7 +108,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -122,7 +122,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -237,7 +237,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN7UU",
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -280,7 +280,7 @@
       "Item": "ITEM_SKY_PLATE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -294,7 +294,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -308,7 +308,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -322,7 +322,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -336,7 +336,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -350,7 +350,7 @@
       "Item": "ITEM_PIDGEOTITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     }
   ]

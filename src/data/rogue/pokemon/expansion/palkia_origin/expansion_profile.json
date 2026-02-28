@@ -125,7 +125,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "Item": "ITEM_LUSTROUS_GLOBE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "Item": "ITEM_LUSTROUS_GLOBE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

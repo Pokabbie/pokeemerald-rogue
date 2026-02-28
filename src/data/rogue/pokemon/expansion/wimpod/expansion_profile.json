@@ -58,7 +58,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -72,7 +72,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

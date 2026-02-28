@@ -133,7 +133,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     }
   ]

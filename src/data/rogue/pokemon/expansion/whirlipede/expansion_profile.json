@@ -101,7 +101,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -115,7 +115,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -129,7 +129,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

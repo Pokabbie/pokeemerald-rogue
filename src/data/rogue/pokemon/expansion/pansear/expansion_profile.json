@@ -137,7 +137,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

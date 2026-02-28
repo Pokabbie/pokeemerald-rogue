@@ -137,7 +137,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_SERIOUS",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

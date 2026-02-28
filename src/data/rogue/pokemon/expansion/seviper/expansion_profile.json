@@ -150,7 +150,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_RASH",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

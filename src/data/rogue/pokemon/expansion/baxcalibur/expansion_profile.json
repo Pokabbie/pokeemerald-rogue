@@ -133,7 +133,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -147,7 +147,7 @@
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_LOADED_DICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

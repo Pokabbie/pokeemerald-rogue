@@ -116,7 +116,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -130,7 +130,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Item": "ITEM_ELECTRIC_SEED",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_TERRAIN_EXTENDER",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

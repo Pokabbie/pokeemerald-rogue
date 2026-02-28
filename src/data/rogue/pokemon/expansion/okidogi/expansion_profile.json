@@ -126,7 +126,7 @@
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9UU",
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

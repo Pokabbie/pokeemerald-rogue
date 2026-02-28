@@ -133,7 +133,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -147,7 +147,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

@@ -105,7 +105,7 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

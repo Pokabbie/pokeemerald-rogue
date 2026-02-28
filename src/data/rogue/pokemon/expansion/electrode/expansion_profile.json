@@ -129,7 +129,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_WATER",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -260,7 +260,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -272,7 +272,7 @@
       ],
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -284,7 +284,7 @@
       ],
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_ICE",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -313,7 +313,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -327,7 +327,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

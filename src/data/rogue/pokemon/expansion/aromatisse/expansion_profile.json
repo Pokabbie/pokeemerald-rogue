@@ -130,7 +130,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN7NU",
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_WIKI_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     }
   ]

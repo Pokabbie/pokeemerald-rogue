@@ -137,7 +137,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

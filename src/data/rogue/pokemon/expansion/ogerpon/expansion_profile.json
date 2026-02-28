@@ -130,7 +130,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9OU",
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -175,7 +175,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     }
   ]

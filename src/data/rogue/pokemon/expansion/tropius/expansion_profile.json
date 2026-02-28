@@ -132,7 +132,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

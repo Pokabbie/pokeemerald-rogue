@@ -152,7 +152,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -209,7 +209,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6PU",
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -224,7 +224,7 @@
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -252,7 +252,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
         "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -297,7 +297,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES",
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -312,7 +312,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES",
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -326,7 +326,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -340,7 +340,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -368,7 +368,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -382,7 +382,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -396,7 +396,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -410,7 +410,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -424,7 +424,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -452,7 +452,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -467,7 +467,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7OU",
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -481,7 +481,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -495,7 +495,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -509,7 +509,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -523,7 +523,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -537,7 +537,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -551,7 +551,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -565,7 +565,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -579,7 +579,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -593,7 +593,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -607,7 +607,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -621,7 +621,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -635,7 +635,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -649,7 +649,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -664,7 +664,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES",
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -678,7 +678,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -692,7 +692,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -706,7 +706,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -720,7 +720,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -734,7 +734,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -748,7 +748,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -762,7 +762,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -776,7 +776,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -790,7 +790,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -804,7 +804,7 @@
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     }
   ]

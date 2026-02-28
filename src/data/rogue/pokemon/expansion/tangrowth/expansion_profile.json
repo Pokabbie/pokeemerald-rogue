@@ -131,7 +131,7 @@
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "Nature": "NATURE_SASSY",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -161,7 +161,7 @@
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Nature": "NATURE_SASSY",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Nature": "NATURE_SASSY",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN8OU",
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -277,7 +277,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -292,7 +292,7 @@
       "Nature": "NATURE_RELAXED",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -307,7 +307,7 @@
       "Nature": "NATURE_SASSY",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     }
   ]

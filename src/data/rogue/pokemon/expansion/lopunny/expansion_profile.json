@@ -152,7 +152,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -242,7 +242,7 @@
         "GEN6MONOTYPE",
         "GEN7OU",
         "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -313,7 +313,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -327,7 +327,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -341,7 +341,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -369,7 +369,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -383,7 +383,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -397,7 +397,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -411,7 +411,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -425,7 +425,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -439,7 +439,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -453,7 +453,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -467,7 +467,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -481,7 +481,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -495,7 +495,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -509,7 +509,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -523,7 +523,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -537,7 +537,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -551,7 +551,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -565,7 +565,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -579,7 +579,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -593,7 +593,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -607,7 +607,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -621,7 +621,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -635,7 +635,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -650,7 +650,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8NATIONALDEX",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -664,7 +664,7 @@
       "Item": "ITEM_LOPUNNITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     }
   ]

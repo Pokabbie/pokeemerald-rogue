@@ -135,7 +135,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -163,7 +163,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

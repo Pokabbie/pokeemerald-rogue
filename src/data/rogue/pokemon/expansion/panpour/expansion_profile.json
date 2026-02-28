@@ -135,7 +135,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

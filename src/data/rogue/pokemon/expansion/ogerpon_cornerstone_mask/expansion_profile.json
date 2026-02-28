@@ -130,7 +130,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "Item": "ITEM_CORNERSTONE_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9NATIONALDEX",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_CORNERSTONE_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_CORNERSTONE_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Item": "ITEM_CORNERSTONE_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -245,7 +245,7 @@
       "Item": "ITEM_CORNERSTONE_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

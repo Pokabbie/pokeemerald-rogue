@@ -141,7 +141,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6LC",
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

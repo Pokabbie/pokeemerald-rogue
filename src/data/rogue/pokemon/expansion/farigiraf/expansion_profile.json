@@ -148,7 +148,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     }
   ]

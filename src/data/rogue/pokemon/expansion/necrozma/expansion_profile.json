@@ -143,7 +143,7 @@
       "Item": "ITEM_METRONOME",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Item": "ITEM_GROUNDIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -241,7 +241,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -255,7 +255,7 @@
       "Item": "ITEM_IAPAPA_BERRY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -269,7 +269,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -297,7 +297,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -311,7 +311,7 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -325,7 +325,7 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -340,7 +340,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -355,7 +355,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -370,7 +370,7 @@
       "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -385,7 +385,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     }
   ]

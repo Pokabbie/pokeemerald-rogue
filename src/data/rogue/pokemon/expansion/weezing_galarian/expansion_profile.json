@@ -150,7 +150,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -235,7 +235,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -264,7 +264,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -307,7 +307,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -335,7 +335,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -349,7 +349,7 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

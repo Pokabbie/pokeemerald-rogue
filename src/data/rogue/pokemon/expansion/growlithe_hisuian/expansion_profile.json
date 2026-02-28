@@ -127,7 +127,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

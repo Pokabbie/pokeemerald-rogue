@@ -175,7 +175,7 @@
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_SLOWBRONITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Item": "ITEM_QUICK_CLAW",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -245,7 +245,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -260,7 +260,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -274,7 +274,7 @@
       "Item": "ITEM_QUICK_CLAW",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -289,7 +289,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -304,7 +304,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -319,7 +319,7 @@
       "Nature": "NATURE_RELAXED",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -334,7 +334,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

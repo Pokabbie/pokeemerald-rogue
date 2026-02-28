@@ -125,7 +125,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "Item": "ITEM_ADAMANT_CRYSTAL",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     }
   ]

@@ -106,7 +106,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

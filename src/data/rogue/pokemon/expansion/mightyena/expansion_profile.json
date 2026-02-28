@@ -146,7 +146,7 @@
       "SourceTiers": [
         "GEN6PU",
         "GEN6ZU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

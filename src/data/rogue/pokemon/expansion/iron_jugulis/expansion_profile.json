@@ -139,7 +139,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

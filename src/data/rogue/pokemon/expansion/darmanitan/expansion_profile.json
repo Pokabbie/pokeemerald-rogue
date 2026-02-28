@@ -140,7 +140,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6OU",
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6UU",
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -214,7 +214,7 @@
       "SourceTiers": [
         "GEN6MONOTYPE",
         "GEN6MONOTYPE",
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -228,7 +228,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -270,7 +270,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -284,7 +284,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -298,7 +298,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     }
   ]

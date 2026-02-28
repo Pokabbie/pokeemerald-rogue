@@ -122,7 +122,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6NU",
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -205,7 +205,7 @@
       ],
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       ],
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LETSGOOU,"
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -247,7 +247,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

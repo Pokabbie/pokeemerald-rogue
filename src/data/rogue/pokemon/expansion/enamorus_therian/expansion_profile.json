@@ -128,7 +128,7 @@
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9OU",
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

@@ -122,7 +122,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_PSYCHIC",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

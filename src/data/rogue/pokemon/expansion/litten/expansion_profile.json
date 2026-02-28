@@ -115,7 +115,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -129,7 +129,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

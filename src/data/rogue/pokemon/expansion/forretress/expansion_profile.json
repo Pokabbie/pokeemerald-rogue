@@ -151,7 +151,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6OU",
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6UU",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN9UU",
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -280,7 +280,7 @@
       "Nature": "NATURE_RELAXED",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -295,7 +295,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -309,7 +309,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -323,7 +323,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

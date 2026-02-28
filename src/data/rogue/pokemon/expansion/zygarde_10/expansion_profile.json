@@ -134,7 +134,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "SourceTiers": [
         "GEN7UU",
         "GEN7RU",
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8UU",
-        "GEN8UU,"
+        "GEN8UU"
       ]
     }
   ]

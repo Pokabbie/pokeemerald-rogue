@@ -127,7 +127,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

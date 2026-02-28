@@ -102,7 +102,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -117,7 +117,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6NU",
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -131,7 +131,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -299,7 +299,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -313,7 +313,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

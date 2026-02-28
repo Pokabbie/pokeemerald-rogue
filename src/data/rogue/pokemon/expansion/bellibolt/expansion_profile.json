@@ -112,7 +112,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -127,7 +127,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -215,7 +215,7 @@
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     }
   ]

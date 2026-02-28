@@ -152,7 +152,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

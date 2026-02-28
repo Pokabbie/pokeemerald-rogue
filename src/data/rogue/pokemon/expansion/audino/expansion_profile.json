@@ -155,7 +155,7 @@
       "SourceTiers": [
         "GEN6RU",
         "GEN6PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -239,7 +239,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -281,7 +281,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -295,7 +295,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -309,7 +309,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -323,7 +323,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -337,7 +337,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -351,7 +351,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -366,7 +366,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -380,7 +380,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -394,7 +394,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -408,7 +408,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -423,7 +423,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7PU",
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -437,7 +437,7 @@
       "Item": "ITEM_AUDINITE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -452,7 +452,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN71V1",
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -466,7 +466,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -480,7 +480,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -494,7 +494,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     }
   ]

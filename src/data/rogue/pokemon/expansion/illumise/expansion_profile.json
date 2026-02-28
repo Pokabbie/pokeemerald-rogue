@@ -137,7 +137,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     }
   ]

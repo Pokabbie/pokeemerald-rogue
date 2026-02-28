@@ -123,7 +123,7 @@
         "GEN6NU",
         "GEN6NU",
         "GEN7PU",
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -137,7 +137,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8PU",
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -195,7 +195,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

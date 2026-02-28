@@ -121,7 +121,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6NU",
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -135,7 +135,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     }
   ]

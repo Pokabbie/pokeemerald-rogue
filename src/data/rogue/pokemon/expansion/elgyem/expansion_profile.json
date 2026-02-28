@@ -119,7 +119,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

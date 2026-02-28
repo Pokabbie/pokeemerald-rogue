@@ -124,7 +124,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -138,7 +138,7 @@
       "Item": "ITEM_GRASSY_SEED",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

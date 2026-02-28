@@ -169,7 +169,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -183,7 +183,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -239,7 +239,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -281,7 +281,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -295,7 +295,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -309,7 +309,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -323,7 +323,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -337,7 +337,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -352,7 +352,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7RU",
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -366,7 +366,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -381,7 +381,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7NU",
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -395,7 +395,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -409,7 +409,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -423,7 +423,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -437,7 +437,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -452,7 +452,7 @@
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -466,7 +466,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -480,7 +480,7 @@
       "Item": "ITEM_STEELIXITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -494,7 +494,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -508,7 +508,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -522,7 +522,7 @@
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -536,7 +536,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     }
   ]

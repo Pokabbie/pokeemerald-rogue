@@ -142,7 +142,7 @@
       "Item": "ITEM_ULTRANECROZIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -156,7 +156,7 @@
       "Item": "ITEM_ULTRANECROZIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -170,7 +170,7 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Item": "ITEM_ULTRANECROZIUM_Z",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

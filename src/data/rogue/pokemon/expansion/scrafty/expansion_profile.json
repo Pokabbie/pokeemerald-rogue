@@ -152,7 +152,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6UU",
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -222,7 +222,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES,"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6MONOTYPE",
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -280,7 +280,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7NU",
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -294,7 +294,7 @@
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -308,7 +308,7 @@
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -322,7 +322,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -336,7 +336,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -350,7 +350,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -364,7 +364,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -378,7 +378,7 @@
       "Item": "ITEM_DARKINIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -392,7 +392,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -406,7 +406,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -420,7 +420,7 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -436,7 +436,7 @@
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
         "GEN9NU",
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -451,7 +451,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -466,7 +466,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

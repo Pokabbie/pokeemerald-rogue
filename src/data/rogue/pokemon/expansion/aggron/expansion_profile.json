@@ -163,7 +163,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -205,7 +205,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -233,7 +233,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -247,7 +247,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU,"
+        "GEN6UU"
       ]
     },
     {
@@ -261,7 +261,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6RU,"
+        "GEN6RU"
       ]
     },
     {
@@ -276,7 +276,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6RU",
-        "GEN7NU,"
+        "GEN7NU"
       ]
     },
     {
@@ -290,7 +290,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -304,7 +304,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -319,7 +319,7 @@
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -334,7 +334,7 @@
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN61V1",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -348,7 +348,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -362,7 +362,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -376,7 +376,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -390,7 +390,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -404,7 +404,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -418,7 +418,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -432,7 +432,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -446,7 +446,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -460,7 +460,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -474,7 +474,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -489,7 +489,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7PU",
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -503,7 +503,7 @@
       "Item": "ITEM_SHUCA_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -517,7 +517,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -531,7 +531,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -545,7 +545,7 @@
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -559,7 +559,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -573,7 +573,7 @@
       "Item": "ITEM_AGGRONITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -587,7 +587,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -601,7 +601,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -615,7 +615,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -629,7 +629,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -643,7 +643,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -657,7 +657,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -671,7 +671,7 @@
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     }
   ]

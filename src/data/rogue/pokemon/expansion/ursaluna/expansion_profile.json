@@ -155,7 +155,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -228,7 +228,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -257,7 +257,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Nature": "NATURE_BRAVE",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -286,7 +286,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -301,7 +301,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -315,7 +315,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -329,7 +329,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -343,7 +343,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -357,7 +357,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -371,7 +371,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -385,7 +385,7 @@
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

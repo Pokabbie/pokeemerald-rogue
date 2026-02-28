@@ -125,7 +125,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -143,7 +143,7 @@
         "GEN9UU",
         "GEN9ANYTHINGGOES",
         "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -200,7 +200,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -214,7 +214,7 @@
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

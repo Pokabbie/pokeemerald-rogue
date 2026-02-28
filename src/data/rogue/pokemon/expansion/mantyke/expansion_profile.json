@@ -115,7 +115,7 @@
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -129,7 +129,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

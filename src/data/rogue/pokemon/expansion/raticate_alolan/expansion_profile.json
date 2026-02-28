@@ -129,7 +129,7 @@
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "Item": "ITEM_DREAD_PLATE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

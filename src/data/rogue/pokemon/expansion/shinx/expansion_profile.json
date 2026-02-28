@@ -119,7 +119,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

@@ -125,7 +125,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     }
   ]

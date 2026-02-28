@@ -115,7 +115,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -130,7 +130,7 @@
       "Nature": "NATURE_RELAXED",
       "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

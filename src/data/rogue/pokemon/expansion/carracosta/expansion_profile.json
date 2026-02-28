@@ -134,7 +134,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -162,7 +162,7 @@
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -190,7 +190,7 @@
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN71V1,"
+        "GEN71V1"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8PU",
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -233,7 +233,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -247,7 +247,7 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     }
   ]

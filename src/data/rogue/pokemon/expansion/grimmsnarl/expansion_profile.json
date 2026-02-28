@@ -141,7 +141,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "SourceTiers": [
         "GEN8OU",
         "GEN8OU",
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NU,"
+        "GEN8NU"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -241,7 +241,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -255,7 +255,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_HARDY",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -269,7 +269,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -297,7 +297,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -311,7 +311,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -325,7 +325,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -339,7 +339,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -353,7 +353,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -367,7 +367,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -381,7 +381,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -395,7 +395,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -409,7 +409,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -424,7 +424,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -453,7 +453,7 @@
       "Nature": "NATURE_CALM",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -468,7 +468,7 @@
       "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN9OU",
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -483,7 +483,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -498,7 +498,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -513,7 +513,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -527,7 +527,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -542,7 +542,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -557,7 +557,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -571,7 +571,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -586,7 +586,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -601,7 +601,7 @@
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN9DOUBLESOU",
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -616,7 +616,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -630,7 +630,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -644,7 +644,7 @@
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -659,7 +659,7 @@
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN9MONOTYPE",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

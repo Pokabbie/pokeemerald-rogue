@@ -130,7 +130,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9UBERS",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -174,7 +174,7 @@
       "Item": "ITEM_HEARTHFLAME_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -234,7 +234,7 @@
       "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -249,7 +249,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "Item": "ITEM_HEARTHFLAME_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -277,7 +277,7 @@
       "Item": "ITEM_HEARTHFLAME_MASK",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -292,7 +292,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9MONOTYPE",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

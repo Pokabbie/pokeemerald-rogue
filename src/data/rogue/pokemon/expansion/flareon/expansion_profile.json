@@ -158,7 +158,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6NU",
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6NU",
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "SourceTiers": [
         "GEN6PU",
         "GEN7ZU",
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -245,7 +245,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

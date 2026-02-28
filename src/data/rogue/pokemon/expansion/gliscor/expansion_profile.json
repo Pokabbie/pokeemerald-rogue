@@ -154,7 +154,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6OU,"
+        "GEN6OU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6DOUBLESOU,"
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
-        "GEN61V1,"
+        "GEN61V1"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -239,7 +239,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -281,7 +281,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -295,7 +295,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -309,7 +309,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -324,7 +324,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -338,7 +338,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -352,7 +352,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -366,7 +366,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -380,7 +380,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -394,7 +394,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -409,7 +409,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -423,7 +423,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -453,7 +453,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -467,7 +467,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -482,7 +482,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -497,7 +497,7 @@
       "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -511,7 +511,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -525,7 +525,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -539,7 +539,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     },
     {
@@ -554,7 +554,7 @@
       "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -568,7 +568,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -582,7 +582,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -596,7 +596,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -610,7 +610,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -624,7 +624,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -638,7 +638,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -652,7 +652,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -666,7 +666,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

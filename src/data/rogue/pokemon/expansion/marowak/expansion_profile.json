@@ -126,7 +126,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -182,7 +182,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -196,7 +196,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -210,7 +210,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -224,7 +224,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     }
   ]

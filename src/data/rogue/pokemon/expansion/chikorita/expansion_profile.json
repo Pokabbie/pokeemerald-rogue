@@ -116,7 +116,7 @@
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -131,7 +131,7 @@
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

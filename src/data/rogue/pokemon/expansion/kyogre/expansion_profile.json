@@ -115,7 +115,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -129,7 +129,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UBERS,"
+        "GEN6UBERS"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -227,7 +227,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -241,7 +241,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -255,7 +255,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -269,7 +269,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016,"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -297,7 +297,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -311,7 +311,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -325,7 +325,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -339,7 +339,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -353,7 +353,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES,"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -367,7 +367,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -381,7 +381,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -395,7 +395,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -409,7 +409,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -423,7 +423,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -437,7 +437,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -451,7 +451,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -465,7 +465,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -479,7 +479,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7UBERS,"
+        "GEN7UBERS"
       ]
     },
     {
@@ -493,7 +493,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -507,7 +507,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -521,7 +521,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -535,7 +535,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -549,7 +549,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -563,7 +563,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -577,7 +577,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -591,7 +591,7 @@
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES,"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -605,7 +605,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -619,7 +619,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -634,7 +634,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN8UBERS",
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -648,7 +648,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN8UBERS,"
+        "GEN8UBERS"
       ]
     },
     {
@@ -663,7 +663,7 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN8UBERS",
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -677,7 +677,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -691,7 +691,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -705,7 +705,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -719,7 +719,7 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES,"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -735,7 +735,7 @@
       "SourceTiers": [
         "GEN8ANYTHINGGOES",
         "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -750,7 +750,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -765,7 +765,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9UBERS,"
+        "GEN9UBERS"
       ]
     },
     {
@@ -780,7 +780,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -795,7 +795,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -810,7 +810,7 @@
       "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9ANYTHINGGOES,"
+        "GEN9ANYTHINGGOES"
       ]
     }
   ]

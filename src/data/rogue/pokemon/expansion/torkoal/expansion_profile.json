@@ -141,7 +141,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6PU",
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6MONOTYPE,"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -230,7 +230,7 @@
         "GEN7MONOTYPE",
         "GEN8MONOTYPE",
         "GEN9NATIONALDEX",
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -244,7 +244,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -258,7 +258,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -286,7 +286,7 @@
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -300,7 +300,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7DOUBLESOU,"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -314,7 +314,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES,"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -328,7 +328,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -342,7 +342,7 @@
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -356,7 +356,7 @@
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -370,7 +370,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -384,7 +384,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -398,7 +398,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -412,7 +412,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -426,7 +426,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -440,7 +440,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -454,7 +454,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -469,7 +469,7 @@
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
         "GEN8DOUBLESOU",
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -483,7 +483,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8DOUBLESOU,"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -497,7 +497,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -511,7 +511,7 @@
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -525,7 +525,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -539,7 +539,7 @@
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     },
     {
@@ -553,7 +553,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -568,7 +568,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE,"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -583,7 +583,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9OU,"
+        "GEN9OU"
       ]
     },
     {
@@ -597,7 +597,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEX,"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -612,7 +612,7 @@
       "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9DOUBLESOU,"
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -626,7 +626,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -640,7 +640,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -654,7 +654,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE,"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

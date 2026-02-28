@@ -127,7 +127,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN91V1,"
+        "GEN91V1"
       ]
     }
   ]

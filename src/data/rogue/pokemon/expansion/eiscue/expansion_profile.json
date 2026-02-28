@@ -111,7 +111,7 @@
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -125,7 +125,7 @@
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     }
   ]

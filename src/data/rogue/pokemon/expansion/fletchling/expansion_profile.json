@@ -100,7 +100,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6LC",
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "Ability": "ABILITY_GALE_WINGS",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -126,7 +126,7 @@
       "Ability": "ABILITY_GALE_WINGS",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -153,7 +153,7 @@
       "Ability": "ABILITY_GALE_WINGS",
       "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -167,7 +167,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

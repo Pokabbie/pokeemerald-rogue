@@ -128,7 +128,7 @@
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC",
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC,"
+        "GEN8LC"
       ]
     }
   ]

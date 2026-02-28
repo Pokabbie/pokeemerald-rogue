@@ -133,7 +133,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -147,7 +147,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -161,7 +161,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -175,7 +175,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

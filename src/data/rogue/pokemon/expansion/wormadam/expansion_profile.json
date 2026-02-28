@@ -125,7 +125,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ROCK",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

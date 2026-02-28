@@ -106,7 +106,7 @@
         "GEN6LC",
         "GEN7LC",
         "GEN8LC",
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -120,7 +120,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -135,7 +135,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN7LC",
-        "GEN8LC,"
+        "GEN8LC"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

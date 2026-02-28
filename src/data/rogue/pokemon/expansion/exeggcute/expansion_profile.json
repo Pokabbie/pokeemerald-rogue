@@ -112,7 +112,7 @@
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -126,7 +126,7 @@
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     }
   ]

@@ -121,7 +121,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -135,7 +135,7 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

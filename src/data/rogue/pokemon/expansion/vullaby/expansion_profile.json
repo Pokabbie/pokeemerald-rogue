@@ -116,7 +116,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -130,7 +130,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "Nature": "NATURE_DOCILE",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "Nature": "NATURE_NAUGHTY",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -261,7 +261,7 @@
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -275,7 +275,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -290,7 +290,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -305,7 +305,7 @@
       "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     },
     {
@@ -319,7 +319,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

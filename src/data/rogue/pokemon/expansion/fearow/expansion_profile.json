@@ -112,7 +112,7 @@
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6PU",
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -126,7 +126,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -154,7 +154,7 @@
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     }
   ]

@@ -167,7 +167,7 @@
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
         "GEN7OU",
-        "GEN7OU,"
+        "GEN7OU"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -195,7 +195,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -209,7 +209,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7RU,"
+        "GEN7RU"
       ]
     },
     {
@@ -223,7 +223,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES,"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -237,7 +237,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2017,"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -265,7 +265,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -279,7 +279,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7VGC2018,"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -307,7 +307,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -322,7 +322,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7MONOTYPE",
-        "GEN8MONOTYPE,"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -336,7 +336,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -350,7 +350,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8OU,"
+        "GEN8OU"
       ]
     },
     {
@@ -364,7 +364,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8UU,"
+        "GEN8UU"
       ]
     },
     {
@@ -379,7 +379,7 @@
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
         "GEN8UU",
-        "GEN8NATIONALDEX,"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -393,7 +393,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -407,7 +407,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -421,7 +421,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -435,7 +435,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -449,7 +449,7 @@
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN81V1,"
+        "GEN81V1"
       ]
     }
   ]

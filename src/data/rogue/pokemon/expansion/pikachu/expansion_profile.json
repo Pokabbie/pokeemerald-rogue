@@ -148,7 +148,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -163,7 +163,7 @@
       "Nature": "NATURE_LONELY",
       "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN6ZU,"
+        "GEN6ZU"
       ]
     },
     {
@@ -177,7 +177,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES,"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -205,7 +205,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7ZU,"
+        "GEN7ZU"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8PU,"
+        "GEN8PU"
       ]
     },
     {
@@ -233,7 +233,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN8ZU,"
+        "GEN8ZU"
       ]
     },
     {
@@ -247,7 +247,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES,"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -261,7 +261,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8VGC2020,"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -275,7 +275,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9ZU,"
+        "GEN9ZU"
       ]
     },
     {
@@ -289,7 +289,7 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     }
   ]

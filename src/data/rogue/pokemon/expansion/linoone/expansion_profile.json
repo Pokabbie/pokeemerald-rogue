@@ -135,7 +135,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6NU,"
+        "GEN6NU"
       ]
     },
     {
@@ -164,7 +164,7 @@
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7UU",
-        "GEN8RU,"
+        "GEN8RU"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7UU,"
+        "GEN7UU"
       ]
     },
     {
@@ -192,7 +192,7 @@
       "Item": "ITEM_AGUAV_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7MONOTYPE,"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -206,7 +206,7 @@
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8RU,"
+        "GEN8RU"
       ]
     }
   ]

@@ -132,7 +132,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]

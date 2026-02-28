@@ -148,7 +148,7 @@
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9UU,"
+        "GEN9UU"
       ]
     },
     {
@@ -161,7 +161,7 @@
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9RU,"
+        "GEN9RU"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9NU,"
+        "GEN9NU"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     },
     {
@@ -203,7 +203,7 @@
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG,"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "Item": "ITEM_PUNCHING_GLOVE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE,"
+        "GEN9MONOTYPE"
       ]
     }
   ]

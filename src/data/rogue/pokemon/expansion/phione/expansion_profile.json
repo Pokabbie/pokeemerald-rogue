@@ -96,7 +96,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -110,7 +110,7 @@
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     },
     {
@@ -124,7 +124,7 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9PU,"
+        "GEN9PU"
       ]
     }
   ]

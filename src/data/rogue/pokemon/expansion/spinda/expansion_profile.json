@@ -137,7 +137,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6PU,"
+        "GEN6PU"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN7PU,"
+        "GEN7PU"
       ]
     }
   ]

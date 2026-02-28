@@ -131,7 +131,7 @@
       "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6LC",
-        "GEN6LC,"
+        "GEN6LC"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7LC,"
+        "GEN7LC"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9LC,"
+        "GEN9LC"
       ]
     }
   ]
