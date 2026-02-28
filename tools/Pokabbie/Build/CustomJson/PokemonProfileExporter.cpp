@@ -312,7 +312,7 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		}
 
 
-		if (data.contains("PerSpecies"))
+		if (revisedData.contains("PerSpecies"))
 		{
 			json perSpeciesData = revisedData["PerSpecies"];
 
