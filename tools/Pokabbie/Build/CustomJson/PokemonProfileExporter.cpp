@@ -41,6 +41,14 @@ struct BaseStats
 	int m_SpDefense;
 };
 
+struct SpeciesProfile
+{
+	bool m_HasBaseStats = false;
+	BaseStats m_BaseStats;
+	std::vector<std::string> m_Types;
+	std::vector<std::string> m_Abilities;
+};
+
 struct PokemonProfile
 {
 	std::vector<std::string> m_Species;
@@ -48,11 +56,8 @@ struct PokemonProfile
 	std::vector<std::string> m_TutorMoves;
 	std::vector<CompetitiveSet> m_CompetitiveSets;
 	std::vector<Evolution> m_Evolutions;
-	BaseStats m_BaseStats;
-	std::vector<std::string> m_Types;
-	std::vector<std::string> m_Abilities;
+	std::unordered_map<std::string, SpeciesProfile> m_PerSpeciesProfile;
 	bool m_IsFallbackProfile = false;
-	bool m_HasBaseStats = false;
 
 	bool HasLevelUpMove(std::string const& move)
 	{
@@ -163,39 +168,39 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		outProfile.m_CompetitiveSets.push_back(outSet);
 	}
 
-	if (data.contains("BaseStats"))
-	{
-		json baseStats = data["BaseStats"];
-
-		outProfile.m_HasBaseStats = true;
-		outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
-		outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
-		outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
-		outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
-		outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
-		outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
-	}
-
-	if (data.contains("Types"))
-	{
-		for (json type : data["Types"])
-		{
-			outProfile.m_Types.push_back(GetAsString(type));
-		}
-
-		if (outProfile.m_Types.size() == 1)
-		{
-			outProfile.m_Types.push_back(outProfile.m_Types[0]);
-		}
-	}
-
-	if (data.contains("Abilities"))
-	{
-		for (json ability : data["Abilities"])
-		{
-			outProfile.m_Abilities.push_back(GetAsString(ability));
-		}
-	}
+	//if (data.contains("BaseStats"))
+	//{
+	//	json baseStats = data["BaseStats"];
+	//
+	//	outProfile.m_HasBaseStats = true;
+	//	outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
+	//	outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
+	//	outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
+	//	outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
+	//	outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
+	//	outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+	//}
+	//
+	//if (data.contains("Types"))
+	//{
+	//	for (json type : data["Types"])
+	//	{
+	//		outProfile.m_Types.push_back(GetAsString(type));
+	//	}
+	//
+	//	if (outProfile.m_Types.size() == 1)
+	//	{
+	//		outProfile.m_Types.push_back(outProfile.m_Types[0]);
+	//	}
+	//}
+	//
+	//if (data.contains("Abilities"))
+	//{
+	//	for (json ability : data["Abilities"])
+	//	{
+	//		outProfile.m_Abilities.push_back(GetAsString(ability));
+	//	}
+	//}
 
 	if (data.contains("Evolutions"))
 	{
@@ -292,39 +297,6 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 			}
 		}
 
-		if (revisedData.contains("BaseStats"))
-		{
-			json baseStats = revisedData["BaseStats"];
-
-			outProfile.m_HasBaseStats = true;
-			outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
-			outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
-			outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
-			outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
-			outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
-			outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
-		}
-
-		if (revisedData.contains("Types"))
-		{
-			for (json type : revisedData["Types"])
-			{
-				outProfile.m_Types.push_back(GetAsString(type));
-			}
-
-			if (outProfile.m_Types.size() == 1)
-			{
-				outProfile.m_Types.push_back(outProfile.m_Types[0]);
-			}
-		}
-
-		if (revisedData.contains("Abilities"))
-		{
-			for (json ability : revisedData["Abilities"])
-			{
-				outProfile.m_Abilities.push_back(GetAsString(ability));
-			}
-		}
 
 		if (revisedData.contains("Evolutions"))
 		{
@@ -336,6 +308,101 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 				evo.m_Species = GetAsString(evoData["Species"]);
 
 				outProfile.m_Evolutions.push_back(evo);
+			}
+		}
+
+
+		if (data.contains("PerSpecies"))
+		{
+			json perSpeciesData = revisedData["PerSpecies"];
+
+			for (std::string const& species : outProfile.m_Species)
+			{
+				if (!perSpeciesData.contains(species))
+					continue;
+
+				json speciesData = perSpeciesData[species];
+
+				SpeciesProfile speciesProfile;
+
+				if (speciesData.contains("BaseStats"))
+				{
+					json baseStats = speciesData["BaseStats"];
+
+					speciesProfile.m_HasBaseStats = true;
+					speciesProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
+					speciesProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
+					speciesProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
+					speciesProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
+					speciesProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
+					speciesProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+				}
+
+				if (speciesData.contains("Types"))
+				{
+					for (json type : speciesData["Types"])
+					{
+						speciesProfile.m_Types.push_back(GetAsString(type));
+					}
+
+					if (speciesProfile.m_Types.size() == 1)
+					{
+						speciesProfile.m_Types.push_back(speciesProfile.m_Types[0]);
+					}
+				}
+
+				if (speciesData.contains("Abilities"))
+				{
+					for (json ability : speciesData["Abilities"])
+					{
+						speciesProfile.m_Abilities.push_back(GetAsString(ability));
+					}
+				}
+
+				outProfile.m_PerSpeciesProfile[species] = speciesProfile;
+			}
+		}
+		else // legacy, apply to every species
+		{
+			SpeciesProfile speciesProfile;
+
+			if (revisedData.contains("BaseStats"))
+			{
+				json baseStats = revisedData["BaseStats"];
+
+				speciesProfile.m_HasBaseStats = true;
+				speciesProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
+				speciesProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
+				speciesProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
+				speciesProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
+				speciesProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
+				speciesProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+			}
+
+			if (revisedData.contains("Types"))
+			{
+				for (json type : revisedData["Types"])
+				{
+					speciesProfile.m_Types.push_back(GetAsString(type));
+				}
+
+				if (speciesProfile.m_Types.size() == 1)
+				{
+					speciesProfile.m_Types.push_back(speciesProfile.m_Types[0]);
+				}
+			}
+
+			if (revisedData.contains("Abilities"))
+			{
+				for (json ability : revisedData["Abilities"])
+				{
+					speciesProfile.m_Abilities.push_back(GetAsString(ability));
+				}
+			}
+
+			for (std::string const& species : outProfile.m_Species)
+			{
+				outProfile.m_PerSpeciesProfile[species] = speciesProfile;
 			}
 		}
 	}
@@ -682,38 +749,47 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 		lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 
-		if (profile.m_Types.empty())
+		SpeciesProfile speciesProfile = { 0 };
+		{
+			auto findIt = profile.m_PerSpeciesProfile.find(profile.m_Species[0]);
+			if (findIt != profile.m_PerSpeciesProfile.end())
+			{
+				speciesProfile = findIt->second;
+			}
+		}
+
+		if (speciesProfile.m_Types.empty())
 		{
 			lowerBlock << "\t\t\t.types = { TYPE_NONE },\n";
 		}
 		else
 		{
 			lowerBlock << "\t\t\t.types = { ";
-			for (std::string const& type : profile.m_Types)
+			for (std::string const& type : speciesProfile.m_Types)
 				lowerBlock << type << ", ";
 			lowerBlock << "},\n";
 		}
 
-		if (profile.m_Abilities.empty())
+		if (speciesProfile.m_Abilities.empty())
 		{
 			lowerBlock << "\t\t\t.abilities = { ABILITY_NONE },\n";
 		}
 		else
 		{
 			lowerBlock << "\t\t\t.abilities = { ";
-			for (std::string const& ability : profile.m_Abilities)
+			for (std::string const& ability : speciesProfile.m_Abilities)
 				lowerBlock << ability << ", ";
 			lowerBlock << "},\n";
 		}
 
-		if (profile.m_HasBaseStats)
+		if (speciesProfile.m_HasBaseStats)
 		{
-			lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
-			lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
-			lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
-			lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
-			lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
-			lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
+			lowerBlock << "\t\t\t.baseHP = " << speciesProfile.m_BaseStats.m_HP << ",\n";
+			lowerBlock << "\t\t\t.baseAttack = " << speciesProfile.m_BaseStats.m_Attack << ",\n";
+			lowerBlock << "\t\t\t.baseDefense = " << speciesProfile.m_BaseStats.m_Defense << ",\n";
+			lowerBlock << "\t\t\t.baseSpeed = " << speciesProfile.m_BaseStats.m_Speed << ",\n";
+			lowerBlock << "\t\t\t.baseSpAttack = " << speciesProfile.m_BaseStats.m_SpAttack << ",\n";
+			lowerBlock << "\t\t\t.baseSpDefense = " << speciesProfile.m_BaseStats.m_SpDefense << ",\n";
 		}
 
 		lowerBlock << "\t\t},\n";
@@ -724,6 +800,15 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		// Attach redirected species info too
 		for (size_t i = 1; i < profile.m_Species.size(); ++i)
 		{
+			speciesProfile = { 0 };
+			{
+				auto findIt = profile.m_PerSpeciesProfile.find(profile.m_Species[0]);
+				if (findIt != profile.m_PerSpeciesProfile.end())
+				{
+					speciesProfile = findIt->second;
+				}
+			}
+
 			lowerBlock << "\t[" << profile.m_Species[i] << "] = \n\t{\n";
 			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
 			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
@@ -751,38 +836,38 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 			lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 
-			if (profile.m_Types.empty())
+			if (speciesProfile.m_Types.empty())
 			{
 				lowerBlock << "\t\t\t.types = { TYPE_NONE },\n";
 			}
 			else
 			{
 				lowerBlock << "\t\t\t.types = { ";
-				for (std::string const& type : profile.m_Types)
+				for (std::string const& type : speciesProfile.m_Types)
 					lowerBlock << type << ", ";
 				lowerBlock << "},\n";
 			}
 
-			if (profile.m_Abilities.empty())
+			if (speciesProfile.m_Abilities.empty())
 			{
 				lowerBlock << "\t\t\t.abilities = { ABILITY_NONE },\n";
 			}
 			else
 			{
 				lowerBlock << "\t\t\t.abilities = { ";
-				for (std::string const& ability : profile.m_Abilities)
+				for (std::string const& ability : speciesProfile.m_Abilities)
 					lowerBlock << ability << ", ";
 				lowerBlock << "},\n";
 			}
 
-			if (profile.m_HasBaseStats)
+			if (speciesProfile.m_HasBaseStats)
 			{
-				lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
-				lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
-				lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
-				lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
-				lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
-				lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
+				lowerBlock << "\t\t\t.baseHP = " << speciesProfile.m_BaseStats.m_HP << ",\n";
+				lowerBlock << "\t\t\t.baseAttack = " << speciesProfile.m_BaseStats.m_Attack << ",\n";
+				lowerBlock << "\t\t\t.baseDefense = " << speciesProfile.m_BaseStats.m_Defense << ",\n";
+				lowerBlock << "\t\t\t.baseSpeed = " << speciesProfile.m_BaseStats.m_Speed << ",\n";
+				lowerBlock << "\t\t\t.baseSpAttack = " << speciesProfile.m_BaseStats.m_SpAttack << ",\n";
+				lowerBlock << "\t\t\t.baseSpDefense = " << speciesProfile.m_BaseStats.m_SpDefense << ",\n";
 			}
 
 			lowerBlock << "\t\t},\n";
