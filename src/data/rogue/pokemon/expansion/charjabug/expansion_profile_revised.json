@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_CHARJABUG": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 102,
+        "Defense": 95,
+        "Speed": 56,
+        "SpAttack": 55,
+        "SpDefense": 75
+      }
+    }
+  }
+}

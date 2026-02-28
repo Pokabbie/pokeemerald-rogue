@@ -1,0 +1,75 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 50
+    }
+  ]
+}

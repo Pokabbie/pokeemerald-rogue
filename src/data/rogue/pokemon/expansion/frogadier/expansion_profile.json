@@ -181,16 +181,5 @@
         "GEN7ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_FROGADIER": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_INFILTRATOR",
-          "ABILITY_PROTEAN"
-        ]
-      }
-    }
-  }
+  ]
 }

@@ -107,46 +107,5 @@
     "MOVE_X_SCISSOR",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_FEINT_ATTACK",
-        "Level": 14
-      },
-      {
-        "Move": "MOVE_COVET",
-        "Level": 21
-      },
-      {
-        "Move": "MOVE_CHIP_AWAY",
-        "Level": 25
-      },
-      {
-        "Move": "MOVE_COUNTER",
-        "Level": 29
-      },
-      {
-        "Move": "MOVE_KNOCK_OFF",
-        "Level": 37
-      },
-      {
-        "Move": "MOVE_PLAY_ROUGH",
-        "Level": 41
-      },
-      {
-        "Move": "MOVE_DOUBLE_EDGE",
-        "Level": 45
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_SLAKOTH": {
-        "Abilities": [
-          "ABILITY_TRUANT",
-          "ABILITY_NONE",
-          "ABILITY_SLOW_START"
-        ]
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

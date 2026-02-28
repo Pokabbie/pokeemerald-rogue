@@ -202,44 +202,5 @@
         "GEN8ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_ROCK_CLIMB",
-      "MOVE_CURSE"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_CURSE",
-          "MOVE_BODY_SLAM",
-          "MOVE_KNOCK_OFF",
-          "MOVE_WISH"
-        ],
-        "Ability": "ABILITY_UNAWARE",
-        "Item": "ITEM_LEFTOVERS",
-        "Nature": "NATURE_HARDY",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_LICKILICKY": {
-        "Abilities": [
-          "ABILITY_UNAWARE",
-          "ABILITY_OBLIVIOUS",
-          "ABILITY_CLOUD_NINE"
-        ],
-        "BaseStats": {
-          "HP": 110,
-          "Attack": 105,
-          "Defense": 95,
-          "Speed": 30,
-          "SpAttack": 80,
-          "SpDefense": 95
-        }
-      }
-    }
-  }
+  ]
 }

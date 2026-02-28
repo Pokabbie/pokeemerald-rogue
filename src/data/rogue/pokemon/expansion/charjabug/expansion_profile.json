@@ -95,19 +95,5 @@
     "MOVE_WILD_CHARGE",
     "MOVE_X_SCISSOR"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_CHARJABUG": {
-        "BaseStats": {
-          "HP": 67,
-          "Attack": 102,
-          "Defense": 95,
-          "Speed": 56,
-          "SpAttack": 55,
-          "SpDefense": 75
-        }
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

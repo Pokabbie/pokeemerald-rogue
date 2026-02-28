@@ -1,0 +1,15 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_DREAM_EATER",
+    "MOVE_MUD_SLAP",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_SNORE",
+    "MOVE_SURF"
+  ]
+}

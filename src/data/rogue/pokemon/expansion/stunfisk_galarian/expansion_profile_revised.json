@@ -1,0 +1,76 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_STUNFISK_GALARIAN": {
+      "Abilities": [
+        "ABILITY_MIMICRY",
+        "ABILITY_DRY_SKIN",
+        "ABILITY_ARENA_TRAP"
+      ],
+      "BaseStats": {
+        "HP": 109,
+        "Attack": 90,
+        "Defense": 99,
+        "Speed": 32,
+        "SpAttack": 66,
+        "SpDefense": 84
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_AQUA_TAIL",
+    "MOVE_SPIKES"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

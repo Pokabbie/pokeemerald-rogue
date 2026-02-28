@@ -1,0 +1,42 @@
+{
+  "LevelUpMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_COSMIC_POWER",
+        "MOVE_SECRET_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SECRET_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

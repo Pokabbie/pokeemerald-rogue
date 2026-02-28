@@ -246,23 +246,5 @@
         "GEN9PU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_POWER_GEM",
-      "MOVE_WEATHER_BALL"
-    ],
-    "PerSpecies": {
-      "SPECIES_CHIMECHO": {
-        "BaseStats": {
-          "HP": 75,
-          "Attack": 40,
-          "Defense": 80,
-          "Speed": 65,
-          "SpAttack": 110,
-          "SpDefense": 100
-        }
-      }
-    }
-  }
+  ]
 }

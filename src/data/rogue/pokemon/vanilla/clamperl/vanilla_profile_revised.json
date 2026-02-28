@@ -1,0 +1,35 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 18
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_DEEP_SEA_TOOTH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

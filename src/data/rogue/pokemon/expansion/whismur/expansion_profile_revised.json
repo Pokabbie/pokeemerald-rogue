@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WHISMUR": {
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_SCRAPPY",
+        "ABILITY_RATTLED"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_BUG_BUZZ"
+  ]
+}

@@ -475,50 +475,5 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_ROAR_OF_TIME",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_SPACIAL_REND",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_SHADOW_FORCE",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_NATURAL_GIFT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_PUNISHMENT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_REFRESH",
-        "Level": 50
-      }
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_BULK_UP",
-          "MOVE_EXTREME_SPEED",
-          "MOVE_SHADOW_CLAW",
-          "MOVE_TAUNT"
-        ],
-        "Ability": "ABILITY_MULTITYPE",
-        "Item": "ITEM_LEFTOVERS",
-        "Nature": "NATURE_ADAMANT",
-        "TeraType": "TYPE_FIRE",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

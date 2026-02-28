@@ -1,0 +1,124 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_JAW_LOCK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 74
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_REVENGE",
+    "MOVE_TOXIC",
+    "MOVE_PAYBACK",
+    "MOVE_IRON_TAIL",
+    "MOVE_BRICK_BREAK",
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_SUPERPOWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_ASSURANCE",
+    "MOVE_SCALE_SHOT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_FANG",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_JAW_LOCK"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

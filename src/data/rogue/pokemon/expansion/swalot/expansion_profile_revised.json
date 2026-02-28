@@ -1,0 +1,40 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWALOT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 73,
+        "Defense": 88,
+        "Speed": 55,
+        "SpAttack": 93,
+        "SpDefense": 88
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_EARTH_POWER",
+    "MOVE_THUNDERBOLT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

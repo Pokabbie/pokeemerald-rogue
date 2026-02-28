@@ -1,0 +1,508 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_STEAMROLLER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HEAT_CRASH",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXPLOSION",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_CLIMB"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAT_CRASH"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

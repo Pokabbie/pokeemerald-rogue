@@ -21,10 +21,5 @@
     "MOVE_SUCKER_PUNCH",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_LEAF_STORM"
-    ]
-  }
+  "CompetitiveSets": []
 }

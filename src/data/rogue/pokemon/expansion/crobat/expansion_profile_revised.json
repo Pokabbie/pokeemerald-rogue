@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_CROBAT": {
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_SNIPER",
+        "ABILITY_INFILTRATOR"
+      ],
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 90,
+        "Defense": 80,
+        "Speed": 130,
+        "SpAttack": 90,
+        "SpDefense": 80
+      }
+    }
+  }
+}

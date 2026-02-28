@@ -1,0 +1,100 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWANNA": {
+      "Abilities": [
+        "ABILITY_FRIEND_GUARD",
+        "ABILITY_BIG_PECKS",
+        "ABILITY_HYDRATION"
+      ],
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 63,
+        "Defense": 65,
+        "Speed": 98,
+        "SpAttack": 109,
+        "SpDefense": 83
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 62
+    }
+  ]
+}

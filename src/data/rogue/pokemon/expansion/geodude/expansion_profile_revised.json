@@ -1,0 +1,139 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_CLIMB"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

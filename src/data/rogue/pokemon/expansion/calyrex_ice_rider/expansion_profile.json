@@ -308,12 +308,5 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ]
-  }
+  ]
 }

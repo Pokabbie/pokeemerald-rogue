@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_INCINEROAR": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 115,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 80,
+        "SpDefense": 90
+      }
+    }
+  }
+}

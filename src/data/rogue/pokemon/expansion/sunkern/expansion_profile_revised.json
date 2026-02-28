@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_SUNKERN": {
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SOLAR_POWER",
+        "ABILITY_SEED_SOWER"
+      ],
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 30,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 50
+      }
+    }
+  }
+}

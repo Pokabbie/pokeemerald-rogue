@@ -1,0 +1,102 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COMET_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 34
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SUPERSONIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_ENCORE",
+        "MOVE_PSYBEAM"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_AERIAL_ACE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_SILVER_WIND"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_AERIAL_ACE",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

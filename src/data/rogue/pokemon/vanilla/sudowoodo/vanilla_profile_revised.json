@@ -1,0 +1,63 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 64
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUBMISSION",
+        "MOVE_EARTH_POWER",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SUDOWOODO": {
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 53
+    }
+  ]
+}

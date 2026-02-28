@@ -1,0 +1,146 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLOATZEL": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_WATER_VEIL",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_UP_PUNCH",
+    "MOVE_LUNGE",
+    "MOVE_TAIL_SLAP",
+    "MOVE_CUT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

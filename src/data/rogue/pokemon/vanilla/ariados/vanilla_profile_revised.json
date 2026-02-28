@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 42
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_CRUNCH",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_X_SCISSOR",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

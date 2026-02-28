@@ -1,0 +1,29 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP",
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

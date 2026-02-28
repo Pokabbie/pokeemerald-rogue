@@ -1,0 +1,147 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CRUNCH",
+    "MOVE_HYPNOSIS"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_SHARP_BEAK",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SHADE",
+        "MOVE_WING_ATTACK",
+        "MOVE_POISON_FANG",
+        "MOVE_CONFUSE_RAY"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_POISON_BARB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HEAT_WAVE",
+        "MOVE_CONFUSE_RAY"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPER_FANG",
+        "MOVE_FLY",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_CRUNCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRANGE_STEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_RETURN"
+  ]
+}

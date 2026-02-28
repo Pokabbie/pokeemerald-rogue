@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CAPSAKID": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 62,
+        "Defense": 40,
+        "Speed": 62,
+        "SpAttack": 50,
+        "SpDefense": 40
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 49
+    }
+  ]
+}

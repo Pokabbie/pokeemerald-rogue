@@ -1,0 +1,11 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_WORK_UP",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_AQUA_TAIL"
+  ]
+}

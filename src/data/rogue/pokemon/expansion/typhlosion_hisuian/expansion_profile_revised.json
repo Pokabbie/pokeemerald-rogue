@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_TYPHLOSION_HISUIAN": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FRISK"
+      ],
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 84,
+        "Defense": 73,
+        "Speed": 96,
+        "SpAttack": 129,
+        "SpDefense": 80
+      }
+    }
+  }
+}

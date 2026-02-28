@@ -17,13 +17,5 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_LEECH_LIFE",
-        "Level": 5
-      }
-    ]
-  }
+  "CompetitiveSets": []
 }

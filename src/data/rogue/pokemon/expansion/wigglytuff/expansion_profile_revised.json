@@ -1,0 +1,231 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_WIGGLYTUFF": {
+      "Abilities": [
+        "ABILITY_FRIEND_GUARD",
+        "ABILITY_COMPETITIVE",
+        "ABILITY_HUGE_POWER"
+      ],
+      "BaseStats": {
+        "HP": 140,
+        "Attack": 60,
+        "Defense": 45,
+        "Speed": 45,
+        "SpAttack": 95,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_RETURN",
+    "MOVE_LOVELY_KISS",
+    "MOVE_POWER_GEM",
+    "MOVE_CURSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_TELEPORT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BOOMBURST",
+        "MOVE_MOONBLAST",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CURSE",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICY_WIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_HELPING_HAND",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_FRIEND_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

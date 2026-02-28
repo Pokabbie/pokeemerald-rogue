@@ -1,0 +1,188 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GARDEVOIR": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 60,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 125,
+        "SpDefense": 115
+      }
+    },
+    "SPECIES_GARDEVOIR_MEGA": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 80,
+        "Defense": 79,
+        "Speed": 115,
+        "SpAttack": 165,
+        "SpDefense": 135
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ICE_BEAM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_AURA_SPHERE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_AURA_SPHERE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_GARDEVOIRITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

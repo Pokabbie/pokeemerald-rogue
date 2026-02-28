@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 35
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

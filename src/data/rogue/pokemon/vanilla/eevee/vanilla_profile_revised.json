@@ -1,0 +1,94 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 45
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TACKLE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HELPING_HAND",
+        "MOVE_BATON_PASS",
+        "MOVE_GROWTH",
+        "MOVE_BITE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_POWER",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_BITE",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_EEVEE": {
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PIDOVE": {
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_UNAWARE"
+      ],
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 36,
+        "Defense": 50,
+        "Speed": 43,
+        "SpAttack": 55,
+        "SpDefense": 30
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HURRICANE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_AIR_CUTTER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SWIFT"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

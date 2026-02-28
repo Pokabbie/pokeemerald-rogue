@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ICE_SHARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_MUD_SHOT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_ENDEAVOR",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DONPHAN": {
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

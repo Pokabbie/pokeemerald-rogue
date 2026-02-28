@@ -1,0 +1,118 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_HEART_SWAP",
+      "Level": 76
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 84
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SIGNAL_BEAM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_RAIN_DANCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ENERGY_BALL",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

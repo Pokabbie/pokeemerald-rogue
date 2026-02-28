@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_WORMADAM": {
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_OVERCOAT"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 90,
+        "Speed": 30,
+        "SpAttack": 110,
+        "SpDefense": 110
+      }
+    }
+  }
+}

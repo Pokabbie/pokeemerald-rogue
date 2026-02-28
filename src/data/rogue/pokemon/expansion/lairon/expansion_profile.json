@@ -169,32 +169,5 @@
         "GEN6ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_STEALTH_ROCK",
-          "MOVE_HEAD_SMASH",
-          "MOVE_SUPERPOWER",
-          "MOVE_HEAVY_SLAM"
-        ],
-        "Ability": "ABILITY_EARTH_EATER",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_ADAMANT",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_LAIRON": {
-        "Abilities": [
-          "ABILITY_STURDY",
-          "ABILITY_ROCK_HEAD",
-          "ABILITY_EARTH_EATER"
-        ]
-      }
-    }
-  }
+  ]
 }

@@ -1,0 +1,53 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 80
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

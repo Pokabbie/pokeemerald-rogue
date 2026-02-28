@@ -1,0 +1,104 @@
+{
+  "PerSpecies": {
+    "SPECIES_FURFROU": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_HEART_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_STAR_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_DIAMOND_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_DEBUTANTE_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_MATRON_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_DANDY_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_LA_REINE_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_KABUKI_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_FURFROU_PHARAOH_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 100
+      }
+    }
+  }
+}

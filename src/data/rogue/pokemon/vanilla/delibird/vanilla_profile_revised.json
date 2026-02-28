@@ -1,0 +1,12 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 1
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

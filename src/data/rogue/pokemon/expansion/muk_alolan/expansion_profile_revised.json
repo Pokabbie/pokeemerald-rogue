@@ -1,0 +1,103 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EXPLOSION",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_SNORE"
+  ]
+}

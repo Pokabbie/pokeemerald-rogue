@@ -1,0 +1,9 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FROST_BREATH",
+    "MOVE_WORK_UP"
+  ]
+}

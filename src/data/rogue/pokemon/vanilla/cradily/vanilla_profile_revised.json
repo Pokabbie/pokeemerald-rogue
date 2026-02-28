@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SLUDGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POISON_POWDER",
+        "MOVE_SCREECH",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CRADILY": {
+      "Abilities": [
+        "ABILITY_RAIN_DISH",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

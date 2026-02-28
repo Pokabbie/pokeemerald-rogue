@@ -135,58 +135,5 @@
         "GEN9LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_SLEEP_POWDER",
-        "Level": 41
-      },
-      {
-        "Move": "MOVE_LEAF_BLADE",
-        "Level": 45
-      },
-      {
-        "Move": "MOVE_SHELL_SMASH",
-        "Level": 49
-      },
-      {
-        "Move": "MOVE_GIGA_DRAIN",
-        "Level": 53
-      },
-      {
-        "Move": "MOVE_LEAF_STORM",
-        "Level": 57
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_ROCK_CLIMB",
-      "MOVE_GRAV_APPLE"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_STEALTH_ROCK",
-          "MOVE_GRAV_APPLE",
-          "MOVE_SUPERPOWER",
-          "MOVE_SLEEP_POWDER"
-        ],
-        "Ability": "ABILITY_OVERGROW",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_HARDY",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_TURTWIG": {
-        "Abilities": [
-          "ABILITY_OVERGROW",
-          "ABILITY_ROCK_HEAD",
-          "ABILITY_SHELL_ARMOR"
-        ]
-      }
-    }
-  }
+  ]
 }

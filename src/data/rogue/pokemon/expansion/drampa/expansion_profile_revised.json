@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_DRAMPA": {
+      "BaseStats": {
+        "HP": 103,
+        "Attack": 45,
+        "Defense": 85,
+        "Speed": 36,
+        "SpAttack": 135,
+        "SpDefense": 91
+      }
+    }
+  }
+}

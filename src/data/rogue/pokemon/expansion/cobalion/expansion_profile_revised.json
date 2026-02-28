@@ -1,0 +1,62 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP",
+    "MOVE_ROCK_POLISH",
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FLASH_CANNON",
+        "MOVE_AURA_SPHERE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAUNT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

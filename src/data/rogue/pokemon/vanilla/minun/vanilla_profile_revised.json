@@ -1,0 +1,118 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_VOLT_TACKLE",
+      "Level": 72
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPARK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MINUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPARK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_ENCORE",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_MINUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AGILITY",
+        "MOVE_SPARK",
+        "MOVE_SWIFT"
+      ],
+      "Ability": "ABILITY_MINUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ATTRACT",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MINUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

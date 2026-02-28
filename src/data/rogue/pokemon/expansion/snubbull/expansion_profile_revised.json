@@ -1,0 +1,154 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SNUBBULL": {
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FIGHTING"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 40
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 53
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BULK_UP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

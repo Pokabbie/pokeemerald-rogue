@@ -1,0 +1,44 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_KARATE_CHOP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MEGA_PUNCH",
+      "Level": 33
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAGBY": {
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLAME_BODY"
+      ]
+    }
+  }
+}

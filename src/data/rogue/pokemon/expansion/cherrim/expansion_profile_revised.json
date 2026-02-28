@@ -1,0 +1,144 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHERRIM": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 87,
+        "SpDefense": 83
+      }
+    },
+    "SPECIES_CHERRIM_SUNSHINE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 87,
+        "SpDefense": 83
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CURSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PILOSWINE": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

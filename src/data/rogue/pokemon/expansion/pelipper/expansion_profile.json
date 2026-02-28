@@ -781,19 +781,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_PELIPPER": {
-        "BaseStats": {
-          "HP": 60,
-          "Attack": 50,
-          "Defense": 110,
-          "Speed": 65,
-          "SpAttack": 95,
-          "SpDefense": 80
-        }
-      }
-    }
-  }
+  ]
 }

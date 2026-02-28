@@ -1,0 +1,52 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FARFETCHD_GALARIAN": {
+      "Abilities": [
+        "ABILITY_STEADFAST",
+        "ABILITY_SHARPNESS",
+        "ABILITY_SCRAPPY"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 115,
+        "Defense": 75,
+        "Speed": 65,
+        "SpAttack": 63,
+        "SpDefense": 62
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_DRILL_RUN",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_CUT",
+    "MOVE_SACRED_SWORD",
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SACRED_SWORD",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_AERIAL_ACE",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_METEOR_MASH",
+      "Level": 62
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_METAL_CLAW",
+        "MOVE_PSYBEAM",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EXTRASENSORY",
+        "MOVE_AGILITY",
+        "MOVE_METAL_CLAW"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_METANG": {
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

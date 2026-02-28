@@ -1,0 +1,40 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 24
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

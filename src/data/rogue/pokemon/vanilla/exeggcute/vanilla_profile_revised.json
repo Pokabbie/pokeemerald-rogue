@@ -1,0 +1,63 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 35
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_CONFUSION",
+        "MOVE_BULLET_SEED",
+        "MOVE_BARRAGE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -110,16 +110,5 @@
     "MOVE_WILL_O_WISP",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_QUILAVA": {
-        "Abilities": [
-          "ABILITY_BLAZE",
-          "ABILITY_FLASH_FIRE",
-          "ABILITY_ADAPTABILITY"
-        ]
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

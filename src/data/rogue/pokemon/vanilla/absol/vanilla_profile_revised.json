@@ -1,0 +1,127 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLASH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SLASH",
+        "MOVE_SLASH",
+        "MOVE_IRON_TAIL",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SLASH",
+        "MOVE_SLASH",
+        "MOVE_DETECT",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SLASH",
+        "MOVE_SLASH",
+        "MOVE_AGILITY",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ABSOL": {
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

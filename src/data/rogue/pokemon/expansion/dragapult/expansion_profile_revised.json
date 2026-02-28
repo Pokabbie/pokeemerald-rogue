@@ -1,0 +1,904 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_DARTS",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DRAGON_DARTS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 76
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_U_TURN",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_U_TURN",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_CURSE",
+        "MOVE_DRAGON_DARTS"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_STEEL_WING",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PROTECT",
+        "MOVE_FLY"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_OUTRAGE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_DISABLE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PHANTOM_FORCE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_U_TURN",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_DRAGON_FANG",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_TERA_BLAST",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_U_TURN",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_U_TURN",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_U_TURN",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_FLY",
+        "MOVE_DRAGON_DARTS",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DARTS",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_FLY",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

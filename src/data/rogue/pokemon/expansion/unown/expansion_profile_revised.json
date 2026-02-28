@@ -1,0 +1,317 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_UNOWN": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_B": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_C": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_D": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_E": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_F": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_G": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_H": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_I": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_J": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_K": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_L": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_M": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_N": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_O": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_P": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_Q": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_R": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_S": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_T": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_U": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_V": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_W": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_X": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_Y": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_Z": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_EMARK": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    },
+    "SPECIES_UNOWN_QMARK": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 108,
+        "Defense": 54,
+        "Speed": 54,
+        "SpAttack": 108,
+        "SpDefense": 54
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NATURE_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 1
+    }
+  ]
+}

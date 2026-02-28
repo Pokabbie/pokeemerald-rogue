@@ -1,0 +1,143 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWOOBAT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 57,
+        "Defense": 63,
+        "Speed": 114,
+        "SpAttack": 86,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEART_SWAP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HEART_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEART_STAMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_HURRICANE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_STORED_POWER",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_STORED_POWER",
+        "MOVE_HURRICANE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

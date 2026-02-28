@@ -329,13 +329,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_ROCK_CLIMB",
-      "MOVE_LOW_SWEEP",
-      "MOVE_POISON_JAB",
-      "MOVE_SWIRLING_BLADE"
-    ]
-  }
+  ]
 }

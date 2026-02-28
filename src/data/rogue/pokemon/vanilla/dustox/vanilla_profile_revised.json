@@ -1,0 +1,65 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 38
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POISON_POWDER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DUSTOX": {
+      "Abilities": [
+        "ABILITY_MARVEL_SCALE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

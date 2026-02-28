@@ -1,0 +1,12 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 7
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

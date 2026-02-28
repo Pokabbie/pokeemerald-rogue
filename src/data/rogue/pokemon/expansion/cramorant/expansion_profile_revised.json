@@ -1,0 +1,122 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CRAMORANT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 105,
+        "SpAttack": 100,
+        "SpDefense": 95
+      }
+    },
+    "SPECIES_CRAMORANT_GULPING": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 105,
+        "SpAttack": 100,
+        "SpDefense": 95
+      }
+    },
+    "SPECIES_CRAMORANT_GORGING": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 105,
+        "SpAttack": 100,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SUPERPOWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN",
+    "MOVE_SCALD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_SURF",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_GULP_MISSILE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -109,19 +109,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_BUG_BUZZ"
-    ],
-    "PerSpecies": {
-      "SPECIES_WHISMUR": {
-        "Abilities": [
-          "ABILITY_SOUNDPROOF",
-          "ABILITY_SCRAPPY",
-          "ABILITY_RATTLED"
-        ]
-      }
-    }
-  }
+  ]
 }

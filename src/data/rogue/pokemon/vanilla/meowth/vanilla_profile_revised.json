@@ -1,0 +1,66 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PAY_DAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 44
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_PAY_DAY",
+        "MOVE_BITE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEOWTH": {
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

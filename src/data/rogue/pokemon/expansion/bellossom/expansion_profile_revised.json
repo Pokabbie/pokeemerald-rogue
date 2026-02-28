@@ -1,0 +1,136 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BELLOSSOM": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_CLOUD_NINE",
+        "ABILITY_HEALER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_FIERY_DANCE",
+      "Level": 79
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_APPLE_ACID",
+    "MOVE_MOONBLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_APPLE_ACID",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

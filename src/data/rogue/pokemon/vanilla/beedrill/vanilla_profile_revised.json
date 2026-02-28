@@ -1,0 +1,92 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TWINEEDLE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 37
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_SLUDGE",
+        "MOVE_TOXIC",
+        "MOVE_GUST"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SILVER_WIND",
+        "MOVE_POISON_TAIL",
+        "MOVE_DRILL_PECK",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_X_SCISSOR",
+        "MOVE_DRILL_PECK",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

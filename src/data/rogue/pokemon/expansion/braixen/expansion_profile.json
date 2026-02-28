@@ -117,16 +117,5 @@
     "MOVE_WISH",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_BRAIXEN": {
-        "Abilities": [
-          "ABILITY_BLAZE",
-          "ABILITY_MAGICIAN",
-          "ABILITY_MAGIC_GUARD"
-        ]
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

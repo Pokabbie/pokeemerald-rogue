@@ -1,0 +1,168 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SAWSBUCK": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_SAWSBUCK_SUMMER": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_SAWSBUCK_AUTUMN": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_SAWSBUCK_WINTER": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CAMOUFLAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_NATURE_POWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LAST_RESORT",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_STRENGTH",
+    "MOVE_LOW_SWEEP",
+    "MOVE_AERIAL_ACE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_ROCK_CLIMB"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

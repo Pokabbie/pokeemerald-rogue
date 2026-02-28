@@ -21,7 +21,8 @@ namespace PokemonDataGenerator
             Converters = new List<JsonConverter>(new[]
             {
                 new StringEnumConverter()
-            })
+            }),
+            NullValueHandling = NullValueHandling.Ignore,
         };
 
         private static void DoAbc()
@@ -238,8 +239,80 @@ namespace PokemonDataGenerator
             return;
         }
 
+        public static void AWEBAWEAWE()
+        {
+            string outputDirectory = "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue\\src\\data\\rogue\\pokemon\\vanilla";
+            string pokemonProfileFilename = "vanilla_profile.json";
+
+
+            foreach (string path in Directory.EnumerateFiles(outputDirectory, pokemonProfileFilename, SearchOption.AllDirectories))
+            {
+                string inJsonStr = File.ReadAllText(path);
+                JObject existingProfile = JsonConvert.DeserializeObject<JObject>(inJsonStr, c_JsonSettings);
+
+                if(existingProfile.ContainsKey("RevisedMode"))
+                {
+                    JObject revisedMode = existingProfile["RevisedMode"] as JObject;
+
+                    if(revisedMode.ContainsKey("LevelUpMoves"))
+                    {
+                        JObject buildSettings = FindOrCreate<JObject>(revisedMode, "BuildSettings");
+                        buildSettings["LevelUpMoves"] = "MERGE";
+                    }
+                    if (revisedMode.ContainsKey("LevelUpMoves"))
+                    {
+                        JObject buildSettings = FindOrCreate<JObject>(revisedMode, "BuildSettings");
+                        buildSettings["TutorMoves"] = "MERGE";
+                    }
+                    if (revisedMode.ContainsKey("CompetitiveSets"))
+                    {
+                        JObject buildSettings = FindOrCreate<JObject>(revisedMode, "BuildSettings");
+                        buildSettings["CompetitiveSets"] = "MERGE";
+                    }
+
+                    JObject perSpeciesData = new JObject();
+
+                    if (revisedMode.ContainsKey("Types"))
+                    {
+                        perSpeciesData["Types"] = revisedMode["Types"];
+                        revisedMode.Remove("Types");
+                    }
+                    if (revisedMode.ContainsKey("Abilities"))
+                    {
+                        perSpeciesData["Abilities"] = revisedMode["Abilities"];
+                        revisedMode.Remove("Abilities");
+                    }
+                    if (revisedMode.ContainsKey("BaseStats"))
+                    {
+                        perSpeciesData["BaseStats"] = revisedMode["BaseStats"];
+                        revisedMode.Remove("BaseStats");
+                    }
+
+                    if(perSpeciesData.HasValues)
+                    {
+                        JObject perSpeciesGroup = new JObject();
+                        string species = (existingProfile["Species"] as JArray)[0].ToString();
+
+                        perSpeciesGroup[species] = perSpeciesData;
+
+                        revisedMode["PerSpecies"] = perSpeciesGroup;
+                    }
+
+
+                    string outputPath = Path.Combine(Path.GetDirectoryName(path), Path.GetFileNameWithoutExtension(path) + "_revised.json");
+                    File.WriteAllText(outputPath, revisedMode.ToString());
+
+                    existingProfile.Remove("RevisedMode");
+                    File.WriteAllText(path, existingProfile.ToString());
+                }
+            }
+        }
+
         public static void Run()
         {
+            //AWEBAWEAWE();
+            //return;
+
             // Format from old data sets
             //DoAbc();
             //return;
@@ -306,6 +379,7 @@ namespace PokemonDataGenerator
             {
                 string species = drayProfile.Species[0];
                 string dataPath = speciesToProfilePath[species];
+                string revisedDataPath = dataPath.Replace(pokemonProfileFilename, Path.GetFileNameWithoutExtension(pokemonProfileFilename) + "_revised.json");
 
                 string inJsonStr = File.ReadAllText(dataPath);
                 PokemonProfile existingProfile = JsonConvert.DeserializeObject<PokemonProfile>(inJsonStr, c_JsonSettings);
@@ -355,23 +429,12 @@ namespace PokemonDataGenerator
                 }
 
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(inJsonStr, c_JsonSettings);
-                JObject revisedModeObject = loadedPaths.Contains(dataPath) ? FindOrCreate<JObject>(jsonObject, "RevisedMode") : Create<JObject>(jsonObject, "RevisedMode");
+                JObject revisedModeObject = loadedPaths.Contains(revisedDataPath) ? JsonConvert.DeserializeObject<JObject>(File.ReadAllText(revisedDataPath), c_JsonSettings) : new JObject();
 
-
-                if (deltaProfile.LevelUpMoves.Count != 0)
-                {
-                    revisedModeObject["LevelUpMoves"] = JArray.FromObject(deltaProfile.LevelUpMoves);
-                }
-                if (deltaProfile.TutorMoves.Count != 0)
-                {
-                    revisedModeObject["TutorMoves"] = JArray.FromObject(deltaProfile.TutorMoves);
-                }
-                if (deltaProfile.CompetitiveSets.Count != 0)
-                {
-                    revisedModeObject["CompetitiveSets"] = JArray.FromObject(deltaProfile.CompetitiveSets, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore });
-                }
+                JObject buildSettings = FindOrCreate<JObject>(revisedModeObject, "BuildSettings");
 
                 JObject perSpeciesData = new JObject();
+
                 if (deltaProfile.Types != null)
                     perSpeciesData["Types"] = JArray.FromObject(deltaProfile.Types);
                 if (deltaProfile.Abilities != null)
@@ -379,16 +442,55 @@ namespace PokemonDataGenerator
                 if (deltaProfile.BaseStats != null)
                     perSpeciesData["BaseStats"] = JObject.FromObject(deltaProfile.BaseStats);
 
-                if(perSpeciesData.HasValues)
+                if (perSpeciesData.HasValues)
                 {
                     JObject perSpeciesGroup = FindOrCreate<JObject>(revisedModeObject, "PerSpecies");
                     perSpeciesGroup[species] = perSpeciesData;
                 }
 
-                if(!revisedModeObject.HasValues)
+                if (deltaProfile.LevelUpMoves.Count != 0)
                 {
-                    jsonObject.Remove("RevisedMode");
+                    if(deltaProfile.LevelUpMoves.Count <= 3)
+                    {
+                        buildSettings["LevelUpMoves"] = "MERGE";
+
+                        revisedModeObject["LevelUpMoves"] = JArray.FromObject(deltaProfile.LevelUpMoves);
+                    }
+                    else
+                    {
+                        buildSettings["LevelUpMoves"] = "REPLACE";
+
+                        revisedModeObject["LevelUpMoves"] = JArray.FromObject(drayProfile.LevelUpMoves);
+                    }
                 }
+                if (deltaProfile.TutorMoves.Count != 0)
+                {
+                    buildSettings["TutorMoves"] = "MERGE";
+
+                    revisedModeObject["TutorMoves"] = JArray.FromObject(deltaProfile.TutorMoves);
+                }
+                if (deltaProfile.CompetitiveSets.Count != 0)
+                {
+                    if (deltaProfile.CompetitiveSets.Count <= 3)
+                    {
+                        buildSettings["CompetitiveSets"] = "MERGE";
+
+                        revisedModeObject["CompetitiveSets"] = JArray.FromObject(deltaProfile.CompetitiveSets);
+                    }
+                    else
+                    {
+                        buildSettings["CompetitiveSets"] = "REPLACE";
+
+                        revisedModeObject["CompetitiveSets"] = JArray.FromObject(drayProfile.CompetitiveSets);
+                    }
+                }
+
+                if(!buildSettings.HasValues)
+                {
+                    revisedModeObject.Remove("BuildSettings");
+                }
+
+                jsonObject.Remove("RevisedMode");
 
 
                 string outJsonStr = JsonConvert.SerializeObject(jsonObject, c_JsonSettings);
@@ -397,7 +499,13 @@ namespace PokemonDataGenerator
                     File.WriteAllText(dataPath, outJsonStr);
                 }
 
-                loadedPaths.Add(dataPath);
+                if(revisedModeObject.HasValues)
+                {
+                    outJsonStr = JsonConvert.SerializeObject(revisedModeObject, c_JsonSettings);
+
+                    File.WriteAllText(revisedDataPath, outJsonStr);
+                    loadedPaths.Add(revisedDataPath);
+                }
             }
 
             //foreach (string dir in Directory.EnumerateDirectories(outputDirectory))

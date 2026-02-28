@@ -1,0 +1,55 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FAKE_OUT",
+    "MOVE_HEAT_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DARK_PULSE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_FAINT_ATTACK",
+        "MOVE_SLASH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

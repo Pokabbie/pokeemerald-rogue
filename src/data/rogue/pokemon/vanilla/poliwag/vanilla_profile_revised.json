@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 40
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

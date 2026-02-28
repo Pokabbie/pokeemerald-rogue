@@ -1,0 +1,154 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ONIX": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 75,
+        "Defense": 160,
+        "Speed": 80,
+        "SpAttack": 30,
+        "SpDefense": 45
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

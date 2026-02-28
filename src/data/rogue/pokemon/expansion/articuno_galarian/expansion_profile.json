@@ -252,13 +252,5 @@
         "GEN9PU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN",
-      "MOVE_EXTRASENSORY"
-    ]
-  }
+  ]
 }

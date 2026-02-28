@@ -1,0 +1,80 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_JET",
+    "MOVE_PSYWAVE",
+    "MOVE_FAKE_OUT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPNOSIS",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_FAKE_OUT",
+        "MOVE_WATERFALL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_POLITOED": {
+      "Abilities": [
+        "ABILITY_DRIZZLE",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
+}

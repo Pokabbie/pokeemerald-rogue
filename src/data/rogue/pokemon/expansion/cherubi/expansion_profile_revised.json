@@ -1,0 +1,83 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHERUBI": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 35,
+        "Defense": 60,
+        "Speed": 40,
+        "SpAttack": 62,
+        "SpDefense": 53
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PLAY_ROUGH"
+  ]
+}

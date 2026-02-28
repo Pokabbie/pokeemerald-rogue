@@ -9,16 +9,5 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_HARDEN",
-        "Level": 7
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_ABSORB"
-    ]
-  }
+  "CompetitiveSets": []
 }

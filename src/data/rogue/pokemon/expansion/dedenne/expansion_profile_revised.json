@@ -1,0 +1,111 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DEDENNE": {
+      "Abilities": [
+        "ABILITY_CHEEK_POUCH",
+        "ABILITY_PICKUP",
+        "ABILITY_ELECTRIC_SURGE"
+      ],
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 58,
+        "Defense": 67,
+        "Speed": 101,
+        "SpAttack": 90,
+        "SpDefense": 67
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 51
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_DRAINING_KISS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

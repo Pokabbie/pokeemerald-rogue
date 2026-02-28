@@ -1,0 +1,106 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 34
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GROWL",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_SURF",
+        "MOVE_STRENGTH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_FAKE_OUT",
+        "MOVE_HELPING_HAND",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FURRET": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

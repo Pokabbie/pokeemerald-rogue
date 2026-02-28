@@ -1,0 +1,11 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    }
+  ]
+}

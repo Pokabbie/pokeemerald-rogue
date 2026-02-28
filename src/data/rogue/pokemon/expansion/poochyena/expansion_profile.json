@@ -136,19 +136,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_POOCHYENA": {
-        "BaseStats": {
-          "HP": 35,
-          "Attack": 75,
-          "Defense": 35,
-          "Speed": 65,
-          "SpAttack": 30,
-          "SpDefense": 30
-        }
-      }
-    }
-  }
+  ]
 }

@@ -1,0 +1,39 @@
+{
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_BITE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  }
+}

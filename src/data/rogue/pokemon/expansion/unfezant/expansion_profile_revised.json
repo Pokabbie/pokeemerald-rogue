@@ -1,0 +1,292 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_UNFEZANT": {
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_UNAWARE"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 65,
+        "Defense": 80,
+        "Speed": 95,
+        "SpAttack": 110,
+        "SpDefense": 55
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 77
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_DEFOG"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_BOOMBURST"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_TOXIC",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

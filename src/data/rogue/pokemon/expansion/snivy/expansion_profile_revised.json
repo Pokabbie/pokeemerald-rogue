@@ -1,0 +1,37 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SNIVY": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_MULTISCALE",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_DRAGON_RAGE",
+    "MOVE_AQUA_TAIL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_LEAF_BLADE",
+        "MOVE_AQUA_TAIL",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

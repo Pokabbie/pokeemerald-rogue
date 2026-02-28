@@ -41,12 +41,5 @@
     "MOVE_TERA_BLAST",
     "MOVE_THUNDER_WAVE"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_RETURN",
-      "MOVE_TOXIC"
-    ]
-  }
+  "CompetitiveSets": []
 }

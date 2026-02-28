@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_BUNNELBY": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 38,
+        "Defense": 40,
+        "Speed": 57,
+        "SpAttack": 30,
+        "SpDefense": 40
+      }
+    }
+  }
+}

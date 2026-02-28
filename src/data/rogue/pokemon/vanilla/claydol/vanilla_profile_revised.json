@@ -1,0 +1,92 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TELEPORT",
+    "MOVE_COSMIC_POWER",
+    "MOVE_CONFUSE_RAY"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EXTRASENSORY",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_EXTRASENSORY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SANDSTORM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_QUICK_CLAW",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

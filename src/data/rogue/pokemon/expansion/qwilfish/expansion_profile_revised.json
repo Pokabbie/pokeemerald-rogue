@@ -1,0 +1,134 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_QWILFISH": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 45,
+        "SpDefense": 55
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 65
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_GUNK_SHOT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

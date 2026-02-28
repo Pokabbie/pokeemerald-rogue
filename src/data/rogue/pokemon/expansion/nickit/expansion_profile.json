@@ -80,19 +80,5 @@
     "MOVE_THIEF",
     "MOVE_TORMENT"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_MYSTICAL_FIRE",
-        "Level": 39
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_HIDDEN_POWER",
-      "MOVE_RETURN"
-    ]
-  }
+  "CompetitiveSets": []
 }

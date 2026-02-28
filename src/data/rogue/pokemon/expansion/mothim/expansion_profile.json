@@ -151,43 +151,5 @@
         "GEN7PU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_HURRICANE"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_BUG_BUZZ",
-          "MOVE_HURRICANE",
-          "MOVE_U_TURN",
-          "MOVE_ENERGY_BALL"
-        ],
-        "Ability": "ABILITY_COMPOUND_EYES",
-        "Item": "ITEM_CHOICE_SPECS",
-        "Nature": "NATURE_RASH",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_MOTHIM": {
-        "Abilities": [
-          "ABILITY_SWARM",
-          "ABILITY_COMPOUND_EYES",
-          "ABILITY_TINTED_LENS"
-        ],
-        "BaseStats": {
-          "HP": 70,
-          "Attack": 70,
-          "Defense": 50,
-          "Speed": 100,
-          "SpAttack": 110,
-          "SpDefense": 50
-        }
-      }
-    }
-  }
+  ]
 }

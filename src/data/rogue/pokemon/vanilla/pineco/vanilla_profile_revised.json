@@ -1,0 +1,55 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "27",
+      "Species": "SPECIES_FORRETRESS"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 37
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PINECO": {
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

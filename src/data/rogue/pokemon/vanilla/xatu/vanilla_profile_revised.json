@@ -1,0 +1,75 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LUSTER_PURGE",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EXTRASENSORY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AIR_SLASH",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

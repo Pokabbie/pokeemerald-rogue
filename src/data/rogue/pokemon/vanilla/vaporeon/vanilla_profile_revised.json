@@ -1,0 +1,94 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_TOXIC",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_ICE_BEAM",
+        "MOVE_WISH",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

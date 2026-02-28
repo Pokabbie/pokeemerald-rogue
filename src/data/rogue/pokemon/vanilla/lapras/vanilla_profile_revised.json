@@ -1,0 +1,79 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_DRACO_METEOR",
+      "Level": 55
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_SHOCK_WAVE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_THUNDER",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

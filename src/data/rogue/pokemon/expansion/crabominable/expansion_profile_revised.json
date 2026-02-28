@@ -1,0 +1,106 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_POWER_UP_PUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DIZZY_PUNCH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ICE_HAMMER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CRABHAMMER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_ICE_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

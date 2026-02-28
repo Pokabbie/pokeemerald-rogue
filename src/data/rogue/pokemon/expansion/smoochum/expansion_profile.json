@@ -157,19 +157,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_SMOOCHUM": {
-        "BaseStats": {
-          "HP": 45,
-          "Attack": 30,
-          "Defense": 15,
-          "Speed": 65,
-          "SpAttack": 95,
-          "SpDefense": 65
-        }
-      }
-    }
-  }
+  ]
 }

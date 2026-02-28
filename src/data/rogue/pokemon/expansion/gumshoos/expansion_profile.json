@@ -143,19 +143,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_GUMSHOOS": {
-        "BaseStats": {
-          "HP": 88,
-          "Attack": 125,
-          "Defense": 70,
-          "Speed": 45,
-          "SpAttack": 52,
-          "SpDefense": 70
-        }
-      }
-    }
-  }
+  ]
 }

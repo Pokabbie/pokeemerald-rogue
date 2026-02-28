@@ -1,0 +1,37 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DUSTOX": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 75,
+        "Speed": 75,
+        "SpAttack": 75,
+        "SpDefense": 115
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_FLY",
+    "MOVE_OMINOUS_WIND"
+  ]
+}

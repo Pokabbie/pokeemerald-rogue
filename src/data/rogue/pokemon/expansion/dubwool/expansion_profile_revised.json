@@ -1,0 +1,24 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DUBWOOL": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 90,
+        "Defense": 100,
+        "Speed": 88,
+        "SpAttack": 60,
+        "SpDefense": 90
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_CLODSIRE": {
+      "BaseStats": {
+        "HP": 130,
+        "Attack": 85,
+        "Defense": 60,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 100
+      }
+    }
+  }
+}

@@ -151,36 +151,5 @@
         "GEN9LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_RAPID_SPIN",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_ACCELEROCK",
-        "Level": 36
-      },
-      {
-        "Move": "MOVE_WILD_CHARGE",
-        "Level": 46
-      },
-      {
-        "Move": "MOVE_EXPLOSION",
-        "Level": 48
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_SEISMIC_TOSS",
-      "MOVE_BODY_PRESS",
-      "MOVE_DYNAMIC_PUNCH",
-      "MOVE_MIMIC",
-      "MOVE_SWAGGER",
-      "MOVE_METRONOME",
-      "MOVE_RETURN",
-      "MOVE_SNORE",
-      "MOVE_MEGA_PUNCH"
-    ]
-  }
+  ]
 }

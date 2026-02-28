@@ -1,0 +1,60 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WEATHER_BALL",
+    "MOVE_SWEET_SCENT",
+    "MOVE_LEECH_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PETAL_DANCE",
+        "MOVE_SUNNY_DAY",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONLIGHT",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_CHARM"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIVE",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_SURF",
+        "MOVE_EARTH_POWER",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_MUDDY_WATER",
+        "MOVE_COUNTER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ROCK_CLIMB",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 46
+    }
+  ]
+}

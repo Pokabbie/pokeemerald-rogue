@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEDITITE": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 40,
+        "Defense": 55,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 55
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_MIND_READER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ACUPRESSURE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 47
+    }
+  ]
+}

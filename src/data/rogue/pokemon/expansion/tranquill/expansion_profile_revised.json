@@ -1,0 +1,104 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_TRANQUILL": {
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_UNAWARE"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 50,
+        "Defense": 65,
+        "Speed": 66,
+        "SpAttack": 77,
+        "SpDefense": 42
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 63
+    }
+  ]
+}

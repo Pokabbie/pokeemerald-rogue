@@ -1,0 +1,184 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ELECTIVIRE": {
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_MOTOR_DRIVE",
+        "ABILITY_IRON_FIST",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ION_DELUGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CROSS_CHOP",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DUAL_CHOP",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_PLASMA_FISTS",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_DRAIN_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

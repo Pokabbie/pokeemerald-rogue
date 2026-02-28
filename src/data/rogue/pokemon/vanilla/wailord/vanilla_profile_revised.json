@@ -1,0 +1,68 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_WATER_SPOUT",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SWALLOW",
+    "MOVE_HYPER_VOICE"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WAILORD": {
+      "Abilities": [
+        "ABILITY_RAIN_DISH",
+        "ABILITY_PRESSURE"
+      ]
+    }
+  }
+}

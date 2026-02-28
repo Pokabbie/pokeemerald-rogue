@@ -1,0 +1,138 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SLEEP_TALK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_RETURN",
+        "MOVE_SLACK_OFF",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_BODY_SLAM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_IMMUNITY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CURSE",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

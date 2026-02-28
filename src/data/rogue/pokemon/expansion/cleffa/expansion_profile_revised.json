@@ -1,0 +1,43 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 19
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ORBEETLE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 90,
+        "SpDefense": 120
+      }
+    },
+    "SPECIES_ORBEETLE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 90,
+        "SpDefense": 120
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_SIGNAL_BEAM"
+  ]
+}

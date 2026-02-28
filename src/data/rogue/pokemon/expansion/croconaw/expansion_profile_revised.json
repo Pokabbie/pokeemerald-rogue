@@ -1,0 +1,92 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_CROCONAW": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_STRONG_JAW",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 63
+    }
+  ]
+}

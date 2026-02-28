@@ -1,0 +1,9 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_EARTHQUAKE",
+    "MOVE_ROCK_CLIMB"
+  ]
+}

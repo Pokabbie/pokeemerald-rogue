@@ -1,0 +1,145 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MINUN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 95,
+        "Speed": 110,
+        "SpAttack": 40,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_TRUMP_CARD",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_KNOCK_OFF",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_U_TURN",
+    "MOVE_FLASH_CANNON"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WILD_CHARGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_U_TURN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

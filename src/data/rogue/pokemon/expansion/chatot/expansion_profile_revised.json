@@ -1,0 +1,155 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHATOT": {
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITIES_COUNT_GEN3",
+        "ABILITY_PUNK_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 65,
+        "Defense": 50,
+        "Speed": 96,
+        "SpAttack": 104,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_CHATTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SYNCHRONOISE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BUZZ"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_BOOMBURST",
+        "MOVE_ENCORE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

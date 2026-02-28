@@ -1,0 +1,86 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RAICHU_ALOLAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 110,
+        "SpAttack": 100,
+        "SpDefense": 90
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SPLISHY_SPLASH",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_FLOATY_FALL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MUD_SLAP",
+    "MOVE_FLY",
+    "MOVE_ROLLOUT",
+    "MOVE_COUNTER",
+    "MOVE_ZIPPY_ZAP",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_SNORE",
+    "MOVE_MEGA_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_PSYCHIC",
+        "MOVE_SPLISHY_SPLASH",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SURGE_SURFER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_SURGE_SURFER",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND",
+        "MOVE_SPLISHY_SPLASH"
+      ],
+      "Ability": "ABILITY_SURGE_SURFER",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

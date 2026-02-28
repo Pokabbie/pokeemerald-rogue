@@ -384,27 +384,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_ROCK_CLIMB"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_STEALTH_ROCK",
-          "MOVE_EARTHQUAKE",
-          "MOVE_ROCK_BLAST",
-          "MOVE_SWORDS_DANCE"
-        ],
-        "Ability": "ABILITY_LIGHTNING_ROD",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_ADAMANT",
-        "TeraType": "TYPE_WATER",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

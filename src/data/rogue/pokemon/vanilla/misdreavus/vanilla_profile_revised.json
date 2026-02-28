@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_MEAN_LOOK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_MEAN_LOOK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ZIGZAGOON_GALARIAN": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 40,
+        "Defense": 41,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 41
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

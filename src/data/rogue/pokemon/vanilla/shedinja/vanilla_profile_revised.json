@@ -1,0 +1,23 @@
+{
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  }
+}

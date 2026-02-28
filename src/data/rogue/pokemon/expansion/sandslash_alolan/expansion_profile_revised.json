@@ -1,0 +1,102 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SANDSLASH_ALOLAN": {
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_IRON_BARBS",
+        "ABILITY_SLUSH_RUSH"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MUD_SLAP",
+    "MOVE_ROLLOUT",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_SNORE",
+    "MOVE_FURY_CUTTER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICE_SHARD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWELLOW": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 60,
+        "Speed": 125,
+        "SpAttack": 85,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DUAL_WINGBEAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

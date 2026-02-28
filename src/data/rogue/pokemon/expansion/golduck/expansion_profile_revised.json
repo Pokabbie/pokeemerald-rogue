@@ -1,0 +1,154 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOLDUCK": {
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 72,
+        "Defense": 78,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ME_FIRST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

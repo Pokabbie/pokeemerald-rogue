@@ -1,0 +1,74 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KARATE_CHOP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SURF",
+        "MOVE_BRICK_BREAK",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

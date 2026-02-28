@@ -1,0 +1,190 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SILVALLY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_FIGHTING": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_FLYING": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_POISON": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_GROUND": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_ROCK": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_BUG": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_GHOST": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_STEEL": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_FIRE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_WATER": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_GRASS": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_ELECTRIC": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_PSYCHIC": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_ICE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_DRAGON": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_DARK": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_SILVALLY_FAIRY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

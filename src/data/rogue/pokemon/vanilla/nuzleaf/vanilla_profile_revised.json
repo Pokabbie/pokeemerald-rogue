@@ -1,0 +1,48 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_NATURE_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 37
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

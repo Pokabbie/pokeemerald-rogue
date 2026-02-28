@@ -1,0 +1,87 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_HONEDGE": {
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_SHARPNESS"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWIRLING_BLADE",
+      "Level": 26
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

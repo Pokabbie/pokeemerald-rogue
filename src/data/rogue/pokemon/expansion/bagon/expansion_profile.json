@@ -172,11 +172,5 @@
         "GEN9LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_WORK_UP",
-      "MOVE_WISH"
-    ]
-  }
+  ]
 }

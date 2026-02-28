@@ -1,0 +1,152 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_EMBOAR": {
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_RECKLESS",
+        "ABILITY_MOLD_BREAKER"
+      ],
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 125,
+        "Defense": 80,
+        "Speed": 65,
+        "SpAttack": 70,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEAT_CRASH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_CROSS_CHOP",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_V_CREATE",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_IRON_TAIL",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROCK_CLIMB",
+        "MOVE_V_CREATE",
+        "MOVE_CROSS_CHOP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

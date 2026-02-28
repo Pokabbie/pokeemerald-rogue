@@ -1,0 +1,178 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SCOVILLAIN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 108,
+        "Defense": 65,
+        "Speed": 108,
+        "SpAttack": 75,
+        "SpDefense": 65
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_TEMPER_FLARE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_RAGING_FURY",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAGON_DANCE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAGING_FURY",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGING_FURY",
+        "MOVE_TEMPER_FLARE",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGING_FURY",
+        "MOVE_CRUNCH",
+        "MOVE_SEED_BOMB",
+        "MOVE_TEMPER_FLARE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BULLET_SEED",
+        "MOVE_RAGING_FURY",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGING_FURY",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_TEMPER_FLARE",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

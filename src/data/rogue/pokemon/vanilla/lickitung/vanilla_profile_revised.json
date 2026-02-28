@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 48
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWALLOW",
+        "MOVE_BODY_SLAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SCREECH"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAIL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SWALLOW"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LICKITUNG": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

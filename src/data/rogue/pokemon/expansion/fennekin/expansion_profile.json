@@ -153,16 +153,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_FENNEKIN": {
-        "Abilities": [
-          "ABILITY_BLAZE",
-          "ABILITY_MAGICIAN",
-          "ABILITY_MAGIC_GUARD"
-        ]
-      }
-    }
-  }
+  ]
 }

@@ -1,0 +1,28 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_DAZZLING_GLEAM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

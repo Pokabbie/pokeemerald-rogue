@@ -280,35 +280,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_SUPERPOWER",
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ],
-    "PerSpecies": {
-      "SPECIES_APPLETUN": {
-        "BaseStats": {
-          "HP": 110,
-          "Attack": 85,
-          "Defense": 85,
-          "Speed": 30,
-          "SpAttack": 105,
-          "SpDefense": 85
-        }
-      },
-      "SPECIES_APPLETUN_GIGANTAMAX": {
-        "BaseStats": {
-          "HP": 110,
-          "Attack": 85,
-          "Defense": 85,
-          "Speed": 30,
-          "SpAttack": 105,
-          "SpDefense": 85
-        }
-      }
-    }
-  }
+  ]
 }

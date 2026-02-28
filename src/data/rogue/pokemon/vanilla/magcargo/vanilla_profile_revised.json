@@ -1,0 +1,75 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FIRE_PLEDGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 45
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_RECOVER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAGCARGO": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
+}

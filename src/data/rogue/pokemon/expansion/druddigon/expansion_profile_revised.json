@@ -1,0 +1,148 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DRUDDIGON": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 90,
+        "Speed": 41,
+        "SpAttack": 60,
+        "SpDefense": 90
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ROCK_CLIMB",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_DRAGON_HAMMER",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAGON_RUSH",
+    "MOVE_SPIKES",
+    "MOVE_TOXIC",
+    "MOVE_QUASH",
+    "MOVE_WORK_UP",
+    "MOVE_ROOST",
+    "MOVE_AQUA_TAIL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_HAMMER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_TOXIC",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

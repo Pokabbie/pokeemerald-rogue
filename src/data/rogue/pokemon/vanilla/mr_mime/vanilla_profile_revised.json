@@ -1,0 +1,95 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BARRIER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 70
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_REFLECT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_EXTRASENSORY",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

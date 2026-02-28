@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MANKEY": {
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_ANGER_POINT",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_CUT"
+  ]
+}

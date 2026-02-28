@@ -1,0 +1,88 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HEAL_BLOCK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_GEM",
+    "MOVE_NASTY_PLOT"
+  ]
+}

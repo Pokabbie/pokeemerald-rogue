@@ -1,0 +1,113 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_GLACIATE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 78
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 85
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 92
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FROST_BREATH",
+    "MOVE_WORK_UP",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_ICICLE_CRASH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

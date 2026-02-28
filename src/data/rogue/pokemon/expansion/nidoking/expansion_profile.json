@@ -489,33 +489,5 @@
         "GEN8MONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_DRILL_RUN",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_MEGAHORN",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_CHIP_AWAY",
-        "Level": 23
-      },
-      {
-        "Move": "MOVE_THRASH",
-        "Level": 35
-      },
-      {
-        "Move": "MOVE_EARTH_POWER",
-        "Level": 43
-      },
-      {
-        "Move": "MOVE_MEGAHORN",
-        "Level": 58
-      }
-    ]
-  }
+  ]
 }

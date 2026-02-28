@@ -497,53 +497,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_MACH_PUNCH",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_STUN_SPORE",
-        "Level": 5
-      },
-      {
-        "Move": "MOVE_LEECH_SEED",
-        "Level": 8
-      },
-      {
-        "Move": "MOVE_MIND_READER",
-        "Level": 33
-      },
-      {
-        "Move": "MOVE_SKY_UPPERCUT",
-        "Level": 39
-      },
-      {
-        "Move": "MOVE_SPORE",
-        "Level": 50
-      },
-      {
-        "Move": "MOVE_DYNAMIC_PUNCH",
-        "Level": 55
-      }
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_SPORE",
-          "MOVE_MACH_PUNCH",
-          "MOVE_ROCK_TOMB",
-          "MOVE_SWORDS_DANCE"
-        ],
-        "Ability": "ABILITY_TECHNICIAN",
-        "Item": "ITEM_FOCUS_SASH",
-        "Nature": "NATURE_ADAMANT",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

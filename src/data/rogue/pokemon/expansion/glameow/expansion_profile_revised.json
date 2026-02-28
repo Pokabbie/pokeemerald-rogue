@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GLAMEOW": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 90,
+        "SpAttack": 45,
+        "SpDefense": 40
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_CRUNCH"
+  ]
+}

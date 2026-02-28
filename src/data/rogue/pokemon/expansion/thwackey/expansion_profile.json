@@ -228,21 +228,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ],
-    "PerSpecies": {
-      "SPECIES_THWACKEY": {
-        "Abilities": [
-          "ABILITY_OVERGROW",
-          "ABILITY_SOUNDPROOF",
-          "ABILITY_GRASSY_SURGE"
-        ]
-      }
-    }
-  }
+  ]
 }

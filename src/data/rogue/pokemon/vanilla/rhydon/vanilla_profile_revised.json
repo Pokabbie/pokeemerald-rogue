@@ -1,0 +1,66 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_REVERSAL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRILL_RUN",
+        "MOVE_ROCK_BLAST",
+        "MOVE_MEGA_PUNCH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

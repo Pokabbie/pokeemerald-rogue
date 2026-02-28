@@ -1,0 +1,52 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER",
+    "MOVE_DRAGON_DANCE"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_STEELIX": {
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

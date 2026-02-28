@@ -1,0 +1,79 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SEARING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_V_CREATE",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 81
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 89
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 97
+    }
+  ]
+}

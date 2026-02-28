@@ -1,0 +1,465 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_AMPHAROS": {
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_OVERCOAT",
+        "ABILITY_COTTON_DOWN"
+      ],
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 80,
+        "Defense": 90,
+        "Speed": 55,
+        "SpAttack": 115,
+        "SpDefense": 90
+      }
+    },
+    "SPECIES_AMPHAROS_MEGA": {
+      "Abilities": [
+        "ABILITY_TRANSISTOR",
+        "ABILITY_TRANSISTOR",
+        "ABILITY_TRANSISTOR"
+      ],
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 100,
+        "Defense": 110,
+        "Speed": 45,
+        "SpAttack": 165,
+        "SpDefense": 110
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ION_DELUGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRACO_METEOR",
+    "MOVE_ENERGY_BALL",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_FLASH_CANNON"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAL_BELL",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_COUNTER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_TERRAIN_EXTENDER",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_AMPHAROSITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

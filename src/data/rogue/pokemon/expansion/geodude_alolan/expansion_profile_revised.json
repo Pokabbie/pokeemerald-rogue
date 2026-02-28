@@ -1,0 +1,95 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_BODY_PRESS",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_METRONOME",
+    "MOVE_RETURN",
+    "MOVE_SNORE",
+    "MOVE_MEGA_PUNCH"
+  ]
+}

@@ -110,19 +110,5 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_WOOPER_PALDEAN": {
-        "BaseStats": {
-          "HP": 55,
-          "Attack": 55,
-          "Defense": 55,
-          "Speed": 15,
-          "SpAttack": 25,
-          "SpDefense": 25
-        }
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

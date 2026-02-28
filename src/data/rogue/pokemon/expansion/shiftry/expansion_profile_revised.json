@@ -1,0 +1,110 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SHIFTRY": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 60,
+        "Speed": 80,
+        "SpAttack": 90,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_TORNADO",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LEAF_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_RATTLED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEAF_BLADE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_LEAF_BLADE",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

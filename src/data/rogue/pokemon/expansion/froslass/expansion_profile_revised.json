@@ -1,0 +1,494 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_FROSLASS": {
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_LEVITATE",
+        "ABILITY_CURSED_BODY"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 110,
+        "SpAttack": 110,
+        "SpDefense": 70
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_ICICLE_CRASH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SPIKES",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICY_WIND",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_TRICK",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_POLTERGEIST",
+        "MOVE_SWITCHEROO",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_AVALANCHE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DESTINY_BOND",
+        "MOVE_TAUNT",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_TAUNT",
+        "MOVE_SPIKES",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICY_WIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DESTINY_BOND",
+        "MOVE_TAUNT",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ICE_BEAM",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_POLTERGEIST",
+        "MOVE_ICE_SHARD",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_SPIKES",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICY_WIND",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SWITCHEROO",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

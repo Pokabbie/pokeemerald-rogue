@@ -1,0 +1,32 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LAIRON": {
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_EARTH_EATER"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

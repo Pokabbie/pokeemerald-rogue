@@ -1,0 +1,131 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_STEAMROLLER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_HEAT_CRASH",
+    "MOVE_MEGA_KICK",
+    "MOVE_ROLLOUT",
+    "MOVE_SNORE",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_FURY_CUTTER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_PUNCH",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

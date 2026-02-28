@@ -1,0 +1,99 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ICE_BEAM",
+        "MOVE_SCREECH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SURF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_TOXIC",
+        "MOVE_SURF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 25
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

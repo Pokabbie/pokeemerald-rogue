@@ -1,0 +1,81 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWALOT": {
+      "Abilities": [
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

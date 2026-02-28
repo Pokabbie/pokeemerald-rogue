@@ -1,0 +1,83 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_UXIE": {
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 76
+    }
+  ]
+}

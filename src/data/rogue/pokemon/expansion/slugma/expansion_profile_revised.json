@@ -1,0 +1,31 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SLUGMA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 20,
+        "SpAttack": 90,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 39
+    }
+  ]
+}

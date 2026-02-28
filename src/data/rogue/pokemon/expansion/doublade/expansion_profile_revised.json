@@ -1,0 +1,191 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_DOUBLADE": {
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_SHARPNESS"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWIRLING_BLADE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SWIRLING_BLADE",
+      "Level": 38
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SLEEP_TALK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SWIRLING_BLADE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GYRO_BALL",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWIRLING_BLADE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

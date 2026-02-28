@@ -50,17 +50,5 @@
         "GEN3UBERS"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_DESTINY_BOND",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_AMNESIA",
-        "Level": 65
-      }
-    ]
-  }
+  ]
 }

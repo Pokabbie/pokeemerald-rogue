@@ -1,0 +1,36 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_METANG": {
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_IRON_FIST",
+        "ABILITY_LIGHT_METAL"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FLY"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METEOR_MASH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

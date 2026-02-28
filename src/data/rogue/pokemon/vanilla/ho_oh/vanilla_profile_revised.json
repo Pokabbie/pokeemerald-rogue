@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SACRED_FIRE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 78
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHINGLING": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 30,
+        "Defense": 50,
+        "Speed": 45,
+        "SpAttack": 80,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 25
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WEATHER_BALL"
+  ]
+}
