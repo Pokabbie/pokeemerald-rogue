@@ -3336,6 +3336,7 @@ const u8* FaintClearSetData(u32 battler)
     gProtectStructs[battler].statRaised = FALSE;
     gProtectStructs[battler].statFell = FALSE;
     gProtectStructs[battler].pranksterElevated = FALSE;
+    gProtectStructs[battler].sheltered = FALSE;
 
     gDisableStructs[battler].isFirstTurn = 2;
 
@@ -5062,6 +5063,7 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].quash = FALSE;
             gProtectStructs[i].usedCustapBerry = FALSE;
             gProtectStructs[i].quickDraw = FALSE;
+            gProtectStructs[i].sheltered = FALSE;
         }
         else
         {

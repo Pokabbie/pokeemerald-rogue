@@ -3660,6 +3660,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
+                    gProtectStructs[gBattlerTarget].sheltered = FALSE;
                 }
                 break;
             case MOVE_EFFECT_SPECTRAL_THIEF:
@@ -5522,6 +5523,14 @@ static void Cmd_moveend(void)
                     MarkBattlerForControllerExec(gBattlerAttacker);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BeakBlastBurn;
+                    effect = 1;
+                }
+                else if (Rogue_GetRevisionModeActive() && gProtectStructs[gBattlerTarget].sheltered)
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_DEF_PLUS_1,
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ShelterEffect_Revised;
                     effect = 1;
                 }
             }
@@ -10942,6 +10951,11 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].burningBulwarked = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
+            else if (Rogue_GetRevisionModeActive() && gCurrentMove == MOVE_SHELTER)
+            {
+                gProtectStructs[gBattlerAttacker].sheltered = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
 
             gDisableStructs[gBattlerAttacker].protectUses++;
             fail = FALSE;
@@ -12672,7 +12686,9 @@ static void Cmd_metronome(void)
 {
     CMD_ARGS();
 
-#if B_METRONOME_MOVES >= GEN_9
+#ifdef ROGUE_EXPANSION
+    u32 moveCount = Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE;
+#elif B_METRONOME_MOVES >= GEN_9
     u32 moveCount = MOVES_COUNT_GEN9;
 #elif B_METRONOME_MOVES >= GEN_8
     u32 moveCount = MOVES_COUNT_GEN8;

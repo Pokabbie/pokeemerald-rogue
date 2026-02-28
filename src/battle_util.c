@@ -5317,6 +5317,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 if (moveType == TYPE_GRASS)
                     effect = 2, statId = STAT_ATK;
                 break;
+            case ABILITY_WATER_COMPACTION:
+                if (Rogue_GetRevisionModeActive() && moveType == TYPE_WATER)
+                    effect = 2, statId = STAT_DEF;
+                break;
             case ABILITY_FLASH_FIRE:
                 if (moveType == TYPE_FIRE
                     && (B_FLASH_FIRE_FROZEN >= GEN_5 || !(gBattleMons[battler].status1 & STATUS1_FREEZE)))
@@ -5438,7 +5442,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_WATER_COMPACTION:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            if (!Rogue_GetRevisionModeActive() && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && TARGET_TURN_DAMAGED
              && IsBattlerAlive(battler)
              && moveType == TYPE_WATER
@@ -8615,6 +8619,8 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return TRUE;
     else if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_MAT_BLOCK
       && !IS_MOVE_STATUS(move))
+        return TRUE;
+    else if (Rogue_GetRevisionModeActive() && gProtectStructs[battler].sheltered && gBattleMoves[move].power != 0)
         return TRUE;
     else
         return FALSE;

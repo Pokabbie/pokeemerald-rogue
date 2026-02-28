@@ -128,6 +128,7 @@ struct ProtectStruct
     u32 kingsShielded:1;
     u32 banefulBunkered:1;
     u32 obstructed:1;
+    u32 sheltered:1;
     u32 endured:1;
     u32 noValidMoves:1;
     u32 helpingHand:1;
@@ -817,6 +818,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
     gBattleMons[battlerId].type2 = gSpeciesInfo[gBattleMons[battlerId].species].types[1];   \
     gBattleMons[battlerId].type3 = TYPE_MYSTERY;                                            \
 }
+
+#define SHELTERED(battlerId) (Rogue_GetRevisionModeActive() ? gProtectStructs[battlerId].sheltered : FALSE)
 
 #define IS_BATTLER_PROTECTED(battlerId)(gProtectStructs[battlerId].protected                                           \
                                         || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_WIDE_GUARD           \

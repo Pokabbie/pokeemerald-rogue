@@ -1,185 +1,215 @@
 
-static const u8 sBoneRushDescription_Revised[] = _(
-    "Strikes the foe with a bone\n"
-    "in hand twice.");
-
-static const u8 sBulletSeedDescription_Revised[] = _(
-    "Shoots 2 seeds in a row\n"
-    "to strike the foe.");
-
-static const u8 sDragonClawDescription_Revised[] = _(
-    "Slashes with claws, etc. Has\n"
-    "a high critical-hit ratio.");
-
-static const u8 sDrillPeckDescription_Revised[] = _(
-    "Stabs with beak, etc. Has\n"
-    "a high critical-hit ratio.");
-
-static const u8 sEggBombDescription_Revised[] = _(
-    "An egg is hurled at the foe.\n"
-    "also hurts the user.");
-    
-static const u8 sHyperVoiceDescription_Revised[] = _(
-    "A loud attack that may\n"
-    "lower the foe's DEF.");
-    
-static const u8 sJumpKickDescription_Revised[] = _(
-    "A strong jumping kick.May\n"
-    "cause paralysis.");
-
-static const u8 sLickDescription_Revised[] = _(
-    "Licks with a long tongue to\n"
-    "injure. Will also paralyze.");
-    
-static const u8 sPsywaveDescription_Revised[] = _(
-    "Inflicts damage identical\n"
-    "to the user's level.");
-
 static const u8 sRazorWindDescription_Revised[] = _(
-    "Slashes with wind. Has\n"
-    "a high critical-hit ratio.");
+    "Charges up to unleash wind\n"
+    "with a high critical hit rate.");
+
+static const u8 sCutDescription_Revised[] = _(
+    "Cuts the foe with sharp\n"
+    "implements. High crit ratio.");
+
+static const u8 sRollingKickDescription_Revised[] = _(
+    "A roundhouse kick that\n"
+    "may make the target flinch.");
+
+static const u8 sStrengthDescription_Revised[] = _(
+    "Slams the foe with great\n"
+    "power. May raise Attack.");
+
+static const u8 sCurseDescription_Revised[] = _(
+    "+Attack, +Defense, -Speed.\n"
+    "Ghost-type: curse target.");
+
+static const u8 sAeroblastDescription_Revised[] = _(
+    "Launches a vacuumed blast.\n"
+    "Switches the foe out.");
+
+static const u8 sOctazookaDescription_Revised[] = _(
+    "Fires ink to attack. High\n"
+    "crit ratio. May cut accuracy.");
+
+static const u8 sRapidSpinDescription_Revised[] = _(
+    "Spins to remove hazards\n"
+    "and raise user's Speed.");
 
 static const u8 sRockSmashDescription_Revised[] = _(
     "A rock-crushing attack\n"
-    "that will lower DEFENSE.");
+    "that lowers target's Defense.");
 
-static const u8 sShadowBallDescription_Revised[] = _(
-    "Hurls a black blob that may\n"
-    "lower the foe's DEF.");
+static const u8 sFakeOutDescription_Revised[] = _(
+    "Strikes 1st to cause flinch.\n"
+    "Must be used immediately.");
 
-static const u8 sSpitUpDescription_Revised[] = _(
-    "Spits up stomach contents.\n"
-    "(No need to Stockpile).");
+static const u8 sWishDescription_Revised[] = _(
+    "Restores half user's HP\n"
+    "to party member in turn.");
 
-static const u8 sSwallowDescription_Revised[] = _(
-    "Recovers up to half the\n"
-    "user's maximum HP.");
-    
+static const u8 sSuperpowerDescription_Revised[] = _(
+    "Attacks with super strength\n"
+    "but lowers physical stats.");
 
-static const u8 sWaterfallDescription_Revised[] = _(
-    "A ramming attack that may\n"
-    "cause flinching.");
+static const u8 sTailGlowDescription_Revised[] = _(
+    "Flashes a light that raises\n"
+    "Sp. Atk drastically.");
 
-static const u8 sAirSlashDescription_Revised[] = _(
-    "Attacks with a blade of\n"
-    "air. May cause flinching.");
-
-static const u8 sAquaJetDescription_Revised[] = _(
-    "Strikes first by dashing\n"
-    "at the foe at a high speed.");
-
-static const u8 sBraveBirdDescription_Revised[] = _(
-    "A low altitude charge that\n"
-    "also hurts the user.");
-
-static const u8 sBugBuzzDescription_Revised[] = _(
-    "A damaging wave that may\n"
-    "lower DEF.");
-
-static const u8 sBulletPunchDescription_Revised[] = _(
-    "Punches as fast as a bul-\n"
-    "let. It always hits first.");
-
-static const u8 sDarkPulseDescription_Revised[] = _(
-    "Attacks with a horrible\n"
-    "aura. May cause flinching.");
-
-static const u8 sDoubleIronBashDescription_Revised[] = _(
-    "The user spins and hits with\n"
-    "its arms.");
-
-static const u8 sDracoMeteorDescription_Revised[] = _(
-    "Casts comets onto the foe.\n"
-    "Harshly lowers the SP. ATK.");
-
-static const u8 sDrillRunDescription_Revised[] = _(
-    "Spins its body like a drill.\n"
-    "High critical-hit ratio.");
-    
-static const u8 sDualWingbeatDescription_Revised[] = _(
-    "User slams the target with\n"
-    "wings and hits twice in a row.");
-    
-static const u8 sEarthPowerDescription_Revised[] = _(
-    "Makes the ground erupt with\n"
-    "power. May lower SP. DEF.");
-
-static const u8 sFirePledgeDescription_Revised[] = _(
-    "Attacks with a column of\n"
-    "fire.");
-
-static const u8 sFlashCannonDescription_Revised[] = _(
-    "Releases a blast of light\n"
-    "that may lower DEF.");
-
-static const u8 sForcePalmDescription_Revised[] = _(
-    "A shock wave attack that\n"
-    "may paralyze the foe.");
-
-static const u8 sHeadSmashDescription_Revised[] = _(
-    "A life-risking headbutt that\n"
-    "seriously hurts the user.");
-
-static const u8 sIceShardDescription_Revised[] = _(
-    "Hurls a chunk of ice that\n"
-    "always strike first.");
-
-static const u8 sIcicleCrashDescription_Revised[] = _(
-    "Drops large icicles on the\n"
-    "foe. May cause flinching.");
-
-static const u8 sOminousWindDescription_Revised[] = _(
-    "A repulsive attack that may\n"
-    "raise all stats.");
-
-static const u8 sNightSlashDescription_Revised[] = _(
-    "Hits as soon as possible.\n"
-    "High critical-hit ratio.");
-
-static const u8 sShadowSneakDescription_Revised[] = _(
-    "Extends the user's shadow\n"
-    "to strike first.");
+static const u8 sMeFirstDescription_Revised[] = _(
+    "Copies and strengthens foe's\n"
+    "move, if user moves first.");
 
 static const u8 sXScissorDescription_Revised[] = _(
     "Slashes the foe with crossed\n"
-    "scythes, claws, etc.");
+    "implements. High crit ratio.");
+
+static const u8 sRoarOfTimeDescription_Revised[] = _(
+    "Warps the fabric of time\n"
+    "to always strike first.");
+
+static const u8 sSpacialRendDescription_Revised[] = _(
+    "Tears space to always hit.\n"
+    "High critical-hit ratio.");
+
+static const u8 sCircleThrowDescription_Revised[] = _(
+    "Knocks the foe away to\n"
+    "force opponent to switch.");
+
+static const u8 sRetaliateDescription_Revised[] = _(
+    "Deals double damage if\n"
+    "an ally fainted last turn.");
+
+static const u8 sIceHammerDescription_Revised[] = _(
+    "Swings an icy fist. Has\n"
+    "a high-critical hit ratio.");
+
+static const u8 sBouncyBubbleDescription_Revised[] = _(
+    "A bubble attack that absorbs\n"
+    "half the damage inflicted.");
+
+static const u8 sBuzzyBuzzDescription_Revised[] = _(
+    "Shoots a jolt of electricity\n"
+    "with a high paralysis chance.");
+
+static const u8 sSizzlySlideDescription_Revised[] = _(
+    "A fiery dash attack with a\n"
+    "high chance to burn.");
+
+static const u8 sSnipeShotDescription_Revised[] = _(
+    "A water jet with a high crit\n"
+    "rate. Can't be redirected.");
+
+static const u8 sSteelRollerDescription_Revised[] = _(
+    "Rampages to hit the foe and\n"
+    "destroy any terrain.");
+
+static const u8 sDireClawDescription_Revised[] = _(
+    "A dire claw strike with a high\n"
+    "critical rate. May paralyze.");
+
+static const u8 sStoneAxeDescription_Revised[] = _(
+    "Swings stone axes at the foe.\n"
+    "High critical-hit ratio.");
+
+static const u8 sMysticalPowerDescription_Revised[] = _(
+    "A mysterious power strikes.\n"
+    "May raise user's Sp. Atk.");
+
+static const u8 sEsperWingDescription_Revised[] = _(
+    "High critical hit ratio.\n"
+    "May raise the user's speed.");
+
+static const u8 sBitterMaliceDescription_Revised[] = _(
+    "A spine-chilling resentment\n"
+    "that may cause frostbite.");
+
+static const u8 sShelterDescription_Revised[] = _(
+    "Evades damage, and raises\n"
+    "user's Defense when struck.");
+
+static const u8 sTripleArrowsDescription_Revised[] = _(
+    "Shoots three arrows in a row\n"
+    "with rising intensity.");
+
+static const u8 sInfernalParadeDescription_Revised[] = _(
+    "Attacks with ghostly balls\n"
+    "of fire. May leave a burn.");
+
+static const u8 sCeaselessEdgeDescription_Revised[] = _(
+    "Slashes with a shell blade.\n"
+    "High critical-hit ratio.");
+
+static const u8 sLastRespectsDescription_Revised[] = _(
+    "Deals double damage if\n"
+    "an ally fainted last turn.");
+
+static const u8 sLuminaCrashDescription_Revised[] = _(
+    "A mind-affecting light that\n"
+    "lowers target's Sp. Def.");
+
+static const u8 sTripleDiveDescription_Revised[] = _(
+    "Splashes the foe three times\n"
+    "with rising intensity.");
+
+static const u8 sTorchSongDescription_Revised[] = _(
+    "A scorching song that may\n"
+    "raise the user's Sp. Atk.");
+
+static const u8 sAquaStepDescription_Revised[] = _(
+    "A light, fluid dance that\n"
+    "may raise the user's Speed.");
+
+static const u8 sMakeItRainDescription_Revised[] = _(
+    "Harshly lowers user's Sp. Atk\n"
+    "and scatters coins on field.");
+
+static const u8 sRageFistDescription_Revised[] = _(
+    "A rampage of 2 to 3 turns\n"
+    "that confuses the user.");
+
+
+static const u8 sSwirlingBladeDescription_Revised[] = _(
+    "A strike with a sword.\n"
+    "High critical-hit ratio.");
 
 const u8 *const gMoveDescriptionPointers_Revised[MOVES_COUNT - 1] =
 {
-    [MOVE_BONE_RUSH - 1] = sBoneRushDescription_Revised,
-    [MOVE_BULLET_SEED - 1] = sBulletSeedDescription_Revised,
-    [MOVE_DRAGON_CLAW - 1] = sDragonClawDescription_Revised,
-    [MOVE_DRILL_PECK - 1] = sDrillPeckDescription_Revised,
-    [MOVE_EGG_BOMB - 1] = sEggBombDescription_Revised,
-    [MOVE_HYPER_VOICE - 1] = sHyperVoiceDescription_Revised,
-    [MOVE_JUMP_KICK - 1] = sJumpKickDescription_Revised,
-    [MOVE_LICK - 1] = sLickDescription_Revised,
-    [MOVE_PSYWAVE - 1] = sPsywaveDescription_Revised,
     [MOVE_RAZOR_WIND - 1] = sRazorWindDescription_Revised,
+    [MOVE_CUT - 1] = sCutDescription_Revised,
+    [MOVE_ROLLING_KICK - 1] = sRollingKickDescription_Revised,
+    [MOVE_STRENGTH - 1] = sStrengthDescription_Revised,
+    [MOVE_CURSE - 1] = sCurseDescription_Revised,
+    [MOVE_AEROBLAST - 1] = sAeroblastDescription_Revised,
+    [MOVE_OCTAZOOKA - 1] = sOctazookaDescription_Revised,
+    [MOVE_RAPID_SPIN - 1] = sRapidSpinDescription_Revised,
     [MOVE_ROCK_SMASH - 1] = sRockSmashDescription_Revised,
-    [MOVE_SHADOW_BALL - 1] = sShadowBallDescription_Revised,
-    [MOVE_SPIT_UP - 1] = sSpitUpDescription_Revised,
-    [MOVE_SWALLOW - 1] = sSwallowDescription_Revised,
-    [MOVE_WATERFALL - 1] = sWaterfallDescription_Revised,
-    [MOVE_AIR_SLASH - 1] = sAirSlashDescription_Revised,
-    [MOVE_AQUA_JET - 1] = sAquaJetDescription_Revised,
-    [MOVE_BRAVE_BIRD - 1] = sBraveBirdDescription_Revised,
-    [MOVE_BUG_BUZZ - 1] = sBugBuzzDescription_Revised,
-    [MOVE_BULLET_PUNCH - 1] = sBulletPunchDescription_Revised,
-    [MOVE_DARK_PULSE - 1] = sDarkPulseDescription_Revised,
-    [MOVE_DOUBLE_IRON_BASH - 1] = sDoubleIronBashDescription_Revised,
-    [MOVE_DRACO_METEOR - 1] = sDracoMeteorDescription_Revised,
-    [MOVE_DRILL_RUN - 1] = sDrillRunDescription_Revised,
-    [MOVE_DUAL_WINGBEAT - 1] = sDualWingbeatDescription_Revised,
-    [MOVE_EARTH_POWER - 1] = sEarthPowerDescription_Revised,
-    [MOVE_FIRE_PLEDGE - 1] = sFirePledgeDescription_Revised,
-    [MOVE_FLASH_CANNON - 1] = sFlashCannonDescription_Revised,
-    [MOVE_FORCE_PALM - 1] = sForcePalmDescription_Revised,
-    [MOVE_HEAD_SMASH - 1] = sHeadSmashDescription_Revised,
-    [MOVE_ICE_SHARD - 1] = sIceShardDescription_Revised,
-    [MOVE_ICICLE_CRASH - 1] = sIcicleCrashDescription_Revised,
-    [MOVE_NIGHT_SLASH - 1] = sNightSlashDescription_Revised,
-    [MOVE_OMINOUS_WIND - 1] = sOminousWindDescription_Revised,
-    [MOVE_SHADOW_SNEAK - 1] = sShadowSneakDescription_Revised,
+    [MOVE_FAKE_OUT - 1] = sFakeOutDescription_Revised,
+    [MOVE_WISH - 1] = sWishDescription_Revised,
+    [MOVE_SUPERPOWER - 1] = sSuperpowerDescription_Revised,
+    [MOVE_TAIL_GLOW - 1] = sTailGlowDescription_Revised,
+    [MOVE_ME_FIRST - 1] = sMeFirstDescription_Revised,
     [MOVE_X_SCISSOR - 1] = sXScissorDescription_Revised,
+    [MOVE_ROAR_OF_TIME - 1] = sRoarOfTimeDescription_Revised,
+    [MOVE_SPACIAL_REND - 1] = sSpacialRendDescription_Revised,
+    [MOVE_CIRCLE_THROW - 1] = sCircleThrowDescription_Revised,
+    [MOVE_RETALIATE - 1] = sRetaliateDescription_Revised,
+    [MOVE_ICE_HAMMER - 1] = sIceHammerDescription_Revised,
+    [MOVE_BOUNCY_BUBBLE - 1] = sBouncyBubbleDescription_Revised,
+    [MOVE_BUZZY_BUZZ - 1] = sBuzzyBuzzDescription_Revised,
+    [MOVE_SIZZLY_SLIDE - 1] = sSizzlySlideDescription_Revised,
+    [MOVE_SNIPE_SHOT - 1] = sSnipeShotDescription_Revised,
+    [MOVE_STEEL_ROLLER - 1] = sSteelRollerDescription_Revised,
+    [MOVE_DIRE_CLAW - 1] = sDireClawDescription_Revised,
+    [MOVE_STONE_AXE - 1] = sStoneAxeDescription_Revised,
+    [MOVE_MYSTICAL_POWER - 1] = sMysticalPowerDescription_Revised,
+    [MOVE_ESPER_WING - 1] = sEsperWingDescription_Revised,
+    [MOVE_BITTER_MALICE - 1] = sBitterMaliceDescription_Revised,
+    [MOVE_SHELTER - 1] = sShelterDescription_Revised,
+    [MOVE_TRIPLE_ARROWS - 1] = sTripleArrowsDescription_Revised,
+    [MOVE_INFERNAL_PARADE - 1] = sInfernalParadeDescription_Revised,
+    [MOVE_CEASELESS_EDGE - 1] = sCeaselessEdgeDescription_Revised,
+    [MOVE_LAST_RESPECTS - 1] = sLastRespectsDescription_Revised,
+    [MOVE_LUMINA_CRASH - 1] = sLuminaCrashDescription_Revised,
+    [MOVE_TRIPLE_DIVE - 1] = sTripleDiveDescription_Revised,
+    [MOVE_TORCH_SONG - 1] = sTorchSongDescription_Revised,
+    [MOVE_AQUA_STEP - 1] = sAquaStepDescription_Revised,
+    [MOVE_MAKE_IT_RAIN - 1] = sMakeItRainDescription_Revised,
+    [MOVE_RAGE_FIST - 1] = sRageFistDescription_Revised,
+    [MOVE_SWIRLING_BLADE - 1] = sSwirlingBladeDescription_Revised,
 };
