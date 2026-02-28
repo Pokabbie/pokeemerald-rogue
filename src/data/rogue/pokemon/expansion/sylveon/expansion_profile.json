@@ -725,5 +725,152 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FAIRY_WIND",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_FAIRY_WIND",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BABY_DOLL_EYES",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_SWIFT",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SKILL_SWAP",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_MAGICAL_LEAF",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_MISTY_TERRAIN",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_LIGHT_SCREEN",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_MYSTICAL_FIRE",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_LAST_RESORT",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_PSYCH_UP",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_SPARKLY_SWIRL",
+        "Level": 60
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_GRASS_KNOT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_SPARKLY_SWIRL"
+        ],
+        "Ability": "ABILITY_PIXILATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_MYSTICAL_FIRE",
+          "MOVE_PSYSHOCK",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_PIXILATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_SPARKLY_SWIRL"
+        ],
+        "Ability": "ABILITY_PIXILATE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_MYSTICAL_FIRE",
+          "MOVE_PSYSHOCK",
+          "MOVE_SPARKLY_SWIRL"
+        ],
+        "Ability": "ABILITY_PIXILATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_HYPER_VOICE",
+          "MOVE_SPARKLY_SWIRL"
+        ],
+        "Ability": "ABILITY_PIXILATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

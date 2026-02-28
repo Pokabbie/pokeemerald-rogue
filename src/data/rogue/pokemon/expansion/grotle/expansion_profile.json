@@ -120,5 +120,54 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WITHDRAW",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_ABSORB",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_SLEEP_POWDER",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_LEAF_BLADE",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_SHELL_SMASH",
+        "Level": 57
+      },
+      {
+        "Move": "MOVE_GIGA_DRAIN",
+        "Level": 62
+      },
+      {
+        "Move": "MOVE_LEAF_STORM",
+        "Level": 67
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_GROTLE": {
+        "Abilities": [
+          "ABILITY_OVERGROW",
+          "ABILITY_ROCK_HEAD",
+          "ABILITY_SHELL_ARMOR"
+        ]
+      }
+    }
+  }
 }

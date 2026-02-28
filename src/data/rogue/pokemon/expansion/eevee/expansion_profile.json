@@ -188,5 +188,10 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_GRASS_KNOT"
+    ]
+  }
 }

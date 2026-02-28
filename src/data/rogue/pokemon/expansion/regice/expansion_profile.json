@@ -322,5 +322,147 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_STOMP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_CHARGE_BEAM",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_CURSE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_AMNESIA",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_ICE_BEAM",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_HAMMER_ARM",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_LOCK_ON",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_ZAP_CANNON",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_SUPERPOWER",
+        "Level": 61
+      },
+      {
+        "Move": "MOVE_HYPER_BEAM",
+        "Level": 67
+      },
+      {
+        "Move": "MOVE_FREEZE_DRY",
+        "Level": 73
+      },
+      {
+        "Move": "MOVE_FREEZY_FROST",
+        "Level": 80
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_POLISH",
+          "MOVE_FREEZY_FROST",
+          "MOVE_FOCUS_BLAST",
+          "MOVE_FREEZE_DRY"
+        ],
+        "Ability": "ABILITY_FILTER",
+        "Item": "ITEM_FIGHTINIUM_Z",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ROCK_POLISH",
+          "MOVE_FREEZY_FROST",
+          "MOVE_FREEZE_DRY",
+          "MOVE_FOCUS_BLAST"
+        ],
+        "Ability": "ABILITY_FILTER",
+        "Item": "ITEM_FIGHTINIUM_Z",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_AMNESIA",
+          "MOVE_REST",
+          "MOVE_FREEZY_FROST",
+          "MOVE_ICY_WIND"
+        ],
+        "Ability": "ABILITY_FILTER",
+        "Item": "ITEM_ICIUM_Z",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ROCK_POLISH",
+          "MOVE_FREEZY_FROST",
+          "MOVE_FREEZE_DRY",
+          "MOVE_FOCUS_BLAST"
+        ],
+        "Ability": "ABILITY_FILTER",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_REGICE": {
+        "Abilities": [
+          "ABILITY_CLEAR_BODY",
+          "ABILITY_FILTER",
+          "ABILITY_ICE_BODY"
+        ]
+      }
+    }
+  }
 }

@@ -174,5 +174,11 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HEAD_SMASH",
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

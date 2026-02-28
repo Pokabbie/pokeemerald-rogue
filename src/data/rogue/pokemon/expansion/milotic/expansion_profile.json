@@ -565,5 +565,161 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_REFRESH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_REFRESH",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_TWISTER",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_AQUA_RING",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_CAPTIVATE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_RECOVER",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_AQUA_TAIL",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_ATTRACT",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_COIL",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_RAIN_DANCE",
+        "Level": 52
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC",
+      "MOVE_DAZZLING_GLEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SCALD",
+          "MOVE_RECOVER",
+          "MOVE_TOXIC",
+          "MOVE_MOONBLAST"
+        ],
+        "Ability": "ABILITY_MARVEL_SCALE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SCALD",
+          "MOVE_DAZZLING_GLEAM",
+          "MOVE_RECOVER",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_COMPETITIVE",
+        "Item": "ITEM_PSYCHIC_SEED",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SCALD",
+          "MOVE_RECOVER",
+          "MOVE_MOONBLAST",
+          "MOVE_HYPER_BEAM"
+        ],
+        "Ability": "ABILITY_COMPETITIVE",
+        "Item": "ITEM_NORMALIUM_Z",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SCALD",
+          "MOVE_ICE_BEAM",
+          "MOVE_MOONBLAST",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_MARVEL_SCALE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RECOVER",
+          "MOVE_MUDDY_WATER",
+          "MOVE_HYPNOSIS",
+          "MOVE_MOONBLAST"
+        ],
+        "Ability": "ABILITY_COMPETITIVE",
+        "Item": "ITEM_FLAME_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MILOTIC": {
+        "Types": [
+          "TYPE_WATER",
+          "TYPE_FAIRY"
+        ]
+      }
+    }
+  }
 }

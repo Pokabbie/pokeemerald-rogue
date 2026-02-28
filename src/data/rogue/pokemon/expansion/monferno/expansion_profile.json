@@ -230,5 +230,19 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_MONFERNO": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_IRON_FIST"
+        ]
+      }
+    }
+  }
 }

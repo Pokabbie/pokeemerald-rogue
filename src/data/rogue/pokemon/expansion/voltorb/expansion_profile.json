@@ -180,5 +180,12 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ENERGY_BALL",
+      "MOVE_BUG_BUZZ",
+      "MOVE_FLASH_CANNON"
+    ]
+  }
 }

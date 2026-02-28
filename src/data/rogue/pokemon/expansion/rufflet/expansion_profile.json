@@ -173,5 +173,10 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_STEEL_WING"
+    ]
+  }
 }

@@ -462,5 +462,153 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_THUNDER_SHOCK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ASTONISH",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_CHARGE",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_CONFUSE_RAY",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_ELECTRO_BALL",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_OMINOUS_WIND",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_TRICK",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_SHOCK_WAVE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_SUBSTITUTE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_LEAF_STORM",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_HEX",
+        "Level": 55
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_VOLT_SWITCH",
+          "MOVE_LEAF_STORM",
+          "MOVE_TRICK",
+          "MOVE_THUNDERBOLT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_LEAF_STORM",
+          "MOVE_THUNDERBOLT",
+          "MOVE_PAIN_SPLIT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_VOLT_SWITCH",
+          "MOVE_TRICK",
+          "MOVE_LEAF_STORM",
+          "MOVE_THUNDERBOLT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_ELECTRIC",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_LEAF_STORM",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_ELECTRIC",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_THUNDERBOLT",
+          "MOVE_LEAF_STORM",
+          "MOVE_VOLT_SWITCH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_GHOST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_VOLT_SWITCH",
+          "MOVE_LEAF_STORM",
+          "MOVE_PAIN_SPLIT",
+          "MOVE_WILL_O_WISP"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_GHOST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

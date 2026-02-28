@@ -194,5 +194,62 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_STOMP",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_SWIFT",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_ZEN_HEADBUTT",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 55
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_GIRAFARIG": {
+        "Abilities": [
+          "ABILITY_INNER_FOCUS",
+          "ABILITY_RATTLED",
+          "ABILITY_SAP_SIPPER"
+        ],
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 90,
+          "Defense": 65,
+          "Speed": 90,
+          "SpAttack": 95,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

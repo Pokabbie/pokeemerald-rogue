@@ -197,5 +197,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_DRAINING_KISS",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_AROMA_VEIL",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

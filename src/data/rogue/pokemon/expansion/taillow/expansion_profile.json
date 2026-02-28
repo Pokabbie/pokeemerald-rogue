@@ -183,5 +183,10 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DUAL_WINGBEAT"
+    ]
+  }
 }

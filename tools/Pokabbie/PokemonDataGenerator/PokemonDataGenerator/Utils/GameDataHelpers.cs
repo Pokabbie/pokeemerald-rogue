@@ -312,25 +312,33 @@ namespace PokemonDataGenerator.Utils
 		}
 
 
-		private static void ParseFileDefines(string prefix, string filePath, Dictionary<string, string> dest)
-		{
-			using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-			using (var reader = new StreamReader(stream))
-			{
-				string line;
+        public static void ParseFileDefines(string prefix, string filePath, Dictionary<string, string> dest)
+        {
+			ParseFileDefines(new string[] { prefix }, filePath, dest);
+        }
+
+        public static void ParseFileDefines(IEnumerable<string> prefixes, string filePath, Dictionary<string, string> dest)
+        {
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (var reader = new StreamReader(stream))
+            {
+                string line;
 
 				while ((line = reader.ReadLine()) != null)
 				{
-					if (line.StartsWith(prefix))
+					foreach (string prefix in prefixes)
 					{
-						var kvp = ParseDefine(line);
-						dest.Add(kvp.Key, kvp.Value);
+						if (line.StartsWith(prefix))
+						{
+							var kvp = ParseDefine(line);
+							dest.Add(kvp.Key, kvp.Value);
+						}
 					}
-				}
-			}
-		}
+                }
+            }
+        }
 
-		private static KeyValuePair<string, string> ParseDefine(string line)
+        private static KeyValuePair<string, string> ParseDefine(string line)
 		{
 			string key = "";
 			string value = "";
@@ -338,8 +346,16 @@ namespace PokemonDataGenerator.Utils
 			line = line.Substring("#define ".Length);
 			int splitIdx = line.IndexOf(' ');
 
-			key = line.Substring(0, splitIdx);
-			value = line.Substring(key.Length).Trim();
+			if(splitIdx == -1)
+            {
+                key = line.Trim();
+                value = null;
+            }
+			else
+			{
+                key = line.Substring(0, splitIdx);
+                value = line.Substring(key.Length).Trim();
+            }
 
 			return new KeyValuePair<string, string>(key, value);
 		}
@@ -414,6 +430,43 @@ namespace PokemonDataGenerator.Utils
             }
 
 			return key;
-		}
-	}
+        }
+
+        public static int ResolveLookupToConstant(Dictionary<string, string> lookup, string key)
+        {
+			if (lookup[key] == null)
+				return int.MinValue;
+
+			string rawStr = lookup[key].Replace('(', ' ').Replace(')', ' ');
+
+			int total = 0;
+
+			foreach (string arg in rawStr.Split('+'))
+			{
+				if(int.TryParse(arg.Trim(), out int val ))
+				{
+					total += val;
+				}
+				else
+				{
+					total += ResolveLookupToConstant(lookup, arg.Trim());
+				}
+			}
+
+			return total;
+        }
+
+        public static string FindKeyFromConstant(Dictionary<string, string> lookup, int value)
+        {
+            foreach (string key in lookup.Keys)
+            {
+                int val = ResolveLookupToConstant(lookup, key);
+                if(val == value) 
+					return key;
+            }
+
+			throw new Exception();
+			return null;
+        }
+    }
 }

@@ -744,5 +744,147 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TAUNT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_TAUNT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_PUNISHMENT",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 68
+      },
+      {
+        "Move": "MOVE_PYRO_BALL",
+        "Level": 78
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PYRO_BALL",
+          "MOVE_U_TURN",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_GUNK_SHOT"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_OVERHEAT",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_DRAIN_PUNCH",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SUBSTITUTE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_BLAST_BURN"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_FIRIUM_Z",
+        "Nature": "NATURE_HASTY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_FIRE_BLAST",
+          "MOVE_VACUUM_WAVE",
+          "MOVE_ENDEAVOR"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PYRO_BALL",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_U_TURN",
+          "MOVE_MACH_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_PYRO_BALL",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_ELECTRIUM_Z",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_INFERNAPE": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_IRON_FIST"
+        ],
+        "BaseStats": {
+          "HP": 76,
+          "Attack": 104,
+          "Defense": 71,
+          "Speed": 109,
+          "SpAttack": 104,
+          "SpDefense": 71
+        }
+      }
+    }
+  }
 }

@@ -554,5 +554,136 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_RELIC_SONG",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_SING",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_AURA_SPHERE",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_FOCUS_BLAST",
+        "Level": 78
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WAKE_UP_SLAP"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CELEBRATE",
+          "MOVE_PSYCHIC",
+          "MOVE_FOCUS_BLAST",
+          "MOVE_RELIC_SONG"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_NORMALIUM_Z",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RELIC_SONG",
+          "MOVE_PSYCHIC",
+          "MOVE_SHADOW_BALL",
+          "MOVE_FOCUS_BLAST"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_U_TURN",
+          "MOVE_FOCUS_BLAST",
+          "MOVE_RELIC_SONG"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_PSYSHOCK",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_GHOST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_PSYSHOCK",
+          "MOVE_SHADOW_BALL",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_GHOST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TERA_BLAST",
+          "MOVE_PSYSHOCK",
+          "MOVE_KNOCK_OFF",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_ASSAULT_VEST",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_FIGHTING",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MELOETTA_PIROUETTE": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 77,
+          "Defense": 90,
+          "Speed": 128,
+          "SpAttack": 128,
+          "SpDefense": 77
+        }
+      }
+    }
+  }
 }

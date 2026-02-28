@@ -347,5 +347,79 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_GRASS_KNOT",
+          "MOVE_U_TURN",
+          "MOVE_SURF"
+        ],
+        "Ability": "ABILITY_DRY_SKIN",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_HYPER_VOICE",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_DARK_PULSE"
+        ],
+        "Ability": "ABILITY_DRY_SKIN",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_HYPER_VOICE",
+          "MOVE_GRASS_KNOT",
+          "MOVE_VOLT_SWITCH"
+        ],
+        "Ability": "ABILITY_DRY_SKIN",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SUBSTITUTE",
+          "MOVE_GLARE",
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_DRY_SKIN",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_DRY_SKIN",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

@@ -255,5 +255,149 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_TOXIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_SYNTHESIS",
+          "MOVE_AROMATHERAPY",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_SYNTHESIS",
+          "MOVE_AROMATHERAPY",
+          "MOVE_WISH"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_PSYCHIC",
+          "MOVE_TRICK",
+          "MOVE_TERA_BLAST"
+        ],
+        "Ability": "ABILITY_FLOWER_VEIL",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_MODEST",
+        "TeraType": "TYPE_GROUND",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_MOONBLAST",
+          "MOVE_SYNTHESIS"
+        ],
+        "Ability": "ABILITY_FLOWER_VEIL",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_SYNTHESIS",
+          "MOVE_TRICK",
+          "MOVE_PSYCHIC"
+        ],
+        "Ability": "ABILITY_FLOWER_VEIL",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_FAIRY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_DRAINING_KISS",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_SYNTHESIS",
+          "MOVE_MOONBLAST",
+          "MOVE_AROMATHERAPY"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FLORGES": {
+        "Abilities": [
+          "ABILITY_FLOWER_VEIL",
+          "ABILITY_NATURAL_CURE",
+          "ABILITY_SYMBIOSIS"
+        ]
+      },
+      "SPECIES_FLORGES_YELLOW_FLOWER": {
+        "Abilities": [
+          "ABILITY_FLOWER_VEIL",
+          "ABILITY_NATURAL_CURE",
+          "ABILITY_SYMBIOSIS"
+        ]
+      },
+      "SPECIES_FLORGES_ORANGE_FLOWER": {
+        "Abilities": [
+          "ABILITY_FLOWER_VEIL",
+          "ABILITY_NATURAL_CURE",
+          "ABILITY_SYMBIOSIS"
+        ]
+      },
+      "SPECIES_FLORGES_BLUE_FLOWER": {
+        "Abilities": [
+          "ABILITY_FLOWER_VEIL",
+          "ABILITY_NATURAL_CURE",
+          "ABILITY_SYMBIOSIS"
+        ]
+      },
+      "SPECIES_FLORGES_WHITE_FLOWER": {
+        "Abilities": [
+          "ABILITY_FLOWER_VEIL",
+          "ABILITY_NATURAL_CURE",
+          "ABILITY_SYMBIOSIS"
+        ]
+      }
+    }
+  }
 }

@@ -315,5 +315,22 @@
         "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE"
+    ],
+    "PerSpecies": {
+      "SPECIES_MEOWSTIC": {
+        "BaseStats": {
+          "HP": 74,
+          "Attack": 48,
+          "Defense": 76,
+          "Speed": 104,
+          "SpAttack": 93,
+          "SpDefense": 81
+        }
+      }
+    }
+  }
 }

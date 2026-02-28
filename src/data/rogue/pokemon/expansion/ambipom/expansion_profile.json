@@ -308,5 +308,103 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DUAL_CHOP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SAND_ATTACK",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ASTONISH",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_ARM_THRUST",
+        "Level": 46
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_PURSUIT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_U_TURN",
+          "MOVE_KNOCK_OFF",
+          "MOVE_TRIPLE_AXEL"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_JOLLY",
+        "TeraType": "TYPE_NORMAL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_TAIL_SLAP",
+          "MOVE_ICE_PUNCH",
+          "MOVE_PURSUIT"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_ICIUM_Z",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_COVET",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TAIL_SLAP",
+          "MOVE_ARM_THRUST",
+          "MOVE_U_TURN",
+          "MOVE_SEED_BOMB"
+        ],
+        "Ability": "ABILITY_SKILL_LINK",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_AMBIPOM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 105,
+          "Defense": 66,
+          "Speed": 115,
+          "SpAttack": 68,
+          "SpDefense": 66
+        }
+      }
+    }
+  }
 }

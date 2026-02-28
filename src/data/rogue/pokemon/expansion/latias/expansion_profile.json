@@ -913,5 +913,192 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_DRAGONIUM_Z",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_TRICK",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MIST_BALL",
+          "MOVE_DRACO_METEOR",
+          "MOVE_DEFOG",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_HEALING_WISH",
+          "MOVE_DEFOG"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_DEFOG",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_PSYSHOCK",
+          "MOVE_DEFOG",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_DEFOG",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_DEFOG",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_ROOST",
+          "MOVE_MIST_BALL",
+          "MOVE_DRACO_METEOR"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_SOUL_DEW",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_SURF",
+          "MOVE_THUNDERBOLT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDER_WAVE",
+          "MOVE_ROOST",
+          "MOVE_THUNDERBOLT",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_MIST_BALL",
+          "MOVE_SURF",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

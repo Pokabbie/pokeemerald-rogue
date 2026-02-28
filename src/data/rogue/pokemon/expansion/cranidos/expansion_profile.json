@@ -178,5 +178,19 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_CRANIDOS": {
+        "Abilities": [
+          "ABILITY_MOLD_BREAKER",
+          "ABILITY_ROCK_HEAD",
+          "ABILITY_SHEER_FORCE"
+        ]
+      }
+    }
+  }
 }

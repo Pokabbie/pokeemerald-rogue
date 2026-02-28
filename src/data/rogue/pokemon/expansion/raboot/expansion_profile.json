@@ -136,5 +136,21 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ],
+    "PerSpecies": {
+      "SPECIES_RABOOT": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_RECEIVER",
+          "ABILITY_LIBERO"
+        ]
+      }
+    }
+  }
 }

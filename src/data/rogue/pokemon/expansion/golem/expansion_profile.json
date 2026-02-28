@@ -410,5 +410,125 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEAVY_SLAM",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_MUD_SPORT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MUD_SPORT",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_STEAMROLLER",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_MAGNITUDE",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_ACCELEROCK",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 64
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_HEAT_CRASH",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_EARTHQUAKE",
+          "MOVE_STONE_EDGE",
+          "MOVE_ACCELEROCK",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_EARTHQUAKE",
+          "MOVE_STONE_EDGE",
+          "MOVE_ACCELEROCK"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_WEAKNESS_POLICY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_EARTHQUAKE",
+          "MOVE_STONE_EDGE",
+          "MOVE_ACCELEROCK"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_CUSTAP_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_RAPID_SPIN",
+          "MOVE_EARTHQUAKE",
+          "MOVE_ROCK_CLIMB"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_CUSTAP_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_HEAD_SMASH",
+          "MOVE_EARTHQUAKE",
+          "MOVE_HEAT_CRASH"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

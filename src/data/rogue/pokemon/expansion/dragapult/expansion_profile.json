@@ -795,5 +795,212 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DRAGON_DARTS",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SUCKER_PUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_HEX",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_SHADOW_SNEAK",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_DOUBLE_HIT",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_DRAGON_DANCE",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_PHANTOM_FORCE",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_TAKE_DOWN",
+        "Level": 51
+      },
+      {
+        "Move": "MOVE_SHADOW_CLAW",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_DRAGON_RUSH",
+        "Level": 62
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 69
+      },
+      {
+        "Move": "MOVE_LAST_RESORT",
+        "Level": 76
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_FIRE_BLAST"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_LONELY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_DRAGON_DANCE",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_STEEL_WING",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_WEAKNESS_POLICY",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_PHANTOM_FORCE",
+          "MOVE_OUTRAGE",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_INFILTRATOR",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_U_TURN",
+          "MOVE_FIRE_BLAST"
+        ],
+        "Ability": "ABILITY_INFILTRATOR",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HASTY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_INFILTRATOR",
+        "Item": "ITEM_DRAGON_FANG",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_U_TURN",
+          "MOVE_SUCKER_PUNCH"
+        ],
+        "Ability": "ABILITY_INFILTRATOR",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_CLAW",
+          "MOVE_FLY",
+          "MOVE_DRAGON_DARTS",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_LUM_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DARTS",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_FLY",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

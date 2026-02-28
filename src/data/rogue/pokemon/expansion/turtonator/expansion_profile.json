@@ -180,5 +180,30 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM",
+      "MOVE_SHOCK_WAVE",
+      "MOVE_LAVA_PLUME",
+      "MOVE_DRAGON_TAIL"
+    ],
+    "PerSpecies": {
+      "SPECIES_TURTONATOR": {
+        "Abilities": [
+          "ABILITY_SHELL_ARMOR",
+          "ABILITY_ANGER_SHELL",
+          "ABILITY_MAGMA_ARMOR"
+        ],
+        "BaseStats": {
+          "HP": 80,
+          "Attack": 58,
+          "Defense": 135,
+          "Speed": 36,
+          "SpAttack": 101,
+          "SpDefense": 85
+        }
+      }
+    }
+  }
 }

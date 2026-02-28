@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using static PokemonDataGenerator.Pokedex.PokemonProfileGenerator;
 using PokemonDataGenerator.Utils;
+using System.Windows.Media.Animation;
 
 namespace PokemonDataGenerator
 {
@@ -23,8 +24,226 @@ namespace PokemonDataGenerator
             })
         };
 
+        private static void DoAbc()
+        {
+            string inputFile = "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue-ee - Copy\\src\\data\\rogue_pokemon_profiles.h";
+            string outputFolder = "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue\\src\\data\\rogue\\pokemon\\expansion";
+
+            Dictionary<string, PokemonProfile> profiles = new Dictionary<string, PokemonProfile>();
+
+            string[] lines = File.ReadAllLines(inputFile);
+
+            for(int i = 0; i < lines.Length;)
+            {
+                string line = lines[i++].Trim();
+
+                if (line.StartsWith("struct RoguePokemonProfile const gRoguePokemonProfiles"))
+                    break;
+
+                if(line.StartsWith("static struct LevelUpMove const sLevelUpMoves_"))
+                {
+                    string species = line.Substring("static struct LevelUpMove const sLevelUpMoves_".Length).Split('[')[0];
+                    List<LevelUpMove> moves = new List<LevelUpMove>();
+
+                    if (!profiles.ContainsKey(species))
+                    {
+                        profiles[species] = new PokemonProfile();
+                        profiles[species].Species = new List<string> { species };
+                    }
+
+                    i++; // skip {
+                    
+                    while(true)
+                    {
+                        line = lines[i++].Trim();
+                        if (line.StartsWith("};"))
+                            break;
+
+                        string[] parts = line.Replace("{", "").Replace("}", "").Split(',');
+                        LevelUpMove move = new LevelUpMove { Move = parts[0].Split('=')[1].Trim(), Level = int.Parse(parts[1].Split('=')[1]) };
+
+                        if(move.Move != "MOVE_NONE")
+                            moves.Add(move);
+                    }
+
+                    profiles[species].LevelUpMoves = moves;
+                }
+                else if (line.StartsWith("static u16 const sTutorMoves_"))
+                {
+                    string species = line.Substring("static u16 const sTutorMoves_".Length).Split('[')[0];
+                    List<string> moves = new List<string>();
+
+                    if (!profiles.ContainsKey(species))
+                    {
+                        profiles[species] = new PokemonProfile();
+                        profiles[species].Species.Add(species);
+                    }
+
+                    i++; // skip {
+
+                    while (true)
+                    {
+                        line = lines[i++].Trim();
+                        if (line.StartsWith("};"))
+                            break;
+
+                        string[] parts = line.Replace("{", "").Replace("}", "").Split(',');
+                        string move = parts[0].Trim();
+
+                        if (move != "MOVE_NONE")
+                            moves.Add(move);
+                    }
+
+                    profiles[species].TutorMoves = moves;
+                }
+                else if (line.StartsWith("static struct RoguePokemonCompetitiveSet const sCompetitiveSets_"))
+                {
+                    string species = line.Substring("static struct RoguePokemonCompetitiveSet const sCompetitiveSets_".Length).Split('[')[0];
+                    List<PokemonCompetitiveSet> sets = new List<PokemonCompetitiveSet>();
+                    PokemonCompetitiveSet currentSet = new PokemonCompetitiveSet();
+
+                    if (!profiles.ContainsKey(species))
+                    {
+                        profiles[species] = new PokemonProfile();
+                        profiles[species].Species.Add(species);
+                    }
+
+                    i++; // skip {
+
+                    while (true)
+                    {
+                        line = lines[i++].Trim();
+                        if (line.StartsWith("};"))
+                            break;
+
+                        if (line.StartsWith("},"))
+                        {
+                            sets.Add(currentSet);
+                            currentSet = new PokemonCompetitiveSet();
+                        }
+                        else if (line.StartsWith(".flags="))
+                        {
+                            string value = line.Split('=')[1].Trim();
+
+                            foreach (var e in value.Replace("(", "").Replace(")", "").Split('|'))
+                            {
+                                if (e.Trim().StartsWith("MON_FLAGS_"))
+                                {
+                                    currentSet.SourceTiers.Add(e.Replace(",", "").Trim().Substring("MON_FLAGS_".Length));
+                                }
+                            }
+                        }
+                        else if (line.StartsWith(".heldItem="))
+                        {
+                            string value = line.Split('=')[1].Replace(",", "").Trim();
+                            if (value != "ITEM_NONE")
+                                currentSet.Item = value;
+                        }
+                        else if (line.StartsWith(".ability="))
+                        {
+                            currentSet.Ability = line.Split('=')[1].Replace(",", "").Trim();
+                        }
+                        else if (line.StartsWith(".hiddenPowerType="))
+                        {
+                            string value = line.Split('=')[1].Replace(",", "").Trim();
+                            if (value != "TYPE_NONE")
+                                currentSet.HiddenPower = value;
+                        }
+                        else if (line.StartsWith(".teraType="))
+                        {
+                            string value = line.Split('=')[1].Replace(",", "").Trim();
+                            if (value != "TYPE_NONE")
+                                currentSet.TeraType = value;
+                        }
+                        else if (line.StartsWith(".nature="))
+                        {
+                            currentSet.Nature = line.Split('=')[1].Replace(",", "").Trim();
+                        }
+                        else if (line.StartsWith(".moves="))
+                        {
+                            i++; // skip {
+
+                            while(true)
+                            {
+                                line = lines[i++].Trim();
+                                if (!line.StartsWith("MOVE_") || line.StartsWith("MOVE_NONE"))
+                                    break;
+
+                                currentSet.Moves.Add(line.Replace(",", ""));
+                            }
+                        }
+                    }
+
+                    profiles[species].CompetitiveSets = sets;
+                }
+            }
+
+            // Match up
+            for (int i = 0; i < lines.Length;)
+            {
+                string line = lines[i++].Trim();
+
+                if(line.StartsWith("[SPECIES_"))
+                {
+                    string species = line.Replace("[", "").Split(']')[0];
+
+                    i++;
+
+                    bool done = false;
+                    while(true)
+                    {
+                        line = lines[i++].Trim();
+                        if (line.StartsWith("},"))
+                            break;
+
+                        // Skip for simplisity
+                        if (line.StartsWith(".competitiveSetCount"))
+                            continue;
+
+                        if(line.Contains("="))
+                        {
+                            if(!line.Contains("_" + species))
+                            {
+                                if(!done)
+                                {
+                                    int index = line.IndexOf("SPECIES_");
+                                    string desiredSpecies = line.Substring(index).Replace(",", "").Trim();
+
+                                    profiles[desiredSpecies].Species.Add(species);
+
+                                    done = true;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            foreach(var species in profiles.Keys)
+            {
+                string outputDir = Path.Combine(outputFolder, species.Substring("SPECIES_".Length).ToLower());
+                Directory.CreateDirectory(outputDir);
+
+                string outputFile = Path.Combine(outputDir, "expansion_profile.json");
+
+                JObject data = JObject.FromObject(profiles[species], new JsonSerializer { NullValueHandling = NullValueHandling.Ignore });
+
+                //JObject.FromObject(deltaProfile)
+
+                string outJsonStr = JsonConvert.SerializeObject(data, c_JsonSettings);
+                File.WriteAllText(outputFile, outJsonStr);
+            }
+
+            return;
+        }
+
         public static void Run()
         {
+            // Format from old data sets
+            //DoAbc();
+            //return;
+
             string outputDirectory;
             string pokemonProfileFilename;
 
@@ -51,6 +270,7 @@ namespace PokemonDataGenerator
                 outputDirectory = "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue\\src\\data\\rogue\\pokemon\\expansion";
                 pokemonProfileFilename = "expansion_profile.json";
 
+
                 string drayanoDatasets = "D:\\Dev\\Pokemon\\GBA\\Other Sources\\pokeemerald-rogue-drayano\\tools\\Pokabbie\\PokemonDataGenerator\\PokemonDataGenerator\\Resources\\PokemonProfiles\\Rebalanced";
 
                 foreach (string filePath in Directory.EnumerateFiles(drayanoDatasets))
@@ -62,73 +282,188 @@ namespace PokemonDataGenerator
                     PokemonProfile profile = jsonData.ToObject<PokemonProfile>();
                     otherProfiles[species.ToString()] = profile;
                 }
+
+                string speciesDataDirectory = "C:\\Users\\Digit\\Downloads\\Trainer Data\\Dray\\test_data.json";
+                ParseSpeciesData_Dray(speciesDataDirectory, otherProfiles, outputDirectory, pokemonProfileFilename);
             }
 
 
-            foreach (string dir in Directory.EnumerateDirectories(outputDirectory))
+            Dictionary<string, string> speciesToProfilePath = new Dictionary<string, string>();
+            foreach (string path in Directory.EnumerateFiles(outputDirectory, pokemonProfileFilename, SearchOption.AllDirectories))
             {
-                string species = "SPECIES_" + GameDataHelpers.FormatKeyword(Path.GetFileName(dir));
-                string dataPath = Path.Combine(dir, pokemonProfileFilename);
+                string inJsonStr = File.ReadAllText(path);
+                PokemonProfile existingProfile = JsonConvert.DeserializeObject<PokemonProfile>(inJsonStr, c_JsonSettings);
 
-                if (otherProfiles.ContainsKey(species) && File.Exists(dataPath))
+                foreach(var s in existingProfile.Species)
                 {
-                    string inJsonStr = File.ReadAllText(dataPath);
-
-                    PokemonProfile royalSapphireProfile = otherProfiles[species];
-                    PokemonProfile gameProfile = JsonConvert.DeserializeObject<PokemonProfile>(inJsonStr, c_JsonSettings);
-                    JObject jsonObject = JsonConvert.DeserializeObject<JObject>(inJsonStr, c_JsonSettings);
-
-                    // Combine data
-                    {
-                        JObject outData = FindOrCreate<JObject>(jsonObject, "RevisedMode");
-
-                        if (royalSapphireProfile.LevelUpMoves.Count > 0)
-                        {
-                            JArray outLevelUpMoves = Create<JArray>(outData, "LevelUpMoves");
-
-                            foreach (LevelUpMove move in royalSapphireProfile.LevelUpMoves)
-                            {
-                                if (gameProfile.GetLevelUpMoveLvl(move.Move) != move.Level)
-                                {
-                                    outLevelUpMoves.Add(JObject.FromObject(move));
-                                }
-                            }
-                        }
-
-                        if (royalSapphireProfile.TutorMoves.Count > 0)
-                        {
-                            JArray outTutorMoves = Create<JArray>(outData, "TutorMoves");
-
-                            foreach (string move in royalSapphireProfile.TutorMoves)
-                            {
-                                if (!gameProfile.HasTutorMove(move))
-                                {
-                                    outTutorMoves.Add(move);
-                                }
-                            }
-                        }
-
-                        if (royalSapphireProfile.CompetitiveSets.Count > 0)
-                        {
-                            JArray outCompetitiveSets = Create<JArray>(outData, "CompetitiveSets");
-
-                            foreach (PokemonCompetitiveSet set in royalSapphireProfile.CompetitiveSets)
-                            {
-                                if (!gameProfile.HasCompatibleCompetitiveSet(set))
-                                {
-                                    outCompetitiveSets.Add(JObject.FromObject(set));
-                                }
-                            }
-                        }
-                    }
-
-                    string outJsonStr = JsonConvert.SerializeObject(jsonObject, c_JsonSettings);
-                    if (inJsonStr != outJsonStr)
-                    {
-                        File.WriteAllText(dataPath, outJsonStr);
-                    }
+                    speciesToProfilePath[s] = path;
                 }
             }
+
+            HashSet<string> loadedPaths = new HashSet<string>();
+
+            foreach(PokemonProfile drayProfile in otherProfiles.Values)
+            {
+                string species = drayProfile.Species[0];
+                string dataPath = speciesToProfilePath[species];
+
+                string inJsonStr = File.ReadAllText(dataPath);
+                PokemonProfile existingProfile = JsonConvert.DeserializeObject<PokemonProfile>(inJsonStr, c_JsonSettings);
+
+                PokemonProfile deltaProfile = new PokemonProfile();
+                deltaProfile.BaseStats = drayProfile.BaseStats;
+                deltaProfile.Abilities = drayProfile.Abilities;
+                deltaProfile.Types = drayProfile.Types;
+                deltaProfile.CompetitiveSets = new List<PokemonCompetitiveSet>();
+                deltaProfile.LevelUpMoves = new List<LevelUpMove>();
+                deltaProfile.TutorMoves = new List<string>();
+
+                if (drayProfile.CompetitiveSets != null)
+                {
+                    foreach (var set in drayProfile.CompetitiveSets)
+                    {
+                        if (!existingProfile.HasCompatibleCompetitiveSet(set))
+                        {
+                            bool isDoubles = set.SourceTiers.Where(t => t.ToLower().Contains("double")).Any();
+                            set.SourceTiers = new List<string>(new[] { isDoubles ? "SINGLES_REVISED_MODE" : "DOUBLES_REVISED_MODE" });
+
+                            deltaProfile.CompetitiveSets.Add(set);
+                        }
+                    }
+                }
+
+                if (drayProfile.LevelUpMoves != null)
+                {
+                    foreach (var lvlMove in drayProfile.LevelUpMoves)
+                    {
+                        if (existingProfile.GetLevelUpMoveLvl(lvlMove.Move) != lvlMove.Level)
+                        {
+                            deltaProfile.LevelUpMoves.Add(lvlMove);
+                        }
+                    }
+                }
+
+                if (drayProfile.TutorMoves != null)
+                {
+                    foreach (var tutorMove in drayProfile.TutorMoves)
+                    {
+                        if (!existingProfile.HasTutorMove(tutorMove))
+                        {
+                            deltaProfile.TutorMoves.Add(tutorMove);
+                        }
+                    }
+                }
+
+                JObject jsonObject = JsonConvert.DeserializeObject<JObject>(inJsonStr, c_JsonSettings);
+                JObject revisedModeObject = loadedPaths.Contains(dataPath) ? FindOrCreate<JObject>(jsonObject, "RevisedMode") : Create<JObject>(jsonObject, "RevisedMode");
+
+
+                if (deltaProfile.LevelUpMoves.Count != 0)
+                {
+                    revisedModeObject["LevelUpMoves"] = JArray.FromObject(deltaProfile.LevelUpMoves);
+                }
+                if (deltaProfile.TutorMoves.Count != 0)
+                {
+                    revisedModeObject["TutorMoves"] = JArray.FromObject(deltaProfile.TutorMoves);
+                }
+                if (deltaProfile.CompetitiveSets.Count != 0)
+                {
+                    revisedModeObject["CompetitiveSets"] = JArray.FromObject(deltaProfile.CompetitiveSets, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore });
+                }
+
+                JObject perSpeciesData = new JObject();
+                if (deltaProfile.Types != null)
+                    perSpeciesData["Types"] = JArray.FromObject(deltaProfile.Types);
+                if (deltaProfile.Abilities != null)
+                    perSpeciesData["Abilities"] = JArray.FromObject(deltaProfile.Abilities);
+                if (deltaProfile.BaseStats != null)
+                    perSpeciesData["BaseStats"] = JObject.FromObject(deltaProfile.BaseStats);
+
+                if(perSpeciesData.HasValues)
+                {
+                    JObject perSpeciesGroup = FindOrCreate<JObject>(revisedModeObject, "PerSpecies");
+                    perSpeciesGroup[species] = perSpeciesData;
+                }
+
+                if(!revisedModeObject.HasValues)
+                {
+                    jsonObject.Remove("RevisedMode");
+                }
+
+
+                string outJsonStr = JsonConvert.SerializeObject(jsonObject, c_JsonSettings);
+                if (inJsonStr != outJsonStr)
+                {
+                    File.WriteAllText(dataPath, outJsonStr);
+                }
+
+                loadedPaths.Add(dataPath);
+            }
+
+            //foreach (string dir in Directory.EnumerateDirectories(outputDirectory))
+            //{
+            //    string species = "SPECIES_" + GameDataHelpers.FormatKeyword(Path.GetFileName(dir));
+            //    string dataPath = Path.Combine(dir, pokemonProfileFilename);
+            //
+            //    if (otherProfiles.ContainsKey(species) && File.Exists(dataPath))
+            //    {
+            //        string inJsonStr = File.ReadAllText(dataPath);
+            //
+            //        PokemonProfile newProfile = otherProfiles[species];
+            //        PokemonProfile existingProfile = JsonConvert.DeserializeObject<PokemonProfile>(inJsonStr, c_JsonSettings);
+            //        JObject jsonObject = JsonConvert.DeserializeObject<JObject>(inJsonStr, c_JsonSettings);
+            //
+            //        // Combine data
+            //        {
+            //            JObject outData = FindOrCreate<JObject>(jsonObject, "RevisedMode");
+            //
+            //            if (newProfile.LevelUpMoves.Count > 0)
+            //            {
+            //                JArray outLevelUpMoves = Create<JArray>(outData, "LevelUpMoves");
+            //
+            //                foreach (LevelUpMove move in newProfile.LevelUpMoves)
+            //                {
+            //                    if (existingProfile.GetLevelUpMoveLvl(move.Move) != move.Level)
+            //                    {
+            //                        outLevelUpMoves.Add(JObject.FromObject(move));
+            //                    }
+            //                }
+            //            }
+            //
+            //            if (newProfile.TutorMoves.Count > 0)
+            //            {
+            //                JArray outTutorMoves = Create<JArray>(outData, "TutorMoves");
+            //
+            //                foreach (string move in newProfile.TutorMoves)
+            //                {
+            //                    if (!existingProfile.HasTutorMove(move))
+            //                    {
+            //                        outTutorMoves.Add(move);
+            //                    }
+            //                }
+            //            }
+            //
+            //            if (newProfile.CompetitiveSets.Count > 0)
+            //            {
+            //                JArray outCompetitiveSets = Create<JArray>(outData, "CompetitiveSets");
+            //
+            //                foreach (PokemonCompetitiveSet set in newProfile.CompetitiveSets)
+            //                {
+            //                    if (!existingProfile.HasCompatibleCompetitiveSet(set))
+            //                    {
+            //                        outCompetitiveSets.Add(JObject.FromObject(set));
+            //                    }
+            //                }
+            //            }
+            //        }
+            //
+            //        string outJsonStr = JsonConvert.SerializeObject(jsonObject, c_JsonSettings);
+            //        if (inJsonStr != outJsonStr)
+            //        {
+            //            File.WriteAllText(dataPath, outJsonStr);
+            //        }
+            //    }
+            //}
         }
 
         private static bool IsLineEmpty(string[] lines)
@@ -371,6 +706,101 @@ namespace PokemonDataGenerator
                     }
 
                     continue;
+                }
+            }
+        }
+
+
+        private class RawPokeStats
+        {
+            public int baseHP;
+            public int baseAttack;
+            public int baseDefense;
+            public int baseSpeed;
+            public int baseSpAttack;
+            public int baseSpDefense;
+            public int type1;
+            public int type2;
+            public int ability0;
+            public int ability1;
+            public int ability2;
+        }
+
+        private static void ParseSpeciesData_Dray(string filePath, Dictionary<string, PokemonProfile> profilesProfiles, string outputDirectory, string pokemonProfileFilename)
+        {
+            Dictionary<int, string> speciesNameLookup = new Dictionary<int, string>();
+
+
+            string inJsonStr = File.ReadAllText(filePath);
+            JArray mainArray = JsonConvert.DeserializeObject<JArray>(inJsonStr, c_JsonSettings);
+
+            Dictionary<string, string> speciesDefines = new Dictionary<string, string>();
+            GameDataHelpers.ParseFileDefines("#define", "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue-ee\\include\\constants\\species.h", speciesDefines);
+
+            Dictionary<string, string> typesDefines = new Dictionary<string, string>();
+            GameDataHelpers.ParseFileDefines("#define TYPE_", "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue-ee\\include\\constants\\pokemon.h", typesDefines);
+
+            Dictionary<string, string> abilityDefines = new Dictionary<string, string>();
+            GameDataHelpers.ParseFileDefines("#define", "D:\\Dev\\Pokemon\\GBA\\pokeemerald-rogue-ee\\include\\constants\\abilities.h", abilityDefines);
+
+            foreach (var elem in mainArray)
+            {
+                JObject currObj = elem as JObject;
+
+                string species = GameDataHelpers.FindKeyFromConstant(speciesDefines, currObj["Species"].Value<int>());
+
+                if (!profilesProfiles.ContainsKey(species))
+                {
+                    profilesProfiles[species] = new PokemonProfile();
+                    profilesProfiles[species].Species = new List<string> { species };
+                }
+
+                PokemonProfile activeProfile = profilesProfiles[species];
+
+                RawPokeStats baseData = currObj["Base"].ToObject<RawPokeStats>();
+                RawPokeStats drayData = currObj["Dray"].ToObject<RawPokeStats>();
+
+                if (
+                    baseData.baseHP != drayData.baseHP ||
+                    baseData.baseAttack != drayData.baseAttack ||
+                    baseData.baseDefense != drayData.baseDefense ||
+                    baseData.baseSpeed != drayData.baseSpeed ||
+                    baseData.baseSpAttack != drayData.baseSpAttack ||
+                    baseData.baseSpDefense != drayData.baseSpDefense
+                )
+                {
+                    activeProfile.BaseStats = new PokemonBaseStats();
+
+                    activeProfile.BaseStats.HP = drayData.baseHP;
+                    activeProfile.BaseStats.Attack = drayData.baseAttack;
+                    activeProfile.BaseStats.Defense = drayData.baseDefense;
+                    activeProfile.BaseStats.Speed = drayData.baseSpeed;
+                    activeProfile.BaseStats.SpAttack = drayData.baseSpAttack;
+                    activeProfile.BaseStats.SpDefense = drayData.baseSpDefense;
+                }
+
+                if (
+                    baseData.type1 != drayData.type1 ||
+                    baseData.type2 != drayData.type2
+                )
+                {
+                    activeProfile.Types = new List<string>(new[]{
+                        GameDataHelpers.FindKeyFromConstant(typesDefines, drayData.type1),
+                        GameDataHelpers.FindKeyFromConstant(typesDefines, drayData.type2),
+                    });
+                }
+
+                if (
+                    baseData.ability0 != drayData.ability0 ||
+                    baseData.ability1 != drayData.ability1 ||
+                    baseData.ability2 != drayData.ability2
+                )
+                {
+                    activeProfile.Abilities = new List<string>(new[]{
+                        GameDataHelpers.FindKeyFromConstant(abilityDefines, drayData.ability0),
+                        GameDataHelpers.FindKeyFromConstant(abilityDefines, drayData.ability1),
+                        GameDataHelpers.FindKeyFromConstant(abilityDefines, drayData.ability2),
+                    });
                 }
             }
         }

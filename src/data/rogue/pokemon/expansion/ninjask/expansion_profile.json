@@ -302,5 +302,149 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DOUBLE_TEAM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FURY_CUTTER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BUG_BITE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ABSORB",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ABSORB",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_SAND_ATTACK",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_FURY_SWIPES",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_MIND_READER",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_FIRST_IMPRESSION",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_BATON_PASS",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_SWORDS_DANCE",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_EXTREME_SPEED",
+        "Level": 55
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_LEECH_LIFE",
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_DRILL_RUN"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_GROUNDIUM_Z",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FIRST_IMPRESSION",
+          "MOVE_U_TURN",
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_NIGHT_SLASH"
+        ],
+        "Ability": "ABILITY_INFILTRATOR",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_LEECH_LIFE",
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_DRILL_RUN"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_GROUNDIUM_Z",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_EXTREME_SPEED",
+          "MOVE_U_TURN",
+          "MOVE_DUAL_WINGBEAT"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ACROBATICS",
+          "MOVE_DRILL_RUN",
+          "MOVE_PROTECT",
+          "MOVE_SWORDS_DANCE"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_FLYING_GEM",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

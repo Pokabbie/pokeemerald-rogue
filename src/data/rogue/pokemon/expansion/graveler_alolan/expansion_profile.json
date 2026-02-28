@@ -127,5 +127,42 @@
     "MOVE_WILD_CHARGE",
     "MOVE_ZAP_CANNON"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CHARGE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_ACCELEROCK",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_WILD_CHARGE",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 64
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SEISMIC_TOSS",
+      "MOVE_DYNAMIC_PUNCH",
+      "MOVE_MIMIC",
+      "MOVE_SWAGGER",
+      "MOVE_RETURN",
+      "MOVE_SNORE",
+      "MOVE_MEGA_PUNCH"
+    ]
+  }
 }

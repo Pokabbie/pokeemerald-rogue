@@ -150,5 +150,13 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN",
+      "MOVE_SWIRLING_BLADE"
+    ]
+  }
 }

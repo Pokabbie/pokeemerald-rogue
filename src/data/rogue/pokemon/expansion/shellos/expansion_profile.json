@@ -184,5 +184,10 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SPIKES"
+    ]
+  }
 }

@@ -932,5 +932,125 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_GUST",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_TAILWIND",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_STUN_SPORE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_POISON_POWDER",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_HURRICANE",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_SLEEP_POWDER",
+        "Level": 65
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_GRASS_WHISTLE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ENCORE",
+          "MOVE_MOONBLAST",
+          "MOVE_U_TURN",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_GRASS_WHISTLE",
+          "MOVE_ENCORE",
+          "MOVE_KNOCK_OFF",
+          "MOVE_MOONBLAST"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ENCORE",
+          "MOVE_SLEEP_POWDER",
+          "MOVE_MOONBLAST",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_PIXIE_PLATE",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_ENERGY_BALL",
+          "MOVE_SHADOW_BALL",
+          "MOVE_SWITCHEROO"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_FAIRY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DAZZLING_GLEAM",
+          "MOVE_TAILWIND",
+          "MOVE_HELPING_HAND",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_WHIMSICOTT": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 67,
+          "Defense": 85,
+          "Speed": 116,
+          "SpAttack": 87,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

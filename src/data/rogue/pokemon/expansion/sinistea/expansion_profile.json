@@ -85,5 +85,12 @@
     "MOVE_TRICK_ROOM",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

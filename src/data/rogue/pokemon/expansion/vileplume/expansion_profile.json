@@ -259,5 +259,125 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_PETAL_BLIZZARD",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 69
+      },
+      {
+        "Move": "MOVE_APPLE_ACID",
+        "Level": 79
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_MOONBLAST"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_EARTH_POWER",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_STRENGTH_SAP"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_SLEEP_POWDER",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STRENGTH_SAP",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_EFFECT_SPORE",
+        "Item": "ITEM_ROCKY_HELMET",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VILEPLUME": {
+        "Abilities": [
+          "ABILITY_CHLOROPHYLL",
+          "ABILITY_EFFECT_SPORE",
+          "ABILITY_THICK_FAT"
+        ]
+      }
+    }
+  }
 }

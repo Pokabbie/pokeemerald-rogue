@@ -648,5 +648,10 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HONE_CLAWS"
+    ]
+  }
 }

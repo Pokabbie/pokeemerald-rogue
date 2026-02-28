@@ -190,5 +190,22 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE"
+    ],
+    "PerSpecies": {
+      "SPECIES_MEOWSTIC_FEMALE": {
+        "BaseStats": {
+          "HP": 74,
+          "Attack": 48,
+          "Defense": 76,
+          "Speed": 104,
+          "SpAttack": 93,
+          "SpDefense": 81
+        }
+      }
+    }
+  }
 }

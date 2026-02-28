@@ -148,5 +148,19 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_AZURILL": {
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 20,
+          "Defense": 40,
+          "Speed": 20,
+          "SpAttack": 40,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

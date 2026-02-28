@@ -282,5 +282,66 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TRI_ATTACK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MAGNET_BOMB",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_IRON_DEFENSE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_BLOCK",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_MAGNET_BOMB",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 46
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_POWER_GEM",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_VOLT_SWITCH"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_AIR_BALLOON",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PROBOPASS": {
+        "Types": [
+          "TYPE_ROCK",
+          "TYPE_ELECTRIC"
+        ],
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 50,
+          "Defense": 135,
+          "Speed": 40,
+          "SpAttack": 90,
+          "SpDefense": 140
+        }
+      }
+    }
+  }
 }

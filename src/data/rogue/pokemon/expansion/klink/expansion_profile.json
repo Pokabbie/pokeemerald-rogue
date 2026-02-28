@@ -101,5 +101,101 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CHARGE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_THUNDER_SHOCK",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_GEAR_GRIND",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_BIND",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_CHARGE_BEAM",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_FLAME_WHEEL",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_AUTOTOMIZE",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_MIRROR_SHOT",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_DISCHARGE",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_METAL_SOUND",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_SHIFT_GEAR",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_LOCK_ON",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_ZAP_CANNON",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_HYPER_BEAM",
+        "Level": 57
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SUPERPOWER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHIFT_GEAR",
+          "MOVE_GEAR_GRIND",
+          "MOVE_WILD_CHARGE",
+          "MOVE_HIGH_HORSEPOWER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_KLINK": {
+        "Abilities": [
+          "ABILITY_PLUS",
+          "ABILITY_MINUS",
+          "ABILITY_LEVITATE"
+        ]
+      }
+    }
+  }
 }

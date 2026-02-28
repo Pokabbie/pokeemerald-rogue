@@ -1305,5 +1305,126 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_AIR_SLASH",
+      "MOVE_EXTRASENSORY"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DISCHARGE",
+          "MOVE_AIR_SLASH",
+          "MOVE_ROOST",
+          "MOVE_DEFOG"
+        ],
+        "Ability": "ABILITY_STATIC",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_AIR_SLASH",
+          "MOVE_THUNDERBOLT",
+          "MOVE_HEAT_WAVE",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_STATIC",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_VOLT_SWITCH",
+          "MOVE_AIR_SLASH",
+          "MOVE_HEAT_WAVE",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_PRESSURE",
+        "Item": "ITEM_ROCKY_HELMET",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DISCHARGE",
+          "MOVE_AIR_SLASH",
+          "MOVE_ROOST",
+          "MOVE_EERIE_IMPULSE"
+        ],
+        "Ability": "ABILITY_PRESSURE",
+        "Item": "ITEM_KEE_BERRY",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_EERIE_IMPULSE",
+          "MOVE_ROOST",
+          "MOVE_CHARGE_BEAM",
+          "MOVE_AIR_SLASH"
+        ],
+        "Ability": "ABILITY_PRESSURE",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_AIR_SLASH",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_DEFOG",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_PRESSURE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HURRICANE",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_DISCHARGE",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_STATIC",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_BOLD",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_ROOST",
+          "MOVE_U_TURN",
+          "MOVE_AIR_SLASH"
+        ],
+        "Ability": "ABILITY_STATIC",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

@@ -119,5 +119,66 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_RAGE",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_NIGHT_SLASH",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_CHIP_AWAY",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_THRASH",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_AQUA_TAIL",
+        "Level": 51
+      },
+      {
+        "Move": "MOVE_SUPERPOWER",
+        "Level": 57
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_PSYCHIC_FANGS",
+        "Level": 63
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CROCONAW": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_STRONG_JAW",
+          "ABILITY_SHEER_FORCE"
+        ]
+      }
+    }
+  }
 }

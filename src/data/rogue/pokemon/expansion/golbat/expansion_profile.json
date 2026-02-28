@@ -230,5 +230,27 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HURRICANE"
+    ],
+    "PerSpecies": {
+      "SPECIES_GOLBAT": {
+        "Abilities": [
+          "ABILITY_INNER_FOCUS",
+          "ABILITY_SNIPER",
+          "ABILITY_INFILTRATOR"
+        ],
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 80,
+          "Defense": 70,
+          "Speed": 90,
+          "SpAttack": 80,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

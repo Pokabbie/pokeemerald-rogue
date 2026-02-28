@@ -17,5 +17,35 @@
     "MOVE_TERA_BLAST",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HEADBUTT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_IRON_DEFENSE",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_IRON_HEAD",
+          "MOVE_HEADBUTT"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_BELDUM": {
+        "Abilities": [
+          "ABILITY_CLEAR_BODY",
+          "ABILITY_ROCK_HEAD",
+          "ABILITY_LIGHT_METAL"
+        ]
+      }
+    }
+  }
 }

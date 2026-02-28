@@ -293,5 +293,16 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_HAUNTER": {
+        "Abilities": [
+          "ABILITY_CURSED_BODY",
+          "ABILITY_NONE",
+          "ABILITY_LEVITATE"
+        ]
+      }
+    }
+  }
 }

@@ -346,5 +346,27 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB",
+      "MOVE_EARTHQUAKE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_BOLT_STRIKE",
+          "MOVE_EARTHQUAKE",
+          "MOVE_ROCK_CLIMB"
+        ],
+        "Ability": "ABILITY_TERAVOLT",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

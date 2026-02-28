@@ -152,5 +152,13 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 1
+      }
+    ]
+  }
 }

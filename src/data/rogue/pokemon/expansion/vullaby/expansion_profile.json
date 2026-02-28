@@ -322,5 +322,12 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUPERPOWER",
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HURRICANE"
+    ]
+  }
 }

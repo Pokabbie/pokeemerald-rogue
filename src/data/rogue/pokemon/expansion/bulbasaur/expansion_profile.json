@@ -192,5 +192,16 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_BULBASAUR": {
+        "Abilities": [
+          "ABILITY_OVERGROW",
+          "ABILITY_SWEET_VEIL",
+          "ABILITY_CHLOROPHYLL"
+        ]
+      }
+    }
+  }
 }

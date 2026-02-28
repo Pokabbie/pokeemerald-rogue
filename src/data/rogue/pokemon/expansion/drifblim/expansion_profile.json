@@ -440,5 +440,181 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PHANTOM_FORCE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CONSTRICT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ASTONISH",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_GUST",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_FOCUS_ENERGY",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_PAYBACK",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_OMINOUS_WIND",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_STOCKPILE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SWALLOW",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SPIT_UP",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_HEX",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_AIR_SLASH",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_AMNESIA",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_BATON_PASS",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_EXTRASENSORY",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_HURRICANE",
+        "Level": 65
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FLAMETHROWER",
+      "MOVE_STRENGTH_SAP",
+      "MOVE_POLTERGEIST"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HEX",
+          "MOVE_DESTINY_BOND",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_FLARE_BOOST",
+        "Item": "ITEM_FLAME_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_BALL",
+          "MOVE_ACROBATICS",
+          "MOVE_DESTINY_BOND",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_FLARE_BOOST",
+        "Item": "ITEM_FLAME_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_BALL",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_THUNDERBOLT",
+          "MOVE_DEFOG"
+        ],
+        "Ability": "ABILITY_FLARE_BOOST",
+        "Item": "ITEM_FLAME_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BATON_PASS",
+          "MOVE_MINIMIZE",
+          "MOVE_SUBSTITUTE",
+          "MOVE_DEFOG"
+        ],
+        "Ability": "ABILITY_AFTERMATH",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STRENGTH_SAP",
+          "MOVE_SHADOW_BALL",
+          "MOVE_AIR_SLASH",
+          "MOVE_FLAMETHROWER"
+        ],
+        "Ability": "ABILITY_FLARE_BOOST",
+        "Item": "ITEM_FLAME_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_POLTERGEIST",
+          "MOVE_TAILWIND",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_ACROBATICS"
+        ],
+        "Ability": "ABILITY_WIND_RIDER",
+        "Item": "ITEM_WEAKNESS_POLICY",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DRIFBLIM": {
+        "Abilities": [
+          "ABILITY_WIND_RIDER",
+          "ABILITY_UNBURDEN",
+          "ABILITY_FLARE_BOOST"
+        ]
+      }
+    }
+  }
 }

@@ -455,5 +455,165 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ZEN_HEADBUTT",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_ZEN_HEADBUTT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BIDE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MEDITATE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MEDITATE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_DETECT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_HIDDEN_POWER",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_MIND_READER",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_REVERSAL",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 60
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ACROBATICS",
+      "MOVE_PSYCHO_CUT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_ICE_PUNCH",
+          "MOVE_ZEN_HEADBUTT"
+        ],
+        "Ability": "ABILITY_TELEPATHY",
+        "Item": "ITEM_MEDICHAMITE",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_PSYCHO_CUT",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_BULLET_PUNCH"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_BULLET_PUNCH"
+        ],
+        "Ability": "ABILITY_TELEPATHY",
+        "Item": "ITEM_MEDICHAMITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_HIGH_JUMP_KICK",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_POISON_JAB"
+        ],
+        "Ability": "ABILITY_TELEPATHY",
+        "Item": "ITEM_MEDICHAMITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_TELEPATHY",
+        "Item": "ITEM_MEDICHAMITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_ICE_PUNCH",
+          "MOVE_BULLET_PUNCH",
+          "MOVE_ZEN_HEADBUTT"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MEDICHAM": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 60,
+          "Defense": 80,
+          "Speed": 90,
+          "SpAttack": 80,
+          "SpDefense": 80
+        }
+      },
+      "SPECIES_MEDICHAM_MEGA": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 100,
+          "Defense": 90,
+          "Speed": 110,
+          "SpAttack": 100,
+          "SpDefense": 90
+        }
+      }
+    }
+  }
 }

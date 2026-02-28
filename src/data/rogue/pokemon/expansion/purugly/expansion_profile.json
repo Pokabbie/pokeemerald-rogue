@@ -195,5 +195,84 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SWAGGER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SCRATCH",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_GROWL",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_CAPTIVATE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_SLACK_OFF",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_ATTRACT",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_CRUNCH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_RETURN",
+          "MOVE_SUCKER_PUNCH",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_DEFIANT",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_BODY_SLAM",
+          "MOVE_KNOCK_OFF",
+          "MOVE_SLACK_OFF"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PURUGLY": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 95,
+          "Defense": 70,
+          "Speed": 115,
+          "SpAttack": 65,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

@@ -166,5 +166,32 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WHIRLPOOL",
+          "MOVE_PERISH_SONG",
+          "MOVE_PROTECT",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_ICE_SCALES",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SEEL": {
+        "Abilities": [
+          "ABILITY_THICK_FAT",
+          "ABILITY_HYDRATION",
+          "ABILITY_ICE_SCALES"
+        ]
+      }
+    }
+  }
 }

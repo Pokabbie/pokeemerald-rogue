@@ -265,5 +265,75 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TAR_SHOT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_POWER_GEM",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_BURN_UP",
+        "Level": 63
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_POWER_GEM",
+          "MOVE_FLAMETHROWER",
+          "MOVE_RAPID_SPIN"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_SASSY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RAPID_SPIN",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_FLAMETHROWER",
+          "MOVE_HEAVY_SLAM"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_SASSY",
+        "TeraType": "TYPE_GHOST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HEAT_WAVE",
+          "MOVE_POWER_GEM",
+          "MOVE_EARTH_POWER",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_STEAM_ENGINE",
+        "Item": "ITEM_WEAKNESS_POLICY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

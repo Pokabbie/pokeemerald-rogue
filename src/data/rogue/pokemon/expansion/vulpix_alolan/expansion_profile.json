@@ -145,5 +145,12 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MIMIC",
+      "MOVE_SWAGGER",
+      "MOVE_SNORE"
+    ]
+  }
 }

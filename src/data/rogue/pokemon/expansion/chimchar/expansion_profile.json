@@ -179,5 +179,19 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_CHIMCHAR": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_IRON_FIST"
+        ]
+      }
+    }
+  }
 }

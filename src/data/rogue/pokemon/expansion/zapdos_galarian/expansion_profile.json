@@ -431,5 +431,14 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_AIR_SLASH",
+      "MOVE_RETURN",
+      "MOVE_EXTRASENSORY"
+    ]
+  }
 }

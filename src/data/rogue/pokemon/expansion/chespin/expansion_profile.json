@@ -195,5 +195,55 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_VINE_WHIP",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_SEED_BOMB",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_NEEDLE_ARM",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_BULK_UP",
+        "Level": 39
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_STONE_EDGE",
+      "MOVE_HORN_LEECH",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HORN_LEECH",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_SYNTHESIS",
+          "MOVE_SPIKES"
+        ],
+        "Ability": "ABILITY_BULLETPROOF",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_IMPISH",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CHESPIN": {
+        "Abilities": [
+          "ABILITY_OVERGROW",
+          "ABILITY_IRON_BARBS",
+          "ABILITY_BULLETPROOF"
+        ]
+      }
+    }
+  }
 }

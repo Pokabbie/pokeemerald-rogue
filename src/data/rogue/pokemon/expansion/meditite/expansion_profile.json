@@ -175,5 +175,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BIDE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MEDITATE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_HIDDEN_POWER",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_MIND_READER",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 47
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MEDITITE": {
+        "BaseStats": {
+          "HP": 30,
+          "Attack": 40,
+          "Defense": 55,
+          "Speed": 60,
+          "SpAttack": 60,
+          "SpDefense": 55
+        }
+      }
+    }
+  }
 }

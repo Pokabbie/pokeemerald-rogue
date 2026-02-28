@@ -170,5 +170,11 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_DAZZLING_GLEAM"
+    ]
+  }
 }

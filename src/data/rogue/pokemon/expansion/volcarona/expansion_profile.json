@@ -1122,5 +1122,10 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_INFERNO"
+    ]
+  }
 }

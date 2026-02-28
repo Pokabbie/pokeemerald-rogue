@@ -356,5 +356,85 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_TOXIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_FIRE_BLAST",
+          "MOVE_PSYCHIC",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_GRASSIUM_Z",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_MYSTICAL_FIRE",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FIRE_BLAST",
+          "MOVE_PSYSHOCK",
+          "MOVE_DAZZLING_GLEAM",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_FIRE_BLAST",
+          "MOVE_PSYCHIC",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DELPHOX": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_MAGICIAN",
+          "ABILITY_MAGIC_GUARD"
+        ],
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 69,
+          "Defense": 72,
+          "Speed": 104,
+          "SpAttack": 115,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

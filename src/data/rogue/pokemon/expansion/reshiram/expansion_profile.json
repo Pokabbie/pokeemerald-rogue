@@ -212,5 +212,11 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_EARTHQUAKE",
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

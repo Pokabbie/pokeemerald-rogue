@@ -961,5 +961,94 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DRAIN_PUNCH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BELLY_DRUM",
+          "MOVE_AQUA_JET",
+          "MOVE_PLAY_ROUGH",
+          "MOVE_DRAIN_PUNCH"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAIN_PUNCH",
+          "MOVE_BELLY_DRUM",
+          "MOVE_AQUA_JET",
+          "MOVE_PLAY_ROUGH"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NORMALIUM_Z",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_LIQUIDATION",
+          "MOVE_AQUA_JET",
+          "MOVE_KNOCK_OFF",
+          "MOVE_DRAIN_PUNCH"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_LIQUIDATION",
+          "MOVE_AQUA_JET",
+          "MOVE_PLAY_ROUGH",
+          "MOVE_BOUNCE"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WATERFALL",
+          "MOVE_PLAY_ROUGH",
+          "MOVE_AQUA_JET",
+          "MOVE_DRAIN_PUNCH"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_AZUMARILL": {
+        "BaseStats": {
+          "HP": 110,
+          "Attack": 50,
+          "Defense": 80,
+          "Speed": 50,
+          "SpAttack": 80,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

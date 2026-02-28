@@ -313,5 +313,90 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HAMMER_ARM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TAIL_WHIP",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_CROSS_CHOP",
+        "Level": 68
+      },
+      {
+        "Move": "MOVE_V_CREATE",
+        "Level": 75
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_IRON_TAIL",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_CLIMB",
+          "MOVE_V_CREATE",
+          "MOVE_CROSS_CHOP",
+          "MOVE_EARTHQUAKE"
+        ],
+        "Ability": "ABILITY_MOLD_BREAKER",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_EMBOAR": {
+        "Types": [
+          "TYPE_FIRE",
+          "TYPE_GROUND"
+        ],
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_RECKLESS",
+          "ABILITY_MOLD_BREAKER"
+        ],
+        "BaseStats": {
+          "HP": 115,
+          "Attack": 125,
+          "Defense": 80,
+          "Speed": 65,
+          "SpAttack": 70,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

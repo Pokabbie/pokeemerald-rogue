@@ -173,5 +173,19 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CUT"
+    ],
+    "PerSpecies": {
+      "SPECIES_MANKEY": {
+        "Abilities": [
+          "ABILITY_DEFIANT",
+          "ABILITY_ANGER_POINT",
+          "ABILITY_VITAL_SPIRIT"
+        ]
+      }
+    }
+  }
 }

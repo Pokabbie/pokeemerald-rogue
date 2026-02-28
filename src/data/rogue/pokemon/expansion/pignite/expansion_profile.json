@@ -162,5 +162,53 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ARM_THRUST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TAIL_WHIP",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 9
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_EARTHQUAKE"
+    ],
+    "PerSpecies": {
+      "SPECIES_PIGNITE": {
+        "Types": [
+          "TYPE_FIRE",
+          "TYPE_GROUND"
+        ],
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_THICK_FAT",
+          "ABILITY_SHEER_FORCE"
+        ]
+      }
+    }
+  }
 }

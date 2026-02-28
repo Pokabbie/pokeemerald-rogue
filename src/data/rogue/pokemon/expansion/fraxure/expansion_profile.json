@@ -239,5 +239,11 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_WORK_UP",
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

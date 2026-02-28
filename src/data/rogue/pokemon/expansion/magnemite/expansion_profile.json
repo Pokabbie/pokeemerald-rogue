@@ -306,5 +306,10 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_BUG_BUZZ"
+    ]
+  }
 }

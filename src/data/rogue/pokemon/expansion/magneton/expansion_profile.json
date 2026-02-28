@@ -374,5 +374,10 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_BUG_BUZZ"
+    ]
+  }
 }

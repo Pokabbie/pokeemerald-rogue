@@ -186,5 +186,10 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUCKER_PUNCH"
+    ]
+  }
 }

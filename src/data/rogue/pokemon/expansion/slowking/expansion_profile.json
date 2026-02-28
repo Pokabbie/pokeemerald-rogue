@@ -472,5 +472,10 @@
         "GEN9UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_AURA_SPHERE"
+    ]
+  }
 }

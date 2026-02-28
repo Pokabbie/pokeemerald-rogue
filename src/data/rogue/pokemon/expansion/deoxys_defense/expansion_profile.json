@@ -184,5 +184,16 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_DEOXYS_DEFENSE": {
+        "Abilities": [
+          "ABILITY_PRESSURE",
+          "ABILITY_NONE",
+          "ABILITY_REGENERATOR"
+        ]
+      }
+    }
+  }
 }

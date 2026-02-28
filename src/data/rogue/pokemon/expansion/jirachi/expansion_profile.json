@@ -739,5 +739,82 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DRACO_METEOR"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_IRON_HEAD",
+          "MOVE_TOXIC",
+          "MOVE_SUBSTITUTE",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_IRON_HEAD",
+          "MOVE_TOXIC",
+          "MOVE_WISH",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CAREFUL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_IRON_HEAD",
+          "MOVE_U_TURN",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CAREFUL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_IRON_HEAD",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_TOXIC",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CAREFUL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SUBSTITUTE",
+          "MOVE_IRON_HEAD",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

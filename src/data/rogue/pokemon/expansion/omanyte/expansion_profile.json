@@ -222,5 +222,69 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CONSTRICT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ROLLOUT",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_LEER",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_BRINE",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_PROTECT",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_TICKLE",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_POWER_GEM",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_ROCK_BLAST",
+        "Level": 50
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHELL_SMASH",
+          "MOVE_HYDRO_PUMP",
+          "MOVE_ICE_BEAM",
+          "MOVE_POWER_GEM"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

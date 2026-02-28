@@ -512,5 +512,11 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_TELEPORT",
+      "MOVE_FLY"
+    ]
+  }
 }

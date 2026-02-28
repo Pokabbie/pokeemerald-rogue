@@ -521,5 +521,156 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_ICICLE_CRASH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_ICY_WIND",
+          "MOVE_DESTINY_BOND"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_BALL",
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_DESTINY_BOND"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_ICE_BEAM",
+          "MOVE_TAUNT",
+          "MOVE_DESTINY_BOND"
+        ],
+        "Ability": "ABILITY_CURSED_BODY",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_ICY_WIND"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_SHADOW_BALL",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_DESTINY_BOND",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_BALL",
+          "MOVE_ICE_BEAM",
+          "MOVE_THUNDERBOLT",
+          "MOVE_SPIKES"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_TAUNT",
+          "MOVE_ICY_WIND",
+          "MOVE_WILL_O_WISP"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ICE_BEAM",
+          "MOVE_SHADOW_BALL",
+          "MOVE_SWITCHEROO",
+          "MOVE_MYSTICAL_FIRE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FROSLASS": {
+        "Abilities": [
+          "ABILITY_SNOW_CLOAK",
+          "ABILITY_LEVITATE",
+          "ABILITY_CURSED_BODY"
+        ],
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 70,
+          "Defense": 70,
+          "Speed": 110,
+          "SpAttack": 110,
+          "SpDefense": 70
+        }
+      }
+    }
+  }
 }

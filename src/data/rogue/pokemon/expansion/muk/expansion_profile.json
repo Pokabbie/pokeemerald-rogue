@@ -390,5 +390,94 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_VENOM_DRENCH",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_VENOM_DRENCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HARDEN",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_MUD_SLAP",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_MUD_BOMB",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_FLING",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_SUCKER_PUNCH",
+        "Level": 63
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CURSE",
+          "MOVE_POISON_JAB",
+          "MOVE_REST",
+          "MOVE_SLEEP_TALK"
+        ],
+        "Ability": "ABILITY_REGENERATOR",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CAREFUL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_GUNK_SHOT",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_REGENERATOR",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_REST",
+          "MOVE_SLEEP_TALK",
+          "MOVE_CURSE",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_REGENERATOR",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CAREFUL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MUK": {
+        "Abilities": [
+          "ABILITY_STENCH",
+          "ABILITY_STICKY_HOLD",
+          "ABILITY_REGENERATOR"
+        ]
+      }
+    }
+  }
 }

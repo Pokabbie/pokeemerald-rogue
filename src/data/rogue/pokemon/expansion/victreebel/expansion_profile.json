@@ -238,5 +238,24 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GROWTH",
+          "MOVE_SOLAR_BEAM",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_WEATHER_BALL"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_MODEST",
+        "TeraType": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

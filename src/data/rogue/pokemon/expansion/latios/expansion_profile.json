@@ -933,5 +933,167 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_LUSTER_PURGE",
+          "MOVE_EARTHQUAKE",
+          "MOVE_ICE_BEAM",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LATIOSITE",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_LUSTER_PURGE",
+          "MOVE_SHADOW_BALL",
+          "MOVE_THUNDERBOLT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_THUNDERBOLT",
+          "MOVE_LUSTER_PURGE",
+          "MOVE_HIDDEN_POWER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_LUSTER_PURGE",
+          "MOVE_TRICK",
+          "MOVE_MYSTICAL_FIRE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_LUSTER_PURGE",
+          "MOVE_ROOST",
+          "MOVE_MYSTICAL_FIRE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_PSYCHIC",
+          "MOVE_TRICK",
+          "MOVE_AURA_SPHERE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_LUSTER_PURGE",
+          "MOVE_AURA_SPHERE",
+          "MOVE_ICE_BEAM",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LATIOSITE",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_DRACO_METEOR",
+          "MOVE_THUNDERBOLT",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_ELECTRIC",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRACO_METEOR",
+          "MOVE_LUSTER_PURGE",
+          "MOVE_THUNDERBOLT",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_SOUL_DEW",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_LUSTER_PURGE",
+          "MOVE_EARTHQUAKE",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LATIOSITE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_PSYSHOCK",
+          "MOVE_DRACO_METEOR",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LATIOSITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

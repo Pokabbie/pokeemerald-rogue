@@ -140,5 +140,22 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CRUNCH"
+    ],
+    "PerSpecies": {
+      "SPECIES_GLAMEOW": {
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 65,
+          "Defense": 45,
+          "Speed": 90,
+          "SpAttack": 45,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

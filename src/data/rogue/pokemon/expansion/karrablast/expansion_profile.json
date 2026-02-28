@@ -120,5 +120,16 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_KARRABLAST": {
+        "Abilities": [
+          "ABILITY_NO_GUARD",
+          "ABILITY_SHED_SKIN",
+          "ABILITY_SWARM"
+        ]
+      }
+    }
+  }
 }

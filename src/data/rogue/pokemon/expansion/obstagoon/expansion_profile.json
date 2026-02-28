@@ -256,5 +256,25 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ],
+    "PerSpecies": {
+      "SPECIES_OBSTAGOON": {
+        "BaseStats": {
+          "HP": 98,
+          "Attack": 100,
+          "Defense": 101,
+          "Speed": 100,
+          "SpAttack": 55,
+          "SpDefense": 81
+        }
+      }
+    }
+  }
 }

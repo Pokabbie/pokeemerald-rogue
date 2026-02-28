@@ -352,5 +352,33 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DOUBLE_HIT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FAIRY_WIND",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_GUNK_SHOT",
+        "Level": 75
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_RETURN"
+    ]
+  }
 }

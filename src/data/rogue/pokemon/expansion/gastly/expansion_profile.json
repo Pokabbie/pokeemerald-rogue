@@ -275,5 +275,16 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_GASTLY": {
+        "Abilities": [
+          "ABILITY_CURSED_BODY",
+          "ABILITY_NONE",
+          "ABILITY_LEVITATE"
+        ]
+      }
+    }
+  }
 }

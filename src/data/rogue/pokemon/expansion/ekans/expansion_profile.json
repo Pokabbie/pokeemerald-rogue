@@ -151,5 +151,33 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_POISON_FANG",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_MUD_BOMB",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_GASTRO_ACID",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_HAZE",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_COIL",
+        "Level": 45
+      }
+    ]
+  }
 }

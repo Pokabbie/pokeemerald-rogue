@@ -961,5 +961,108 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SPOTLIGHT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SING",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DOUBLE_SLAP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MINIMIZE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 50
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_POWER_GEM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAINING_KISS",
+          "MOVE_SOFT_BOILED",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAINING_KISS",
+          "MOVE_MOONLIGHT",
+          "MOVE_CALM_MIND",
+          "MOVE_STORED_POWER"
+        ],
+        "Ability": "ABILITY_UNAWARE",
+        "Item": "ITEM_KEE_BERRY",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SOFT_BOILED",
+          "MOVE_DRAINING_KISS",
+          "MOVE_COUNTER",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_UNAWARE",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_DRAINING_KISS",
+          "MOVE_FLAMETHROWER",
+          "MOVE_SOFT_BOILED"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_DRAINING_KISS",
+          "MOVE_FIRE_BLAST",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

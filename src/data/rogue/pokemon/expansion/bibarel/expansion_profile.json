@@ -211,5 +211,22 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_BIBAREL": {
+        "BaseStats": {
+          "HP": 94,
+          "Attack": 100,
+          "Defense": 65,
+          "Speed": 71,
+          "SpAttack": 55,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

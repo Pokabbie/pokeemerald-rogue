@@ -180,5 +180,16 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_WARTORTLE": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_RAIN_DISH",
+          "ABILITY_SHELL_ARMOR"
+        ]
+      }
+    }
+  }
 }

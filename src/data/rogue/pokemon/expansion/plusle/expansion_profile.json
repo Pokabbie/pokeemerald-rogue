@@ -156,5 +156,24 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_PSYCHIC",
+      "MOVE_SIGNAL_BEAM",
+      "MOVE_FLASH_CANNON"
+    ],
+    "PerSpecies": {
+      "SPECIES_PLUSLE": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 50,
+          "Defense": 50,
+          "Speed": 110,
+          "SpAttack": 95,
+          "SpDefense": 85
+        }
+      }
+    }
+  }
 }

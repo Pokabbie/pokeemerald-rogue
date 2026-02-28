@@ -264,5 +264,12 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HYPNOSIS",
+      "MOVE_FLY",
+      "MOVE_HURRICANE"
+    ]
+  }
 }

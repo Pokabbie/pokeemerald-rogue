@@ -28,5 +28,13 @@
     "MOVE_TERA_BLAST",
     "MOVE_THUNDER_WAVE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_NUZZLE",
+        "Level": 1
+      }
+    ]
+  }
 }

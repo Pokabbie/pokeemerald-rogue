@@ -138,5 +138,19 @@
         "GEN6PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CALM_MIND"
+    ],
+    "PerSpecies": {
+      "SPECIES_PRINPLUP": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_VITAL_SPIRIT",
+          "ABILITY_COMPETITIVE"
+        ]
+      }
+    }
+  }
 }

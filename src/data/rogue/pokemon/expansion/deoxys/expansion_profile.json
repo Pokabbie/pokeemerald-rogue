@@ -162,5 +162,32 @@
         "GEN7UBERS"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PROTECT",
+          "MOVE_PSYCHIC",
+          "MOVE_ICE_BEAM",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_MOODY",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DEOXYS": {
+        "Abilities": [
+          "ABILITY_PRESSURE",
+          "ABILITY_NONE",
+          "ABILITY_MOODY"
+        ]
+      }
+    }
+  }
 }

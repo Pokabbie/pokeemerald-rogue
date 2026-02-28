@@ -200,5 +200,10 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HONE_CLAWS"
+    ]
+  }
 }

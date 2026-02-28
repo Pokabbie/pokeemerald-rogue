@@ -199,5 +199,11 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MOONBLAST",
+      "MOVE_DAZZLING_GLEAM"
+    ]
+  }
 }

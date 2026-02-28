@@ -304,5 +304,69 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEAVY_SLAM",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CHARGE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_STEAMROLLER",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ACCELEROCK",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_WILD_CHARGE",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 64
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SEISMIC_TOSS",
+      "MOVE_DYNAMIC_PUNCH",
+      "MOVE_MIMIC",
+      "MOVE_SWAGGER",
+      "MOVE_HEAT_CRASH",
+      "MOVE_MEGA_KICK",
+      "MOVE_ROLLOUT",
+      "MOVE_SNORE",
+      "MOVE_MEGA_PUNCH",
+      "MOVE_FURY_CUTTER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FIRE_PUNCH",
+          "MOVE_WILD_CHARGE",
+          "MOVE_EARTHQUAKE",
+          "MOVE_ACCELEROCK"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

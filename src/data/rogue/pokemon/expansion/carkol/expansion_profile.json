@@ -98,5 +98,30 @@
     "MOVE_TERA_BLAST",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FLAME_CHARGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_POWER_GEM",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_BURN_UP",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }
