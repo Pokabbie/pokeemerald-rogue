@@ -163,6 +163,21 @@ static const u8 sRageFistDescription_Revised[] = _(
     "A rampage of 2 to 3 turns\n"
     "that confuses the user.");
 
+static const u8 sIcePunchDescription_Revised[] = _(
+    "An icy punch that may\n"
+    "leave the foe with frostbite.");
+
+static const u8 sIceBeamDescription_Revised[] = _(
+    "Blasts the foe with an icy\n"
+    "beam. May cause frostbite.");
+
+static const u8 sBlizzardDescription_Revised[] = _(
+    "Hits the foe with an icy\n"
+    "storm. May cause frostbite.");
+
+static const u8 sFreezingGlareDescription_Revised[] = _(
+    "Shoots psychic power from\n"
+    "the eyes. May frostbite.");
 
 static const u8 sSwirlingBladeDescription_Revised[] = _(
     "A strike with a sword.\n"
@@ -211,5 +226,9 @@ const u8 *const gMoveDescriptionPointers_Revised[MOVES_COUNT - 1] =
     [MOVE_AQUA_STEP - 1] = sAquaStepDescription_Revised,
     [MOVE_MAKE_IT_RAIN - 1] = sMakeItRainDescription_Revised,
     [MOVE_RAGE_FIST - 1] = sRageFistDescription_Revised,
+    [MOVE_ICE_PUNCH - 1] = sIcePunchDescription_Revised,
+    [MOVE_ICE_BEAM - 1] = sIceBeamDescription_Revised,
+    [MOVE_BLIZZARD - 1] = sBlizzardDescription_Revised,
+    [MOVE_FREEZING_GLARE - 1] = sFreezingGlareDescription_Revised,
     [MOVE_SWIRLING_BLADE - 1] = sSwirlingBladeDescription_Revised,
 };

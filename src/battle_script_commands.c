@@ -3354,10 +3354,16 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     static const u8 sTriAttackEffects[] =
                     {
                         MOVE_EFFECT_BURN,
-                        B_USE_FROSTBITE == TRUE ? MOVE_EFFECT_FROSTBITE : MOVE_EFFECT_FREEZE,
+                        MOVE_EFFECT_FREEZE,
                         MOVE_EFFECT_PARALYSIS
                     };
                     gBattleScripting.moveEffect = RandomElement(RNG_TRI_ATTACK, sTriAttackEffects);
+
+                    if(B_USE_FROSTBITE == TRUE && gBattleScripting.moveEffect == MOVE_EFFECT_FREEZE)
+                    {
+                        gBattleScripting.moveEffect = MOVE_EFFECT_FROSTBITE;
+                    }
+
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
@@ -15979,6 +15985,15 @@ void BS_JumpIfHoldEffect(void)
         gLastUsedItem = gBattleMons[battler].item;   // For B_LAST_USED_ITEM
         gBattlescriptCurrInstr += 12;
     }
+}
+
+void BS_Rogue_JumpIfRevised(void)
+{
+    NATIVE_ARGS(const u8 *jumpInstr);
+    if (Rogue_GetRevisionModeActive())
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_DoStockpileStatChangesWearOff(void)
