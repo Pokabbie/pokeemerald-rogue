@@ -1,0 +1,79 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CAMOUFLAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_NATURE_POWER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 51
+    }
+  ]
+}

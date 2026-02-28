@@ -1,0 +1,75 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ENDEAVOR",
+    "MOVE_LOW_KICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_COUNTER",
+        "MOVE_THUNDER",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_TRUANT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BODY_SLAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_TRUANT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

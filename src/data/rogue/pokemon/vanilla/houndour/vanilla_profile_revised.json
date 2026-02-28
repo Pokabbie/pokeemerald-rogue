@@ -1,0 +1,52 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 47
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_HOUNDOUR": {
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
+}

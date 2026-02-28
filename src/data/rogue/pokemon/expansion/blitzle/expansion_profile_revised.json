@@ -1,0 +1,107 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LOW_SWEEP",
+    "MOVE_FLAMETHROWER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

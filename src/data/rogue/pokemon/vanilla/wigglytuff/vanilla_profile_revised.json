@@ -1,0 +1,47 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 25
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DISABLE",
+    "MOVE_SWALLOW"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_ATTRACT",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WIGGLYTUFF": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

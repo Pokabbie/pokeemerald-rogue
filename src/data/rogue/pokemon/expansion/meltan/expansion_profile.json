@@ -63,12 +63,5 @@
         "GEN8ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_RETURN",
-      "MOVE_TOXIC"
-    ]
-  }
+  ]
 }

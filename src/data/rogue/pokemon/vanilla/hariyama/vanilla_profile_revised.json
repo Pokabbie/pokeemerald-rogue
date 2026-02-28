@@ -1,0 +1,90 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_VITAL_THROW",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_REVERSAL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SUBMISSION",
+        "MOVE_BELLY_DRUM",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SURF",
+        "MOVE_BRICK_BREAK",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

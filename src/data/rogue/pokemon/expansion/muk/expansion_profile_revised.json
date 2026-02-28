@@ -1,0 +1,155 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MUK": {
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MUD_BOMB",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 63
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_POISON_JAB",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_CURSE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

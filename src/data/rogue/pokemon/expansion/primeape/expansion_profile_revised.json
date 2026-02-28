@@ -1,0 +1,53 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PRIMEAPE": {
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_ANGER_POINT",
+        "ABILITY_GORILLA_TACTICS"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_CUT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_ICE_PUNCH",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_GORILLA_TACTICS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_GORILLA_TACTICS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

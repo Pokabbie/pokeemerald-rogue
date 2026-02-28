@@ -86,13 +86,5 @@
     "MOVE_TAKE_DOWN",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN",
-      "MOVE_QUICK_ATTACK"
-    ]
-  }
+  "CompetitiveSets": []
 }

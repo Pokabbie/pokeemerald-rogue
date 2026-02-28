@@ -1,0 +1,136 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHIKORITA": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_FILTER",
+        "ABILITY_TRIAGE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_PLAY_ROUGH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAINING_KISS",
+        "MOVE_SYNTHESIS",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AROMATHERAPY",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

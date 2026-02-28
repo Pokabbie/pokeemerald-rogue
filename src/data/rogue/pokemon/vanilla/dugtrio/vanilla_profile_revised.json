@@ -1,0 +1,40 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TRI_ATTACK",
+    "MOVE_SUBMISSION"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

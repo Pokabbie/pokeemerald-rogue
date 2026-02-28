@@ -1,0 +1,1037 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPOTLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METRONOME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_GEM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_MOONBLAST",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_MINIMIZE",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_MOONLIGHT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_MINIMIZE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_ICE_BEAM",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_COSMIC_POWER",
+        "MOVE_MINIMIZE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_SOFT_BOILED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MINIMIZE",
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_PULSE",
+        "MOVE_SAFEGUARD"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGIC_COAT",
+        "MOVE_REFLECT",
+        "MOVE_MOONLIGHT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_MAGIC_COAT",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_FIRE_BLAST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SOFT_BOILED",
+        "MOVE_MOONBLAST",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIFE_DEW",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_TRICK",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_COUNTER",
+        "MOVE_ENCORE",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_DRAINING_KISS",
+        "MOVE_COUNTER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_COSMIC_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_MINIMIZE",
+        "MOVE_COSMIC_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COSMIC_POWER",
+        "MOVE_BATON_PASS",
+        "MOVE_MOONBLAST",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_COSMIC_POWER",
+        "MOVE_MINIMIZE",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SOFT_BOILED",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

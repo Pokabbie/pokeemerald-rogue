@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 52
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_BREATH",
+        "MOVE_ROCK_TOMB",
+        "MOVE_EMBER",
+        "MOVE_SAND_TOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_BREATH",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -288,12 +288,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_MIMIC",
-      "MOVE_SWAGGER",
-      "MOVE_SNORE"
-    ]
-  }
+  ]
 }

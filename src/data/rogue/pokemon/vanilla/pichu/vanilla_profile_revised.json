@@ -1,0 +1,43 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GROWL",
+        "MOVE_REST",
+        "MOVE_THUNDER_SHOCK",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

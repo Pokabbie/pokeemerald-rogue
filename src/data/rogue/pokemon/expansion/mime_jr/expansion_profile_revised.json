@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_MIME_JR": {
+      "BaseStats": {
+        "HP": 20,
+        "Attack": 15,
+        "Defense": 45,
+        "Speed": 65,
+        "SpAttack": 80,
+        "SpDefense": 90
+      }
+    }
+  }
+}

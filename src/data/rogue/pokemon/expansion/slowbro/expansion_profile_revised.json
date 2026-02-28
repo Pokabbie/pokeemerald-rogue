@@ -1,0 +1,37 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COVERT_CLOAK",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COVERT_CLOAK",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

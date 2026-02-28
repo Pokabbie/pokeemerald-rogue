@@ -1,0 +1,51 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_WEEZING"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 36
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

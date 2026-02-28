@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_PRIMARINA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 74,
+        "Defense": 79,
+        "Speed": 60,
+        "SpAttack": 126,
+        "SpDefense": 116
+      }
+    }
+  }
+}

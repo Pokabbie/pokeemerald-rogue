@@ -1,0 +1,115 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 68
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_BREATH",
+        "MOVE_SURF",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_AURORA_BEAM"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_WATERFALL",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_BODY_SLAM",
+        "MOVE_DRAGON_BREATH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_BODY_SLAM",
+        "MOVE_DRAGON_BREATH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

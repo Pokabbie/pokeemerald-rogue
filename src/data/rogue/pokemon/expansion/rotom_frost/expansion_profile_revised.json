@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 55
+    }
+  ]
+}

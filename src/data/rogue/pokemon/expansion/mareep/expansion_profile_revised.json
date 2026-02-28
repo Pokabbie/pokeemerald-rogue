@@ -1,0 +1,56 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAREEP": {
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_OVERCOAT",
+        "ABILITY_COTTON_DOWN"
+      ],
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 40,
+        "Defense": 45,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 45
+      }
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_COTTON_DOWN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

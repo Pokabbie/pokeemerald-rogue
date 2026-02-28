@@ -1,0 +1,71 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 56
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_OVERHEAT",
+        "MOVE_GROWL"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TORCHIC": {
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_BLAZE"
+      ]
+    }
+  }
+}

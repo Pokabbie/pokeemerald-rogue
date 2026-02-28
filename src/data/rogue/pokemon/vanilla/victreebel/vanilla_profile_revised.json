@@ -1,0 +1,39 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 35
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_MAGICAL_LEAF",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

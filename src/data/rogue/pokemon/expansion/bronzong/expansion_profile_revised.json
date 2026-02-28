@@ -1,0 +1,9 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_TELEPORT",
+    "MOVE_FLY"
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOURGEIST": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_GOURGEIST_LARGE": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_GOURGEIST_SMALL": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_GOURGEIST_SUPER": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_TRICK_OR_TREAT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TRICK_OR_TREAT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TRICK_OR_TREAT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_TRICK_OR_TREAT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SYNTHESIS",
+    "MOVE_FIRE_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SYNTHESIS",
+        "MOVE_FOUL_PLAY",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SYNTHESIS",
+        "MOVE_FOUL_PLAY",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SYNTHESIS",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_LEECH_SEED",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_SYNTHESIS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_POLTERGEIST",
+        "MOVE_SYNTHESIS",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_POWER_WHIP",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": null,
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": null,
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": null,
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_POWER_WHIP",
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": null,
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SEED_BOMB",
+        "MOVE_TRICK_OR_TREAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ICE_BALL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SCALD"
+  ]
+}

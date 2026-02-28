@@ -209,16 +209,5 @@
         "GEN9LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_FROAKIE": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_INFILTRATOR",
-          "ABILITY_PROTEAN"
-        ]
-      }
-    }
-  }
+  ]
 }

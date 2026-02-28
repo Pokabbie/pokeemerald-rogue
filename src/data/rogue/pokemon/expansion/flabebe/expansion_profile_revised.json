@@ -1,0 +1,127 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLABEBE": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_YELLOW_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_ORANGE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_BLUE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_WHITE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SYNTHESIS"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

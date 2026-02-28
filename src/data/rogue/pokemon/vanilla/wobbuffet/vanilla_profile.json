@@ -72,26 +72,5 @@
         "GEN3UBERS"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_COUNTER",
-          "MOVE_MIRROR_COAT",
-          "MOVE_DESTINY_BOND",
-          "MOVE_ENCORE"
-        ],
-        "Ability": "ABILITY_SHADOW_TAG",
-        "Item": "ITEM_LEFTOVERS",
-        "Nature": "NATURE_HASTY",
-        "HiddenPower": null,
-        "TeraType": null,
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

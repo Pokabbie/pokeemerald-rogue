@@ -1,0 +1,39 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_MACH_PUNCH",
+        "MOVE_TRIPLE_KICK"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

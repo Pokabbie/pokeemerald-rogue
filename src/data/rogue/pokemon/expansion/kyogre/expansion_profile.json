@@ -813,11 +813,5 @@
         "GEN9ANYTHINGGOES"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FROST_BREATH",
-      "MOVE_WORK_UP"
-    ]
-  }
+  ]
 }

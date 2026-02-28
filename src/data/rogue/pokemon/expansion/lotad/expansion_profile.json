@@ -130,19 +130,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_LOTAD": {
-        "BaseStats": {
-          "HP": 40,
-          "Attack": 30,
-          "Defense": 30,
-          "Speed": 35,
-          "SpAttack": 40,
-          "SpDefense": 50
-        }
-      }
-    }
-  }
+  ]
 }

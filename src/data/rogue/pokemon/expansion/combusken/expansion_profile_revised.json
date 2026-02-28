@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_COMBUSKEN": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_SPEED_BOOST"
+      ]
+    }
+  }
+}

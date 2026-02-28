@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 57
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

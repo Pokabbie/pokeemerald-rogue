@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_POLISH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

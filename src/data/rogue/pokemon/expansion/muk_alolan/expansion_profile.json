@@ -612,44 +612,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_VENOM_DRENCH",
-        "Level": 0
-      },
-      {
-        "Move": "MOVE_VENOM_DRENCH",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_PARTING_SHOT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_HARDEN",
-        "Level": 4
-      },
-      {
-        "Move": "MOVE_BITE",
-        "Level": 7
-      },
-      {
-        "Move": "MOVE_FLING",
-        "Level": 26
-      },
-      {
-        "Move": "MOVE_SUCKER_PUNCH",
-        "Level": 63
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_DYNAMIC_PUNCH",
-      "MOVE_EXPLOSION",
-      "MOVE_MIMIC",
-      "MOVE_SWAGGER",
-      "MOVE_SNORE"
-    ]
-  }
+  ]
 }

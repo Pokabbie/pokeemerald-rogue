@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEOWSTIC": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 48,
+        "Defense": 76,
+        "Speed": 104,
+        "SpAttack": 93,
+        "SpDefense": 81
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE"
+  ]
+}

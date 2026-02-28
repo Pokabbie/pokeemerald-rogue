@@ -1,0 +1,74 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SHARPEN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 52
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHOCK_WAVE",
+        "MOVE_TRI_ATTACK",
+        "MOVE_CONVERSION",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_PECHA_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHOCK_WAVE",
+        "MOVE_PSYBEAM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

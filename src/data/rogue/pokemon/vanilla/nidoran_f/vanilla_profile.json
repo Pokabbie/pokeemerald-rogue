@@ -89,14 +89,5 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": [],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
-      "ABILITY_HUSTLE",
-      "ABILITY_NONE"
-    ]
-  }
+  "CompetitiveSets": []
 }

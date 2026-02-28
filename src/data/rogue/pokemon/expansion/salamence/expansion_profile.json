@@ -1109,10 +1109,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_WORK_UP"
-    ]
-  }
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_TYRANITAR": {
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_EARTH_EATER",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
+}

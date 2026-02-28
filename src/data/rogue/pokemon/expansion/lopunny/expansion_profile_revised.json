@@ -1,0 +1,205 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LOPUNNY": {
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FIGHTING"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 106,
+        "Defense": 84,
+        "Speed": 105,
+        "SpAttack": 44,
+        "SpDefense": 96
+      }
+    },
+    "SPECIES_LOPUNNY_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 136,
+        "Defense": 94,
+        "Speed": 135,
+        "SpAttack": 74,
+        "SpDefense": 96
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MEGA_KICK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MEGA_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RETURN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROTOTILLER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BLAZE_KICK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DIZZY_PUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_BRICK_BREAK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FRUSTRATION",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_RETURN",
+    "MOVE_FRUSTRATION",
+    "MOVE_BULLET_PUNCH",
+    "MOVE_SURF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

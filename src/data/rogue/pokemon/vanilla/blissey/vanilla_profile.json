@@ -228,33 +228,5 @@
         "GEN3UBERS"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_HEADBUTT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_PSYCH_UP",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_ICY_WIND",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_BODY_SLAM",
-        "Level": 13
-      },
-      {
-        "Move": "MOVE_DOUBLE_TEAM",
-        "Level": 18
-      },
-      {
-        "Move": "MOVE_PSYCHIC",
-        "Level": 40
-      }
-    ]
-  }
+  ]
 }

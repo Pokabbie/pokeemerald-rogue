@@ -1,0 +1,68 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DIVE",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_PETAL_DANCE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_MAGICAL_LEAF",
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

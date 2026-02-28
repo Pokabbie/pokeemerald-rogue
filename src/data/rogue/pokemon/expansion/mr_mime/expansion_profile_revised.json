@@ -1,0 +1,182 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MR_MIME": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 35,
+        "Defense": 65,
+        "Speed": 95,
+        "SpAttack": 110,
+        "SpDefense": 120
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BARRIER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_GLITZY_GLOW",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DISARMING_VOICE",
+    "MOVE_QUASH",
+    "MOVE_POWER_GEM",
+    "MOVE_TRI_ATTACK",
+    "MOVE_AURA_SPHERE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GLITZY_GLOW",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GLITZY_GLOW",
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GLITZY_GLOW",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

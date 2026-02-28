@@ -691,24 +691,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_SHELL_SMASH",
-          "MOVE_ICICLE_SPEAR",
-          "MOVE_ROCK_BLAST",
-          "MOVE_TERA_BLAST"
-        ],
-        "Ability": "ABILITY_SKILL_LINK",
-        "Item": "ITEM_FOCUS_SASH",
-        "Nature": "NATURE_JOLLY",
-        "TeraType": "TYPE_ELECTRIC",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

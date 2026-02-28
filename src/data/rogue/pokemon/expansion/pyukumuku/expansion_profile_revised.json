@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_PYUKUMUKU": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 30,
+        "Defense": 130,
+        "Speed": 5,
+        "SpAttack": 30,
+        "SpDefense": 130
+      }
+    }
+  }
+}

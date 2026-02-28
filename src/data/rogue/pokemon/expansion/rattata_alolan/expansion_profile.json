@@ -123,16 +123,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_MIMIC",
-      "MOVE_BODY_SLAM",
-      "MOVE_SWIFT",
-      "MOVE_MUD_SLAP",
-      "MOVE_ENDURE",
-      "MOVE_DEFENSE_CURL",
-      "MOVE_THUNDER_WAVE"
-    ]
-  }
+  ]
 }

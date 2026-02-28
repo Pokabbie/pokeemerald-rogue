@@ -337,23 +337,5 @@
         "GEN9PU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_RETURN",
-      "MOVE_FRUSTRATION"
-    ],
-    "PerSpecies": {
-      "SPECIES_SLOWBRO_GALARIAN": {
-        "BaseStats": {
-          "HP": 95,
-          "Attack": 75,
-          "Defense": 105,
-          "Speed": 30,
-          "SpAttack": 115,
-          "SpDefense": 70
-        }
-      }
-    }
-  }
+  ]
 }

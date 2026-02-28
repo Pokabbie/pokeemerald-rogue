@@ -120,53 +120,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_SING",
-      "MOVE_CALM_MIND",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_SCALD"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_STEALTH_ROCK",
-          "MOVE_DEFOG",
-          "MOVE_SCALD",
-          "MOVE_ICE_BEAM"
-        ],
-        "Ability": "ABILITY_COMPETITIVE",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_HARDY",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      },
-      {
-        "Moves": [
-          "MOVE_ROOST",
-          "MOVE_CALM_MIND",
-          "MOVE_SCALD",
-          "MOVE_ICE_BEAM"
-        ],
-        "Ability": "ABILITY_COMPETITIVE",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_HARDY",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_PIPLUP": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_VITAL_SPIRIT",
-          "ABILITY_COMPETITIVE"
-        ]
-      }
-    }
-  }
+  ]
 }

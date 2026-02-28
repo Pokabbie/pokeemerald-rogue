@@ -1,0 +1,112 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BREAKING_SWIPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ION_DELUGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_DRAINING_KISS",
+    "MOVE_LEECH_LIFE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_COIL",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

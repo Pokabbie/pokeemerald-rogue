@@ -1,0 +1,134 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DIZZY_PUNCH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 52
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_OUT",
+        "MOVE_FAINT_ATTACK"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_TOXIC",
+        "MOVE_PSYBEAM"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_TEETER_DANCE",
+        "MOVE_HYPNOSIS",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPNOSIS",
+        "MOVE_PSYBEAM",
+        "MOVE_TEETER_DANCE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_OUT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

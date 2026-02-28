@@ -81,13 +81,5 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_HIDDEN_POWER",
-      "MOVE_RETURN"
-    ]
-  }
+  "CompetitiveSets": []
 }

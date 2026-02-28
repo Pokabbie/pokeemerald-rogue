@@ -104,46 +104,5 @@
     "MOVE_TRAILBLAZE",
     "MOVE_VINE_WHIP"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_RAZOR_LEAF",
-        "Level": 6
-      },
-      {
-        "Move": "MOVE_POISON_POWDER",
-        "Level": 9
-      },
-      {
-        "Move": "MOVE_LIGHT_SCREEN",
-        "Level": 18
-      },
-      {
-        "Move": "MOVE_NATURAL_GIFT",
-        "Level": 26
-      },
-      {
-        "Move": "MOVE_DRAINING_KISS",
-        "Level": 29
-      },
-      {
-        "Move": "MOVE_MOONBLAST",
-        "Level": 36
-      },
-      {
-        "Move": "MOVE_AROMATHERAPY",
-        "Level": 50
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_BAYLEEF": {
-        "Abilities": [
-          "ABILITY_OVERGROW",
-          "ABILITY_FILTER",
-          "ABILITY_TRIAGE"
-        ]
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

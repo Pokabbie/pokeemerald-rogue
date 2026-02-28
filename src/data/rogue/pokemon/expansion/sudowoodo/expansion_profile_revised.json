@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_SUDOWOODO": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 115,
+        "Defense": 125,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 75
+      }
+    }
+  }
+}

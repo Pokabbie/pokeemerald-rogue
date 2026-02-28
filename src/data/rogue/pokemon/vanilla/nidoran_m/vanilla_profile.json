@@ -88,29 +88,5 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "Abilities": [
-      "ABILITY_HUSTLE",
-      "ABILITY_NONE"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_ROCK_TOMB",
-          "MOVE_SLUDGE",
-          "MOVE_HEADBUTT",
-          "MOVE_SPIKES"
-        ],
-        "Ability": "ABILITY_HUSTLE",
-        "Item": "ITEM_NONE",
-        "Nature": "NATURE_LONELY",
-        "HiddenPower": null,
-        "TeraType": null,
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  "CompetitiveSets": []
 }

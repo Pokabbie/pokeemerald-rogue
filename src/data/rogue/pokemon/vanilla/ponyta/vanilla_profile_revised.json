@@ -1,0 +1,63 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "27",
+      "Species": "SPECIES_RAPIDASH"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 45
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PONYTA": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

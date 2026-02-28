@@ -1,0 +1,102 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUPER_FANG",
+        "MOVE_BUBBLE_BEAM",
+        "MOVE_WHIRLPOOL",
+        "MOVE_SWAGGER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_CRUNCH",
+        "MOVE_SCARY_FACE",
+        "MOVE_POISON_FANG"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIVE",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_CRUNCH",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

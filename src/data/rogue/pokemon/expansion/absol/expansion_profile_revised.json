@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ABSOL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_QUASH",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_AURA_SPHERE",
+    "MOVE_LOW_SWEEP"
+  ]
+}

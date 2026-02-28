@@ -1,0 +1,29 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -137,16 +137,5 @@
         "GEN6ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_MARSHTOMP": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_DAMP",
-          "ABILITY_WATER_VEIL"
-        ]
-      }
-    }
-  }
+  ]
 }

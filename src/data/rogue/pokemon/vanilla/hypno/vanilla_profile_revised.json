@@ -1,0 +1,94 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MEDITATE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_TOXIC",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_TWISTED_SPOON",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_HYPNO": {
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

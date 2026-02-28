@@ -1,0 +1,117 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EERIE_IMPULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_EERIE_IMPULSE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_BUZZY_BUZZ",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ENERGY_BALL",
+    "MOVE_BUG_BUZZ",
+    "MOVE_AURA_SPHERE",
+    "MOVE_FLASH_CANNON"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_BUZZY_BUZZ",
+        "MOVE_ENERGY_BALL",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 15
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_ROCK_SMASH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

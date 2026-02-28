@@ -57,32 +57,45 @@ struct PokemonProfile
 	std::vector<CompetitiveSet> m_CompetitiveSets;
 	std::vector<Evolution> m_Evolutions;
 	std::unordered_map<std::string, SpeciesProfile> m_PerSpeciesProfile;
-	bool m_IsFallbackProfile = false;
+
+	bool m_UseFallback_LevelUpMoves = false;
+	bool m_UseFallback_TutorMoves = false;
+	bool m_UseFallback_CompetitiveSets = false;
 
 	bool HasLevelUpMove(std::string const& move)
 	{
-		for (LevelUpMove const& lvlMove : m_LevelUpMoves)
+		return GetLevelUpMoveIndex(move) != (size_t)-1;
+	}
+
+	size_t GetLevelUpMoveIndex(std::string const& move)
+	{
+		for (size_t i = 0; i < m_LevelUpMoves.size(); ++i)
 		{
-			if (strutil::compare_ignore_case(lvlMove.m_Move, move))
+			if (strutil::compare_ignore_case(m_LevelUpMoves[i].m_Move, move))
 			{
-				return true;
+				return i;
 			}
 		}
 
-		return false;
+		return (size_t)-1;
 	}
 
 	bool HasTutorMove(std::string const& move)
 	{
-		for (std::string const& tutorMove : m_TutorMoves)
+		return GetTutorMoveIndex(move) != (size_t)-1;
+	}
+
+	size_t GetTutorMoveIndex(std::string const& move)
+	{
+		for (size_t i = 0; i < m_TutorMoves.size(); ++i)
 		{
-			if (strutil::compare_ignore_case(tutorMove, move))
+			if (strutil::compare_ignore_case(m_TutorMoves[i], move))
 			{
-				return true;
+				return i;
 			}
 		}
 
-		return false;
+		return (size_t)-1;
 	}
 };
 
@@ -122,28 +135,106 @@ static std::string FormatKeyword(std::string keyword)
 	return keyword;
 }
 
-void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool parseRevisedMode)
+void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, PokemonProfile const* baseProfile)
 {
 	json data = ReadJsonFile(filePath);
+
+	bool replace_LevelUpMoves = true;
+	bool replace_TutorMoves = true;
+	bool replace_CompetitiveSets = true;
+
+	if (baseProfile)
+	{
+		outProfile = *baseProfile;
+
+		if (data.contains("BuildSettings"))
+		{
+			json buildSettings = data["BuildSettings"];
+
+			replace_LevelUpMoves = strutil::to_upper(GetAsString(buildSettings["LevelUpMoves"])) == "REPLACE";
+			replace_TutorMoves = strutil::to_upper(GetAsString(buildSettings["TutorMoves"])) == "REPLACE";
+			replace_CompetitiveSets = strutil::to_upper(GetAsString(buildSettings["CompetitiveSets"])) == "REPLACE";
+		}
+	}
 
 	for (json species : data["Species"])
 	{
 		outProfile.m_Species.push_back(species.get<std::string>());
 	}
 
+
+	if (baseProfile)
+	{
+		if (data.contains("LevelUpMoves"))
+		{
+			if (replace_LevelUpMoves)
+			{
+				outProfile.m_LevelUpMoves.clear();
+			}
+		}
+		else
+		{
+			outProfile.m_UseFallback_LevelUpMoves = true;
+		}
+	}
+
 	for (json move : data["LevelUpMoves"])
 	{
-		outProfile.m_LevelUpMoves.push_back(
+		LevelUpMove lvlMove = {
+			move["Move"].get<std::string>(),
+			move["Level"].get<int>()
+		};
+
+		if (outProfile.HasLevelUpMove(lvlMove.m_Move))
+		{
+			size_t i = outProfile.GetLevelUpMoveIndex(lvlMove.m_Move);
+			outProfile.m_LevelUpMoves.erase(outProfile.m_LevelUpMoves.begin() + i);
+		}
+
+		outProfile.m_LevelUpMoves.push_back(lvlMove);
+	}
+
+
+	if (baseProfile)
+	{
+		if (data.contains("TutorMoves"))
+		{
+			if (replace_TutorMoves)
 			{
-				move["Move"].get<std::string>(),
-				move["Level"].get<int>()
+				outProfile.m_TutorMoves.clear();
 			}
-		);
+		}
+		else
+		{
+			outProfile.m_UseFallback_TutorMoves = true;
+		}
 	}
 
 	for (json move : data["TutorMoves"])
 	{
+		if (outProfile.HasTutorMove(move.get<std::string>()))
+		{
+			size_t i = outProfile.GetTutorMoveIndex(move.get<std::string>());
+			outProfile.m_TutorMoves.erase(outProfile.m_TutorMoves.begin() + i);
+		}
+
 		outProfile.m_TutorMoves.push_back(move.get<std::string>());
+	}
+
+
+	if (baseProfile)
+	{
+		if (data.contains("CompetitiveSets"))
+		{
+			if (replace_CompetitiveSets)
+			{
+				outProfile.m_CompetitiveSets.clear();
+			}
+		}
+		else
+		{
+			outProfile.m_UseFallback_CompetitiveSets = true;
+		}
 	}
 
 	for (json compSet : data["CompetitiveSets"])
@@ -168,40 +259,6 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		outProfile.m_CompetitiveSets.push_back(outSet);
 	}
 
-	//if (data.contains("BaseStats"))
-	//{
-	//	json baseStats = data["BaseStats"];
-	//
-	//	outProfile.m_HasBaseStats = true;
-	//	outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
-	//	outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
-	//	outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
-	//	outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
-	//	outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
-	//	outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
-	//}
-	//
-	//if (data.contains("Types"))
-	//{
-	//	for (json type : data["Types"])
-	//	{
-	//		outProfile.m_Types.push_back(GetAsString(type));
-	//	}
-	//
-	//	if (outProfile.m_Types.size() == 1)
-	//	{
-	//		outProfile.m_Types.push_back(outProfile.m_Types[0]);
-	//	}
-	//}
-	//
-	//if (data.contains("Abilities"))
-	//{
-	//	for (json ability : data["Abilities"])
-	//	{
-	//		outProfile.m_Abilities.push_back(GetAsString(ability));
-	//	}
-	//}
-
 	if (data.contains("Evolutions"))
 	{
 		for (json evoData : data["Evolutions"])
@@ -215,160 +272,22 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		}
 	}
 
-	// If we contain a revised move object inside of this file, we're going to append it to the existing base data
-	if (parseRevisedMode && data.contains("RevisedMode"))
+	if (data.contains("PerSpecies"))
 	{
-		// We're no longer a fallback profile, as we're actually just goint to append changes to the base data
-		outProfile.m_IsFallbackProfile = false;
+		json perSpeciesData = data["PerSpecies"];
 
-		json revisedData = data["RevisedMode"];
-
-		if (revisedData.contains("LevelUpMoves"))
+		for (std::string const& species : outProfile.m_Species)
 		{
+			if (!perSpeciesData.contains(species))
+				continue;
 
+			json speciesData = perSpeciesData[species];
 
-			for (json move : revisedData["LevelUpMoves"])
-			{
-				std::string moveName = move["Move"].get<std::string>();
-
-				// Update the level on th existing move
-				if (outProfile.HasLevelUpMove(moveName))
-				{
-					for (size_t i = 0; i < outProfile.m_LevelUpMoves.size(); ++i)
-					{
-						if (outProfile.m_LevelUpMoves[i].m_Move == moveName)
-						{
-							outProfile.m_LevelUpMoves[i].m_Level = move["Level"].get<int>();
-							break;
-						}
-					}
-				}
-				else
-				{
-					outProfile.m_LevelUpMoves.push_back(
-						{
-							moveName,
-							move["Level"].get<int>()
-						}
-					);
-				}
-			}
-		}
-
-		if (revisedData.contains("TutorMoves"))
-		{
-			for (json move : revisedData["TutorMoves"])
-			{
-				if (!outProfile.HasTutorMove(move))
-				{
-					outProfile.m_TutorMoves.push_back(move.get<std::string>());
-				}
-			}
-		}
-
-		if (revisedData.contains("CompetitiveSets"))
-		{
-			for (json compSet : revisedData["CompetitiveSets"])
-			{
-				CompetitiveSet outSet;
-
-				for (json move : compSet["Moves"])
-				{
-					outSet.m_Moves.push_back(move.get<std::string>());
-				}
-				for (json tier : compSet["SourceTiers"])
-				{
-					outSet.m_SourceTiers.push_back(tier.get<std::string>());
-				}
-
-				outSet.m_Ability = GetAsString(compSet["Ability"]);
-				outSet.m_Item = GetAsString(compSet["Item"]);
-				outSet.m_Nature = GetAsString(compSet["Nature"]);
-				outSet.m_HiddenPower = GetAsString(compSet["HiddenPower"]);
-				outSet.m_TeraType = GetAsString(compSet["TeraType"]);
-
-				// If we don't provide any tiers, set to default
-				if (outSet.m_SourceTiers.empty())
-				{
-					outSet.m_SourceTiers.push_back("DEFAULT_REVISED_MODE");
-				}
-
-				outProfile.m_CompetitiveSets.push_back(outSet);
-			}
-		}
-
-
-		if (revisedData.contains("Evolutions"))
-		{
-			for (json evoData : revisedData["Evolutions"])
-			{
-				Evolution evo;
-				evo.m_Method = GetAsString(evoData["Method"]);
-				evo.m_Param = GetAsString(evoData["Param"]);
-				evo.m_Species = GetAsString(evoData["Species"]);
-
-				outProfile.m_Evolutions.push_back(evo);
-			}
-		}
-
-
-		if (revisedData.contains("PerSpecies"))
-		{
-			json perSpeciesData = revisedData["PerSpecies"];
-
-			for (std::string const& species : outProfile.m_Species)
-			{
-				if (!perSpeciesData.contains(species))
-					continue;
-
-				json speciesData = perSpeciesData[species];
-
-				SpeciesProfile speciesProfile;
-
-				if (speciesData.contains("BaseStats"))
-				{
-					json baseStats = speciesData["BaseStats"];
-
-					speciesProfile.m_HasBaseStats = true;
-					speciesProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
-					speciesProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
-					speciesProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
-					speciesProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
-					speciesProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
-					speciesProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
-				}
-
-				if (speciesData.contains("Types"))
-				{
-					for (json type : speciesData["Types"])
-					{
-						speciesProfile.m_Types.push_back(GetAsString(type));
-					}
-
-					if (speciesProfile.m_Types.size() == 1)
-					{
-						speciesProfile.m_Types.push_back(speciesProfile.m_Types[0]);
-					}
-				}
-
-				if (speciesData.contains("Abilities"))
-				{
-					for (json ability : speciesData["Abilities"])
-					{
-						speciesProfile.m_Abilities.push_back(GetAsString(ability));
-					}
-				}
-
-				outProfile.m_PerSpeciesProfile[species] = speciesProfile;
-			}
-		}
-		else // legacy, apply to every species
-		{
 			SpeciesProfile speciesProfile;
 
-			if (revisedData.contains("BaseStats"))
+			if (speciesData.contains("BaseStats"))
 			{
-				json baseStats = revisedData["BaseStats"];
+				json baseStats = speciesData["BaseStats"];
 
 				speciesProfile.m_HasBaseStats = true;
 				speciesProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
@@ -379,9 +298,9 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 				speciesProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
 			}
 
-			if (revisedData.contains("Types"))
+			if (speciesData.contains("Types"))
 			{
-				for (json type : revisedData["Types"])
+				for (json type : speciesData["Types"])
 				{
 					speciesProfile.m_Types.push_back(GetAsString(type));
 				}
@@ -392,18 +311,15 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 				}
 			}
 
-			if (revisedData.contains("Abilities"))
+			if (speciesData.contains("Abilities"))
 			{
-				for (json ability : revisedData["Abilities"])
+				for (json ability : speciesData["Abilities"])
 				{
 					speciesProfile.m_Abilities.push_back(GetAsString(ability));
 				}
 			}
 
-			for (std::string const& species : outProfile.m_Species)
-			{
-				outProfile.m_PerSpeciesProfile[species] = speciesProfile;
-			}
+			outProfile.m_PerSpeciesProfile[species] = speciesProfile;
 		}
 	}
 
@@ -437,8 +353,18 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 
 	std::vector<std::string> parts = strutil::split(dataPath, "*");
 	std::string const& dirPath = parts[0];
-	std::string const& filePattern = parts[1];
+	std::string filePattern = parts[1];
 	std::unordered_set<std::string> speciesSet;
+
+	// Are we attempting to parse revised mode data
+	std::string revisedFilePattern = filePattern;
+	bool isRevisedExport = false;
+
+	if (strutil::ends_with(filePattern, "_revised.json"))
+	{
+		filePattern = filePattern.substr(0, filePattern.length() - 13) + ".json";
+		isRevisedExport = true;
+	}
 
 	for (const auto& dirEntry : std::filesystem::recursive_directory_iterator(dirPath))
 	{
@@ -446,44 +372,24 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 		{
 			if (strutil::ends_with(dirEntry.path().string(), filePattern))
 			{
+				std::string baseFilePath = dirEntry.path().string();
+				std::string revisedFilePath = baseFilePath.substr(0, baseFilePath.size() - filePattern.size()) + revisedFilePattern;
+
 				PokemonProfile profile;
-				ParseProfile(dirEntry.path().string(), profile, false);
-				output.push_back(profile);
-				speciesSet.insert(profile.m_Species[0]);
-			}
-		}
-	}
+				ParseProfile(baseFilePath, profile, nullptr);
 
-	// Are we attempting to parse revised mode data
-	std::string fallbackFilePattern = filePattern;
-
-	strutil::to_lower(fallbackFilePattern);
-
-	if (strutil::ends_with(fallbackFilePattern, "_revised.json"))
-	{
-		fallbackFilePattern = fallbackFilePattern.substr(0, fallbackFilePattern.length() - 13) + ".json";
-	}
-
-	bool hasFallbackPattern = !strutil::compare_ignore_case(filePattern, fallbackFilePattern);
-
-	// For revised mode data, fill in any empty slots with the default data
-	if (hasFallbackPattern)
-	{
-		for (const auto& dirEntry : std::filesystem::recursive_directory_iterator(dirPath))
-		{
-			if (dirEntry.is_regular_file())
-			{
-				if (strutil::ends_with(dirEntry.path().string(), fallbackFilePattern))
+				if (isRevisedExport && std::filesystem::exists(revisedFilePath))
 				{
-					PokemonProfile profile;
-					profile.m_IsFallbackProfile = true;
-					ParseProfile(dirEntry.path().string(), profile, true);
+					PokemonProfile revisedProfile;
+					ParseProfile(revisedFilePath, revisedProfile, &profile);
 
-					if (speciesSet.find(profile.m_Species[0]) == speciesSet.end())
-					{
-						output.push_back(profile);
-						speciesSet.insert(profile.m_Species[0]);
-					}
+					output.push_back(revisedProfile);
+					speciesSet.insert(revisedProfile.m_Species[0]);
+				}
+				else
+				{
+					output.push_back(profile);
+					speciesSet.insert(profile.m_Species[0]);
 				}
 			}
 		}
@@ -617,7 +523,44 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 	for(PokemonProfile const& profile : profiles)
 	{
-		if (!profile.m_IsFallbackProfile)
+		if (!profile.m_UseFallback_LevelUpMoves)
+		{
+			// Level moves
+			upperBlock << "static struct LevelUpMove const sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
+			for (LevelUpMove const& move : profile.m_LevelUpMoves)
+			{
+				upperBlock << "\t{ .move=" << move.m_Move << ", .level=" << move.m_Level << " },\n";
+			}
+			upperBlock << "\t{ .move=MOVE_NONE, .level=0 },\n";
+			upperBlock << "};\n\n";
+		}
+
+		if (!profile.m_UseFallback_TutorMoves)
+		{
+			// Tutor moves
+			upperBlock << "static u16 const sTutorMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
+			for (std::string const& move : profile.m_TutorMoves)
+			{
+				upperBlock << "\t" << move << ",\n";
+			}
+			upperBlock << "\tMOVE_NONE,\n";
+			upperBlock << "};\n\n";
+		}
+
+		{
+			// Evolutions
+			if (!profile.m_Evolutions.empty())
+			{
+				upperBlock << "static struct Evolution const sEvolutions_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
+				for (Evolution const& evo : profile.m_Evolutions)
+				{
+					upperBlock << "\t{ .method=" << evo.m_Method << ", .param=" << evo.m_Param << ", .targetSpecies=" << evo.m_Species << " },\n";
+				}
+				upperBlock << "};\n\n";
+			}
+		}
+
+		if (!profile.m_UseFallback_CompetitiveSets)
 		{
 			// Mon flags
 			std::set<std::string> sourceTiers;
@@ -631,7 +574,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			upperBlock << "#ifdef APPEND_MON_FLAGS_" << profile.m_Species[0] << exportSuffix << "\n";
 
 			upperBlock << "#define MON_FLAGS_" << profile.m_Species[0] << exportSuffix << " (APPEND_MON_FLAGS_" << profile.m_Species[0] << exportSuffix; // allow easily appending flags
-			for(std::string const& tier : sourceTiers)
+			for (std::string const& tier : sourceTiers)
 				upperBlock << " | MON_FLAGS_" << tier;
 			upperBlock << ")\n";
 
@@ -644,34 +587,6 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 			upperBlock << "#endif\n\n";
 
-			// Level moves
-			upperBlock << "static struct LevelUpMove const sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
-			for(LevelUpMove const& move : profile.m_LevelUpMoves)
-			{
-				upperBlock << "\t{ .move=" << move.m_Move << ", .level=" << move.m_Level << " },\n";
-			}
-			upperBlock << "\t{ .move=MOVE_NONE, .level=0 },\n";
-			upperBlock << "};\n\n";
-
-			// Tutor moves
-			upperBlock << "static u16 const sTutorMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
-			for(std::string const& move : profile.m_TutorMoves)
-			{
-				upperBlock << "\t" << move << ",\n";
-			}
-			upperBlock << "\tMOVE_NONE,\n";
-			upperBlock << "};\n\n";
-
-			// Evolutions
-			if (!profile.m_Evolutions.empty())
-			{
-				upperBlock << "static struct Evolution const sEvolutions_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
-				for (Evolution const& evo : profile.m_Evolutions)
-				{
-					upperBlock << "\t{ .method=" << evo.m_Method << ", .param=" << evo.m_Param << ", .targetSpecies=" << evo.m_Species << " },\n";
-				}
-				upperBlock << "};\n\n";
-			}
 
 			// Comp sets
 			if (!profile.m_CompetitiveSets.empty())
@@ -719,16 +634,18 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		}
 
 		// No need to duplicate, can just use non revised version
-		std::string sourceSuffix = profile.m_IsFallbackProfile ? "" : exportSuffix;
+		std::string lvlUpMovesSuffix = profile.m_UseFallback_LevelUpMoves ? "" : exportSuffix;
+		std::string tutorMovesSuffix = profile.m_UseFallback_TutorMoves ? "" : exportSuffix;
+		std::string competitiveSetsSuffix = profile.m_UseFallback_CompetitiveSets ? "" : exportSuffix;
 
 		// Add to species lookup below
 		lowerBlock << "\t[" << profile.m_Species[0] << "] = \n\t{\n";
-		lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
-		lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
+		lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << lvlUpMovesSuffix << ",\n";
+		lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << tutorMovesSuffix << ",\n";
 		if (!profile.m_CompetitiveSets.empty())
 		{
-			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
-			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << competitiveSetsSuffix << ",\n";
+			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << competitiveSetsSuffix << "),\n";
 		}
 		else
 		{
@@ -737,15 +654,15 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		}
 		if (!profile.m_Evolutions.empty())
 		{
-			lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << sourceSuffix << ",\n";
-			lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << sourceSuffix << "),\n";
+			lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << exportSuffix << ",\n";
+			lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << exportSuffix << "),\n";
 		}
 		else
 		{
 			lowerBlock << "\t\t.evolutions = NULL,\n";
 			lowerBlock << "\t\t.evolutionCount = 0,\n";
 		}
-		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
+		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << competitiveSetsSuffix << ",\n";
 
 		lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 
@@ -810,12 +727,12 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			}
 
 			lowerBlock << "\t[" << profile.m_Species[i] << "] = \n\t{\n";
-			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
-			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
+			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << lvlUpMovesSuffix << ",\n";
+			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << tutorMovesSuffix << ",\n";
 			if (!profile.m_CompetitiveSets.empty())
 			{
-				lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
-				lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+				lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << competitiveSetsSuffix << ",\n";
+				lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << competitiveSetsSuffix << "),\n";
 			}
 			else
 			{
@@ -824,15 +741,15 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			}
 			if (!profile.m_Evolutions.empty())
 			{
-				lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << sourceSuffix << ",\n";
-				lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << sourceSuffix << "),\n";
+				lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << exportSuffix << ",\n";
+				lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << exportSuffix << "),\n";
 			}
 			else
 			{
 				lowerBlock << "\t\t.evolutions = NULL,\n";
 				lowerBlock << "\t\t.evolutionCount = 0,\n";
 			}
-			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
+			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << competitiveSetsSuffix << ",\n";
 
 			lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 

@@ -1,0 +1,65 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_SCRATCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TEDDIURSA": {
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

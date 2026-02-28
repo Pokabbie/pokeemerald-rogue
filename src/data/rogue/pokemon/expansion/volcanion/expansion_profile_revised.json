@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_VOLCANION": {
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_NONE",
+        "ABILITY_THERMAL_EXCHANGE"
+      ]
+    }
+  }
+}

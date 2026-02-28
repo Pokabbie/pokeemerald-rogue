@@ -1,0 +1,75 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 45
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHOCK_WAVE",
+        "MOVE_WATER_PULSE",
+        "MOVE_RECOVER",
+        "MOVE_COSMIC_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_DUNSPARCE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 90,
+        "Defense": 95,
+        "Speed": 45,
+        "SpAttack": 55,
+        "SpDefense": 65
+      }
+    }
+  }
+}

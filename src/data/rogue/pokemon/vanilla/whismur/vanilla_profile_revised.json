@@ -1,0 +1,65 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MEGA_PUNCH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 40
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHOCK_WAVE",
+        "MOVE_UPROAR"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

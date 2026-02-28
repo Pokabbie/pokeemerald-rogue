@@ -1,0 +1,146 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PROBOPASS": {
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ELECTRIC"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 50,
+        "Defense": 135,
+        "Speed": 40,
+        "SpAttack": 90,
+        "SpDefense": 140
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRAVITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNET_BOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MAGNET_BOMB",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 46
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

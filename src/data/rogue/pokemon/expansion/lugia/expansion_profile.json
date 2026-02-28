@@ -298,53 +298,5 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_PSYCHO_BOOST",
-      "MOVE_TOXIC",
-      "MOVE_STEEL_WING",
-      "MOVE_ZAP_CANNON",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SCALD"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_SCALD",
-          "MOVE_ROOST",
-          "MOVE_TOXIC",
-          "MOVE_AEROBLAST"
-        ],
-        "Ability": "ABILITY_MULTISCALE",
-        "Item": "ITEM_LEFTOVERS",
-        "Nature": "NATURE_BOLD",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      },
-      {
-        "Moves": [
-          "MOVE_ROOST",
-          "MOVE_ICE_BEAM",
-          "MOVE_TOXIC",
-          "MOVE_AEROBLAST"
-        ],
-        "Ability": "ABILITY_MULTISCALE",
-        "Item": "ITEM_HEAVY_DUTY_BOOTS",
-        "Nature": "NATURE_BOLD",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_LUGIA": {
-        "Types": [
-          "TYPE_WATER",
-          "TYPE_FLYING"
-        ]
-      }
-    }
-  }
+  ]
 }

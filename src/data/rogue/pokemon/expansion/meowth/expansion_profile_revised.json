@@ -1,0 +1,31 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEOWTH": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 35,
+        "Speed": 90,
+        "SpAttack": 30,
+        "SpDefense": 40
+      }
+    },
+    "SPECIES_MEOWTH_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 35,
+        "Speed": 90,
+        "SpAttack": 30,
+        "SpDefense": 40
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_SURF"
+  ]
+}

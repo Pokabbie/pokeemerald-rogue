@@ -1,0 +1,110 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BEEDRILL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 115,
+        "Defense": 40,
+        "Speed": 95,
+        "SpAttack": 40,
+        "SpDefense": 95
+      }
+    },
+    "SPECIES_BEEDRILL_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 175,
+        "Defense": 55,
+        "Speed": 170,
+        "SpAttack": 30,
+        "SpDefense": 110
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TWINEEDLE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TWINEEDLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SKITTER_SMACK",
+    "MOVE_DUAL_WINGBEAT"
+  ]
+}

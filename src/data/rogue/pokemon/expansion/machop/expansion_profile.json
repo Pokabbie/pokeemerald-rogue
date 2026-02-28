@@ -162,12 +162,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_MACH_PUNCH",
-      "MOVE_ROCK_CLIMB",
-      "MOVE_DRAIN_PUNCH"
-    ]
-  }
+  ]
 }

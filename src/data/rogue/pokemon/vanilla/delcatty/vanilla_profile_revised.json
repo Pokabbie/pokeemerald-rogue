@@ -1,0 +1,40 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 33
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_OUT",
+        "MOVE_METRONOME",
+        "MOVE_CHARM"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

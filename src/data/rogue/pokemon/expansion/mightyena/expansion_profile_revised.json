@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_MIGHTYENA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 60
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

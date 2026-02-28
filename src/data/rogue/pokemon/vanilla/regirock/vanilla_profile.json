@@ -170,21 +170,5 @@
         "GEN3OU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_ANCIENT_POWER",
-        "Level": 15
-      },
-      {
-        "Move": "MOVE_ROCK_SLIDE",
-        "Level": 35
-      },
-      {
-        "Move": "MOVE_EARTH_POWER",
-        "Level": 40
-      }
-    ]
-  }
+  ]
 }

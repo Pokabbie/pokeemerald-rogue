@@ -1,0 +1,48 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 38
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GULPIN": {
+      "Abilities": [
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

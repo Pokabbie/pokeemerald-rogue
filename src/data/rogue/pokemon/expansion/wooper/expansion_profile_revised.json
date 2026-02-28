@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_WOOPER": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 15,
+        "SpAttack": 25,
+        "SpDefense": 25
+      }
+    }
+  }
+}

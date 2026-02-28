@@ -1,0 +1,118 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_STOUTLAND": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 115,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 45,
+        "SpDefense": 90
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 62
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_PURSUIT",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

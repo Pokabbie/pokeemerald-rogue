@@ -1,0 +1,71 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_RAIN_DANCE",
+        "MOVE_FRUSTRATION",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAIL",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

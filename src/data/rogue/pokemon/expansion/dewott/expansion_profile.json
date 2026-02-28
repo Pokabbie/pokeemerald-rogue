@@ -127,58 +127,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_LOW_SWEEP",
-        "Level": 0
-      },
-      {
-        "Move": "MOVE_LOW_SWEEP",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_WATER_SPORT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_TAIL_WHIP",
-        "Level": 5
-      },
-      {
-        "Move": "MOVE_WATER_GUN",
-        "Level": 7
-      },
-      {
-        "Move": "MOVE_WATER_SPORT",
-        "Level": 11
-      },
-      {
-        "Move": "MOVE_REVENGE",
-        "Level": 29
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_DEWOTT": {
-        "Types": [
-          "TYPE_WATER",
-          "TYPE_FIGHTING"
-        ],
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_SHELL_ARMOR",
-          "ABILITY_SUPER_LUCK"
-        ],
-        "BaseStats": {
-          "HP": 75,
-          "Attack": 83,
-          "Defense": 60,
-          "Speed": 60,
-          "SpAttack": 75,
-          "SpDefense": 60
-        }
-      }
-    }
-  }
+  ]
 }

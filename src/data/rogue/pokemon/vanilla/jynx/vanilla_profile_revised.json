@@ -1,0 +1,87 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 67
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_ICY_WIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_TWISTED_SPOON",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAIL",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

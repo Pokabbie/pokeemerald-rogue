@@ -1,0 +1,47 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "20",
+      "Species": "SPECIES_SEADRA"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 49
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

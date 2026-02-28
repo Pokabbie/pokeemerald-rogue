@@ -559,13 +559,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_MEGAHORN",
-      "MOVE_ROCK_CLIMB",
-      "MOVE_LOW_SWEEP",
-      "MOVE_SWIRLING_BLADE"
-    ]
-  }
+  ]
 }

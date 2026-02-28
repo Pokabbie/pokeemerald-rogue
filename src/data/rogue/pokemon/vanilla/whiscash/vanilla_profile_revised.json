@@ -1,0 +1,147 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WHIRLPOOL",
+    "MOVE_TICKLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SURF",
+        "MOVE_SPARK",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_MUDDY_WATER",
+        "MOVE_MUD_SHOT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_EARTH_POWER",
+        "MOVE_REST",
+        "MOVE_SNORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_EARTH_POWER",
+        "MOVE_REST",
+        "MOVE_SNORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_AMNESIA",
+        "MOVE_REST",
+        "MOVE_SNORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WHISCASH": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BARRIER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DRAGONITE": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_MARVEL_SCALE"
+      ]
+    }
+  }
+}

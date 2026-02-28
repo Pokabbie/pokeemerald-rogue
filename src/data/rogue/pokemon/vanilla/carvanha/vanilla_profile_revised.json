@@ -1,0 +1,98 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 28
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POISON_FANG",
+        "MOVE_BITE",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_AQUA_JET",
+        "MOVE_AURORA_BEAM",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SEA_INCENSE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_WATER_PULSE",
+        "MOVE_AURORA_BEAM",
+        "MOVE_FAINT_ATTACK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CARVANHA": {
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_ROUGH_SKIN"
+      ]
+    }
+  }
+}

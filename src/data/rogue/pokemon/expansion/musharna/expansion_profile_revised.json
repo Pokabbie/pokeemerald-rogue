@@ -1,0 +1,176 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_MUSHARNA": {
+      "Abilities": [
+        "ABILITY_FOREWARN",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_COMATOSE"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_MOONLIGHT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_MOONLIGHT",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_REST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_STORED_POWER",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": null,
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

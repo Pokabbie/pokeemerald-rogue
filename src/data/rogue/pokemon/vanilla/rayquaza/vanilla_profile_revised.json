@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AEROBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FLY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_DRACO_METEOR",
+      "Level": 70
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

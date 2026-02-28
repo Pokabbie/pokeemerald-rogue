@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_DECIDUEYE_HISUIAN": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 112,
+        "Defense": 85,
+        "Speed": 60,
+        "SpAttack": 95,
+        "SpDefense": 95
+      }
+    }
+  }
+}

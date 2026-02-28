@@ -1,0 +1,42 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TACKLE",
+        "MOVE_REST",
+        "MOVE_SING"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RUNERIGUS": {
+      "Abilities": [
+        "ABILITY_WANDERING_SPIRIT",
+        "ABILITY_NONE",
+        "ABILITY_SOLID_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 105,
+        "Defense": 145,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 105
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_BULK_UP"
+  ]
+}

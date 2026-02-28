@@ -1,0 +1,66 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TAUNT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_CRUNCH",
+        "MOVE_GLARE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

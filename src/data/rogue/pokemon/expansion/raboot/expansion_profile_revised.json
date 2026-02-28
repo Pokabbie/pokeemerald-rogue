@@ -1,0 +1,19 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RABOOT": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_RECEIVER",
+        "ABILITY_LIBERO"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

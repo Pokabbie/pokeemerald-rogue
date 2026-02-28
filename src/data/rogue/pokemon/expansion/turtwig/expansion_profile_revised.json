@@ -1,0 +1,100 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TURTWIG": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_GRAV_APPLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GRAV_APPLE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

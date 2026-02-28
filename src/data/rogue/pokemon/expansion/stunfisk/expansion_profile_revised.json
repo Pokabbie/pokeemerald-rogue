@@ -1,0 +1,61 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_STUNFISK": {
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_DRY_SKIN",
+        "ABILITY_SAND_VEIL"
+      ],
+      "BaseStats": {
+        "HP": 109,
+        "Attack": 66,
+        "Defense": 84,
+        "Speed": 32,
+        "SpAttack": 90,
+        "SpDefense": 99
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_INFESTATION"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TOXIC",
+        "MOVE_EARTH_POWER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DISCHARGE",
+        "MOVE_EARTH_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

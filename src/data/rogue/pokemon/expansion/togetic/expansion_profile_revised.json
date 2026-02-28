@@ -1,0 +1,138 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METRONOME",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BESTOW",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DISARMING_VOICE",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CALM_MIND",
+    "MOVE_HURRICANE",
+    "MOVE_EXTRASENSORY"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_MOONBLAST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

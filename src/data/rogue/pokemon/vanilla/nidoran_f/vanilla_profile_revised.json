@@ -1,0 +1,10 @@
+{
+  "PerSpecies": {
+    "SPECIES_NIDORAN_F": {
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DUSKNOIR": {
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

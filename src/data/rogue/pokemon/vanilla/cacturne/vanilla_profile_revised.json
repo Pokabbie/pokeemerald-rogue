@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_NEEDLE_ARM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LOW_KICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NEEDLE_ARM",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_LEECH_SEED",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CACTURNE": {
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_ROUGH_SKIN"
+      ]
+    }
+  }
+}

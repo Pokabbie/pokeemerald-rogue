@@ -1,0 +1,51 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 58
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SPOINK": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 25,
+        "Defense": 35,
+        "Speed": 60,
+        "SpAttack": 70,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 51
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SLACK_OFF",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

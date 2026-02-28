@@ -495,12 +495,5 @@
         "GEN9MONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_SUPERPOWER",
-      "MOVE_ZEN_HEADBUTT",
-      "MOVE_QUASH"
-    ]
-  }
+  ]
 }

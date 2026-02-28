@@ -151,25 +151,5 @@
         "GEN3UBERS"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_CALM_MIND",
-        "Level": 10
-      },
-      {
-        "Move": "MOVE_PROTECT",
-        "Level": 15
-      },
-      {
-        "Move": "MOVE_EXTRASENSORY",
-        "Level": 25
-      },
-      {
-        "Move": "MOVE_DRAGON_CLAW",
-        "Level": 30
-      }
-    ]
-  }
+  ]
 }

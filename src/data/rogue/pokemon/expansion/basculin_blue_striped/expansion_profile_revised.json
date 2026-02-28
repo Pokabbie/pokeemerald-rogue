@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_BASCULIN_BLUE_STRIPED": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 92,
+        "Defense": 65,
+        "Speed": 98,
+        "SpAttack": 90,
+        "SpDefense": 55
+      }
+    }
+  }
+}

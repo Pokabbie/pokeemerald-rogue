@@ -1,0 +1,61 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MIRROR_COAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_PUNCH",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

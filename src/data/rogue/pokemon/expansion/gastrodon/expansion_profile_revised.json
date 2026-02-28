@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

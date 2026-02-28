@@ -1,0 +1,157 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LEDIAN": {
+      "Abilities": [
+        "ABILITY_RATTLED",
+        "ABILITY_IRON_FIST",
+        "ABILITY_TECHNICIAN"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 105,
+        "Defense": 50,
+        "Speed": 85,
+        "SpAttack": 35,
+        "SpDefense": 110
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MEGA_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MEGA_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_COMET_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_METEOR_MASH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SMART_STRIKE",
+    "MOVE_LUNGE",
+    "MOVE_DUAL_WINGBEAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_MACH_PUNCH",
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_LUNGE",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_RATTLED",
+      "Item": "ITEM_FLYING_GEM",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

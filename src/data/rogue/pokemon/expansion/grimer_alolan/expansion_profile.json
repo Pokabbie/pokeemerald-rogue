@@ -207,14 +207,5 @@
         "GEN9LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_EXPLOSION",
-      "MOVE_DYNAMIC_PUNCH",
-      "MOVE_MIMIC",
-      "MOVE_SWAGGER",
-      "MOVE_SNORE"
-    ]
-  }
+  ]
 }

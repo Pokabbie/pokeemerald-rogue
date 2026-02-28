@@ -401,12 +401,5 @@
         "GEN9MONOTYPE"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ]
-  }
+  ]
 }

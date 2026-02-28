@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_SEAKING": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 122,
+        "Defense": 80,
+        "Speed": 78,
+        "SpAttack": 45,
+        "SpDefense": 80
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_YAMASK_GALARIAN": {
+      "Abilities": [
+        "ABILITY_WANDERING_SPIRIT",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

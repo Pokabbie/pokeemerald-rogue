@@ -1,0 +1,177 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SERPERIOR": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_MULTISCALE",
+        "ABILITY_CONTRARY"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 76,
+        "Defense": 95,
+        "Speed": 113,
+        "SpAttack": 76,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_LEAF_TORNADO",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_RAGE",
+    "MOVE_AQUA_TAIL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_POWER_WHIP",
+        "MOVE_DRAGON_RUSH",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

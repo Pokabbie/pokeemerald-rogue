@@ -1,0 +1,24 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 36
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWABLU": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 50
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_COTTON_GUARD",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

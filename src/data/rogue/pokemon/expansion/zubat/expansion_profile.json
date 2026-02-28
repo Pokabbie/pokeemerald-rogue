@@ -131,27 +131,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_HURRICANE"
-    ],
-    "PerSpecies": {
-      "SPECIES_ZUBAT": {
-        "Abilities": [
-          "ABILITY_INNER_FOCUS",
-          "ABILITY_SNIPER",
-          "ABILITY_INFILTRATOR"
-        ],
-        "BaseStats": {
-          "HP": 40,
-          "Attack": 45,
-          "Defense": 35,
-          "Speed": 55,
-          "SpAttack": 45,
-          "SpDefense": 40
-        }
-      }
-    }
-  }
+  ]
 }

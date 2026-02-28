@@ -1,0 +1,18 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

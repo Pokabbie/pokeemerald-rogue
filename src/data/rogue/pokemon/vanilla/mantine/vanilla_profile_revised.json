@@ -1,0 +1,170 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 59
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WING_ATTACK",
+        "MOVE_WATER_PULSE",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_AURORA_BEAM",
+        "MOVE_WHIRLPOOL",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BOUNCE",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SURF",
+        "MOVE_MIRROR_COAT",
+        "MOVE_WHIRLPOOL"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_FLY",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_AIR_SLASH",
+        "MOVE_DIVE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_AIR_SLASH",
+        "MOVE_REST",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

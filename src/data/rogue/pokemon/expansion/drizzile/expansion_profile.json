@@ -99,21 +99,5 @@
         "GEN9ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ],
-    "PerSpecies": {
-      "SPECIES_DRIZZILE": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_SHED_SKIN",
-          "ABILITY_SNIPER"
-        ]
-      }
-    }
-  }
+  ]
 }

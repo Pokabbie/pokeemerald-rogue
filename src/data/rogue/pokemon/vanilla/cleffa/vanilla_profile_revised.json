@@ -1,0 +1,43 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 15
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GROWL",
+        "MOVE_REST",
+        "MOVE_ROLLOUT",
+        "MOVE_METRONOME"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

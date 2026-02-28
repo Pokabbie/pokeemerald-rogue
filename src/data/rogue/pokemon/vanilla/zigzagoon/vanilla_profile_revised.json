@@ -1,0 +1,56 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ZIGZAGOON": {
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

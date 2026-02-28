@@ -1,0 +1,211 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VIVILLON": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_POLAR": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_TUNDRA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_CONTINENTAL": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_GARDEN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_ELEGANT": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_MEADOW": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_MODERN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_MARINE": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_ARCHIPELAGO": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_HIGH_PLAINS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_SANDSTORM": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_RIVER": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_MONSOON": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_SAVANNA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_SUN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_OCEAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_JUNGLE": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_FANCY": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    },
+    "SPECIES_VIVILLON_POKE_BALL": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 115,
+        "SpDefense": 55
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_FLY"
+  ]
+}

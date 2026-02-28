@@ -1,0 +1,100 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BOLDORE": {
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_SOLAR_POWER"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 50,
+        "Defense": 105,
+        "Speed": 20,
+        "SpAttack": 105,
+        "SpDefense": 40
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_METEOR_BEAM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE",
+    "MOVE_AURORA_BEAM",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_ZAP_CANNON"
+  ]
+}

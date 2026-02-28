@@ -1,0 +1,43 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ENERGY_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_MANECTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

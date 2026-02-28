@@ -1,0 +1,179 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CAMERUPT": {
+      "Abilities": [
+        "ABILITY_MAGMA_ARMOR",
+        "ABILITY_SIMPLE",
+        "ABILITY_SOLID_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 105,
+        "SpDefense": 75
+      }
+    },
+    "SPECIES_CAMERUPT_MEGA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 100,
+        "Speed": 20,
+        "SpAttack": 155,
+        "SpDefense": 105
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_GEM",
+    "MOVE_GROWTH",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLACK_OFF",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_GROWTH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_SLACK_OFF",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BUBBLE_BEAM",
+        "MOVE_BODY_SLAM",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_QUICK_CLAW",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BULLET_SEED",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OCTAZOOKA",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SLUDGE"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OCTAZOOKA",
+        "MOVE_BULLET_SEED",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AURORA_BEAM"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_OCTAZOOKA"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OCTAZOOKA",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

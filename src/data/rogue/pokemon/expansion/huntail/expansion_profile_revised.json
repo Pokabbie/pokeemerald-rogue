@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_HUNTAIL": {
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_WATER_VEIL",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_FANG",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

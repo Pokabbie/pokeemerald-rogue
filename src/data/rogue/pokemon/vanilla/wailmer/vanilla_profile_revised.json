@@ -1,0 +1,110 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_WATER_SPOUT",
+      "Level": 65
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_ROLLOUT",
+        "MOVE_DEFENSE_CURL"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIVE",
+        "MOVE_AMNESIA",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_ROLLOUT",
+        "MOVE_DEFENSE_CURL"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WAILMER": {
+      "Abilities": [
+        "ABILITY_RAIN_DISH",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

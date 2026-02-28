@@ -1,0 +1,64 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CURSOLA": {
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_UNBURDEN",
+        "ABILITY_PERISH_BODY"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 75,
+        "Defense": 55,
+        "Speed": 55,
+        "SpAttack": 145,
+        "SpDefense": 130
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GHOST_GEM",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

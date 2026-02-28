@@ -187,35 +187,5 @@
         "GEN9NU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FLY"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_SUBSTITUTE",
-          "MOVE_TOXIC",
-          "MOVE_ROOST",
-          "MOVE_ATTACK_ORDER"
-        ],
-        "Ability": "ABILITY_QUEENLY_MAJESTY",
-        "Item": "ITEM_LEFTOVERS",
-        "Nature": "NATURE_BOLD",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_VESPIQUEN": {
-        "Abilities": [
-          "ABILITY_PRESSURE",
-          "ABILITY_UNNERVE",
-          "ABILITY_QUEENLY_MAJESTY"
-        ]
-      }
-    }
-  }
+  ]
 }

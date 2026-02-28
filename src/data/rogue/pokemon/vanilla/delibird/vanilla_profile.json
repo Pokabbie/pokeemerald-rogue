@@ -84,13 +84,5 @@
         "GEN3ZU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_BRAVE_BIRD",
-        "Level": 1
-      }
-    ]
-  }
+  ]
 }

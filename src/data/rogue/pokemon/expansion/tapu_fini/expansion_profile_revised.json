@@ -1,0 +1,83 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_NATURES_MADNESS",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 63
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ZAP_CANNON",
+    "MOVE_SCREECH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SONIC_BOOM",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPARK"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAGNETON": {
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

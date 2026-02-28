@@ -1,0 +1,90 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BRUTAL_SWING",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STEAMROLLER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_STOMPING_TANTRUM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 67
+    },
+    {
+      "Move": "MOVE_DRAGON_HAMMER",
+      "Level": 73
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAGON_RUSH",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_PARTING_SHOT",
+    "MOVE_PURSUIT"
+  ]
+}

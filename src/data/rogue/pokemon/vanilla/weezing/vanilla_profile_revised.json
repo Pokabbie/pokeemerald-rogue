@@ -1,0 +1,84 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POISON_GAS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

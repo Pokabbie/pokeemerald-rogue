@@ -1,0 +1,138 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WHIRLPOOL",
+    "MOVE_SUPERSONIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_AGILITY",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN",
+        "MOVE_SURF",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_MEGAHORN",
+        "MOVE_AGILITY",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SEAKING": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
+}

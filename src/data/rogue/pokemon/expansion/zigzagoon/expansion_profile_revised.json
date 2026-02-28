@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ZIGZAGOON": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 40,
+        "Defense": 41,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 41
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BESTOW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

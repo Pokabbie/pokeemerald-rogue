@@ -1,0 +1,103 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_QUILLADIN": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_IRON_BARBS",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_NEEDLE_ARM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 56
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_ROAR",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

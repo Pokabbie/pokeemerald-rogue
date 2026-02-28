@@ -1,0 +1,75 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

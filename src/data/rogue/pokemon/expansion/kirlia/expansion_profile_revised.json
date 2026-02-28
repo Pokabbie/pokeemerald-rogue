@@ -1,0 +1,107 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_KIRLIA": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 35,
+        "Defense": 35,
+        "Speed": 50,
+        "SpAttack": 85,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ICE_BEAM"
+  ]
+}

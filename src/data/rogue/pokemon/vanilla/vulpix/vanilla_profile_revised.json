@@ -1,0 +1,94 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 50
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EMBER",
+        "MOVE_CONFUSION",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYPNOSIS",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_FLAME_WHEEL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

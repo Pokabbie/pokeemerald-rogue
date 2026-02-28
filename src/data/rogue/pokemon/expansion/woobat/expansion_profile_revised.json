@@ -1,0 +1,102 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WOOBAT": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 45,
+        "Defense": 43,
+        "Speed": 72,
+        "SpAttack": 65,
+        "SpDefense": 43
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEART_STAMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 57
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_AIR_SLASH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

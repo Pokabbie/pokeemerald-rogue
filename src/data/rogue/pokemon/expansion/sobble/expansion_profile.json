@@ -82,22 +82,5 @@
     "MOVE_WEATHER_BALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_AIR_CUTTER",
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ],
-    "PerSpecies": {
-      "SPECIES_SOBBLE": {
-        "Abilities": [
-          "ABILITY_TORRENT",
-          "ABILITY_SHED_SKIN",
-          "ABILITY_SNIPER"
-        ]
-      }
-    }
-  }
+  "CompetitiveSets": []
 }

@@ -1,0 +1,102 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_NATURES_MADNESS",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 63
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_MOONBLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_MILTANK": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 85,
+        "Defense": 105,
+        "Speed": 100,
+        "SpAttack": 40,
+        "SpDefense": 95
+      }
+    }
+  }
+}

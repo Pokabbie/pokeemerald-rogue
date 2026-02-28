@@ -1,0 +1,10 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_HYPNOSIS",
+    "MOVE_FLY",
+    "MOVE_HURRICANE"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_GRENINJA": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_PROTEAN"
+      ],
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 100,
+        "Defense": 67,
+        "Speed": 122,
+        "SpAttack": 103,
+        "SpDefense": 71
+      }
+    }
+  }
+}

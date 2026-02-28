@@ -1,0 +1,78 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CLAMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 45
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_REST",
+        "MOVE_SANDSTORM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SANDSTORM",
+        "MOVE_WRAP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SHUCKLE": {
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GLALIE": {
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_LEVITATE",
+        "ABILITY_MOODY"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 110,
+        "Defense": 110,
+        "Speed": 80,
+        "SpAttack": 60,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_GLALIE_MEGA": {
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 130,
+        "Defense": 130,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FROST_BREATH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 67
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_TOMB",
+    "MOVE_WORK_UP",
+    "MOVE_STONE_EDGE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_POWER_GEM",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_ROCK_POLISH",
+    "MOVE_SMACK_DOWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EXPLOSION",
+        "MOVE_SUPER_FANG",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_SHARD",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_EXPLOSION",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAUNT",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHEER_COLD",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICE_SHARD",
+        "MOVE_HEAD_SMASH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_SHEER_COLD"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_TAUNT",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_HEAD_SMASH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GLALITITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

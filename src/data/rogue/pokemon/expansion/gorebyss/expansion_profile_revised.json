@@ -1,0 +1,55 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOREBYSS": {
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_HYDRATION",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PSYSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

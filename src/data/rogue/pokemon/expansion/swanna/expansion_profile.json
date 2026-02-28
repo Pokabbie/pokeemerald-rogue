@@ -233,46 +233,5 @@
         "GEN9PU"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_WATER_SPORT",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_WATER_SPORT",
-        "Level": 3
-      },
-      {
-        "Move": "MOVE_DEFOG",
-        "Level": 6
-      },
-      {
-        "Move": "MOVE_WING_ATTACK",
-        "Level": 9
-      },
-      {
-        "Move": "MOVE_HYDRO_PUMP",
-        "Level": 62
-      }
-    ],
-    "PerSpecies": {
-      "SPECIES_SWANNA": {
-        "Abilities": [
-          "ABILITY_FRIEND_GUARD",
-          "ABILITY_BIG_PECKS",
-          "ABILITY_HYDRATION"
-        ],
-        "BaseStats": {
-          "HP": 82,
-          "Attack": 63,
-          "Defense": 65,
-          "Speed": 98,
-          "SpAttack": 109,
-          "SpDefense": 83
-        }
-      }
-    }
-  }
+  ]
 }

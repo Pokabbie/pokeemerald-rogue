@@ -1,0 +1,48 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_IGGLYBUFF": {
+      "Abilities": [
+        "ABILITY_FRIEND_GUARD",
+        "ABILITY_COMPETITIVE",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 13
+    }
+  ]
+}

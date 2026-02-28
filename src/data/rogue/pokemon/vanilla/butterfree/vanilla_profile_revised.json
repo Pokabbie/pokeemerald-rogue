@@ -1,0 +1,94 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FOLLOW_ME"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_PSYBEAM",
+        "MOVE_SILVER_WIND",
+        "MOVE_WING_ATTACK"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

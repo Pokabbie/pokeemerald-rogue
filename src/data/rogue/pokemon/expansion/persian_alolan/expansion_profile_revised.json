@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PERSIAN_ALOLAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 95,
+        "SpDefense": 65
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_DREAM_EATER",
+    "MOVE_MUD_SLAP",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_SNORE",
+    "MOVE_SURF"
+  ]
+}

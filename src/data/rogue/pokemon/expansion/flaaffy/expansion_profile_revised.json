@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_FLAAFFY": {
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_OVERCOAT",
+        "ABILITY_COTTON_DOWN"
+      ],
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 55,
+        "Defense": 60,
+        "Speed": 45,
+        "SpAttack": 85,
+        "SpDefense": 60
+      }
+    }
+  }
+}

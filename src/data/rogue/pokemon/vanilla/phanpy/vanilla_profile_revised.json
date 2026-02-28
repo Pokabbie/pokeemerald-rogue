@@ -1,0 +1,48 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 36
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PHANPY": {
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

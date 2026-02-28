@@ -1,0 +1,61 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

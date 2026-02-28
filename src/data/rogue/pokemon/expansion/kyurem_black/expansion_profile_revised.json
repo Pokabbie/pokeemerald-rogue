@@ -1,0 +1,113 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FUSION_BOLT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FREEZE_SHOCK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 78
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 85
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 92
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FROST_BREATH",
+    "MOVE_WORK_UP",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_ICICLE_CRASH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ROOST",
+        "MOVE_FUSION_BOLT"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_FUSION_BOLT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

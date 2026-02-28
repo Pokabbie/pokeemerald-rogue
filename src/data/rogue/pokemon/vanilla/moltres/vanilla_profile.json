@@ -140,29 +140,5 @@
         "GEN31V1"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_SACRED_FIRE",
-        "Level": 1
-      },
-      {
-        "Move": "MOVE_EXTRASENSORY",
-        "Level": 25
-      },
-      {
-        "Move": "MOVE_DUAL_WINGBEAT",
-        "Level": 37
-      },
-      {
-        "Move": "MOVE_FIRE_BLAST",
-        "Level": 73
-      },
-      {
-        "Move": "MOVE_BRAVE_BIRD",
-        "Level": 80
-      }
-    ]
-  }
+  ]
 }

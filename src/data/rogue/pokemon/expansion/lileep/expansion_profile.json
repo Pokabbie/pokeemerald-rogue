@@ -158,26 +158,5 @@
         "GEN8LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_POWER_GEM"
-    ],
-    "CompetitiveSets": [
-      {
-        "Moves": [
-          "MOVE_RECOVER",
-          "MOVE_GIGA_DRAIN",
-          "MOVE_STEALTH_ROCK",
-          "MOVE_POWER_GEM"
-        ],
-        "Ability": "ABILITY_STORM_DRAIN",
-        "Item": "ITEM_EVIOLITE",
-        "Nature": "NATURE_BOLD",
-        "SourceTiers": [
-          "DOUBLES_REVISED_MODE"
-        ]
-      }
-    ]
-  }
+  ]
 }

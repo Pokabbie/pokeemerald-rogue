@@ -1,0 +1,30 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWIRLING_BLADE",
+      "Level": 1
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_GYRO_BALL",
+        "MOVE_SWIRLING_BLADE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

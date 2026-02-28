@@ -1,0 +1,81 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LIGHT_SCREEN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_DETECT",
+        "MOVE_WING_ATTACK"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AIR_SLASH",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BEAUTIFLY": {
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

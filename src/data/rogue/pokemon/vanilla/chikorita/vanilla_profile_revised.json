@@ -1,0 +1,32 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 44
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

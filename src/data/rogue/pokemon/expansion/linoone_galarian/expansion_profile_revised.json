@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LINOONE_GALARIAN": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 85,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 50,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

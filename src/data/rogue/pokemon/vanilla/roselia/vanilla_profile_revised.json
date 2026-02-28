@@ -1,0 +1,95 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_GRASS_WHISTLE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 56
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_GRASS_WHISTLE",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PETAL_DANCE",
+        "MOVE_LEECH_SEED",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

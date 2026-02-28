@@ -1,0 +1,44 @@
+{
+  "PerSpecies": {
+    "SPECIES_SQUAWKABILLY": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 99,
+        "Defense": 61,
+        "Speed": 102,
+        "SpAttack": 45,
+        "SpDefense": 61
+      }
+    },
+    "SPECIES_SQUAWKABILLY_BLUE_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 99,
+        "Defense": 61,
+        "Speed": 102,
+        "SpAttack": 45,
+        "SpDefense": 61
+      }
+    },
+    "SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 99,
+        "Defense": 61,
+        "Speed": 102,
+        "SpAttack": 45,
+        "SpDefense": 61
+      }
+    },
+    "SPECIES_SQUAWKABILLY_WHITE_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 99,
+        "Defense": 61,
+        "Speed": 102,
+        "SpAttack": 45,
+        "SpDefense": 61
+      }
+    }
+  }
+}

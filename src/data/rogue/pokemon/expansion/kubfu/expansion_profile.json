@@ -98,12 +98,5 @@
     "MOVE_U_TURN",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": [],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_FRUSTRATION",
-      "MOVE_TOXIC",
-      "MOVE_RETURN"
-    ]
-  }
+  "CompetitiveSets": []
 }

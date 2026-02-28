@@ -1,0 +1,59 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WITHDRAW",
+    "MOVE_SPIKES"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ICE_SHARD",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BARBOACH": {
+      "Abilities": [
+        "ABILITY_SIMPLE",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_BREAKING_SWIPE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

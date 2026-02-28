@@ -1,0 +1,423 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_ENTEI": {
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_EARTHQUAKE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SACRED_FIRE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BULLDOZE",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SNARL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SACRED_FIRE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ERUPTION",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

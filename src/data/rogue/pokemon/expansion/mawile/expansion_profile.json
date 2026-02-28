@@ -807,19 +807,5 @@
         "GEN8NATIONALDEX"
       ]
     }
-  ],
-  "RevisedMode": {
-    "PerSpecies": {
-      "SPECIES_MAWILE": {
-        "BaseStats": {
-          "HP": 50,
-          "Attack": 95,
-          "Defense": 90,
-          "Speed": 50,
-          "SpAttack": 55,
-          "SpDefense": 60
-        }
-      }
-    }
-  }
+  ]
 }

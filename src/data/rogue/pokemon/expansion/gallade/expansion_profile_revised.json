@@ -1,0 +1,159 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GALLADE": {
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_SHARPNESS",
+        "ABILITY_JUSTIFIED"
+      ],
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 125,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 60,
+        "SpDefense": 115
+      }
+    },
+    "SPECIES_GALLADE_MEGA": {
+      "Abilities": [
+        "ABILITY_SHARPNESS",
+        "ABILITY_SHARPNESS",
+        "ABILITY_SHARPNESS"
+      ],
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 165,
+        "Defense": 100,
+        "Speed": 125,
+        "SpAttack": 60,
+        "SpDefense": 115
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ICE_BEAM"
+  ]
+}

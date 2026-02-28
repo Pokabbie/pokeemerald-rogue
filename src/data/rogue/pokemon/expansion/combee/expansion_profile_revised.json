@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_COMBEE": {
+      "Abilities": [
+        "ABILITY_HONEY_GATHER",
+        "ABILITY_HUSTLE",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
+}

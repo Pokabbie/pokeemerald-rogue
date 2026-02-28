@@ -1,0 +1,43 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_EARTH_POWER"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

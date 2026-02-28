@@ -1,0 +1,55 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SAMUROTT_HISUIAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 65
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CEASELESS_EDGE",
+        "MOVE_RAZOR_SHELL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CEASELESS_EDGE",
+        "MOVE_RAZOR_SHELL",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

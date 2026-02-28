@@ -1,0 +1,65 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "20",
+      "Species": "SPECIES_ARIADOS"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 33
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ACID",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_STRING_SHOT"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TROPIUS": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 45,
+        "SpAttack": 95,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_LEAF_TORNADO",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BESTOW",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAGON_HAMMER",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_AIR_SLASH",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_LEAF_BLADE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 67
+    }
+  ]
+}

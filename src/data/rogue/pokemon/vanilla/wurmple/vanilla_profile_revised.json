@@ -1,0 +1,12 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 5
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

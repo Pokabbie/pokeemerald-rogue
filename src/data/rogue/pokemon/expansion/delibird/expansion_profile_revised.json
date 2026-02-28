@@ -1,0 +1,120 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DELIBIRD": {
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_SHEER_FORCE"
+      ],
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 110,
+        "SpAttack": 110,
+        "SpDefense": 50
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PRESENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WORK_UP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_HONE_CLAWS",
+    "MOVE_U_TURN",
+    "MOVE_CUT",
+    "MOVE_STRENGTH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICY_WIND",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_AIR_SLASH",
+        "MOVE_NASTY_PLOT",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

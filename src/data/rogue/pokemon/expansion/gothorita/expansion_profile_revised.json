@@ -1,0 +1,99 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOTHORITA": {
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_DARK"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_EMBARGO",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_HEAL_BLOCK",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_TELEKINESIS",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_MAGIC_ROOM",
+      "Level": 53
+    }
+  ]
+}

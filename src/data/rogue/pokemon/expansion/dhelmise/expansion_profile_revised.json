@@ -1,0 +1,102 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ANCHOR_SHOT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_SPIRIT_SHACKLE",
+      "Level": 64
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_STEELWORKER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

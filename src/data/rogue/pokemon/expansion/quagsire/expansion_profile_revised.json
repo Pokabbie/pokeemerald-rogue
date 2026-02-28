@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_QUAGSIRE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 65
+      }
+    }
+  }
+}

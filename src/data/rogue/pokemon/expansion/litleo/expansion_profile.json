@@ -154,29 +154,5 @@
         "GEN7LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_FLARE_BLITZ",
-        "Level": 46
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_IRON_TAIL",
-      "MOVE_INCINERATE"
-    ],
-    "PerSpecies": {
-      "SPECIES_LITLEO": {
-        "BaseStats": {
-          "HP": 62,
-          "Attack": 70,
-          "Defense": 58,
-          "Speed": 72,
-          "SpAttack": 73,
-          "SpDefense": 54
-        }
-      }
-    }
-  }
+  ]
 }

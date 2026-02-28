@@ -190,12 +190,5 @@
         "GEN8LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_WATERFALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_ROCK_CLIMB"
-    ]
-  }
+  ]
 }

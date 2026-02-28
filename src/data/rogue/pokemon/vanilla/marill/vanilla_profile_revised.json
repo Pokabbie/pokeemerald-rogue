@@ -1,0 +1,74 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 31
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_ROLLOUT",
+        "MOVE_DEFENSE_CURL"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUBBLE_BEAM",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROLLOUT",
+        "MOVE_DEFENSE_CURL"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP",
+    "MOVE_POISON_JAB",
+    "MOVE_SWIRLING_BLADE"
+  ]
+}

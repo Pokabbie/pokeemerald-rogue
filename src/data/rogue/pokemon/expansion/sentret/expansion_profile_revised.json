@@ -1,0 +1,124 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SENTRET": {
+      "Abilities": [
+        "ABILITY_FRISK",
+        "ABILITY_SCRAPPY",
+        "ABILITY_HUSTLE"
+      ],
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 40,
+        "SpAttack": 35,
+        "SpDefense": 45
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ME_FIRST",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_QUASH",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SLIGGOO": {
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_WATER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WATERFALL",
+    "MOVE_SURF"
+  ]
+}

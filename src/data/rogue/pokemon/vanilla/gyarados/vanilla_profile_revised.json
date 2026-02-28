@@ -1,0 +1,232 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FLAIL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPLASH",
+        "MOVE_BUBBLE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SURF",
+        "MOVE_BOUNCE",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BOUNCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BOUNCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DRAGON_BREATH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BOUNCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DRAGON_BREATH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_CRUNCH",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FLAMETHROWER",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STRENGTH",
+        "MOVE_DIVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

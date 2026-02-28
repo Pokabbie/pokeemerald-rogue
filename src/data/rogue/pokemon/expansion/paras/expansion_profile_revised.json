@@ -1,0 +1,63 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 54
+    }
+  ]
+}

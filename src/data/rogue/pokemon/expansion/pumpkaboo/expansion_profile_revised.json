@@ -1,0 +1,122 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_PUMPKABOO": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_PUMPKABOO_SMALL": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_PUMPKABOO_SUPER": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_PUMPKABOO_LARGE": {
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SYNTHESIS",
+    "MOVE_FLAME_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_BULLET_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

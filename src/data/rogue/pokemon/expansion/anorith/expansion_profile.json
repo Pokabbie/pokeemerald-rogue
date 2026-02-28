@@ -178,12 +178,5 @@
         "GEN8LC"
       ]
     }
-  ],
-  "RevisedMode": {
-    "TutorMoves": [
-      "MOVE_LUNGE",
-      "MOVE_BUG_BUZZ",
-      "MOVE_ROCK_CLIMB"
-    ]
-  }
+  ]
 }

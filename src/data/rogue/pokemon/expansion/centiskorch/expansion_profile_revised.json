@@ -1,0 +1,40 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CENTISKORCH": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 65,
+        "SpDefense": 90
+      }
+    },
+    "SPECIES_CENTISKORCH_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 65,
+        "SpDefense": 90
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SIZZLY_SLIDE",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

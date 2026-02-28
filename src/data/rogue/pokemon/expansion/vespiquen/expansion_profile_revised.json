@@ -1,0 +1,36 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VESPIQUEN": {
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_UNNERVE",
+        "ABILITY_QUEENLY_MAJESTY"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FLY"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_TOXIC",
+        "MOVE_ROOST",
+        "MOVE_ATTACK_ORDER"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

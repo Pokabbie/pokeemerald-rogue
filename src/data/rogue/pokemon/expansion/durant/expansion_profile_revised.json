@@ -1,0 +1,55 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DURANT": {
+      "Abilities": [
+        "ABILITY_HEATPROOF",
+        "ABILITY_HUSTLE",
+        "ABILITY_TRUANT"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_WORK_UP",
+    "MOVE_BUG_BUZZ",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

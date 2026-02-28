@@ -1,0 +1,88 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SKY_UPPERCUT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

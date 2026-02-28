@@ -1,0 +1,82 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_JAW_LOCK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_REVENGE",
+    "MOVE_TOXIC",
+    "MOVE_PAYBACK",
+    "MOVE_ASSURANCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_SCALE_SHOT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_FANG",
+        "MOVE_JAW_LOCK"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}
