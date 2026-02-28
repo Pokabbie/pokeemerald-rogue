@@ -814,8 +814,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
 
 #define RESTORE_BATTLER_TYPE(battlerId)                                                     \
 {                                                                                           \
-    gBattleMons[battlerId].type1 = gSpeciesInfo[gBattleMons[battlerId].species].types[0];   \
-    gBattleMons[battlerId].type2 = gSpeciesInfo[gBattleMons[battlerId].species].types[1];   \
+    gBattleMons[battlerId].type1 = GetTypeBySpecies(gBattleMons[battlerId].species, 0, gBattleMons[battlerId].otId);     \
+    gBattleMons[battlerId].type2 = GetTypeBySpecies(gBattleMons[battlerId].species, 1, gBattleMons[battlerId].otId);     \
     gBattleMons[battlerId].type3 = TYPE_MYSTERY;                                            \
 }
 
