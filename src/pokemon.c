@@ -3106,12 +3106,17 @@ u8 GetMonsStateToDoubles_2(void)
 
 u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
+    return GetAbilityBySpecies_ForRevised(species, abilityNum, otId, Rogue_GetRevisionModeActive());
+}
+
+u16 GetAbilityBySpecies_ForRevised(u16 species, u8 abilityNum, u32 otId, bool32 revisedMode)
+{
 #ifdef ROGUE_EXPANSION
     int i;
     struct RoguePokemonBaseStats speciesStats;
     u16 abilities[NUM_ABILITY_SLOTS];
 
-    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    Rogue_GetPokemonBaseStatsFor(species, &speciesStats, revisedMode);
 
     memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 
@@ -3149,7 +3154,7 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
     struct RoguePokemonBaseStats speciesStats;
     u16 abilities[2];
 
-    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    Rogue_GetPokemonBaseStatsFor(species, &speciesStats, revisedMode);
 
     memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 

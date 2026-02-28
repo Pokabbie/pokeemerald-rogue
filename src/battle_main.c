@@ -429,6 +429,7 @@ static const u16 sTrainerBallTable[TRAINER_CLASS_COUNT] =
 #endif
 
 #include "data/text/abilities.h"
+#include "data/text/abilities_revised.h"
 
 static void (* const sTurnActionsFuncsTable[])(void) =
 {
