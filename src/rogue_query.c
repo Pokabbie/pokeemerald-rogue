@@ -1669,11 +1669,7 @@ static u16 Query_MaxBitCount()
         return QUERY_NUM_ADVENTURE_PATH;
     
     case QUERY_TYPE_MOVES:
-#ifdef ROGUE_EXPANSION
-        return QUERY_NUM_MOVES;
-#else
         return Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE;
-#endif
     
     default: // QUERY_TYPE_CUSTOM
         return MAX_QUERY_BIT_COUNT;
