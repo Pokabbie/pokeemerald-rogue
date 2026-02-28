@@ -40,9 +40,15 @@
     method(504, "Hex", 0) \
     method(505, "", CREDITS_FLAG_BREAK) \
     \
-    method(5050, "Revised Mode (Vanilla)", CREDITS_FLAG_TITLE) \
-    method(5051, "ShockinglyGongas", 0) \
-    method(5052, "", CREDITS_FLAG_BREAK) \
+    method(5050, "Community Developers", CREDITS_FLAG_TITLE) \
+    method(5051, "underFlorence", 0) \
+    method(5052, "Amber Starlight", 0) \
+    method(5053, "", CREDITS_FLAG_BREAK) \
+    \
+    method(5060, "Vanilla Revised Balancing", CREDITS_FLAG_TITLE) \
+    method(5061, "Based on Royal Sapphire by", 0) \
+    method(5062, "ShockinglyGongas", 0) \
+    method(5063, "", CREDITS_FLAG_BREAK) \
     \
     method(600, "RH Hideout - Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(601, "UltimaSoul", 0) \
