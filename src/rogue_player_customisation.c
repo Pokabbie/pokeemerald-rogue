@@ -944,7 +944,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .name = _("Pokabbie"),
         .trainerFrontPic = TRAINER_PIC_POKABBIE,
-        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .trainerBackPic = TRAINER_BACK_PIC_COMMUNITY_POKABBIE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_POKABBIE,
         .hasSpritingAnims = FALSE,
@@ -953,7 +953,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PokabbieNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PokabbieRiding,
         },
-        .objectEventBasePal = gObjectEventPal_Npc1,
+        .objectEventBasePal = gObjectEventPal_PokabbieNormal,
     },
     [PLAYER_OUTFIT_KATE] =
     {

@@ -23,7 +23,7 @@
         [
             {
                 "name": "POKABBIE",
-                "object_event": "OBJ_EVENT_GFX_MISC_AROMA_GIRL",
+                "object_event": "OBJ_EVENT_GFX_GLITCH_POKABBIE",
                 "trainer_pic": "TRAINER_PIC_POKABBIE",
                 "trainer_class": "TRAINER_CLASS_DEVELOPER",
                 "trainer_flags": [ "REGION_ROGUE", "CLASS_RIVAL", "MISC_RAINBOW_EXCLUDE" ],
