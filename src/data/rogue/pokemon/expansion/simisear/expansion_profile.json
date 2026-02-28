@@ -81,18 +81,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_NASTY_PLOT",
         "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
         "MOVE_GRASS_KNOT",
-        "MOVE_OVERHEAT"
+        "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6PU"
       ]
     },
     {
@@ -105,8 +103,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -121,10 +117,36 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -137,42 +159,8 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
       ]
     },
     {
@@ -185,8 +173,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -201,8 +187,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]

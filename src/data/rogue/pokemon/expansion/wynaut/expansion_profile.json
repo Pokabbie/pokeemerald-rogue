@@ -46,18 +46,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_ENCORE",
         "MOVE_COUNTER",
         "MOVE_MIRROR_COAT",
-        "MOVE_ENCORE",
-        "MOVE_DESTINY_BOND"
+        "MOVE_SAFEGUARD"
       ],
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
       ]
     },
     {
@@ -70,26 +68,8 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_COUNTER",
-        "MOVE_MIRROR_COAT",
-        "MOVE_SAFEGUARD"
-      ],
-      "Ability": "ABILITY_SHADOW_TAG",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     },
     {
@@ -102,10 +82,22 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

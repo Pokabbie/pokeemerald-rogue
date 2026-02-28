@@ -99,13 +99,11 @@
         "MOVE_BRAVE_BIRD",
         "MOVE_BULLET_SEED",
         "MOVE_BRICK_BREAK",
-        "MOVE_FLAME_CHARGE"
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -115,13 +113,11 @@
         "MOVE_BRAVE_BIRD",
         "MOVE_BULLET_SEED",
         "MOVE_BRICK_BREAK",
-        "MOVE_U_TURN"
+        "MOVE_FLAME_CHARGE"
       ],
       "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -136,8 +132,6 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]

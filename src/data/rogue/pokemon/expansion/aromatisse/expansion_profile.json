@@ -121,6 +121,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_MOONBLAST",
         "MOVE_REST",
@@ -129,26 +143,8 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_TRICK_ROOM",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
       ]
     },
     {
@@ -161,107 +157,8 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_HEAL_PULSE",
-        "MOVE_PROTECT",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -274,8 +171,6 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
@@ -290,27 +185,244 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
     },
     {
       "Moves": [
+        "MOVE_MOONBLAST",
         "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_MOONBLAST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PROTECT",
         "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
       ],
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SWEET_KISS",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_ECHOED_VOICE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_CALM_MIND",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_ATTRACT",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_MISTY_TERRAIN",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_SKILL_SWAP",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_REFLECT",
+        "Level": 57
+      },
+      {
+        "Move": "MOVE_PSYCH_UP",
+        "Level": 64
+      },
+      {
+        "Move": "MOVE_SPARKLY_SWIRL",
+        "Level": 70
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC",
+      "MOVE_CHARGE_BEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_TRICK_ROOM",
+          "MOVE_NASTY_PLOT",
+          "MOVE_SPARKLY_SWIRL",
+          "MOVE_PSYCHIC"
+        ],
+        "Ability": "ABILITY_AROMA_VEIL",
+        "Item": "ITEM_FAIRIUM_Z",
+        "Nature": "NATURE_QUIET",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPARKLY_SWIRL",
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_AROMA_VEIL",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TRICK_ROOM",
+          "MOVE_ENCORE",
+          "MOVE_DISABLE",
+          "MOVE_SPARKLY_SWIRL"
+        ],
+        "Ability": "ABILITY_AROMA_VEIL",
+        "Item": "ITEM_ROCKY_HELMET",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_AROMATISSE": {
+        "BaseStats": {
+          "HP": 101,
+          "Attack": 72,
+          "Defense": 80,
+          "Speed": 29,
+          "SpAttack": 109,
+          "SpDefense": 99
+        }
+      }
+    }
+  }
 }

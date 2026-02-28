@@ -160,18 +160,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FACADE",
         "MOVE_KNOCK_OFF",
-        "MOVE_OBSTRUCT",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_FACADE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SWITCHEROO"
       ],
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8UBERS"
       ]
     },
     {
@@ -184,26 +182,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FACADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWITCHEROO",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
       ]
     },
     {
@@ -216,26 +196,8 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_FACADE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
       ]
     },
     {
@@ -248,8 +210,6 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
@@ -264,11 +224,57 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWITCHEROO",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_OBSTRUCT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ],
+    "PerSpecies": {
+      "SPECIES_OBSTAGOON": {
+        "BaseStats": {
+          "HP": 98,
+          "Attack": 100,
+          "Defense": 101,
+          "Speed": 100,
+          "SpAttack": 55,
+          "SpDefense": 81
+        }
+      }
+    }
+  }
 }

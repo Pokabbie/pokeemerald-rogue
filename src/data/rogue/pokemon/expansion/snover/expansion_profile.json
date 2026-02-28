@@ -105,24 +105,7 @@
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_ICE_SHARD",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -137,24 +120,7 @@
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_ICE_SHARD",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -169,8 +135,6 @@
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -180,15 +144,14 @@
         "MOVE_BLIZZARD",
         "MOVE_GIGA_DRAIN",
         "MOVE_ICE_SHARD",
-        "MOVE_PROTECT"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_ICY_ROCK",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN7LC"
       ]
     },
     {
@@ -196,15 +159,14 @@
         "MOVE_BLIZZARD",
         "MOVE_GIGA_DRAIN",
         "MOVE_ICE_SHARD",
-        "MOVE_PROTECT"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_ICY_ROCK",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN7LC"
       ]
     },
     {
@@ -218,7 +180,6 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -226,15 +187,13 @@
     {
       "Moves": [
         "MOVE_BLIZZARD",
-        "MOVE_ICE_SHARD",
         "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -248,9 +207,36 @@
       ],
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_ICE_SHARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

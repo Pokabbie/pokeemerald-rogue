@@ -132,6 +132,333 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_YAWN",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN9NATIONALDEX",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_ERUPTION",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_EXPLOSION",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_YAWN",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_BODY_PRESS",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_RAPID_SPIN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ERUPTION",
         "MOVE_EARTH_POWER",
         "MOVE_HEAT_WAVE",
@@ -140,8 +467,6 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8DOUBLESOU",
         "GEN9DOUBLESOU"
@@ -157,58 +482,22 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8DOUBLESOU"
       ]
     },
     {
       "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_PROTECT"
+        "MOVE_YAWN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARCOAL",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARCOAL",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARCOAL",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -221,512 +510,8 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_CHARCOAL",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_PROTECT",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ERUPTION",
-        "MOVE_PROTECT",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_CHARCOAL",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_REST",
-        "MOVE_CLEAR_SMOG"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LAVA_PLUME",
-        "MOVE_BODY_PRESS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LAVA_PLUME",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LAVA_PLUME",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7MONOTYPE",
-        "GEN8MONOTYPE",
-        "GEN9NATIONALDEX",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_LAVA_PLUME"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_EARTH_POWER",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_ERUPTION",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_RAPID_SPIN",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_RAPID_SPIN",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_RAPID_SPIN",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_WILL_O_WISP",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_LAVA_PLUME",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_YAWN",
-        "MOVE_LAVA_PLUME"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
-        "MOVE_YAWN",
-        "MOVE_LAVA_PLUME"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_BODY_PRESS",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_YAWN",
-        "MOVE_EXPLOSION",
-        "MOVE_LAVA_PLUME"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -739,26 +524,137 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_YAWN",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_REST",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN",
+        "MOVE_BODY_PRESS",
         "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_HEAT_ROCK",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_QUIET",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_RAPID_SPIN",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

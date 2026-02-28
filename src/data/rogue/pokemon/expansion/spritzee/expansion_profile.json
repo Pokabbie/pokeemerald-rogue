@@ -100,16 +100,14 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MOONBLAST",
         "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_AROMATHERAPY"
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -119,77 +117,11 @@
         "MOVE_MOONBLAST",
         "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_PSYCHIC"
+        "MOVE_AROMATHERAPY"
       ],
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_WISH",
-        "MOVE_PSYCHIC",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_CALM_MIND",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_AROMA_VEIL",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -204,12 +136,87 @@
       "Ability": "ABILITY_AROMA_VEIL",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
         "GEN8LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_WISH",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_DRAINING_KISS",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_AROMA_VEIL",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

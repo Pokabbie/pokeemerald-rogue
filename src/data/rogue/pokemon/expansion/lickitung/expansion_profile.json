@@ -118,22 +118,6 @@
     {
       "Moves": [
         "MOVE_WISH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BODY_SLAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
         "MOVE_PROTECT",
         "MOVE_BODY_SLAM",
         "MOVE_KNOCK_OFF"
@@ -141,12 +125,24 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC",
         "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_SLAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
       ]
     },
     {
@@ -159,12 +155,48 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CURSE",
+          "MOVE_BODY_SLAM",
+          "MOVE_KNOCK_OFF",
+          "MOVE_WISH"
+        ],
+        "Ability": "ABILITY_UNAWARE",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_LICKITUNG": {
+        "Abilities": [
+          "ABILITY_UNAWARE",
+          "ABILITY_OBLIVIOUS",
+          "ABILITY_CLOUD_NINE"
+        ],
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 65,
+          "Defense": 75,
+          "Speed": 25,
+          "SpAttack": 55,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

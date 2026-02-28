@@ -98,82 +98,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_SUNNY_DAY",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAME_CHARGE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_HIGH_HORSEPOWER",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_HIGH_HORSEPOWER",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_HIGH_HORSEPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_HIGH_HORSEPOWER",
         "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FLAME_CHARGE",
         "MOVE_MORNING_SUN"
       ],
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -186,10 +120,78 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SUNNY_DAY",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -202,8 +204,6 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -218,43 +218,79 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_HYPNOSIS"
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_FLAME_CHARGE"
       ],
       "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_MORNING_SUN"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_EVIOLITE",
+      "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TAIL_WHIP",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_FLAME_WHEEL",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_STOMP",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_FLAME_CHARGE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_FIRE_SPIN",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_TAKE_DOWN",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_INFERNO",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_FIRE_BLAST",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_JUMP_KICK",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_BOUNCE",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 49
+      }
+    ]
+  }
 }

@@ -126,8 +126,20 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -142,8 +154,6 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -158,27 +168,32 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_DYNAMIC_PUNCH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MACH_PUNCH",
+      "MOVE_ROCK_CLIMB",
+      "MOVE_DRAIN_PUNCH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_KNOCK_OFF",
+          "MOVE_MACH_PUNCH",
+          "MOVE_EARTHQUAKE"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

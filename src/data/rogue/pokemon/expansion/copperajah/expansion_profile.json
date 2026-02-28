@@ -115,22 +115,6 @@
     {
       "Moves": [
         "MOVE_HEAVY_SLAM",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_HEAVY_METAL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
         "MOVE_POWER_WHIP",
         "MOVE_STONE_EDGE",
         "MOVE_SUPERPOWER"
@@ -138,24 +122,6 @@
       "Ability": "ABILITY_HEAVY_METAL",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_HEAT_CRASH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_HEAVY_METAL",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]
@@ -170,8 +136,20 @@
       "Ability": "ABILITY_HEAVY_METAL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HEAT_CRASH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_HEAVY_METAL",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8NU"
       ]
@@ -186,11 +164,31 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_HEAVY_METAL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

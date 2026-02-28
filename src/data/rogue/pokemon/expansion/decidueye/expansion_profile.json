@@ -159,98 +159,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_GRASS_KNOT",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_LEAF_STORM",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE"
       ],
       "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_COLBUR_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_DECIDIUM_Z",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_ROOST",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_POLTERGEIST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_SPIRIT_SHACKLE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_SPELL_TAG",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SPIRIT_SHACKLE",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UU"
       ]
     },
     {
@@ -263,58 +181,8 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_SPELL_TAG",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SPIRIT_SHACKLE",
-        "MOVE_U_TURN",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_U_TURN",
-        "MOVE_POLTERGEIST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_U_TURN",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
       ]
     },
     {
@@ -327,42 +195,36 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_GHOSTIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_POLTERGEIST",
-        "MOVE_LEAF_BLADE",
-        "MOVE_SHADOW_SNEAK",
+        "MOVE_DEFOG",
+        "MOVE_GRASS_KNOT",
+        "MOVE_ROOST",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_POLTERGEIST",
-        "MOVE_U_TURN",
-        "MOVE_LEAF_BLADE",
-        "MOVE_SHADOW_SNEAK"
+        "MOVE_DEFOG",
+        "MOVE_LEAF_STORM",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
       ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8RU"
+        "GEN7NU"
       ]
     },
     {
@@ -375,8 +237,6 @@
       "Ability": "ABILITY_OVERGROW",
       "Item": "ITEM_DECIDIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
@@ -391,42 +251,8 @@
       "Ability": "ABILITY_LONG_REACH",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_LEAF_BLADE",
-        "MOVE_SPIRIT_SHACKLE",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_SPELL_TAG",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SPIRIT_SHACKLE",
-        "MOVE_LEAF_BLADE",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_LONG_REACH",
-      "Item": "ITEM_SPELL_TAG",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9NU"
       ]
     },
     {
@@ -439,27 +265,196 @@
       "Ability": "ABILITY_LONG_REACH",
       "Item": "ITEM_SPOOKY_PLATE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SUBSTITUTE",
+        "MOVE_POLTERGEIST",
+        "MOVE_U_TURN",
         "MOVE_LEAF_BLADE",
-        "MOVE_SPIRIT_SHACKLE"
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_U_TURN",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_U_TURN",
+        "MOVE_GIGA_DRAIN"
       ],
       "Ability": "ABILITY_OVERGROW",
-      "Item": "ITEM_DECIDIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU"
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_U_TURN",
+        "MOVE_POLTERGEIST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_DECIDUEYE": {
+        "BaseStats": {
+          "HP": 78,
+          "Attack": 107,
+          "Defense": 75,
+          "Speed": 75,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

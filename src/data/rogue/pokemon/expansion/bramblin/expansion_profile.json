@@ -106,6 +106,20 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPIKES",
+        "MOVE_INFESTATION"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_POWER_WHIP",
         "MOVE_SHADOW_SNEAK",
         "MOVE_STRENGTH_SAP"
@@ -113,7 +127,6 @@
       "Ability": "ABILITY_WIND_RIDER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
       "SourceTiers": [
         "GEN9LC"
@@ -129,26 +142,8 @@
       "Ability": "ABILITY_WIND_RIDER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_SPIKES",
-        "MOVE_INFESTATION"
-      ],
-      "Ability": "ABILITY_INFILTRATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
       ]
     }
   ]

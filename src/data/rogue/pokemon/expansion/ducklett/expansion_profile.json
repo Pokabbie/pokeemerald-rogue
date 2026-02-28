@@ -108,11 +108,30 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 50
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DUCKLETT": {
+        "Abilities": [
+          "ABILITY_FRIEND_GUARD",
+          "ABILITY_BIG_PECKS",
+          "ABILITY_HYDRATION"
+        ]
+      }
+    }
+  }
 }

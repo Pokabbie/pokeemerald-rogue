@@ -104,15 +104,25 @@
     {
       "Moves": [
         "MOVE_ACROBATICS",
-        "MOVE_ROOST",
         "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
         "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_GALE_WINGS",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6RU"
       ]
@@ -120,17 +130,14 @@
     {
       "Moves": [
         "MOVE_ACROBATICS",
-        "MOVE_SWORDS_DANCE",
         "MOVE_ROOST",
+        "MOVE_SWORDS_DANCE",
         "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6RU"
       ]
     },
     {
@@ -143,26 +150,8 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ACROBATICS",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_GALE_WINGS",
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
       ]
     }
   ]

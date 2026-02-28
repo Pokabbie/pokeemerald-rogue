@@ -95,18 +95,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RECOVER",
         "MOVE_HYDRO_PUMP",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RECOVER"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HAZE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN7ZU",
+        "GEN7ZU"
       ]
     },
     {
@@ -118,9 +117,7 @@
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -128,17 +125,43 @@
     {
       "Moves": [
         "MOVE_RECOVER",
-        "MOVE_HAZE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
         "MOVE_TOXIC_SPIKES",
-        "MOVE_TOXIC"
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN8LC"
       ]
     },
     {
@@ -151,8 +174,6 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -160,63 +181,27 @@
     {
       "Moves": [
         "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
         "MOVE_TOXIC_SPIKES",
-        "MOVE_HAZE"
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU",
-        "GEN7ZU"
+        "GEN9ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_SLUDGE_BOMB",
         "MOVE_SURF",
-        "MOVE_ICE_BEAM"
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_RECOVER",
+        "MOVE_IRON_DEFENSE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
+      "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
         "GEN9LC"
@@ -232,24 +217,6 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_RECOVER",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
         "GEN9LC"
       ]

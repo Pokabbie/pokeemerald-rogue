@@ -105,22 +105,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DEFOG",
         "MOVE_BRAVE_BIRD",
         "MOVE_U_TURN",
@@ -129,11 +113,45 @@
       "Ability": "ABILITY_INFILTRATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HURRICANE"
+    ],
+    "PerSpecies": {
+      "SPECIES_ZUBAT": {
+        "Abilities": [
+          "ABILITY_INNER_FOCUS",
+          "ABILITY_SNIPER",
+          "ABILITY_INFILTRATOR"
+        ],
+        "BaseStats": {
+          "HP": 40,
+          "Attack": 45,
+          "Defense": 35,
+          "Speed": 55,
+          "SpAttack": 45,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

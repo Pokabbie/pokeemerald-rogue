@@ -108,114 +108,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_SCALD",
-        "MOVE_HEX",
         "MOVE_WILL_O_WISP",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_SHADOW_BALL",
+        "MOVE_NIGHT_SHADE",
         "MOVE_RECOVER",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_SHADOW_BALL",
-        "MOVE_RECOVER",
-        "MOVE_WILL_O_WISP"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_SHADOW_BALL",
-        "MOVE_RECOVER",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_WILL_O_WISP",
-        "MOVE_HEX",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_SCALD",
-        "MOVE_RECOVER",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SHADOW_BALL",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6NU",
+        "GEN6ZU"
       ]
     },
     {
@@ -228,8 +131,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
@@ -237,19 +138,142 @@
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_NIGHT_SHADE",
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
         "MOVE_RECOVER",
-        "MOVE_TAUNT"
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WATER_SPOUT",
+          "MOVE_HYDRO_PUMP",
+          "MOVE_SHADOW_BALL",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_WATER_BUBBLE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WATER_SPOUT",
+          "MOVE_SHADOW_BALL",
+          "MOVE_ENERGY_BALL",
+          "MOVE_TRICK"
+        ],
+        "Ability": "ABILITY_WATER_BUBBLE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FRILLISH": {
+        "Abilities": [
+          "ABILITY_WATER_ABSORB",
+          "ABILITY_CURSED_BODY",
+          "ABILITY_WATER_BUBBLE"
+        ]
+      }
+    }
+  }
 }

@@ -120,26 +120,22 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_LEAF_STORM",
         "MOVE_SUPERPOWER",
-        "MOVE_SYNTHESIS"
+        "MOVE_LEAF_STORM",
+        "MOVE_SYNTHESIS",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7PU"
       ]
     },
     {
@@ -152,74 +148,8 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SUPERPOWER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SUPERPOWER",
-        "MOVE_SYNTHESIS",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SUPERPOWER",
-        "MOVE_SYNTHESIS",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_LEAF_BLADE",
-        "MOVE_PROTECT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_FIGY_BERRY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
       ]
     },
     {
@@ -232,8 +162,6 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES"
       ]
@@ -241,33 +169,15 @@
     {
       "Moves": [
         "MOVE_SUPERPOWER",
-        "MOVE_LEAF_STORM",
-        "MOVE_SYNTHESIS",
-        "MOVE_DEFOG"
+        "MOVE_LEAF_BLADE",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUPERPOWER",
-        "MOVE_LEAF_STORM",
-        "MOVE_SYNTHESIS",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -279,9 +189,21 @@
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_LEAF_STORM",
+        "MOVE_SUPERPOWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -295,11 +217,81 @@
       ],
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DEFOG",
+        "MOVE_TERA_BLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_LEAF_STORM",
+        "MOVE_SYNTHESIS",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SUPERPOWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SUPERPOWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ZU"
       ]
     }
   ]

@@ -115,18 +115,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_TIDY_UP",
         "MOVE_POPULATION_BOMB",
-        "MOVE_FOLLOW_ME",
-        "MOVE_PROTECT",
+        "MOVE_BITE",
         "MOVE_ENCORE"
       ],
-      "Ability": "ABILITY_FRIEND_GUARD",
+      "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9OU"
       ]
     },
     {
@@ -139,8 +138,6 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9OU",
         "GEN9UU",
@@ -151,18 +148,31 @@
     },
     {
       "Moves": [
-        "MOVE_POPULATION_BOMB",
         "MOVE_TIDY_UP",
-        "MOVE_BULLET_SEED",
-        "MOVE_BEAT_UP"
+        "MOVE_POPULATION_BOMB",
+        "MOVE_BITE",
+        "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POPULATION_BOMB",
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_FRIEND_GUARD",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
       ]
     },
     {
@@ -175,26 +185,22 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN91V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_TIDY_UP",
         "MOVE_POPULATION_BOMB",
-        "MOVE_BITE",
-        "MOVE_ENCORE"
+        "MOVE_TIDY_UP",
+        "MOVE_BULLET_SEED",
+        "MOVE_BEAT_UP"
       ],
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -207,8 +213,6 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_WIDE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]

@@ -150,12 +150,24 @@
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_WATCHOG": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 95,
+          "Defense": 75,
+          "Speed": 85,
+          "SpAttack": 60,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

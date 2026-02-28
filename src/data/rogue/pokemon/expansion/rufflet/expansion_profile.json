@@ -104,55 +104,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AERIAL_ACE",
-        "MOVE_SUPERPOWER",
-        "MOVE_ROOST",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUPERPOWER",
-        "MOVE_BULK_UP",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_SUPERPOWER",
-        "MOVE_U_TURN",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BULK_UP",
         "MOVE_AERIAL_ACE",
         "MOVE_SUPERPOWER",
@@ -161,8 +112,6 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -177,11 +126,57 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_STEEL_WING"
+    ]
+  }
 }

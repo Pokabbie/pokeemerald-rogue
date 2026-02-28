@@ -88,22 +88,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_COTTON_GUARD",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_FLUFFY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_COTTON_GUARD",
         "MOVE_BODY_PRESS",
         "MOVE_REST",
@@ -112,11 +96,44 @@
       "Ability": "ABILITY_FLUFFY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_COTTON_GUARD",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_DUBWOOL": {
+        "BaseStats": {
+          "HP": 82,
+          "Attack": 90,
+          "Defense": 100,
+          "Speed": 88,
+          "SpAttack": 60,
+          "SpDefense": 90
+        }
+      }
+    }
+  }
 }

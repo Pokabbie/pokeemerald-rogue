@@ -128,14 +128,26 @@
       "Moves": [
         "MOVE_BULK_UP",
         "MOVE_HORN_LEECH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
         "MOVE_EARTHQUAKE",
         "MOVE_MILK_DRINK"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN7PU"
@@ -143,38 +155,6 @@
     },
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_HORN_LEECH",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_HORN_LEECH",
-        "MOVE_SUBSTITUTE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HORN_LEECH",
         "MOVE_BULK_UP",
         "MOVE_EARTHQUAKE",
@@ -183,26 +163,36 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HORN_LEECH",
         "MOVE_BULK_UP",
-        "MOVE_MILK_DRINK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HORN_LEECH",
         "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9PU"
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROAR",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ZU"
       ]
     },
     {
@@ -215,11 +205,76 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_BULK_UP",
+        "MOVE_MILK_DRINK",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUPERPOWER",
+      "MOVE_RETURN",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BULK_UP",
+          "MOVE_HORN_LEECH",
+          "MOVE_RETURN",
+          "MOVE_MILK_DRINK"
+        ],
+        "Ability": "ABILITY_SAP_SIPPER",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BULK_UP",
+          "MOVE_HORN_LEECH",
+          "MOVE_ROCK_CLIMB",
+          "MOVE_MILK_DRINK"
+        ],
+        "Ability": "ABILITY_SAP_SIPPER",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_GOGOAT": {
+        "Types": [
+          "TYPE_GRASS",
+          "TYPE_NORMAL"
+        ],
+        "BaseStats": {
+          "HP": 123,
+          "Attack": 108,
+          "Defense": 72,
+          "Speed": 74,
+          "SpAttack": 67,
+          "SpDefense": 87
+        }
+      }
+    }
+  }
 }

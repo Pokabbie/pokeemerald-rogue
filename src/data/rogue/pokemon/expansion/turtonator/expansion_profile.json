@@ -127,22 +127,6 @@
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_DRACO_METEOR",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SHELL_ARMOR",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
         "MOVE_FIRE_BLAST",
         "MOVE_DRACO_METEOR",
         "MOVE_DRAGON_PULSE"
@@ -150,8 +134,20 @@
       "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -166,8 +162,6 @@
       "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
@@ -182,11 +176,34 @@
       "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM",
+      "MOVE_SHOCK_WAVE",
+      "MOVE_LAVA_PLUME",
+      "MOVE_DRAGON_TAIL"
+    ],
+    "PerSpecies": {
+      "SPECIES_TURTONATOR": {
+        "Abilities": [
+          "ABILITY_SHELL_ARMOR",
+          "ABILITY_ANGER_SHELL",
+          "ABILITY_MAGMA_ARMOR"
+        ],
+        "BaseStats": {
+          "HP": 80,
+          "Attack": 58,
+          "Defense": 135,
+          "Speed": 36,
+          "SpAttack": 101,
+          "SpDefense": 85
+        }
+      }
+    }
+  }
 }

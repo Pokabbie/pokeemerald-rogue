@@ -111,18 +111,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DYNAMAX_CANNON"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLAMETHROWER",
         "MOVE_METEOR_BEAM",
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FIRE_BLAST"
+        "MOVE_DYNAMAX_CANNON"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN8UBERS"
       ]
     },
     {
@@ -135,186 +147,8 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_RECOVER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TOXIC",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_RECOVER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_RECOVER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_RECOVER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FIRE_BLAST",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DYNAMAX_CANNON",
-        "MOVE_TOXIC",
-        "MOVE_FLAMETHROWER",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
       ]
     },
     {
@@ -327,8 +161,6 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
       ]
@@ -343,43 +175,219 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
+        "MOVE_DYNAMAX_CANNON",
         "MOVE_FLAMETHROWER",
-        "MOVE_DYNAMAX_CANNON"
+        "MOVE_RECOVER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_RECOVER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_METEOR_BEAM",
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_RECOVER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
         "MOVE_SLUDGE_BOMB",
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FIRE_BLAST",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_RECOVER",
         "MOVE_FLAMETHROWER",
-        "MOVE_METEOR_BEAM",
-        "MOVE_DYNAMAX_CANNON"
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DYNAMAX_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_RETURN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DYNAMAX_CANNON",
+          "MOVE_TOXIC",
+          "MOVE_TOXIC_SPIKES",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_PRESSURE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_FAIRY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

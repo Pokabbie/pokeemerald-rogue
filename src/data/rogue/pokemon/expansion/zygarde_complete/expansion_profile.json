@@ -1,0 +1,425 @@
+{
+  "Species": [
+    "SPECIES_ZYGARDE_COMPLETE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THOUSAND_ARROWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THOUSAND_WAVES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CORE_ENFORCER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LANDS_WRATH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 88
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_TAIL",
+    "MOVE_OUTRAGE",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS",
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_COIL",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_THOUSAND_WAVES",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7RU",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SUPERPOWER",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_COIL",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_GLARE",
+        "MOVE_REST",
+        "MOVE_COIL"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_COIL",
+        "MOVE_REST",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_WAVES",
+        "MOVE_COIL",
+        "MOVE_SCALE_SHOT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_THOUSAND_WAVES",
+        "MOVE_SUPERPOWER",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_SKITTER_SMACK",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SCALE_SHOT"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_REST",
+        "MOVE_COIL",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THOUSAND_ARROWS",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_POWER_CONSTRUCT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    }
+  ]
+}

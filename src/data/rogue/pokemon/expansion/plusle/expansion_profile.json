@@ -128,22 +128,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUBSTITUTE",
         "MOVE_NASTY_PLOT",
         "MOVE_THUNDERBOLT",
@@ -153,10 +137,43 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_PSYCHIC",
+      "MOVE_SIGNAL_BEAM",
+      "MOVE_FLASH_CANNON"
+    ],
+    "PerSpecies": {
+      "SPECIES_PLUSLE": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 50,
+          "Defense": 50,
+          "Speed": 110,
+          "SpAttack": 95,
+          "SpDefense": 85
+        }
+      }
+    }
+  }
 }

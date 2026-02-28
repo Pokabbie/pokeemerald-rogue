@@ -124,8 +124,6 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"

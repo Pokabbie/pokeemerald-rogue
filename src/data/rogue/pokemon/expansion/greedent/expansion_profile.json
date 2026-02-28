@@ -115,8 +115,6 @@
       "Ability": "ABILITY_CHEEK_POUCH",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -131,11 +129,26 @@
       "Ability": "ABILITY_CHEEK_POUCH",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_COVET",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_RECYCLE",
+        "Level": 62
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

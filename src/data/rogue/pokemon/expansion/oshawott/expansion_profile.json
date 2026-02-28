@@ -121,8 +121,6 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -137,11 +135,34 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUCKER_PUNCH",
+      "MOVE_DRILL_RUN",
+      "MOVE_COVET",
+      "MOVE_SCALD"
+    ],
+    "PerSpecies": {
+      "SPECIES_OSHAWOTT": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_SHELL_ARMOR",
+          "ABILITY_SUPER_LUCK"
+        ],
+        "BaseStats": {
+          "HP": 55,
+          "Attack": 63,
+          "Defense": 45,
+          "Speed": 45,
+          "SpAttack": 55,
+          "SpDefense": 45
+        }
+      }
+    }
+  }
 }

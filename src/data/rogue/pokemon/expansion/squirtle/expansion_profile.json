@@ -114,6 +114,20 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
+        "MOVE_FAKE_OUT",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_AQUA_JET",
         "MOVE_FAKE_OUT",
         "MOVE_HYDRO_PUMP"
@@ -121,8 +135,6 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -137,26 +149,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FAKE_OUT",
-        "MOVE_WATERFALL",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     },
     {
@@ -169,11 +163,36 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_RAPID_SPIN",
+          "MOVE_FAKE_OUT",
+          "MOVE_WATERFALL",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_IMPISH",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SQUIRTLE": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_RAIN_DISH",
+          "ABILITY_SHELL_ARMOR"
+        ]
+      }
+    }
+  }
 }

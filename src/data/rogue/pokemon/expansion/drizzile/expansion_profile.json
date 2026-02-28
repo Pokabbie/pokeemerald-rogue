@@ -95,11 +95,25 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ],
+    "PerSpecies": {
+      "SPECIES_DRIZZILE": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_SHED_SKIN",
+          "ABILITY_SNIPER"
+        ]
+      }
+    }
+  }
 }

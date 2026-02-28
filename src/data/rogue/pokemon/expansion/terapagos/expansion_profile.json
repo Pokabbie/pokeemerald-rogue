@@ -111,34 +111,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_TERA_STARSTORM",
-        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
         "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_TERA_SHIFT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TOXIC",
-        "MOVE_ROAR"
-      ],
       "Ability": "ABILITY_TERA_SHELL",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STELLAR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UBERS"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -151,43 +133,22 @@
       "Ability": "ABILITY_TERA_SHIFT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TERA_STARSTORM",
-        "MOVE_ICE_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_TERA_SHELL",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
+        "MOVE_CALM_MIND",
         "MOVE_TERA_STARSTORM",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER",
-        "MOVE_RAPID_SPIN"
+        "MOVE_RAPID_SPIN",
+        "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_TERA_SHELL",
+      "Ability": "ABILITY_TERA_SHIFT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

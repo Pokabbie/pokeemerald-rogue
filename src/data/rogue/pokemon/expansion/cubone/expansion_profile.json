@@ -121,14 +121,27 @@
       "Moves": [
         "MOVE_BONEMERANG",
         "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_THICK_CLUB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BONEMERANG",
+        "MOVE_KNOCK_OFF",
         "MOVE_FIRE_PUNCH",
         "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -143,8 +156,6 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -159,28 +170,15 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_THICK_CLUB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_BONEMERANG",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_THICK_CLUB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HEAD_SMASH",
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

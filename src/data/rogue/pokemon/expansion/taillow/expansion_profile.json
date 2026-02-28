@@ -102,30 +102,26 @@
       "Moves": [
         "MOVE_BOOMBURST",
         "MOVE_HEAT_WAVE",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOOMBURST",
-        "MOVE_HEAT_WAVE",
         "MOVE_U_TURN",
         "MOVE_BRAVE_BIRD"
       ],
       "Ability": "ABILITY_SCRAPPY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -140,10 +136,37 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -156,43 +179,14 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FACADE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FACADE",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_GUTS",
-      "Item": "ITEM_TOXIC_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DUAL_WINGBEAT"
+    ]
+  }
 }

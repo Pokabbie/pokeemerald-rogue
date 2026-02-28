@@ -110,22 +110,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_BLAST",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_HEAVY_SLAM",
         "MOVE_ROCK_BLAST",
@@ -134,8 +118,6 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -150,11 +132,48 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 51
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SHIELDON": {
+        "Abilities": [
+          "ABILITY_STURDY",
+          "ABILITY_SOLID_ROCK",
+          "ABILITY_SOUNDPROOF"
+        ],
+        "BaseStats": {
+          "HP": 30,
+          "Attack": 62,
+          "Defense": 118,
+          "Speed": 30,
+          "SpAttack": 22,
+          "SpDefense": 88
+        }
+      }
+    }
+  }
 }

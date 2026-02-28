@@ -86,118 +86,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SURF",
-        "MOVE_ICY_WIND"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ENCORE",
-        "MOVE_HYPNOSIS",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ENCORE",
-        "MOVE_ICE_BEAM",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ENCORE",
-        "MOVE_REST",
-        "MOVE_HYPNOSIS"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HELPING_HAND",
-        "MOVE_ENCORE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HELPING_HAND",
-        "MOVE_ICY_WIND",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HYPNOSIS",
-        "MOVE_ENCORE",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_HYPNOSIS",
         "MOVE_ENCORE",
@@ -206,59 +94,9 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU",
         "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_ENCORE",
-        "MOVE_HYPNOSIS"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_ENCORE",
-        "MOVE_HYPNOSIS"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_ENCORE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
       ]
     },
     {
@@ -272,7 +110,6 @@
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -281,16 +118,14 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_HYPNOSIS",
-        "MOVE_ENCORE"
+        "MOVE_ENCORE",
+        "MOVE_HYPNOSIS"
       ],
-      "Ability": "ABILITY_DRIZZLE",
+      "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6PU"
       ]
     },
     {
@@ -303,10 +138,22 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -319,10 +166,36 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_DAMP_ROCK",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -336,7 +209,6 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
@@ -344,145 +216,15 @@
     {
       "Moves": [
         "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND",
-        "MOVE_HELPING_HAND",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICY_WIND",
-        "MOVE_HELPING_HAND",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PROTECT",
-        "MOVE_HELPING_HAND",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PROTECT",
         "MOVE_ICE_BEAM",
+        "MOVE_HYPNOSIS",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PERISH_SONG",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PERISH_SONG",
-        "MOVE_PROTECT",
-        "MOVE_ENCORE",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HELPING_HAND",
-        "MOVE_PERISH_SONG"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HELPING_HAND",
-        "MOVE_PERISH_SONG"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_HELPING_HAND",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -495,10 +237,78 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HELPING_HAND",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HELPING_HAND",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PROTECT",
+        "MOVE_HELPING_HAND",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2017"
       ]
     },
     {
@@ -511,40 +321,147 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PROTECT",
         "MOVE_ICE_BEAM",
-        "MOVE_TERA_BLAST",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GRASS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_WHIRLPOOL",
-        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HELPING_HAND",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ENCORE",
         "MOVE_ICE_BEAM",
-        "MOVE_ENCORE"
+        "MOVE_REST"
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENCORE",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ENCORE",
+        "MOVE_HYPNOSIS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HYPNOSIS",
+        "MOVE_ENCORE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HELPING_HAND",
+        "MOVE_ICY_WIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HELPING_HAND",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ENCORE",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9RU"
       ]

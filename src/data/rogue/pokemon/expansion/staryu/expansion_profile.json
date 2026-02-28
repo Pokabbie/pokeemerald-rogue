@@ -107,66 +107,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_SCALD",
-        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAPID_SPIN",
         "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -179,10 +129,50 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -195,26 +185,22 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_SCALD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT",
         "MOVE_ICE_BEAM",
-        "MOVE_RAPID_SPIN",
         "MOVE_RECOVER"
       ],
-      "Ability": "ABILITY_NATURAL_CURE",
+      "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     },
     {
@@ -227,8 +213,6 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -243,8 +227,6 @@
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]

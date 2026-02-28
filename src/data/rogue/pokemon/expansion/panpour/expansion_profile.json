@@ -134,7 +134,6 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -150,7 +149,6 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]

@@ -152,98 +152,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_BATON_PASS",
+        "MOVE_WISH",
         "MOVE_SCALD",
-        "MOVE_AQUA_RING"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_TEARS",
-        "MOVE_YAWN",
         "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_HAZE",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
+        "MOVE_HEAL_BELL"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM",
-        "MOVE_YAWN",
-        "MOVE_REST"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_SUBSTITUTE",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN6UU"
       ]
     },
     {
@@ -256,8 +174,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU",
         "GEN8RU"
@@ -268,16 +184,13 @@
         "MOVE_SCALD",
         "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN8NU",
-        "GEN8NU"
+        "GEN7UU"
       ]
     },
     {
@@ -290,8 +203,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
@@ -306,8 +217,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU",
         "GEN7NU"
@@ -316,17 +225,41 @@
     {
       "Moves": [
         "MOVE_SCALD",
+        "MOVE_SUBSTITUTE",
         "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_SUBSTITUTE"
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7UU"
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_TEARS",
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_YAWN",
+        "MOVE_REST"
+      ],
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
       ]
     },
     {
@@ -339,10 +272,23 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8NU"
       ]
     },
     {
@@ -355,10 +301,23 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_HAZE",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
       ]
     },
     {
@@ -371,27 +330,150 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
         "MOVE_SCALD",
+        "MOVE_WISH",
         "MOVE_PROTECT",
-        "MOVE_HEAL_BELL"
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BATON_PASS",
+        "MOVE_SCALD",
+        "MOVE_AQUA_RING"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BABY_DOLL_EYES",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_AQUA_RING",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_SCALD",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_ACID_ARMOR",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_EXTRASENSORY",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_HAZE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_MUDDY_WATER",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_LAST_RESORT",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_ICE_BEAM",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_BOUNCY_BUBBLE",
+        "Level": 60
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_GRASS_KNOT",
+      "MOVE_TOXIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BOUNCY_BUBBLE",
+          "MOVE_TOXIC",
+          "MOVE_WISH",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_TEARS",
+          "MOVE_YAWN",
+          "MOVE_PROTECT",
+          "MOVE_BOUNCY_BUBBLE"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_WATERIUM_Z",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WISH",
+          "MOVE_PROTECT",
+          "MOVE_FLIP_TURN",
+          "MOVE_BOUNCY_BUBBLE"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

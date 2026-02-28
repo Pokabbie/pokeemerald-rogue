@@ -91,38 +91,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SPORE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_MOONBLAST",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPORE",
         "MOVE_MOONBLAST",
         "MOVE_GIGA_DRAIN",
@@ -131,10 +99,36 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

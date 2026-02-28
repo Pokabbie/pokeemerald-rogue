@@ -98,235 +98,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_SYNTHESIS",
-        "MOVE_LEAF_BLADE",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX",
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SYNTHESIS",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_AERIAL_ACE",
-        "MOVE_SMART_STRIKE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SMART_STRIKE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_PROTECT",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU",
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE",
-        "MOVE_DETECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE",
-        "MOVE_GUILLOTINE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SMART_STRIKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7BATTLESPOTSINGLES",
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_LEAF_BLADE",
         "MOVE_SACRED_SWORD",
         "MOVE_SMART_STRIKE",
@@ -335,254 +106,11 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS",
         "GEN7ANYTHINGGOES",
         "GEN8UBERS",
         "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SUBSTITUTE",
-        "MOVE_DETECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_TAILWIND",
-        "MOVE_DETECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_AGUAV_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_TAILWIND",
-        "MOVE_DETECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_TAILWIND",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_MAGO_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_DETECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_GIGA_IMPACT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_NIGHT_SLASH"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SMART_STRIKE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_SYNTHESIS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SACRED_SWORD"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_PROTECTIVE_PADS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
       ]
     },
     {
@@ -595,11 +123,111 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU",
         "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SMART_STRIKE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7VGC2018"
       ]
     },
     {
@@ -612,10 +240,305 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_TAILWIND",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_TAILWIND",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX",
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SACRED_SWORD",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SYNTHESIS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SMART_STRIKE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE",
+        "MOVE_GUILLOTINE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SMART_STRIKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SMART_STRIKE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
       ]
     }
   ]

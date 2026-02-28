@@ -114,22 +114,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_EARLY_BIRD",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_LEAF_STORM",
         "MOVE_EARTH_POWER",
         "MOVE_HIDDEN_POWER",
@@ -139,7 +123,6 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -154,11 +137,143 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FLAME_BURST",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_FLAME_BURST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FLOWER_SHIELD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ABSORB",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_GRASS_WHISTLE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_NATURAL_GIFT",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SUNNY_DAY",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_HEAT_WAVE",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_FIERY_DANCE",
+        "Level": 57
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_OVERHEAT",
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_FLAMETHROWER",
+      "MOVE_FIRE_BLAST",
+      "MOVE_HEAT_WAVE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SOLAR_BEAM",
+          "MOVE_EARTH_POWER",
+          "MOVE_FLAMETHROWER",
+          "MOVE_GIGA_DRAIN"
+        ],
+        "Ability": "ABILITY_SOLAR_POWER",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SOLAR_BEAM",
+          "MOVE_EARTH_POWER",
+          "MOVE_FIRE_BLAST",
+          "MOVE_GIGA_DRAIN"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PROTECT",
+          "MOVE_HEAT_WAVE",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_HELPING_HAND"
+        ],
+        "Ability": "ABILITY_SEED_SOWER",
+        "Item": "ITEM_GRASSY_SEED",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SUNFLORA": {
+        "Types": [
+          "TYPE_GRASS",
+          "TYPE_FIRE"
+        ],
+        "Abilities": [
+          "ABILITY_CHLOROPHYLL",
+          "ABILITY_SOLAR_POWER",
+          "ABILITY_SEED_SOWER"
+        ],
+        "BaseStats": {
+          "HP": 85,
+          "Attack": 55,
+          "Defense": 85,
+          "Speed": 30,
+          "SpAttack": 125,
+          "SpDefense": 95
+        }
+      }
+    }
+  }
 }

@@ -147,34 +147,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BELLY_DRUM",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_IMMUNITY",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_QUICK_ATTACK"
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_TOXIC_BOOST",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN6RU"
       ]
     },
     {
@@ -187,8 +169,6 @@
       "Ability": "ABILITY_TOXIC_BOOST",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
         "GEN7PU"
@@ -197,17 +177,29 @@
     {
       "Moves": [
         "MOVE_FACADE",
-        "MOVE_QUICK_ATTACK",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
+        "MOVE_KNOCK_OFF",
+        "MOVE_QUICK_ATTACK"
       ],
       "Ability": "ABILITY_TOXIC_BOOST",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IMMUNITY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -220,12 +212,110 @@
       "Ability": "ABILITY_TOXIC_BOOST",
       "Item": "ITEM_TOXIC_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU",
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_FURY_CUTTER",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_QUICK_GUARD",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_HONE_CLAWS",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_REVENGE",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_METAL_CLAW",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_DISABLE",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_EMBARGO",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_DETECT",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_SWORDS_DANCE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_BELLY_DRUM",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_LUNGE",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 58
+      },
+      {
+        "Move": "MOVE_LAST_RESORT",
+        "Level": 62
+      },
+      {
+        "Move": "MOVE_FINAL_GAMBIT",
+        "Level": 66
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ACROBATICS",
+      "MOVE_ROCK_CLIMB",
+      "MOVE_CUT"
+    ],
+    "PerSpecies": {
+      "SPECIES_ZANGOOSE": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 115,
+          "Defense": 60,
+          "Speed": 95,
+          "SpAttack": 60,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

@@ -119,50 +119,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DESTINY_BOND",
-        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
         "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_SNEAK"
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DESTINY_BOND"
       ],
-      "Ability": "ABILITY_PRANKSTER",
+      "Ability": "ABILITY_FRISK",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
+        "GEN6UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DESTINY_BOND",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_BANETTITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DESTINY_BOND",
-        "MOVE_SHADOW_CLAW",
+        "MOVE_TAUNT",
         "MOVE_WILL_O_WISP",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DESTINY_BOND"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6UU"
       ]
     },
     {
@@ -175,90 +155,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
       ]
     },
     {
@@ -271,8 +169,6 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
@@ -287,74 +183,8 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_CLAW",
-        "MOVE_KNOCK_OFF",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_CLAW",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_BANETTITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SHADOW_CLAW",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_BANETTITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
       ]
     },
     {
@@ -367,11 +197,320 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_BANETTITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PHANTOM_FORCE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_NIGHT_SHADE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_SPITE",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_SHADOW_SNEAK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_EMBARGO",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_SNATCH",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_GRUDGE",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_TRICK",
+        "Level": 58
+      },
+      {
+        "Move": "MOVE_PHANTOM_FORCE",
+        "Level": 64
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 70
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_RETURN",
+      "MOVE_CUT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_POLTERGEIST",
+          "MOVE_RETURN",
+          "MOVE_DESTINY_BOND",
+          "MOVE_KNOCK_OFF"
+        ],
+        "Ability": "ABILITY_FRISK",
+        "Item": "ITEM_BANETTITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_POLTERGEIST",
+          "MOVE_RETURN",
+          "MOVE_WILL_O_WISP",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_INSOMNIA",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_BANETTE": {
+        "Types": [
+          "TYPE_GHOST",
+          "TYPE_NORMAL"
+        ],
+        "BaseStats": {
+          "HP": 64,
+          "Attack": 125,
+          "Defense": 65,
+          "Speed": 65,
+          "SpAttack": 93,
+          "SpDefense": 63
+        }
+      },
+      "SPECIES_BANETTE_MEGA": {
+        "Types": [
+          "TYPE_GHOST",
+          "TYPE_NORMAL"
+        ],
+        "BaseStats": {
+          "HP": 64,
+          "Attack": 175,
+          "Defense": 75,
+          "Speed": 75,
+          "SpAttack": 103,
+          "SpDefense": 83
+        }
+      }
+    }
+  }
 }

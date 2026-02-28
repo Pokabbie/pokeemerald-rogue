@@ -112,18 +112,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_COIL",
-        "MOVE_SUPERCELL_SLAM",
-        "MOVE_DRAIN_PUNCH",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
       ]
     },
     {
@@ -136,26 +148,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
       ]
     },
     {
@@ -168,10 +162,22 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -184,10 +190,38 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_COIL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_U_TURN",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -200,8 +234,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NU"
       ]
@@ -216,7 +248,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9ZU"
@@ -224,35 +255,85 @@
     },
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_GIGA_DRAIN",
+        "MOVE_COIL",
+        "MOVE_SUPERCELL_SLAM",
+        "MOVE_DRAIN_PUNCH",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_FLAMETHROWER",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_OUTRAGE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_OUTRAGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_NUZZLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FOCUS_PUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BREAKING_SWIPE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ION_DELUGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 75
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_PSYCHIC_FANGS",
+      "MOVE_DRAINING_KISS",
+      "MOVE_LEECH_LIFE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_U_TURN",
+          "MOVE_WILD_CHARGE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_NUZZLE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_ASSAULT_VEST",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_KNOCK_OFF",
+          "MOVE_COIL",
+          "MOVE_DRAIN_PUNCH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

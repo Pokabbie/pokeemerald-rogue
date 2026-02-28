@@ -127,8 +127,20 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -143,58 +155,8 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_LASH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -207,26 +169,50 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
         "MOVE_GIGA_DRAIN",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_LASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
       ]
     },
     {
@@ -239,11 +225,112 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HONE_CLAWS",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_INCINERATE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_BIND",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_FIRE_SPIN",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_FURY_SWIPES",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_SNATCH",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_FLAME_BURST",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_BUG_BITE",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_CROSS_CHOP",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_FIRE_LASH",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_AMNESIA",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_FLAMETHROWER",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_STOCKPILE",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_SPIT_UP",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_SWALLOW",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 61
+      },
+      {
+        "Move": "MOVE_INFERNO",
+        "Level": 66
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_POWER_WHIP",
+      "MOVE_WORK_UP",
+      "MOVE_ROCK_CLIMB",
+      "MOVE_LOW_SWEEP"
+    ],
+    "PerSpecies": {
+      "SPECIES_HEATMOR": {
+        "Abilities": [
+          "ABILITY_MOLD_BREAKER",
+          "ABILITY_FLASH_FIRE",
+          "ABILITY_WHITE_SMOKE"
+        ],
+        "BaseStats": {
+          "HP": 85,
+          "Attack": 105,
+          "Defense": 66,
+          "Speed": 65,
+          "SpAttack": 97,
+          "SpDefense": 66
+        }
+      }
+    }
+  }
 }

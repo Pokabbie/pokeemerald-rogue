@@ -135,18 +135,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
         "MOVE_SEED_BOMB",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -159,24 +157,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SEED_BOMB",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -191,11 +171,94 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SEED_BOMB",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_NEEDLE_ARM",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_ENERGY_BALL",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_COTTON_SPORE",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_SANDSTORM",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_DESTINY_BOND",
+        "Level": 58
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SCORCHING_SANDS",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SUCKER_PUNCH",
+          "MOVE_NEEDLE_ARM",
+          "MOVE_DRAIN_PUNCH"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SUCKER_PUNCH",
+          "MOVE_NEEDLE_ARM",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CACNEA": {
+        "Abilities": [
+          "ABILITY_SAND_VEIL",
+          "ABILITY_UNNERVE",
+          "ABILITY_WATER_ABSORB"
+        ]
+      }
+    }
+  }
 }

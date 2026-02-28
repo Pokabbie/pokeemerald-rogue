@@ -124,8 +124,6 @@
       "Ability": "ABILITY_FLUFFY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

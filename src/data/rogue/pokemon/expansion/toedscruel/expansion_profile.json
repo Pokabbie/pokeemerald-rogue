@@ -135,7 +135,6 @@
       "Ability": "ABILITY_MYCELIUM_MIGHT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9ZU"
@@ -151,8 +150,6 @@
       "Ability": "ABILITY_MYCELIUM_MIGHT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]

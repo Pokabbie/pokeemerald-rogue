@@ -131,22 +131,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_COUNTER",
-        "MOVE_WISH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WISH",
         "MOVE_PROTECT",
         "MOVE_PSYCHIC",
@@ -155,10 +139,22 @@
       "Ability": "ABILITY_INSOMNIA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_COUNTER",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     }
   ]

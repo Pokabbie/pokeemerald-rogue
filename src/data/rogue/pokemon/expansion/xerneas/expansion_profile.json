@@ -129,6 +129,78 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_GEOMANCY",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_AROMATHERAPY",
+        "MOVE_THUNDER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_REST",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_SLEEP_TALK",
         "MOVE_REST",
@@ -137,41 +209,22 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONBLAST",
         "MOVE_GEOMANCY",
-        "MOVE_PROTECT",
-        "MOVE_MOONBLAST"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDER"
       ],
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_REST",
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
+        "GEN6UBERS",
         "GEN7UBERS"
       ]
     },
@@ -185,10 +238,135 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GEOMANCY",
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEOMANCY",
+        "MOVE_MOONBLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES",
+        "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_GEOMANCY",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_AROMATHERAPY",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_REST",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
       ]
     },
     {
@@ -201,26 +379,8 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_FAIRIUM_Z",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GEOMANCY",
-        "MOVE_MOONBLAST",
-        "MOVE_DRAINING_KISS",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -233,43 +393,36 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_GEOMANCY",
         "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDER"
+        "MOVE_THUNDER",
+        "MOVE_AROMATHERAPY",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_GEOMANCY",
         "MOVE_MOONBLAST",
-        "MOVE_THUNDER",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_GEOMANCY",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS",
-        "GEN7UBERS"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -282,10 +435,64 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_GEOMANCY",
+        "MOVE_THUNDER",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEOMANCY",
+        "MOVE_MOONBLAST",
+        "MOVE_DRAINING_KISS",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_FAIRY_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
         "GEN8ANYTHINGGOES"
       ]
     },
@@ -299,265 +506,6 @@
       "Ability": "ABILITY_FAIRY_AURA",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_AROMATHERAPY",
-        "MOVE_THUNDER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_AROMATHERAPY",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_GEOMANCY",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_GEOMANCY",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS",
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_GEOMANCY",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_GEOMANCY",
-        "MOVE_THUNDER",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GRASS_KNOT",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES",
-        "GEN8UBERS",
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_REST",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER",
-        "MOVE_AROMATHERAPY",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DEFOG",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_FAIRY_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ANYTHINGGOES"
       ]

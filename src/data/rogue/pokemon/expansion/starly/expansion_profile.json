@@ -93,15 +93,14 @@
         "MOVE_BRAVE_BIRD",
         "MOVE_DOUBLE_EDGE",
         "MOVE_U_TURN",
-        "MOVE_HEAT_WAVE"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -109,15 +108,13 @@
         "MOVE_BRAVE_BIRD",
         "MOVE_DOUBLE_EDGE",
         "MOVE_U_TURN",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_HEAT_WAVE"
       ],
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC"
       ]
     }
   ]

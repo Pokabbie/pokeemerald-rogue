@@ -128,50 +128,44 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_SLAM",
+        "MOVE_RETURN",
         "MOVE_EARTHQUAKE",
         "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH"
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RETURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_IMPACT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BODY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_BODY_SLAM",
-        "MOVE_U_TURN",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
+        "GEN61V1"
       ]
     },
     {
@@ -184,74 +178,22 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_RETURN",
         "MOVE_EARTHQUAKE",
         "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_BODY_SLAM"
+        "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -264,42 +206,8 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RETURN",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_RETURN",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
       ]
     },
     {
@@ -312,8 +220,6 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
@@ -328,26 +234,8 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_IMPACT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
       ]
     },
     {
@@ -360,8 +248,6 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -376,74 +262,8 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_SILK_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
       ]
     },
     {
@@ -456,11 +276,149 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BODY_SLAM",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_DIGGERSBY": {
+        "BaseStats": {
+          "HP": 101,
+          "Attack": 61,
+          "Defense": 80,
+          "Speed": 78,
+          "SpAttack": 50,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

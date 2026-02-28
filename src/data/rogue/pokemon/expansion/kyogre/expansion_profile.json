@@ -106,34 +106,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP",
         "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN6UBERS"
       ]
     },
     {
@@ -146,541 +128,78 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ROAR",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ROAR",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER",
-        "MOVE_WATER_SPOUT"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER",
-        "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS",
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
+        "MOVE_WATERFALL",
         "MOVE_EARTHQUAKE",
         "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ORIGIN_PULSE",
         "MOVE_ICE_BEAM",
         "MOVE_THUNDER"
       ],
-      "Ability": "ABILITY_DRIZZLE",
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
       "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_LIQUIDATION",
+        "MOVE_WATERFALL",
         "MOVE_EARTHQUAKE",
         "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_PRIMORDIAL_SEA",
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_WATER_SPOUT"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_CALM_MIND",
-        "MOVE_WATER_SPOUT"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER",
-        "MOVE_ICE_BEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER",
-        "MOVE_ICE_BEAM",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER",
-        "MOVE_ICE_BEAM",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SPOUT"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_ICE_BEAM",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_WATER_SPOUT"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM"
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_CALM_MIND"
       ],
       "Ability": "ABILITY_PRIMORDIAL_SEA",
       "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_CALM_MIND",
-        "MOVE_SURF",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES",
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER",
-        "MOVE_WATER_SPOUT",
-        "MOVE_ICE_BEAM",
-        "MOVE_ORIGIN_PULSE"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_CALM_MIND",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_CALM_MIND",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_CALM_MIND",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
       ]
     },
     {
@@ -693,40 +212,6 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_BLUE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_ICE_BEAM",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_ICE_BEAM",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
       ]
@@ -741,8 +226,6 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
       ]
@@ -750,15 +233,293 @@
     {
       "Moves": [
         "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE",
         "MOVE_ICE_BEAM",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_ICE_BEAM",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_WATER_SPOUT"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_ICE_BEAM",
+        "MOVE_ORIGIN_PULSE",
         "MOVE_THUNDER"
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_SHEER_COLD",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_CALM_MIND",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_CALM_MIND",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_THUNDER",
+        "MOVE_WATER_SPOUT"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_WATER_SPOUT"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_NAUGHTY",
       "SourceTiers": [
         "GEN7ANYTHINGGOES"
       ]
@@ -772,43 +533,77 @@
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UBERS",
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS",
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER"
-      ],
-      "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_WATER_SPOUT"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SPOUT"
+      ],
+      "Ability": "ABILITY_PRIMORDIAL_SEA",
+      "Item": "ITEM_BLUE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8UBERS"
       ]
@@ -822,11 +617,95 @@
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_WATER_SPOUT",
+        "MOVE_ORIGIN_PULSE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS",
         "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_WATER_SPOUT",
+        "MOVE_ICE_BEAM",
+        "MOVE_ORIGIN_PULSE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
@@ -839,26 +718,69 @@
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
         "MOVE_WATER_SPOUT",
-        "MOVE_ORIGIN_PULSE",
-        "MOVE_SHEER_COLD",
-        "MOVE_THUNDER"
+        "MOVE_ORIGIN_PULSE"
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN8ANYTHINGGOES",
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_ORIGIN_PULSE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ORIGIN_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
       ]
     },
     {
@@ -870,44 +792,32 @@
       ],
       "Ability": "ABILITY_DRIZZLE",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_EARTHQUAKE",
+        "MOVE_WATER_SPOUT",
+        "MOVE_ORIGIN_PULSE",
         "MOVE_ICE_BEAM",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_THUNDER"
       ],
       "Ability": "ABILITY_DRIZZLE",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRIMORDIAL_SEA",
-      "Item": "ITEM_BLUE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
+        "GEN9ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FROST_BREATH",
+      "MOVE_WORK_UP"
+    ]
+  }
 }

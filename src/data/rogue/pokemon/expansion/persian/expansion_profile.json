@@ -134,26 +134,38 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WATER_PULSE"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_WATER_PULSE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -166,8 +178,6 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -182,8 +192,6 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -191,17 +199,15 @@
     {
       "Moves": [
         "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
-        "MOVE_COVET",
-        "MOVE_BODY_SLAM"
+        "MOVE_DOUBLE_EDGE"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_NORMAL_GEM",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN8ZU"
       ]
     },
     {
@@ -214,8 +220,6 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_SILK_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -223,35 +227,51 @@
     {
       "Moves": [
         "MOVE_FAKE_OUT",
-        "MOVE_WATER_PULSE",
         "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
+        "MOVE_COVET",
+        "MOVE_BODY_SLAM"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_NORMAL_GEM",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_HYPER_VOICE",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_WATER_PULSE"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GHOST",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7PU"
+        "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_QUASH",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SURF"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_RETURN",
+          "MOVE_KNOCK_OFF",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_SILK_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PERSIAN": {
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 115,
+          "SpAttack": 80,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

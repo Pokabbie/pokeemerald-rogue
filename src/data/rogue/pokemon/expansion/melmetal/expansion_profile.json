@@ -111,29 +111,9 @@
         "MOVE_DOUBLE_IRON_BASH",
         "MOVE_EARTHQUAKE",
         "MOVE_ICE_PUNCH",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
         "MOVE_THUNDER_WAVE"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LETSGOOU",
         "GEN7LETSGOOU"
@@ -146,30 +126,7 @@
         "MOVE_THUNDER_PUNCH",
         "MOVE_ICE_PUNCH"
       ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEX",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LETSGOOU"
       ]
@@ -177,33 +134,15 @@
     {
       "Moves": [
         "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH",
         "MOVE_EARTHQUAKE",
-        "MOVE_SUPERPOWER"
+        "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8UBERS"
       ]
     },
     {
@@ -216,8 +155,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU"
       ]
@@ -225,17 +162,32 @@
     {
       "Moves": [
         "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_THUNDER_PUNCH",
         "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_PUNCH",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8OU",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEX",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_IRON_BASH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
       ]
     },
     {
@@ -248,8 +200,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NATIONALDEX"
       ]
@@ -257,33 +207,29 @@
     {
       "Moves": [
         "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_THUNDER_PUNCH",
         "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
         "MOVE_DOUBLE_IRON_BASH",
-        "MOVE_THUNDER_PUNCH",
         "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE"
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -296,11 +242,45 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_IRON_BASH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_IRON_BASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ]
+  }
 }

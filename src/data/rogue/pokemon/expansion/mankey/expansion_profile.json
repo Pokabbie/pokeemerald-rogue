@@ -132,6 +132,21 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
         "MOVE_GUNK_SHOT",
         "MOVE_U_TURN",
         "MOVE_EARTHQUAKE"
@@ -139,8 +154,6 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -155,28 +168,24 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN9LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_EARTHQUAKE",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN6LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CUT"
+    ],
+    "PerSpecies": {
+      "SPECIES_MANKEY": {
+        "Abilities": [
+          "ABILITY_DEFIANT",
+          "ABILITY_ANGER_POINT",
+          "ABILITY_VITAL_SPIRIT"
+        ]
+      }
+    }
+  }
 }

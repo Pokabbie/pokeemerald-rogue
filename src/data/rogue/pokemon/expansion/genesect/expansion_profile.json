@@ -119,16 +119,43 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_FLASH_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ICE_BEAM"
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXPLOSION"
       ],
       "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -143,10 +170,107 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
       ]
     },
     {
@@ -159,42 +283,8 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FLASH_CANNON",
-        "MOVE_BUG_BUZZ",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLASH_CANNON",
-        "MOVE_FLAMETHROWER",
-        "MOVE_THUNDERBOLT",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -207,8 +297,6 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
       ]
@@ -223,26 +311,8 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_U_TURN",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -255,8 +325,6 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8DOUBLESOU"
       ]
@@ -271,141 +339,22 @@
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8DOUBLESOU"
       ]
     },
     {
       "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
         "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM",
-        "MOVE_BUG_BUZZ",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM",
-        "MOVE_BUG_BUZZ",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_BLAZE_KICK"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU",
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_BEAM",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_BEAM",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS",
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER"
+        "MOVE_IRON_HEAD"
       ],
       "Ability": "ABILITY_DOWNLOAD",
       "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU",
-        "GEN8UBERS"
+        "GEN8DOUBLESOU"
       ]
     }
   ]

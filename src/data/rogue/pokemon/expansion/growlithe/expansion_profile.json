@@ -118,18 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WILL_O_WISP",
         "MOVE_FLARE_BLITZ",
         "MOVE_MORNING_SUN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_WILL_O_WISP"
+        "MOVE_WILD_CHARGE"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC"
       ]
     },
     {
@@ -142,10 +140,22 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -158,8 +168,6 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -174,43 +182,28 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
         "MOVE_FLARE_BLITZ",
         "MOVE_MORNING_SUN",
-        "MOVE_WILD_CHARGE"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_MORNING_SUN",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_WILD_CHARGE"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HONE_CLAWS"
+    ]
+  }
 }

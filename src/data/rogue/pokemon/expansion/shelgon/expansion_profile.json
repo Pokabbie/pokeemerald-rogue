@@ -106,32 +106,14 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
         "MOVE_IRON_HEAD",
-        "MOVE_OUTRAGE",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_DRAGON_CLAW"
       ],
-      "Ability": "ABILITY_OVERCOAT",
+      "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -146,8 +128,20 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -162,26 +156,22 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
+        "MOVE_DRAGON_DANCE",
         "MOVE_IRON_HEAD",
-        "MOVE_DRAGON_CLAW"
+        "MOVE_OUTRAGE",
+        "MOVE_DOUBLE_EDGE"
       ],
-      "Ability": "ABILITY_ROCK_HEAD",
+      "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN9ZU"
       ]
     }
   ]

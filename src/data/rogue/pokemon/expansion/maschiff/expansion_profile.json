@@ -112,7 +112,6 @@
       "Ability": "ABILITY_STAKEOUT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9LC"

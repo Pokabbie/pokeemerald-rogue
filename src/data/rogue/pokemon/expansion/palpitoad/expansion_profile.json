@@ -102,8 +102,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]

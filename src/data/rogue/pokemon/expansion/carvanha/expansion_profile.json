@@ -108,18 +108,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WATERFALL",
         "MOVE_CRUNCH",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC_FANGS",
-        "MOVE_FLIP_TURN"
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
       ]
     },
     {
@@ -132,74 +144,8 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_WATERFALL",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
       ]
     },
     {
@@ -212,26 +158,64 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATERFALL",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_CRUNCH",
-        "MOVE_ZEN_HEADBUTT",
+        "MOVE_WATERFALL",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_PSYCHIC_FANGS",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

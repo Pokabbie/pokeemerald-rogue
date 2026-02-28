@@ -125,67 +125,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_SHELL_SMASH",
-        "MOVE_WATERFALL",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_AQUA_JET",
-        "MOVE_STONE_EDGE",
-        "MOVE_LIQUIDATION"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_SOLID_ROCK",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_AQUA_JET",
-        "MOVE_STONE_EDGE",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU",
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_AQUA_JET",
-        "MOVE_AQUA_TAIL"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN6NU"
       ]
     },
     {
@@ -198,26 +147,22 @@
       "Ability": "ABILITY_SOLID_ROCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_METEOR_BEAM",
         "MOVE_AQUA_JET",
-        "MOVE_ICE_BEAM"
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN6NU"
       ]
     },
     {
@@ -230,10 +175,51 @@
       "Ability": "ABILITY_SOLID_ROCK",
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_STONE_EDGE",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_AQUA_JET",
+        "MOVE_AQUA_TAIL"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_STONE_EDGE",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8ZU"
       ]
     },
     {
@@ -246,26 +232,22 @@
       "Ability": "ABILITY_SOLID_ROCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SCALD",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_KNOCK_OFF"
+        "MOVE_SHELL_SMASH",
+        "MOVE_METEOR_BEAM",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_BEAM"
       ],
-      "Ability": "ABILITY_SOLID_ROCK",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN81V1"
       ]
     }
   ]

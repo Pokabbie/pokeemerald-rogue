@@ -114,11 +114,23 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_BONSLY": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 85,
+          "Defense": 95,
+          "Speed": 10,
+          "SpAttack": 10,
+          "SpDefense": 55
+        }
+      }
+    }
+  }
 }

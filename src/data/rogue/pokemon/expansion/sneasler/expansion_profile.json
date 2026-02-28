@@ -136,92 +136,8 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_NORMAL_GEM",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DIRE_CLAW",
-        "MOVE_THROAT_CHOP",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_POISON_TOUCH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DIRE_CLAW",
-        "MOVE_U_TURN",
-        "MOVE_SWITCHEROO"
-      ],
-      "Ability": "ABILITY_POISON_TOUCH",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DIRE_CLAW",
-        "MOVE_U_TURN",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_POISON_TOUCH",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_GUNK_SHOT",
-        "MOVE_U_TURN",
-        "MOVE_THROAT_CHOP"
-      ],
-      "Ability": "ABILITY_POISON_TOUCH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DIRE_CLAW",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ACROBATICS",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -234,8 +150,6 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ANYTHINGGOES"
       ]
@@ -250,72 +164,6 @@
       "Ability": "ABILITY_POISON_TOUCH",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENDURE",
-        "MOVE_GUNK_SHOT",
-        "MOVE_REVERSAL",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_LIECHI_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_GUNK_SHOT",
-        "MOVE_DIRE_CLAW"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_NORMAL_GEM",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DIRE_CLAW",
-        "MOVE_ACROBATICS"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THROAT_CHOP",
-        "MOVE_ACROBATICS"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
@@ -330,10 +178,78 @@
       "Ability": "ABILITY_POISON_TOUCH",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THROAT_CHOP",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIRE_CLAW",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DIRE_CLAW",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DIRE_CLAW",
+        "MOVE_U_TURN",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIRE_CLAW",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

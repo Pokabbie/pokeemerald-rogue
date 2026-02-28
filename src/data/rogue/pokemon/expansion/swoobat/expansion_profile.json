@@ -118,6 +118,20 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
         "MOVE_AIR_SLASH",
         "MOVE_STORED_POWER",
         "MOVE_ROOST"
@@ -125,11 +139,79 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STORED_POWER",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -142,8 +224,6 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -158,42 +238,8 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_GRASSY_SEED",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_AIR_SLASH",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_ELECTRIC_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_AIR_SLASH",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_ELECTRIC_SEED",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
       ]
     },
     {
@@ -206,8 +252,6 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
@@ -216,81 +260,155 @@
       "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_STORED_POWER",
-        "MOVE_SIGNAL_BEAM",
+        "MOVE_AIR_SLASH",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_KEE_BERRY",
+      "Item": "ITEM_ELECTRIC_SEED",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN8ZU"
       ]
     },
     {
       "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_STORED_POWER",
-        "MOVE_SIGNAL_BEAM",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SUBSTITUTE",
-        "MOVE_STORED_POWER",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
         "MOVE_AIR_SLASH",
-        "MOVE_U_TURN",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
         "MOVE_HEAT_WAVE"
       ],
       "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_SALAC_BERRY",
+      "Item": "ITEM_ELECTRIC_SEED",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEART_SWAP",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_HEART_SWAP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_GUST",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_HEART_STAMP",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_IMPRISON",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_AIR_CUTTER",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_ATTRACT",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_AMNESIA",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_CALM_MIND",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_AIR_SLASH",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_FUTURE_SIGHT",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_ENDEAVOR",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_SIMPLE_BEAM",
+        "Level": 51
+      },
+      {
+        "Move": "MOVE_NASTY_PLOT",
+        "Level": 57
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_HURRICANE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_STORED_POWER",
+          "MOVE_MYSTICAL_FIRE",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_SIMPLE",
+        "Item": "ITEM_PSYCHIC_SEED",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_STORED_POWER",
+          "MOVE_HURRICANE",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_SIMPLE",
+        "Item": "ITEM_SALAC_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SWOOBAT": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 57,
+          "Defense": 63,
+          "Speed": 114,
+          "SpAttack": 86,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

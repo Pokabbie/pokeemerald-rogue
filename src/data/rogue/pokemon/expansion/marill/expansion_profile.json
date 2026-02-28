@@ -124,5 +124,19 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_MARILL": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 20,
+          "Defense": 50,
+          "Speed": 40,
+          "SpAttack": 40,
+          "SpDefense": 50
+        }
+      }
+    }
+  }
 }

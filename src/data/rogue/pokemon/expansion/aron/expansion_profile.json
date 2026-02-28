@@ -118,34 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAD_SMASH",
-        "MOVE_IRON_HEAD",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SUPERPOWER",
+        "MOVE_METAL_BURST"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENDEAVOR",
-        "MOVE_SANDSTORM",
-        "MOVE_METAL_BURST",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_SHELL_BELL",
+      "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6LC"
       ]
     },
     {
@@ -158,8 +140,6 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -174,8 +154,6 @@
       "Ability": "ABILITY_HEAVY_METAL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -183,22 +161,6 @@
     {
       "Moves": [
         "MOVE_IRON_HEAD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_HEAD_SMASH"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
         "MOVE_STEALTH_ROCK",
         "MOVE_EARTHQUAKE",
         "MOVE_HEAD_SMASH"
@@ -206,8 +168,6 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -222,27 +182,120 @@
       "Ability": "ABILITY_ROCK_HEAD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_SUPERPOWER",
-        "MOVE_METAL_BURST"
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDEAVOR",
+        "MOVE_SANDSTORM",
+        "MOVE_METAL_BURST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SHELL_BELL",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HEAVY_SLAM",
+          "MOVE_HONE_CLAWS",
+          "MOVE_EARTHQUAKE",
+          "MOVE_MAGNET_RISE"
+        ],
+        "Ability": "ABILITY_EARTH_EATER",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_IRON_HEAD",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_EARTHQUAKE",
+          "MOVE_HEAD_SMASH"
+        ],
+        "Ability": "ABILITY_EARTH_EATER",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_EARTHQUAKE",
+          "MOVE_HEAD_SMASH",
+          "MOVE_IRON_HEAD",
+          "MOVE_STEALTH_ROCK"
+        ],
+        "Ability": "ABILITY_EARTH_EATER",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_IRON_HEAD",
+          "MOVE_EARTHQUAKE",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_HEAD_SMASH"
+        ],
+        "Ability": "ABILITY_EARTH_EATER",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_ARON": {
+        "Abilities": [
+          "ABILITY_STURDY",
+          "ABILITY_ROCK_HEAD",
+          "ABILITY_EARTH_EATER"
+        ]
+      }
+    }
+  }
 }

@@ -104,7 +104,6 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
         "GEN9LC"
@@ -120,8 +119,6 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

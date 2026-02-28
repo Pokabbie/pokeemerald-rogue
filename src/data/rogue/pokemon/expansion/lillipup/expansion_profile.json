@@ -105,22 +105,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_RETURN",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_FIRE_FANG",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_THUNDER_WAVE",
         "MOVE_RETURN",
         "MOVE_PLAY_ROUGH",
@@ -129,10 +113,22 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_FANG",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     }
   ]

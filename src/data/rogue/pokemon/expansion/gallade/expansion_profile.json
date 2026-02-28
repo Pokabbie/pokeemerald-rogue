@@ -231,34 +231,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_WILL_O_WISP"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_PSYCHO_CUT"
       ],
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_BULK_UP",
+        "MOVE_SWORDS_DANCE",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_WILL_O_WISP"
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_KNOCK_OFF"
       ],
-      "Ability": "ABILITY_STEADFAST",
-      "Item": "ITEM_GALLADITE",
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6RU"
       ]
     },
     {
@@ -271,8 +267,20 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6RU"
       ]
@@ -287,8 +295,6 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES"
       ]
@@ -296,118 +302,6 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_PROTECTIVE_PADS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_MUSCLE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ROCK_TOMB",
-        "MOVE_BULK_UP",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_ZEN_HEADBUTT",
         "MOVE_ICE_PUNCH",
         "MOVE_PROTECT"
@@ -415,8 +309,6 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
@@ -431,482 +323,36 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_PSYCHO_CUT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_WIDE_GUARD",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHO_CUT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_BRICK_BREAK",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_BLACK_BELT",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SACRED_SWORD",
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SACRED_SWORD",
-        "MOVE_LEAF_BLADE",
-        "MOVE_NIGHT_SLASH"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SACRED_SWORD",
-        "MOVE_LEAF_BLADE",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SACRED_SWORD",
-        "MOVE_NIGHT_SLASH",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_SWORD",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEAF_BLADE"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_SWORD",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SACRED_SWORD",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_CLOSE_COMBAT",
         "MOVE_ZEN_HEADBUTT",
-        "MOVE_KNOCK_OFF"
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
         "MOVE_ZEN_HEADBUTT",
-        "MOVE_KNOCK_OFF"
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU",
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_PROTECTIVE_PADS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_PSYCHO_CUT",
-        "MOVE_LEAF_BLADE"
-      ],
-      "Ability": "ABILITY_SHARPNESS",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_TRIPLE_AXEL"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_GALLADITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN61V1"
       ]
     },
     {
@@ -919,8 +365,6 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1",
         "GEN61V1"
@@ -936,26 +380,381 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_ENCORE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_WIDE_GUARD",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_BULK_UP",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_MUSCLE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHO_CUT",
+        "MOVE_LEAF_BLADE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_BLACK_BELT",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SACRED_SWORD",
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_SWORD",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SACRED_SWORD",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SACRED_SWORD",
+        "MOVE_LEAF_BLADE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -968,11 +767,168 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_GALLADITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_GALLADITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SACRED_SWORD",
+        "MOVE_LEAF_BLADE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SACRED_SWORD",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_STORED_POWER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TELEPORT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_DOUBLE_TEAM",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_TELEPORT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_QUICK_GUARD",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_FURY_CUTTER",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_HEAL_PULSE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_WIDE_GUARD",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_SWORDS_DANCE",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_PSYCHO_CUT",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_HELPING_HAND",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_FEINT",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_FALSE_SWIPE",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_PROTECT",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_RECOVER",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_STORED_POWER",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_LUNGE",
+        "Level": 64
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ICE_BEAM"
+    ],
+    "PerSpecies": {
+      "SPECIES_GALLADE": {
+        "Abilities": [
+          "ABILITY_INNER_FOCUS",
+          "ABILITY_SHARPNESS",
+          "ABILITY_JUSTIFIED"
+        ],
+        "BaseStats": {
+          "HP": 68,
+          "Attack": 125,
+          "Defense": 65,
+          "Speed": 100,
+          "SpAttack": 60,
+          "SpDefense": 115
+        }
+      },
+      "SPECIES_GALLADE_MEGA": {
+        "Abilities": [
+          "ABILITY_SHARPNESS",
+          "ABILITY_SHARPNESS",
+          "ABILITY_SHARPNESS"
+        ],
+        "BaseStats": {
+          "HP": 68,
+          "Attack": 165,
+          "Defense": 100,
+          "Speed": 125,
+          "SpAttack": 60,
+          "SpDefense": 115
+        }
+      }
+    }
+  }
 }

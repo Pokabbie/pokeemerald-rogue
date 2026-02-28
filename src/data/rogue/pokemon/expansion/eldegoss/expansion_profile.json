@@ -99,8 +99,20 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AROMATHERAPY",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN8NU"
       ]
@@ -115,8 +127,6 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
@@ -131,26 +141,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_AROMATHERAPY",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
       ]
     },
     {
@@ -163,11 +155,59 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GIGA_DRAIN",
+          "MOVE_RAPID_SPIN",
+          "MOVE_TOXIC",
+          "MOVE_LEECH_SEED"
+        ],
+        "Ability": "ABILITY_REGENERATOR",
+        "Item": "ITEM_EJECT_BUTTON",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_GIGA_DRAIN",
+          "MOVE_RAPID_SPIN",
+          "MOVE_TOXIC",
+          "MOVE_SYNTHESIS"
+        ],
+        "Ability": "ABILITY_REGENERATOR",
+        "Item": "ITEM_EJECT_PACK",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_ELDEGOSS": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 50,
+          "Defense": 90,
+          "Speed": 60,
+          "SpAttack": 90,
+          "SpDefense": 120
+        }
+      }
+    }
+  }
 }

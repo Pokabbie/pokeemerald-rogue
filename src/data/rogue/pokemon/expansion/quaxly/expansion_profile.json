@@ -89,22 +89,6 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
-        "MOVE_LIQUIDATION",
-        "MOVE_ROOST",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_ROOST",
         "MOVE_LIQUIDATION",
         "MOVE_AQUA_JET"
@@ -112,8 +96,21 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN9LC"
       ]

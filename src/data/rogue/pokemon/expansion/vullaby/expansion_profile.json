@@ -107,34 +107,45 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
       "Moves": [
         "MOVE_BRAVE_BIRD",
         "MOVE_KNOCK_OFF",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC",
+        "GEN7LC"
       ]
     },
     {
@@ -147,8 +158,63 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -164,7 +230,6 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_DOCILE",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -180,139 +245,8 @@
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_NAUGHTY",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BRAVE_BIRD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_AIR_SLASH",
-        "MOVE_DARK_PULSE",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
       ]
     },
     {
@@ -326,55 +260,35 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
         "MOVE_DEFOG",
-        "MOVE_FOUL_PLAY",
         "MOVE_U_TURN"
       ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
-        "MOVE_KNOCK_OFF",
         "MOVE_BRAVE_BIRD",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
         "MOVE_KNOCK_OFF",
-        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
         "GEN9LC"
       ]
@@ -389,11 +303,31 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUPERPOWER",
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HURRICANE"
+    ]
+  }
 }

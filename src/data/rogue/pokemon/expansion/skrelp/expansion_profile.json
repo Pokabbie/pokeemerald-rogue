@@ -105,38 +105,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_SURF",
-        "MOVE_THUNDERBOLT",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SLUDGE_WAVE",
         "MOVE_HYDRO_PUMP",
         "MOVE_HIDDEN_POWER",
@@ -146,7 +114,34 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -162,7 +157,6 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -177,26 +171,22 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     },
     {
       "Moves": [
+        "MOVE_SLUDGE_BOMB",
         "MOVE_SURF",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDERBOLT"
+        "MOVE_THUNDERBOLT",
+        "MOVE_TOXIC_SPIKES"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN9LC"
       ]
     }
   ]

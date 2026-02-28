@@ -94,22 +94,5 @@
     "MOVE_WATERFALL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": [
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_BOOMBURST",
-        "MOVE_ICE_BEAM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    }
-  ]
+  "CompetitiveSets": []
 }

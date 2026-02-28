@@ -165,178 +165,60 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_HURRICANE",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DUAL_WINGBEAT"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_OUTRAGE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_SPINNER",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED"
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_FLY"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6OU"
       ]
     },
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_DUAL_WINGBEAT"
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8OU"
+        "GEN6OU",
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
       ]
     },
     {
@@ -349,8 +231,6 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU",
         "GEN7ANYTHINGGOES",
@@ -359,130 +239,102 @@
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
         "MOVE_EXTREME_SPEED",
         "MOVE_EARTHQUAKE",
         "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN61V1"
       ]
     },
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
         "MOVE_EARTHQUAKE",
-        "MOVE_ICE_SPINNER"
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -495,8 +347,20 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
@@ -510,9 +374,21 @@
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
@@ -527,8 +403,6 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -536,49 +410,135 @@
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
         "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED"
+        "MOVE_OUTRAGE"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9MONOTYPE"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
         "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_IRON_HEAD",
         "MOVE_EARTHQUAKE",
         "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_DRAGONIUM_Z",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN71V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
         "MOVE_OUTRAGE",
         "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE"
+        "MOVE_DRAGON_DANCE"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_AGILITY"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_AGILITY",
+        "MOVE_ROOST"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
         "GEN7MONOTYPE"
       ]
     },
@@ -590,99 +550,85 @@
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8MONOTYPE"
+        "GEN7MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
         "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
         "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LUM_BERRY",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU",
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7MONOTYPE"
       ]
     },
     {
       "Moves": [
         "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ROOST",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_SCALE_SHOT",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_TERA_BLAST",
+        "MOVE_DUAL_WINGBEAT",
         "MOVE_EARTHQUAKE",
-        "MOVE_ENCORE"
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN8OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_TAIL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
         "MOVE_EXTREME_SPEED",
         "MOVE_EARTHQUAKE",
         "MOVE_ROOST"
@@ -690,10 +636,8 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -706,26 +650,22 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_HEAL_BELL"
+        "MOVE_HURRICANE",
+        "MOVE_ICE_BEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8OU"
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -738,8 +678,6 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_MARANGA_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
@@ -754,42 +692,181 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DUAL_WINGBEAT",
         "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_DANCE"
+        "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_DRAGONIUM_Z",
+      "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9OU"
       ]
     },
     {
       "Moves": [
         "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE",
         "MOVE_DRAGON_DANCE",
         "MOVE_ICE_SPINNER"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -802,7 +879,6 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
         "GEN9DOUBLESOU"
@@ -811,33 +887,71 @@
     {
       "Moves": [
         "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_CLAW",
         "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE"
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_CLAW"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MULTISCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
         "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
         "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_ICE_SPINNER"
+        "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -850,8 +964,6 @@
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE",
         "GEN9NATIONALDEXMONOTYPE"
@@ -859,373 +971,16 @@
     },
     {
       "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
         "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE",
         "MOVE_ROOST"
       ],
       "Ability": "ABILITY_MULTISCALE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTREME_SPEED",
-        "MOVE_OUTRAGE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HURRICANE",
-        "MOVE_ICE_BEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_AGILITY",
-        "MOVE_ROOST"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_DRAGONIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EXTREME_SPEED"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROOST",
-        "MOVE_AGILITY"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_ICE_SPINNER",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_SUPERPOWER",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_SUPERPOWER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_IRON_HEAD",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OUTRAGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EXTREME_SPEED"
-      ],
-      "Ability": "ABILITY_MULTISCALE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

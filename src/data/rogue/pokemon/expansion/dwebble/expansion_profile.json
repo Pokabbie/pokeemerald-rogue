@@ -98,66 +98,58 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_ROCK_BLAST",
-        "MOVE_KNOCK_OFF",
         "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_SPIKES",
         "MOVE_ROCK_BLAST",
-        "MOVE_SHELL_SMASH",
-        "MOVE_EARTHQUAKE",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_BLAST",
         "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
         "MOVE_KNOCK_OFF",
-        "MOVE_SPIKES"
+        "MOVE_ROCK_BLAST"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHELL_SMASH",
         "MOVE_ROCK_BLAST",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_ROCK_BLAST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -170,26 +162,22 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_BLAST"
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC"
       ]
     },
     {
@@ -202,43 +190,117 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
+        "MOVE_SHELL_SMASH",
         "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN8LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
         "MOVE_ROCK_BLAST",
-        "MOVE_KNOCK_OFF"
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ROCK_BLAST",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_WITHDRAW",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_SAND_ATTACK",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_SMACK_DOWN",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_BUG_BITE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_STEALTH_ROCK",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_ROCK_SLIDE",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_SHELL_SMASH",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_ROCK_WRECKER",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_CRABHAMMER",
+        "Level": 47
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHELL_SMASH",
+          "MOVE_EARTHQUAKE",
+          "MOVE_ROCK_BLAST",
+          "MOVE_CRABHAMMER"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

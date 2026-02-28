@@ -99,18 +99,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_COIL",
         "MOVE_EARTHQUAKE",
-        "MOVE_SCALE_SHOT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE",
         "MOVE_REST"
       ],
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GLARE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
       ]
     },
     {
@@ -123,8 +135,6 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
@@ -139,10 +149,39 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GLARE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -155,74 +194,8 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_GLARE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_GLARE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_GLARE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
       ]
     },
     {
@@ -235,11 +208,32 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DRAGON",
       "SourceTiers": [
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

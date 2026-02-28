@@ -117,96 +117,28 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_EXTRASENSORY",
         "MOVE_NASTY_PLOT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_ILLUSION",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DARK_PULSE",
-        "MOVE_U_TURN",
         "MOVE_EXTRASENSORY",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_ILLUSION",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXTRASENSORY",
-        "MOVE_DARK_PULSE",
-        "MOVE_NASTY_PLOT",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_ILLUSION",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_ILLUSION",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_TERA_BLAST",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_ILLUSION",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_DARK_PULSE",
         "MOVE_EXTRASENSORY",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
         "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_ILLUSION",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -221,10 +153,65 @@
       "Ability": "ABILITY_ILLUSION",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_U_TURN",
+        "MOVE_EXTRASENSORY",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TERA_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     }
   ]

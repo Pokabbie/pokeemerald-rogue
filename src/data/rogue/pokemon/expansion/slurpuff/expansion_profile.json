@@ -110,32 +110,14 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BELLY_DRUM",
         "MOVE_PLAY_ROUGH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BELLY_DRUM",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_DRAIN_PUNCH",
         "MOVE_RETURN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
@@ -150,26 +132,36 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_COTTON_GUARD",
-        "MOVE_REST",
+        "MOVE_PLAY_ROUGH",
         "MOVE_BELLY_DRUM",
-        "MOVE_PLAY_ROUGH"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_YAWN",
+        "MOVE_MAGIC_COAT",
+        "MOVE_MISTY_EXPLOSION"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UBERS"
       ]
     },
     {
@@ -182,8 +174,6 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU",
         "GEN8RU"
@@ -191,50 +181,16 @@
     },
     {
       "Moves": [
-        "MOVE_PLAY_ROUGH",
         "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN"
+        "MOVE_FACADE"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_MAGIC_COAT",
-        "MOVE_MISTY_EXPLOSION",
-        "MOVE_YAWN"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
+        "GEN8RU"
       ]
     },
     {
@@ -247,27 +203,113 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
     },
     {
       "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_REST",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_STICKY_WEB",
-        "MOVE_YAWN",
         "MOVE_MAGIC_COAT",
-        "MOVE_MISTY_EXPLOSION"
+        "MOVE_MISTY_EXPLOSION",
+        "MOVE_YAWN"
       ],
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
+        "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FAIRY_WIND",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_PLAY_NICE",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_FAKE_TEARS",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ROUND",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_COTTON_SPORE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_ENDEAVOR",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_COVET",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_ENERGY_BALL",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_COTTON_GUARD",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_WISH",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_PLAY_ROUGH",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_LIGHT_SCREEN",
+        "Level": 58
+      },
+      {
+        "Move": "MOVE_SAFEGUARD",
+        "Level": 67
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SLURPUFF": {
+        "BaseStats": {
+          "HP": 82,
+          "Attack": 90,
+          "Defense": 86,
+          "Speed": 72,
+          "SpAttack": 85,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

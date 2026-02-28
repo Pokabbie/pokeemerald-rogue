@@ -28,7 +28,6 @@
     "MOVE_RAPID_SPIN",
     "MOVE_SHEER_COLD",
     "MOVE_SHELL_SMASH",
-    "MOVE_SILK_TRAP",
     "MOVE_SKILL_SWAP",
     "MOVE_SPIKY_SHIELD",
     "MOVE_SPORE",
@@ -47,50 +46,143 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CEASELESS_EDGE",
-        "MOVE_STONE_AXE",
-        "MOVE_MORTAL_SPIN",
-        "MOVE_BURNING_BULWARK"
+        "MOVE_SHELL_SMASH",
+        "MOVE_BATON_PASS",
+        "MOVE_SPORE",
+        "MOVE_HIDDEN_POWER"
       ],
-      "Ability": "ABILITY_OWN_TEMPO",
+      "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_CEASELESS_EDGE",
-        "MOVE_STONE_AXE",
         "MOVE_STICKY_WEB",
-        "MOVE_SPORE"
+        "MOVE_NUZZLE",
+        "MOVE_SPORE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STICKY_WEB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STICKY_WEB",
+        "MOVE_EXPLOSION"
       ],
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPORE",
+        "MOVE_SKILL_SWAP"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STICKY_WEB",
+        "MOVE_NUZZLE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
       ]
     },
     {
       "Moves": [
         "MOVE_DARK_VOID",
-        "MOVE_FAKE_OUT",
-        "MOVE_SPIKY_SHIELD",
-        "MOVE_FOLLOW_ME"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STICKY_WEB",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPORE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEOMANCY",
+        "MOVE_BATON_PASS",
+        "MOVE_SPORE",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BATON_PASS",
+        "MOVE_SHEER_COLD",
+        "MOVE_GEOMANCY"
       ],
       "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -103,8 +195,6 @@
       "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
@@ -119,8 +209,6 @@
       "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
       ]
@@ -128,177 +216,15 @@
     {
       "Moves": [
         "MOVE_DARK_VOID",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STICKY_WEB",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOLLOW_ME",
         "MOVE_FAKE_OUT",
-        "MOVE_SPORE",
-        "MOVE_WIDE_GUARD"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GEOMANCY",
-        "MOVE_BATON_PASS",
-        "MOVE_SPORE",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_BATON_PASS",
-        "MOVE_SPORE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_STEEL",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_BATON_PASS",
-        "MOVE_SHEER_COLD",
-        "MOVE_GEOMANCY"
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_FOLLOW_ME"
       ],
       "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_BATON_PASS",
-        "MOVE_SUBSTITUTE",
-        "MOVE_MINIMIZE"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_BATON_PASS",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SHELL_SMASH"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_BATON_PASS",
-        "MOVE_SUBSTITUTE",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_FAKE_OUT",
-        "MOVE_FOLLOW_ME",
-        "MOVE_SPIKY_SHIELD"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_FOLLOW_ME",
-        "MOVE_FAKE_OUT",
-        "MOVE_WIDE_GUARD"
-      ],
-      "Ability": "ABILITY_MOODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_IMPRISON",
-        "MOVE_TRANSFORM",
-        "MOVE_KINGS_SHIELD"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN6VGC2016"
       ]
     },
     {
@@ -311,8 +237,6 @@
       "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ANYTHINGGOES"
       ]
@@ -320,97 +244,15 @@
     {
       "Moves": [
         "MOVE_SPORE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STICKY_WEB",
-        "MOVE_EXPLOSION"
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SPIKY_SHIELD"
       ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STICKY_WEB",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
+      "Ability": "ABILITY_MOODY",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_STICKY_WEB",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPORE",
-        "MOVE_TRANSFORM",
-        "MOVE_IMPRISON",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STICKY_WEB",
-        "MOVE_NUZZLE",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_STICKY_WEB",
-        "MOVE_SPORE",
-        "MOVE_NUZZLE"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -423,26 +265,8 @@
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_NUZZLE",
-        "MOVE_SPORE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
       ]
     },
     {
@@ -455,58 +279,8 @@
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_SPORE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_NUZZLE",
-        "MOVE_SPORE"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPORE",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_OWN_TEMPO",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
       ]
     },
     {
@@ -519,8 +293,6 @@
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -529,16 +301,170 @@
       "Moves": [
         "MOVE_STICKY_WEB",
         "MOVE_STEALTH_ROCK",
+        "MOVE_NUZZLE",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_SPORE",
-        "MOVE_SKILL_SWAP"
+        "MOVE_STICKY_WEB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DESTINY_BOND"
       ],
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_FOLLOW_ME",
+        "MOVE_FAKE_OUT",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_FAKE_OUT",
+        "MOVE_SPORE",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_FAKE_OUT",
+        "MOVE_FOLLOW_ME",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_IMPRISON",
+        "MOVE_TRANSFORM",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_TRANSFORM",
+        "MOVE_IMPRISON",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STICKY_WEB",
+        "MOVE_SPORE",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_SPORE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_CEASELESS_EDGE",
+        "MOVE_NUZZLE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CEASELESS_EDGE",
+        "MOVE_STONE_AXE",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_BURNING_BULWARK"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -551,7 +477,6 @@
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9ZU"
@@ -559,18 +484,30 @@
     },
     {
       "Moves": [
-        "MOVE_STICKY_WEB",
+        "MOVE_SPORE",
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MINIMIZE"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CEASELESS_EDGE",
         "MOVE_STONE_AXE",
-        "MOVE_EXPLOSION",
-        "MOVE_SILK_TRAP"
+        "MOVE_STICKY_WEB",
+        "MOVE_SPORE"
       ],
       "Ability": "ABILITY_OWN_TEMPO",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9MONOTYPE"
       ]
     }
   ]

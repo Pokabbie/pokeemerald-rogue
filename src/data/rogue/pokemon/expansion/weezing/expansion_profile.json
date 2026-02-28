@@ -115,168 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PAIN_SPLIT",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_NEUTRALIZING_GAS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PAIN_SPLIT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_HAZE",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_HAZE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU",
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TOXIC_SPIKES",
         "MOVE_SLUDGE_BOMB",
         "MOVE_WILL_O_WISP",
@@ -285,10 +123,64 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TAUNT",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
       ]
     },
     {
@@ -301,75 +193,236 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
         "MOVE_PAIN_SPLIT",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WILL_O_WISP",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PAIN_SPLIT",
+        "MOVE_SLUDGE_WAVE",
         "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
         "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
         "MOVE_PAIN_SPLIT",
         "MOVE_TOXIC_SPIKES"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
         "MOVE_SLUDGE_BOMB",
-        "MOVE_TAUNT",
-        "MOVE_TOXIC_SPIKES"
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PAIN_SPLIT"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
+        "GEN8PU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HAZE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DOUBLE_HIT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SMOG",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_SMOKESCREEN",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_CLEAR_SMOG",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_SELF_DESTRUCT",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_HAZE",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_GYRO_BALL",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_SLUDGE_BOMB",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_DESTINY_BOND",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 51
+      },
+      {
+        "Move": "MOVE_MEMENTO",
+        "Level": 57
+      },
+      {
+        "Move": "MOVE_GUNK_SHOT",
+        "Level": 63
+      }
+    ]
+  }
 }

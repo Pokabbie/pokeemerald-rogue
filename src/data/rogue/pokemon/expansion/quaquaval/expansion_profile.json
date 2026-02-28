@@ -142,80 +142,57 @@
       "Moves": [
         "MOVE_AQUA_STEP",
         "MOVE_CLOSE_COMBAT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_AQUA_STEP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_STEP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_STEP",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_ICE_SPINNER",
         "MOVE_BULK_UP"
       ],
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_STEP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_SPINNER"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_STEP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_SPINNER"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_STEP",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_STEP",
-        "MOVE_RAPID_SPIN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
       ]
     },
     {
@@ -228,8 +205,34 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_STEP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_STEP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]

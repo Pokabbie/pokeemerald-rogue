@@ -132,54 +132,6 @@
       "Moves": [
         "MOVE_FIRE_BLAST",
         "MOVE_FOCUS_BLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
         "MOVE_PROTECT",
         "MOVE_HIDDEN_POWER"
       ],
@@ -187,7 +139,20 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -202,10 +167,53 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SKY_UPPERCUT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7ZU"
       ]
     },
     {
@@ -218,10 +226,23 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -234,8 +255,6 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -250,60 +269,20 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SKY_UPPERCUT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU",
-        "GEN7ZU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_COMBUSKEN": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_EARLY_BIRD",
+          "ABILITY_SPEED_BOOST"
+        ]
+      }
+    }
+  }
 }

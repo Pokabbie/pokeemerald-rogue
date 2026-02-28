@@ -121,25 +121,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
       ]
     },
     {
@@ -153,7 +136,21 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -168,11 +165,35 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_TERA_BLAST",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_TORCHIC": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_EARLY_BIRD",
+          "ABILITY_SPEED_BOOST"
+        ]
+      }
+    }
+  }
 }

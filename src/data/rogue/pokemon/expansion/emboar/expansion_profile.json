@@ -142,18 +142,130 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_HEAVY_SLAM",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILD_CHARGE",
         "MOVE_HEAD_SMASH"
       ],
       "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
       ]
     },
     {
@@ -166,7 +278,6 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
         "GEN9PU"
@@ -182,139 +293,110 @@
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9ZU"
       ]
     },
     {
       "Moves": [
         "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_GRASS_KNOT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_HEAD_SMASH"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILD_CHARGE"
       ],
       "Ability": "ABILITY_RECKLESS",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_WILD_CHARGE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_WILD_CHARGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_WILD_CHARGE",
-        "MOVE_SUPERPOWER",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SUPERPOWER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_RECKLESS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HAMMER_ARM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TAIL_WHIP",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_CROSS_CHOP",
+        "Level": 68
+      },
+      {
+        "Move": "MOVE_V_CREATE",
+        "Level": 75
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_IRON_TAIL",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_CLIMB",
+          "MOVE_V_CREATE",
+          "MOVE_CROSS_CHOP",
+          "MOVE_EARTHQUAKE"
+        ],
+        "Ability": "ABILITY_MOLD_BREAKER",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_EMBOAR": {
+        "Types": [
+          "TYPE_FIRE",
+          "TYPE_GROUND"
+        ],
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_RECKLESS",
+          "ABILITY_MOLD_BREAKER"
+        ],
+        "BaseStats": {
+          "HP": 115,
+          "Attack": 125,
+          "Defense": 80,
+          "Speed": 65,
+          "SpAttack": 70,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

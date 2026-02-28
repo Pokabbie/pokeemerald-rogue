@@ -125,22 +125,6 @@
     {
       "Moves": [
         "MOVE_COIL",
-        "MOVE_EARTHQUAKE",
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COIL",
         "MOVE_GUNK_SHOT",
         "MOVE_EARTHQUAKE",
         "MOVE_SUCKER_PUNCH"
@@ -148,12 +132,52 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_POISON_FANG",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_MUD_BOMB",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_GASTRO_ACID",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_HAZE",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_COIL",
+        "Level": 45
+      }
+    ]
+  }
 }

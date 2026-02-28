@@ -118,8 +118,6 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]

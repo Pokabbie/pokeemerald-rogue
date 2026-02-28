@@ -99,5 +99,16 @@
     "MOVE_WORK_UP",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_LOUDRED": {
+        "Abilities": [
+          "ABILITY_SOUNDPROOF",
+          "ABILITY_SCRAPPY",
+          "ABILITY_RATTLED"
+        ]
+      }
+    }
+  }
 }

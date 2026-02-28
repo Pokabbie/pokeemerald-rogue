@@ -101,38 +101,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_POWER_GEM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_MUD_SHOT",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_POWER_GEM",
-        "MOVE_MUD_SHOT",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_TOXIC_DEBRIS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_POWER_GEM",
         "MOVE_SPIKES",
@@ -141,10 +109,37 @@
       "Ability": "ABILITY_TOXIC_DEBRIS",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_MUD_SHOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MUD_SHOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     }
   ]

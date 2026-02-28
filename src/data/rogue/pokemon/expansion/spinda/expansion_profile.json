@@ -136,8 +136,6 @@
       "Ability": "ABILITY_TANGLED_FEET",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -152,8 +150,6 @@
       "Ability": "ABILITY_CONTRARY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]

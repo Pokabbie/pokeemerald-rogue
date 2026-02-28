@@ -68,7 +68,6 @@
     "MOVE_FACADE",
     "MOVE_GYRO_BALL",
     "MOVE_HEX",
-    "MOVE_INFESTATION",
     "MOVE_IRON_DEFENSE",
     "MOVE_PAYBACK",
     "MOVE_PIN_MISSILE",
@@ -83,7 +82,6 @@
     "MOVE_SNORE",
     "MOVE_SOLAR_BEAM",
     "MOVE_SPIKES",
-    "MOVE_STEAMROLLER",
     "MOVE_STEEL_ROLLER",
     "MOVE_SUBSTITUTE",
     "MOVE_SUNNY_DAY",
@@ -95,17 +93,15 @@
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_INFESTATION",
-        "MOVE_TOXIC",
-        "MOVE_STEAMROLLER"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_ENDEAVOR"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -118,26 +114,8 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_PROTECT",
-        "MOVE_ENDEAVOR"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
       ]
     },
     {
@@ -150,8 +128,6 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]

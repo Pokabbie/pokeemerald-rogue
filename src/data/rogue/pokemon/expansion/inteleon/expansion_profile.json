@@ -125,54 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_SNIPE_SHOT",
-        "MOVE_FOCUS_ENERGY"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_SCOPE_LENS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ICE_BEAM",
         "MOVE_SNIPE_SHOT",
         "MOVE_DARK_PULSE",
@@ -181,42 +133,36 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
       ]
     },
     {
       "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
         "MOVE_ICE_BEAM",
-        "MOVE_SNIPE_SHOT",
-        "MOVE_U_TURN",
-        "MOVE_DARK_PULSE"
+        "MOVE_U_TURN"
       ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_SCOPE_LENS",
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU"
+        "GEN8NU"
       ]
     },
     {
       "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
         "MOVE_SNIPE_SHOT",
-        "MOVE_AIR_SLASH",
-        "MOVE_PROTECT",
-        "MOVE_ICE_BEAM"
+        "MOVE_FOCUS_ENERGY"
       ],
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN8NU"
       ]
     },
     {
@@ -229,11 +175,122 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SNIPE_SHOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SNIPE_SHOT",
+        "MOVE_U_TURN",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FROST_BREATH",
+      "MOVE_TOXIC",
+      "MOVE_RETURN",
+      "MOVE_NASTY_PLOT",
+      "MOVE_FRUSTRATION"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_DARK_PULSE",
+          "MOVE_ICE_BEAM",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_TIMID",
+        "TeraType": "TYPE_WATER",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SNIPE_SHOT",
+          "MOVE_AIR_CUTTER",
+          "MOVE_FROST_BREATH",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_SNIPER",
+        "Item": "ITEM_SCOPE_LENS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

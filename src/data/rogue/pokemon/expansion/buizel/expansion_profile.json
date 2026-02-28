@@ -115,22 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_ICE_PUNCH",
-        "MOVE_WATERFALL",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_AQUA_TAIL",
         "MOVE_ICE_PUNCH",
         "MOVE_BRICK_BREAK",
@@ -139,8 +123,20 @@
       "Ability": "ABILITY_WATER_VEIL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_PUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -156,7 +152,6 @@
       "Item": "ITEM_ICIUM_Z",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -171,7 +166,6 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9LC"
@@ -187,11 +181,80 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BITE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SONIC_BOOM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_RAZOR_WIND",
+        "Level": 35
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_POWER_UP_PUNCH",
+      "MOVE_LUNGE",
+      "MOVE_SCALD",
+      "MOVE_TAIL_SLAP",
+      "MOVE_CUT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BLIZZARD",
+          "MOVE_SCALD",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_ICIUM_Z",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_AQUA_JET",
+          "MOVE_POWER_UP_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_ROCK_TOMB"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_BUIZEL": {
+        "Abilities": [
+          "ABILITY_SWIFT_SWIM",
+          "ABILITY_WATER_VEIL",
+          "ABILITY_TECHNICIAN"
+        ]
+      }
+    }
+  }
 }

@@ -110,8 +110,6 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
         "GEN6ZU"
@@ -127,26 +125,8 @@
       "Ability": "ABILITY_KEEN_EYE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRILL_PECK",
-        "MOVE_DRILL_RUN",
-        "MOVE_U_TURN",
-        "MOVE_FOCUS_ENERGY"
-      ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -159,11 +139,112 @@
       "Ability": "ABILITY_SNIPER",
       "Item": "ITEM_SCOPE_LENS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRILL_PECK",
+        "MOVE_DRILL_RUN",
+        "MOVE_U_TURN",
+        "MOVE_FOCUS_ENERGY"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BRAVE_BIRD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_LEER",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_BRAVE_BIRD",
+        "Level": 50
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_DUAL_WINGBEAT",
+      "MOVE_SNARL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_RETURN",
+          "MOVE_BRAVE_BIRD",
+          "MOVE_DRILL_RUN",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_SNIPER",
+        "Item": "ITEM_SCOPE_LENS",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RETURN",
+          "MOVE_BRAVE_BIRD",
+          "MOVE_DRILL_RUN",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SNARL",
+          "MOVE_DEFOG",
+          "MOVE_PROTECT",
+          "MOVE_HEAT_WAVE"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_WACAN_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FEAROW": {
+        "Abilities": [
+          "ABILITY_KEEN_EYE",
+          "ABILITY_SNIPER",
+          "ABILITY_INTIMIDATE"
+        ],
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 110,
+          "Defense": 65,
+          "Speed": 100,
+          "SpAttack": 61,
+          "SpDefense": 61
+        }
+      }
+    }
+  }
 }

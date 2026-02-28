@@ -125,8 +125,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -141,8 +139,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -157,11 +153,23 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_WOOPER": {
+        "BaseStats": {
+          "HP": 55,
+          "Attack": 55,
+          "Defense": 55,
+          "Speed": 15,
+          "SpAttack": 25,
+          "SpDefense": 25
+        }
+      }
+    }
+  }
 }

@@ -124,18 +124,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
         "MOVE_FAKE_OUT",
-        "MOVE_OVERHEAT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_FIRE_BLAST"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -148,10 +146,23 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -164,27 +175,23 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_FAKE_OUT",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_CHIMCHAR": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_IRON_FIST"
+        ]
+      }
+    }
+  }
 }

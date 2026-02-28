@@ -124,53 +124,21 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_HYDRO_PUMP",
-        "MOVE_DRAINING_KISS",
-        "MOVE_SUBSTITUTE"
+        "MOVE_MOONBLAST",
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
         "MOVE_MOONBLAST",
         "MOVE_REST",
         "MOVE_SLEEP_TALK"
@@ -178,216 +146,109 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UU",
+        "GEN8UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SURF",
-        "MOVE_DRAINING_KISS"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_SURF",
         "MOVE_MOONBLAST",
-        "MOVE_SUBSTITUTE"
+        "MOVE_PSYCHIC",
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_CHARM"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_CANNON",
+        "MOVE_SPARKLING_ARIA",
         "MOVE_MOONBLAST",
-        "MOVE_ENCORE",
-        "MOVE_CALM_MIND"
+        "MOVE_AQUA_JET",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_PRIMARIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
+        "MOVE_SPARKLING_ARIA",
         "MOVE_MOONBLAST",
-        "MOVE_ENDURE",
-        "MOVE_CALM_MIND"
+        "MOVE_AQUA_JET",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
         "MOVE_MOONBLAST",
-        "MOVE_ENDURE",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_CANNON",
-        "MOVE_MOONBLAST",
-        "MOVE_ENERGY_BALL",
-        "MOVE_UPROAR"
+        "MOVE_ICE_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_LIQUID_VOICE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
+        "MOVE_HYPER_VOICE",
         "MOVE_MOONBLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_SPARKLING_ARIA"
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WATER_PLEDGE"
       ],
-      "Ability": "ABILITY_TORRENT",
+      "Ability": "ABILITY_LIQUID_VOICE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN7VGC2018"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
+        "MOVE_SPARKLING_ARIA",
         "MOVE_MOONBLAST",
-        "MOVE_ICY_WIND",
+        "MOVE_AQUA_JET",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PIXIE_PLATE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_PRIMARIUM_Z",
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN71V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_CANNON",
         "MOVE_MOONBLAST",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ICY_WIND"
+        "MOVE_AQUA_JET",
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_HYDRO_CANNON"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WACAN_BERRY",
+      "Item": "ITEM_PRIMARIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_MOONBLAST",
-        "MOVE_FLIP_TURN"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_MOONBLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_MOONBLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
+        "GEN71V1"
       ]
     },
     {
@@ -401,7 +262,6 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
@@ -416,8 +276,20 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN8OU"
       ]
@@ -426,16 +298,13 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_MOONBLAST",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7UU",
         "GEN8UU"
       ]
     },
@@ -443,160 +312,14 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_MOONBLAST",
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCH_UP"
-      ],
-      "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_MOONBLAST",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_WATER_PLEDGE"
-      ],
-      "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_MOONBLAST",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_AQUA_JET",
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_HYDRO_CANNON"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PRIMARIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_ENERGY_BALL",
         "MOVE_ICE_BEAM",
-        "MOVE_SPARKLING_ARIA"
+        "MOVE_SURF"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PRIMARIUM_Z",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_ENDURE",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_ICY_WIND",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_ICY_WIND",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
+        "GEN8UU"
       ]
     },
     {
@@ -609,42 +332,22 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_ICE_BEAM",
         "MOVE_HYPER_VOICE",
-        "MOVE_PROTECT"
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCH_UP"
       ],
       "Ability": "ABILITY_LIQUID_VOICE",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_PSYCHIC",
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
+        "GEN8DOUBLESOU"
       ]
     },
     {
@@ -657,8 +360,6 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
@@ -673,89 +374,277 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
       "Moves": [
+        "MOVE_HYPER_VOICE",
         "MOVE_MOONBLAST",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LIQUID_VOICE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENDURE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_SPARKLING_ARIA"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ICY_WIND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_ENDURE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_SPARKLING_ARIA"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_PRIMARIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_SURF",
+        "MOVE_MOONBLAST",
         "MOVE_FLIP_TURN"
       ],
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_MOONBLAST",
-        "MOVE_AQUA_JET",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PRIMARIUM_Z",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_MOONBLAST",
-        "MOVE_AQUA_JET",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPARKLING_ARIA",
-        "MOVE_MOONBLAST",
-        "MOVE_AQUA_JET",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PRIMARIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
         "MOVE_CALM_MIND",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_MOONBLAST"
+        "MOVE_SURF",
+        "MOVE_MOONBLAST",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN8OU"
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LIQUID_VOICE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LIQUID_VOICE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_MOONBLAST",
+        "MOVE_ICY_WIND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LIQUID_VOICE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -767,11 +656,23 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_PRIMARINA": {
+        "BaseStats": {
+          "HP": 80,
+          "Attack": 74,
+          "Defense": 79,
+          "Speed": 60,
+          "SpAttack": 126,
+          "SpDefense": 116
+        }
+      }
+    }
+  }
 }

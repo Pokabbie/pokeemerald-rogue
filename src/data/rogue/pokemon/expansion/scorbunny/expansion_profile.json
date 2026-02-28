@@ -101,8 +101,6 @@
       "Ability": "ABILITY_LIBERO",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -117,8 +115,6 @@
       "Ability": "ABILITY_LIBERO",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -133,11 +129,25 @@
       "Ability": "ABILITY_LIBERO",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ],
+    "PerSpecies": {
+      "SPECIES_SCORBUNNY": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_RECEIVER",
+          "ABILITY_LIBERO"
+        ]
+      }
+    }
+  }
 }

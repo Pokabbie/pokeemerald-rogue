@@ -101,18 +101,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_MORNING_SUN",
-        "MOVE_LEECH_LIFE",
-        "MOVE_STUN_SPORE",
-        "MOVE_ZEN_HEADBUTT"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_MORNING_SUN"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC"
       ]
     },
     {
@@ -125,27 +123,37 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_SIGNAL_BEAM",
-        "MOVE_MORNING_SUN"
+        "MOVE_MORNING_SUN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STUN_SPORE",
+        "MOVE_ZEN_HEADBUTT"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_VENONAT": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 55,
+          "Defense": 55,
+          "Speed": 45,
+          "SpAttack": 50,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

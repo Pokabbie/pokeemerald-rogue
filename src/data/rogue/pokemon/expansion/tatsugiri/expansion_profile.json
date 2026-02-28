@@ -88,18 +88,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRACO_METEOR",
         "MOVE_RAPID_SPIN",
+        "MOVE_DRACO_METEOR",
         "MOVE_SURF",
         "MOVE_NASTY_PLOT"
       ],
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9RU"
       ]
     },
     {
@@ -112,23 +110,22 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
+        "GEN9NU",
         "GEN9PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_NASTY_PLOT",
         "MOVE_DRACO_METEOR",
         "MOVE_SURF",
-        "MOVE_RAPID_SPIN"
+        "MOVE_TERA_BLAST",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_STORM_DRAIN",
-      "Item": "ITEM_WHITE_HERB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9NU"
@@ -136,18 +133,16 @@
     },
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
         "MOVE_DRACO_METEOR",
+        "MOVE_RAPID_SPIN",
         "MOVE_SURF",
         "MOVE_NASTY_PLOT"
       ],
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9RU"
+        "GEN9NU"
       ]
     }
   ]

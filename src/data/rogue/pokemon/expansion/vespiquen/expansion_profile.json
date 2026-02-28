@@ -132,22 +132,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_TOXIC",
-        "MOVE_ROOST",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_PRESSURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TAILWIND",
         "MOVE_BUG_BUZZ",
         "MOVE_AIR_SLASH",
@@ -156,10 +140,22 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_TOXIC",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -172,11 +168,54 @@
       "Ability": "ABILITY_PRESSURE",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_U_TURN",
+        "MOVE_TOXIC",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FLY"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SUBSTITUTE",
+          "MOVE_TOXIC",
+          "MOVE_ROOST",
+          "MOVE_ATTACK_ORDER"
+        ],
+        "Ability": "ABILITY_QUEENLY_MAJESTY",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VESPIQUEN": {
+        "Abilities": [
+          "ABILITY_PRESSURE",
+          "ABILITY_UNNERVE",
+          "ABILITY_QUEENLY_MAJESTY"
+        ]
+      }
+    }
+  }
 }

@@ -104,54 +104,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_RAIN_DANCE",
-        "MOVE_SCALD"
-      ],
-      "Ability": "ABILITY_SWIFT_SWIM",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM",
-        "MOVE_RAIN_DANCE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RAIN_DANCE",
         "MOVE_HYDRO_PUMP",
         "MOVE_AIR_SLASH",
@@ -161,7 +113,6 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
@@ -177,10 +128,50 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

@@ -124,6 +124,34 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HYPNOSIS",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_AIR_SLASH",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_AGILITY",
         "MOVE_WORK_UP",
         "MOVE_HURRICANE",
@@ -132,26 +160,8 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_HYPER_VOICE",
-        "MOVE_HEAT_WAVE",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
       ]
     },
     {
@@ -164,8 +174,6 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -180,42 +188,8 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_BLUNDER_POLICY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_AIR_SLASH",
-        "MOVE_NIGHT_SHADE"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_HYPNOSIS",
-        "MOVE_NIGHT_SHADE"
-      ],
-      "Ability": "ABILITY_INSOMNIA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
       ]
     },
     {
@@ -228,11 +202,47 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FLASH",
+      "MOVE_MYSTICAL_FIRE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_PSYCHIC",
+          "MOVE_HURRICANE",
+          "MOVE_ROOST"
+        ],
+        "Ability": "ABILITY_TINTED_LENS",
+        "Item": "ITEM_FLYINIUM_Z",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_NOCTOWL": {
+        "Types": [
+          "TYPE_PSYCHIC",
+          "TYPE_FLYING"
+        ],
+        "BaseStats": {
+          "HP": 110,
+          "Attack": 40,
+          "Defense": 40,
+          "Speed": 60,
+          "SpAttack": 106,
+          "SpDefense": 116
+        }
+      }
+    }
+  }
 }

@@ -127,50 +127,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
         "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
         "MOVE_SUCKER_PUNCH",
         "MOVE_DESTINY_BOND"
       ],
-      "Ability": "ABILITY_FLASH_FIRE",
+      "Ability": "ABILITY_EARLY_BIRD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
       ]
     },
     {
@@ -183,40 +149,20 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
         "MOVE_DARK_PULSE",
-        "MOVE_PURSUIT",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_FLASH_FIRE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_FIRE_BLAST",
-        "MOVE_DARK_PULSE",
         "MOVE_SUCKER_PUNCH",
         "MOVE_DESTINY_BOND"
       ],
-      "Ability": "ABILITY_EARLY_BIRD",
+      "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -231,10 +177,50 @@
       "Ability": "ABILITY_FLASH_FIRE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_PURSUIT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     }
   ]

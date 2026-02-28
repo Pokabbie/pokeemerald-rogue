@@ -124,11 +124,36 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WATERFALL",
+          "MOVE_ICE_BEAM",
+          "MOVE_SUPERPOWER",
+          "MOVE_DOUBLE_EDGE"
+        ],
+        "Ability": "ABILITY_WATER_VEIL",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_IMPISH",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MUDKIP": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_DAMP",
+          "ABILITY_WATER_VEIL"
+        ]
+      }
+    }
+  }
 }

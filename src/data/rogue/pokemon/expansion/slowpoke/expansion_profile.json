@@ -136,31 +136,28 @@
     {
       "Moves": [
         "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
         "MOVE_SLACK_OFF",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN6LC",
+        "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
         "MOVE_SLACK_OFF",
+        "MOVE_HYDRO_PUMP",
         "MOVE_PSYCHIC",
         "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -169,17 +166,14 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_SLACK_OFF",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_PSYCHIC"
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC",
-        "GEN6LC"
+        "GEN7LC"
       ]
     },
     {
@@ -192,42 +186,8 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLACK_OFF",
-        "MOVE_PSYCHIC",
-        "MOVE_SURF",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
       ]
     },
     {
@@ -240,10 +200,37 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SLACK_OFF",
+        "MOVE_PSYCHIC",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_PSYCHIC",
+        "MOVE_SURF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     }
   ]

@@ -96,66 +96,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CONFIDE",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_REST",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_CONFIDE",
-        "MOVE_REST",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_REST",
-        "MOVE_CONFIDE",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
         "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_RETURN",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7PU"
       ]
     },
     {
@@ -168,26 +118,36 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_RETURN",
+        "MOVE_CONFIDE",
+        "MOVE_IRON_DEFENSE",
         "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_FLAME_CHARGE"
       ],
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST",
+        "MOVE_CONFIDE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
       ]
     },
     {
@@ -200,11 +160,42 @@
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CONFIDE",
+        "MOVE_REST",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

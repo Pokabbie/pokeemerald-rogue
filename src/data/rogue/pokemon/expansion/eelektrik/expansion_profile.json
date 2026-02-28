@@ -105,22 +105,6 @@
     {
       "Moves": [
         "MOVE_U_TURN",
-        "MOVE_DISCHARGE",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
         "MOVE_GIGA_DRAIN",
         "MOVE_SUPER_FANG"
@@ -128,11 +112,55 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_DISCHARGE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_NUZZLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BREAKING_SWIPE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_PSYCHIC_FANGS",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_LEECH_LIFE",
+        "Level": 39
+      }
+    ]
+  }
 }

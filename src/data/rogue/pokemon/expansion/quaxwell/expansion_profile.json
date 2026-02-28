@@ -111,8 +111,6 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
       ]

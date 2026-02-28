@@ -111,30 +111,12 @@
       "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_OUTRAGE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_WATERFALL"
-      ],
-      "Ability": "ABILITY_SHED_SKIN",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
         "MOVE_REST",
         "MOVE_EXTREME_SPEED"
       ],
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -149,8 +131,20 @@
       "Ability": "ABILITY_MARVEL_SCALE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -165,11 +159,14 @@
       "Ability": "ABILITY_SHED_SKIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FLY"
+    ]
+  }
 }

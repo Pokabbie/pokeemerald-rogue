@@ -123,38 +123,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_ROOST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_SAP_SIPPER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_ROOST",
-        "MOVE_HYPER_VOICE",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_BERSERK",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DRACO_METEOR",
         "MOVE_HYPER_VOICE",
         "MOVE_FIRE_BLAST",
@@ -163,11 +131,23 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU",
         "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -180,26 +160,8 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYPER_VOICE",
-        "MOVE_ENERGY_BALL",
-        "MOVE_PROTECT",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_BERSERK",
-      "Item": "ITEM_EXPERT_BELT",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
       ]
     },
     {
@@ -212,10 +174,36 @@
       "Ability": "ABILITY_BERSERK",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
       ]
     },
     {
@@ -228,11 +216,23 @@
       "Ability": "ABILITY_BERSERK",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_DRAMPA": {
+        "BaseStats": {
+          "HP": 103,
+          "Attack": 45,
+          "Defense": 85,
+          "Speed": 36,
+          "SpAttack": 135,
+          "SpDefense": 91
+        }
+      }
+    }
+  }
 }

@@ -125,215 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_TAUNT",
-        "MOVE_ROOST",
-        "MOVE_FOUL_PLAY"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_ROOST",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_TAUNT",
-        "MOVE_TOXIC",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_TOXIC",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_TOXIC",
-        "MOVE_ROOST",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_FOUL_PLAY",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ROOST",
         "MOVE_DEFOG",
         "MOVE_FOUL_PLAY",
@@ -342,24 +133,20 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
     },
     {
       "Moves": [
+        "MOVE_FOUL_PLAY",
         "MOVE_ROOST",
         "MOVE_DEFOG",
-        "MOVE_FOUL_PLAY",
-        "MOVE_TOXIC"
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -372,10 +159,22 @@
         "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ROCKY_HELMET",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
@@ -385,49 +184,25 @@
         "MOVE_ROOST",
         "MOVE_DEFOG",
         "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8NATIONALDEX",
-        "GEN9OU",
-        "GEN9UU",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN"
+        "MOVE_TOXIC"
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROOST",
-        "MOVE_DEFOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT",
         "MOVE_TOXIC",
-        "MOVE_FOUL_PLAY"
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
@@ -441,9 +216,35 @@
       ],
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_TOXIC",
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_TAUNT",
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN7RU"
       ]
@@ -452,96 +253,14 @@
       "Moves": [
         "MOVE_ROOST",
         "MOVE_DEFOG",
-        "MOVE_U_TURN",
+        "MOVE_TOXIC",
         "MOVE_FOUL_PLAY"
       ],
       "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_FOUL_PLAY",
-        "MOVE_DEFOG",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_FOUL_PLAY",
-        "MOVE_DEFOG",
-        "MOVE_TOXIC"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_FOUL_PLAY",
-        "MOVE_DEFOG",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG",
-        "MOVE_FOUL_PLAY"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAILWIND",
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_PSYCHIC_SEED",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN7RU"
       ]
     },
     {
@@ -554,27 +273,234 @@
       "Ability": "ABILITY_OVERCOAT",
       "Item": "ITEM_MISTY_SEED",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_TAUNT",
-        "MOVE_TOXIC",
+        "MOVE_TAILWIND",
+        "MOVE_FOUL_PLAY",
         "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX",
+        "GEN9OU",
+        "GEN9UU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST",
+        "MOVE_FOUL_PLAY",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN",
         "MOVE_FOUL_PLAY"
       ],
       "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_SUPERPOWER",
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_QUASH"
+    ]
+  }
 }

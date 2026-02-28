@@ -125,6 +125,21 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_MOONBLAST",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_GIGA_DRAIN",
         "MOVE_LEECH_SEED",
         "MOVE_TOXIC",
@@ -133,24 +148,20 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
     },
     {
       "Moves": [
+        "MOVE_STRENGTH_SAP",
         "MOVE_QUIVER_DANCE",
         "MOVE_GIGA_DRAIN",
-        "MOVE_STRENGTH_SAP",
         "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -163,12 +174,10 @@
         "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7PU"
       ]
     },
     {
@@ -181,8 +190,20 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -197,8 +218,6 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -212,60 +231,152 @@
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_MOONBLAST",
-        "MOVE_SLEEP_POWDER"
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_MOONBLAST"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STRENGTH_SAP",
         "MOVE_QUIVER_DANCE",
+        "MOVE_STRENGTH_SAP",
         "MOVE_GIGA_DRAIN",
-        "MOVE_MOONBLAST"
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_CHLOROPHYLL",
-      "Item": "ITEM_GRASSIUM_Z",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MAGICAL_LEAF",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_LEAF_STORM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_LEAF_BLADE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SUNNY_DAY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_QUIVER_DANCE",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_PETAL_BLIZZARD",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_LEAF_STORM",
+        "Level": 69
+      },
+      {
+        "Move": "MOVE_FIERY_DANCE",
+        "Level": 79
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_APPLE_ACID",
+      "MOVE_MOONBLAST"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_QUIVER_DANCE",
+          "MOVE_APPLE_ACID",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_DRAINING_KISS"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_GRASSIUM_Z",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FIERY_DANCE",
+          "MOVE_QUIVER_DANCE",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_MOONBLAST"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_QUIVER_DANCE",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_DRAINING_KISS"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_KEE_BERRY",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_BELLOSSOM": {
+        "Types": [
+          "TYPE_GRASS",
+          "TYPE_FAIRY"
+        ],
+        "Abilities": [
+          "ABILITY_CHLOROPHYLL",
+          "ABILITY_CLOUD_NINE",
+          "ABILITY_HEALER"
+        ]
+      }
+    }
+  }
 }

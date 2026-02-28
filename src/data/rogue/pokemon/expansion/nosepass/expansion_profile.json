@@ -121,18 +121,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
         "MOVE_STEALTH_ROCK",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_VOLT_SWITCH"
+        "MOVE_THUNDER_WAVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_POWER_GEM"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC",
+        "GEN6LC"
       ]
     },
     {
@@ -145,28 +144,43 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
+        "MOVE_BODY_PRESS",
         "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_POWER_GEM"
+        "MOVE_IRON_DEFENSE",
+        "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6LC",
-        "GEN6LC"
+        "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 46
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_NOSEPASS": {
+        "BaseStats": {
+          "HP": 30,
+          "Attack": 35,
+          "Defense": 135,
+          "Speed": 30,
+          "SpAttack": 55,
+          "SpDefense": 90
+        }
+      }
+    }
+  }
 }

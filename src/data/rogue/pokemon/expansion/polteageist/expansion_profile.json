@@ -110,14 +110,29 @@
       "Moves": [
         "MOVE_SHELL_SMASH",
         "MOVE_SHADOW_BALL",
+        "MOVE_STORED_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8OU",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_SHADOW_BALL",
         "MOVE_GIGA_DRAIN",
         "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU",
         "GEN8RU",
@@ -128,19 +143,14 @@
       "Moves": [
         "MOVE_SHELL_SMASH",
         "MOVE_SHADOW_BALL",
-        "MOVE_STORED_POWER",
+        "MOVE_STRENGTH_SAP",
         "MOVE_GIGA_DRAIN"
       ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN8OU",
-        "GEN8OU",
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN8RU"
       ]
     },
     {
@@ -153,8 +163,6 @@
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
@@ -168,44 +176,62 @@
       ],
       "Ability": "ABILITY_WEAK_ARMOR",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_SHADOW_BALL",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN8RU"
+        "GEN9OU"
       ]
     },
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
         "MOVE_SHADOW_BALL",
-        "MOVE_TERA_BLAST",
-        "MOVE_STRENGTH_SAP"
+        "MOVE_STORED_POWER",
+        "MOVE_TERA_BLAST"
       ],
-      "Ability": "ABILITY_CURSED_BODY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_STORED_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_STORED_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

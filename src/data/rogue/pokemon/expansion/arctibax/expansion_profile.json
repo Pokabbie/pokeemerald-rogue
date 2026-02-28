@@ -96,8 +96,6 @@
       "Ability": "ABILITY_THERMAL_EXCHANGE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]

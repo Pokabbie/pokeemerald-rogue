@@ -128,8 +128,20 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -144,26 +156,8 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_BUG_BUZZ",
-        "MOVE_PSYCHIC",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_FRISK",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
       ]
     },
     {
@@ -176,11 +170,40 @@
       "Ability": "ABILITY_FRISK",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN",
+      "MOVE_SIGNAL_BEAM"
+    ],
+    "PerSpecies": {
+      "SPECIES_ORBEETLE": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 45,
+          "Defense": 110,
+          "Speed": 90,
+          "SpAttack": 90,
+          "SpDefense": 120
+        }
+      },
+      "SPECIES_ORBEETLE_GIGANTAMAX": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 45,
+          "Defense": 110,
+          "Speed": 90,
+          "SpAttack": 90,
+          "SpDefense": 120
+        }
+      }
+    }
+  }
 }

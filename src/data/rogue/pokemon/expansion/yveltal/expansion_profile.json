@@ -126,18 +126,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
         "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN"
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN6UBERS"
       ]
     },
     {
@@ -150,90 +148,22 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
-        "MOVE_TAUNT",
-        "MOVE_ROOST"
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
-        "MOVE_TAUNT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
-        "MOVE_TAUNT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
-        "MOVE_TAUNT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_OBLIVION_WING",
-        "MOVE_U_TURN",
-        "MOVE_HEAT_WAVE"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
+        "GEN6UBERS"
       ]
     },
     {
@@ -246,10 +176,92 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_SNARL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_OBLIVION_WING"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
         "GEN7UBERS"
       ]
     },
@@ -263,8 +275,20 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7UBERS"
       ]
@@ -279,26 +303,78 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_CHARTI_BERRY",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT"
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_U_TURN",
+        "MOVE_HEAT_WAVE"
       ],
       "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -311,154 +387,22 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_ROOST",
-        "MOVE_U_TURN",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_SNARL",
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_OBLIVION_WING"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HONE_CLAWS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_ACROBATICS"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_DUAL_WINGBEAT",
-        "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_FOUL_PLAY",
-        "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FOUL_PLAY",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_ROOST",
-        "MOVE_OBLIVION_WING"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_BLACK_GLASSES",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -471,8 +415,6 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
       ]
@@ -487,8 +429,6 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS",
         "GEN8ANYTHINGGOES"
@@ -496,34 +436,86 @@
     },
     {
       "Moves": [
+        "MOVE_HONE_CLAWS",
         "MOVE_KNOCK_OFF",
-        "MOVE_U_TURN",
-        "MOVE_FOUL_PLAY",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ACROBATICS"
       ],
       "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN8UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_OBLIVION_WING",
         "MOVE_DARK_PULSE",
-        "MOVE_FOUL_PLAY",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_OBLIVION_WING"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
       ]
     },
     {
@@ -536,90 +528,36 @@
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_OBLIVION_WING",
         "MOVE_DARK_PULSE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FOUL_PLAY"
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
       ],
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OBLIVION_WING",
-        "MOVE_DARK_PULSE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FOUL_PLAY"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OBLIVION_WING",
-        "MOVE_DARK_PULSE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OBLIVION_WING",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_DARK_PULSE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_DARK_AURA",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN8ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
+        "MOVE_OBLIVION_WING",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT",
-        "MOVE_FOUL_PLAY",
+        "MOVE_DARK_PULSE",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_DARK_AURA",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN8ANYTHINGGOES"
       ]
     }
   ]

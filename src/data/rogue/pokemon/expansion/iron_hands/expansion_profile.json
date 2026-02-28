@@ -123,18 +123,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_ICE_PUNCH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_FAKE_OUT",
-        "MOVE_WILD_CHARGE",
-        "MOVE_HEAVY_SLAM"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WILD_CHARGE"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_ASSAULT_VEST",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -147,56 +160,20 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
         "MOVE_FAKE_OUT",
         "MOVE_WILD_CHARGE",
-        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9DOUBLESOU"
@@ -204,147 +181,46 @@
     },
     {
       "Moves": [
-        "MOVE_ICE_PUNCH",
         "MOVE_DRAIN_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_PUNCH"
+        "MOVE_FAKE_OUT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_HEAVY_SLAM"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9DOUBLESOU"
       ]
     },
     {
       "Moves": [
-        "MOVE_ICE_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_WILD_CHARGE"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_FAKE_OUT",
         "MOVE_SUPERCELL_SLAM",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_FAKE_OUT"
+        "MOVE_HEAVY_SLAM"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN91V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_CLEAR_AMULET",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH"
+        "MOVE_FAKE_OUT",
+        "MOVE_SUPERCELL_SLAM",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SUPERCELL_SLAM",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN91V1"
       ]
     },
     {
@@ -357,10 +233,78 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

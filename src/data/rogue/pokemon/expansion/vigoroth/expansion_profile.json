@@ -127,22 +127,6 @@
     {
       "Moves": [
         "MOVE_BULK_UP",
-        "MOVE_FACADE",
-        "MOVE_SLACK_OFF",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
         "MOVE_SLACK_OFF",
         "MOVE_TAUNT",
         "MOVE_RETURN"
@@ -150,10 +134,22 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_FACADE",
+        "MOVE_SLACK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -166,11 +162,62 @@
       "Ability": "ABILITY_VITAL_SPIRIT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_REVERSAL",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ENCORE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_CHIP_AWAY",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_COUNTER",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_FOCUS_PUNCH",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_REVERSAL",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 49
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VIGOROTH": {
+        "Abilities": [
+          "ABILITY_VITAL_SPIRIT",
+          "ABILITY_NONE",
+          "ABILITY_SHEER_FORCE"
+        ]
+      }
+    }
+  }
 }

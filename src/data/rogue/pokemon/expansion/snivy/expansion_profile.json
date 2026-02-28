@@ -108,7 +108,7 @@
     {
       "Moves": [
         "MOVE_LEAF_STORM",
-        "MOVE_DEFOG",
+        "MOVE_SUBSTITUTE",
         "MOVE_GLARE",
         "MOVE_HIDDEN_POWER"
       ],
@@ -116,9 +116,22 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GLARE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
       ]
     },
     {
@@ -132,7 +145,36 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DEFOG",
+        "MOVE_GLARE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_WRING_OUT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -148,25 +190,8 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_GLARE",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     },
     {
@@ -180,42 +205,40 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_GLARE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_STORM",
-        "MOVE_WRING_OUT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GLARE"
-      ],
-      "Ability": "ABILITY_CONTRARY",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DRAGON_RAGE",
+      "MOVE_AQUA_TAIL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_COIL",
+          "MOVE_LEAF_BLADE",
+          "MOVE_AQUA_TAIL",
+          "MOVE_SYNTHESIS"
+        ],
+        "Ability": "ABILITY_MULTISCALE",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SNIVY": {
+        "Abilities": [
+          "ABILITY_OVERGROW",
+          "ABILITY_MULTISCALE",
+          "ABILITY_CONTRARY"
+        ]
+      }
+    }
+  }
 }

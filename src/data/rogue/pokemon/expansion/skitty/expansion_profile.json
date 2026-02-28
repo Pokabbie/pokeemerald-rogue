@@ -148,11 +148,27 @@
       "Ability": "ABILITY_NORMALIZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HONE_CLAWS",
+      "MOVE_CUT"
+    ],
+    "PerSpecies": {
+      "SPECIES_SKITTY": {
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 50,
+          "Defense": 50,
+          "Speed": 60,
+          "SpAttack": 40,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

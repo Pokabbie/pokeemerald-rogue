@@ -131,82 +131,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_THUNDERBOLT",
         "MOVE_FIRE_BLAST",
         "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_SCORCHING_SANDS",
-        "MOVE_THUNDERBOLT",
-        "MOVE_KNOCK_OFF"
+        "MOVE_PSYCHIC"
       ],
       "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SCORCHING_SANDS"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_VITAL_SPIRIT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
+        "GEN6RU"
       ]
     },
     {
@@ -220,25 +154,23 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
         "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE"
       ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6RU"
+        "GEN6NU"
       ]
     },
     {
@@ -252,9 +184,37 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7NU"
       ]
     },
     {
@@ -267,10 +227,22 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
       ]
     },
     {
@@ -283,11 +255,154 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_VACUUM_WAVE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_VACUUM_WAVE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_THUNDER_PUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_SMOKESCREEN",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_FIRE_SPIN",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_CLEAR_SMOG",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_FLAME_BURST",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_CONFUSE_RAY",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_FIRE_PUNCH",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_AURA_SPHERE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_SUNNY_DAY",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_SLUDGE_BOMB",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_FLAMETHROWER",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_SCALD",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_MAGMA_STORM",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_HYPER_BEAM",
+        "Level": 66
+      },
+      {
+        "Move": "MOVE_DARK_PULSE",
+        "Level": 70
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FIRE_BLAST",
+          "MOVE_FOCUS_BLAST",
+          "MOVE_THUNDERBOLT",
+          "MOVE_TAUNT"
+        ],
+        "Ability": "ABILITY_FLASH_FIRE",
+        "Item": "ITEM_FIGHTINIUM_Z",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FIRE_BLAST",
+          "MOVE_THUNDERBOLT",
+          "MOVE_FOCUS_BLAST",
+          "MOVE_SCORCHING_SANDS"
+        ],
+        "Ability": "ABILITY_QUICK_DRAW",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MAGMORTAR": {
+        "Abilities": [
+          "ABILITY_FLASH_FIRE",
+          "ABILITY_QUICK_DRAW",
+          "ABILITY_VITAL_SPIRIT"
+        ]
+      }
+    }
+  }
 }

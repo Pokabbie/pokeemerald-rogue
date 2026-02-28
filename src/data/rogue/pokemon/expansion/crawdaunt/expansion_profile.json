@@ -133,215 +133,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
+        "MOVE_SWORDS_DANCE",
         "MOVE_CRABHAMMER",
         "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU",
-        "GEN8MONOTYPE",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN6MONOTYPE",
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU",
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
         "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET",
-        "MOVE_CRABHAMMER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN6OU"
       ]
     },
     {
@@ -354,10 +155,36 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
       ]
     },
     {
@@ -370,26 +197,38 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
     },
     {
       "Moves": [
+        "MOVE_AQUA_JET",
         "MOVE_KNOCK_OFF",
         "MOVE_CRABHAMMER",
-        "MOVE_AQUA_JET",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN6UU",
+        "GEN6MONOTYPE",
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -402,10 +241,36 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
       ]
     },
     {
@@ -418,42 +283,37 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
     },
     {
       "Moves": [
+        "MOVE_AQUA_JET",
         "MOVE_KNOCK_OFF",
         "MOVE_CRABHAMMER",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_AQUA_JET"
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_CRABHAMMER",
         "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET"
+        "MOVE_AQUA_JET",
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN8OU",
+        "GEN8UU"
       ]
     },
     {
@@ -466,7 +326,120 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9RU"
@@ -482,58 +455,23 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN8OU"
+        "GEN9RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CRABHAMMER",
         "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET"
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CRABHAMMER",
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CRABHAMMER",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN9NATIONALDEX"
       ]
     }
   ]

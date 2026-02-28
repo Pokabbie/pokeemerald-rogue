@@ -112,13 +112,12 @@
       "Moves": [
         "MOVE_DRAINING_KISS",
         "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE",
+        "MOVE_FLASH_CANNON",
         "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_PICKPOCKET",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
+      "Nature": "NATURE_BOLD",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9LC"
@@ -134,8 +133,6 @@
       "Ability": "ABILITY_PICKPOCKET",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

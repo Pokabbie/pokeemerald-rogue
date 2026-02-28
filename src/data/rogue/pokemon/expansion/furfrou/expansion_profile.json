@@ -111,18 +111,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_REST",
-        "MOVE_CONFIDE",
-        "MOVE_SECRET_POWER",
-        "MOVE_GROWL"
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RETURN",
+        "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_FUR_COAT",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6PU"
       ]
     },
     {
@@ -135,8 +133,6 @@
       "Ability": "ABILITY_FUR_COAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -151,10 +147,36 @@
       "Ability": "ABILITY_FUR_COAT",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_IRON_TAIL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -167,26 +189,8 @@
       "Ability": "ABILITY_FUR_COAT",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RETURN",
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_FUR_COAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
       ]
     },
     {
@@ -199,27 +203,127 @@
       "Ability": "ABILITY_FUR_COAT",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_RETURN",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_REST",
+        "MOVE_CONFIDE",
+        "MOVE_SECRET_POWER",
+        "MOVE_GROWL"
       ],
       "Ability": "ABILITY_FUR_COAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN71V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_FURFROU": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_HEART_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_STAR_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_DIAMOND_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_DEBUTANTE_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_MATRON_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_DANDY_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_LA_REINE_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_KABUKI_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_FURFROU_PHARAOH_TRIM": {
+        "BaseStats": {
+          "HP": 75,
+          "Attack": 90,
+          "Defense": 60,
+          "Speed": 102,
+          "SpAttack": 65,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

@@ -121,98 +121,16 @@
       "Moves": [
         "MOVE_FAKE_OUT",
         "MOVE_FEINT",
-        "MOVE_AERIAL_ACE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FEINT",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_WATER_PULSE"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FEINT",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FEINT",
-        "MOVE_U_TURN",
-        "MOVE_PLAY_ROUGH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_FEINT",
         "MOVE_WATER_PULSE",
         "MOVE_AERIAL_ACE"
       ],
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC",
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_U_TURN",
-        "MOVE_WATER_PULSE",
-        "MOVE_AERIAL_ACE"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     },
     {
@@ -226,10 +144,108 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_U_TURN",
+        "MOVE_WATER_PULSE",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FEINT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FEINT",
+        "MOVE_AERIAL_ACE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FEINT",
+        "MOVE_U_TURN",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FEINT",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_SURF"
+    ],
+    "PerSpecies": {
+      "SPECIES_MEOWTH": {
+        "BaseStats": {
+          "HP": 45,
+          "Attack": 60,
+          "Defense": 35,
+          "Speed": 90,
+          "SpAttack": 30,
+          "SpDefense": 40
+        }
+      },
+      "SPECIES_MEOWTH_GIGANTAMAX": {
+        "BaseStats": {
+          "HP": 45,
+          "Attack": 60,
+          "Defense": 35,
+          "Speed": 90,
+          "SpAttack": 30,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

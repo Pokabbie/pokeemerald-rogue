@@ -132,128 +132,198 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
         "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_DRAGON_TAIL"
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_LAVA_PLUME",
+        "MOVE_ROAR"
       ],
       "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_EARTHQUAKE",
         "MOVE_STEALTH_ROCK",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL",
         "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ERUPTION"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
+        "GEN6UBERS",
         "GEN6ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
+        "MOVE_ROCK_POLISH",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_TOMB",
-        "MOVE_STONE_EDGE",
-        "MOVE_HEAT_CRASH"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_PRECIPICE_BLADES",
         "MOVE_STEALTH_ROCK",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_LAVA_PLUME",
+        "MOVE_ROAR"
       ],
       "Ability": "ABILITY_DESOLATE_LAND",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_PRECIPICE_BLADES",
         "MOVE_STEALTH_ROCK",
-        "MOVE_STONE_EDGE",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_DESOLATE_LAND",
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_PRECIPICE_BLADES"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN6UBERS"
       ]
@@ -261,81 +331,15 @@
     {
       "Moves": [
         "MOVE_PRECIPICE_BLADES",
+        "MOVE_STEALTH_ROCK",
         "MOVE_STONE_EDGE",
-        "MOVE_BULK_UP",
-        "MOVE_HEAT_CRASH"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_ROCK_POLISH",
         "MOVE_SWORDS_DANCE"
       ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LIFE_ORB",
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_WILL_O_WISP",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
+        "GEN6UBERS"
       ]
     },
     {
@@ -348,88 +352,20 @@
       "Ability": "ABILITY_DESOLATE_LAND",
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
       ]
     },
     {
       "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_POLISH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_POLISH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_POLISH",
+        "MOVE_STEALTH_ROCK",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_STONE_EDGE"
+        "MOVE_LAVA_PLUME",
+        "MOVE_ROAR"
       ],
-      "Ability": "ABILITY_DESOLATE_LAND",
+      "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6ANYTHINGGOES"
       ]
@@ -444,8 +380,48 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_LAVA_PLUME",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN6ANYTHINGGOES"
       ]
@@ -454,46 +430,68 @@
       "Moves": [
         "MOVE_ROCK_POLISH",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE"
+        "MOVE_DRAGON_CLAW",
+        "MOVE_STONE_EDGE"
       ],
       "Ability": "ABILITY_DESOLATE_LAND",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_POLISH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_THUNDER_WAVE",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DRAGON_PULSE"
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ROCK_TOMB"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN7UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_POLISH",
+        "MOVE_STEALTH_ROCK",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER"
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDER_WAVE"
       ],
-      "Ability": "ABILITY_DESOLATE_LAND",
+      "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
         "GEN7UBERS"
       ]
@@ -509,55 +507,34 @@
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_MILD",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_POLISH",
-        "MOVE_PRECIPICE_BLADES",
         "MOVE_SWORDS_DANCE",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_POLISH",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_STONE_EDGE"
+        "MOVE_ROCK_TOMB",
+        "MOVE_ERUPTION"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MILD",
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN7UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_POLISH",
-        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE"
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDER_WAVE"
       ],
-      "Ability": "ABILITY_DESOLATE_LAND",
+      "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MILD",
       "SourceTiers": [
         "GEN7UBERS"
       ]
@@ -572,24 +549,373 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ROCK_TOMB",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_OVERHEAT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PRECIPICE_BLADES",
         "MOVE_STEALTH_ROCK",
-        "MOVE_WILL_O_WISP"
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_TOMB",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_TOMB",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_DESOLATE_LAND",
+      "Item": "ITEM_RED_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULK_UP",
+        "MOVE_HEAT_CRASH"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_ROCK_POLISH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_ROCK_TOMB",
+        "MOVE_STONE_EDGE",
+        "MOVE_HEAT_CRASH"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_STONE_EDGE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
       "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_CRUNCH",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PRECIPICE_BLADES",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
         "GEN9UBERS"
       ]
@@ -604,7 +930,6 @@
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9ANYTHINGGOES"
@@ -612,453 +937,24 @@
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_PRECIPICE_BLADES",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS",
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_EARTHQUAKE",
         "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS",
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_LAVA_PLUME",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_LAVA_PLUME",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_LAVA_PLUME",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_LAVA_PLUME",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_OVERHEAT",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_FIRE_PUNCH"
       ],
       "Ability": "ABILITY_DROUGHT",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_TOMB"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_TOMB"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_TOMB",
-        "MOVE_ERUPTION"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_TOMB",
-        "MOVE_ERUPTION"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_AERIAL_ACE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_STONE_EDGE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROCK_TOMB",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ERUPTION"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROCK_TOMB",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ERUPTION"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_PRECIPICE_BLADES",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DESOLATE_LAND",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_PRECIPICE_BLADES"
-      ],
-      "Ability": "ABILITY_DROUGHT",
-      "Item": "ITEM_RED_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
+        "GEN9ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_WORK_UP",
+      "MOVE_ROCK_CLIMB",
+      "MOVE_LOW_SWEEP"
+    ]
+  }
 }

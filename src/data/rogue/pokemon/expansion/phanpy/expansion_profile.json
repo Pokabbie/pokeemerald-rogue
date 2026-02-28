@@ -108,22 +108,6 @@
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_PICKUP",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_KNOCK_OFF",
         "MOVE_EARTHQUAKE",
         "MOVE_ROAR"
@@ -131,11 +115,91 @@
       "Ability": "ABILITY_PICKUP",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_PICKUP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ODOR_SLEUTH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_NATURAL_GIFT",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_ENDURE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SLAM",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_MAGNITUDE",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_TAKE_DOWN",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_LAST_RESORT",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_EARTHQUAKE",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_GIGA_IMPACT",
+        "Level": 49
+      }
+    ]
+  }
 }

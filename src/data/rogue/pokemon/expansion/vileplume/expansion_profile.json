@@ -125,8 +125,6 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -142,7 +140,6 @@
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -157,27 +154,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GIGA_DRAIN",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_CORROSIVE_GAS"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU",
-        "GEN8NU"
       ]
     },
     {
@@ -190,26 +168,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_POISONIUM_Z",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_STRENGTH_SAP"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9NU"
       ]
     },
     {
@@ -222,26 +182,23 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLUDGE_WAVE",
         "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
         "MOVE_STRENGTH_SAP",
-        "MOVE_LEECH_SEED"
+        "MOVE_CORROSIVE_GAS"
       ],
       "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9RU"
+        "GEN8RU",
+        "GEN8NU"
       ]
     },
     {
@@ -254,8 +211,6 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -270,11 +225,159 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_PETAL_BLIZZARD",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 69
+      },
+      {
+        "Move": "MOVE_APPLE_ACID",
+        "Level": 79
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_MOONBLAST"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MOONBLAST",
+          "MOVE_EARTH_POWER",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_STRENGTH_SAP"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_SLEEP_POWDER",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_APPLE_ACID",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_STRENGTH_SAP",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BLACK_SLUDGE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STRENGTH_SAP",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_SLEEP_POWDER"
+        ],
+        "Ability": "ABILITY_EFFECT_SPORE",
+        "Item": "ITEM_ROCKY_HELMET",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VILEPLUME": {
+        "Abilities": [
+          "ABILITY_CHLOROPHYLL",
+          "ABILITY_EFFECT_SPORE",
+          "ABILITY_THICK_FAT"
+        ]
+      }
+    }
+  }
 }

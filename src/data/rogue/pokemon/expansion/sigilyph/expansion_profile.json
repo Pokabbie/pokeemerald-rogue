@@ -120,39 +120,7 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_HEAT_WAVE",
-        "MOVE_ENERGY_BALL",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_HEAT_WAVE",
-        "MOVE_ENERGY_BALL",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
+        "MOVE_PSYSHOCK",
         "MOVE_HEAT_WAVE",
         "MOVE_ROOST",
         "MOVE_ENERGY_BALL"
@@ -160,42 +128,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AIR_SLASH",
-        "MOVE_ROOST",
-        "MOVE_HEAT_WAVE",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_AIR_SLASH",
-        "MOVE_ROOST",
-        "MOVE_COSMIC_POWER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
+        "GEN6RU"
       ]
     },
     {
@@ -208,24 +142,34 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FLAME_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
     },
     {
       "Moves": [
+        "MOVE_ROOST",
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER",
+        "MOVE_PSYCHO_SHIFT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
         "MOVE_HEAT_WAVE",
-        "MOVE_AIR_SLASH",
         "MOVE_ROOST",
         "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
@@ -240,26 +184,78 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYCHIC",
         "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH",
         "MOVE_ROOST",
         "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_COSMIC_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
       ]
     },
     {
@@ -272,15 +268,13 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_PSYSHOCK",
+        "MOVE_AIR_SLASH",
         "MOVE_HEAT_WAVE",
         "MOVE_ROOST",
         "MOVE_ENERGY_BALL"
@@ -288,10 +282,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6RU"
+        "GEN8RU"
       ]
     },
     {
@@ -304,26 +296,8 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROOST",
-        "MOVE_COSMIC_POWER",
-        "MOVE_STORED_POWER",
-        "MOVE_PSYCHO_SHIFT"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FLAME_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
       ]
     }
   ]

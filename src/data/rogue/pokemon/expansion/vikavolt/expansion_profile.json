@@ -113,147 +113,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_THUNDERBOLT",
-        "MOVE_BUG_BUZZ",
-        "MOVE_MUD_SHOT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH",
         "MOVE_VOLT_SWITCH",
-        "MOVE_HYPER_BEAM"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_DISCHARGE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL",
-        "MOVE_THUNDERBOLT",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_STICKY_WEB",
-        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST",
         "MOVE_ENERGY_BALL"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_STICKY_WEB",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU",
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
+        "GEN7RU"
       ]
     },
     {
@@ -266,91 +135,37 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_BUGINIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_ENERGY_BALL",
         "MOVE_BUG_BUZZ",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT"
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN7NU",
+        "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_VOLT_SWITCH",
         "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9PU",
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
+        "MOVE_AIR_SLASH",
         "MOVE_VOLT_SWITCH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL"
+        "MOVE_HYPER_BEAM"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_BUG_BUZZ",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -363,24 +178,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_BUG_BUZZ",
-        "MOVE_ENERGY_BALL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
@@ -395,27 +192,195 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_IAPAPA_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
         "MOVE_VOLT_SWITCH",
         "MOVE_BUG_BUZZ",
-        "MOVE_ROOST",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_THUNDERBOLT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
         "MOVE_ENERGY_BALL"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7RU"
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_STICKY_WEB",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_STICKY_WEB",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_BUG_BUZZ",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STICKY_WEB",
+          "MOVE_VOLT_SWITCH",
+          "MOVE_BUG_BUZZ",
+          "MOVE_ENERGY_BALL"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_HEAVY_DUTY_BOOTS",
+        "Nature": "NATURE_BOLD",
+        "TeraType": "TYPE_STEEL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VIKAVOLT": {
+        "BaseStats": {
+          "HP": 107,
+          "Attack": 80,
+          "Defense": 95,
+          "Speed": 93,
+          "SpAttack": 145,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

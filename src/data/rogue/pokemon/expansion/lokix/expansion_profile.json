@@ -125,49 +125,30 @@
     {
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_LIFE",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_BUG",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_BUG",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_BUG",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
       ]
     },
     {
@@ -180,8 +161,6 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
       ]
@@ -189,65 +168,14 @@
     {
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
-        "MOVE_SUCKER_PUNCH",
         "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_U_TURN",
-        "MOVE_LEECH_LIFE"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_LIFE"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_BUG",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
+        "MOVE_THROAT_CHOP",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9UU",
         "GEN9MONOTYPE"
       ]
     },
@@ -261,56 +189,48 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_SILVER_POWDER",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_FIRST_IMPRESSION",
         "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_BLACK_GLASSES",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9UU"
       ]
     },
     {
       "Moves": [
         "MOVE_SWORDS_DANCE",
         "MOVE_LEECH_LIFE",
-        "MOVE_KNOCK_OFF",
+        "MOVE_FIRST_IMPRESSION",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_DARKINIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]

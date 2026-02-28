@@ -118,117 +118,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_AGILITY",
-        "MOVE_STORED_POWER",
-        "MOVE_TACHYON_CUTTER"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TACHYON_CUTTER"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_PSYSHOCK",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_CALM_MIND",
-        "MOVE_PSYSHOCK",
-        "MOVE_TACHYON_CUTTER"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_CALM_MIND",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_CALM_MIND",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_PSYCHIC",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TACHYON_CUTTER",
         "MOVE_FUTURE_SIGHT",
         "MOVE_FOCUS_BLAST",
@@ -237,7 +126,6 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN9OU"
@@ -245,16 +133,116 @@
     },
     {
       "Moves": [
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_IRON_DEFENSE",
         "MOVE_CALM_MIND",
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_STORED_POWER",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TACHYON_CUTTER",
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
         "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -262,15 +250,14 @@
     {
       "Moves": [
         "MOVE_TACHYON_CUTTER",
-        "MOVE_IRON_DEFENSE",
         "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER"
+        "MOVE_IRON_DEFENSE",
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_WEAKNESS_POLICY",
+      "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -278,32 +265,30 @@
     {
       "Moves": [
         "MOVE_TACHYON_CUTTER",
-        "MOVE_PSYSHOCK",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FOCUS_BLAST"
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FUTURE_SIGHT"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN91V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_TACHYON_CUTTER",
-        "MOVE_VOLT_SWITCH",
+        "MOVE_CALM_MIND",
+        "MOVE_AGILITY",
+        "MOVE_STORED_POWER",
         "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_QUARK_DRIVE",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -316,11 +301,8 @@
       "Ability": "ABILITY_QUARK_DRIVE",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9MONOTYPE"
       ]
     }
   ]

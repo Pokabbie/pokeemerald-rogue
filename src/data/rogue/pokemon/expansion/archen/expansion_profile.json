@@ -126,6 +126,21 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ACROBATICS",
         "MOVE_EARTHQUAKE",
         "MOVE_STEALTH_ROCK",
@@ -134,8 +149,6 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -150,26 +163,8 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ACROBATICS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_U_TURN",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
       ]
     },
     {
@@ -183,7 +178,34 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_DEFEATIST",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -198,8 +220,6 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -214,43 +234,8 @@
       "Ability": "ABILITY_DEFEATIST",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAD_SMASH",
-        "MOVE_ACROBATICS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_ACROBATICS",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_DEFEATIST",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
       ]
     }
   ]

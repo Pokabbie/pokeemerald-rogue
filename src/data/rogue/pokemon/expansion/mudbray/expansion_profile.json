@@ -97,33 +97,29 @@
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT",
         "MOVE_HEAVY_SLAM",
+        "MOVE_ROCK_SLIDE",
         "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN7LC"
       ]
     },
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM",
         "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_SLEEP_TALK",
+        "MOVE_HEAVY_SLAM"
       ],
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8LC"
+        "GEN7LC"
       ]
     },
     {
@@ -136,24 +132,6 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -168,10 +146,22 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     },
     {
@@ -184,8 +174,6 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -193,17 +181,58 @@
     {
       "Moves": [
         "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
         "MOVE_REST",
-        "MOVE_SLEEP_TALK",
-        "MOVE_HEAVY_SLAM"
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     },
     {
@@ -216,7 +245,6 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9LC"
@@ -232,56 +260,6 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_REST",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9LC"
       ]

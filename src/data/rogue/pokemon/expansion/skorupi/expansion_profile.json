@@ -124,32 +124,28 @@
       "Moves": [
         "MOVE_TOXIC_SPIKES",
         "MOVE_TAUNT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": "ABILITY_BATTLE_ARMOR",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_TAUNT",
         "MOVE_POISON_JAB",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_BATTLE_ARMOR",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     }
   ]

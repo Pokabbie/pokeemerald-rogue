@@ -128,6 +128,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_NASTY_PLOT",
         "MOVE_FIRE_BLAST",
         "MOVE_HIDDEN_POWER",
@@ -137,23 +151,6 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECYCLE",
-        "MOVE_WILL_O_WISP",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -168,8 +165,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]

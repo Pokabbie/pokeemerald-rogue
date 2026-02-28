@@ -103,6 +103,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_GIGA_DRAIN",
         "MOVE_RECOVER",
         "MOVE_ANCIENT_POWER",
@@ -111,10 +125,22 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
         "GEN7LC"
       ]
     },
@@ -128,43 +154,30 @@
       "Ability": "ABILITY_STORM_DRAIN",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ANCIENT_POWER"
-      ],
-      "Ability": "ABILITY_STORM_DRAIN",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_RECOVER",
-        "MOVE_ANCIENT_POWER"
-      ],
-      "Ability": "ABILITY_STORM_DRAIN",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_POWER_GEM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_RECOVER",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_STEALTH_ROCK",
+          "MOVE_POWER_GEM"
+        ],
+        "Ability": "ABILITY_STORM_DRAIN",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

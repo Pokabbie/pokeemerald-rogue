@@ -112,8 +112,6 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_DESTINY_KNOT",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -129,10 +127,121 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_LUCKY_CHANT",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_HEART_STAMP",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_CAPTIVATE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_AQUA_RING",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_SOAK",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_SAFEGUARD",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_LOVELY_KISS",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SCALD"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_ICE_BEAM",
+          "MOVE_MOONBLAST",
+          "MOVE_LOVELY_KISS"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_MODEST",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_MOONBLAST",
+          "MOVE_ICE_BEAM",
+          "MOVE_DRAINING_KISS"
+        ],
+        "Ability": "ABILITY_SOUL_HEART",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_MOONBLAST",
+          "MOVE_ICE_BEAM",
+          "MOVE_DRAINING_KISS"
+        ],
+        "Ability": "ABILITY_SOUL_HEART",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_LUVDISC": {
+        "Types": [
+          "TYPE_WATER",
+          "TYPE_FAIRY"
+        ],
+        "Abilities": [
+          "ABILITY_SWIFT_SWIM",
+          "ABILITY_HYDRATION",
+          "ABILITY_SOUL_HEART"
+        ],
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 30,
+          "Defense": 75,
+          "Speed": 125,
+          "SpAttack": 95,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

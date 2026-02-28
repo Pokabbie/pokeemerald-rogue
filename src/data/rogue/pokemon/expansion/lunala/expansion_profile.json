@@ -128,22 +128,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_MOONGEIST_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_METEOR_BEAM"
-      ],
-      "Ability": "ABILITY_SHADOW_SHIELD",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_MOONGEIST_BEAM",
         "MOVE_PSYSHOCK",
@@ -152,58 +136,8 @@
       "Ability": "ABILITY_SHADOW_SHIELD",
       "Item": "ITEM_LUNALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROAR",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SHADOW_SHIELD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_ICE_BEAM",
-        "MOVE_MOONGEIST_BEAM",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SHADOW_SHIELD",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_ROOST",
-        "MOVE_MOONGEIST_BEAM",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_SHADOW_SHIELD",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
       ]
     },
     {
@@ -216,8 +150,6 @@
       "Ability": "ABILITY_SHADOW_SHIELD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
@@ -232,8 +164,6 @@
       "Ability": "ABILITY_SHADOW_SHIELD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
@@ -248,10 +178,65 @@
       "Ability": "ABILITY_SHADOW_SHIELD",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_ROOST",
+        "MOVE_MOONGEIST_BEAM",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHADOW_SHIELD",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROAR",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SHADOW_SHIELD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_ICE_BEAM",
+        "MOVE_MOONGEIST_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SHADOW_SHIELD",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_MOONGEIST_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_METEOR_BEAM"
+      ],
+      "Ability": "ABILITY_SHADOW_SHIELD",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UBERS"
       ]
     }
   ]

@@ -146,18 +146,44 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AURA_SPHERE",
-        "MOVE_CLANGING_SCALES",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_FLAMETHROWER"
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
       ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
       ]
     },
     {
@@ -170,10 +196,192 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_PROTECT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_PROTECT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_PROTECT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -186,42 +394,64 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_HEAD",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN8OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
         "MOVE_SUBSTITUTE",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_TAUNT"
+        "MOVE_BELLY_DRUM",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CLANGOROUS_SOUL"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_AURA_SPHERE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_YACHE_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN81V1"
+        "GEN8VGC2020"
       ]
     },
     {
@@ -234,8 +464,6 @@
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -250,26 +478,36 @@
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_HABAN_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_CLANGING_SCALES",
         "MOVE_BODY_PRESS",
+        "MOVE_SUBSTITUTE",
         "MOVE_IRON_DEFENSE",
         "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_YACHE_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN91V1"
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
       ]
     },
     {
@@ -282,138 +520,8 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_CLANGOROUS_SOUL",
-        "MOVE_FLAMETHROWER",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_OVERCOAT",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_POISON_JAB",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAGON_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
       ]
     },
     {
@@ -426,201 +534,20 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_KOMMONIUM_Z",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_CLANGOROUS_SOUL"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
         "MOVE_CLANGOROUS_SOUL",
-        "MOVE_BOOMBURST"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_CLANGOROUS_SOUL"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TAUNT",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_PROTECT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_PROTECT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGING_SCALES",
-        "MOVE_PROTECT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_KOMMONIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGOROUS_SOUL",
         "MOVE_BOOMBURST",
-        "MOVE_FLAMETHROWER",
-        "MOVE_REST"
+        "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_SOUNDPROOF",
-      "Item": "ITEM_CHESTO_BERRY",
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_THROAT_SPRAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
         "GEN9OU"
@@ -630,16 +557,59 @@
       "Moves": [
         "MOVE_CLANGOROUS_SOUL",
         "MOVE_CLANGING_SCALES",
-        "MOVE_AURA_SPHERE",
-        "MOVE_PROTECT"
+        "MOVE_BOOMBURST",
+        "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_SOUNDPROOF",
+      "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_THROAT_SPRAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8VGC2020"
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_EJECT_PACK",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9UU"
       ]
     },
     {
@@ -649,174 +619,56 @@
         "MOVE_BOOMBURST",
         "MOVE_FLAMETHROWER"
       ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGOROUS_SOUL",
-        "MOVE_CLANGING_SCALES",
-        "MOVE_PROTECT",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_THROAT_SPRAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLANGOROUS_SOUL",
-        "MOVE_CLANGING_SCALES",
-        "MOVE_VACUUM_WAVE",
-        "MOVE_FLAMETHROWER"
-      ],
       "Ability": "ABILITY_SOUNDPROOF",
       "Item": "ITEM_THROAT_SPRAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9MONOTYPE"
+        "GEN9UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE"
+        "MOVE_BODY_PRESS",
+        "MOVE_POISON_JAB",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_STEALTH_ROCK"
       ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN7OU"
+        "GEN9UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_DRAGON_CLAW",
-        "MOVE_TAUNT",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FIRE_PUNCH",
         "MOVE_CLANGOROUS_SOUL",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_CLEAR_AMULET",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOCUS_BLAST",
         "MOVE_CLANGING_SCALES",
-        "MOVE_FLAMETHROWER",
-        "MOVE_PROTECT"
+        "MOVE_BOOMBURST",
+        "MOVE_AURA_SPHERE"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN9UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_SUBSTITUTE"
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_BOOMBURST",
+        "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_FLAMETHROWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_IRON_HEAD",
-        "MOVE_PROTECT",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -829,10 +681,152 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_SALAC_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_BOOMBURST"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CLEAR_AMULET",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_PROTECT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_SPHERE",
+        "MOVE_CLANGING_SCALES",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_CLANGOROUS_SOUL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLANGING_SCALES",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLANGOROUS_SOUL"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_KOMMONIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

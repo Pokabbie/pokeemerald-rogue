@@ -141,18 +141,46 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_GYRO_BALL",
-        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
         "MOVE_VOLT_SWITCH",
-        "MOVE_RAPID_SPIN"
+        "MOVE_SPIKES"
       ],
-      "Ability": "ABILITY_OVERCOAT",
+      "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN6OU",
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6UU"
       ]
     },
     {
@@ -165,10 +193,50 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7RU"
       ]
     },
     {
@@ -181,42 +249,7 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
         "GEN7MONOTYPE"
       ]
     },
@@ -230,8 +263,6 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9UU",
         "GEN9RU"
@@ -239,65 +270,15 @@
     },
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU",
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SPIKES",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPIKES",
         "MOVE_BODY_PRESS",
-        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
         "MOVE_GYRO_BALL"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN9RU"
       ]
@@ -312,8 +293,6 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE",
         "GEN9NATIONALDEXMONOTYPE"
@@ -321,50 +300,30 @@
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EXPLOSION",
+        "MOVE_RAPID_SPIN",
+        "MOVE_VOLT_SWITCH",
         "MOVE_SPIKES",
-        "MOVE_RAPID_SPIN"
+        "MOVE_GYRO_BALL"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_RAPID_SPIN",
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_RAPID_SPIN",
         "MOVE_VOLT_SWITCH",
         "MOVE_SPIKES"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]

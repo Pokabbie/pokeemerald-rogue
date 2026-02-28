@@ -110,33 +110,15 @@
     {
       "Moves": [
         "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
         "MOVE_MACH_PUNCH",
+        "MOVE_KNOCK_OFF",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_MACH_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
       ]
     },
     {
@@ -149,8 +131,6 @@
       "Ability": "ABILITY_GUTS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
@@ -166,8 +146,20 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -175,17 +167,15 @@
     {
       "Moves": [
         "MOVE_DRAIN_PUNCH",
-        "MOVE_MACH_PUNCH",
         "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
+        "MOVE_MACH_PUNCH",
+        "MOVE_DEFOG"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     },
     {
@@ -198,8 +188,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC",
         "GEN9LC"
@@ -207,18 +195,17 @@
     },
     {
       "Moves": [
-        "MOVE_MACH_PUNCH",
         "MOVE_DRAIN_PUNCH",
         "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH",
         "MOVE_ICE_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN9LC"
       ]
     }
   ]

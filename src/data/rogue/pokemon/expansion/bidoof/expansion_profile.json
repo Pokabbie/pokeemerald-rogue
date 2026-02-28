@@ -116,22 +116,6 @@
     {
       "Moves": [
         "MOVE_CURSE",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_RETURN",
-        "MOVE_AQUA_TAIL"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CURSE",
         "MOVE_RETURN",
         "MOVE_QUICK_ATTACK",
         "MOVE_AQUA_TAIL"
@@ -139,26 +123,22 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
+        "MOVE_CURSE",
         "MOVE_QUICK_ATTACK",
-        "MOVE_CRUNCH",
-        "MOVE_RETURN"
+        "MOVE_RETURN",
+        "MOVE_AQUA_TAIL"
       ],
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -171,8 +151,20 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_CRUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7LC"
       ]

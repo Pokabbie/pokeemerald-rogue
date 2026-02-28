@@ -125,70 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SURF",
-        "MOVE_ICE_BEAM",
-        "MOVE_BLIZZARD"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_THICK_FAT",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROAR",
-        "MOVE_IRON_HEAD",
-        "MOVE_SURF",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ROAR",
         "MOVE_IRON_HEAD",
         "MOVE_SURF",
@@ -197,8 +133,20 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -213,26 +161,51 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
     },
     {
       "Moves": [
+        "MOVE_ROAR",
+        "MOVE_IRON_HEAD",
         "MOVE_SURF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ICE_BEAM",
         "MOVE_IRON_HEAD",
-        "MOVE_SUPER_FANG"
+        "MOVE_SURF",
+        "MOVE_ROAR"
       ],
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -245,11 +218,103 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_IRON_HEAD",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICE_FANG",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_POWDER_SNOW",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ROLLOUT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ENCORE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ICE_BALL",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_BRINE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_REST",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SNORE",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SLACK_OFF",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_HAIL",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_BLIZZARD",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_SHEER_COLD",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC",
+      "MOVE_SCALD"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROAR",
+          "MOVE_TOXIC",
+          "MOVE_SCALD",
+          "MOVE_SLACK_OFF"
+        ],
+        "Ability": "ABILITY_OBLIVIOUS",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

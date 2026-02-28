@@ -143,38 +143,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLASH_CANNON",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_SAND_FORCE",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SMACK_DOWN",
-        "MOVE_EARTH_POWER",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_MAGNET_PULL",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_EARTH_POWER",
         "MOVE_MAGNET_RISE",
@@ -183,10 +151,50 @@
       "Ability": "ABILITY_MAGNET_PULL",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -200,7 +208,6 @@
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -215,10 +222,22 @@
       "Ability": "ABILITY_MAGNET_PULL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SMACK_DOWN",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -231,42 +250,22 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_POWER_GEM"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_FLASH_CANNON",
-        "MOVE_EARTH_POWER",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_MAGNET_PULL",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
       ]
     },
     {
@@ -279,43 +278,70 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_FLASH_CANNON",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TRI_ATTACK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MAGNET_BOMB",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_IRON_DEFENSE",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_BLOCK",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_MAGNET_BOMB",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 46
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_POWER_GEM",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_VOLT_SWITCH"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_AIR_BALLOON",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PROBOPASS": {
+        "Types": [
+          "TYPE_ROCK",
+          "TYPE_ELECTRIC"
+        ],
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 50,
+          "Defense": 135,
+          "Speed": 40,
+          "SpAttack": 90,
+          "SpDefense": 140
+        }
+      }
+    }
+  }
 }

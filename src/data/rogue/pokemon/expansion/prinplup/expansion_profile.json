@@ -119,8 +119,6 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
         "GEN6PU"
@@ -136,11 +134,23 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CALM_MIND"
+    ],
+    "PerSpecies": {
+      "SPECIES_PRINPLUP": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_VITAL_SPIRIT",
+          "ABILITY_COMPETITIVE"
+        ]
+      }
+    }
+  }
 }

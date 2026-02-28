@@ -106,14 +106,12 @@
       "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_DRAGON_CLAW",
-        "MOVE_CRUNCH",
+        "MOVE_ROCK_SLIDE",
         "MOVE_FIRE_FANG"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -122,16 +120,28 @@
       "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_DRAGON_CLAW",
-        "MOVE_ROCK_SLIDE",
+        "MOVE_CRUNCH",
         "MOVE_FIRE_FANG"
       ],
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -144,8 +154,6 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -160,27 +168,15 @@
       "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAGON_DANCE",
-        "MOVE_OUTRAGE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_WORK_UP",
+      "MOVE_WISH"
+    ]
+  }
 }

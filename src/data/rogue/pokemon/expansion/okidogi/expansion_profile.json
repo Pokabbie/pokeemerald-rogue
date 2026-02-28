@@ -116,17 +116,103 @@
     {
       "Moves": [
         "MOVE_BULK_UP",
+        "MOVE_POISON_JAB",
         "MOVE_DRAIN_PUNCH",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU",
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GUNK_SHOT",
         "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_BULK_UP",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_GUARD_DOG",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TOXIC_CHAIN",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -136,110 +222,11 @@
         "MOVE_KNOCK_OFF",
         "MOVE_SUBSTITUTE"
       ],
-      "Ability": "ABILITY_GUARD_DOG",
+      "Ability": "ABILITY_TOXIC_CHAIN",
       "Item": "ITEM_BLACK_SLUDGE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE",
         "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_POISON_JAB",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOXIC_CHAIN",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_POISON_JAB",
-        "MOVE_BULK_UP",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_GUARD_DOG",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_GUARD_DOG",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
       ]
     }
   ]

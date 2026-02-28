@@ -106,64 +106,14 @@
       "Moves": [
         "MOVE_BOLT_BEAK",
         "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOLT_BEAK",
-        "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
+        "MOVE_LOW_KICK",
         "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_SLUSH_RUSH",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOLT_BEAK",
-        "MOVE_BLIZZARD",
-        "MOVE_LOW_KICK",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BOLT_BEAK",
-        "MOVE_ICICLE_CRASH",
-        "MOVE_FREEZE_DRY",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
       ]
     },
     {
@@ -176,11 +126,59 @@
       "Ability": "ABILITY_SLUSH_RUSH",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_BLIZZARD",
+        "MOVE_LOW_KICK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_FREEZE_DRY",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ]
+  }
 }

@@ -130,6 +130,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_PSYCHIC",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_ANCIENT_POWER",
         "MOVE_EARTH_POWER",
         "MOVE_ICE_BEAM",
@@ -138,58 +152,8 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROCK_POLISH",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_BEAM",
-        "MOVE_PSYSHOCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_ROCK_POLISH"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_GEM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_HYPNOSIS"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -202,8 +166,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -218,27 +180,143 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_ROCK_POLISH",
+        "MOVE_POWER_GEM",
+        "MOVE_STEALTH_ROCK",
         "MOVE_PSYCHIC",
-        "MOVE_ANCIENT_POWER",
-        "MOVE_EARTH_POWER"
+        "MOVE_HYPNOSIS"
       ],
       "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROCK_POLISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROCK_POLISH",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_NIGHT_DAZE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_POWER_GEM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PSYSHOCK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_PSYWAVE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_EMBARGO",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_ROCK_SLIDE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_HEAL_BLOCK",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_STONE_EDGE",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_FUTURE_SIGHT",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_MAGIC_ROOM",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_LUNAR_DANCE",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC",
+      "MOVE_MOONLIGHT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_POWER_GEM",
+          "MOVE_MOONLIGHT",
+          "MOVE_LUNAR_DANCE",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_ROCKY_HELMET",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_LUNATONE": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 55,
+          "Defense": 65,
+          "Speed": 70,
+          "SpAttack": 115,
+          "SpDefense": 85
+        }
+      }
+    }
+  }
 }

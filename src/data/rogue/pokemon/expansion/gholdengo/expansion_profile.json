@@ -98,81 +98,31 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HEX",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_RECOVER"
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_TRICK",
+        "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_GHOSTIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEX",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_RECOVER",
-        "MOVE_MAKE_IT_RAIN"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
+        "GEN9UBERS",
         "GEN9OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_SHADOW_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_SHADOW_BALL",
         "MOVE_NASTY_PLOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MAKE_IT_RAIN",
         "MOVE_SHADOW_BALL",
-        "MOVE_NASTY_PLOT",
+        "MOVE_MAKE_IT_RAIN",
         "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9UBERS"
       ]
@@ -185,43 +135,81 @@
         "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_MAKE_IT_RAIN",
+        "MOVE_NASTY_PLOT",
         "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_MAKE_IT_RAIN"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
         "MOVE_NASTY_PLOT",
         "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEX",
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG"
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_NASTY_PLOT",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
       ]
     },
     {
       "Moves": [
         "MOVE_MAKE_IT_RAIN",
         "MOVE_SHADOW_BALL",
-        "MOVE_POWER_GEM",
-        "MOVE_TRICK"
+        "MOVE_THUNDERBOLT",
+        "MOVE_POWER_GEM"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
+      "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9DOUBLESOU"
@@ -237,10 +225,38 @@
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
         "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -253,8 +269,6 @@
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE",
         "GEN9MONOTYPE"
@@ -263,22 +277,6 @@
     {
       "Moves": [
         "MOVE_NASTY_PLOT",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_SHADOW_BALL",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
         "MOVE_SHADOW_BALL",
         "MOVE_FOCUS_BLAST",
         "MOVE_MAKE_IT_RAIN"
@@ -286,8 +284,6 @@
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
@@ -295,127 +291,56 @@
     {
       "Moves": [
         "MOVE_NASTY_PLOT",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
         "MOVE_SHADOW_BALL",
         "MOVE_FOCUS_BLAST",
-        "MOVE_RECOVER"
+        "MOVE_TRICK"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_GHOSTIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     },
     {
       "Moves": [
         "MOVE_NASTY_PLOT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SHADOW_BALL",
         "MOVE_RECOVER",
-        "MOVE_MAKE_IT_RAIN"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_NASTY_PLOT",
         "MOVE_MAKE_IT_RAIN",
         "MOVE_SHADOW_BALL"
       ],
       "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DRAGON",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_NASTY_PLOT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_GHOSTIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
@@ -430,43 +355,8 @@
       "Ability": "ABILITY_GOOD_AS_GOLD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_BALL",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_TRICK",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9UBERS",
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEX",
-        "MOVE_MAKE_IT_RAIN",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_GOOD_AS_GOLD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
       ]
     }
   ]

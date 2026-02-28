@@ -156,51 +156,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HEAL_BELL",
-        "MOVE_THUNDER_WAVE",
         "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE"
+        "MOVE_HEAL_BELL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6UU"
       ]
     },
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE",
         "MOVE_HEAL_BELL",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU",
-        "GEN7ZU"
+        "GEN6UU"
       ]
     },
     {
@@ -213,42 +192,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAL_BELL",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -261,8 +206,6 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
@@ -270,34 +213,178 @@
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
-        "MOVE_HEAL_BELL",
         "MOVE_EARTHQUAKE",
+        "MOVE_HEAL_BELL",
         "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
         "MOVE_HEAL_BELL",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN6UU"
+        "GEN7PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BITE",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_LICK",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_COVET",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_DOUBLE_KICK",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_ROAR",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_RAGE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_DYNAMIC_PUNCH",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_PAYBACK",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_SUPER_FANG",
+        "Level": 58
+      },
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 63
+      },
+      {
+        "Move": "MOVE_OUTRAGE",
+        "Level": 68
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_PLAY_ROUGH",
+          "MOVE_EARTHQUAKE"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PLAY_ROUGH",
+          "MOVE_EARTHQUAKE",
+          "MOVE_TOXIC",
+          "MOVE_CLOSE_COMBAT"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_GRANBULL": {
+        "Types": [
+          "TYPE_FAIRY",
+          "TYPE_FIGHTING"
+        ],
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 120,
+          "Defense": 75,
+          "Speed": 45,
+          "SpAttack": 60,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

@@ -114,38 +114,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_IRON_DEFENSE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_IRON_DEFENSE",
-        "MOVE_MOONBLAST",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CALM_MIND",
         "MOVE_MOONBLAST",
         "MOVE_REST",
@@ -154,58 +122,36 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_MOONBLAST",
-        "MOVE_REST"
+        "MOVE_SUNNY_DAY",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_MAGIC_COAT"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_CALM_MIND",
-        "MOVE_BODY_PRESS",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9ZU"
+        "GEN6PU"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_IRON_HEAD",
+        "MOVE_MOONBLAST",
         "MOVE_EXPLOSION",
-        "MOVE_TRICK_ROOM"
+        "MOVE_CALM_MIND"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -218,8 +164,6 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -234,40 +178,34 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
         "MOVE_MOONBLAST",
-        "MOVE_EXPLOSION",
-        "MOVE_CALM_MIND"
+        "MOVE_REST"
       ],
-      "Ability": "ABILITY_STURDY",
+      "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU"
       ]
     },
     {
       "Moves": [
+        "MOVE_TRICK_ROOM",
         "MOVE_STEALTH_ROCK",
-        "MOVE_MOONBLAST",
         "MOVE_EXPLOSION",
-        "MOVE_TRICK_ROOM"
+        "MOVE_MAGIC_COAT"
       ],
       "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -282,8 +220,6 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -291,47 +227,13 @@
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_TRICK_ROOM",
-        "MOVE_BODY_PRESS",
-        "MOVE_IRON_HEAD"
+        "MOVE_MOONBLAST",
+        "MOVE_EXPLOSION",
+        "MOVE_TRICK_ROOM"
       ],
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUNNY_DAY",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EXPLOSION",
-        "MOVE_MAGIC_COAT"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAT_ROCK",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EXPLOSION",
-        "MOVE_MAGIC_COAT"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -346,10 +248,64 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_EXPLOSION",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_MOONBLAST",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TRICK_ROOM",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9PU"
       ]
     }
   ]

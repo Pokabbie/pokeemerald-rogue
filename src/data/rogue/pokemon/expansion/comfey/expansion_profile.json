@@ -130,66 +130,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_DRAINING_KISS",
-        "MOVE_STORED_POWER",
-        "MOVE_AROMATHERAPY"
-      ],
-      "Ability": "ABILITY_TRIAGE",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
+        "MOVE_GIGA_DRAIN",
         "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_TERA_BLAST",
-        "MOVE_STORED_POWER"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_TRIAGE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
+      "HiddenPower": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_DRAINING_KISS",
-        "MOVE_TERA_BLAST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_TRIAGE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DEFOG",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_U_TURN",
-        "MOVE_SYNTHESIS"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
+        "GEN7NU"
       ]
     },
     {
@@ -203,57 +154,8 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_CALM_MIND",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_TRIAGE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_CALM_MIND",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_TRIAGE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRAINING_KISS",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER"
-      ],
-      "Ability": "ABILITY_TRIAGE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
       ]
     },
     {
@@ -266,10 +168,64 @@
       "Ability": "ABILITY_TRIAGE",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
       ]
     },
     {
@@ -282,10 +238,38 @@
       "Ability": "ABILITY_TRIAGE",
       "Item": "ITEM_BABIRI_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_TERA_BLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UU"
       ]
     }
   ]

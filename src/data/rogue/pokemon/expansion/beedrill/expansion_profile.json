@@ -108,35 +108,100 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_U_TURN",
         "MOVE_POISON_JAB",
-        "MOVE_DRILL_RUN",
-        "MOVE_TAILWIND",
-        "MOVE_TOXIC_SPIKES"
+        "MOVE_KNOCK_OFF"
       ],
-      "Ability": "ABILITY_SNIPER",
-      "Item": "ITEM_FOCUS_SASH",
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_U_TURN",
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
       ]
     },
     {
       "Moves": [
         "MOVE_POISON_JAB",
-        "MOVE_DRILL_RUN",
         "MOVE_U_TURN",
-        "MOVE_FELL_STINGER"
+        "MOVE_DRILL_RUN",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU",
-        "GEN7MONOTYPE"
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_ENDEAVOR",
+        "MOVE_X_SCISSOR",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -149,26 +214,64 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_DRILL_RUN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
         "MOVE_X_SCISSOR",
-        "MOVE_STRUGGLE_BUG"
+        "MOVE_POISON_JAB",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT",
+        "MOVE_DRILL_RUN"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -181,8 +284,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES",
         "GEN6MONOTYPE"
@@ -198,90 +299,53 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_POISON_JAB",
         "MOVE_U_TURN",
+        "MOVE_POISON_JAB",
         "MOVE_DRILL_RUN",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POISON_JAB",
-        "MOVE_U_TURN",
-        "MOVE_PROTECT",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_U_TURN",
-        "MOVE_POISON_JAB",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_U_TURN",
-        "MOVE_POISON_JAB",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN7UU",
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_X_SCISSOR",
+        "MOVE_U_TURN",
         "MOVE_POISON_JAB",
-        "MOVE_DRILL_RUN"
+        "MOVE_DRILL_RUN",
+        "MOVE_KNOCK_OFF"
       ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_LIFE_ORB",
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6ZU"
+        "GEN7UU",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_DRILL_RUN",
+        "MOVE_U_TURN",
+        "MOVE_FELL_STINGER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_BEEDRILLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -294,76 +358,36 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_ENDEAVOR",
-        "MOVE_X_SCISSOR",
-        "MOVE_TAILWIND"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_U_TURN",
-        "MOVE_ROOST",
-        "MOVE_POISON_JAB"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_BLACK_SLUDGE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
         "MOVE_POISON_JAB",
         "MOVE_DRILL_RUN",
-        "MOVE_KNOCK_OFF"
+        "MOVE_TAILWIND",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_DRILL_RUN",
+        "MOVE_X_SCISSOR",
+        "MOVE_STRUGGLE_BUG"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_POISON_JAB",
-        "MOVE_DRILL_RUN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU",
-        "GEN7BATTLESPOTSINGLES"
+        "GEN71V1"
       ]
     },
     {
@@ -373,79 +397,110 @@
         "MOVE_DRILL_RUN",
         "MOVE_ROOST"
       ],
-      "Ability": null,
       "Item": "ITEM_BEEDRILLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LETSGOOU",
         "GEN7LETSGOOU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_POISON_JAB",
-        "MOVE_PROTECT",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_POISON_JAB",
-        "MOVE_PROTECT",
-        "MOVE_DRILL_RUN"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_PROTECT",
-        "MOVE_POISON_JAB",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_PROTECT",
-        "MOVE_POISON_JAB",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_BEEDRILLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TWINEEDLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FURY_ATTACK",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_RAGE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_FOCUS_ENERGY",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_VENOSHOCK",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_TOXIC_SPIKES",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_PIN_MISSILE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_POISON_JAB",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_DRILL_PECK",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_ENDEAVOR",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_FELL_STINGER",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_MEGAHORN",
+        "Level": 45
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SKITTER_SMACK",
+      "MOVE_DUAL_WINGBEAT"
+    ],
+    "PerSpecies": {
+      "SPECIES_BEEDRILL": {
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 115,
+          "Defense": 40,
+          "Speed": 95,
+          "SpAttack": 40,
+          "SpDefense": 95
+        }
+      },
+      "SPECIES_BEEDRILL_MEGA": {
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 175,
+          "Defense": 55,
+          "Speed": 170,
+          "SpAttack": 30,
+          "SpDefense": 110
+        }
+      }
+    }
+  }
 }

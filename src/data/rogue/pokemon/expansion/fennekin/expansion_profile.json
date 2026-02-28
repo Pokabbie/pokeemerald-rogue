@@ -121,7 +121,20 @@
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -136,27 +149,20 @@
       "Ability": "ABILITY_MAGICIAN",
       "Item": "ITEM_POWER_HERB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SOLAR_BEAM",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_MAGICIAN",
-      "Item": "ITEM_POWER_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_FENNEKIN": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_MAGICIAN",
+          "ABILITY_MAGIC_GUARD"
+        ]
+      }
+    }
+  }
 }

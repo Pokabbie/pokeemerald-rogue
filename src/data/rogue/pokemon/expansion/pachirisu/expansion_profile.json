@@ -126,18 +126,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_NUZZLE",
-        "MOVE_SUPER_FANG",
         "MOVE_U_TURN",
-        "MOVE_ENCORE"
+        "MOVE_NUZZLE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUPER_FANG"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -150,8 +148,6 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -166,27 +162,61 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_U_TURN",
         "MOVE_NUZZLE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_SUPER_FANG"
+        "MOVE_SUPER_FANG",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_REFLECT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_REFLECT",
+          "MOVE_LIGHT_SCREEN",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_PRANKSTER",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PACHIRISU": {
+        "Abilities": [
+          "ABILITY_PRANKSTER",
+          "ABILITY_PICKUP",
+          "ABILITY_VOLT_ABSORB"
+        ],
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 45,
+          "Defense": 80,
+          "Speed": 95,
+          "SpAttack": 80,
+          "SpDefense": 90
+        }
+      }
+    }
+  }
 }

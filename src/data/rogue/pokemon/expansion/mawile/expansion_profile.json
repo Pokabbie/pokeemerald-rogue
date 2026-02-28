@@ -143,18 +143,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
+        "MOVE_IRON_HEAD",
         "MOVE_PLAY_ROUGH",
-        "MOVE_GRASS_KNOT",
-        "MOVE_FLASH_CANNON"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BATON_PASS"
       ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6UBERS"
       ]
     },
     {
@@ -167,42 +165,491 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS"
       ]
     },
     {
       "Moves": [
+        "MOVE_PLAY_ROUGH",
         "MOVE_IRON_HEAD",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPER_FANG",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_PLAY_ROUGH",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_BATON_PASS"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_IRON_HEAD",
         "MOVE_PLAY_ROUGH",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PUNISHMENT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PUNISHMENT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPER_FANG",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -215,8 +662,6 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES",
         "GEN7VGC2018"
@@ -232,220 +677,8 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_TAUNT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METAL_BURST",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_TAUNT",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_SHEER_FORCE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU",
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_METAL_BURST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_METAL_BURST",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
       ]
     },
     {
@@ -458,8 +691,6 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2018"
       ]
@@ -467,129 +698,27 @@
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
-        "MOVE_PUNISHMENT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_PUNISHMENT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_IRON_HEAD",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_IRON_HEAD",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_IRON_HEAD",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES",
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
         "MOVE_SUCKER_PUNCH",
         "MOVE_IRON_HEAD",
         "MOVE_SWORDS_DANCE"
       ],
-      "Ability": "ABILITY_HUGE_POWER",
+      "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_METAL_BURST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -601,11 +730,23 @@
         "MOVE_IRON_HEAD",
         "MOVE_SWORDS_DANCE"
       ],
-      "Ability": "ABILITY_INTIMIDATE",
+      "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_METAL_BURST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MAWILITE",
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -620,8 +761,6 @@
       "Ability": "ABILITY_HUGE_POWER",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -629,277 +768,58 @@
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PROTECT",
-        "MOVE_IRON_HEAD"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF"
       ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
       ]
     },
     {
       "Moves": [
         "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH",
         "MOVE_FIRE_FANG"
       ],
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_MAWILITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUPER_FANG",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUPER_FANG",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_FOCUS_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_FOCUS_PUNCH"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_HYPER_CUTTER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_HUGE_POWER",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_MAWILITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
         "GEN8NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_MAWILE": {
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 95,
+          "Defense": 90,
+          "Speed": 50,
+          "SpAttack": 55,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

@@ -123,6 +123,90 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_INSTRUCT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_INSTRUCT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_INSTRUCT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_INSTRUCT",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FUTURE_SIGHT",
         "MOVE_PSYCHIC",
         "MOVE_HYPER_VOICE",
@@ -131,8 +215,6 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]
@@ -147,106 +229,8 @@
       "Ability": "ABILITY_INNER_FOCUS",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_INSTRUCT",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PROTECT",
-        "MOVE_FOUL_PLAY"
-      ],
-      "Ability": "ABILITY_TELEPATHY",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_INSTRUCT",
-        "MOVE_TRICK_ROOM",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TELEPATHY",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_INSTRUCT",
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TELEPATHY",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYCHIC",
-        "MOVE_INSTRUCT",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_INNER_FOCUS",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
       ]
     }
   ]

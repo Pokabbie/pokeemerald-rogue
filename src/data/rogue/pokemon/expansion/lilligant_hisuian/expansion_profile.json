@@ -1,0 +1,280 @@
+{
+  "Species": [
+    "SPECIES_LILLIGANT_HISUIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VICTORY_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MEGA_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AXE_KICK",
+      "Level": 5
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METRONOME",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_POISON_JAB",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_SPINNER",
+        "MOVE_VICTORY_DANCE",
+        "MOVE_SOLAR_BLADE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_VICTORY_DANCE",
+        "MOVE_ICE_SPINNER",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BLADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LEAF_BLADE",
+        "MOVE_VICTORY_DANCE",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BLADE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_AFTER_YOU",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VICTORY_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VICTORY_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_SPINNER",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VICTORY_DANCE",
+        "MOVE_ICE_SPINNER",
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

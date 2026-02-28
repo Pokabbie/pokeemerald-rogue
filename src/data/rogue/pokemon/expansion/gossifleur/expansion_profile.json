@@ -80,5 +80,13 @@
     "MOVE_SUNNY_DAY",
     "MOVE_WORRY_SEED"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ]
+  }
 }

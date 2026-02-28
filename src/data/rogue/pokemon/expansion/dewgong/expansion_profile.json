@@ -140,8 +140,6 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -156,11 +154,44 @@
       "Ability": "ABILITY_HYDRATION",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WHIRLPOOL",
+          "MOVE_PERISH_SONG",
+          "MOVE_ICE_BEAM",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_ICE_SCALES",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DEWGONG": {
+        "Abilities": [
+          "ABILITY_THICK_FAT",
+          "ABILITY_HYDRATION",
+          "ABILITY_ICE_SCALES"
+        ],
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 70,
+          "Defense": 80,
+          "Speed": 70,
+          "SpAttack": 90,
+          "SpDefense": 95
+        }
+      }
+    }
+  }
 }

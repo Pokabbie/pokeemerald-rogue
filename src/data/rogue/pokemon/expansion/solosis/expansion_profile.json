@@ -115,38 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_TRICK_ROOM",
-        "MOVE_THUNDER",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TRICK_ROOM",
         "MOVE_PSYCHIC",
         "MOVE_SHADOW_BALL",
@@ -156,7 +124,20 @@
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -172,7 +153,21 @@
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_QUIET",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_FIGHTING",
       "SourceTiers": [
         "GEN7LC"
       ]

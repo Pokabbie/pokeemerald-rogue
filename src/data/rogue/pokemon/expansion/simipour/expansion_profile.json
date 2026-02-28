@@ -85,10 +85,9 @@
         "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -101,10 +100,37 @@
         "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "HiddenPower": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -119,42 +145,8 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_GRASS_KNOT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_NASTY_PLOT",
-        "MOVE_GRASS_KNOT",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -167,8 +159,6 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -183,26 +173,22 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_BEAM",
         "MOVE_NASTY_PLOT",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM"
+        "MOVE_GRASS_KNOT",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_SALAC_BERRY",
+      "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
       ]
     }
   ]

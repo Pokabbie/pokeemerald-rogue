@@ -138,50 +138,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_RAGE_FIST",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_PROTECT",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_ADRENALINE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_STONE_EDGE",
         "MOVE_U_TURN",
-        "MOVE_ENCORE"
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_FIST_PLATE",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU"
       ]
     },
     {
@@ -194,43 +160,9 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU",
         "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_STONE_EDGE",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_DEFIANT",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
       ]
     },
     {
@@ -243,11 +175,51 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU",
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FIST_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_ADRENALINE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
       ]
     },
     {
@@ -257,13 +229,54 @@
         "MOVE_EARTHQUAKE",
         "MOVE_U_TURN"
       ],
-      "Ability": null,
-      "Item": null,
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RAGE_FIST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RAGE_FIST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -276,8 +289,6 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NU"
       ]
@@ -292,11 +303,85 @@
       "Ability": "ABILITY_DEFIANT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RAGE_FIST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_TAUNT",
+        "MOVE_RAGE_FIST"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB",
+      "MOVE_CUT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_U_TURN",
+          "MOVE_ICE_PUNCH",
+          "MOVE_GUNK_SHOT"
+        ],
+        "Ability": "ABILITY_GORILLA_TACTICS",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_U_TURN",
+          "MOVE_STONE_EDGE",
+          "MOVE_GUNK_SHOT"
+        ],
+        "Ability": "ABILITY_GORILLA_TACTICS",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_PRIMEAPE": {
+        "Abilities": [
+          "ABILITY_DEFIANT",
+          "ABILITY_ANGER_POINT",
+          "ABILITY_GORILLA_TACTICS"
+        ]
+      }
+    }
+  }
 }

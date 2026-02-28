@@ -16,26 +16,30 @@
       ],
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6OU",
+        "GEN6RU",
+        "GEN6NU",
         "GEN6PU",
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HARDY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
+        "GEN6ZU",
+        "GEN6MONOTYPE",
+        "GEN7UBERS",
+        "GEN7OU",
+        "GEN7RU",
+        "GEN7PU",
+        "GEN7ZU",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7MONOTYPE",
+        "GEN8UBERS",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEX",
+        "GEN8ANYTHINGGOES",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEX",
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -45,8 +49,6 @@
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UBERS",
         "GEN7OU",
@@ -81,11 +83,44 @@
       ],
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN6PU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_RED_CARD",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
@@ -95,34 +130,6 @@
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU",
         "GEN8UU",
@@ -136,8 +143,18 @@
       ],
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9UBERS"
@@ -149,85 +166,11 @@
       ],
       "Ability": "ABILITY_IMPOSTER",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
+      "Nature": "NATURE_QUIET",
       "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN9NU",
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS",
-        "GEN6OU",
-        "GEN6RU",
-        "GEN6NU",
-        "GEN6PU",
-        "GEN6ZU",
-        "GEN6MONOTYPE",
-        "GEN7UBERS",
-        "GEN7OU",
-        "GEN7RU",
-        "GEN7PU",
-        "GEN7ZU",
-        "GEN7BATTLESPOTSINGLES",
-        "GEN7MONOTYPE",
-        "GEN8UBERS",
-        "GEN8NATIONALDEX",
-        "GEN8NATIONALDEX",
-        "GEN8ANYTHINGGOES",
-        "GEN8MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEX",
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TRANSFORM"
-      ],
-      "Ability": "ABILITY_IMPOSTER",
-      "Item": "ITEM_RED_CARD",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6VGC2016"
+        "GEN9UU",
+        "GEN9RU"
       ]
     }
   ]

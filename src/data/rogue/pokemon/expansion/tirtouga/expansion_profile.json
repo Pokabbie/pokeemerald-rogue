@@ -123,34 +123,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
         "MOVE_SHELL_SMASH",
-        "MOVE_AQUA_JET",
-        "MOVE_STONE_EDGE",
-        "MOVE_WATERFALL"
+        "MOVE_WATERFALL",
+        "MOVE_ZEN_HEADBUTT"
       ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_AQUA_JET",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_BERRY_JUICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
       ]
     },
     {
@@ -163,10 +145,22 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -179,8 +173,6 @@
       "Ability": "ABILITY_SOLID_ROCK",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC",
         "GEN8LC"
@@ -196,40 +188,20 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
         "MOVE_SHELL_SMASH",
-        "MOVE_WATERFALL",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_SOLID_ROCK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_AQUA_JET",
         "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_AQUA_JET"
+        "MOVE_WATERFALL"
       ],
-      "Ability": "ABILITY_SOLID_ROCK",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -244,8 +216,20 @@
       "Ability": "ABILITY_SOLID_ROCK",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8LC"
       ]

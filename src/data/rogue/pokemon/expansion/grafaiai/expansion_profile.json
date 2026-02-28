@@ -68,7 +68,6 @@
     "MOVE_ACID_SPRAY",
     "MOVE_ACROBATICS",
     "MOVE_BATON_PASS",
-    "MOVE_COPYCAT",
     "MOVE_DIG",
     "MOVE_DOUBLE_EDGE",
     "MOVE_ENCORE",
@@ -120,50 +119,47 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_ACROBATICS",
         "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PARTING_SHOT",
-        "MOVE_ENCORE"
+        "MOVE_LOW_KICK",
+        "MOVE_SWORDS_DANCE"
       ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_SWITCHEROO",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
       ],
       "Ability": "ABILITY_POISON_TOUCH",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT",
         "MOVE_ENCORE"
       ],
       "Ability": "ABILITY_POISON_TOUCH",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9ZU"
+        "GEN9RU"
       ]
     },
     {
@@ -176,10 +172,23 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
       ]
     },
     {
@@ -192,7 +201,6 @@
       "Ability": "ABILITY_UNBURDEN",
       "Item": "ITEM_GRASSY_SEED",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_FLYING",
       "SourceTiers": [
         "GEN9PU"
@@ -200,34 +208,17 @@
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_COPYCAT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_NORMAL",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LOW_KICK"
+        "MOVE_SWITCHEROO"
       ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_DARK",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN9PU"
       ]
     }
   ]

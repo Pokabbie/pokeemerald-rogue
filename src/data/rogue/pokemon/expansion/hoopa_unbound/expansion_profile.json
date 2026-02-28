@@ -1,0 +1,618 @@
+{
+  "Species": [
+    "SPECIES_HOOPA_UNBOUND"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_TRICK_ROOM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 75
+    },
+    {
+      "Move": "MOVE_HYPERSPACE_FURY",
+      "Level": 85
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPERSPACE_HOLE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_DARK_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_HYPERSPACE_HOLE",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_HYPERSPACE_HOLE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_TRICK",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_HYPERSPACE_HOLE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_TRICK_ROOM",
+        "MOVE_HYPERSPACE_HOLE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_PSYCHIC",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DARK_PULSE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HYPERSPACE_FURY"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_DARK_PULSE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_GUNK_SHOT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHIC",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HYPERSPACE_FURY",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

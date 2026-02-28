@@ -113,18 +113,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_LIQUIDATION",
-        "MOVE_SUPERPOWER",
-        "MOVE_CRUNCH"
+        "MOVE_WATERFALL",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_BEAM",
+        "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -137,74 +135,8 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_AQUA_JET",
-        "MOVE_WAVE_CRASH",
-        "MOVE_PSYCHIC_FANGS",
-        "MOVE_LIQUIDATION"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLIP_TURN",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_FLIP_TURN",
-        "MOVE_CRUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIQUIDATION",
-        "MOVE_ICE_BEAM",
-        "MOVE_SUPERPOWER",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -217,26 +149,79 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_ZEN_HEADBUTT",
+        "MOVE_LIQUIDATION",
         "MOVE_ICE_BEAM",
+        "MOVE_SUPERPOWER",
         "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -249,11 +234,107 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_WAVE_CRASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TACKLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_AQUA_JET",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_CHIP_AWAY",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_TAKE_DOWN",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_AQUA_TAIL",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SOAK",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_SCARY_FACE",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_FINAL_GAMBIT",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_THRASH",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_PSYCHIC_FANGS",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 50
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_BASCULIN": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 92,
+          "Defense": 65,
+          "Speed": 98,
+          "SpAttack": 90,
+          "SpDefense": 55
+        }
+      }
+    }
+  }
 }

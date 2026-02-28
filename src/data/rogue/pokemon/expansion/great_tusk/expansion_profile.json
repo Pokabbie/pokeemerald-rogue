@@ -129,18 +129,32 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RAPID_SPIN",
-        "MOVE_BULK_UP"
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9UBERS"
       ]
     },
     {
@@ -153,443 +167,9 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_GROUND",
       "SourceTiers": [
         "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_MEGAHORN"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_HEAD_SMASH",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_SPINNER"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_SPINNER"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEAD_SMASH",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEAD_SMASH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SUPERCELL_SLAM",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_SPINNER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BULK_UP",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ENDURE",
-        "MOVE_REVERSAL",
-        "MOVE_ROCK_TOMB"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER",
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_SPINNER",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES",
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_ICE_SPINNER"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_SPINNER",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_ICE_SPINNER",
-        "MOVE_HEADLONG_RUSH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
       ]
     },
     {
@@ -602,7 +182,6 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9UBERS"
@@ -610,32 +189,378 @@
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
         "MOVE_HEADLONG_RUSH",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_RAPID_SPIN"
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
         "GEN9UBERS"
       ]
     },
     {
       "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
         "MOVE_STEALTH_ROCK",
         "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE",
         "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_SPINNER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_SPINNER",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUPERCELL_SLAM",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAD_SMASH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BULK_UP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ENDURE",
+        "MOVE_REVERSAL",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]

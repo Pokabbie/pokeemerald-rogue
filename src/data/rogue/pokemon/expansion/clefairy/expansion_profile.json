@@ -171,18 +171,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_MOONBLAST",
         "MOVE_SOFT_BOILED",
+        "MOVE_HEALING_WISH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
         "MOVE_STEALTH_ROCK"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7PU"
+        "GEN6NU"
       ]
     },
     {
@@ -195,10 +207,22 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -211,10 +235,36 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_ICY_WIND",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FRIEND_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
       ]
     },
     {
@@ -227,8 +277,6 @@
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTDOUBLES"
       ]
@@ -243,58 +291,78 @@
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
       ]
     },
     {
       "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FOLLOW_ME",
-        "MOVE_HELPING_HAND",
         "MOVE_PROTECT",
-        "MOVE_MOONBLAST"
-      ],
-      "Ability": "ABILITY_FRIEND_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOLLOW_ME",
-        "MOVE_ICY_WIND",
-        "MOVE_HEAL_PULSE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_FRIEND_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOLLOW_ME",
-        "MOVE_ICY_WIND",
-        "MOVE_HEAL_PULSE",
-        "MOVE_PROTECT"
+        "MOVE_HELPING_HAND",
+        "MOVE_HEAL_PULSE"
       ],
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -307,8 +375,6 @@
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
@@ -316,15 +382,13 @@
     {
       "Moves": [
         "MOVE_FOLLOW_ME",
-        "MOVE_PROTECT",
-        "MOVE_HELPING_HAND",
-        "MOVE_HEAL_PULSE"
+        "MOVE_ICY_WIND",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_SASSY",
       "SourceTiers": [
         "GEN7VGC2018"
       ]
@@ -338,27 +402,9 @@
       ],
       "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SOFT_BOILED",
-        "MOVE_HEALING_WISH",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -371,78 +417,12 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SOFT_BOILED",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SOFT_BOILED",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SOFT_BOILED",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_SOFT_BOILED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SOFT_BOILED",
         "MOVE_MOONBLAST",
         "MOVE_KNOCK_OFF",
@@ -451,43 +431,111 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SOFT_BOILED",
-        "MOVE_MOONBLAST",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_KNOCK_OFF"
+        "MOVE_FOLLOW_ME",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST"
       ],
-      "Ability": "ABILITY_MAGIC_GUARD",
+      "Ability": "ABILITY_FRIEND_GUARD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_RELAXED",
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOFT_BOILED",
-        "MOVE_SEISMIC_TOSS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
+        "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SPOTLIGHT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ENCORE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SING",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_DOUBLE_SLAP",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_DEFENSE_CURL",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_FOLLOW_ME",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_BESTOW",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_DRAINING_KISS",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_WAKE_UP_SLAP",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_MINIMIZE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_STORED_POWER",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_METRONOME",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_COSMIC_POWER",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_LUCKY_CHANT",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_MOONLIGHT",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_GRAVITY",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_METEOR_MASH",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_HEALING_WISH",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_AFTER_YOU",
+        "Level": 58
+      }
+    ]
+  }
 }

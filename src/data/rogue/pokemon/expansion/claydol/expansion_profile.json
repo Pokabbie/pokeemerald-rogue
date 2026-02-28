@@ -142,6 +142,21 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
         "MOVE_EARTH_POWER",
         "MOVE_SHADOW_BALL",
         "MOVE_PSYSHOCK"
@@ -149,8 +164,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -165,8 +178,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -180,9 +191,21 @@
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -196,42 +219,7 @@
       ],
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTH_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU",
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_PSYCHIC",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -246,8 +234,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]
@@ -262,11 +248,132 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_COLBUR_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HYPER_BEAM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_MUD_SLAP",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_HEAL_BLOCK",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ROCK_TOMB",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_COSMIC_POWER",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_POWER_TRICK",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SELF_DESTRUCT",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_EXTRASENSORY",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_GUARD_SPLIT",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_POWER_SPLIT",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_RECOVER",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_SANDSTORM",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_IMPRISON",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 58
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FLY",
+      "MOVE_POWER_GEM",
+      "MOVE_TRI_ATTACK"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_RECOVER",
+          "MOVE_EARTH_POWER",
+          "MOVE_PSYCHIC"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TELEPORT",
+          "MOVE_SCORCHING_SANDS",
+          "MOVE_RECOVER",
+          "MOVE_POWER_GEM"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CLAYDOL": {
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 70,
+          "Defense": 105,
+          "Speed": 75,
+          "SpAttack": 80,
+          "SpDefense": 120
+        }
+      }
+    }
+  }
 }

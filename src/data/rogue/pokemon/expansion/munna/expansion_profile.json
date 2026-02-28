@@ -109,22 +109,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_STORED_POWER",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_MOONLIGHT"
-      ],
-      "Ability": "ABILITY_SYNCHRONIZE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_TRICK_ROOM",
         "MOVE_PSYCHIC",
         "MOVE_DAZZLING_GLEAM",
@@ -133,11 +117,64 @@
       "Ability": "ABILITY_SYNCHRONIZE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_TRICK_ROOM",
+          "MOVE_PSYCHIC",
+          "MOVE_DAZZLING_GLEAM",
+          "MOVE_HEALING_WISH"
+        ],
+        "Ability": "ABILITY_COMATOSE",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_SASSY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CALM_MIND",
+          "MOVE_STORED_POWER",
+          "MOVE_DAZZLING_GLEAM",
+          "MOVE_MOONLIGHT"
+        ],
+        "Ability": "ABILITY_COMATOSE",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MUNNA": {
+        "Abilities": [
+          "ABILITY_FOREWARN",
+          "ABILITY_SYNCHRONIZE",
+          "ABILITY_COMATOSE"
+        ]
+      }
+    }
+  }
 }

@@ -139,6 +139,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_EXTREME_SPEED",
         "MOVE_VOLT_SWITCH",
         "MOVE_KNOCK_OFF",
@@ -148,9 +162,50 @@
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_LONELY",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -163,26 +218,36 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
         "MOVE_VOLT_SWITCH",
         "MOVE_VOLT_TACKLE",
-        "MOVE_FAKE_OUT"
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SURF"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_IRON_TAIL",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -195,8 +260,6 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8VGC2020"
       ]
@@ -211,58 +274,8 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_IRON_TAIL",
-        "MOVE_VOLT_TACKLE",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_VOLT_TACKLE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_TACKLE",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_KNOCK_OFF",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
       ]
     },
     {
@@ -275,43 +288,89 @@
       "Ability": "ABILITY_STATIC",
       "Item": "ITEM_LIGHT_BALL",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_TACKLE",
-        "MOVE_FAKE_OUT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_TACKLE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EXTREME_SPEED",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_STATIC",
-      "Item": "ITEM_LIGHT_BALL",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_GROWL",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_PLAY_NICE",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ELECTRO_BALL",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_FEINT",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_DOUBLE_TEAM",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_SPARK",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_NUZZLE",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_DISCHARGE",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_SLAM",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_THUNDERBOLT",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_WILD_CHARGE",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_LIGHT_SCREEN",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_THUNDER",
+        "Level": 58
+      },
+      {
+        "Move": "MOVE_SPLISHY_SPLASH",
+        "Level": 61
+      },
+      {
+        "Move": "MOVE_FLOATY_FALL",
+        "Level": 61
+      },
+      {
+        "Move": "MOVE_ZIPPY_ZAP",
+        "Level": 66
+      }
+    ]
+  }
 }

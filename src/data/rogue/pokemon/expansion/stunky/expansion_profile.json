@@ -125,38 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_TEMPER_FLARE"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_PURSUIT",
         "MOVE_CRUNCH",
         "MOVE_SUCKER_PUNCH",
@@ -165,8 +133,6 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -175,14 +141,55 @@
       "Moves": [
         "MOVE_PURSUIT",
         "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_SUCKER_PUNCH",
         "MOVE_DEFOG",
-        "MOVE_FIRE_BLAST"
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -197,8 +204,6 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -208,47 +213,27 @@
         "MOVE_PURSUIT",
         "MOVE_SUCKER_PUNCH",
         "MOVE_DEFOG",
-        "MOVE_TAUNT"
+        "MOVE_FIRE_BLAST"
       ],
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_PURSUIT",
+        "MOVE_CRUNCH",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DEFOG"
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_BLAST"
       ],
       "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURSUIT",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     },
     {
@@ -261,10 +246,23 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TEMPER_FLARE"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9LC"
       ]
     },
     {
@@ -277,27 +275,89 @@
       "Ability": "ABILITY_AFTERMATH",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_AFTERMATH",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FOCUS_ENERGY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_POISON_GAS",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_FURY_SWIPES",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_SMOKESCREEN",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_FEINT",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_ACID_SPRAY",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_POISON_JAB",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_NIGHT_SLASH",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_VENOM_DRENCH",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SUCKER_PUNCH",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_GUNK_SHOT",
+        "Level": 49
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_STUNKY": {
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 65,
+          "Defense": 50,
+          "Speed": 75,
+          "SpAttack": 65,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

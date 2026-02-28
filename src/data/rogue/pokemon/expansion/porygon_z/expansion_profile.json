@@ -130,8 +130,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -146,8 +144,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -162,8 +158,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -178,8 +172,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -194,8 +186,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES"
       ]
@@ -210,8 +200,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -226,8 +214,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -243,7 +229,6 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -258,8 +243,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -274,8 +257,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
@@ -290,8 +271,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
@@ -306,8 +285,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -322,8 +299,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -338,8 +313,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -354,8 +327,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -370,8 +341,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
@@ -386,8 +355,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2018"
       ]
@@ -402,8 +369,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -418,8 +383,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -434,8 +397,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -450,12 +411,9 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -468,8 +426,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
@@ -484,8 +440,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -500,8 +454,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -516,8 +468,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NATIONALDEX"
       ]
@@ -532,8 +482,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOPLE_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
@@ -548,8 +496,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8VGC2020"
       ]
@@ -564,8 +510,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -580,8 +524,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -596,8 +538,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -612,8 +552,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -628,8 +566,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_ROCKY_HELMET",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -644,8 +580,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -660,8 +594,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
@@ -676,26 +608,53 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_AGILITY",
-        "MOVE_TERA_BLAST",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT"
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
       ],
-      "Ability": "ABILITY_DOWNLOAD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     },
     {
@@ -708,8 +667,21 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -724,8 +696,7 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -740,8 +711,7 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -756,7 +726,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
         "GEN91V1"
@@ -772,8 +741,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]

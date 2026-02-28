@@ -126,22 +126,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_LIQUIDATION",
-        "MOVE_ICE_PUNCH",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_ICIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
         "MOVE_FOCUS_BLAST",
@@ -151,7 +135,20 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -160,16 +157,43 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SWITCHEROO"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF"
       ],
       "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_AQUA_JET",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -182,8 +206,34 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -199,7 +249,20 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -208,112 +271,28 @@
       "Moves": [
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SURF"
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SWITCHEROO"
       ],
       "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_PUNCH",
-        "MOVE_AQUA_JET",
-        "MOVE_LIQUIDATION",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_PUNCH",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
     },
     {
       "Moves": [
+        "MOVE_ICE_PUNCH",
         "MOVE_LIQUIDATION",
-        "MOVE_ICE_PUNCH",
-        "MOVE_PURSUIT",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_AQUA_JET",
-        "MOVE_ICE_PUNCH",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_ICE_PUNCH",
         "MOVE_AQUA_JET",
         "MOVE_ICE_BEAM"
       ],
       "Ability": "ABILITY_WATER_VEIL",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_ICE_PUNCH",
-        "MOVE_AQUA_JET",
-        "MOVE_RETURN"
-      ],
-      "Ability": "ABILITY_WATER_VEIL",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN7ZU"
       ]
     },
     {
@@ -326,8 +305,6 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9UU"
       ]
@@ -342,11 +319,219 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9NU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_SPINNER",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_WAVE_CRASH",
+        "MOVE_ICE_SPINNER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_ICE_SPINNER",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_LOW_KICK",
+        "MOVE_ICE_SPINNER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SONIC_BOOM",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_GROWL",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_WATER_SPORT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_RAZOR_WIND",
+        "Level": 41
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_POWER_UP_PUNCH",
+      "MOVE_LUNGE",
+      "MOVE_TAIL_SLAP",
+      "MOVE_CUT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_POWER_UP_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_PURSUIT",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_ICE_BEAM",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_TECHNICIAN",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": "TYPE_ELECTRIC",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FLOATZEL": {
+        "Abilities": [
+          "ABILITY_SWIFT_SWIM",
+          "ABILITY_WATER_VEIL",
+          "ABILITY_TECHNICIAN"
+        ]
+      }
+    }
+  }
 }

@@ -105,8 +105,20 @@
       "Ability": "ABILITY_SLUSH_RUSH",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FISHIOUS_REND",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -121,27 +133,17 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_FISHIOUS_REND",
-        "MOVE_ICICLE_CRASH",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_SLUSH_RUSH",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_RETURN"
+    ]
+  }
 }

@@ -140,178 +140,17 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_KNOCK_OFF",
         "MOVE_PLASMA_FISTS",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BOUNCE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_PLASMA_FISTS",
+        "MOVE_HIDDEN_POWER",
         "MOVE_CLOSE_COMBAT",
         "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_PLASMA_FISTS",
-        "MOVE_SNARL",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_CHARGE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_BOUNCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CHARGE",
-        "MOVE_OUTRAGE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN7OU"
       ]
     },
     {
@@ -324,58 +163,22 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
     },
     {
       "Moves": [
+        "MOVE_BULK_UP",
         "MOVE_PLASMA_FISTS",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULK_UP"
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN7UU"
       ]
     },
     {
@@ -388,106 +191,22 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PLAY_ROUGH"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_OUTRAGE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
         "MOVE_FAKE_OUT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
+        "MOVE_PLASMA_FISTS",
+        "MOVE_SNARL",
+        "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN7DOUBLESOU"
       ]
     },
     {
@@ -500,106 +219,8 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_OUTRAGE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLASMA_FISTS",
-        "MOVE_KNOCK_OFF",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -612,8 +233,6 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -628,10 +247,330 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CHARGE",
+        "MOVE_OUTRAGE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_BOUNCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_OUTRAGE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CHARGE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_OUTRAGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLASMA_FISTS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     }
   ]

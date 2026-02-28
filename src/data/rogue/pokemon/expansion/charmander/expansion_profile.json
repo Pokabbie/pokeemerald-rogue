@@ -110,6 +110,34 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_OVERHEAT",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_DRAGON_DANCE",
         "MOVE_FLARE_BLITZ",
         "MOVE_HIDDEN_POWER",
@@ -119,7 +147,6 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -134,42 +161,22 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_DRAGON_PULSE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ANCIENT_POWER"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST",
+        "MOVE_WEATHER_BALL",
         "MOVE_OVERHEAT",
+        "MOVE_FIRE_BLAST",
         "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     },
     {
@@ -182,26 +189,23 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_OVERHEAT",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
         "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
-        "MOVE_FIRE_BLAST",
-        "MOVE_OVERHEAT",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
       ]
     },
     {
@@ -214,27 +218,37 @@
       "Ability": "ABILITY_SOLAR_POWER",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_WEATHER_BALL",
-        "MOVE_OVERHEAT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_SOLAR_POWER",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_FLARE_BLITZ",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_DEFIANT",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": "TYPE_GRASS",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CHARMANDER": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_DEFIANT",
+          "ABILITY_SOLAR_POWER"
+        ]
+      }
+    }
+  }
 }

@@ -141,16 +141,69 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_THUNDER_PUNCH"
+        "MOVE_NUZZLE",
+        "MOVE_ENCORE"
       ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -163,8 +216,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_PUNCHING_GLOVE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
@@ -172,108 +223,14 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_NUZZLE",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LEPPA_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LEPPA_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LEPPA_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ICE_PUNCH"
+        "MOVE_ICE_PUNCH",
+        "MOVE_WILD_CHARGE"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DOUBLE_SHOCK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ELECTRIC",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN9MONOTYPE"
       ]
     },
     {
@@ -285,8 +242,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_LEPPA_BERRY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]

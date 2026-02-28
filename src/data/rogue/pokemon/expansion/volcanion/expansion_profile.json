@@ -141,579 +141,15 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DEFOG",
         "MOVE_STEAM_ERUPTION",
         "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
         "MOVE_SLUDGE_BOMB",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SOLAR_BEAM",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_OVERHEAT",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_GRASSIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FLAMETHROWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU",
-        "GEN9UU",
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FIRE_BLAST",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FIRE_BLAST",
-        "MOVE_EARTH_POWER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_EARTH_POWER",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_DEFOG"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_EARTH_POWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_RELAXED",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_SUBSTITUTE",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
@@ -722,30 +158,12 @@
       "Moves": [
         "MOVE_STEAM_ERUPTION",
         "MOVE_FLAMETHROWER",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PROTECT"
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_FLAMETHROWER",
-        "MOVE_WILL_O_WISP",
-        "MOVE_ROAR"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
@@ -761,23 +179,6 @@
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU"
       ]
@@ -792,8 +193,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_SAFETY_GOGGLES",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6DOUBLESOU"
       ]
@@ -803,143 +202,42 @@
         "MOVE_STEAM_ERUPTION",
         "MOVE_HEAT_WAVE",
         "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_EARTH_POWER",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_PROTECT",
-        "MOVE_SLUDGE_BOMB"
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN6DOUBLESOU"
       ]
     },
     {
       "Moves": [
+        "MOVE_OVERHEAT",
         "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_PROTECT",
-        "MOVE_SLUDGE_BOMB"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
         "MOVE_SLUDGE_BOMB",
-        "MOVE_PROTECT"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_HEAT_WAVE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_WIKI_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
+        "GEN61V1"
       ]
     },
     {
       "Moves": [
         "MOVE_STEAM_ERUPTION",
         "MOVE_OVERHEAT",
-        "MOVE_FLAME_CHARGE",
-        "MOVE_ENDURE"
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_WILL_O_WISP"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CUSTAP_BERRY",
+      "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN61V1"
       ]
     },
     {
@@ -953,7 +251,20 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN61V1"
       ]
@@ -961,14 +272,587 @@
     {
       "Moves": [
         "MOVE_STEAM_ERUPTION",
-        "MOVE_OVERHEAT",
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
         "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_OVERHEAT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_OVERHEAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_BOMB",
         "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_OVERHEAT",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9UU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU",
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEAM_ERUPTION",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
         "GEN91V1"
@@ -984,8 +868,7 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -995,31 +878,29 @@
         "MOVE_STEAM_ERUPTION",
         "MOVE_OVERHEAT",
         "MOVE_SLUDGE_WAVE",
-        "MOVE_WILL_O_WISP"
+        "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN61V1"
+        "GEN91V1"
       ]
     },
     {
       "Moves": [
+        "MOVE_OVERHEAT",
         "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_EARTH_POWER",
-        "MOVE_FLAMETHROWER"
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIRE",
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN91V1"
       ]
     },
     {
@@ -1032,8 +913,6 @@
       "Ability": "ABILITY_WATER_ABSORB",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN91V1"
       ]
@@ -1041,98 +920,55 @@
     {
       "Moves": [
         "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_OVERHEAT"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ROCK",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN71V1"
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
         "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
         "MOVE_EARTH_POWER"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN81V1"
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_OVERHEAT",
         "MOVE_STEAM_ERUPTION",
-        "MOVE_WILL_O_WISP"
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB"
       ],
       "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_SHUCA_BERRY",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_OVERHEAT",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_STEAM_ERUPTION",
-        "MOVE_OVERHEAT",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_WATER_ABSORB",
-      "Item": "ITEM_FIRIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
+        "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_VOLCANION": {
+        "Abilities": [
+          "ABILITY_WATER_ABSORB",
+          "ABILITY_NONE",
+          "ABILITY_THERMAL_EXCHANGE"
+        ]
+      }
+    }
+  }
 }

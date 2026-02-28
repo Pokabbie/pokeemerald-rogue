@@ -122,98 +122,44 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_PSYSHOCK",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
-        "MOVE_ICE_BEAM",
-        "MOVE_RAPID_SPIN"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_ANALYTIC",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_RAPID_SPIN",
         "MOVE_SCALD",
-        "MOVE_PSYCHIC"
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK"
       ],
       "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
       ]
     },
     {
@@ -226,42 +172,36 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT",
         "MOVE_HYDRO_PUMP",
-        "MOVE_RECOVER"
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAPID_SPIN"
       ],
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UU"
+        "GEN6MONOTYPE"
       ]
     },
     {
       "Moves": [
+        "MOVE_ICE_BEAM",
         "MOVE_RAPID_SPIN",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_PSYCHIC",
-        "MOVE_ICE_BEAM"
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC"
       ],
-      "Ability": "ABILITY_ANALYTIC",
+      "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
+        "GEN6MONOTYPE"
       ]
     },
     {
@@ -274,122 +214,22 @@
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
         "MOVE_ICE_BEAM",
-        "MOVE_SCALD",
-        "MOVE_HYDRO_PUMP"
+        "MOVE_PSYSHOCK",
+        "MOVE_RAPID_SPIN"
       ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_SCALD",
-        "MOVE_RECOVER",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_SCALD",
-        "MOVE_RECOVER",
-        "MOVE_TELEPORT"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RECOVER"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_PSYCHIC",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALD",
-        "MOVE_RAPID_SPIN",
-        "MOVE_RECOVER",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_NATURAL_CURE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
       ]
     },
     {
@@ -402,10 +242,100 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_BEAM",
+        "MOVE_SCALD",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
       ]
     },
     {
@@ -418,10 +348,36 @@
       "Ability": "ABILITY_ANALYTIC",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
       ]
     },
     {
@@ -434,8 +390,6 @@
       "Ability": "ABILITY_NATURAL_CURE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]

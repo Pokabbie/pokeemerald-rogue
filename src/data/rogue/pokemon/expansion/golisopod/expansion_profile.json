@@ -130,34 +130,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_FIRST_IMPRESSION",
+        "MOVE_LIQUIDATION",
         "MOVE_AQUA_JET",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_LEECH_LIFE"
       ],
       "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN7UU"
       ]
     },
     {
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
-        "MOVE_KNOCK_OFF",
+        "MOVE_LIQUIDATION",
         "MOVE_LEECH_LIFE",
-        "MOVE_SPIKES"
+        "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN7RU"
       ]
     },
     {
@@ -170,74 +166,8 @@
       "Ability": "ABILITY_EMERGENCY_EXIT",
       "Item": "ITEM_INSECT_PLATE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_LEECH_LIFE",
-        "MOVE_LIQUIDATION",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET",
-        "MOVE_LEECH_LIFE"
-      ],
-      "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_LIQUIDATION",
-        "MOVE_AQUA_JET",
-        "MOVE_LEECH_LIFE"
-      ],
-      "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
       ]
     },
     {
@@ -250,8 +180,6 @@
       "Ability": "ABILITY_EMERGENCY_EXIT",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -260,16 +188,14 @@
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
         "MOVE_LIQUIDATION",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEECH_LIFE"
+        "MOVE_LEECH_LIFE",
+        "MOVE_AQUA_JET"
       ],
       "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -282,8 +208,6 @@
       "Ability": "ABILITY_EMERGENCY_EXIT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UU"
       ]
@@ -292,48 +216,56 @@
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
         "MOVE_LIQUIDATION",
-        "MOVE_LEECH_LIFE",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FIRST_IMPRESSION",
-        "MOVE_LIQUIDATION",
-        "MOVE_LEECH_LIFE",
-        "MOVE_AQUA_JET"
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_EMERGENCY_EXIT",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_EMERGENCY_EXIT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
       ]
     },
     {
       "Moves": [
         "MOVE_FIRST_IMPRESSION",
         "MOVE_LIQUIDATION",
-        "MOVE_LEECH_LIFE",
-        "MOVE_AQUA_JET"
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_LIFE"
       ],
       "Ability": "ABILITY_EMERGENCY_EXIT",
-      "Item": "ITEM_SITRUS_BERRY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7RU"
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_AQUA_JET",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_EMERGENCY_EXIT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -346,11 +278,56 @@
       "Ability": "ABILITY_EMERGENCY_EXIT",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_EMERGENCY_EXIT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_EMERGENCY_EXIT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_EMERGENCY_EXIT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

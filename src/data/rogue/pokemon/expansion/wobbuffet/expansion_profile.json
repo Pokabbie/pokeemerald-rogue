@@ -47,50 +47,15 @@
     {
       "Moves": [
         "MOVE_ENCORE",
-        "MOVE_COUNTER",
         "MOVE_MIRROR_COAT",
+        "MOVE_COUNTER",
         "MOVE_DESTINY_BOND"
       ],
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_COUNTER",
-        "MOVE_MIRROR_COAT",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_SHADOW_TAG",
-      "Item": "ITEM_SITRUS_BERRY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENCORE",
-        "MOVE_COUNTER",
-        "MOVE_MIRROR_COAT",
-        "MOVE_DESTINY_BOND"
-      ],
-      "Ability": "ABILITY_TELEPATHY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU",
-        "GEN8ZU"
+        "GEN6UBERS"
       ]
     },
     {
@@ -103,8 +68,6 @@
       "Ability": "ABILITY_TELEPATHY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -112,17 +75,15 @@
     {
       "Moves": [
         "MOVE_ENCORE",
-        "MOVE_MIRROR_COAT",
         "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
         "MOVE_DESTINY_BOND"
       ],
       "Ability": "ABILITY_SHADOW_TAG",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN6UBERS"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
@@ -135,10 +96,37 @@
       "Ability": "ABILITY_SHADOW_TAG",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8ZU"
       ]
     }
   ]

@@ -101,50 +101,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BUG_BUZZ",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BUG_BUZZ",
         "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_BUG_BUZZ",
         "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT",
         "MOVE_GIGA_DRAIN"
       ],
       "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
@@ -157,24 +123,20 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
         "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT",
         "MOVE_VOLT_SWITCH",
         "MOVE_GIGA_DRAIN"
       ],
-      "Ability": "ABILITY_SWARM",
+      "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -189,11 +151,42 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ]
+  }
 }

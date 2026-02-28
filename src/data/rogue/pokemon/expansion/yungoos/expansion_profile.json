@@ -114,8 +114,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]

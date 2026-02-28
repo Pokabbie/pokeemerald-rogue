@@ -114,22 +114,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_PSYCHIC",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_FOREWARN",
-      "Item": "ITEM_ICIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ICE_BEAM",
         "MOVE_PSYCHIC",
         "MOVE_HIDDEN_POWER",
@@ -139,7 +123,6 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -155,10 +138,38 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIGHTING",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FOREWARN",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_SMOOCHUM": {
+        "BaseStats": {
+          "HP": 45,
+          "Attack": 30,
+          "Defense": 15,
+          "Speed": 65,
+          "SpAttack": 95,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

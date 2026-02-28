@@ -132,6 +132,7 @@
     "MOVE_TRICK",
     "MOVE_TRICK_ROOM",
     "MOVE_UPROAR",
+    "MOVE_WISH",
     "MOVE_ZEN_HEADBUTT"
   ],
   "CompetitiveSets": [
@@ -139,32 +140,15 @@
       "Moves": [
         "MOVE_AGILITY",
         "MOVE_NASTY_PLOT",
-        "MOVE_PSYSHOCK",
-        "MOVE_TERA_BLAST"
-      ],
-      "Ability": "ABILITY_ARMOR_TAIL",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_AGILITY",
         "MOVE_STORED_POWER",
-        "MOVE_CALM_MIND"
+        "MOVE_DAZZLING_GLEAM"
       ],
-      "Ability": "ABILITY_ARMOR_TAIL",
-      "Item": "ITEM_LEFTOVERS",
+      "Ability": "ABILITY_CUD_CHEW",
+      "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9PU"
+        "GEN9NU"
       ]
     },
     {
@@ -177,8 +161,6 @@
       "Ability": "ABILITY_ARMOR_TAIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NU"
       ]
@@ -193,7 +175,6 @@
       "Ability": "ABILITY_ARMOR_TAIL",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIRE",
       "SourceTiers": [
         "GEN9PU"
@@ -201,18 +182,46 @@
     },
     {
       "Moves": [
-        "MOVE_TRICK_ROOM",
-        "MOVE_PSYCHIC",
-        "MOVE_HYPER_VOICE",
+        "MOVE_AGILITY",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
         "MOVE_DAZZLING_GLEAM"
       ],
       "Ability": "ABILITY_ARMOR_TAIL",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
-        "GEN9DOUBLESOU"
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_AGILITY",
+        "MOVE_STORED_POWER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_ARMOR_TAIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
       ]
     },
     {
@@ -225,8 +234,21 @@
       "Ability": "ABILITY_ARMOR_TAIL",
       "Item": "ITEM_SAFETY_GOGGLES",
       "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_HYPER_VOICE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_ARMOR_TAIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
       "SourceTiers": [
         "GEN9DOUBLESOU"
       ]

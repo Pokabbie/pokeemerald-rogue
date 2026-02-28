@@ -127,499 +127,32 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_TAUNT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_TAUNT",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DISABLE",
-        "MOVE_ENCORE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DISABLE",
-        "MOVE_ENCORE",
-        "MOVE_SUBSTITUTE",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PROTECT",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FOCUS_BLAST",
         "MOVE_SHADOW_BALL",
-        "MOVE_PSYCHIC",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FUTURE_SIGHT",
-        "MOVE_CALM_MIND",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_PSYCHIC",
         "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_PSYCHIC",
-        "MOVE_ENCORE",
-        "MOVE_DISABLE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_DISABLE",
-        "MOVE_TRICK",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_ENCORE",
-        "MOVE_PROTECT",
-        "MOVE_DISABLE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_PROTECT",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_ALAKAZITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN6OU"
       ]
     },
     {
       "Moves": [
         "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
         "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
         "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_TRACE",
       "Item": "ITEM_ALAKAZITE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_SHADOW_BALL",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU",
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_PROTECT",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_SHADOW_BALL"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": null,
-      "Item": null,
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LETSGOOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_FOCUS_BLAST"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_TRACE",
-      "Item": "ITEM_ALAKAZITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_SHADOW_BALL",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_COUNTER"
-      ],
-      "Ability": "ABILITY_MAGIC_GUARD",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6OU"
       ]
     },
     {
@@ -632,10 +165,92 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
       ]
     },
     {
@@ -648,11 +263,443 @@
       "Ability": "ABILITY_MAGIC_GUARD",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RECOVER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RECOVER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISABLE",
+        "MOVE_ENCORE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_TAUNT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISABLE",
+        "MOVE_ENCORE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_TAUNT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DISABLE",
+        "MOVE_TRICK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_KINESIS",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_DISABLE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_MIRACLE_EYE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_REFLECT",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_PSYCHO_CUT",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_RECOVER",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_TELEKINESIS",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_ALLY_SWITCH",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_CALM_MIND",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_FUTURE_SIGHT",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_TRICK",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_AURA_SPHERE",
+        "Level": 49
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_PSYSHOCK",
+          "MOVE_AURA_SPHERE",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_PSYSHOCK",
+          "MOVE_AURA_SPHERE",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_ALAKAZITE",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_NASTY_PLOT",
+          "MOVE_PSYCHIC",
+          "MOVE_AURA_SPHERE",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_MAGIC_GUARD",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

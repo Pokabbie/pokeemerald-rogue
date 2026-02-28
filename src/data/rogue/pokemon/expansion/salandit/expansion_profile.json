@@ -113,6 +113,36 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FIRE_BLAST",
         "MOVE_SLUDGE_WAVE",
         "MOVE_NASTY_PLOT",
@@ -121,8 +151,6 @@
       "Ability": "ABILITY_CORROSION",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -137,42 +165,8 @@
       "Ability": "ABILITY_CORROSION",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FIRE_BLAST",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_CORROSION",
-      "Item": "ITEM_POISONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
       ]
     },
     {
@@ -185,8 +179,6 @@
       "Ability": "ABILITY_CORROSION",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

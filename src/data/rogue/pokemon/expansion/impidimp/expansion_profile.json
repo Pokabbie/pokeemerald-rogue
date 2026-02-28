@@ -96,38 +96,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PARTING_SHOT",
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_PARTING_SHOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_THUNDER_WAVE",
         "MOVE_DAZZLING_GLEAM",
         "MOVE_DARK_PULSE",
@@ -136,11 +104,45 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PARTING_SHOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

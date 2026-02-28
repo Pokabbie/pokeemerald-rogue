@@ -142,6 +142,34 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_SLAM",
+        "MOVE_MAGIC_COAT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADBUTT",
+        "MOVE_ROOST",
+        "MOVE_GLARE",
+        "MOVE_COIL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_COIL",
         "MOVE_HEADBUTT",
         "MOVE_GLARE",
@@ -150,26 +178,8 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COIL",
-        "MOVE_ROOST",
-        "MOVE_BODY_SLAM",
-        "MOVE_BITE"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
       ]
     },
     {
@@ -182,26 +192,22 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HEADBUTT",
+        "MOVE_COIL",
         "MOVE_ROOST",
-        "MOVE_GLARE",
-        "MOVE_COIL"
+        "MOVE_BODY_SLAM",
+        "MOVE_BITE"
       ],
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU"
       ]
     },
     {
@@ -214,27 +220,23 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_BODY_SLAM",
-        "MOVE_MAGIC_COAT",
-        "MOVE_ROOST"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_DUNSPARCE": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 90,
+          "Defense": 95,
+          "Speed": 45,
+          "SpAttack": 55,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

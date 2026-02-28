@@ -112,22 +112,6 @@
     {
       "Moves": [
         "MOVE_SHELL_SMASH",
-        "MOVE_LIQUIDATION",
-        "MOVE_STONE_EDGE",
-        "MOVE_CROSS_CHOP"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
         "MOVE_RAZOR_SHELL",
         "MOVE_CROSS_CHOP",
         "MOVE_STONE_EDGE"
@@ -135,8 +119,6 @@
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -151,10 +133,22 @@
       "Ability": "ABILITY_TOUGH_CLAWS",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_STONE_EDGE",
+        "MOVE_CROSS_CHOP"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     }
   ]

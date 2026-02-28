@@ -119,6 +119,50 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ELECTRO_SHOT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ELECTRO_SHOT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_STAMINA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_BODY_PRESS",
         "MOVE_FLASH_CANNON",
         "MOVE_STEALTH_ROCK",
@@ -127,56 +171,6 @@
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_BODY_PRESS",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_FLASH_CANNON",
-        "MOVE_ELECTRO_SHOT",
-        "MOVE_AURA_SPHERE"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_FLASH_CANNON",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_STAMINA",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
@@ -186,13 +180,11 @@
         "MOVE_FLASH_CANNON",
         "MOVE_BODY_PRESS",
         "MOVE_STEALTH_ROCK",
-        "MOVE_THUNDER_WAVE"
+        "MOVE_ROAR"
       ],
       "Ability": "ABILITY_STAMINA",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]

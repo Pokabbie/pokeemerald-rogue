@@ -83,7 +83,6 @@
     "MOVE_BUG_BUZZ",
     "MOVE_CONFUSE_RAY",
     "MOVE_DRAINING_KISS",
-    "MOVE_ENDEAVOR",
     "MOVE_ENDURE",
     "MOVE_ENERGY_BALL",
     "MOVE_FACADE",
@@ -123,26 +122,8 @@
         "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FLYINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_ENERGY_BALL",
-        "MOVE_SLEEP_POWDER"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
@@ -157,43 +138,9 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU",
         "GEN6NU",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_BUG_BUZZ"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE",
-        "MOVE_SLEEP_POWDER",
-        "MOVE_ENDEAVOR"
-      ],
-      "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
         "GEN6MONOTYPE"
       ]
     },
@@ -207,8 +154,20 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -223,42 +182,36 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FLYINIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLEEP_POWDER",
-        "MOVE_HURRICANE",
         "MOVE_QUIVER_DANCE",
-        "MOVE_SUBSTITUTE"
+        "MOVE_HURRICANE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SLEEP_POWDER"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SLEEP_POWDER",
         "MOVE_QUIVER_DANCE",
         "MOVE_HURRICANE",
+        "MOVE_SLEEP_POWDER",
         "MOVE_BUG_BUZZ"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7NU"
       ]
     },
     {
@@ -271,8 +224,6 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -287,27 +238,245 @@
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUBSTITUTE",
         "MOVE_SLEEP_POWDER",
+        "MOVE_HURRICANE",
         "MOVE_QUIVER_DANCE",
-        "MOVE_HURRICANE"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_COMPOUND_EYES",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN6NU"
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_DUAL_WINGBEAT",
+      "MOVE_FLY"
+    ],
+    "PerSpecies": {
+      "SPECIES_VIVILLON": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_POLAR": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_TUNDRA": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_CONTINENTAL": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_GARDEN": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_ELEGANT": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_MEADOW": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_MODERN": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_MARINE": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_ARCHIPELAGO": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_HIGH_PLAINS": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_SANDSTORM": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_RIVER": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_MONSOON": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_SAVANNA": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_SUN": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_OCEAN": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_JUNGLE": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_FANCY": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      },
+      "SPECIES_VIVILLON_POKE_BALL": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 50,
+          "Defense": 55,
+          "Speed": 110,
+          "SpAttack": 115,
+          "SpDefense": 55
+        }
+      }
+    }
+  }
 }

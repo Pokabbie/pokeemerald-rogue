@@ -105,38 +105,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BODY_PRESS",
-        "MOVE_STEALTH_ROCK",
-        "MOVE_COIL",
-        "MOVE_SPIKES"
-      ],
-      "Ability": "ABILITY_EARTH_EATER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_COIL",
-        "MOVE_SUBSTITUTE",
-        "MOVE_IRON_TAIL",
-        "MOVE_BODY_PRESS"
-      ],
-      "Ability": "ABILITY_EARTH_EATER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SHED_TAIL",
         "MOVE_STEALTH_ROCK",
         "MOVE_BODY_PRESS",
@@ -145,10 +113,69 @@
       "Ability": "ABILITY_EARTH_EATER",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
       "TeraType": "TYPE_WATER",
       "SourceTiers": [
         "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_COIL",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU"
       ]
     },
     {
@@ -161,7 +188,21 @@
       "Ability": "ABILITY_EARTH_EATER",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9ZU"

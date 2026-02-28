@@ -127,8 +127,6 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_LUM_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -143,10 +141,36 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU"
       ]
     },
     {
@@ -159,8 +183,6 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -175,44 +197,49 @@
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU",
         "GEN8ZU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEAL_BELL"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WISH",
-        "MOVE_PROTECT",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SEISMIC_TOSS"
-      ],
-      "Ability": "ABILITY_OBLIVIOUS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB",
+      "MOVE_CURSE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CURSE",
+          "MOVE_BODY_SLAM",
+          "MOVE_KNOCK_OFF",
+          "MOVE_WISH"
+        ],
+        "Ability": "ABILITY_UNAWARE",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_LICKILICKY": {
+        "Abilities": [
+          "ABILITY_UNAWARE",
+          "ABILITY_OBLIVIOUS",
+          "ABILITY_CLOUD_NINE"
+        ],
+        "BaseStats": {
+          "HP": 110,
+          "Attack": 105,
+          "Defense": 95,
+          "Speed": 30,
+          "SpAttack": 80,
+          "SpDefense": 95
+        }
+      }
+    }
+  }
 }

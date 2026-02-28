@@ -171,18 +171,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_CRUNCH",
-        "MOVE_EXPLOSION",
-        "MOVE_U_TURN",
-        "MOVE_DOUBLE_EDGE"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SHADOW_CLAW"
       ],
       "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_NORMALIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU"
       ]
     },
     {
@@ -195,8 +193,34 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -205,14 +229,12 @@
       "Moves": [
         "MOVE_MULTI_ATTACK",
         "MOVE_U_TURN",
-        "MOVE_CRUNCH",
-        "MOVE_EXPLOSION"
+        "MOVE_EXPLOSION",
+        "MOVE_CRUNCH"
       ],
       "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -227,58 +249,8 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MULTI_ATTACK",
-        "MOVE_U_TURN",
-        "MOVE_EXPLOSION",
-        "MOVE_CRUNCH"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_CRUNCH",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DOUBLE_EDGE",
-        "MOVE_PARTING_SHOT",
-        "MOVE_SHADOW_CLAW"
-      ],
-      "Ability": "ABILITY_RKS_SYSTEM",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
       ]
     },
     {
@@ -291,11 +263,210 @@
       "Ability": "ABILITY_RKS_SYSTEM",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_SILVALLY": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_FIGHTING": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_FLYING": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_POISON": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_GROUND": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_ROCK": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_BUG": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_GHOST": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_STEEL": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_FIRE": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_WATER": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_GRASS": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_ELECTRIC": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_PSYCHIC": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_ICE": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_DRAGON": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_DARK": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      },
+      "SPECIES_SILVALLY_FAIRY": {
+        "BaseStats": {
+          "HP": 100,
+          "Attack": 100,
+          "Defense": 100,
+          "Speed": 100,
+          "SpAttack": 100,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

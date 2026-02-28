@@ -106,33 +106,29 @@
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
         "MOVE_ICE_SHARD",
+        "MOVE_EARTHQUAKE",
         "MOVE_ENDEAVOR"
       ],
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6LC"
       ]
     },
     {
       "Moves": [
         "MOVE_STEALTH_ROCK",
-        "MOVE_ICE_SHARD",
         "MOVE_EARTHQUAKE",
+        "MOVE_ICE_SHARD",
         "MOVE_ENDEAVOR"
       ],
       "Ability": "ABILITY_OBLIVIOUS",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
+        "GEN7LC"
       ]
     }
   ]

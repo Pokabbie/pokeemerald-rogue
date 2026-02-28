@@ -152,22 +152,6 @@
     {
       "Moves": [
         "MOVE_CLOSE_COMBAT",
-        "MOVE_FAKE_OUT",
-        "MOVE_PROTECT",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
         "MOVE_FIRE_BLAST",
         "MOVE_GUNK_SHOT",
         "MOVE_GRASS_KNOT"
@@ -175,138 +159,22 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLAMETHROWER",
-        "MOVE_MACH_PUNCH",
-        "MOVE_U_TURN"
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_LOW_KICK"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_MACH_PUNCH",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_MACH_PUNCH",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_MACH_PUNCH",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN6OU"
       ]
     },
     {
@@ -319,26 +187,163 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_BLAST_BURN",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN71V1"
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MACH_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_TOMB",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_OVERHEAT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_QUICK_GUARD"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -351,10 +356,134 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SLACK_OFF",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MACH_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -367,8 +496,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FIGHTINIUM_Z",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -376,33 +503,15 @@
     {
       "Moves": [
         "MOVE_FAKE_OUT",
-        "MOVE_FOCUS_BLAST",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_SUBSTITUTE"
+        "MOVE_BLAST_BURN",
+        "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_PETAYA_BERRY",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_OVERHEAT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_QUICK_GUARD"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -415,8 +524,6 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -431,74 +538,36 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_FIRIUM_Z",
       "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_FIRE_BLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_GRASS_KNOT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLAMETHROWER",
-        "MOVE_OVERHEAT",
+        "MOVE_FAKE_OUT",
         "MOVE_FOCUS_BLAST",
-        "MOVE_VACUUM_WAVE"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN9NU"
+        "GEN71V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SWITCHEROO",
-        "MOVE_U_TURN"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9NU"
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -511,8 +580,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE",
         "GEN9MONOTYPE"
@@ -520,275 +587,30 @@
     },
     {
       "Moves": [
-        "MOVE_FLARE_BLITZ",
         "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_U_TURN",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_MACH_PUNCH",
-        "MOVE_CLOSE_COMBAT",
         "MOVE_FLARE_BLITZ",
         "MOVE_THUNDER_PUNCH"
       ],
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MACH_PUNCH",
-        "MOVE_FAKE_OUT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MACH_PUNCH",
-        "MOVE_FIRE_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_PUNCHING_GLOVE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_FOCUS_BLAST",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FIGHTINIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_NASTY_PLOT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_GRASS_KNOT",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIGHTING",
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_OVERHEAT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SLACK_OFF",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_ROCK_TOMB",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ENCORE"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_ENDEAVOR",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_ENDEAVOR"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_MACH_PUNCH",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FIGHTINIUM_Z",
+      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_MACH_PUNCH",
-        "MOVE_VACUUM_WAVE"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN9OU"
       ]
     },
     {
@@ -801,27 +623,268 @@
       "Ability": "ABILITY_BLAZE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLACK_OFF",
-        "MOVE_TAUNT",
-        "MOVE_LOW_KICK"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_SWITCHEROO"
       ],
       "Ability": "ABILITY_BLAZE",
-      "Item": "ITEM_LEFTOVERS",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FIGHTING",
       "SourceTiers": [
-        "GEN6OU"
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_PUNCHING_GLOVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CLOSE_COMBAT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_TAUNT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_TAUNT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_PUNISHMENT",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_FLARE_BLITZ",
+        "Level": 68
+      },
+      {
+        "Move": "MOVE_PYRO_BALL",
+        "Level": 78
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PYRO_BALL",
+          "MOVE_U_TURN",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_GUNK_SHOT"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_OVERHEAT",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_DRAIN_PUNCH",
+          "MOVE_GRASS_KNOT"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SUBSTITUTE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_BLAST_BURN"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_FIRIUM_Z",
+        "Nature": "NATURE_HASTY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_FIRE_BLAST",
+          "MOVE_VACUUM_WAVE",
+          "MOVE_ENDEAVOR"
+        ],
+        "Ability": "ABILITY_FLAME_BODY",
+        "Item": "ITEM_FOCUS_SASH",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PYRO_BALL",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_U_TURN",
+          "MOVE_MACH_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_JOLLY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_PYRO_BALL",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_ELECTRIUM_Z",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_INFERNAPE": {
+        "Abilities": [
+          "ABILITY_BLAZE",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_IRON_FIST"
+        ],
+        "BaseStats": {
+          "HP": 76,
+          "Attack": 104,
+          "Defense": 71,
+          "Speed": 109,
+          "SpAttack": 104,
+          "SpDefense": 71
+        }
+      }
+    }
+  }
 }

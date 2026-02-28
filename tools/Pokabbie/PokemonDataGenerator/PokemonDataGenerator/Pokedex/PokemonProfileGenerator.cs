@@ -316,14 +316,25 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
+		public class PokemonBaseStats
+        {
+            public int HP;
+            public int Attack;
+            public int Defense;
+            public int Speed;
+            public int SpAttack;
+            public int SpDefense;
+        }
+
 		public class PokemonProfile
 		{
 			public List<string> Species;
 			public List<LevelUpMove> LevelUpMoves;
 			public List<string> TutorMoves;
 			public List<PokemonCompetitiveSet> CompetitiveSets;
-            //public List<string> Types;
-            //public List<string> Abilities;
+            public List<string> Types;
+            public List<string> Abilities;
+			public PokemonBaseStats BaseStats;
 
 
             public static PokemonProfile FromSource(SourcePokemonProfile sourceProfile)
@@ -333,9 +344,11 @@ namespace PokemonDataGenerator.Pokedex
 				profile.CompetitiveSets = new List<PokemonCompetitiveSet>(sourceProfile.CompetitiveSets);
 				profile.LevelUpMoves = new List<LevelUpMove>();
 				profile.TutorMoves = new List<string>();
-				//profile.Abilities = new List<string>(sourceProfile.Abilities);
+                profile.Abilities = null;
+                profile.Types = null;
+				profile.BaseStats = null;
 
-				foreach (var move in sourceProfile.Moves)
+                foreach (var move in sourceProfile.Moves)
 				{
 					if (move.originMethod == SourceMoveInfo.LearnMethod.LevelUp)
 					{

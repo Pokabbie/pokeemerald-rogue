@@ -117,6 +117,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_EARTHQUAKE",
         "MOVE_CRUNCH",
         "MOVE_FIRE_FANG",
@@ -125,8 +139,21 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
@@ -142,59 +169,8 @@
       "Ability": "ABILITY_MOXIE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_BRICK_BREAK"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_CRUNCH",
-        "MOVE_STONE_EDGE",
-        "MOVE_FIRE_FANG"
-      ],
-      "Ability": "ABILITY_MOXIE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_TAUNT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
       ]
     },
     {
@@ -207,8 +183,21 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9LC"
       ]

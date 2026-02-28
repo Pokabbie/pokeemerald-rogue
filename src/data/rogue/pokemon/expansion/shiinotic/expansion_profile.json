@@ -102,7 +102,6 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -117,42 +116,8 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_SPORE",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MOONBLAST",
-        "MOVE_STRENGTH_SAP",
-        "MOVE_SPORE",
-        "MOVE_GIGA_DRAIN"
-      ],
-      "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
       ]
     },
     {
@@ -165,8 +130,20 @@
       "Ability": "ABILITY_EFFECT_SPORE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -179,13 +156,38 @@
         "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_EFFECT_SPORE",
-      "Item": null,
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SPORE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_SHIINOTIC": {
+        "BaseStats": {
+          "HP": 90,
+          "Attack": 45,
+          "Defense": 80,
+          "Speed": 30,
+          "SpAttack": 100,
+          "SpDefense": 105
+        }
+      }
+    }
+  }
 }

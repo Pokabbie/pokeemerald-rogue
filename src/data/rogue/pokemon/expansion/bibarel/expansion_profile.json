@@ -136,8 +136,6 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_CHESTO_BERRY",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -152,8 +150,6 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -168,10 +164,22 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RETURN",
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -184,8 +192,6 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU",
         "GEN7ZU"
@@ -201,27 +207,26 @@
       "Ability": "ABILITY_SIMPLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_RETURN",
-        "MOVE_WATERFALL",
-        "MOVE_AQUA_JET"
-      ],
-      "Ability": "ABILITY_SIMPLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
+    "PerSpecies": {
+      "SPECIES_BIBAREL": {
+        "BaseStats": {
+          "HP": 94,
+          "Attack": 100,
+          "Defense": 65,
+          "Speed": 71,
+          "SpAttack": 55,
+          "SpDefense": 65
+        }
+      }
+    }
+  }
 }

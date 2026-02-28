@@ -122,8 +122,6 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -138,11 +136,26 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_CRUNCH"
+    ],
+    "PerSpecies": {
+      "SPECIES_GLAMEOW": {
+        "BaseStats": {
+          "HP": 50,
+          "Attack": 65,
+          "Defense": 45,
+          "Speed": 90,
+          "SpAttack": 45,
+          "SpDefense": 40
+        }
+      }
+    }
+  }
 }

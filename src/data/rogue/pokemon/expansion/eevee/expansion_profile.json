@@ -108,34 +108,29 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BATON_PASS",
-        "MOVE_LAST_RESORT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
+        "MOVE_PROTECT",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_LAST_RESORT"
       ],
-      "Ability": "ABILITY_ANTICIPATION",
-      "Item": "ITEM_EEVIUM_Z",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7ANYTHINGGOES"
+        "GEN6LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_BATON_PASS",
         "MOVE_LAST_RESORT",
+        "MOVE_BATON_PASS",
         "MOVE_SUBSTITUTE",
         "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_ANTICIPATION",
       "Item": "ITEM_EEVIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN9NATIONALDEXAG"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -147,8 +142,6 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EEVIUM_Z",
       "Nature": "NATURE_GENTLE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES"
       ]
@@ -163,42 +156,42 @@
       "Ability": "ABILITY_ADAPTABILITY",
       "Item": "ITEM_EEVIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_LAST_RESORT",
         "MOVE_BATON_PASS",
+        "MOVE_LAST_RESORT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ANTICIPATION",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_LAST_RESORT",
         "MOVE_SUBSTITUTE",
         "MOVE_STORED_POWER"
       ],
       "Ability": "ABILITY_ANTICIPATION",
       "Item": "ITEM_EEVIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_QUICK_ATTACK",
-        "MOVE_LAST_RESORT"
-      ],
-      "Ability": "ABILITY_ADAPTABILITY",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
+        "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_GRASS_KNOT"
+    ]
+  }
 }

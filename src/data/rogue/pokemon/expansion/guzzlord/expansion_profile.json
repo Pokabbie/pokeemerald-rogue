@@ -136,8 +136,6 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU",
         "GEN7NU"
@@ -153,8 +151,6 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
@@ -162,15 +158,13 @@
     {
       "Moves": [
         "MOVE_KNOCK_OFF",
-        "MOVE_DRAGON_TAIL",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -184,57 +178,7 @@
       ],
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
@@ -249,11 +193,133 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WIDE_GUARD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SWALLOW",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_STOCKPILE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DRAGON_RAGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_STOMP",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_BRUTAL_SWING",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_STEAMROLLER",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_DRAGON_TAIL",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_IRON_TAIL",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_STOMPING_TANTRUM",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_HAMMER_ARM",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_THRASH",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_GASTRO_ACID",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_HEAVY_SLAM",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_WRING_OUT",
+        "Level": 67
+      },
+      {
+        "Move": "MOVE_DRAGON_HAMMER",
+        "Level": 73
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_DRAGON_RUSH",
+      "MOVE_SUCKER_PUNCH",
+      "MOVE_PARTING_SHOT",
+      "MOVE_PURSUIT"
+    ]
+  }
 }

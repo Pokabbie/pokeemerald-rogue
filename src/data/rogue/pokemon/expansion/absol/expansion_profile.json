@@ -127,66 +127,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_SWORDS_DANCE",
         "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_SUPER_LUCK",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH"
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_ABSOLITE",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_PURSUIT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ABSOLITE",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6UU"
       ]
     },
     {
@@ -199,8 +149,20 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_ABSOLITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6UU"
       ]
@@ -215,26 +177,22 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER",
-        "MOVE_IRON_TAIL"
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH"
       ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7NU"
+        "GEN6UU"
       ]
     },
     {
@@ -247,58 +205,22 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PLAY_ROUGH",
-        "MOVE_SUCKER_PUNCH",
         "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ABSOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUCKER_PUNCH",
         "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SWORDS_DANCE"
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
       ],
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8PU"
+        "GEN6RU"
       ]
     },
     {
@@ -311,10 +233,50 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_ABSOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_ABSOLITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_ABSOLITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UU"
       ]
     },
     {
@@ -327,10 +289,22 @@
       "Ability": "ABILITY_MAGIC_BOUNCE",
       "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
       ]
     },
     {
@@ -343,10 +317,36 @@
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
       ]
     },
     {
@@ -359,40 +359,34 @@
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SWORDS_DANCE",
         "MOVE_KNOCK_OFF",
-        "MOVE_PLAY_ROUGH"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_TAIL"
       ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ABSOLITE",
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN8NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
         "MOVE_KNOCK_OFF",
         "MOVE_SUCKER_PUNCH",
+        "MOVE_CLOSE_COMBAT",
         "MOVE_IRON_TAIL"
       ],
       "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
@@ -402,96 +396,48 @@
         "MOVE_SWORDS_DANCE",
         "MOVE_KNOCK_OFF",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_ABSOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
+        "MOVE_IRON_TAIL"
       ],
       "Ability": "ABILITY_JUSTIFIED",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6UU"
+        "GEN8PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
         "MOVE_SUCKER_PUNCH",
-        "MOVE_SUPERPOWER"
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE"
       ],
       "Ability": "ABILITY_SUPER_LUCK",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_JUSTIFIED",
-      "Item": "ITEM_ABSOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SUCKER_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_IRON_TAIL"
-      ],
-      "Ability": "ABILITY_MAGIC_BOUNCE",
-      "Item": "ITEM_ABSOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
+        "GEN8PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_QUASH",
+      "MOVE_ROCK_CLIMB",
+      "MOVE_AURA_SPHERE",
+      "MOVE_LOW_SWEEP"
+    ],
+    "PerSpecies": {
+      "SPECIES_ABSOL": {
+        "BaseStats": {
+          "HP": 65,
+          "Attack": 130,
+          "Defense": 60,
+          "Speed": 85,
+          "SpAttack": 85,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

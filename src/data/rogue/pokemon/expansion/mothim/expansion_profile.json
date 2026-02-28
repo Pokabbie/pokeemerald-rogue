@@ -118,9 +118,22 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_RASH",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
         "GEN6ZU"
       ]
     },
@@ -134,27 +147,47 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_QUIVER_DANCE",
-        "MOVE_BUG_BUZZ",
-        "MOVE_AIR_SLASH"
-      ],
-      "Ability": "ABILITY_TINTED_LENS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_HURRICANE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BUG_BUZZ",
+          "MOVE_HURRICANE",
+          "MOVE_U_TURN",
+          "MOVE_ENERGY_BALL"
+        ],
+        "Ability": "ABILITY_COMPOUND_EYES",
+        "Item": "ITEM_CHOICE_SPECS",
+        "Nature": "NATURE_RASH",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MOTHIM": {
+        "Abilities": [
+          "ABILITY_SWARM",
+          "ABILITY_COMPOUND_EYES",
+          "ABILITY_TINTED_LENS"
+        ],
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 70,
+          "Defense": 50,
+          "Speed": 100,
+          "SpAttack": 110,
+          "SpDefense": 50
+        }
+      }
+    }
+  }
 }

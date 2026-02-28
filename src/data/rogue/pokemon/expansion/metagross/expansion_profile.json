@@ -110,6 +110,7 @@
     "MOVE_RAIN_DANCE",
     "MOVE_REFLECT",
     "MOVE_REST",
+    "MOVE_ROCK_POLISH",
     "MOVE_ROCK_SLIDE",
     "MOVE_ROCK_TOMB",
     "MOVE_SANDSTORM",
@@ -136,6 +137,506 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HAMMER_ARM",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HAMMER_ARM",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_METEOR_MASH",
+        "MOVE_HAMMER_ARM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_METEOR_MASH",
+        "MOVE_HAMMER_ARM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HONE_CLAWS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HONE_CLAWS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_AGILITY",
         "MOVE_METEOR_MASH",
         "MOVE_EARTHQUAKE",
@@ -144,26 +645,121 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7RU"
       ]
     },
     {
       "Moves": [
-        "MOVE_BULLET_PUNCH",
         "MOVE_METEOR_MASH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_PURSUIT"
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7RU",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -176,42 +772,219 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_FIGY_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
+        "MOVE_METEOR_MASH",
         "MOVE_BULLET_PUNCH",
         "MOVE_ZEN_HEADBUTT",
-        "MOVE_IRON_HEAD",
-        "MOVE_EARTHQUAKE"
+        "MOVE_HAMMER_ARM"
       ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_COSMIC_POWER",
-        "MOVE_BODY_PRESS",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_PROTECT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
         "MOVE_ICE_PUNCH",
         "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_METAGROSSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_METEOR_MASH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_KASIB_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
       ]
     },
     {
@@ -224,10 +997,134 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_METEOR_MASH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEEL_ROLLER",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COSMIC_POWER",
+        "MOVE_BODY_PRESS",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
@@ -240,352 +1137,12 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8BATTLESTADIUMSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_METEOR_MASH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_PSYCHO_CUT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU",
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_METEOR_MASH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN6MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_METEOR_MASH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PSYCHIC_FANGS"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_KNOCK_OFF",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXPLOSION",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_EARTHQUAKE",
-        "MOVE_TRICK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEAVY_SLAM",
-        "MOVE_PSYCHIC_FANGS",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_DEFENSE",
-        "MOVE_BODY_PRESS",
-        "MOVE_HEAVY_SLAM",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8BATTLESTADIUMSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_PUNCH",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_PUNCH",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_SUBSTITUTE",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_METEOR_MASH",
         "MOVE_BULLET_PUNCH",
         "MOVE_EARTHQUAKE",
@@ -594,8 +1151,6 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -610,8 +1165,6 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -626,205 +1179,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_HAMMER_ARM"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_TRICK"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PURSUIT",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
       ]
     },
     {
@@ -837,122 +1193,8 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_GRASS_KNOT",
-        "MOVE_STEALTH_ROCK"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
       ]
     },
     {
@@ -965,8 +1207,6 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_AIR_BALLOON",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -974,243 +1214,105 @@
     {
       "Moves": [
         "MOVE_METEOR_MASH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EXPLOSION",
+        "MOVE_EARTHQUAKE",
         "MOVE_BULLET_PUNCH"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_NORMAL",
       "SourceTiers": [
-        "GEN7UBERS"
+        "GEN9UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_PROTECT",
         "MOVE_BULLET_PUNCH",
-        "MOVE_ZEN_HEADBUTT"
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN7VGC2017"
+        "GEN91V1"
       ]
     },
     {
       "Moves": [
         "MOVE_METEOR_MASH",
-        "MOVE_PROTECT",
+        "MOVE_BULLET_PUNCH",
         "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH"
+        "MOVE_PSYCHIC_FANGS"
       ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
+        "GEN91V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_HEAVY_SLAM",
         "MOVE_EARTHQUAKE",
-        "MOVE_BULLET_PUNCH"
+        "MOVE_PSYCHIC_FANGS"
       ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN61V1"
+        "GEN91V1"
       ]
     },
     {
       "Moves": [
         "MOVE_METEOR_MASH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_HAMMER_ARM",
         "MOVE_TRICK"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_STEEL",
       "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_METEOR_MASH",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_ICE_PUNCH",
-        "MOVE_BULLET_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_IRON_HEAD",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_STOMPING_TANTRUM"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2018"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_IRON_HEAD",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_METEOR_MASH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH",
-        "MOVE_METEOR_MASH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_PURSUIT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_KASIB_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_EXPLOSION"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU",
-        "GEN7UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_METEOR_MASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_SHUCA_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
+        "GEN91V1"
       ]
     },
     {
@@ -1223,303 +1325,82 @@
       "Ability": "ABILITY_CLEAR_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEEL_ROLLER",
-        "MOVE_ICE_PUNCH",
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_STEALTH_ROCK"
+        "MOVE_METEOR_MASH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_SHUCA_BERRY",
+      "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8DOUBLESOU"
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_STOMPING_TANTRUM",
-        "MOVE_IRON_HEAD",
-        "MOVE_PROTECT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_HONE_CLAWS",
         "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_HONE_CLAWS",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_IRON_HEAD",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDER_PUNCH",
         "MOVE_METEOR_MASH",
         "MOVE_BULLET_PUNCH",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH"
+        "MOVE_PSYCHO_CUT"
       ],
       "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES",
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_ICE_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_BULLET_PUNCH",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_HAMMER_ARM",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_HAMMER_ARM",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_HAMMER_ARM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_CLEAR_BODY",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_METEOR_MASH",
-        "MOVE_HAMMER_ARM",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_TOUGH_CLAWS",
-      "Item": "ITEM_METAGROSSITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FLY"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BULLET_PUNCH",
+          "MOVE_METEOR_MASH",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HEAVY_SLAM",
+          "MOVE_EXPLOSION",
+          "MOVE_EARTHQUAKE",
+          "MOVE_STEALTH_ROCK"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_CUSTAP_BERRY",
+        "Nature": "NATURE_ADAMANT",
+        "TeraType": "TYPE_NORMAL",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_METAGROSS": {
+        "Abilities": [
+          "ABILITY_CLEAR_BODY",
+          "ABILITY_IRON_FIST",
+          "ABILITY_LIGHT_METAL"
+        ]
+      }
+    }
+  }
 }

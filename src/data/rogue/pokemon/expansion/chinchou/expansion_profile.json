@@ -106,34 +106,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ICE_BEAM",
-        "MOVE_VOLT_SWITCH"
+        "MOVE_SCALD",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FLYING",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
         "MOVE_VOLT_SWITCH",
-        "MOVE_ICE_BEAM",
         "MOVE_SCALD"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN6ZU"
       ]
     },
     {
@@ -147,7 +143,6 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BOLD",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -163,7 +158,34 @@
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GRASS",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -178,58 +200,36 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_SCALD",
+        "MOVE_HYDRO_PUMP",
         "MOVE_VOLT_SWITCH",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_ICE_BEAM",
+        "MOVE_SCALD"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN7LC"
       ]
     },
     {
       "Moves": [
         "MOVE_VOLT_SWITCH",
-        "MOVE_HYDRO_PUMP",
+        "MOVE_SCALD",
         "MOVE_ICE_BEAM",
         "MOVE_THUNDERBOLT"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_VOLT_SWITCH",
-        "MOVE_ICE_BEAM",
-        "MOVE_SCALD",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
+        "GEN7LC"
       ]
     },
     {
@@ -242,8 +242,6 @@
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8LC"
       ]
@@ -251,34 +249,111 @@
     {
       "Moves": [
         "MOVE_VOLT_SWITCH",
-        "MOVE_SCALD",
         "MOVE_ICE_BEAM",
-        "MOVE_HEAL_BELL"
+        "MOVE_SCALD",
+        "MOVE_THUNDERBOLT"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN6LC"
+        "GEN8LC"
       ]
     },
     {
       "Moves": [
-        "MOVE_VOLT_SWITCH",
         "MOVE_SCALD",
+        "MOVE_THUNDERBOLT",
         "MOVE_ICE_BEAM",
-        "MOVE_THUNDERBOLT"
+        "MOVE_FLIP_TURN"
       ],
       "Ability": "ABILITY_VOLT_ABSORB",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN7LC"
+        "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BUBBLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_ELECTRO_BALL",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_CONFUSE_RAY",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SPARK",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_SIGNAL_BEAM",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_DISCHARGE",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_PARABOLIC_CHARGE",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_AQUA_RING",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_ION_DELUGE",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_CHARGE",
+        "Level": 50
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_VOLT_SWITCH",
+          "MOVE_ICE_BEAM",
+          "MOVE_PARABOLIC_CHARGE",
+          "MOVE_SCALD"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

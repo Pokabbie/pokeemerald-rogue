@@ -139,38 +139,6 @@
     {
       "Moves": [
         "MOVE_BULK_UP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_JUNGLE_HEALING"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_JUNGLE_HEALING"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
         "MOVE_DARKEST_LARIAT",
         "MOVE_POWER_WHIP",
         "MOVE_JUNGLE_HEALING"
@@ -178,8 +146,6 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
       ]
@@ -194,26 +160,8 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_JUNGLE_HEALING",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_POWER_WHIP"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_DARKINIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -226,58 +174,64 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_BULK_UP",
         "MOVE_POWER_WHIP",
         "MOVE_DARKEST_LARIAT",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_POWER_WHIP",
-        "MOVE_TAUNT",
+        "MOVE_U_TURN",
         "MOVE_JUNGLE_HEALING"
       ],
       "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOPLE_BERRY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_CLOSE_COMBAT",
         "MOVE_POWER_WHIP",
-        "MOVE_U_TURN"
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
       ],
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8MONOTYPE"
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_JUNGLE_HEALING",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -290,8 +244,6 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
@@ -306,170 +258,8 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_POWER_WHIP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_POWER_WHIP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ROCK_SLIDE"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_POWER_WHIP",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_POWER_WHIP",
-        "MOVE_U_TURN",
-        "MOVE_JUNGLE_HEALING"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_POWER_WHIP",
-        "MOVE_ROCK_SLIDE",
-        "MOVE_BULLET_SEED"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_ENCORE",
-        "MOVE_BULK_UP"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_WEAKNESS_POLICY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_U_TURN",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_DARKEST_LARIAT",
-        "MOVE_U_TURN",
-        "MOVE_JUNGLE_HEALING"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_WHIP",
-        "MOVE_KNOCK_OFF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_DARK",
-      "SourceTiers": [
-        "GEN9UU"
       ]
     },
     {
@@ -482,42 +272,120 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN81V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_CRUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_JUNGLE_HEALING"
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_WHIP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_LEAF_GUARD",
-      "Item": "ITEM_BLACK_GLASSES",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN81V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_TRAILBLAZE",
+        "MOVE_POWER_WHIP",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_ENCORE",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_POWER_WHIP",
+        "MOVE_TAUNT",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_DRAIN_PUNCH",
         "MOVE_JUNGLE_HEALING"
       ],
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_POISON",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_WHIP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_POWER_WHIP",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
       ]
     },
     {
@@ -530,11 +398,82 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NATIONALDEXMONOTYPE",
         "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_WHIP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POWER_WHIP",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POWER_WHIP",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRAILBLAZE",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9UU"
       ]
     },
     {
@@ -547,11 +486,30 @@
       "Ability": "ABILITY_LEAF_GUARD",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_JUNGLE_HEALING"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN"
+    ]
+  }
 }

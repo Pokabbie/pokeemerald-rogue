@@ -97,8 +97,6 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9ZU"
       ]

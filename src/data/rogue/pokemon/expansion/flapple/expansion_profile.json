@@ -118,18 +118,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAGON_DANCE",
         "MOVE_GRAV_APPLE",
-        "MOVE_ACROBATICS",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN",
         "MOVE_SUCKER_PUNCH"
       ],
       "Ability": "ABILITY_HUSTLE",
-      "Item": null,
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN8PU"
       ]
     },
     {
@@ -142,8 +140,33 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_GRAV_APPLE",
+        "MOVE_ACROBATICS",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN8ZU"
       ]
@@ -158,43 +181,70 @@
       "Ability": "ABILITY_HUSTLE",
       "Item": "ITEM_SITRUS_BERRY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9PU"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRAV_APPLE",
-        "MOVE_OUTRAGE",
-        "MOVE_U_TURN",
-        "MOVE_DRAGON_DANCE"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_GRAV_APPLE",
-        "MOVE_OUTRAGE",
-        "MOVE_U_TURN",
-        "MOVE_SUCKER_PUNCH"
-      ],
-      "Ability": "ABILITY_HUSTLE",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_RETURN",
+      "MOVE_ROOST",
+      "MOVE_SCALE_SHOT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GRAV_APPLE",
+          "MOVE_OUTRAGE",
+          "MOVE_SUCKER_PUNCH",
+          "MOVE_U_TURN"
+        ],
+        "Ability": "ABILITY_HUSTLE",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_NAIVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_DANCE",
+          "MOVE_GRAV_APPLE",
+          "MOVE_ACROBATICS",
+          "MOVE_SUCKER_PUNCH"
+        ],
+        "Ability": "ABILITY_HUSTLE",
+        "Item": "ITEM_FLYING_GEM",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_FLAPPLE": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 110,
+          "Defense": 80,
+          "Speed": 95,
+          "SpAttack": 85,
+          "SpDefense": 60
+        }
+      },
+      "SPECIES_FLAPPLE_GIGANTAMAX": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 110,
+          "Defense": 80,
+          "Speed": 95,
+          "SpAttack": 85,
+          "SpDefense": 60
+        }
+      }
+    }
+  }
 }

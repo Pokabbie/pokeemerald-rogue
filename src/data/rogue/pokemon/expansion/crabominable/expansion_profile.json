@@ -115,22 +115,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_ICE_HAMMER",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_DRAIN_PUNCH",
         "MOVE_ICE_HAMMER",
         "MOVE_EARTHQUAKE",
@@ -139,88 +123,6 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_HAMMER",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_ICE",
-      "SourceTiers": [
-        "GEN9ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_HAMMER",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_EARTHQUAKE",
-        "MOVE_THUNDER_PUNCH"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_HAMMER",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_HAMMER",
-        "MOVE_EARTHQUAKE",
-        "MOVE_PROTECT",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_ANGER_POINT",
-      "Item": "ITEM_LUM_BERRY",
-      "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_HAMMER",
-        "MOVE_THUNDER_PUNCH",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_IRON_FIST",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -235,11 +137,151 @@
       "Ability": "ABILITY_IRON_FIST",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_ANGER_POINT",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_HAMMER",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICE_PUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BUBBLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ROCK_SMASH",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_LEER",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_POWER_UP_PUNCH",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_DIZZY_PUNCH",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_MACH_PUNCH",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_AVALANCHE",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_REVERSAL",
+        "Level": 34
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_CRABHAMMER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MACH_PUNCH",
+          "MOVE_ICE_HAMMER",
+          "MOVE_EARTHQUAKE",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_IRON_FIST",
+        "Item": "ITEM_ASSAULT_VEST",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
+  }
 }

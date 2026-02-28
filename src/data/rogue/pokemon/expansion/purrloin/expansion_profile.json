@@ -110,27 +110,9 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_KNOCK_OFF",
-        "MOVE_ENCORE",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_DAMP_ROCK",
-      "Nature": "NATURE_MILD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
       ]
     },
     {
@@ -143,10 +125,22 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

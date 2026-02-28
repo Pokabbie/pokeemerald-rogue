@@ -141,6 +141,94 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_LOW_KICK",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALE_SHOT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_COLLISION_COURSE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_COLLISION_COURSE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ORICHALCUM_PULSE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_COLLISION_COURSE",
         "MOVE_FLARE_BLITZ",
         "MOVE_DRAGON_CLAW",
@@ -149,154 +237,8 @@
       "Ability": "ABILITY_ORICHALCUM_PULSE",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_COLLISION_COURSE",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_LOW_KICK",
-        "MOVE_U_TURN",
-        "MOVE_OUTRAGE"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FLARE_BLITZ",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_COLLISION_COURSE",
-        "MOVE_DRAGON_CLAW"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LOW_KICK",
-        "MOVE_OUTRAGE",
-        "MOVE_U_TURN",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALE_SHOT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_LOW_KICK",
-        "MOVE_SWORDS_DANCE"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALE_SHOT",
-        "MOVE_LOW_KICK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SCALE_SHOT",
-        "MOVE_LOW_KICK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_FLARE_BLITZ"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
-        "MOVE_SCALE_SHOT",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_LOADED_DICE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_STEEL",
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_LOW_KICK",
-        "MOVE_OUTRAGE",
-        "MOVE_FLAME_CHARGE"
-      ],
-      "Ability": "ABILITY_ORICHALCUM_PULSE",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FIRE",
-      "SourceTiers": [
-        "GEN9UBERS"
       ]
     }
   ]

@@ -109,82 +109,32 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
         "MOVE_ENERGY_BALL",
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_PROTECT",
-        "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL"
+        "MOVE_TAIL_GLOW"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN7VGC2018"
+        "GEN7OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_VOLT_SWITCH",
         "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_ENERGY_BALL",
-        "MOVE_TAIL_GLOW",
-        "MOVE_THUNDERBOLT",
-        "MOVE_RISING_VOLTAGE"
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAIL_GLOW"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "HiddenPower": "TYPE_ICE",
       "SourceTiers": [
-        "GEN8NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ENERGY_BALL",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DAZZLING_GLEAM",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_IRON_BALL",
-      "Nature": "NATURE_QUIET",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8OU"
+        "GEN7OU"
       ]
     },
     {
@@ -198,89 +148,23 @@
       "Item": "ITEM_PSYCHIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYPNOSIS",
         "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL",
-        "MOVE_TAIL_GLOW"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_MAGNET_RISE",
-        "MOVE_ZAP_CANNON",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_TAIL_GLOW"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_ENERGY_BALL",
-        "MOVE_TAIL_GLOW",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PROTECT",
-        "MOVE_TAIL_GLOW",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_IAPAPA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TAIL_GLOW",
-        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
         "MOVE_HIDDEN_POWER",
         "MOVE_ENERGY_BALL"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_SHUCA_BERRY",
+      "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NATIONALDEX"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -294,7 +178,6 @@
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -302,49 +185,45 @@
     {
       "Moves": [
         "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL",
+        "MOVE_TAIL_GLOW",
         "MOVE_HIDDEN_POWER",
-        "MOVE_DAZZLING_GLEAM"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
         "MOVE_THUNDERBOLT",
-        "MOVE_ENERGY_BALL",
         "MOVE_HIDDEN_POWER",
-        "MOVE_TAIL_GLOW"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_PSYCHIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
         "MOVE_ENERGY_BALL",
-        "MOVE_HIDDEN_POWER",
         "MOVE_VOLT_SWITCH"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
+      "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7VGC2017"
       ]
     },
     {
@@ -358,105 +237,36 @@
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_ENERGY_BALL",
-        "MOVE_TAIL_GLOW"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_ENERGY_BALL",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
         "MOVE_TAIL_GLOW",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_ELECTRIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_ENERGY_BALL",
         "MOVE_DAZZLING_GLEAM"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_IAPAPA_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8RU"
+        "GEN7VGC2017"
       ]
     },
     {
       "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
         "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_GRASS_KNOT",
-        "MOVE_DAZZLING_GLEAM"
-      ],
-      "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_HIDDEN_POWER",
         "MOVE_ENERGY_BALL"
       ],
       "Ability": "ABILITY_BEAST_BOOST",
-      "Item": "ITEM_CHOICE_SCARF",
+      "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN7VGC2018"
       ]
     },
     {
@@ -469,10 +279,166 @@
       "Ability": "ABILITY_BEAST_BOOST",
       "Item": "ITEM_ELECTRIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGNET_RISE",
+        "MOVE_ZAP_CANNON",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAIL_GLOW"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TAIL_GLOW"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_IRON_BALL",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GRASS_KNOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ENERGY_BALL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RISING_VOLTAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
       ]
     }
   ]

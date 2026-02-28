@@ -139,144 +139,14 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_GUNK_SHOT",
-        "MOVE_ICE_BEAM",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_EXTRASENSORY",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_GUNK_SHOT",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_EXTRASENSORY"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP"
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_SHADOW_SNEAK"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_SURF",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN6UBERS"
       ]
@@ -286,128 +156,112 @@
         "MOVE_DARK_PULSE",
         "MOVE_ICE_BEAM",
         "MOVE_WATER_SHURIKEN",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9OU",
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_SLUDGE_WAVE",
-        "MOVE_ICE_BEAM",
-        "MOVE_EXTRASENSORY"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_ICE_BEAM",
         "MOVE_HYDRO_PUMP"
       ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_CHOICE_SPECS",
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6UBERS"
       ]
     },
     {
       "Moves": [
-        "MOVE_DIG",
+        "MOVE_DARK_PULSE",
         "MOVE_ICE_BEAM",
-        "MOVE_GUNK_SHOT",
-        "MOVE_SPIKES"
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7OU"
+        "GEN6DOUBLESOU"
       ]
     },
     {
       "Moves": [
-        "MOVE_EXTRASENSORY",
-        "MOVE_DIG",
         "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_GUNK_SHOT",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_GRASS_KNOT",
         "MOVE_GUNK_SHOT"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_GROUNDIUM_Z",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN6BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_U_TURN",
-        "MOVE_SHADOW_SNEAK"
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_LOW_KICK",
+        "MOVE_PROTECT"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
-        "GEN91V1"
+        "GEN6BATTLESPOTDOUBLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
         "MOVE_ICE_BEAM",
-        "MOVE_U_TURN",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_DARK_PULSE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN6VGC2016"
       ]
     },
     {
       "Moves": [
-        "MOVE_GUNK_SHOT",
-        "MOVE_U_TURN",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_DARK_PULSE",
         "MOVE_ICE_BEAM",
-        "MOVE_HYDRO_PUMP"
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ELECTRIC",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN61V1"
       ]
     },
     {
@@ -421,73 +275,93 @@
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
       "SourceTiers": [
         "GEN61V1"
       ]
     },
     {
       "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HAZE",
         "MOVE_HYDRO_CANNON",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_GUNK_SHOT",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
         "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_HIDDEN_POWER"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_HYDRO_CANNON",
-        "MOVE_GRASS_KNOT",
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE"
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
+        "GEN61V1",
         "GEN71V1"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
         "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_ICE_BEAM"
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
       ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9OU"
+        "GEN6ANYTHINGGOES"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
         "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_ICE_BEAM"
+        "MOVE_SUBSTITUTE"
       ],
       "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9NATIONALDEX"
+        "GEN7UBERS"
       ]
     },
     {
@@ -500,8 +374,20 @@
       "Ability": "ABILITY_BATTLE_BOND",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIG",
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
         "GEN7OU"
       ]
@@ -517,42 +403,78 @@
       "Item": "ITEM_WATERIUM_Z",
       "Nature": "NATURE_HASTY",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_U_TURN",
         "MOVE_ICE_BEAM",
-        "MOVE_GUNK_SHOT",
-        "MOVE_EXTRASENSORY"
+        "MOVE_SPIKES"
       ],
       "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN7OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_HYDRO_PUMP",
-        "MOVE_SLUDGE_WAVE",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
         "MOVE_ICE_BEAM",
-        "MOVE_EXTRASENSORY"
+        "MOVE_HYDRO_PUMP"
       ],
-      "Ability": "ABILITY_PROTEAN",
+      "Ability": "ABILITY_BATTLE_BOND",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE",
-        "GEN9NATIONALDEXMONOTYPE"
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_DARK_PULSE",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -565,8 +487,20 @@
       "Ability": "ABILITY_TORRENT",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
         "GEN7BATTLESPOTSINGLES"
       ]
@@ -574,130 +508,29 @@
     {
       "Moves": [
         "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN",
         "MOVE_DARK_PULSE",
-        "MOVE_EXTRASENSORY",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_EXTRASENSORY",
-        "MOVE_SURF"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_GRASS_KNOT",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_GUNK_SHOT",
-        "MOVE_LOW_KICK"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_GRASS_KNOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1",
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_GRASS_KNOT"
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6BATTLESPOTSINGLES"
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
       "Moves": [
-        "MOVE_ICE_BEAM",
         "MOVE_DARK_PULSE",
-        "MOVE_HYDRO_PUMP",
-        "MOVE_GRASS_KNOT"
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT",
+        "MOVE_HYDRO_PUMP"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN6VGC2016"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_LOW_KICK",
-        "MOVE_PROTECT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6BATTLESPOTDOUBLES"
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -710,74 +543,50 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2018"
       ]
     },
     {
       "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_GRASS_KNOT",
         "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_SAFETY_GOGGLES",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXAG"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_DARK_PULSE",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_EXTRASENSORY",
-        "MOVE_DARK_PULSE",
-        "MOVE_GRASS_KNOT"
+        "MOVE_DARK_PULSE"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN9MONOTYPE"
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_TAUNT",
+        "MOVE_WORK_UP"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
       ]
     },
     {
@@ -791,7 +600,20 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
@@ -807,7 +629,20 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_DIG",
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_NAIVE",
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
@@ -823,9 +658,182 @@
       "Item": "ITEM_EXPERT_BELT",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_ELECTRIC",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STELLAR",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_U_TURN",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
       ]
     },
     {
@@ -838,8 +846,34 @@
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_GRASS_KNOT",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXTRASENSORY",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
@@ -847,194 +881,91 @@
     {
       "Moves": [
         "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN",
+        "MOVE_EXTRASENSORY",
         "MOVE_DARK_PULSE",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_DARK_PULSE",
-        "MOVE_HYDRO_PUMP"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_SLIDE",
-        "MOVE_U_TURN",
-        "MOVE_ICE_BEAM",
-        "MOVE_GUNK_SHOT"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_TOMB",
-        "MOVE_GUNK_SHOT",
-        "MOVE_WATERFALL",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_TAUNT",
-        "MOVE_DARK_PULSE",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_HAZE",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_U_TURN"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PETAYA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_TAUNT",
-        "MOVE_WORK_UP"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_PETAYA_BERRY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SUBSTITUTE",
-        "MOVE_HYDRO_CANNON",
-        "MOVE_WATER_SHURIKEN",
-        "MOVE_ICE_BEAM"
-      ],
-      "Ability": "ABILITY_TORRENT",
-      "Item": "ITEM_WATERIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_SLUDGE_WAVE"
-      ],
-      "Ability": "ABILITY_BATTLE_BOND",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SURF",
-        "MOVE_DARK_PULSE",
-        "MOVE_ICE_BEAM",
-        "MOVE_WATER_SHURIKEN"
+        "MOVE_GRASS_KNOT"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
       "SourceTiers": [
-        "GEN9UU"
+        "GEN9MONOTYPE"
       ]
     },
     {
       "Moves": [
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_SPIKES",
-        "MOVE_TAUNT",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_PROTEAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_U_TURN",
-        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
         "MOVE_GUNK_SHOT",
-        "MOVE_DARK_PULSE"
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN"
       ],
       "Ability": "ABILITY_PROTEAN",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7MONOTYPE"
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_GRENINJA": {
+        "Abilities": [
+          "ABILITY_TORRENT",
+          "ABILITY_INFILTRATOR",
+          "ABILITY_PROTEAN"
+        ],
+        "BaseStats": {
+          "HP": 72,
+          "Attack": 100,
+          "Defense": 67,
+          "Speed": 122,
+          "SpAttack": 103,
+          "SpDefense": 71
+        }
+      }
+    }
+  }
 }

@@ -125,70 +125,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_PLAY_ROUGH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_RETURN",
-        "MOVE_QUICK_ATTACK"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_HEALING_WISH",
-        "MOVE_RETURN",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RETURN",
         "MOVE_DRAIN_PUNCH",
         "MOVE_HEALING_WISH",
@@ -197,26 +133,8 @@
       "Ability": "ABILITY_LIMBER",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPLASH",
-        "MOVE_RETURN",
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_FIRE_PUNCH"
-      ],
-      "Ability": "ABILITY_LIMBER",
-      "Item": "ITEM_NORMALIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
       ]
     },
     {
@@ -229,11 +147,143 @@
       "Ability": "ABILITY_KLUTZ",
       "Item": "ITEM_CHOICE_BAND",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPLASH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FRUSTRATION",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DEFENSE_CURL",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FORESIGHT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ENDURE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_BABY_DOLL_EYES",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_JUMP_KICK",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_BATON_PASS",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_DIZZY_PUNCH",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_AFTER_YOU",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_ENTRAINMENT",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_BOUNCE",
+        "Level": 56
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_HEALING_WISH",
+        "Level": 63
+      }
+    ]
+  }
 }

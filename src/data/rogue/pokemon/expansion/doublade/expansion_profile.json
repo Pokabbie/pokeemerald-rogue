@@ -101,59 +101,22 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_SASSY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6OU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SHADOW_SNEAK",
         "MOVE_SWORDS_DANCE",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_IRON_HEAD"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SHADOW_SNEAK",
-        "MOVE_SWORDS_DANCE",
         "MOVE_IRON_HEAD",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_SACRED_SWORD"
       ],
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SACRED_SWORD",
-        "MOVE_GYRO_BALL"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UU",
-        "GEN7MONOTYPE"
+        "GEN6UU"
       ]
     },
     {
@@ -166,10 +129,22 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6UU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
         "GEN6MONOTYPE"
       ]
     },
@@ -183,58 +158,23 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_IRON_HEAD",
         "MOVE_SHADOW_SNEAK",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8NU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SWORDS_DANCE",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_IRON_HEAD",
-        "MOVE_SACRED_SWORD"
-      ],
-      "Ability": "ABILITY_NO_GUARD",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6UU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_SHADOW_SNEAK",
         "MOVE_SACRED_SWORD",
-        "MOVE_SHADOW_CLAW"
+        "MOVE_GYRO_BALL"
       ],
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BRAVE",
       "SourceTiers": [
-        "GEN6MONOTYPE"
+        "GEN7UU",
+        "GEN7MONOTYPE"
       ]
     },
     {
@@ -247,12 +187,218 @@
       "Ability": "ABILITY_NO_GUARD",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU",
         "GEN8PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SWIRLING_BLADE",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_SWIRLING_BLADE",
+        "Level": 38
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SWIRLING_BLADE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GYRO_BALL",
+          "MOVE_SWIRLING_BLADE",
+          "MOVE_SLEEP_TALK",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_SASSY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SWIRLING_BLADE",
+          "MOVE_SACRED_SWORD"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SACRED_SWORD",
+          "MOVE_SWIRLING_BLADE"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SACRED_SWORD",
+          "MOVE_SHADOW_CLAW"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_GYRO_BALL",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BRAVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SACRED_SWORD",
+          "MOVE_GYRO_BALL"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BRAVE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SHADOW_CLAW",
+          "MOVE_CLOSE_COMBAT"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SWIRLING_BLADE",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_CLOSE_COMBAT"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SWIRLING_BLADE",
+          "MOVE_CLOSE_COMBAT"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_CLOSE_COMBAT",
+          "MOVE_SWIRLING_BLADE"
+        ],
+        "Ability": "ABILITY_SHARPNESS",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_DOUBLADE": {
+        "Abilities": [
+          "ABILITY_NO_GUARD",
+          "ABILITY_NONE",
+          "ABILITY_SHARPNESS"
+        ]
+      }
+    }
+  }
 }

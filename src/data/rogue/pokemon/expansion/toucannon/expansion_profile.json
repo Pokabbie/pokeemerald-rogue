@@ -125,8 +125,20 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BEAK_BLAST",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
         "GEN7PU"
       ]
@@ -141,8 +153,6 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
       ]
@@ -157,26 +167,8 @@
       "Ability": "ABILITY_SKILL_LINK",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BULLET_SEED",
-        "MOVE_ROCK_BLAST",
-        "MOVE_BEAK_BLAST",
-        "MOVE_BRAVE_BIRD"
-      ],
-      "Ability": "ABILITY_SKILL_LINK",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
       ]
     }
   ]

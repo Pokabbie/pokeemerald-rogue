@@ -124,11 +124,49 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_WEAKNESS_POLICY",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SPORT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_RAPID_SPIN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MUD_SPORT",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_MAGNITUDE",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_BULLDOZE",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_ACCELEROCK",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 60
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 64
+      }
+    ]
+  }
 }

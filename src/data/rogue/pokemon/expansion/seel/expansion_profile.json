@@ -126,6 +126,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_WHIRLPOOL",
+        "MOVE_PERISH_SONG",
+        "MOVE_RAIN_DANCE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_FAKE_OUT",
         "MOVE_AQUA_JET",
         "MOVE_WATERFALL",
@@ -134,8 +148,6 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -150,27 +162,36 @@
       "Ability": "ABILITY_THICK_FAT",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
-    },
-    {
-      "Moves": [
-        "MOVE_WHIRLPOOL",
-        "MOVE_PERISH_SONG",
-        "MOVE_RAIN_DANCE",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_HYDRATION",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WHIRLPOOL",
+          "MOVE_PERISH_SONG",
+          "MOVE_PROTECT",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_ICE_SCALES",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_BOLD",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_SEEL": {
+        "Abilities": [
+          "ABILITY_THICK_FAT",
+          "ABILITY_HYDRATION",
+          "ABILITY_ICE_SCALES"
+        ]
+      }
+    }
+  }
 }

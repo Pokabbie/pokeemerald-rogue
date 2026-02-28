@@ -103,22 +103,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_GIGA_DRAIN",
-        "MOVE_LEECH_SEED",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_HARVEST",
-      "Item": "ITEM_ORAN_BERRY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SUBSTITUTE",
         "MOVE_SLEEP_POWDER",
         "MOVE_GIGA_DRAIN",
@@ -127,8 +111,20 @@
       "Ability": "ABILITY_HARVEST",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -143,11 +139,73 @@
       "Ability": "ABILITY_HARVEST",
       "Item": "ITEM_ORAN_BERRY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BARRAGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_REFLECT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_LEECH_SEED",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_BULLET_SEED",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_STUN_SPORE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_POISON_POWDER",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_SLEEP_POWDER",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_WORRY_SEED",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_SOFT_BOILED",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_NATURAL_GIFT",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_EXTRASENSORY",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_BESTOW",
+        "Level": 50
+      }
+    ]
+  }
 }

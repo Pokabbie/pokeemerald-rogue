@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_OINKOLOGNE_FEMALE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 51
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_UPROAR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

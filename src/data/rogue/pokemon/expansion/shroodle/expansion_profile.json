@@ -115,6 +115,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_ENCORE",
+        "MOVE_SUNNY_DAY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_KNOCK_OFF",
         "MOVE_PARTING_SHOT",
         "MOVE_ENCORE",
@@ -123,24 +137,6 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_GRASSY_SEED",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SWORDS_DANCE",
-        "MOVE_GUNK_SHOT",
-        "MOVE_TERA_BLAST",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_UNBURDEN",
-      "Item": "ITEM_GRASSY_SEED",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GROUND",
       "SourceTiers": [
         "GEN9LC"
       ]

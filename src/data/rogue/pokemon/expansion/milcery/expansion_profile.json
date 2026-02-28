@@ -70,5 +70,12 @@
     "MOVE_SUBSTITUTE",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_RETURN",
+      "MOVE_TOXIC"
+    ]
+  }
 }

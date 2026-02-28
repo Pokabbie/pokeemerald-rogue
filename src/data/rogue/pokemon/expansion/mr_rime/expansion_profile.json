@@ -208,26 +208,8 @@
       "Ability": "ABILITY_SCREEN_CLEANER",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_FREEZE_DRY",
-        "MOVE_PSYCHIC",
-        "MOVE_NASTY_PLOT"
-      ],
-      "Ability": "ABILITY_SCREEN_CLEANER",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
       ]
     },
     {
@@ -240,11 +222,68 @@
       "Ability": "ABILITY_ICE_BODY",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_FREEZE_DRY",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SCREEN_CLEANER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FREEZY_FROST",
+        "Level": 55
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FRUSTRATION",
+      "MOVE_TOXIC",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_MAGICAL_LEAF",
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_CHARGE_BEAM",
+      "MOVE_RETURN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLACK_OFF",
+          "MOVE_PSYCHIC",
+          "MOVE_FREEZY_FROST",
+          "MOVE_NASTY_PLOT"
+        ],
+        "Ability": "ABILITY_SCREEN_CLEANER",
+        "Item": "ITEM_LIFE_ORB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MR_RIME": {
+        "BaseStats": {
+          "HP": 80,
+          "Attack": 65,
+          "Defense": 75,
+          "Speed": 100,
+          "SpAttack": 110,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

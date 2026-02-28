@@ -91,17 +91,29 @@
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_PIN_MISSILE",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
         "MOVE_PROTECT",
         "MOVE_ENDEAVOR"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN8LC"
+        "GEN6LC"
       ]
     },
     {
@@ -114,8 +126,6 @@
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_GRASSIUM_Z",
       "Nature": "NATURE_SERIOUS",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -123,33 +133,15 @@
     {
       "Moves": [
         "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
+        "MOVE_PIN_MISSILE",
         "MOVE_PROTECT",
         "MOVE_ENDEAVOR"
       ],
       "Ability": "ABILITY_SPEED_BOOST",
       "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_TOXIC_SPIKES",
-        "MOVE_PROTECT",
-        "MOVE_ENDEAVOR"
-      ],
-      "Ability": "ABILITY_SPEED_BOOST",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN8LC"
       ]
     }
   ]

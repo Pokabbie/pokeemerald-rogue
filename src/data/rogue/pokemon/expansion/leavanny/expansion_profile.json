@@ -117,102 +117,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_STICKY_WEB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LEAF_BLADE",
-        "MOVE_STICKY_WEB",
-        "MOVE_X_SCISSOR",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEAF_BLADE",
-        "MOVE_LUNGE"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LEAF_BLADE",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_LEAF_BLADE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_LUNGE"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STICKY_WEB",
-        "MOVE_LEAF_BLADE",
-        "MOVE_X_SCISSOR",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_SWARM",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STICKY_WEB",
         "MOVE_LEAF_STORM",
         "MOVE_ELECTROWEB",
@@ -221,8 +125,6 @@
       "Ability": "ABILITY_SWARM",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
       ]
@@ -237,10 +139,107 @@
       "Ability": "ABILITY_CHLOROPHYLL",
       "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_NAIVE",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEAF_BLADE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LEAF_BLADE",
+        "MOVE_X_SCISSOR",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_STICKY_WEB",
+        "MOVE_X_SCISSOR",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_STICKY_WEB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LEAF_BLADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LUNGE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POUNCE",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEAF_BLADE",
+        "MOVE_LUNGE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
       ]
     }
   ]

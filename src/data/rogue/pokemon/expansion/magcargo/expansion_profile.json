@@ -128,18 +128,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTH_POWER",
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ANCIENT_POWER"
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER"
       ],
       "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -152,42 +150,8 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POWER_GEM",
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_TERA_BLAST"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_FLAMETHROWER",
-        "MOVE_ANCIENT_POWER",
-        "MOVE_RECOVER"
-      ],
-      "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
       ]
     },
     {
@@ -200,26 +164,23 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
       ]
     },
     {
       "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_LAVA_PLUME",
-        "MOVE_WILL_O_WISP",
-        "MOVE_RECOVER"
+        "MOVE_SHELL_SMASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
       ],
       "Ability": "ABILITY_FLAME_BODY",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
       "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU"
       ]
     },
     {
@@ -232,11 +193,123 @@
       "Ability": "ABILITY_FLAME_BODY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SHELL_SMASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SHELL_SMASH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SHELTER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_ROCK_THROW",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_INCINERATE",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_FLAME_BURST",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_POWER_GEM",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 58
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TOXIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STEALTH_ROCK",
+          "MOVE_RECOVER",
+          "MOVE_TOXIC",
+          "MOVE_LAVA_PLUME"
+        ],
+        "Ability": "ABILITY_SOLID_ROCK",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CALM",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHELL_SMASH",
+          "MOVE_LAVA_PLUME",
+          "MOVE_POWER_GEM",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_SOLID_ROCK",
+        "Item": "ITEM_WHITE_HERB",
+        "Nature": "NATURE_HARDY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_MAGCARGO": {
+        "Abilities": [
+          "ABILITY_WEAK_ARMOR",
+          "ABILITY_FLAME_BODY",
+          "ABILITY_SOLID_ROCK"
+        ],
+        "BaseStats": {
+          "HP": 60,
+          "Attack": 50,
+          "Defense": 150,
+          "Speed": 30,
+          "SpAttack": 110,
+          "SpDefense": 100
+        }
+      }
+    }
+  }
 }

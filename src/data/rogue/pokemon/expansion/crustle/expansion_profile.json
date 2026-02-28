@@ -101,263 +101,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SHELL_SMASH",
-        "MOVE_X_SCISSOR",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_EARTHQUAKE",
-        "MOVE_SHELL_SMASH",
-        "MOVE_X_SCISSOR",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_WRECKER",
-        "MOVE_ROCK_BLAST",
-        "MOVE_EARTHQUAKE",
-        "MOVE_HEAVY_SLAM"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_BRAVE",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_WRECKER",
-        "MOVE_SHELL_SMASH",
-        "MOVE_COUNTER",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKIUM_Z",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ROCK_WRECKER",
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_BLAST",
-        "MOVE_COUNTER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_EARTHQUAKE",
-        "MOVE_X_SCISSOR",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6MONOTYPE",
-        "GEN8NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_WRECKER",
-        "MOVE_COUNTER",
-        "MOVE_ENDURE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN61V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_WRECKER",
-        "MOVE_ROCK_BLAST",
-        "MOVE_COUNTER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_MENTAL_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_ROCK_WRECKER",
-        "MOVE_ROCK_BLAST",
-        "MOVE_COUNTER"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_ROCKIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN71V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_STONE_EDGE",
-        "MOVE_EARTHQUAKE",
-        "MOVE_X_SCISSOR"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SHELL_SMASH",
-        "MOVE_STONE_EDGE",
-        "MOVE_X_SCISSOR",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_KNOCK_OFF",
-        "MOVE_X_SCISSOR",
-        "MOVE_EARTHQUAKE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_WHITE_HERB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_KNOCK_OFF",
-        "MOVE_ROCK_BLAST"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_STEALTH_ROCK",
         "MOVE_SPIKES",
         "MOVE_SHELL_SMASH",
@@ -366,26 +109,8 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_CUSTAP_BERRY",
       "Nature": "NATURE_NAUGHTY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_STEALTH_ROCK",
-        "MOVE_SPIKES",
-        "MOVE_STONE_EDGE",
-        "MOVE_KNOCK_OFF"
-      ],
-      "Ability": "ABILITY_STURDY",
-      "Item": "ITEM_CUSTAP_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
       ]
     },
     {
@@ -398,10 +123,36 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -414,11 +165,316 @@
       "Ability": "ABILITY_STURDY",
       "Item": "ITEM_WHITE_HERB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_COUNTER",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_X_SCISSOR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_SHELL_SMASH",
+        "MOVE_COUNTER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_STONE_EDGE",
+        "MOVE_X_SCISSOR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SHELL_SMASH",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SHELL_SMASH",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SHELL_SMASH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ROCK_BLAST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ROCK_BLAST",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_WITHDRAW",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_SAND_ATTACK",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_SMACK_DOWN",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_ROCK_POLISH",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_BUG_BITE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_STEALTH_ROCK",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_ROCK_SLIDE",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SHELL_SMASH",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_ROCK_WRECKER",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_CRABHAMMER",
+        "Level": 62
+      }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHELL_SMASH",
+          "MOVE_STONE_EDGE",
+          "MOVE_EARTHQUAKE",
+          "MOVE_CRABHAMMER"
+        ],
+        "Ability": "ABILITY_STURDY",
+        "Item": "ITEM_WHITE_HERB",
+        "Nature": "NATURE_ADAMANT",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CRUSTLE": {
+        "BaseStats": {
+          "HP": 70,
+          "Attack": 105,
+          "Defense": 125,
+          "Speed": 55,
+          "SpAttack": 65,
+          "SpDefense": 75
+        }
+      }
+    }
+  }
 }

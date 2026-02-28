@@ -94,18 +94,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FLIP_TURN",
+        "MOVE_WATERFALL",
+        "MOVE_MEGAHORN",
         "MOVE_KNOCK_OFF",
-        "MOVE_REST",
-        "MOVE_SLEEP_TALK"
+        "MOVE_FACADE"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MEGAHORN",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
       ]
     },
     {
@@ -118,8 +130,20 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_WATERFALL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN6ZU"
       ]
@@ -134,43 +158,37 @@
       "Ability": "ABILITY_LIGHTNING_ROD",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_WATERFALL",
+        "MOVE_FLIP_TURN",
         "MOVE_KNOCK_OFF",
-        "MOVE_MEGAHORN",
-        "MOVE_FACADE"
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_WATERFALL",
-        "MOVE_MEGAHORN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_FACADE"
-      ],
-      "Ability": "ABILITY_LIGHTNING_ROD",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_SEAKING": {
+        "BaseStats": {
+          "HP": 80,
+          "Attack": 122,
+          "Defense": 80,
+          "Speed": 78,
+          "SpAttack": 45,
+          "SpDefense": 80
+        }
+      }
+    }
+  }
 }

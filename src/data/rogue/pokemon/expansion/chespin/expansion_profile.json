@@ -112,18 +112,16 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_DRAIN_PUNCH",
-        "MOVE_BELLY_DRUM",
-        "MOVE_SUBSTITUTE",
-        "MOVE_ROCK_SLIDE"
+        "MOVE_SPIKES",
+        "MOVE_SEED_BOMB",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SYNTHESIS"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_SALAC_BERRY",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
-        "GEN9LC"
+        "GEN6LC"
       ]
     },
     {
@@ -136,8 +134,6 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
@@ -152,8 +148,20 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_SPIKES",
+        "MOVE_SEED_BOMB",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -168,7 +176,6 @@
       "Ability": "ABILITY_BULLETPROOF",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9LC"
@@ -176,35 +183,67 @@
     },
     {
       "Moves": [
-        "MOVE_SPIKES",
-        "MOVE_SEED_BOMB",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_SYNTHESIS"
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_SLIDE"
       ],
       "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CAREFUL",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "GEN6LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SYNTHESIS",
-        "MOVE_SPIKES",
-        "MOVE_SEED_BOMB",
-        "MOVE_ZEN_HEADBUTT"
-      ],
-      "Ability": "ABILITY_BULLETPROOF",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
+        "GEN9LC"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_VINE_WHIP",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_SEED_BOMB",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_NEEDLE_ARM",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_BULK_UP",
+        "Level": 39
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_STONE_EDGE",
+      "MOVE_HORN_LEECH",
+      "MOVE_ROCK_CLIMB"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HORN_LEECH",
+          "MOVE_ZEN_HEADBUTT",
+          "MOVE_SYNTHESIS",
+          "MOVE_SPIKES"
+        ],
+        "Ability": "ABILITY_BULLETPROOF",
+        "Item": "ITEM_EVIOLITE",
+        "Nature": "NATURE_IMPISH",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_CHESPIN": {
+        "Abilities": [
+          "ABILITY_OVERGROW",
+          "ABILITY_IRON_BARBS",
+          "ABILITY_BULLETPROOF"
+        ]
+      }
+    }
+  }
 }

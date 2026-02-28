@@ -106,22 +106,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
-        "MOVE_PARTING_SHOT",
-        "MOVE_FLARE_BLITZ",
-        "MOVE_WILL_O_WISP"
-      ],
-      "Ability": "ABILITY_INTIMIDATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_U_TURN",
         "MOVE_FLARE_BLITZ",
         "MOVE_WILL_O_WISP",
@@ -130,10 +114,22 @@
       "Ability": "ABILITY_INTIMIDATE",
       "Item": "ITEM_BERRY_JUICE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
       ]
     }
   ]

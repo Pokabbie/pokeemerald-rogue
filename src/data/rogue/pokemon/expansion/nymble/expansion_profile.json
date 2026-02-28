@@ -92,7 +92,6 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
       "TeraType": "TYPE_BUG",
       "SourceTiers": [
         "GEN9LC"
@@ -108,8 +107,6 @@
       "Ability": "ABILITY_TINTED_LENS",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

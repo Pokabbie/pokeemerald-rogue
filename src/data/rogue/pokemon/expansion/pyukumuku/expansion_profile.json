@@ -94,28 +94,8 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLOCK",
-        "MOVE_SPITE",
-        "MOVE_RECOVER",
-        "MOVE_REST"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU",
-        "GEN8PU",
-        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -128,58 +108,22 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UU"
       ]
     },
     {
       "Moves": [
-        "MOVE_COUNTER",
-        "MOVE_MIRROR_COAT",
-        "MOVE_RECOVER",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN81V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PURIFY",
-        "MOVE_RECOVER",
         "MOVE_TOXIC",
-        "MOVE_BATON_PASS"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_POISONIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RECOVER",
-        "MOVE_BLOCK",
-        "MOVE_SPITE",
-        "MOVE_REST"
+        "MOVE_SOAK",
+        "MOVE_BLOCK"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8ZU"
+        "GEN7RU"
       ]
     },
     {
@@ -192,58 +136,24 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_RECOVER",
+        "MOVE_BLOCK",
         "MOVE_SPITE",
-        "MOVE_TOXIC",
+        "MOVE_RECOVER",
         "MOVE_REST"
       ],
       "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_POISONIUM_Z",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
-        "MOVE_BLOCK",
-        "MOVE_SPITE"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RECOVER",
-        "MOVE_TOXIC",
-        "MOVE_BLOCK",
-        "MOVE_SUBSTITUTE"
-      ],
-      "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7ZU"
+        "GEN7PU",
+        "GEN8PU",
+        "GEN8NATIONALDEX"
       ]
     },
     {
@@ -256,10 +166,64 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SPITE",
+        "MOVE_TOXIC",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BLOCK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_SOAK",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURIFY",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
       ]
     },
     {
@@ -272,8 +236,6 @@
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN71V1"
       ]
@@ -288,8 +250,6 @@
       "Ability": "ABILITY_INNARDS_OUT",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7MONOTYPE"
       ]
@@ -303,44 +263,66 @@
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_TOXIC",
-        "MOVE_RECOVER",
-        "MOVE_SOAK",
-        "MOVE_BLOCK"
-      ],
-      "Ability": "ABILITY_UNAWARE",
-      "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_TOXIC",
         "MOVE_RECOVER",
-        "MOVE_SOAK",
-        "MOVE_COUNTER"
+        "MOVE_BLOCK",
+        "MOVE_SPITE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BLOCK",
+        "MOVE_SPITE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT"
       ],
       "Ability": "ABILITY_UNAWARE",
       "Item": "ITEM_ROCKY_HELMET",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_IMPISH",
       "SourceTiers": [
-        "GEN7BATTLESPOTSINGLES"
+        "GEN81V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "PerSpecies": {
+      "SPECIES_PYUKUMUKU": {
+        "BaseStats": {
+          "HP": 105,
+          "Attack": 30,
+          "Defense": 130,
+          "Speed": 5,
+          "SpAttack": 30,
+          "SpDefense": 130
+        }
+      }
+    }
+  }
 }

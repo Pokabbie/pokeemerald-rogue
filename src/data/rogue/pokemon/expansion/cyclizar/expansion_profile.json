@@ -115,14 +115,27 @@
     {
       "Moves": [
         "MOVE_RAPID_SPIN",
-        "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
         "MOVE_DRACO_METEOR"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_ASSAULT_VEST",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9RU"
@@ -133,31 +146,14 @@
         "MOVE_RAPID_SPIN",
         "MOVE_KNOCK_OFF",
         "MOVE_U_TURN",
-        "MOVE_TAUNT"
+        "MOVE_FACADE"
       ],
       "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": "TYPE_GHOST",
+      "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_RAPID_SPIN",
-        "MOVE_U_TURN",
-        "MOVE_KNOCK_OFF",
-        "MOVE_DRACO_METEOR"
-      ],
-      "Ability": "ABILITY_REGENERATOR",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9UU"
       ]
     },
     {
@@ -170,8 +166,6 @@
       "Ability": "ABILITY_REGENERATOR",
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
       ]

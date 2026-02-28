@@ -140,70 +140,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_BULK_UP",
-        "MOVE_SPECTRAL_THIEF",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SHADOW_SNEAK"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_MARSHADIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POLTERGEIST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_CHOICE_BAND",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_POLTERGEIST",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPECTRAL_THIEF",
-        "MOVE_BULK_UP",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_CLOSE_COMBAT"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_MARSHADIUM_Z",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_SPECTRAL_THIEF",
         "MOVE_CLOSE_COMBAT",
         "MOVE_SHADOW_SNEAK",
@@ -213,41 +149,22 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_NAIVE",
       "HiddenPower": "TYPE_ICE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
       ]
     },
     {
       "Moves": [
+        "MOVE_BULK_UP",
         "MOVE_SPECTRAL_THIEF",
-        "MOVE_LOW_KICK",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_ICE_PUNCH"
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK"
       ],
       "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_CHOICE_BAND",
+      "Item": "ITEM_MARSHADIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN8UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPECTRAL_THIEF",
-        "MOVE_LOW_KICK",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
+        "GEN7UBERS"
       ]
     },
     {
@@ -260,43 +177,8 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_MARSHADIUM_Z",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7UBERS"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPECTRAL_THIEF",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_DRAIN_PUNCH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ANYTHINGGOES",
-        "GEN8ANYTHINGGOES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SPECTRAL_THIEF",
-        "MOVE_SHADOW_SNEAK",
-        "MOVE_CLOSE_COMBAT",
-        "MOVE_ICE_PUNCH"
-      ],
-      "Ability": "ABILITY_TECHNICIAN",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UBERS"
       ]
     },
     {
@@ -309,10 +191,107 @@
       "Ability": "ABILITY_TECHNICIAN",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPECTRAL_THIEF",
+        "MOVE_BULK_UP",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_MARSHADIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPECTRAL_THIEF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPECTRAL_THIEF",
+        "MOVE_LOW_KICK",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPECTRAL_THIEF",
+        "MOVE_LOW_KICK",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPECTRAL_THIEF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
       ]
     }
   ]

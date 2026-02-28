@@ -134,7 +134,6 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
       "SourceTiers": [
         "GEN7LC"
       ]
@@ -149,7 +148,6 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_ELECTRIC",
       "SourceTiers": [
         "GEN9LC"
@@ -165,8 +163,6 @@
       "Ability": "ABILITY_SWIFT_SWIM",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN9LC"
       ]

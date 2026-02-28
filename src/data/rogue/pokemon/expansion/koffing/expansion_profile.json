@@ -107,86 +107,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_PAIN_SPLIT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_TOXIC_SPIKES"
-      ],
-      "Ability": "ABILITY_LEVITATE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_FIRE_BLAST",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_NEUTRALIZING_GAS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_FIRE_BLAST",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_NEUTRALIZING_GAS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_THUNDERBOLT",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT"
-      ],
-      "Ability": "ABILITY_NEUTRALIZING_GAS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_WATER",
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SLUDGE_BOMB",
-        "MOVE_WILL_O_WISP",
-        "MOVE_PAIN_SPLIT",
-        "MOVE_FIRE_BLAST"
-      ],
-      "Ability": "ABILITY_NEUTRALIZING_GAS",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_WILL_O_WISP",
         "MOVE_PAIN_SPLIT",
         "MOVE_SLUDGE_BOMB",
@@ -195,8 +115,6 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
         "GEN7LC"
@@ -212,11 +130,140 @@
       "Ability": "ABILITY_LEVITATE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SMOKESCREEN",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ASSURANCE",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_CLEAR_SMOG",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_SELF_DESTRUCT",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_HAZE",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_GYRO_BALL",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_SLUDGE_BOMB",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_LAVA_PLUME",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_DESTINY_BOND",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_BELCH",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_MEMENTO",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_GUNK_SHOT",
+        "Level": 48
+      }
+    ]
+  }
 }

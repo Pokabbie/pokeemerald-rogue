@@ -113,6 +113,20 @@
   "CompetitiveSets": [
     {
       "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXPLOSION",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
         "MOVE_AUTOTOMIZE",
         "MOVE_ICE_BEAM",
         "MOVE_FREEZE_DRY",
@@ -122,9 +136,67 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_MODEST",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_AUTOTOMIZE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6ZU"
       ]
     },
     {
@@ -138,9 +210,22 @@
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
       "SourceTiers": [
         "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_SHARD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICICLE_PLATE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7RU"
       ]
     },
     {
@@ -154,7 +239,20 @@
       "Item": "ITEM_CHOICE_SCARF",
       "Nature": "NATURE_TIMID",
       "HiddenPower": "TYPE_FIRE",
-      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_BLIZZARD",
+        "MOVE_PROTECT",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
         "GEN7VGC2017"
       ]
@@ -163,16 +261,13 @@
       "Moves": [
         "MOVE_BLIZZARD",
         "MOVE_FREEZE_DRY",
-        "MOVE_ICE_SHARD",
-        "MOVE_TAUNT"
+        "MOVE_SLEEP_TALK"
       ],
       "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_ICICLE_PLATE",
-      "Nature": "NATURE_HASTY",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
       "SourceTiers": [
-        "GEN7RU"
+        "GEN8UU"
       ]
     },
     {
@@ -185,41 +280,8 @@
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_ICY_ROCK",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
-        "MOVE_PROTECT",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_FOCUS_SASH",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_BLIZZARD",
-        "MOVE_FREEZE_DRY",
-        "MOVE_SLEEP_TALK"
-      ],
-      "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8UU"
       ]
     },
     {
@@ -232,91 +294,177 @@
       "Ability": "ABILITY_SNOW_WARNING",
       "Item": "ITEM_CHOICE_SPECS",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN8NU"
       ]
     },
     {
       "Moves": [
-        "MOVE_FREEZE_DRY",
         "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
         "MOVE_PROTECT",
         "MOVE_ICE_SHARD"
       ],
       "Ability": "ABILITY_SNOW_WARNING",
-      "Item": "ITEM_LIFE_ORB",
+      "Item": "ITEM_FOCUS_SASH",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7VGC2017"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_ICE_BEAM",
-        "MOVE_EXPLOSION",
-        "MOVE_ICE_SHARD"
-      ],
-      "Ability": "ABILITY_ICE_BODY",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_RASH",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6NU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_FREEZE_DRY",
-        "MOVE_ICE_BEAM",
-        "MOVE_FLASH_CANNON",
-        "MOVE_AUTOTOMIZE"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_LIFE_ORB",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_ICE_BEAM",
-        "MOVE_FREEZE_DRY",
-        "MOVE_HIDDEN_POWER",
-        "MOVE_FLASH_CANNON"
-      ],
-      "Ability": "ABILITY_WEAK_ARMOR",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": "TYPE_GROUND",
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6ZU"
+        "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 0
+      },
+      {
+        "Move": "MOVE_MOONBLAST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SHEER_COLD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ICICLE_SPEAR",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_POWDER_SNOW",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HARDEN",
+        "Level": 4
+      },
+      {
+        "Move": "MOVE_ASTONISH",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_MIST",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_AVALANCHE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_DISARMING_VOICE",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_TAUNT",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_MIRROR_SHOT",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_ACID_ARMOR",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_ICE_BEAM",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_HAIL",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_MIRROR_COAT",
+        "Level": 50
+      },
+      {
+        "Move": "MOVE_BLIZZARD",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_SHEER_COLD",
+        "Level": 67
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_POWER_GEM",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_EXTRASENSORY"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BLIZZARD",
+          "MOVE_FREEZE_DRY",
+          "MOVE_MOONBLAST",
+          "MOVE_TAUNT"
+        ],
+        "Ability": "ABILITY_SNOW_WARNING",
+        "Item": "ITEM_ICICLE_PLATE",
+        "Nature": "NATURE_HASTY",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BLIZZARD",
+          "MOVE_FREEZE_DRY",
+          "MOVE_HIDDEN_POWER",
+          "MOVE_ICY_WIND"
+        ],
+        "Ability": "ABILITY_SNOW_WARNING",
+        "Item": "ITEM_CHOICE_SCARF",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": "TYPE_FIRE",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BLIZZARD",
+          "MOVE_FREEZE_DRY",
+          "MOVE_ICE_SHARD",
+          "MOVE_MOONBLAST"
+        ],
+        "Ability": "ABILITY_SNOW_WARNING",
+        "Item": "ITEM_ICY_ROCK",
+        "Nature": "NATURE_TIMID",
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ],
+    "PerSpecies": {
+      "SPECIES_VANILLUXE": {
+        "Types": [
+          "TYPE_ICE",
+          "TYPE_FAIRY"
+        ],
+        "BaseStats": {
+          "HP": 71,
+          "Attack": 79,
+          "Defense": 85,
+          "Speed": 95,
+          "SpAttack": 110,
+          "SpDefense": 95
+        }
+      }
+    }
+  }
 }

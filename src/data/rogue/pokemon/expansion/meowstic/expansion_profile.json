@@ -135,82 +135,30 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_FAKE_OUT",
         "MOVE_REFLECT",
-        "MOVE_ALLY_SWITCH",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
         "MOVE_THUNDER_WAVE"
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_IMPISH",
-      "HiddenPower": null,
-      "TeraType": null,
+      "Nature": "NATURE_BOLD",
       "SourceTiers": [
-        "GEN7BATTLESPOTDOUBLES"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_REFLECT",
-        "MOVE_EXPANDING_FORCE",
-        "MOVE_FAKE_OUT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8VGC2020"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_REFLECT",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_CHARM"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_CALM_MIND"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_PSYCHIC",
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
+        "GEN6PU"
       ]
     },
     {
@@ -223,8 +171,6 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6PU"
       ]
@@ -238,75 +184,9 @@
       ],
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_THUNDER_WAVE",
-        "MOVE_PSYSHOCK"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6RU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_YAWN",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_EJECT_BUTTON",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN8ZU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_YAWN",
-        "MOVE_PSYCHIC"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
-        "GEN7PU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_REFLECT",
-        "MOVE_LIGHT_SCREEN",
-        "MOVE_YAWN",
-        "MOVE_THUNDER_WAVE"
-      ],
-      "Ability": "ABILITY_PRANKSTER",
-      "Item": "ITEM_LIGHT_CLAY",
-      "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN6PU"
+        "GEN6ZU"
       ]
     },
     {
@@ -319,10 +199,64 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_CALM",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_REFLECT",
+        "MOVE_ALLY_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
       ]
     },
     {
@@ -335,11 +269,68 @@
       "Ability": "ABILITY_PRANKSTER",
       "Item": "ITEM_MENTAL_HERB",
       "Nature": "NATURE_BOLD",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN7VGC2018"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "TutorMoves": [
+      "MOVE_MYSTICAL_FIRE"
+    ],
+    "PerSpecies": {
+      "SPECIES_MEOWSTIC": {
+        "BaseStats": {
+          "HP": 74,
+          "Attack": 48,
+          "Defense": 76,
+          "Speed": 104,
+          "SpAttack": 93,
+          "SpDefense": 81
+        }
+      }
+    }
+  }
 }

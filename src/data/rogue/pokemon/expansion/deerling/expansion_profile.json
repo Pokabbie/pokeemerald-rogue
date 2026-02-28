@@ -103,22 +103,6 @@
   "CompetitiveSets": [
     {
       "Moves": [
-        "MOVE_HEADBUTT",
-        "MOVE_ZEN_HEADBUTT",
-        "MOVE_SYNTHESIS",
-        "MOVE_SEED_BOMB"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_EVIOLITE",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9LC"
-      ]
-    },
-    {
-      "Moves": [
         "MOVE_RETURN",
         "MOVE_SEED_BOMB",
         "MOVE_JUMP_KICK",
@@ -127,26 +111,8 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC",
-        "GEN7LC"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_SEED_BOMB",
-        "MOVE_JUMP_KICK",
-        "MOVE_HEADBUTT",
-        "MOVE_WILD_CHARGE"
-      ],
-      "Ability": "ABILITY_SERENE_GRACE",
-      "Item": "ITEM_CHOICE_SCARF",
-      "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
         "GEN7LC"
       ]
     },
@@ -160,10 +126,22 @@
       "Ability": "ABILITY_SAP_SIPPER",
       "Item": "ITEM_LIFE_ORB",
       "Nature": "NATURE_ADAMANT",
-      "HiddenPower": null,
-      "TeraType": null,
       "SourceTiers": [
         "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_BOMB",
+        "MOVE_JUMP_KICK",
+        "MOVE_HEADBUTT",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
       ]
     },
     {
@@ -176,11 +154,76 @@
       "Ability": "ABILITY_SERENE_GRACE",
       "Item": "ITEM_EVIOLITE",
       "Nature": "NATURE_JOLLY",
-      "HiddenPower": null,
       "TeraType": "TYPE_GHOST",
       "SourceTiers": [
         "GEN9LC"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADBUTT",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SYNTHESIS",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CAMOUFLAGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FEINT_ATTACK",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_JUMP_KICK",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_AROMATHERAPY",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_ENERGY_BALL",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_LUNGE",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_NATURE_POWER",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_HIGH_HORSEPOWER",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_CAPTIVATE",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 51
+      }
+    ]
+  }
 }

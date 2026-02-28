@@ -125,70 +125,6 @@
     {
       "Moves": [
         "MOVE_CALM_MIND",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERBOLT",
-        "MOVE_THUNDERCLAP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_LEFTOVERS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERCLAP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_AIR_BALLOON",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9MONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERCLAP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_DRAGONIUM_Z",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEXMONOTYPE"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERCLAP"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_DRAGONIUM_Z",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_CALM_MIND",
         "MOVE_THUNDERCLAP",
         "MOVE_DRAGON_PULSE",
         "MOVE_THUNDERBOLT"
@@ -196,7 +132,6 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_BOOSTER_ENERGY",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9OU"
@@ -204,66 +139,17 @@
     },
     {
       "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
         "MOVE_THUNDERCLAP",
-        "MOVE_CALM_MIND"
+        "MOVE_THUNDERBOLT",
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR"
       ],
       "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HABAN_BERRY",
+      "Item": "ITEM_DRAGONIUM_Z",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
+      "TeraType": "TYPE_FLYING",
       "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERCLAP",
-        "MOVE_TAUNT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_BOOSTER_ENERGY",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN91V1"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_DRACO_METEOR",
-        "MOVE_THUNDERCLAP",
-        "MOVE_VOLT_SWITCH"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_CHOICE_SPECS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERBOLT",
-        "MOVE_THUNDERCLAP",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_DRAGON_PULSE"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
-      "TeraType": "TYPE_FAIRY",
-      "SourceTiers": [
-        "GEN9OU"
+        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -276,26 +162,9 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_ASSAULT_VEST",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9DOUBLESOU"
-      ]
-    },
-    {
-      "Moves": [
-        "MOVE_THUNDERCLAP",
-        "MOVE_DRACO_METEOR",
-        "MOVE_VOLT_SWITCH",
-        "MOVE_THUNDERBOLT"
-      ],
-      "Ability": "ABILITY_PROTOSYNTHESIS",
-      "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_TIMID",
-      "HiddenPower": null,
-      "TeraType": null,
-      "SourceTiers": [
-        "GEN9NATIONALDEX"
       ]
     },
     {
@@ -308,10 +177,141 @@
       "Ability": "ABILITY_PROTOSYNTHESIS",
       "Item": "ITEM_LEFTOVERS",
       "Nature": "NATURE_MODEST",
-      "HiddenPower": null,
       "TeraType": "TYPE_FAIRY",
       "SourceTiers": [
         "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDERCLAP",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDER",
+        "MOVE_THUNDERCLAP",
+        "MOVE_BREAKING_SWIPE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDERCLAP",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDER",
+        "MOVE_THUNDERCLAP",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HABAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERCLAP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDERCLAP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERCLAP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
       ]
     }
   ]
