@@ -408,6 +408,8 @@
 #define ANIM_TAG_TERA_CRYSTAL               (ANIM_SPRITES_START + 394)
 #define ANIM_TAG_TERA_SHATTER               (ANIM_SPRITES_START + 395)
 
+#define LAST_ANIM_TAG                       ANIM_TAG_BLUE_RING_2
+
 // battlers
 #define ANIM_ATTACKER         0
 #define ANIM_TARGET           1
