@@ -97,20 +97,6 @@ static const struct SpriteTemplate sWhirlwindSpriteTemplate =
     .callback = SpriteCallbackTailwind,
 };
 
-//static const struct OamData sOamData_AffineOff_ObjNormal_64x32_Pri3 =
-//{
-//    .y = 0,
-//    .affineMode = ST_OAM_AFFINE_OFF,
-//    .objMode = ST_OAM_OBJ_NORMAL,
-//    .bpp = ST_OAM_4BPP,
-//    .shape = SPRITE_SHAPE(64x32),
-//    .x = 0,
-//    .size = SPRITE_SIZE(64x32),
-//    .tileNum = 0,
-//    .priority = 3,
-//    .paletteNum = 0,
-//};
-
 static const struct SpriteTemplate sSpiderWebSpriteTemplate =
 {
     .tileTag = HUD_TAG_SPRITE_SPIDER_WEB,
@@ -176,17 +162,24 @@ void RogueBH_CreateBattleOverlay()
         LoadSpriteSheets(sSpriteSheet_Overlay);
         LoadSpritePalettes(sSpritePalette_Overlay);
 
-        gRogueBattleOverlay = malloc(sizeof(struct RogueBattleOverlay));
+        gRogueBattleOverlay = Alloc(sizeof(struct RogueBattleOverlay));
 
         // Player
         {
             spikeCount = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_SPIKES) ? gSideTimers[B_SIDE_PLAYER].spikesAmount : 0;
-            toxicSpikeCount = 0; 
             hasReflect = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_REFLECT);
             hasLightscreen = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_LIGHTSCREEN);
+#ifdef ROGUE_EXPANSION
+            toxicSpikeCount = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TOXIC_SPIKES) ? gSideTimers[B_SIDE_PLAYER].toxicSpikesAmount : 0; 
+            hasStealthRock = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STEALTH_ROCK);
+            hasStickyWeb = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STICKY_WEB);
+            hasTailwind = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TAILWIND);
+#else
+            toxicSpikeCount = 0; 
             hasStealthRock = FALSE;
             hasStickyWeb = FALSE;
             hasTailwind = FALSE;
+#endif
 
 #ifdef ROGUE_DEBUG
             if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD))
@@ -254,12 +247,19 @@ void RogueBH_CreateBattleOverlay()
         // Opponent
         {
             spikeCount = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_SPIKES) ? gSideTimers[B_SIDE_OPPONENT].spikesAmount : 0;
-            toxicSpikeCount = 0; 
             hasReflect = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_REFLECT);
             hasLightscreen = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_LIGHTSCREEN);
+#ifdef ROGUE_EXPANSION
+            toxicSpikeCount = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TOXIC_SPIKES) ? gSideTimers[B_SIDE_OPPONENT].toxicSpikesAmount : 0; 
+            hasStealthRock = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STEALTH_ROCK);
+            hasStickyWeb = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STICKY_WEB);
+            hasTailwind = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TAILWIND);
+#else
+            toxicSpikeCount = 0; 
             hasStealthRock = FALSE;
             hasStickyWeb = FALSE;
             hasTailwind = FALSE;
+#endif
 
 #ifdef ROGUE_DEBUG
             if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD))
