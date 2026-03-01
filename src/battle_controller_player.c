@@ -40,6 +40,7 @@
 
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
+#include "rogue_battlehud.h"
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
@@ -2804,6 +2805,7 @@ static void HandleChooseActionAfterDma3(void)
 static void PlayerHandleChooseAction(void)
 {
     s32 i;
+    RogueBH_CreateBattleOverlay();
 
     PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ACTION);
 
