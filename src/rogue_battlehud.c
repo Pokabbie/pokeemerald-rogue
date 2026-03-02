@@ -196,7 +196,7 @@ void RogueBH_CreateBattleOverlay()
 
             // Sticky web
             if(hasStickyWeb)
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sSpiderWebSpriteTemplate, 66, 107, SUBPRIORITY_PLAYER_BELOW);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sSpiderWebSpriteTemplate, 66, 107, SUBPRIORITY_PLAYER_BELOW + 1);
 
 
             // Reflect
