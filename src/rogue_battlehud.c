@@ -338,6 +338,11 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
         {
             u8 i;
 
+            for(i = 0; sSpriteSheet_Overlay[i].data != NULL; ++i)
+            {
+                FreeSpriteTilesByTag(sSpriteSheet_Overlay[i].tag);
+            }
+
             for(i = 0; sSpritePalette_Overlay[i].data != NULL; ++i)
             {
                 FreeSpritePaletteByTag(sSpritePalette_Overlay[i].tag);
