@@ -1948,11 +1948,14 @@ u8 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
     if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_SMART_MON_CHOICES)
     {
         bestMonId = GetBestMonIntegrated(party, firstId, lastId, battler, opposingBattler, battlerIn1, battlerIn2, switchAfterMonKOd);
-        return bestMonId;
+
+        // Fallback to non-smart choice, if we picked something invalid
+        if(IsValidForBattle(&party[bestMonId]))
+            return bestMonId;
     }
 
     // This all handled by the GetBestMonIntegrated function if the AI_FLAG_SMART_MON_CHOICES flag is set
-    else
+    //else
     {
         s32 i, aliveCount = 0;
         u32 invalidMons = 0, aceMonId = PARTY_SIZE;
