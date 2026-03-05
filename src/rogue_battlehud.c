@@ -3,10 +3,16 @@
 
 #include "battle_anim.h"
 #include "malloc.h"
+#include "random.h"
 #include "sprite.h"
+#include "trig.h"
 
 #include "rogue_battlehud.h"
 #include "rogue_settings.h"
+
+#ifndef ROGUE_EXPANSIONS
+#define B_WEATHER_SNOW                      B_WEATHER_HAIL
+#endif
 
 #define HUD_TAG_PALETTE_0                   0x1100
 #define HUD_TAG_PALETTE_1                   0x1101
@@ -18,6 +24,10 @@
 #define HUD_TAG_SPRITE_SPIKES               0x1204
 #define HUD_TAG_SPRITE_TOXIC_SPIKES         0x1205
 #define HUD_TAG_SPRITE_STEALTH_ROCK         0x1206
+#define HUD_TAG_SPRITE_RAIN                 0x1207
+#define HUD_TAG_SPRITE_SUN                  0x1208
+#define HUD_TAG_SPRITE_SNOW                 0x1209
+#define HUD_TAG_SPRITE_SANDSTORM            0x120A
 
 #define MAX_OVERLAY_SPRITES 32
 
@@ -29,6 +39,8 @@
 #define SUBPRIORITY_ENEMY_ABOVE             30
 #define SUBPRIORITY_ENEMY_BELOW             200
 
+// Sprites & Palettes
+//
 
 static const u8 sSpriteGfx_BlueLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/blue_light_wall.4bpp");
 static const u8 sSpriteGfx_GreenLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/green_light_wall.4bpp");
@@ -37,6 +49,11 @@ static const u8 sSpriteGfx_SpiderWeb[] = INCBIN_U8("graphics/rogue_battlehud/spr
 static const u8 sSpriteGfx_Spikes[] = INCBIN_U8("graphics/rogue_battlehud/sprites/spikes.4bpp");
 static const u8 sSpriteGfx_ToxicSpikes[] = INCBIN_U8("graphics/rogue_battlehud/sprites/toxic_spikes.4bpp");
 static const u8 sSpriteGfx_StealthRock[] = INCBIN_U8("graphics/rogue_battlehud/sprites/stealth_rock.4bpp");
+
+static const u8 sSpriteGfx_RainDrops[] = INCBIN_U8("graphics/rogue_battlehud/sprites/rain_drops.4bpp");
+static const u8 sSpriteGfx_Sunlight[] = INCBIN_U8("graphics/rogue_battlehud/sprites/sunlight.4bpp");
+static const u8 sSpriteGfx_Snowflakes[] = INCBIN_U8("graphics/rogue_battlehud/sprites/snowflakes.4bpp");
+static const u8 sSpriteGfx_Sandstorm[] = INCBIN_U8("graphics/rogue_battlehud/sprites/sandstorm.4bpp");
 
 static const u16 sSpritePal_0[] = INCBIN_U16("graphics/rogue_battlehud/palettes/pal0.gbapal");
 static const u16 sSpritePal_1[] = INCBIN_U16("graphics/rogue_battlehud/palettes/pal1.gbapal");
@@ -54,12 +71,22 @@ static const struct SpriteSheet sSpriteSheet_Overlay[] =
     {},
 };
 
+// Load as required, to avoid taking up too many tiles
+static const struct SpriteSheet sSpriteSheet_Overlay_Rain = { sSpriteGfx_RainDrops, sizeof(sSpriteGfx_RainDrops), HUD_TAG_SPRITE_RAIN };
+static const struct SpriteSheet sSpriteSheet_Overlay_Sun = { sSpriteGfx_Sunlight, sizeof(sSpriteGfx_Sunlight), HUD_TAG_SPRITE_SUN };
+static const struct SpriteSheet sSpriteSheet_Overlay_Snow = { sSpriteGfx_Snowflakes, sizeof(sSpriteGfx_Snowflakes), HUD_TAG_SPRITE_SNOW };
+static const struct SpriteSheet sSpriteSheet_Overlay_Sandstorm = { sSpriteGfx_Sandstorm, sizeof(sSpriteGfx_Sandstorm), HUD_TAG_SPRITE_SANDSTORM };
+
 static const struct SpritePalette sSpritePalette_Overlay[] =
 {
     { sSpritePal_0, HUD_TAG_PALETTE_0 },
     { sSpritePal_1, HUD_TAG_PALETTE_1 },
     {},
 };
+
+// Hazards
+//
+
 
 static void SpriteCallbackFlicker(struct Sprite *sprite);
 static void SpriteCallbackTailwind(struct Sprite *sprite);
@@ -141,6 +168,126 @@ static const struct SpriteTemplate sStealthRockSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+// Weather
+//
+
+static void AnimRainDrop(struct Sprite *sprite);
+static void AnimRainDrop_Step(struct Sprite *sprite);
+static void AnimSandstorm(struct Sprite *sprite);
+static void AnimSandstorm_Step(struct Sprite *sprite);
+static void AnimSunlight(struct Sprite *sprite);
+static void AnimSunlight_Step(struct Sprite *sprite);
+static void AnimSnowflake(struct Sprite *sprite);
+static void AnimSnowflake_Step(struct Sprite *sprite);
+
+static const union AnimCmd sAnim_RainDrop[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(8, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(24, 6),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(40, 2),
+    ANIMCMD_FRAME(48, 2),
+    //ANIMCMD_LOOP(0),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_RainDrop[] =
+{
+    sAnim_RainDrop,
+};
+
+static const struct SpriteTemplate sRainDropSpriteTemplate =
+{
+    .tileTag = HUD_TAG_SPRITE_RAIN,
+    .paletteTag = HUD_TAG_PALETTE_1,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sAnims_RainDrop,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRainDrop,
+};
+
+static const union AnimCmd sAnim_Sandstorm[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(24, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(40, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Sandstorm[] =
+{
+    sAnim_Sandstorm,
+};
+
+static const struct SpriteTemplate sSandstormSpriteTemplate =
+{
+    .tileTag = HUD_TAG_SPRITE_SANDSTORM,
+    .paletteTag = HUD_TAG_PALETTE_1,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sAnims_Sandstorm,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSandstorm,
+};
+
+static const union AnimCmd sAnim_Snowflake0[] =
+{
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Snowflake1[] =
+{
+    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Snowflake[] =
+{
+    sAnim_Snowflake0,
+    sAnim_Snowflake1,
+};
+
+static const struct SpriteTemplate sSnowSpriteTemplate =
+{
+    .tileTag = HUD_TAG_SPRITE_SNOW,
+    .paletteTag = HUD_TAG_PALETTE_1,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sAnims_Snowflake,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSnowflake,
+};
+
+static const union AffineAnimCmd sAffineAnim_SunlightRay[] =
+{
+    AFFINEANIMCMD_FRAME(0x50, 0x50, 0, 0),
+    AFFINEANIMCMD_FRAME(0x2, 0x2, 10, 1),
+    AFFINEANIMCMD_JUMP(1),
+};
+
+static const union AffineAnimCmd *const sAffineAnims_SunlightRay[] =
+{
+    sAffineAnim_SunlightRay,
+};
+
+static const struct SpriteTemplate sSunlightRaySpriteTemplate =
+{
+    .tileTag = HUD_TAG_SPRITE_SUN,
+    .paletteTag = HUD_TAG_PALETTE_1,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SunlightRay,
+    .callback = AnimSunlight,
+};
 
 struct RogueBattleOverlay
 {
@@ -158,11 +305,81 @@ void RogueBH_CreateBattleOverlay()
         u8 spikeCount, toxicSpikeCount;
         bool8 hasReflect, hasLightscreen, hasStealthRock, hasStickyWeb, hasTailwind;
         u8 spriteCount = 0;
+        u16 weather = gBattleWeather;
 
         LoadSpriteSheets(sSpriteSheet_Overlay);
         LoadSpritePalettes(sSpritePalette_Overlay);
 
         gRogueBattleOverlay = Alloc(sizeof(struct RogueBattleOverlay));
+
+#ifdef ROGUE_DEBUG
+        if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD))
+        {
+            switch (Random2() % 4)
+            {
+            case 0:
+                weather = B_WEATHER_RAIN_PERMANENT;
+                break;
+            case 1:
+                weather = B_WEATHER_SANDSTORM_PERMANENT;
+                break;
+            case 2:
+                weather = B_WEATHER_SUN_PERMANENT;
+                break;
+            case 3:
+                weather = B_WEATHER_SNOW;
+                break;
+
+            }
+        }
+#endif
+
+        // Field
+        {
+            u8 i;
+
+            if(weather & B_WEATHER_RAIN)
+            {
+                LoadSpriteSheet(&sSpriteSheet_Overlay_Rain);
+
+                for(i = 0; i < 4; ++i)
+                    gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sRainDropSpriteTemplate, 0, 0, 4);
+            }
+            else if(weather & B_WEATHER_SANDSTORM)
+            {
+                LoadSpriteSheet(&sSpriteSheet_Overlay_Sandstorm);
+
+                for(i = 0; i < 8; ++i)
+                    gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sSandstormSpriteTemplate, 0, 0, 4);
+            }
+            else if(weather & B_WEATHER_SUN)
+            {
+                LoadSpriteSheet(&sSpriteSheet_Overlay_Sun);
+
+                for(i = 0; i < 4; ++i)
+                {
+                    u8 sprite = CreateSprite(&sSunlightRaySpriteTemplate, 0, 0, 4);
+                    gSprites[sprite].data[0] = i * 10;
+                    
+                    gRogueBattleOverlay->sprites[spriteCount++] = sprite;
+                }
+            }
+            else if(weather & B_WEATHER_SNOW)
+            {
+                LoadSpriteSheet(&sSpriteSheet_Overlay_Snow);
+
+                for(i = 0; i < 8; ++i)
+                {
+                    u8 sprite = CreateSprite(&sSnowSpriteTemplate, 0, 0, 4);
+                    gSprites[sprite].data[0] = i * 40;
+                    gSprites[sprite].data[1] = i;
+                    
+                    gRogueBattleOverlay->sprites[spriteCount++] = sprite;
+                }
+            }
+        }
+
+        // Side
 
         // Player
         {
@@ -338,6 +555,11 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
         {
             u8 i;
 
+            FreeSpriteTilesByTag(sSpriteSheet_Overlay_Rain.tag);
+            FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sandstorm.tag);
+            FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sun.tag);
+            FreeSpriteTilesByTag(sSpriteSheet_Overlay_Snow.tag);
+
             for(i = 0; sSpriteSheet_Overlay[i].data != NULL; ++i)
             {
                 FreeSpriteTilesByTag(sSpriteSheet_Overlay[i].tag);
@@ -408,3 +630,173 @@ static void SpriteCallbackTailwind(struct Sprite *sprite)
         }
     }
 }
+
+static void AnimRainDrop(struct Sprite *sprite)
+{
+    SeekSpriteAnim(sprite, 0);
+
+    sprite->invisible = FALSE;
+    sprite->data[0] = 0;
+    sprite->data[1] = (Random2() % 10);
+    sprite->x = Random2() % DISPLAY_WIDTH;
+    sprite->y = Random2() % (DISPLAY_HEIGHT / 2);
+    sprite->x2 = 0;
+    sprite->y2 = 0;
+
+    sprite->callback = AnimRainDrop_Step;
+}
+
+static void AnimRainDrop_Step(struct Sprite *sprite)
+{
+    if (++sprite->data[0] <= 13)
+    {
+        sprite->x2++;
+        sprite->y2 += 4;
+    }
+    
+    if(sprite->animEnded)
+    {
+        sprite->invisible = TRUE;
+        --sprite->data[1];
+
+        if(sprite->data[1] <= 0)
+        {
+            // Reset
+            sprite->callback = AnimRainDrop;
+        }
+    }
+}
+static void AnimSandstorm(struct Sprite *sprite)
+{
+    SeekSpriteAnim(sprite, 0);
+
+    sprite->invisible = FALSE;
+    sprite->data[0] = 0;
+    sprite->data[1] = (Random2() % 10);
+    sprite->x = 0;
+    sprite->y = Random2() % ((DISPLAY_HEIGHT * 3) / 4);
+    sprite->x2 = 0;
+    sprite->y2 = 0;
+
+    sprite->callback = AnimSandstorm_Step;
+}
+
+
+static void AnimSandstorm_Step(struct Sprite *sprite)
+{
+    sprite->x2 += 10;
+    sprite->data[2] = !sprite->data[2];
+
+    if(sprite->data[2])
+        sprite->y2 += 1;
+    
+    if(sprite->animEnded)
+    {
+        sprite->invisible = TRUE;
+        --sprite->data[1];
+
+        if(sprite->data[1] <= 0)
+        {
+            // Reset
+            sprite->callback = AnimSandstorm;
+        }
+    }
+}
+
+static void AnimSunlight(struct Sprite *sprite)
+{
+    sprite->invisible = TRUE;
+
+    if(sprite->data[0]-- < 0)
+    {
+        sprite->invisible = FALSE;
+        sprite->callback = AnimSunlight_Step;
+    }
+}
+
+static void AnimSunlight_Step(struct Sprite *sprite)
+{
+    StartSpriteAffineAnim(sprite, 0);
+
+    sprite->x = 0;
+    sprite->y = 0;
+    sprite->x2 = 0;
+    sprite->y2 = 0;
+    sprite->data[0] = 60;
+    sprite->data[2] = 140;
+    sprite->data[4] = 80;
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, AnimSunlight_Step);
+}
+
+#define tPosY         data[0]
+#define tDeltaY       data[1]
+#define tWaveDelta    data[2]
+#define tWaveIndex    data[3]
+#define tSnowflakeId  data[4]
+#define tFallCounter  data[5]
+#define tFallDuration data[6]
+#define tDeltaY2      data[7]
+
+static void InitSnowflakeSpriteMovement(struct Sprite *sprite)
+{
+    u16 rand;
+    s16 x = (((sprite->tSnowflakeId % 16) * 5) & 7) * 30;
+
+    sprite->y = -3 - (gSpriteCoordOffsetY + sprite->centerToCornerVecY);
+    sprite->x = x;
+    sprite->tPosY = sprite->y * 128;
+    sprite->x2 = 0;
+    sprite->y2 = 0;
+    rand = Random();
+    sprite->tDeltaY = (rand & 3) * 5 + 64;
+    sprite->tDeltaY2 = sprite->tDeltaY;
+    StartSpriteAnim(sprite, (rand & 1) ? 0 : 1);
+    sprite->tWaveIndex = 0;
+    sprite->tWaveDelta = ((rand & 3) == 0) ? 2 : 1;
+    sprite->tFallDuration = (rand & 0x1F) + 210;
+    sprite->tFallCounter = 0;
+}
+
+static void AnimSnowflake(struct Sprite *sprite)
+{
+    sprite->invisible = TRUE;
+
+    if(sprite->data[0]-- < 0)
+    {
+        sprite->invisible = FALSE;
+        sprite->tSnowflakeId = sprite->data[1];
+        InitSnowflakeSpriteMovement(sprite);
+        sprite->callback = AnimSnowflake_Step;
+    }
+}
+
+static void AnimSnowflake_Step(struct Sprite *sprite)
+{
+    s16 x;
+
+    sprite->tPosY += sprite->tDeltaY;
+    sprite->y = sprite->tPosY >> 7;
+    sprite->tWaveIndex += sprite->tWaveDelta;
+    sprite->tWaveIndex &= 0xFF;
+    sprite->x2 = gSineTable[sprite->tWaveIndex] / 64;
+
+    x = (sprite->x + sprite->centerToCornerVecX + gSpriteCoordOffsetX) & 0x1FF;
+    if (x & 0x100)
+        x |= -0x100;
+
+    if(x < -3)
+        sprite->x = (x + 240 + 2) - (gSpriteCoordOffsetX + sprite->centerToCornerVecX);
+
+    if(x > 242)
+        sprite->x = (x -240 -3) - (gSpriteCoordOffsetX + sprite->centerToCornerVecX);
+}
+
+#undef tPosY
+#undef tDeltaY
+#undef tWaveDelta
+#undef tWaveIndex
+#undef tSnowflakeId
+#undef tFallCounter
+#undef tFallDuration
+#undef tDeltaY2
