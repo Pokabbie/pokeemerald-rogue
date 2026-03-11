@@ -44,6 +44,9 @@ src/data/map_group_count.h
 pokeemerald_memorystats.csv
 data/maps/**/*.inc
 tools/poryscript/*
+.cache/*
+compile_commands.json
+.vscode/*
 tools/ups/*
 !tools/Pokabbie/Build
 pokeemerald-*.png
