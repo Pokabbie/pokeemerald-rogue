@@ -4,6 +4,7 @@
 #include "graphics.h"
 #include "international_string_util.h"
 #include "palette.h"
+#include "pokemon.h"
 #include "pokenav.h"
 #include "sound.h"
 #include "sprite.h"
@@ -401,7 +402,7 @@ static void GetMonNicknameLevelGender(u8 *nick, u8 *level, u8 *gender)
     StringGet_Nickname(nick);
 }
 
-static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *otId, u8 *gender)
+static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *otId, u8 *gender, bool8 *isShiny)
 {
     struct Pokenav_RibbonsSummaryList *list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_SUMMARY_LIST);
     struct PokenavMonList *mons = list->monList;
@@ -415,6 +416,7 @@ static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *ot
         *personality = GetMonData(mon, MON_DATA_PERSONALITY);
         *otId = GetMonData(mon, MON_DATA_OT_ID);
         *gender = GetMonGender(mon);
+        *isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     }
     else
     {
@@ -424,6 +426,7 @@ static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *ot
         *personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
         *otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
         *gender = GetBoxMonGender(boxMon);
+        *isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY);
     }
 }
 
@@ -945,8 +948,9 @@ static void ResetSpritesAndDrawMonFrontPic(struct Pokenav_RibbonsSummaryMenu *me
     u16 species;
     u32 personality, otId;
     u8 gender;
+    bool8 isShiny;
 
-    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender);
+    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender, &isShiny);
     ResetAllPicSprites();
     menu->monSpriteId = DrawRibbonsMonFrontPic(MON_SPRITE_X_ON, MON_SPRITE_Y);
     PokenavFillPalette(15, 0);
@@ -965,9 +969,10 @@ static u16 DrawRibbonsMonFrontPic(s32 x, s32 y)
     u16 species, spriteId;
     u32 personality, otId;
     u8 gender;
+    bool8 isShiny;
 
-    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender);
-    spriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, MON_SPRITE_X_ON, MON_SPRITE_Y, 15, TAG_NONE);
+    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender, &isShiny);
+    spriteId = CreateMonPicSprite(species, otId, personality, gender, isShiny, TRUE, MON_SPRITE_X_ON, MON_SPRITE_Y, 15, TAG_NONE);
     gSprites[spriteId].oam.priority = 0;
     return spriteId;
 }

@@ -1,3 +1,4 @@
+#include "gba/isagbprint.h"
 #include "global.h"
 #include "debug.h"
 #include "malloc.h"
@@ -1578,6 +1579,11 @@ u8 GetLeadMonIndex(void)
 u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
+}
+
+bool16 ScriptGetPartyMonIsShiny(void)
+{  
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_SHINY, NULL);
 }
 
 // Removed for Emerald

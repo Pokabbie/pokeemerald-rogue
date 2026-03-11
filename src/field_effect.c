@@ -1000,9 +1000,9 @@ u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
     return CreateSprite(&sSpriteTemplate_NewGameBirch, x, y, subpriority);
 }
 
-u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
+u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority, bool8 isShiny)
 {
-    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, GetGenderForSpecies(species, 0), TRUE, x, y, 0, species);
+    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, GetGenderForSpecies(species, 0), isShiny, TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -1013,7 +1013,7 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, u8 gender, s16 x, s16 y, u8 subpriority)
 {
     // TODO - Fixup shinyness
-    u16 spriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, x, y, 0, species);
+    u16 spriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;

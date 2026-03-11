@@ -2020,7 +2020,7 @@ static void Select_CreateMonSprite(void)
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     u8 gender = GetMonGender(mon);
 
-    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, 88, 32, 15, TAG_NONE);
+    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, 88, 32, 15, TAG_NONE);
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecY = 0;
 
@@ -2048,7 +2048,7 @@ static void Select_ReshowMonSprite(void)
     otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     gender = GetMonGender(mon);
 
-    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, 88, 32, 15, TAG_NONE);
+    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, 88, 32, 15, TAG_NONE);
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecY = 0;
 
@@ -2071,7 +2071,7 @@ static void Select_CreateChosenMonsSprites(void)
                 u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
                 u8 gender = GetMonGender(mon);
 
-                sFactorySelectScreen->monPics[i].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, (i * 72) + 16, 32, i + 13, TAG_NONE);
+                sFactorySelectScreen->monPics[i].monSpriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, (i * 72) + 16, 32, i + 13, TAG_NONE);
                 gSprites[sFactorySelectScreen->monPics[i].monSpriteId].centerToCornerVecX = 0;
                 gSprites[sFactorySelectScreen->monPics[i].monSpriteId].centerToCornerVecY = 0;
                 break;
@@ -4093,9 +4093,9 @@ static void Swap_ShowSummaryMonSprite(void)
     gender = GetMonGender(mon);
 
 #ifdef BUGFIX
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, 88, 32, 15, TAG_NONE);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, 88, 32, 15, TAG_NONE);
 #else
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, personality, otId, gender, TRUE, 88, 32, 15, TAG_NONE);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, personality, otId, gender, FALSE, TRUE, 88, 32, 15, TAG_NONE);
 #endif
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecY = 0;
@@ -4314,7 +4314,7 @@ static void Swap_CreateMonSprite(void)
     otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     gender = GetMonGender(mon);
 
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, 88, 32, 15, TAG_NONE);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, gender, FALSE, TRUE, 88, 32, 15, TAG_NONE);
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecY = 0;
 

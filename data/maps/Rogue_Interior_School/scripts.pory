@@ -1,6 +1,9 @@
 mapscripts Rogue_Interior_School_MapScripts {}
 
 
+const VAR_PARTY_MON_SPECIES = VAR_TEMP_0
+const VAR_PARTY_MON_IS_SHINY = VAR_TEMP_1
+
 script Rogue_Interior_School_ShowSetRecommendation
 {
     lock
@@ -12,9 +15,10 @@ script Rogue_Interior_School_ShowSetRecommendation
 
     while(var(VAR_0x8004) != PARTY_SIZE)
     {
-        specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-        showmonpic(VAR_RESULT, 2, 2)
-        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        specialvar(VAR_PARTY_MON_SPECIES, ScriptGetPartyMonSpecies)
+        specialvar(VAR_PARTY_MON_IS_SHINY, ScriptGetPartyMonIsShiny)
+        showmonpic(VAR_PARTY_MON_SPECIES, 2, 2, FALSE, VAR_PARTY_MON_IS_SHINY)
+        playmoncry(VAR_TEMP_0, CRY_MODE_NORMAL)
 
         callnative(ScriptMenu_DisplayRecommendedMonSet)
         messageinstant("{DPAD_LEFTRIGHT} Cycle Party Pokémon\n{A_BUTTON} {B_BUTTON} Exit")
