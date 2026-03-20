@@ -17,6 +17,7 @@
 
 #include "rogue.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 
 #include "rogue_adventurepaths.h"
 #include "rogue_campaign.h"
@@ -168,8 +169,13 @@ static void GeneratePath(struct AdvPathSettings* pathSettings)
         gRogueAdvPath.roomCount = 0;
         gRogueAdvPath.pathLength = pathSettings->totalLength;
 
+        START_TIMER(ROGUE_ADVPATH_GEN_LAYOUT);
         GenerateFloorLayout(coords, pathSettings);
+        STOP_TIMER(ROGUE_ADVPATH_GEN_LAYOUT);
+
+        START_TIMER(ROGUE_ADVPATH_GEN_ROOM_PLACEMENT);
         GenerateRoomPlacements(pathSettings);
+        STOP_TIMER(ROGUE_ADVPATH_GEN_ROOM_PLACEMENT);
     }
 
     // Store min/max Y coords
@@ -1610,7 +1616,11 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
     // Should already be set correctly for RogueAdv_WarpLastInteractedRoom
     if(!gRogueAdvPath.isOverviewActive)
     {
-        bool8 freshPath = RogueAdv_GenerateAdventurePathsIfRequired();
+        bool8 freshPath;
+
+        START_TIMER(ROGUE_ADVPATH_GENERATE);
+        freshPath = RogueAdv_GenerateAdventurePathsIfRequired();
+        STOP_TIMER(ROGUE_ADVPATH_GENERATE);
 
         // Always jump back to overview screen, after a different route
         warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);

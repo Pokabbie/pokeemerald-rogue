@@ -195,6 +195,7 @@ gSpecials::
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
 	def_special RogueDebug_GiveDynamicUniqueMon
+	def_special RogueDebug_PrintTimers
 	def_special RogueGift_EnsureDynamicCustomMonsAreValid
 	def_special Rogue_GetDynamicUniqueMonSpecies
 	def_special Rogue_BufferDynamicUniqueMonCountDown

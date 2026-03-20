@@ -48,6 +48,7 @@ LV          = 34
 SCREW_ICON  = 37
 WRENCH_ICON = 38
 STAR_ICON   = 39
+SPARKLE_ICON = 3A
 '¿'         = 51
 '¡'         = 52
 PK          = 53
@@ -439,6 +440,8 @@ JPN = FC 15
 ENG = FC 16
 PAUSE_MUSIC = FC 17
 RESUME_MUSIC = FC 18
+PUSH_FONT = FC 19
+POP_FONT = FC 1A
 
 @ fonts
 
