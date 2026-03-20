@@ -723,6 +723,8 @@ u8 GetExtCtrlCodeLength(u8 code)
         [EXT_CTRL_CODE_ENG]                    = 1,
         [EXT_CTRL_CODE_PAUSE_MUSIC]            = 1,
         [EXT_CTRL_CODE_RESUME_MUSIC]           = 1,
+        [EXT_CTRL_CODE_PUSH_FONT]              = 1,
+        [EXT_CTRL_CODE_POP_FONT]               = 1,
     };
 
     u8 length = 0;
