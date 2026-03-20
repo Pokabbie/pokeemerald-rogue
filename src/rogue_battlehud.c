@@ -4,6 +4,7 @@
 #include "constants/songs.h"
 
 #include "battle_anim.h"
+#include "battle_main.h"
 #include "battle_message.h"
 #include "malloc.h"
 #include "main.h"
@@ -16,7 +17,7 @@
 #include "rogue_battlehud.h"
 #include "rogue_settings.h"
 
-#ifndef ROGUE_EXPANSIONS
+#ifndef ROGUE_EXPANSION
 #define B_WEATHER_SNOW                      B_WEATHER_HAIL
 #endif
 
@@ -633,13 +634,18 @@ static s32 CyclePosition(s32 pos, s32 inc)
     return sPositionCycleOrder[i];
 }
 
-void RogueBH_HandleStatViewUpdate()
+#ifndef ROGUE_EXPANSION
+#define SpriteCB_HideAsMoveTarget SpriteCb_HideAsMoveTarget
+#define SpriteCB_ShowAsMoveTarget SpriteCb_ShowAsMoveTarget
+#endif
+
+void RogueBH_HandleStatViewUpdate(u32 battler)
 {
     u8 prevCursorPos = gMultiUsePlayerCursor;
 
     if(gMultiUsePlayerCursor == MAX_BATTLERS_COUNT)
     {
-        gMultiUsePlayerCursor = gActiveBattler;
+        gMultiUsePlayerCursor = battler;
     }
 
     if (JOY_NEW(SELECT_BUTTON | B_BUTTON))
@@ -647,7 +653,7 @@ void RogueBH_HandleStatViewUpdate()
         PlaySE(SE_WIN_OPEN);
         RogueBH_ToggleStatView();
 
-        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCb_HideAsMoveTarget;
+        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
         return;
     }
     else if (JOY_NEW(DPAD_ANY))
@@ -658,8 +664,6 @@ void RogueBH_HandleStatViewUpdate()
 
         do
         {
-            u8 pos = GetBattlerPosition(gMultiUsePlayerCursor);
-
             pos = CyclePosition(pos, JOY_NEW(DPAD_RIGHT | DPAD_UP) ? 1 : -1);
 
             gMultiUsePlayerCursor = GetBattlerAtPosition(pos);
@@ -669,8 +673,10 @@ void RogueBH_HandleStatViewUpdate()
 
     if(prevCursorPos != gMultiUsePlayerCursor)
     {
-        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCb_ShowAsMoveTarget;
-        gSprites[gBattlerSpriteIds[prevCursorPos]].callback = SpriteCb_HideAsMoveTarget;
+        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_ShowAsMoveTarget;
+
+        if(prevCursorPos < MAX_BATTLERS_COUNT)
+            gSprites[gBattlerSpriteIds[prevCursorPos]].callback = SpriteCB_HideAsMoveTarget;
 
         RogueBH_PrintStatView();
     }
@@ -895,6 +901,16 @@ static void AnimSandstorm_Step(struct Sprite *sprite)
     }
 }
 
+static void AnimSunlight_Reset(struct Sprite *sprite)
+{
+    // Move offscreen
+    sprite->x = DISPLAY_WIDTH + 64;
+
+    sprite->data[0] = 180;
+    sprite->invisible = TRUE;
+    sprite->callback = AnimSunlight;
+}
+
 static void AnimSunlight(struct Sprite *sprite)
 {
     sprite->invisible = TRUE;
@@ -918,7 +934,7 @@ static void AnimSunlight_Step(struct Sprite *sprite)
     sprite->data[2] = 140;
     sprite->data[4] = 80;
     sprite->callback = StartAnimLinearTranslation;
-    StoreSpriteCallbackInData6(sprite, AnimSunlight_Step);
+    StoreSpriteCallbackInData6(sprite, AnimSunlight_Reset);
 }
 
 #define tPosY         data[0]

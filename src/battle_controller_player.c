@@ -255,7 +255,7 @@ static void HandleInputChooseAction(void)
 
     if(RogueBH_IsStatViewActive())
     {
-        RogueBH_HandleStatViewUpdate();
+        RogueBH_HandleStatViewUpdate(gActiveBattler);
 
         if(!RogueBH_IsStatViewActive())
         {
