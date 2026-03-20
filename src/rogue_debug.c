@@ -188,6 +188,10 @@ void RogueDebug_ResetFrameTimers()
 {
 }
 
+void RogueDebug_PrintTimers()
+{
+}
+
 #endif // DEBUG
 
 
