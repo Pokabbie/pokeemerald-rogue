@@ -1,9 +1,15 @@
 #include "global.h"
+#include "constants/battle.h"
 #include "constants/battle_anim.h"
+#include "constants/songs.h"
 
 #include "battle_anim.h"
+#include "battle_message.h"
 #include "malloc.h"
+#include "main.h"
 #include "random.h"
+#include "sound.h"
+#include "string_util.h"
 #include "sprite.h"
 #include "trig.h"
 
@@ -293,6 +299,7 @@ struct RogueBattleOverlay
 {
     u8 sprites[MAX_OVERLAY_SPRITES];
     u8 spriteCount;
+    bool8 statViewActive : 1;
 };
 
 EWRAM_DATA struct RogueBattleOverlay* gRogueBattleOverlay = NULL;
@@ -311,6 +318,7 @@ void RogueBH_CreateBattleOverlay()
         LoadSpritePalettes(sSpritePalette_Overlay);
 
         gRogueBattleOverlay = Alloc(sizeof(struct RogueBattleOverlay));
+        gRogueBattleOverlay->statViewActive = FALSE;
 
 #ifdef ROGUE_DEBUG
         if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD))
@@ -577,6 +585,190 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
         }
 
         FREE_AND_SET_NULL(gRogueBattleOverlay);
+    }
+}
+
+void RogueBH_ToggleStatView()
+{
+    if(gRogueBattleOverlay != NULL)
+    {
+        gRogueBattleOverlay->statViewActive = !gRogueBattleOverlay->statViewActive;
+
+        if(gRogueBattleOverlay->statViewActive)
+        {
+            gMultiUsePlayerCursor = MAX_BATTLERS_COUNT;
+        }
+    }
+}
+
+bool8 RogueBH_IsStatViewActive()
+{
+    return (gRogueBattleOverlay != NULL && gRogueBattleOverlay->statViewActive);
+}
+
+static u8 const sPositionCycleOrder[] =
+{
+    B_POSITION_PLAYER_LEFT,
+    B_POSITION_PLAYER_RIGHT,
+    B_POSITION_OPPONENT_RIGHT,
+    B_POSITION_OPPONENT_LEFT,
+};
+
+static s32 CyclePosition(s32 pos, s32 inc)
+{
+    s32 i;
+
+    for(i = 0; i < ARRAY_COUNT(sPositionCycleOrder); ++i)
+    {
+        if(sPositionCycleOrder[i] == pos)
+        {
+            break;
+        }
+    }
+
+    i = (i + inc) % ARRAY_COUNT(sPositionCycleOrder);
+    if(i < 0)
+        i += ARRAY_COUNT(sPositionCycleOrder);
+
+    return sPositionCycleOrder[i];
+}
+
+void RogueBH_HandleStatViewUpdate()
+{
+    u8 prevCursorPos = gMultiUsePlayerCursor;
+
+    if(gMultiUsePlayerCursor == MAX_BATTLERS_COUNT)
+    {
+        gMultiUsePlayerCursor = gActiveBattler;
+    }
+
+    if (JOY_NEW(SELECT_BUTTON | B_BUTTON))
+    {
+        PlaySE(SE_WIN_OPEN);
+        RogueBH_ToggleStatView();
+
+        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCb_HideAsMoveTarget;
+        return;
+    }
+    else if (JOY_NEW(DPAD_ANY))
+    {
+        PlaySE(SE_SELECT);
+
+        s32 pos = GetBattlerPosition(gMultiUsePlayerCursor);
+
+        do
+        {
+            u8 pos = GetBattlerPosition(gMultiUsePlayerCursor);
+
+            pos = CyclePosition(pos, JOY_NEW(DPAD_RIGHT | DPAD_UP) ? 1 : -1);
+
+            gMultiUsePlayerCursor = GetBattlerAtPosition(pos);
+        } 
+        while (gBattleMons[gMultiUsePlayerCursor].hp == 0 || gBattleMons[gMultiUsePlayerCursor].species == SPECIES_NONE);
+    }
+
+    if(prevCursorPos != gMultiUsePlayerCursor)
+    {
+        gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCb_ShowAsMoveTarget;
+        gSprites[gBattlerSpriteIds[prevCursorPos]].callback = SpriteCb_HideAsMoveTarget;
+
+        RogueBH_PrintStatView();
+    }
+}
+
+static const u8 sText_ClearColumn1[] = _("{CLEAR_TO 48}"); // 54 - 6
+static const u8 sText_ClearColumn2[] = _("{CLEAR_TO 108}");
+static const u8 sText_ClearColumn3[] = _("{CLEAR_TO 162}");
+
+static const u8 sText_StatPrefix[] = _("{FONT_NORMAL}");
+static const u8 sText_StatUp[] = _("{STAT_UP}");
+static const u8 sText_StatDown[] = _("{STAT_DOWN}");
+static const u8 sText_StatNone[] = _("{STAT_NONE}");
+
+static const u8 sText_Atk[] = _("{FONT_NARROW}Atk");
+static const u8 sText_SpAtk[] = _("{FONT_NARROW}SpAtk");
+static const u8 sText_Def[] = _("{FONT_NARROW}Def");
+static const u8 sText_SpDef[] = _("{FONT_NARROW}SpDef");
+static const u8 sText_Speed[] = _("{FONT_NARROW}Spe");
+static const u8 sText_Accuracy[] = _("{FONT_NARROW}Acc");
+static const u8 sText_Evasion[] = _("{FONT_NARROW}Eva");
+
+static u8* AppendBoostString(u8* ptr, s32 stages)
+{
+    s32 i;
+    ptr = StringAppend(ptr, sText_StatPrefix);
+
+    stages = DEFAULT_STAT_STAGE - stages;
+
+    for(i = 0; i < 6; ++i)
+    {
+        if(stages < 0)
+        {
+            if(i < -stages)
+            {
+                ptr = StringAppend(ptr, sText_StatDown);
+            }
+            else
+            {
+                ptr = StringAppend(ptr, sText_StatNone);
+            }
+        }
+        else
+        {
+            if(i < stages)
+            {
+                ptr = StringAppend(ptr, sText_StatUp);
+            }
+            else
+            {
+                ptr = StringAppend(ptr, sText_StatNone);
+            }
+        }
+    }
+
+    return ptr;
+}
+
+void RogueBH_PrintStatView()
+{
+    if(gRogueBattleOverlay != NULL && gMultiUsePlayerCursor < MAX_BATTLERS_COUNT)
+    {
+        u8* ptr = gStringVar4;
+        struct BattlePokemon* mon = &gBattleMons[gMultiUsePlayerCursor];
+        ptr = StringCopy(ptr, gText_EmptyString3);
+
+        ptr = StringAppend(ptr, sText_Atk);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_ATK]);
+
+        ptr = StringAppend(ptr, sText_ClearColumn1);
+        ptr = StringAppend(ptr, sText_SpAtk);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_SPATK]);
+
+        //
+
+        ptr = StringAppend(ptr, sText_ClearColumn3);
+        ptr = StringAppend(ptr, sText_Accuracy);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_ACC]);
+
+        // new line
+
+        ptr = StringAppend(ptr, gText_NewLine);
+        ptr = StringAppend(ptr, sText_Def);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_DEF]);
+
+        ptr = StringAppend(ptr, sText_ClearColumn1);
+        ptr = StringAppend(ptr, sText_SpDef);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_SPDEF]);
+
+        ptr = StringAppend(ptr, sText_ClearColumn2);
+        ptr = StringAppend(ptr, sText_Speed);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_SPEED]);
+
+        ptr = StringAppend(ptr, sText_ClearColumn3);
+        ptr = StringAppend(ptr, sText_Evasion);
+        ptr = AppendBoostString(ptr, mon->statStages[STAT_EVASION]);
+
+        BattlePutTextOnWindow(gStringVar4, B_WIN_MSG);
     }
 }
 
