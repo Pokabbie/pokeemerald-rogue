@@ -634,6 +634,11 @@ static s32 CyclePosition(s32 pos, s32 inc)
     return sPositionCycleOrder[i];
 }
 
+#ifndef ROGUE_EXPANSION
+#define SpriteCB_HideAsMoveTarget SpriteCb_HideAsMoveTarget
+#define SpriteCB_ShowAsMoveTarget SpriteCb_ShowAsMoveTarget
+#endif
+
 void RogueBH_HandleStatViewUpdate(u32 battler)
 {
     u8 prevCursorPos = gMultiUsePlayerCursor;
@@ -655,10 +660,10 @@ void RogueBH_HandleStatViewUpdate(u32 battler)
     {
         PlaySE(SE_SELECT);
 
+        s32 pos = GetBattlerPosition(gMultiUsePlayerCursor);
+
         do
         {
-            u32 pos = GetBattlerPosition(gMultiUsePlayerCursor);
-
             pos = CyclePosition(pos, JOY_NEW(DPAD_RIGHT | DPAD_UP) ? 1 : -1);
 
             gMultiUsePlayerCursor = GetBattlerAtPosition(pos);
@@ -896,6 +901,16 @@ static void AnimSandstorm_Step(struct Sprite *sprite)
     }
 }
 
+static void AnimSunlight_Reset(struct Sprite *sprite)
+{
+    // Move offscreen
+    sprite->x = DISPLAY_WIDTH + 64;
+
+    sprite->data[0] = 180;
+    sprite->invisible = TRUE;
+    sprite->callback = AnimSunlight;
+}
+
 static void AnimSunlight(struct Sprite *sprite)
 {
     sprite->invisible = TRUE;
@@ -919,7 +934,7 @@ static void AnimSunlight_Step(struct Sprite *sprite)
     sprite->data[2] = 140;
     sprite->data[4] = 80;
     sprite->callback = StartAnimLinearTranslation;
-    StoreSpriteCallbackInData6(sprite, AnimSunlight_Step);
+    StoreSpriteCallbackInData6(sprite, AnimSunlight_Reset);
 }
 
 #define tPosY         data[0]
