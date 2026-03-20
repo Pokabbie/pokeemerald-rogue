@@ -690,7 +690,11 @@ static bool8 RunPauseTimer(void)
 bool8 ScrCmd_delay(struct ScriptContext *ctx)
 {
     sPauseCounter = ScriptReadHalfword(ctx);
-    SetupNativeScript(ctx, RunPauseTimer);
+
+    // Allow single frame delay
+    if(sPauseCounter != 0)
+        SetupNativeScript(ctx, RunPauseTimer);
+        
     return TRUE;
 }
 
