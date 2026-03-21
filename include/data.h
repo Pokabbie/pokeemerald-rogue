@@ -93,6 +93,7 @@ extern const struct SpriteFrameImage gTrainerBackPicTable_Dawn[];
 
 extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityNacholord[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityPokabbie[];
 
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpritePlayerSide[];
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpriteOpponentSide[];

@@ -577,6 +577,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
 {
     u32 monsPersonality, currentPersonality, species, paletteOffset, position;
     u8 gender;
+    bool8 shiny;
     const void *lzPaletteData;
     struct Pokemon *illusionMon = GetIllusionMonPtr(battler);
     if (illusionMon != NULL)
@@ -587,6 +588,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
 
     monsPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
     gender = GetMonGender(mon);
+    shiny = IsMonShiny(mon);
 
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_NONE)
     {
@@ -599,6 +601,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
         if (B_TRANSFORM_SHINY >= GEN_4)
         {
             currentPersonality = gTransformedPersonalities[battler];
+            shiny = gTransformedShininess[battler];
         }
         else
         {
@@ -625,7 +628,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_NONE)
         lzPaletteData = GetMonFrontSpritePal(mon);
     else
-        lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), GetMonData(mon, MON_DATA_IS_SHINY, NULL));
+        lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), shiny);
 
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);

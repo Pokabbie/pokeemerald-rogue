@@ -556,7 +556,8 @@
 #define DEBUG_TOGGLE_HIDE_FOLLOWER                  (DEBUG_START_VALUE + 10)
 #define DEBUG_TOGGLE_STOP_WILD_SPAWNING             (DEBUG_START_VALUE + 11)
 #define DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT      (DEBUG_START_VALUE + 12)
-#define DEBUG_TOGGLE_COUNT                          13
+#define DEBUG_TOGGLE_FULL_BATTLE_HUD                (DEBUG_START_VALUE + 13)
+#define DEBUG_TOGGLE_COUNT                          14
 #define DEBUG_TOGGLE_BYTE_COUNT                     (1 + DEBUG_TOGGLE_COUNT / 8)
 
 // DEBUG_RANGE_
