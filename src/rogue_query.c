@@ -589,6 +589,14 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
                 break;
         }
 
+        if(evo.targetSpecies == SPECIES_GIMMIGHOUL_ROAMING)
+        {
+		    // Speculative dev code
+            DebugPrintf("Gimmighoul edge case: %i > %i", species, evo.targetSpecies);
+            AGB_ASSERT(FALSE);
+            continue;
+        }
+
         // If we reach here we're allowed to evolve
         SetQueryBitFlag(evo.targetSpecies, TRUE);
 
@@ -1077,7 +1085,12 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
             // Alt forms
             // Gen4
             if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
+            {
+                if(species == SPECIES_CHERRIM_SUNSHINE)
+                    return FALSE;
+
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
+            }
 
             // Gen5
             if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)
