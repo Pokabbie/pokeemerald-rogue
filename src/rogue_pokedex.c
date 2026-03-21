@@ -398,6 +398,16 @@ static u16 GetSpeciesAtSlot(u8 slot)
 {
     if(sPokedexViewReq.inBattleScreen)
     {
+#ifdef ROGUE_EXPANSION
+        if(GetBattlerSide(slot) != B_SIDE_PLAYER)
+        {
+            u16 species = GetIllusionMonSpecies(slot);
+
+            if(species != SPECIES_NONE)
+                return species;
+        }
+#endif
+
         return gBattleMons[slot].species;
     }
     else
@@ -410,6 +420,16 @@ static u32 GetOtIdAtSlot(u8 slot)
 {
     if(sPokedexViewReq.inBattleScreen)
     {
+#ifdef ROGUE_EXPANSION
+        if(GetBattlerSide(slot) != B_SIDE_PLAYER)
+        {
+            u16 species = GetIllusionMonSpecies(slot);
+
+            if(species != SPECIES_NONE)
+                return 0;
+        }
+#endif
+
         return gBattleMons[slot].otId;
     }
     else
