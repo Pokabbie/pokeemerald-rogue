@@ -9441,7 +9441,7 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 static u8 TRMove_CalculateWeightFallback(u16 index, u16 move, void* data)
 {
     // Only take moves with 0 weight
-    u16 usage = gRoguePokemonSpecialMoveUsages[move];
+    u16 usage = Rogue_GetPokemonSpecialMoveUsage(move);
 
     if(usage == 0)
         return 1;
