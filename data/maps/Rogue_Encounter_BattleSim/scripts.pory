@@ -145,7 +145,7 @@ script Rogue_Encounter_BattleSim_ChooseWager_Money
 script Rogue_Encounter_BattleSim_ChooseWager_IVs
 {
     bufferspeciesname(STR_VAR_1, SPECIES_RATTATA)
-    msgbox(format("IVs?\nSure thing!\pHow about, you pick one of your Pokémon.\pIf you lose, I'll take some of it's IVs for my {STR_VAR_1}.\pIf you win, I'll feed your Pokémon some Pies to increase it's IVs?"), MSGBOX_YESNO)
+    msgbox(format("IVs?\nSure thing!\pHow about, you pick one of your Pokémon.\pIf you lose, I'll take some of its IVs for my {STR_VAR_1}.\pIf you win, I'll feed your Pokémon some Pies to increase its IVs?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {

@@ -19,9 +19,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I hatched and rasied all of my Pokémon!",
-                        "POST_BATTLE_TAUNT": "I guess I need to work in my breeding technique…",
-                        "POST_BATTLE_CLOSER": "My breeding technique still needs work I guess…"
+                        "PRE_BATTLE_TAUNT": "I hatched and raised all of my Pokémon!",
+                        "POST_BATTLE_TAUNT": "I guess I need to work on my breeding technique…",
+                        "POST_BATTLE_CLOSER": "My breeding technique still needs work, I guess…"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
@@ -98,7 +98,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "My mind and my Pokémon are in sync!",
                         "POST_BATTLE_TAUNT": "You and your Pokémon were more in sync, it seems.",
-                        "POST_BATTLE_CLOSER": "How did you train your Pokémon I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
+                        "POST_BATTLE_CLOSER": "How did you train your Pokémon, I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -161,7 +161,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "Ah!\\pYou look like a strong trainer!",
                         "POST_BATTLE_TAUNT": "Ouch…",
-                        "POST_BATTLE_CLOSER": "Yes you are strong.\\pNot at strong as I was in my prime."
+                        "POST_BATTLE_CLOSER": "Yes. You are strong.\\pNot at strong as I was in my prime."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
@@ -237,7 +237,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "I can't wait to use my technique from school!",
                         "POST_BATTLE_TAUNT": "What! That technique was much better than mine!",
-                        "POST_BATTLE_CLOSER": "Why don't they teach us useful techniques in school."
+                        "POST_BATTLE_CLOSER": "Why don't they teach us useful techniques in school?"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -506,7 +506,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I was just on my way home after a great haul!\\pI guess I can battle you too!",
+                        "PRE_BATTLE_TAUNT": "I was just on my way home after a great haul!\\pI guess I can battle you, too!",
                         "POST_BATTLE_TAUNT": "Well that was a bit of shame.",
                         "POST_BATTLE_CLOSER": "I should've just taken my haul and gone home."
                     }

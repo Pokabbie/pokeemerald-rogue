@@ -432,7 +432,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hehe. I must say, you are a cute challenger, {PLAYER}.\\pI'm Tulip, the Leader here.\\pThough I must tell you that being a makeup artist is my main line of work.",
                         "PRE_BATTLE_TAUNT": "Allow me to put my skills to use to make your cute little Pokémon even more beautiful!",
                         "POST_BATTLE_TAUNT": "Your strength has a magic to it that cannot be washed away.",
-                        "POST_BATTLE_CLOSER": "I lost the battle? And your beauty rivals even my own? I can't believe it.\\pYou are quite splendid. Yes, truly amazing!\\pI wish you the best of luck, with the rest of your Adventure."
+                        "POST_BATTLE_CLOSER": "I lost the battle? And your beauty rivals even my own? I can't believe it.\\pYou are quite splendid. Yes, truly amazing!\\pI wish you the best of luck with the rest of your Adventure."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
