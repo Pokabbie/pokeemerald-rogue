@@ -42,8 +42,9 @@
     \
     method(5050, "Community Programmers", CREDITS_FLAG_TITLE) \
     method(5051, "DepressoMocha", 0) \
-    method(5052, "Lemonancy", 0) \
-    method(5055, "", CREDITS_FLAG_BREAK) \
+    method(5052, "Kleeenexfeu", 0) \
+    method(5053, "Lemonancy", 0) \
+    method(5054, "", CREDITS_FLAG_BREAK) \
     \
     method(600, "RH Hideout - Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(601, "UltimaSoul", 0) \
