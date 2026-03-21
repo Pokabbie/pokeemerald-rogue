@@ -452,7 +452,6 @@ static u32 GetHpAtSlot(u8 slot)
 
 static void SetupPokedexViewDefault()
 {
-    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
     sPokedexViewReq.view = DEX_VIEW_STANDARD;
     sPokedexViewReq.inBattleScreen = FALSE;
     sPokedexViewReq.dexVariantToRestore = POKEDEX_INVALID_VARIANT;
@@ -468,12 +467,14 @@ void Rogue_ShowPokedexFromMenu(void)
 void Rogue_ShowPokedexFromScript(void)
 {
     SetupPokedexViewDefault();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
 }
 
 void Rogue_ShowPokedexFromBattle(void)
 {
     SetupPokedexViewDefault();
-    gMain.savedCallback = CB2_SetUpReshowBattleScreenAfterMenu2;
+    // don't edit savedCallback
+    // gMain.savedCallback = CB2_SetUpReshowBattleScreenAfterMenu2;
 
     // ReturnToPartyMenuSubMenu called below
     sPokedexViewReq.view = DEX_VIEW_SPECIFIC_MON;
@@ -486,6 +487,7 @@ void Rogue_ShowPokedexFromBattle(void)
 void Rogue_ShowPokedexForPartySlot(u8 slot)
 {
     SetupPokedexViewDefault();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
 
     // ReturnToPartyMenuSubMenu called below
     sPokedexViewReq.view = DEX_VIEW_SPECIFIC_MON;
@@ -502,6 +504,7 @@ void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught)
 void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught)
 {
     SetupPokedexViewDefault();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
 
     sPokedexViewReq.view = DEX_VIEW_SELECT_MON;
     sPokedexViewReq.perView.selectMon.requireSeen = requireSeen;
@@ -984,9 +987,12 @@ static void Task_PageFadeOutAndExit(u8 taskId)
         FreeAllWindowBuffers();
         DestroyTask(taskId);
 
-        if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON && !sPokedexViewReq.inBattleScreen)
+        if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
         {
-            ReturnToPartyMenuSubMenu();
+            if(sPokedexViewReq.inBattleScreen)
+                SetMainCallback2(CB2_SetUpReshowBattleScreenAfterMenu2);
+            else
+                ReturnToPartyMenuSubMenu();
         }
         else
         {
