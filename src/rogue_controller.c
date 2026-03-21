@@ -57,6 +57,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_battlehud.h"
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
@@ -2614,10 +2615,9 @@ static bool8 IsRareShopActiveInternal()
 
     for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(ItemId_GetPocket(itemId) == POCKET_STONES)
+        if(Rogue_IsItemEnabled(itemId) && ItemId_GetPocket(itemId) == POCKET_STONES)
         {
-            if(Rogue_IsItemEnabled(itemId))
-                return TRUE;
+            return TRUE;
         }
     }
 
@@ -3598,6 +3598,7 @@ void Rogue_OnObjectEventsInit()
 void Rogue_OnResetAllSprites()
 {
     Rogue_OnResetRideMonSprites();
+    RogueBH_RemoveBattleOverlay(TRUE);
 }
 
 bool8 Rogue_TryGetCachedObjectEventId(u32 localId, u8* eventObjectId)
@@ -4180,6 +4181,9 @@ static void SetupRogueRunBag()
     {
         itemId = RogueSave_GetHubBagItemIdAt(i);
         quantity = RogueSave_GetHubBagItemQuantityAt(i);
+
+        if(itemId == ITEM_NONE && quantity == 0)
+            break;
         
         if(itemId != ITEM_NONE && CanEnterWithItem(itemId, isBasicBagEnabled))
         {
@@ -5320,7 +5324,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Ensure the run has started if we're trying to directly warp into the paths screen
         if(!Rogue_IsRunActive())
         {
+            START_TIMER(ROGUE_RUN_BEGIN);
             BeginRogueRun();
+            STOP_TIMER(ROGUE_RUN_BEGIN);
         }
     }
     else if(warp->warpId != 0 && warp->mapGroup == gSaveBlock1Ptr->location.mapGroup && warp->mapNum == gSaveBlock1Ptr->location.mapNum)
@@ -9404,8 +9410,21 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
     return 1;
 }
 
+static u8 TRMove_CalculateWeightFallback(u16 index, u16 move, void* data)
+{
+    // Only take moves with 0 weight
+    u16 usage = gRoguePokemonSpecialMoveUsages[move];
+
+    if(usage == 0)
+        return 1;
+
+    return 1;
+}
+
 static void RandomiseTRMoves()
 {
+    START_TIMER(ROGUE_RUN_CHOOSE_TRS);
+
     RogueMoveQuery_Begin();
     RogueMoveQuery_Reset(QUERY_FUNC_INCLUDE);
 
@@ -9419,7 +9438,11 @@ static void RandomiseTRMoves()
 
         for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
         {
-            AGB_ASSERT(RogueWeightQuery_HasAnyWeights());
+            if(!RogueWeightQuery_HasAnyWeights())
+            {
+                RogueWeightQuery_CalculateWeights(TRMove_CalculateWeightFallback, NULL);
+            }
+
             gRogueRun.dynamicTRMoves[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
             AGB_ASSERT(gRogueRun.dynamicTRMoves[i] != MOVE_NONE);
         }
@@ -9427,6 +9450,8 @@ static void RandomiseTRMoves()
     RogueWeightQuery_End();
 
     RogueMoveQuery_End();
+
+    STOP_TIMER(ROGUE_RUN_CHOOSE_TRS);
 }
 
 static bool8 RogueRandomChanceTrainer()

@@ -60,6 +60,8 @@ struct TextPrinterSubStruct
     u8 downArrowYPosIdx:2;
     bool8 hasFontIdBeenSet:1;
     u8 autoScrollDelay;
+    u8 pushedFontId:4;
+    u8 reserved:4;
 };
 
 struct TextPrinterTemplate

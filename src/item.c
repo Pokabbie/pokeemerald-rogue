@@ -935,13 +935,18 @@ u8 GetPocketByItemId(u16 itemId)
 
 void ClearItemSlots(struct ItemSlot *itemSlots, u16 itemCount)
 {
-    u16 i;
+    memset(itemSlots, 0, sizeof(struct ItemSlot) * itemCount);
 
-    for (i = 0; i < itemCount; i++)
-    {
-        itemSlots[i].itemId = ITEM_NONE;
-        SetBagItemQuantity(&itemSlots[i].quantity, 0);
-    }
+    // Correctly set item quantity for just the first item, as iterators can finish here
+    SetBagItemQuantity(&itemSlots[0].quantity, 0);
+
+    //u16 i;
+//
+    //for (i = 0; i < itemCount; i++)
+    //{
+    //    itemSlots[i].itemId = ITEM_NONE;
+    //    SetBagItemQuantity(&itemSlots[i].quantity, 0);
+    //}
 }
 
 static s32 FindFreePCItemSlot(void)

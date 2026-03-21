@@ -68,6 +68,7 @@
 
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
+#include "rogue_battlehud.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
@@ -5331,6 +5332,8 @@ static void CheckChangingTurnOrderEffects(void)
 
 static void RunTurnActionsFunctions(void)
 {
+    RogueBH_RemoveBattleOverlay(FALSE);
+    
     PUSH_ASSISTANT_STATE2(BATTLE, TURN_ACTIONS);
 
     Rogue_UpdatePopups(FALSE, FALSE);
