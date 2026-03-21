@@ -716,7 +716,9 @@ static u8 FindObjectEventForGfx(u16 gfxId);
 
 static bool8 IsSpawningWaterMons()
 {
-    return Rogue_IsRideMonSwimming() || (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER));
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    u16 tileBehavior = MapGridGetMetatileBehaviorAt(player->currentCoords.x, player->currentCoords.y);
+    return ((Rogue_IsRideMonSwimming() || (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))) && !MetatileBehavior_IsBridgeOverWater(tileBehavior));
 }
 
 static u8 CountActiveObjectEvents()
