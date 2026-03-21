@@ -258,22 +258,21 @@ static const struct SpriteTemplate sSandstormSpriteTemplate =
     .callback = AnimSandstorm,
 };
 
-static const union AnimCmd sAnim_Snowflake0[] =
+static const union AnimCmd sAnim_Snowflake[] =
 {
-    ANIMCMD_FRAME(0, 16),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_Snowflake1[] =
-{
-    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(8, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(24, 6),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(40, 2),
+    ANIMCMD_FRAME(48, 2),
     ANIMCMD_END,
 };
 
 static const union AnimCmd *const sAnims_Snowflake[] =
 {
-    sAnim_Snowflake0,
-    sAnim_Snowflake1,
+    sAnim_Snowflake,
 };
 
 static const struct SpriteTemplate sSnowSpriteTemplate =
@@ -397,7 +396,7 @@ void RogueBH_CreateBattleOverlay()
                 {
                     u8 sprite = CreateSprite(&sSnowSpriteTemplate, 0, 0, 4);
                     gSprites[sprite].data[0] = i * 40;
-                    gSprites[sprite].data[1] = i;
+                    gSprites[sprite].data[1] = 10 + (Random2() % 40);
                     
                     gRogueBattleOverlay->sprites[spriteCount++] = sprite;
                 }
@@ -409,13 +408,13 @@ void RogueBH_CreateBattleOverlay()
         // Player
         {
             spikeCount = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_SPIKES) ? gSideTimers[B_SIDE_PLAYER].spikesAmount : 0;
-            hasReflect = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_REFLECT);
-            hasLightscreen = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_LIGHTSCREEN);
+            hasReflect = !!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_REFLECT);
+            hasLightscreen = !!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_LIGHTSCREEN);
 #ifdef ROGUE_EXPANSION
             toxicSpikeCount = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TOXIC_SPIKES) ? gSideTimers[B_SIDE_PLAYER].toxicSpikesAmount : 0; 
-            hasStealthRock = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STEALTH_ROCK);
-            hasStickyWeb = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STICKY_WEB);
-            hasTailwind = (gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TAILWIND);
+            hasStealthRock = !!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STEALTH_ROCK);
+            hasStickyWeb = !!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_STICKY_WEB);
+            hasTailwind = !!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TAILWIND);
 #else
             toxicSpikeCount = 0; 
             hasStealthRock = FALSE;
@@ -489,13 +488,13 @@ void RogueBH_CreateBattleOverlay()
         // Opponent
         {
             spikeCount = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_SPIKES) ? gSideTimers[B_SIDE_OPPONENT].spikesAmount : 0;
-            hasReflect = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_REFLECT);
-            hasLightscreen = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_LIGHTSCREEN);
+            hasReflect = !!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_REFLECT);
+            hasLightscreen = !!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_LIGHTSCREEN);
 #ifdef ROGUE_EXPANSION
             toxicSpikeCount = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TOXIC_SPIKES) ? gSideTimers[B_SIDE_OPPONENT].toxicSpikesAmount : 0; 
-            hasStealthRock = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STEALTH_ROCK);
-            hasStickyWeb = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STICKY_WEB);
-            hasTailwind = (gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TAILWIND);
+            hasStealthRock = !!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STEALTH_ROCK);
+            hasStickyWeb = !!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_STICKY_WEB);
+            hasTailwind = !!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TAILWIND);
 #else
             toxicSpikeCount = 0; 
             hasStealthRock = FALSE;
@@ -899,7 +898,17 @@ static void AnimSandstorm(struct Sprite *sprite)
     sprite->invisible = FALSE;
     sprite->data[0] = 0;
     sprite->data[1] = (Random2() % 10);
-    sprite->x = 0;
+    if(sprite->data[3] != 1)
+    {
+        // Random initial position
+        sprite->data[3] = 1;
+        sprite->x = Random2() % DISPLAY_WIDTH;
+    }
+    else
+    {
+        // Wrap around the edge
+        sprite->x = 0;
+    }
     sprite->y = Random2() % ((DISPLAY_HEIGHT * 3) / 4);
     sprite->x2 = 0;
     sprite->y2 = 0;
@@ -965,74 +974,40 @@ static void AnimSunlight_Step(struct Sprite *sprite)
     StoreSpriteCallbackInData6(sprite, AnimSunlight_Reset);
 }
 
-#define tPosY         data[0]
-#define tDeltaY       data[1]
-#define tWaveDelta    data[2]
-#define tWaveIndex    data[3]
-#define tSnowflakeId  data[4]
-#define tFallCounter  data[5]
-#define tFallDuration data[6]
-#define tDeltaY2      data[7]
-
-static void InitSnowflakeSpriteMovement(struct Sprite *sprite)
-{
-    u16 rand;
-    s16 x = (((sprite->tSnowflakeId % 16) * 5) & 7) * 30;
-
-    sprite->y = -3 - (gSpriteCoordOffsetY + sprite->centerToCornerVecY);
-    sprite->x = x;
-    sprite->tPosY = sprite->y * 128;
-    sprite->x2 = 0;
-    sprite->y2 = 0;
-    rand = Random();
-    sprite->tDeltaY = (rand & 3) * 5 + 64;
-    sprite->tDeltaY2 = sprite->tDeltaY;
-    StartSpriteAnim(sprite, (rand & 1) ? 0 : 1);
-    sprite->tWaveIndex = 0;
-    sprite->tWaveDelta = ((rand & 3) == 0) ? 2 : 1;
-    sprite->tFallDuration = (rand & 0x1F) + 210;
-    sprite->tFallCounter = 0;
-}
-
 static void AnimSnowflake(struct Sprite *sprite)
 {
     sprite->invisible = TRUE;
+    --sprite->data[1];
 
-    if(sprite->data[0]-- < 0)
+    if(sprite->data[1] <= 0)
     {
+        SeekSpriteAnim(sprite, 0);
+        StartSpriteAnim(sprite, 0);
+
         sprite->invisible = FALSE;
-        sprite->tSnowflakeId = sprite->data[1];
-        InitSnowflakeSpriteMovement(sprite);
+        sprite->data[0] = 0;
+        sprite->data[1] = 10 + (Random2() % 40);
+        sprite->x = Random2() % DISPLAY_WIDTH;
+        sprite->y = 0;//Random2() % (DISPLAY_HEIGHT / 2);
+        sprite->x2 = 0;
+        sprite->y2 = 0;
+
         sprite->callback = AnimSnowflake_Step;
     }
 }
 
 static void AnimSnowflake_Step(struct Sprite *sprite)
-{
-    s16 x;
+{    
+    if (sprite->y + sprite->y2 >= DISPLAY_HEIGHT)
+    {
+        sprite->invisible = TRUE;
 
-    sprite->tPosY += sprite->tDeltaY;
-    sprite->y = sprite->tPosY >> 7;
-    sprite->tWaveIndex += sprite->tWaveDelta;
-    sprite->tWaveIndex &= 0xFF;
-    sprite->x2 = gSineTable[sprite->tWaveIndex] / 64;
-
-    x = (sprite->x + sprite->centerToCornerVecX + gSpriteCoordOffsetX) & 0x1FF;
-    if (x & 0x100)
-        x |= -0x100;
-
-    if(x < -3)
-        sprite->x = (x + 240 + 2) - (gSpriteCoordOffsetX + sprite->centerToCornerVecX);
-
-    if(x > 242)
-        sprite->x = (x -240 -3) - (gSpriteCoordOffsetX + sprite->centerToCornerVecX);
+        // Reset
+        sprite->callback = AnimSnowflake;
+    }
+    else
+    {
+        sprite->x2++;
+        sprite->y2 += 3;
+    }
 }
-
-#undef tPosY
-#undef tDeltaY
-#undef tWaveDelta
-#undef tWaveIndex
-#undef tSnowflakeId
-#undef tFallCounter
-#undef tFallDuration
-#undef tDeltaY2
