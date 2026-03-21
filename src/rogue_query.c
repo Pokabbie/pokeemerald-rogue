@@ -589,6 +589,7 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
                 break;
         }
 
+#ifdef ROGUE_EXPANSION
         if(evo.targetSpecies == SPECIES_GIMMIGHOUL_ROAMING)
         {
 		    // Speculative dev code
@@ -596,6 +597,7 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
             AGB_ASSERT(FALSE);
             continue;
         }
+#endif
 
         // If we reach here we're allowed to evolve
         SetQueryBitFlag(evo.targetSpecies, TRUE);
