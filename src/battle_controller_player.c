@@ -45,6 +45,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
+#include "rogue_pokedex.h"
 
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
@@ -257,7 +258,17 @@ static void HandleInputChooseAction(void)
     {
         RogueBH_HandleStatViewUpdate(gActiveBattler);
 
-        if(!RogueBH_IsStatViewActive())
+        if(RogueBH_IsStatViewActive())
+        {
+            if (JOY_NEW(A_BUTTON))
+            {
+                // We're going to hook into this path and use it for the open dex screen
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+                PlayerBufferExecCompleted();
+            }
+        }
+        else
         {
             PrintPlayerBattleMenu();
         }
@@ -1430,7 +1441,16 @@ static void OpenBagAndChooseItem(void)
         gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
         ReshowBattleScreenDummy();
         FreeAllWindowBuffers();
-        CB2_BagMenuFromBattle();
+
+        // Hook into this behaviour, if we are pressing A, open pokedex on mon
+        if(RogueBH_IsStatViewActive())
+        {
+            Rogue_ShowPokedexFromBattle();
+        }
+        else
+        {
+            CB2_BagMenuFromBattle();
+        }
     }
 }
 

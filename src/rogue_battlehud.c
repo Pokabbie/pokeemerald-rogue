@@ -35,6 +35,7 @@
 #define HUD_TAG_SPRITE_SUN                  0x1208
 #define HUD_TAG_SPRITE_SNOW                 0x1209
 #define HUD_TAG_SPRITE_SANDSTORM            0x120A
+#define HUD_TAG_SPRITE_DEX_PROMPT           0x120B
 
 #define MAX_OVERLAY_SPRITES 32
 
@@ -49,6 +50,7 @@
 // Sprites & Palettes
 //
 
+static const u8 sSpriteGfx_DexPrompt[] = INCBIN_U8("graphics/rogue_battlehud/sprites/dex_prompt.4bpp");
 static const u8 sSpriteGfx_BlueLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/blue_light_wall.4bpp");
 static const u8 sSpriteGfx_GreenLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/green_light_wall.4bpp");
 static const u8 sSpriteGfx_Whirlwind[] = INCBIN_U8("graphics/rogue_battlehud/sprites/whirlwind.4bpp");
@@ -68,6 +70,7 @@ static const u16 sSpritePal_1[] = INCBIN_U16("graphics/rogue_battlehud/palettes/
 
 static const struct SpriteSheet sSpriteSheet_Overlay[] =
 {
+    { sSpriteGfx_DexPrompt, sizeof(sSpriteGfx_DexPrompt), HUD_TAG_SPRITE_DEX_PROMPT },
     { sSpriteGfx_BlueLightWall, sizeof(sSpriteGfx_BlueLightWall), HUD_TAG_SPRITE_BLUE_LIGHT_WALL },
     { sSpriteGfx_GreenLightWall, sizeof(sSpriteGfx_GreenLightWall), HUD_TAG_SPRITE_GREEN_LIGHT_WALL },
     { sSpriteGfx_Whirlwind, sizeof(sSpriteGfx_Whirlwind), HUD_TAG_SPRITE_WHIRLWIND },
@@ -89,6 +92,17 @@ static const struct SpritePalette sSpritePalette_Overlay[] =
     { sSpritePal_0, HUD_TAG_PALETTE_0 },
     { sSpritePal_1, HUD_TAG_PALETTE_1 },
     {},
+};
+
+static const struct SpriteTemplate sDexPromptSpriteTemplate =
+{
+    .tileTag = HUD_TAG_SPRITE_DEX_PROMPT,
+    .paletteTag = HUD_TAG_PALETTE_0,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 // Hazards
@@ -300,6 +314,7 @@ struct RogueBattleOverlay
 {
     u8 sprites[MAX_OVERLAY_SPRITES];
     u8 spriteCount;
+    u8 dexPromptSprite;
     bool8 statViewActive : 1;
 };
 
@@ -320,6 +335,7 @@ void RogueBH_CreateBattleOverlay()
 
         gRogueBattleOverlay = Alloc(sizeof(struct RogueBattleOverlay));
         gRogueBattleOverlay->statViewActive = FALSE;
+        gRogueBattleOverlay->dexPromptSprite = SPRITE_NONE;
 
 #ifdef ROGUE_DEBUG
         if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD))
@@ -643,6 +659,12 @@ void RogueBH_HandleStatViewUpdate(u32 battler)
 {
     u8 prevCursorPos = gMultiUsePlayerCursor;
 
+    if(gRogueBattleOverlay->dexPromptSprite == SPRITE_NONE)
+    {
+        gRogueBattleOverlay->dexPromptSprite = CreateSprite(&sDexPromptSpriteTemplate, 84, 108, SUBPRIORITY_PLAYER_ABOVE);
+    }
+
+
     if(gMultiUsePlayerCursor == MAX_BATTLERS_COUNT)
     {
         gMultiUsePlayerCursor = battler;
@@ -652,6 +674,12 @@ void RogueBH_HandleStatViewUpdate(u32 battler)
     {
         PlaySE(SE_WIN_OPEN);
         RogueBH_ToggleStatView();
+
+        if(gRogueBattleOverlay->dexPromptSprite != SPRITE_NONE)
+        {
+            DestroySprite(&gSprites[gRogueBattleOverlay->dexPromptSprite]);
+            gRogueBattleOverlay->dexPromptSprite = SPRITE_NONE;
+        }
 
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
         return;
