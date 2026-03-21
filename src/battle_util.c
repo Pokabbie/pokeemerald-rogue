@@ -10678,8 +10678,8 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 
 s32 GetStealthHazardDamage(u8 hazardType, u32 battler)
 {
-    u8 type1 = GetBattlerType(battler, 1, FALSE);
-    u8 type2 = GetBattlerType(battler, 2, FALSE);
+    u8 type1 = GetBattlerType(battler, 0, FALSE);
+    u8 type2 = GetBattlerType(battler, 1, FALSE);
     u32 maxHp = gBattleMons[battler].maxHP;
 
     return GetStealthHazardDamageByTypesAndHP(hazardType, type1, type2, maxHp);
