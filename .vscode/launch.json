@@ -46,6 +46,24 @@
             "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
         },
         {
+            "name": "Attach (20010)",
+            "type": "cppdbg",
+            "request": "launch",
+            "serverLaunchTimeout": 20000,
+            //"stopOnEntry": true,
+            "program": "${workspaceRoot}/pokeemerald.elf",
+            "args":[
+                "target remote localhost:20010"
+            ],
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}",
+            "targetArchitecture": "arm",
+            "miDebuggerServerAddress": "localhost:20010",
+            "serverStarted": "started-mgba-server",
+            "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
+        },
+        {
             "name": "Build (Debug)",
             "type": "node",
             "request": "launch",
