@@ -438,6 +438,18 @@ static u32 GetOtIdAtSlot(u8 slot)
     }
 }
 
+static u32 GetHpAtSlot(u8 slot)
+{
+    if(sPokedexViewReq.inBattleScreen)
+    {
+        return gBattleMons[slot].hp;
+    }
+    else
+    {
+        return GetMonData(&gPlayerParty[slot], MON_DATA_MAX_HP);
+    }
+}
+
 static void SetupPokedexViewDefault()
 {
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
@@ -3360,7 +3372,7 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
                     --sPokedexMenu->partySlot;
             }
         }
-        while(GetSpeciesAtSlot(sPokedexMenu->partySlot) == SPECIES_NONE);
+        while(GetSpeciesAtSlot(sPokedexMenu->partySlot) == SPECIES_NONE || GetHpAtSlot(sPokedexMenu->partySlot) == 0);
 
         sPokedexMenu->viewBaseSpecies = SPECIES_NONE; // force it here so it always suceeds
         sPokedexMenu->viewOtId = GetOtIdAtSlot(sPokedexMenu->partySlot);
