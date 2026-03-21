@@ -339,7 +339,7 @@ static void HandleInputChooseAction(u32 battler)
                 // We're going to hook into this path and use it for the open dex screen
                 PlaySE(SE_SELECT);
                 BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
-                PlayerBufferExecCompleted();
+                PlayerBufferExecCompleted(battler);
             }
         }
         else
