@@ -4265,7 +4265,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = evo.targetSpecies;
                 break;
             case EVO_MOVE_TYPE:
-                if (MonKnowsMove(mon, evo.param))
+                if (MonKnowsMoveType(mon, evo.param))
                     targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_TWO_SEGMENT:

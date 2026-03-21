@@ -3225,6 +3225,7 @@ void SwitchInClearSetData(u32 battler)
     gBattleStruct->lastTakenMoveFrom[battler][3] = 0;
     gBattleStruct->lastMoveFailed &= ~(gBitTable[battler]);
     gBattleStruct->palaceFlags &= ~(gBitTable[battler]);
+	gBattleStruct->boosterEnergyActivates &= ~(gBitTable[battler]);
 
     for (i = 0; i < ARRAY_COUNT(gSideTimers); i++)
     {
@@ -3355,6 +3356,7 @@ const u8* FaintClearSetData(u32 battler)
     gBattleStruct->lastTakenMoveFrom[battler][3] = 0;
 
     gBattleStruct->palaceFlags &= ~(gBitTable[battler]);
+	gBattleStruct->boosterEnergyActivates &= ~(gBitTable[battler]);
 
     for (i = 0; i < ARRAY_COUNT(gSideTimers); i++)
     {
@@ -4820,6 +4822,10 @@ s8 GetMovePriority(u32 battler, u16 move)
 
     priority = gBattleMoves[move].priority;
 
+	// if battler is dynamaxed, set move prio to 0
+	if (IsDynamaxed(battler))
+		priority = 0;
+
     // Max Guard check
     if (gBattleStruct->dynamax.usingMaxMove[battler] && gBattleMoves[move].split == SPLIT_STATUS)
         return gBattleMoves[MOVE_MAX_GUARD].priority;
@@ -4830,6 +4836,8 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+	else if (IsDynamaxed(battler))
+		return priority;
     else if (ability == ABILITY_FORECAST_PRIORITY && IsWeatherAffectedMove(move))
     {
         priority++;
@@ -4953,6 +4961,8 @@ static void SetActionsAndBattlersTurnOrder(void)
         {
             gActionsByTurnOrder[turnOrderId] = gChosenActionByBattler[battler];
             gBattlerByTurnOrder[turnOrderId] = battler;
+            gBattleStruct->quickClawRandom[battler] = RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler));
+            gBattleStruct->quickDrawRandom[battler] = RandomPercentage(RNG_QUICK_DRAW, 30);
             turnOrderId++;
         }
     }
@@ -5240,22 +5250,22 @@ static void TryChangingTurnOrderEffects(u32 battler1, u32 battler2)
 
     // Battler 1
     // Quick Draw
-    if (ability1 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler1]) && RandomPercentage(RNG_QUICK_DRAW, 30))
+    if (ability1 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler1]) && gBattleStruct->quickDrawRandom[battler1])
         gProtectStructs[battler1].quickDraw = TRUE;
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler1].quickDraw
-     && ((holdEffectBattler1 == HOLD_EFFECT_QUICK_CLAW && RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler1)))
+     && ((holdEffectBattler1 == HOLD_EFFECT_QUICK_CLAW && gBattleStruct->quickClawRandom[battler1])
      || (holdEffectBattler1 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler1, 4, gBattleMons[battler1].item))
      || ActivateMovePriorityCharm(battler1)))
         gProtectStructs[battler1].usedCustapBerry = TRUE;
 
     // Battler 2
     // Quick Draw
-    if (ability2 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler2]) && RandomPercentage(RNG_QUICK_DRAW, 30))
+    if (ability2 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler2]) && gBattleStruct->quickDrawRandom[battler2])
         gProtectStructs[battler2].quickDraw = TRUE;
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler2].quickDraw
-     && ((holdEffectBattler2 == HOLD_EFFECT_QUICK_CLAW && RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler2)))
+     && ((holdEffectBattler2 == HOLD_EFFECT_QUICK_CLAW && gBattleStruct->quickClawRandom[battler2])
      || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))
      || ActivateMovePriorityCharm(battler2)))
         gProtectStructs[battler2].usedCustapBerry = TRUE;
