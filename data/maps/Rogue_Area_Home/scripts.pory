@@ -62,7 +62,7 @@ script Rogue_Area_Home_InteractWithWorkbench
         if(var(VAR_RESULT) == YES)
         {
             lock
-            msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+            msgbox(format("It's a workbench!\pIt has a bunch of complicated designs and tools on top."))
             release
         }
         else

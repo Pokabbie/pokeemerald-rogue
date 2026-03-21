@@ -54,7 +54,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I've seen you poking around uninvited here and there.\\pPullin cheap stunts on Team Magma…",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I've seen you poking around uninvited here and there.\\pPulling cheap stunts on Team Magma…",
                         "PRE_BATTLE_TAUNT": "I'll make you regret it!",
                         "POST_BATTLE_TAUNT": "What makes you so adept at handling Pokémon?",
                         "POST_BATTLE_CLOSER": "Humph…\\pThere is nothing you can do.\\pTeam Magma will not stop.\\pThis is where you and I part!"
@@ -114,7 +114,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
                         "POST_BATTLE_TAUNT": "Don't be so stubborn!",
-                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                        "POST_BATTLE_CLOSER": "You'll change your mind one day and then regret getting in our way!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -287,7 +287,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're suppose to be here.",
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're supposed to be here.",
                         "POST_BATTLE_TAUNT": "I guess I was wrong",
                         "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
                     }
@@ -339,8 +339,8 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Calm, it!",
-                        "POST_BATTLE_TAUNT": "Calm, it!",
+                        "PRE_BATTLE_TAUNT": "Calm it!",
+                        "POST_BATTLE_TAUNT": "Calm it!",
                         "POST_BATTLE_CLOSER": "Have you STILL not calmed down?"
                     }
                 ],

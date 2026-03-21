@@ -878,7 +878,7 @@ script Rogue_Shop_Curses
 
     rogue_dynamicpokemart(ROGUE_SHOP_CURSES)
 
-    msgbox(format("Good luck child, {PLAYER}!"), MSGBOX_DEFAULT)
+    msgbox(format("Good luck, child!"), MSGBOX_DEFAULT)rmat("Good luck child, {PLAYER}!"), MSGBOX_DEFAULT)
 
     release
 }
@@ -995,7 +995,7 @@ script Rogue_Tutor_TutorMoveLearn
     special(TeachMoveSetContextTutorMove)
     lock
     faceplayer
-    msgbox(format("HYAH!\p I'm a Move Tutor!\p I can teach Pokémon moves some radical moves!\pSo, what do you want me to teach?"), MSGBOX_DEFAULT)
+    msgbox(format("HYAH!\p I'm a Move Tutor!\p I can teach Pokémon some radical moves!\pSo, what do you want me to teach?"), MSGBOX_DEFAULT)
 
     setvar(VAR_0x8004, 0)
     special(TeachMoveFromContext)

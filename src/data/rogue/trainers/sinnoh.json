@@ -171,7 +171,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hello, I'm pleased to meet you.\\pI don't really know what it means to be strong or how I got to be a Leader.\\pBut I will do the best I can!",
                         "PRE_BATTLE_TAUNT": "I take battling very seriously.\\nWhenever you're ready!",
                         "POST_BATTLE_TAUNT": "I shall admit defeat… You are much too strong.",
-                        "POST_BATTLE_CLOSER": "OK you win!\\pThat was a tough loss. I learned a lot from it.\\pStay strong!"
+                        "POST_BATTLE_CLOSER": "OK, you win!\\pThat was a tough loss. I learned a lot from it.\\pStay strong!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
@@ -307,7 +307,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I {STR_VAR_1}, will accept your challenge.",
                         "PRE_BATTLE_TAUNT": "I expect you to go all out!",
                         "POST_BATTLE_TAUNT": "Hmm! My sturdy Pokémon, defeated!",
-                        "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of Pokémon.\\pHold your head up, as you go onward!"
+                        "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of Pokémon.\\pHold your head up as you go onward!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",

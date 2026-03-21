@@ -23,7 +23,7 @@ script Rogue_Encounter_Sign_TalkTypeHint
     lock
     faceplayer
 
-    msgbox(format("Whoa!\nWe don't get too many visitors our here.\pWe produce all of those Signs you find inside the Gyms.\pIn fact, I think we just shipped out a sign to the next Gym."))
+    msgbox(format("Whoa!\nWe don't get too many visitors out here.\pWe produce all of those Signs you find inside the Gyms.\pIn fact, I think we just shipped out a sign to the next Gym."))
 
     if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1) == TYPE_NONE)
     {

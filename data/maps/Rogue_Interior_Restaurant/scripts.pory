@@ -260,7 +260,7 @@ script Rogue_Interior_Restaurant_TalkShinyChef
         msgbox(format("Sigh…"))
         faceplayer
 
-        msgbox(format("I'm trying to bake a Pie using Shiny {POKEBLOCK} as the filling, but it's very difficult…\pEach Pokémon seems to enjoy it prepared in a different way.\pOh, I know!\pI bet I could do it, if I had some Pokédex data on the Pokémon!\pIf you catch a Pokémon in it's Shiny form, I'm certain I could bake a Shiny Pie for it!"))
+        msgbox(format("I'm trying to bake a Pie using Shiny {POKEBLOCK} as the filling, but it's very difficult…\pEach Pokémon seems to enjoy it prepared in a different way.\pOh, I know!\pI bet I could do it, if I had some Pokédex data on the Pokémon!\pIf you catch a Pokémon in its Shiny form, I'm certain I could bake a Shiny Pie for it!"))
         setflag(FLAG_ROGUE_MET_SHINY_CHEF)
     }
     else

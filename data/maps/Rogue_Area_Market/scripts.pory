@@ -48,7 +48,7 @@ script Rogue_Area_Market_ShopBank
 {
     lock
     faceplayer
-    message(format("Welcome to the Bank!\pI can provide you with Coin Cases which will convert into instantaneous Pokédollars whenever you embark on an Adventure.\pWould you like to buy and Coin Cases?"))
+    message(format("Welcome to the Bank!\pI can provide you with Coin Cases which will instantaneously convert into Pokédollars whenever you embark on an Adventure.\pWould you like to buy some Coin Cases?"))
     waitmessage
 
     pokemart(BankMart)

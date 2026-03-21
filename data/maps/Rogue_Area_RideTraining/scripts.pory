@@ -545,7 +545,7 @@ script Rogue_Area_RideTraining_FlyChargeInfinite
 {
     showmoneybox(0, 0)
 
-    msgbox(format("I could teach you how to fly and unlimited number of times before exhausting your {PKMN} for ¥500000?"), MSGBOX_YESNO)
+    msgbox(format("I could teach you how to fly an unlimited number of times before exhausting your {PKMN} for ¥500000?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -562,7 +562,7 @@ script Rogue_Area_RideTraining_FlyChargeInfinite
             msgbox(format("Here, let me teach you!"))
 
             hidemoneybox
-            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} gained an unlimited flight charges!"))
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} gained unlimited flight charges!"))
             waitmessage
             playfanfare(MUS_EVOLVED)
             waitfanfare

@@ -113,7 +113,7 @@ script Rogue_Area_DayCare_TalkEggBreeder
         }
         else
         {
-            msgbox(format("If you'd like I can attempt to acquire a Pokémon for you whilst, you're out Adventuring!\pWhich Pokémon would you like an egg for?"))
+            msgbox(format("If you'd like I can attempt to acquire a Pokémon for you whilst you're out Adventuring!\pWhich Pokémon would you like an egg for?"))
             setvar(VAR_RESULT, YES)
         }
 
