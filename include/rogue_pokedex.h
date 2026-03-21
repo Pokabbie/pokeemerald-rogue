@@ -4,6 +4,7 @@
 // New UI/UX for Rogue pokedex
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
+void Rogue_ShowPokedexFromBattle(void);
 void Rogue_ShowPokedexForPartySlot(u8 slot);
 void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught);
 void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught);

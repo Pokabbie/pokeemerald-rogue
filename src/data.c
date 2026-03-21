@@ -178,6 +178,15 @@ const struct SpriteFrameImage gTrainerBackPicTable_CommunityNacholord[] =
     gTrainerBackPic_CommunityNacholord + 0x1800, 0x0800,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_CommunityPokabbie[] =
+{
+    gTrainerBackPic_CommunityPokabbie, 0x0800,
+    gTrainerBackPic_CommunityPokabbie + 0x0800, 0x0800,
+    gTrainerBackPic_CommunityPokabbie + 0x1000, 0x0800,
+    gTrainerBackPic_CommunityPokabbie + 0x1800, 0x0800,
+    gTrainerBackPic_CommunityPokabbie + 0x2000, 0x0800,
+};
+
 static const union AnimCmd sAnim_GeneralFrame0[] =
 {
     ANIMCMD_FRAME(0, 0),

@@ -3354,6 +3354,7 @@ extern const u32 gTrainerPalette_PlayerJulianaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerZefaBackBase[];
 extern const u32 gTrainerPalette_PlayerNacholordBackBase[];
+extern const u32 gTrainerPalette_PlayerPokabbieBackBase[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
@@ -3474,6 +3475,7 @@ extern const u8 gTrainerBackPic_Dawn[];
 
 extern const u8 gTrainerBackPic_CommunityZefa[];
 extern const u8 gTrainerBackPic_CommunityNacholord[];
+extern const u8 gTrainerBackPic_CommunityPokabbie[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -5601,9 +5603,12 @@ extern const u16 gObjectEventPal_PlayerJulianaLayers[];
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];
 extern const u16 gObjectEventPal_PlayerNacholordBase[];
+extern const u16 gObjectEventPal_PlayerPokabbieBase[];
 
 extern const u16 gObjectEventPal_LaterMannerNormal[];
 extern const u16 gObjectEventPal_DolphinNormal[];
+
+extern const u16 gObjectEventPal_PokabbieNormal[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

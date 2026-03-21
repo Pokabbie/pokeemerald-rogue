@@ -40,10 +40,12 @@
 
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
+#include "rogue_battlehud.h"
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
+#include "rogue_pokedex.h"
 
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
@@ -63,6 +65,7 @@ static void PlayerHandleMoveAnimation(void);
 static void PlayerHandlePrintString(void);
 static void PlayerHandlePrintSelectionString(void);
 static void PlayerHandleChooseAction(void);
+static void PrintPlayerBattleMenu();
 static void PlayerHandleYesNoBox(void);
 static void PlayerHandleChooseMove(void);
 static void PlayerHandleChooseItem(void);
@@ -251,6 +254,28 @@ static void HandleInputChooseAction(void)
     else
         gPlayerDpadHoldFrames = 0;
 
+    if(RogueBH_IsStatViewActive())
+    {
+        RogueBH_HandleStatViewUpdate(gActiveBattler);
+
+        if(RogueBH_IsStatViewActive())
+        {
+            if (JOY_NEW(A_BUTTON))
+            {
+                // We're going to hook into this path and use it for the open dex screen
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+                PlayerBufferExecCompleted();
+            }
+        }
+        else
+        {
+            PrintPlayerBattleMenu();
+        }
+
+        return;
+    }
+
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
@@ -354,6 +379,12 @@ static void HandleInputChooseAction(void)
     else if (JOY_NEW(START_BUTTON))
     {
         SwapHpBarsWithHpText();
+    }
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        PlaySE(SE_WIN_OPEN);
+        RogueBH_ToggleStatView();
+        PrintPlayerBattleMenu();
     }
 }
 
@@ -1410,7 +1441,16 @@ static void OpenBagAndChooseItem(void)
         gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
         ReshowBattleScreenDummy();
         FreeAllWindowBuffers();
-        CB2_BagMenuFromBattle();
+
+        // Hook into this behaviour, if we are pressing A, open pokedex on mon
+        if(RogueBH_IsStatViewActive())
+        {
+            Rogue_ShowPokedexFromBattle();
+        }
+        else
+        {
+            CB2_BagMenuFromBattle();
+        }
     }
 }
 
@@ -2803,24 +2843,46 @@ static void HandleChooseActionAfterDma3(void)
 
 static void PlayerHandleChooseAction(void)
 {
-    s32 i;
+    RogueBH_CreateBattleOverlay();
 
     PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ACTION);
 
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
 
-    if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-        BattlePutTextOnWindow(gText_TrainerBattleMenu, B_WIN_ACTION_MENU);
+    PrintPlayerBattleMenu();
+}
+
+static void PrintPlayerBattleMenu()
+{
+    s32 i;
+
+    if(RogueBH_IsStatViewActive())
+    {
+        gBattle_BG0_Y = 0;
+
+        for (i = 0; i < 4; i++)
+            ActionSelectionDestroyCursorAt(i);
+
+        // We internally call this later
+        //RogueBH_PrintStatView();
+    }
     else
-        BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+    {
+        gBattle_BG0_Y = DISPLAY_HEIGHT;
 
-    for (i = 0; i < 4; i++)
-        ActionSelectionDestroyCursorAt(i);
+        if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            BattlePutTextOnWindow(gText_TrainerBattleMenu, B_WIN_ACTION_MENU);
+        else
+            BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+                
+        for (i = 0; i < 4; i++)
+            ActionSelectionDestroyCursorAt(i);
 
-    ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-    BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
+        ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
+    }
 }
 
 static void PlayerHandleYesNoBox(void)
