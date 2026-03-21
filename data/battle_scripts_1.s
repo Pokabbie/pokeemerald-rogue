@@ -1940,7 +1940,7 @@ BattleScript_SpectralThiefSteal::
 	setbyte sB_ANIM_ARG2, 0
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	spectralthiefprintstats
-	return
+	goto BattleScript_HitTargetHitAnimation
 
 BattleScript_EffectSpectralThief:
 	setmoveeffect MOVE_EFFECT_SPECTRAL_THIEF
@@ -3465,6 +3465,8 @@ BattleScript_HitFromCritCalc::
 BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
+	handleSpectralThief BattleScript_SpectralThiefSteal @Spectral thief is special among the special cases, so we'll use this solution for now
+BattleScript_HitTargetHitAnimation::
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate

@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
 
-testToRunPrefix="Stealth Rock "
+testToRunPrefix="Hyper Cutter doesn't prevent Spectral Thief from resetting positive Attack "
 
 echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
 make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"
