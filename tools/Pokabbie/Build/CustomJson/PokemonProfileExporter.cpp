@@ -719,7 +719,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		{
 			speciesProfile = { 0 };
 			{
-				auto findIt = profile.m_PerSpeciesProfile.find(profile.m_Species[0]);
+				auto findIt = profile.m_PerSpeciesProfile.find(profile.m_Species[i]);
 				if (findIt != profile.m_PerSpeciesProfile.end())
 				{
 					speciesProfile = findIt->second;
