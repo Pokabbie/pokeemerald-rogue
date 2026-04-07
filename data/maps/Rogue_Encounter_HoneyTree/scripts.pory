@@ -16,7 +16,19 @@ script Rogue_Encounter_HoneyTree_OnLoad
 script Rogue_Encounter_HoneyTree_ScatterPokeblock
 {
     lock
-    msgbox(format("It's a Honey Tree!\pThere are {POKEBLOCK} crumbs among with tracks from all sorts of Pokémon.\p(Typed {POKEBLOCK} can be scattered here to attract {PKMN})"), MSGBOX_DEFAULT)
+    msgbox(format("It's a Honey Tree!\pThere are {POKEBLOCK} crumbs among with tracks from all sorts of Pokémon.\pWould you like to scatter some {POKEBLOCK} here?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+        special(Bag_ChoosePokeblock)
+        waitstate
+
+        if(var(VAR_ITEM_ID) !=  ITEM_NONE)
+        {
+            call(Rogue_EventScript_UsePokeblockItem)
+        }
+    }
     release
 }
 

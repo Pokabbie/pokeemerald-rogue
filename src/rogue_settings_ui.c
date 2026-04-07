@@ -1034,8 +1034,10 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
 
+#ifdef ROGUE_FEATURE_REVISED_MODE
             // TODO - Move
             MENUITEM_MENU_SLIDER_REVISION_MODE,
+#endif
 
             MENUITEM_CANCEL
         }

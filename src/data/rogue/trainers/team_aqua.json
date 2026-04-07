@@ -145,7 +145,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "The world needs more water!\\pThere's no other way around that!",
                         "POST_BATTLE_TAUNT": "Don't be so stubborn!",
-                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                        "POST_BATTLE_CLOSER": "You'll change your mind one day and then regret getting in our way!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -169,7 +169,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're suppose to be here.",
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're supposed to be here.",
                         "POST_BATTLE_TAUNT": "I guess I was wrong",
                         "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
                     }
@@ -182,8 +182,8 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Calm, it!",
-                        "POST_BATTLE_TAUNT": "Calm, it!",
+                        "PRE_BATTLE_TAUNT": "Calm it!",
+                        "POST_BATTLE_TAUNT": "Calm it!",
                         "POST_BATTLE_CLOSER": "Have you STILL not calmed down?"
                     }
                 ],
@@ -353,7 +353,7 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "You look far too weak to be in Team Aqua.",
-                        "POST_BATTLE_TAUNT": "Oh, I guess I was wrong",
+                        "POST_BATTLE_TAUNT": "Oh, I guess I was wrong.",
                         "POST_BATTLE_CLOSER": "You can sign up at the front desk…\\pI'm not sure where that is."
                     }
                 ],

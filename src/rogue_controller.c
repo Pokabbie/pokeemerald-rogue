@@ -519,6 +519,7 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
 
 static bool32 GetRevisionModeActive_Slow(bool32 isRunActive)
 {
+#ifdef ROGUE_FEATURE_REVISED_MODE
     switch(Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE))
     {
         case REVISION_MODE_ALWAYS_ON:
@@ -527,18 +528,23 @@ static bool32 GetRevisionModeActive_Slow(bool32 isRunActive)
         case REVISION_MODE_IN_RUN:
             return isRunActive;
     }
+#endif
 
     return FALSE;
 }
 
 bool8 Rogue_GetRevisionModeActive(void)
 {
+#ifdef ROGUE_FEATURE_REVISED_MODE
     if(Rogue_IsRunActive())
         return gRogueRun.revisedModeEnabled; // cached result
     else
     {
         return GetRevisionModeActive_Slow(Rogue_IsRunActive());
     }
+#else
+    return FALSE;
+#endif
 }
 
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
@@ -3857,7 +3863,7 @@ u16 Rogue_PostRunRewardLvls()
 
 u16 Rogue_PostRunRewardMoney()
 {
-    u16 amount = 0;
+    u32 amount = 0;
 
     if(gRogueRun.enteredRoomCounter > 1)
     {
@@ -6570,6 +6576,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
             VarSet(VAR_TEMP_1, gRogueRun.victoryLapTotalWins);
 
+            if(IsTerastallizeEnabled())
+                FlagSet(FLAG_ROGUE_TERA_ORB_CHARGED);
+
             if(gRogueRun.victoryLapTotalWins == 5)
             {
                 if(!CheckBagHasItem(ITEM_BATTLE_ITEM_CURSE, 1))
@@ -7252,6 +7261,14 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
                 i = 0;
                 SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
             }
+        }
+    }
+
+    if(!rules->skipNature)
+    {
+        if (preset->nature)
+        {
+            SetNature(mon, preset->nature);
         }
     }
 

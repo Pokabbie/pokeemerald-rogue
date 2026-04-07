@@ -219,7 +219,7 @@ script Rogue_Encounter_CatchingContest_EndContest
 
             if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
             {
-                msgbox(format("I will be release it back into the park, in that case."))
+                msgbox(format("I will release it back into the park, in that case."))
             }
             else
             {
