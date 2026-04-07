@@ -96,16 +96,13 @@ static u8 const sMenuName_RevisionModeNever[] = _("{COLOR GREEN}{SHADOW LIGHT_GR
 static u8 const sMenuName_RevisionModeAlwaysOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Always On");
 static u8 const sMenuName_RevisionModeInRun[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Adventures Only");
 
-//static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
-//static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
-//static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
-//static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
+static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
+static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
+static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
+static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
 
-static u8 const sMenuName_GameMode_Standard[] = _("Standard");
-static u8 const sMenuName_GameMode_Rainbow[] = _("Rainbow");
-static u8 const sMenuName_GameMode_Official[] = _("Official");
-static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
-static u8 const sMenuName_GameMode_RainbowGauntlet[] = _("Rainbow Gauntlet");
+static u8 const sMenuName_GameMode_Standard[] = _("Standard Mode");
+static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet Mode");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
@@ -208,6 +205,31 @@ static u8 const* const sMenuNameDesc_BattleFormat[] =
     [BATTLE_FORMAT_MIXED] = sMenuNameDesc_BattleFormatMixed,
 };
 
+static u8 const sMenuNameDesc_TrainerOrderDefault[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Mighty Trainers appear randomly based on\n"
+    "their canon Trainer Class."
+);
+static u8 const sMenuNameDesc_TrainerOrderDoubles[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Mighty Trainers appear in any order but\n"
+    "will never repeat type specialties.\n"
+    "eg. E4 can be Gym Leaders and vice versa"
+);
+static u8 const sMenuNameDesc_TrainerOrderOfficial[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Mighty Trainers appear in the order they\n"
+    "appear in their official games.\n"
+    "(Disables Challenges)"
+);
+
+static u8 const* const sMenuNameDesc_TrainerOrder[] = 
+{
+    [TRAINER_ORDER_DEFAULT] = sMenuNameDesc_TrainerOrderDefault,
+    [TRAINER_ORDER_RAINBOW] = sMenuNameDesc_TrainerOrderDoubles,
+    [TRAINER_ORDER_OFFICIAL] = sMenuNameDesc_TrainerOrderOfficial,
+};
+
 const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "{PKMN} with high friendship may have special\n"
@@ -304,28 +326,11 @@ static u8 const sMenuNameDesc_GameMode_Standard[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Typical Adventure with no custom rules."
 );
-static u8 const sMenuNameDesc_GameMode_Rainbow[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in any order but\n"
-    "will never repeat type specialties.\n"
-    "eg. E4 can be Gym Leaders and vice versa"
-);
-static u8 const sMenuNameDesc_GameMode_Official[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in the order they\n"
-    "appear in their official games.\n"
-    "(Disables Challenges)"
-);
 static u8 const sMenuNameDesc_GameMode_Gauntlet[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Prepare your team and then fight Mighty\n"
     "Trainers back to back without a chance\n"
     "to catch any {PKMN}. (Disables Challenges)"
-);
-static u8 const sMenuNameDesc_GameMode_RainbowGauntlet[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Combined effects of both Rainbow and\n"
-    "Gauntlet modes."
 );
 
 
@@ -474,6 +479,7 @@ enum
     MENUITEM_MENU_SLIDER_LEGENDARY,
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
     MENUITEM_MENU_SLIDER_REVISION_MODE,
+    MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
     MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
     MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
@@ -569,6 +575,8 @@ static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection);
 static void GameMode_DrawChoices(u8 menuOffset, u8 selection);
 static u8 RevisionMode_ProcessInput(u8 menuOffset, u8 selection);
 static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection);
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection);
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -823,6 +831,14 @@ static const struct MenuEntry sOptionMenuItems[] =
         .drawChoices = RevisionMode_DrawChoices
     },
 
+    [MENUITEM_MENU_SLIDER_TRAINER_ORDER] = 
+    {
+        .itemName = sMenuName_TrainerOrder,
+        .MULTI_DESC(sMenuNameDesc_TrainerOrder),
+        .processInput = TrainerOrder_ProcessInput,
+        .drawChoices = TrainerOrder_DrawChoices
+    },
+
     [MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD] = 
     {
         .itemName = sMenuName_GameMode_Standard,
@@ -830,31 +846,10 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW] = 
-    {
-        .itemName = sMenuName_GameMode_Rainbow,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_Rainbow),
-        .processInput = GameMode_ProcessInput,
-        .drawChoices = GameMode_DrawChoices
-    },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL] = 
-    {
-        .itemName = sMenuName_GameMode_Official,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_Official),
-        .processInput = GameMode_ProcessInput,
-        .drawChoices = GameMode_DrawChoices
-    },
     [MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET] = 
     {
         .itemName = sMenuName_GameMode_Gauntlet,
         .SINGLE_DESC(sMenuNameDesc_GameMode_Gauntlet),
-        .processInput = GameMode_ProcessInput,
-        .drawChoices = GameMode_DrawChoices
-    },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET] = 
-    {
-        .itemName = sMenuName_GameMode_RainbowGauntlet,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_RainbowGauntlet),
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
@@ -1066,11 +1061,9 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
             MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
-            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
-            MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
             MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
-            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
             MENUITEM_CANCEL
         }
     },
@@ -1860,6 +1853,37 @@ static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
 }
 
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection)
+{
+    return ProcessInputRange(menuOffset, selection, TRAINER_ORDER_COUNT);
+}
+
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text = NULL;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+
+    switch (selection)
+    {
+    case TRAINER_ORDER_DEFAULT:
+        text = sMenuName_TrainerOrderDefault;
+        break;
+
+    case TRAINER_ORDER_RAINBOW:
+        text = sMenuName_TrainerOrderRainbow;
+        break;
+
+    case TRAINER_ORDER_OFFICIAL:
+        text = sMenuName_TrainerOrderOfficial;
+        break;
+    }
+
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
+}
+
 #ifdef ROGUE_DEBUG
 
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection)
@@ -2190,7 +2214,7 @@ static u8 GetMenuItemValue(u8 menuItem)
 
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER);
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL);
 
     case MENUITEM_MENU_SLIDER_ITEM:
         return Rogue_GetConfigRange(CONFIG_RANGE_ITEM);
@@ -2204,11 +2228,11 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_REVISION_MODE:
         return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE);
 
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER);
+
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
         return Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == (ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
 
 #ifdef ROGUE_DEBUG
@@ -2358,7 +2382,7 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 #endif
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_LVL, value);
         break;
 
     case MENUITEM_MENU_SLIDER_ITEM:
@@ -2377,11 +2401,12 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, value);
         break;
 
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_ORDER, value);
+        break;
+
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
         if(value != 0)
             Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
         else

@@ -246,8 +246,27 @@ struct RoguePartySnapshot
     u16 partySpeciesGfx[PARTY_SIZE];
 };
 
+struct GameModeRules
+{
+    u8 initialLevelOffset;
+    u8 levelOffsetInterval;
+    u8 enterPartySize;
+    u8 adventureGenerator;
+    u8 trainerOrder : 2;
+    u8 disableMainQuests : 1;
+    u8 disableChallengeQuests : 1;
+    u8 disablePerBadgeLvlCaps : 1;
+    u8 forceEndGameTrainers : 1;
+    u8 forceEndGameRouteItems : 1;
+    u8 forceRandomanAlwaysActive : 1;
+    u8 disableRivalEncounters : 1;
+    u8 disableRouteTrainers : 1;
+    u8 forceFullShopInventory : 1;
+};
+
 struct RogueRunData
 {
+    struct GameModeRules gameRules;
     struct RogueWildEncounters wildEncounters;
     struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
     struct RoguePokemonFacade labParty[LAB_MON_COUNT];

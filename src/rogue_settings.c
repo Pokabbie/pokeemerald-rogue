@@ -44,37 +44,11 @@ struct RogueDifficultyPreset
 static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] = 
 {
     [ROGUE_GAME_MODE_STANDARD] = {}, // we should never have anything here, every rule/flag should default to off in standard
-    [ROGUE_GAME_MODE_RAINBOW] = 
-    {
-        .trainerOrder = TRAINER_ORDER_RAINBOW,
-    },
-    [ROGUE_GAME_MODE_OFFICIAL] = 
-    {
-        .trainerOrder = TRAINER_ORDER_OFFICIAL,
-        .disableChallengeQuests = TRUE,
-    },
     [ROGUE_GAME_MODE_GAUNTLET] = 
     {
         .initialLevelOffset = 80,
         .levelOffsetInterval = 10,
         .enterPartySize = PARTY_SIZE,
-        .trainerOrder = TRAINER_ORDER_DEFAULT,
-        .disableChallengeQuests = TRUE,
-        .disablePerBadgeLvlCaps = TRUE,
-        .forceEndGameTrainers = TRUE,
-        .forceEndGameRouteItems = TRUE,
-        .forceRandomanAlwaysActive = TRUE,
-        .disableRivalEncounters = TRUE,
-        .disableRouteTrainers = TRUE,
-        .forceFullShopInventory = TRUE,
-        .adventureGenerator = ADV_GENERATOR_GAUNTLET,
-    },
-    [ROGUE_GAME_MODE_RAINBOW_GAUNTLET] = 
-    {
-        .initialLevelOffset = 80,
-        .levelOffsetInterval = 10,
-        .enterPartySize = PARTY_SIZE,
-        .trainerOrder = TRAINER_ORDER_RAINBOW,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
         .forceEndGameTrainers = TRUE,
@@ -106,7 +80,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         },
         .ranges = 
         {
-            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_EASY },
+            { .id=CONFIG_RANGE_TRAINER_LVL, .value=DIFFICULTY_LEVEL_EASY },
             { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_EASY },
             { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_EASY },
             { .id=CONFIG_RANGE_COUNT },
@@ -123,7 +97,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         },
         .ranges = 
         {
-            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_AVERAGE },
+            { .id=CONFIG_RANGE_TRAINER_LVL, .value=DIFFICULTY_LEVEL_AVERAGE },
             { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_AVERAGE },
             { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_AVERAGE },
             { .id=CONFIG_RANGE_COUNT },
@@ -142,7 +116,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         },
         .ranges = 
         {
-            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_HARD },
+            { .id=CONFIG_RANGE_TRAINER_LVL, .value=DIFFICULTY_LEVEL_HARD },
             { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_HARD },
             { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_HARD },
             { .id=CONFIG_RANGE_COUNT },
@@ -163,7 +137,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         },
         .ranges = 
         {
-            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_BRUTAL },
+            { .id=CONFIG_RANGE_TRAINER_LVL, .value=DIFFICULTY_LEVEL_BRUTAL },
             { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_BRUTAL },
             { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_BRUTAL },
             { .id=CONFIG_RANGE_COUNT },
@@ -208,7 +182,7 @@ static bool8 IsDifficultyRange(u16 elem)
 {
     switch (elem)
     {
-    case CONFIG_RANGE_TRAINER:
+    case CONFIG_RANGE_TRAINER_LVL:
     case CONFIG_RANGE_ITEM:
     case CONFIG_RANGE_LEGENDARY:
         return TRUE;
@@ -288,18 +262,25 @@ bool8 Rogue_CanEditConfig()
     return !Rogue_IsRunActive();
 }
 
-struct GameModeRules const* Rogue_GetModeRules()
+void Rogue_GenerateModeRules(struct GameModeRules* outRules)
 {
     u8 mode = Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM);
     AGB_ASSERT(mode < ROGUE_GAME_MODE_COUNT);
-    return &sGameModeRules[mode];
+
+    memcpy(outRules, &sGameModeRules[mode], sizeof(struct GameModeRules));
+    outRules->trainerOrder = Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER);
+
+    if(outRules->trainerOrder == TRAINER_ORDER_OFFICIAL)
+    {
+        outRules->disableChallengeQuests = TRUE;
+    }
 }
 
 bool8 Rogue_ShouldDisableMainQuests()
 {
     struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
 
-    if(Rogue_GetModeRules()->disableMainQuests)
+    if(gRogueRun.gameRules.disableMainQuests)
         return TRUE;
 
     if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
@@ -317,7 +298,7 @@ bool8 Rogue_ShouldDisableChallengeQuests()
 
     if(RogueQuest_HasUnlockedChallenges())
     {
-        if(Rogue_GetModeRules()->disableChallengeQuests)
+        if(gRogueRun.gameRules.disableChallengeQuests)
             return TRUE;
 
         if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
@@ -424,7 +405,7 @@ static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
     Rogue_SetConfigToggle(CONFIG_TOGGLE_DIVERSE_TRAINERS, FALSE);
 
     // Set these all to the lowest
-    Rogue_SetConfigRange(CONFIG_RANGE_TRAINER, DIFFICULTY_LEVEL_EASY);
+    Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_LVL, DIFFICULTY_LEVEL_EASY);
     Rogue_SetConfigRange(CONFIG_RANGE_ITEM, DIFFICULTY_LEVEL_EASY);
     Rogue_SetConfigRange(CONFIG_RANGE_LEGENDARY, DIFFICULTY_LEVEL_EASY);
 
@@ -433,6 +414,7 @@ static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
         Rogue_SetConfigToggle(CONFIG_TOGGLE_OVERWORLD_MONS, TRUE);
         Rogue_SetConfigToggle(CONFIG_TOGGLE_EXP_ALL, TRUE);
         Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, BATTLE_FORMAT_SINGLES);
+        Rogue_SetConfigToggle(CONFIG_RANGE_TRAINER_ORDER, TRAINER_ORDER_DEFAULT);
     }
 }
 
@@ -597,7 +579,7 @@ u8 Rogue_GetStartingMonCapacity()
     if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_DOUBLES || Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
         partySize = 2;
 
-    partySize = max(partySize, Rogue_GetModeRules()->enterPartySize);
+    partySize = max(partySize, gRogueRun.gameRules.enterPartySize);
 
     return partySize;
 }

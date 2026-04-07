@@ -913,7 +913,7 @@
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_TRAINER_ORDER", "TRAINER_ORDER_RAINBOW" ],
                         "fail": "FAIL"
                     },
                     {
@@ -946,7 +946,7 @@
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_TRAINER_ORDER", "TRAINER_ORDER_RAINBOW" ],
                         "fail": "FAIL"
                     },
                     {
@@ -985,7 +985,7 @@
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET" ],
                         "fail": "FAIL"
                     },
                     {
