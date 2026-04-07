@@ -1,0 +1,1173 @@
+{
+  "Species": [
+    "SPECIES_DIANCIE",
+    "SPECIES_DIANCIE_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DIAMOND_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 84
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGNET_RISE",
+    "MOVE_METEOR_BEAM",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TRICK_ROOM",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_EXPLOSION",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAL_BELL",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_STONE_PLATE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MAGNET_RISE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENDEAVOR",
+        "MOVE_DIAMOND_STORM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAL_BELL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MAGNET_RISE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ROCK_TOMB",
+        "MOVE_MAGNET_RISE",
+        "MOVE_DIAMOND_STORM"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MAGNET_RISE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ROCK_TOMB",
+        "MOVE_MAGNET_RISE",
+        "MOVE_DIAMOND_STORM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MAGNET_RISE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_PSYCHIC",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8RU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_PRESS",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_EARTH_POWER",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ENCORE",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_METEOR_BEAM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_QUIET",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROCK_POLISH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_BODY_PRESS",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_BODY_PRESS",
+        "MOVE_DIAMOND_STORM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIAMOND_STORM"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIAMOND_STORM",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_DIANCITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

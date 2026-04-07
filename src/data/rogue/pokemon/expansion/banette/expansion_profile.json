@@ -1,0 +1,388 @@
+{
+  "Species": [
+    "SPECIES_BANETTE",
+    "SPECIES_BANETTE_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DESTINY_BOND",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PHANTOM_FORCE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_DESTINY_BOND",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_BANETTITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    }
+  ]
+}

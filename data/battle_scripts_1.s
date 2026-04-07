@@ -283,11 +283,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHealPulse               @ EFFECT_HEAL_PULSE
 	.4byte BattleScript_EffectQuash                   @ EFFECT_QUASH
 	.4byte BattleScript_EffectIonDeluge               @ EFFECT_ION_DELUGE
-#if 0 @B_USE_FROSTBITE == TRUE
-	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FREEZE_DRY
-#else
-	.4byte BattleScript_EffectFreezeHit               @ EFFECT_FREEZE_DRY
-#endif
+	.4byte BattleScript_EffectFreezeDryHit            @ EFFECT_FREEZE_DRY
 	.4byte BattleScript_EffectTopsyTurvy              @ EFFECT_TOPSY_TURVY
 	.4byte BattleScript_EffectMistyTerrain            @ EFFECT_MISTY_TERRAIN
 	.4byte BattleScript_EffectGrassyTerrain           @ EFFECT_GRASSY_TERRAIN
@@ -2951,6 +2947,10 @@ BattleScript_EffectIonDeluge:
 	printstring STRINGID_IONDELUGEON
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectFreezeDryHit:
+	rogue_jumpifrevised BattleScript_EffectFrostbiteHit
+	goto BattleScript_EffectFreezeHit
 
 BattleScript_EffectQuash:
 	attackcanceler
@@ -9762,6 +9762,14 @@ BattleScript_KingsShieldEffect::
 
 BattleScript_BanefulBunkerEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_STATUS_ABILITY_EFFECT | HITMARKER_PASSIVE_DAMAGE
+	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+	seteffectsecondary
+	setmoveeffect 0
+	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	return
+
+BattleScript_ShelterEffect_Revised::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
 	seteffectsecondary
 	setmoveeffect 0

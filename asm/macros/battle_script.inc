@@ -1548,6 +1548,11 @@
 	.4byte \ptr
 	.endm
 
+	.macro rogue_jumpifrevised, ptr:req
+	callnative BS_Rogue_JumpIfRevised
+	.4byte \ptr
+	.endm
+
 	.macro trytrainerslidezmovemsg
 	callnative BS_TryTrainerSlideZMoveMsg
 	.endm

@@ -1,0 +1,130 @@
+{
+  "Species": [
+    "SPECIES_PALAFIN_HERO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLIP_TURN",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_JET_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_WAVE_CRASH",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULK_UP",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HARD_PRESS",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIQUIDATION",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

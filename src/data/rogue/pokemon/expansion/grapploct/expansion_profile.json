@@ -1,0 +1,138 @@
+{
+  "Species": [
+    "SPECIES_GRAPPLOCT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_OCTOLOCK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_TOPSY_TURVY",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRINE",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIQUIDATION",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PAYBACK",
+    "MOVE_POWER_UP_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVENGE",
+    "MOVE_REVERSAL",
+    "MOVE_ROUND",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_OCTOLOCK",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_BRUTAL_SWING"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

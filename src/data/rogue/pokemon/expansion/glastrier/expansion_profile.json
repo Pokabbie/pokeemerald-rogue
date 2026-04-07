@@ -1,0 +1,348 @@
+{
+  "Species": [
+    "SPECIES_GLASTRIER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNARL",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_AVALANCHE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_AVALANCHE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_AVALANCHE"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CHILLING_NEIGH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

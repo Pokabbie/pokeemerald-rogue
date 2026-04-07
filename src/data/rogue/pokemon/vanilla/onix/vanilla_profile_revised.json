@@ -1,0 +1,59 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 51
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWAGGER",
+        "MOVE_DIG",
+        "MOVE_DRAGON_BREATH",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ONIX": {
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

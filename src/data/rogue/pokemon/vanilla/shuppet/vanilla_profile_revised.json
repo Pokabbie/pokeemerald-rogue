@@ -1,0 +1,47 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 59
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_OMINOUS_WIND",
+        "MOVE_SPITE",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

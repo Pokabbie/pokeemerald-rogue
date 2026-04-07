@@ -1,0 +1,138 @@
+{
+  "Species": [
+    "SPECIES_PATRAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HYPER_FANG",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AFTER_YOU",
+    "MOVE_AQUA_TAIL",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BULLET_SEED",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_FORESIGHT",
+    "MOVE_FRUSTRATION",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_LASER_FOCUS",
+    "MOVE_LAST_RESORT",
+    "MOVE_LOW_KICK",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_REVENGE",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TEARFUL_LOOK",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HYPNOSIS",
+        "MOVE_RETURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

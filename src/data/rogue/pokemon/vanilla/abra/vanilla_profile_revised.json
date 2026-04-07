@@ -1,0 +1,31 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 1
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_TELEPORT",
+        "MOVE_PSYWAVE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

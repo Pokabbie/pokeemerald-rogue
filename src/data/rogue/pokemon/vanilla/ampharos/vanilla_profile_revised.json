@@ -1,0 +1,58 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAGON_BREATH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_COTTON_SPORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "Species": [
+    "SPECIES_HITMONLEE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BLAZE_KICK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MEGA_KICK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_AXE_KICK",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_PUNCH",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_JUMP_KICK",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_LUNGE",
+    "MOVE_MACH_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_UPROAR",
+    "MOVE_VACUUM_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_REVERSAL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_NORMAL_GEM",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BULK_UP"
+      ],
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

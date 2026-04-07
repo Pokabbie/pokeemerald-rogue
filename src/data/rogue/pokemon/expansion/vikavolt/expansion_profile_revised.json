@@ -1,0 +1,35 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VIKAVOLT": {
+      "BaseStats": {
+        "HP": 107,
+        "Attack": 80,
+        "Defense": 95,
+        "Speed": 93,
+        "SpAttack": 145,
+        "SpDefense": 80
+      }
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

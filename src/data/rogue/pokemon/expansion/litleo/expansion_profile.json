@@ -1,0 +1,158 @@
+{
+  "Species": [
+    "SPECIES_LITLEO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENTRAINMENT",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_DARK_PULSE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_RETURN",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

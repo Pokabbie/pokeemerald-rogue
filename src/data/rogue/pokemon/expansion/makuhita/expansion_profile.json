@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_MAKUHITA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_PUNCH",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WIDE_GUARD",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

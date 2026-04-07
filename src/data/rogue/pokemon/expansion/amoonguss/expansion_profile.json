@@ -1,0 +1,685 @@
+{
+  "Species": [
+    "SPECIES_AMOONGUSS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPORE",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPORE",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPORE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_FOUL_PLAY",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_CLEAR_SMOG",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POLLEN_PUFF",
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_POLLEN_PUFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COBA_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOUL_PLAY",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STUN_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_POLLEN_PUFF",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_POLLEN_PUFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SPORE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

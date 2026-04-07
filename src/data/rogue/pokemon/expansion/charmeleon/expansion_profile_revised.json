@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_CHARMELEON": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_DEFIANT",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_SPIDOPS": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 94,
+        "Defense": 92,
+        "Speed": 41,
+        "SpAttack": 52,
+        "SpDefense": 86
+      }
+    }
+  }
+}

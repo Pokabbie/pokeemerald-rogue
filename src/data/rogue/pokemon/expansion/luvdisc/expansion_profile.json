@@ -1,0 +1,135 @@
+{
+  "Species": [
+    "SPECIES_LUVDISC"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AQUA_JET",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENTRAINMENT",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPLASH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ATTRACT",
+        "MOVE_CHARM",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SWEET_KISS"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DESTINY_KNOT",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    }
+  ]
+}

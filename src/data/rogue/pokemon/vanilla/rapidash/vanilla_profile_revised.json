@@ -1,0 +1,84 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FIRE_PLEDGE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRILL_RUN",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FIRE_PLEDGE",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_WHEEL",
+        "MOVE_DRILL_RUN",
+        "MOVE_BOUNCE",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

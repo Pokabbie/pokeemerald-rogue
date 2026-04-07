@@ -1,0 +1,214 @@
+{
+  "Species": [
+    "SPECIES_SHELLDER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_RING",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIFE_DEW",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

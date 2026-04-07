@@ -1,0 +1,117 @@
+{
+  "Species": [
+    "SPECIES_SENTRET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LAST_RESORT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TIDY_UP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": []
+}

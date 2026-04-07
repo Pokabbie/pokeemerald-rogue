@@ -1,0 +1,19 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 76
+    }
+  ]
+}

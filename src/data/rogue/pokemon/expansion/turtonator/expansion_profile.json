@@ -1,0 +1,184 @@
+{
+  "Species": [
+    "SPECIES_TURTONATOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHELL_TRAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CURSE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAD_SMASH",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LASH_OUT",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_REVENGE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_UPROAR",
+    "MOVE_VENOSHOCK",
+    "MOVE_WIDE_GUARD",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

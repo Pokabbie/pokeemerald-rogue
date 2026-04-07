@@ -1,0 +1,147 @@
+{
+  "Species": [
+    "SPECIES_PURRLOIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_CHARM",
+    "MOVE_COPYCAT",
+    "MOVE_COVET",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAY_DAY",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

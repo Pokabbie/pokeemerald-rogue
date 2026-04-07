@@ -1,0 +1,76 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 37
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TOXIC",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MUK": {
+      "Abilities": [
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_POISON_POINT"
+      ]
+    }
+  }
+}

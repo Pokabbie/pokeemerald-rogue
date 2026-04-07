@@ -1,0 +1,548 @@
+{
+  "Species": [
+    "SPECIES_CAMERUPT",
+    "SPECIES_CAMERUPT_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_HEAD",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NATURE_POWER",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_LAVA_PLUME",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ERUPTION",
+        "MOVE_LAVA_PLUME",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_ANGER_POINT",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_EARTH_POWER",
+        "MOVE_ERUPTION",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_NATURE_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_NATURE_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CAMERUPTITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

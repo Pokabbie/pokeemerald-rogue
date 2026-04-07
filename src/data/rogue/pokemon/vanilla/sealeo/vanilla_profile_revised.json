@@ -1,0 +1,53 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 46
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

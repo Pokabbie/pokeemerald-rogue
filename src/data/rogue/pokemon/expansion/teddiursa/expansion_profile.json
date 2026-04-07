@@ -1,0 +1,167 @@
+{
+  "Species": [
+    "SPECIES_TEDDIURSA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AVALANCHE",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LOW_KICK",
+    "MOVE_METAL_CLAW",
+    "MOVE_METRONOME",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_UPROAR",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_CRUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

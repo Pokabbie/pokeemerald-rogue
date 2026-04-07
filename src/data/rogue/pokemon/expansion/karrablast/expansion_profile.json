@@ -1,0 +1,124 @@
+{
+  "Species": [
+    "SPECIES_KARRABLAST"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_COUNTER",
+    "MOVE_DRILL_RUN",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_MEGAHORN",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCREECH",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRILL_RUN",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MEGAHORN",
+        "MOVE_DRILL_RUN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RELIC_SONG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_FOCUS_BLAST",
+      "Level": 78
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 85
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WAKE_UP_SLAP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RELIC_SONG",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RETURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RELIC_SONG"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RELIC_SONG"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_CELEBRATE",
+        "MOVE_RELIC_SONG",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_LASER_FOCUS",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_LASER_FOCUS",
+        "MOVE_UPROAR",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_LASER_FOCUS",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RELIC_SONG",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RELIC_SONG"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RELIC_SONG",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TERA_BLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_RELIC_SONG",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ],
+  "PerSpecies": {
+    "SPECIES_MELOETTA_PIROUETTE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 77,
+        "Defense": 90,
+        "Speed": 128,
+        "SpAttack": 128,
+        "SpDefense": 77
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Species": [
+    "SPECIES_SCATTERBUG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 15
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_POISON_POWDER",
+    "MOVE_POUNCE",
+    "MOVE_RAGE_POWDER",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHIMCHAR": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

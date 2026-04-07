@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_KABUTO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_AURORA_BEAM",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIQUIDATION",
+    "MOVE_MEGA_DRAIN",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THIEF",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_AQUA_JET",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WATERFALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

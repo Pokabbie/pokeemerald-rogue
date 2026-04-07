@@ -1,0 +1,103 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SWALLOW",
+    "MOVE_HEAT_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_STEEL_WING"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWELLOW": {
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
+}

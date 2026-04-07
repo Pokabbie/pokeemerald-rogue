@@ -1,0 +1,133 @@
+{
+  "Species": [
+    "SPECIES_GRENINJA_BATTLE_BOND"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_SHURIKEN",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAT_BLOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CONFIDE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_CANNON",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_LOW_KICK",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": []
+}

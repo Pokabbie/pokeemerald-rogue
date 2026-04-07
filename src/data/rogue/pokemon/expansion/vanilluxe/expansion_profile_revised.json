@@ -1,0 +1,180 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VANILLUXE": {
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_FAIRY"
+      ],
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 79,
+        "Defense": 85,
+        "Speed": 95,
+        "SpAttack": 110,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MIRROR_SHOT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 67
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_GEM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_EXTRASENSORY"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICICLE_PLATE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_SHARD",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

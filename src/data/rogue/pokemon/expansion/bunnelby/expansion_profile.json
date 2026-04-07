@@ -1,0 +1,221 @@
+{
+  "Species": [
+    "SPECIES_BUNNELBY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_LASER_FOCUS",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BOUNCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GRASS_KNOT",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_MUD_SHOT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SPIKES",
+    "MOVE_STONE_EDGE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUICK_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_BLASTOISE": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_RAIN_DISH",
+        "ABILITY_SHELL_ARMOR"
+      ],
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 83,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 90,
+        "SpDefense": 105
+      }
+    },
+    "SPECIES_BLASTOISE_MEGA": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 103,
+        "Defense": 120,
+        "Speed": 78,
+        "SpAttack": 140,
+        "SpDefense": 115
+      }
+    },
+    "SPECIES_BLASTOISE_GIGANTAMAX": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_RAIN_DISH",
+        "ABILITY_SHELL_ARMOR"
+      ],
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 83,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 90,
+        "SpDefense": 105
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_SCALD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROAR",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6RU",
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_YAWN",
+        "MOVE_REFRESH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_RAIN_DISH",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_TOXIC",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_AURA_SPHERE",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_ROCK_TOMB",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_BLASTOISINITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOLLOW_ME",
+        "MOVE_FLIP_TURN",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_TERRAIN_PULSE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATER_SPOUT",
+        "MOVE_BLIZZARD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_ENDURE",
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_CANNON"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_CANNON",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_BLIZZARD",
+        "MOVE_YAWN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_FAKE_OUT",
+        "MOVE_FOLLOW_ME"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

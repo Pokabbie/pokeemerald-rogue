@@ -1,0 +1,494 @@
+{
+  "Species": [
+    "SPECIES_HAWLUCHA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLYING_PRESS",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DEFOG",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENTRAINMENT",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FEINT",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_HEAD",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_LUNGE",
+    "MOVE_MEAN_LOOK",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_GUARD",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SKY_ATTACK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SKY_ATTACK",
+        "MOVE_FEATHER_DANCE",
+        "MOVE_ROOST",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_SKY_ATTACK",
+        "MOVE_ACROBATICS",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ACROBATICS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_PROTECT",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SKY_ATTACK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SKY_ATTACK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SKY_ATTACK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THROAT_CHOP",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

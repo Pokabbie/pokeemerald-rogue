@@ -1,0 +1,250 @@
+{
+  "Species": [
+    "SPECIES_PAWMOT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DOUBLE_SHOCK",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MACH_PUNCH",
+    "MOVE_METAL_CLAW",
+    "MOVE_METRONOME",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NUZZLE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_PUNCHING_GLOVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_DOUBLE_SHOCK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PIGNITE": {
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_THICK_FAT",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEAT_CRASH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_EARTHQUAKE"
+  ]
+}

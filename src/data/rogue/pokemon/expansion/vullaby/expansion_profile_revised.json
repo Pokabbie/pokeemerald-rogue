@@ -1,0 +1,10 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_SUPERPOWER",
+    "MOVE_ZEN_HEADBUTT",
+    "MOVE_HURRICANE"
+  ]
+}

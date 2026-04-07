@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_KOMALA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 75,
+        "SpAttack": 75,
+        "SpDefense": 95
+      }
+    }
+  }
+}

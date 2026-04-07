@@ -1,0 +1,140 @@
+{
+  "Species": [
+    "SPECIES_POOCHYENA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASTONISH",
+    "MOVE_CHARM",
+    "MOVE_COVET",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_FANG",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POISON_FANG",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRAILBLAZE",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FACADE",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HOWL",
+        "MOVE_CRUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_RATTLED",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

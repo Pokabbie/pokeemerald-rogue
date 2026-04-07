@@ -1,0 +1,319 @@
+{
+  "Species": [
+    "SPECIES_GRUMPIG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_LUNGE",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECYCLE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WHIRLWIND",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RECYCLE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

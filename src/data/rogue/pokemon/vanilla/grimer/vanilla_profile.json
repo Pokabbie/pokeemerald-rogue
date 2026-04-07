@@ -1,0 +1,111 @@
+{
+  "Species": [
+    "SPECIES_GRIMER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IMPRISON",
+    "MOVE_LICK",
+    "MOVE_MEAN_LOOK",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_PUNCH",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_CURSE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    }
+  ]
+}

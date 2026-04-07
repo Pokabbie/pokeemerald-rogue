@@ -1,0 +1,245 @@
+{
+  "Species": [
+    "SPECIES_SNOVER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GROWTH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_ICE_SHARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_ICE_SHARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ICE_SHARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_ICE_SHARD",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICY_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

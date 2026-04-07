@@ -1,0 +1,44 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 78
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

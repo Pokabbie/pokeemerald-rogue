@@ -1,0 +1,234 @@
+{
+  "Species": [
+    "SPECIES_MONFERNO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COUNTER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

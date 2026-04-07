@@ -1,0 +1,889 @@
+{
+  "Species": [
+    "SPECIES_TOGEKISS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METRONOME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRI_ATTACK",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAL_BELL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAL_BELL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FOLLOW_ME",
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOLLOW_ME",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_AIR_SLASH",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FOLLOW_ME",
+        "MOVE_TAILWIND",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_AURA_SPHERE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_AURA_SPHERE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HEAL_BELL",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAL_BELL",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TRICK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FOLLOW_ME",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_AURA_SPHERE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TAILWIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT",
+        "MOVE_FOLLOW_ME"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TRICK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_CHARM",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_AURA_SPHERE",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_AURA_SPHERE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAL_BELL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAL_BELL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOLLOW_ME",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_ENCORE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_TRICK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

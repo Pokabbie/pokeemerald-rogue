@@ -1,0 +1,164 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LUMINEON": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_DAZZLING"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 39,
+        "Defense": 76,
+        "Speed": 105,
+        "SpAttack": 105,
+        "SpDefense": 90
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 69
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROOST",
+    "MOVE_SCALD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_SCALD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DAZZLING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "Species": [
+    "SPECIES_RAPIDASH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPNOSIS",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_OVERHEAT",
+        "MOVE_IRON_TAIL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_LOUDRED": {
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_SCRAPPY",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_NATURES_MADNESS",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 63
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_TAUNT",
+        "MOVE_U_TURN",
+        "MOVE_NATURES_MADNESS"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_ELECTROWEB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_U_TURN",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAUNT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARGE",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_THIEF",
+        "MOVE_TAUNT",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_TAUNT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ELECTRIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

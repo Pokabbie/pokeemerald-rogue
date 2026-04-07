@@ -1,0 +1,173 @@
+{
+  "Species": [
+    "SPECIES_THIEVUL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THIEF",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BEAT_UP",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAIL_SLAP",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_BURNING_JEALOUSY",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PSYCHIC",
+        "MOVE_BURNING_JEALOUSY"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_PARTING_SHOT",
+        "MOVE_BURNING_JEALOUSY"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_BURNING_JEALOUSY",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

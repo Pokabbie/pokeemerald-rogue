@@ -1,0 +1,156 @@
+{
+  "Species": [
+    "SPECIES_HOUNDOOM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_COUNTER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_CRUNCH",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

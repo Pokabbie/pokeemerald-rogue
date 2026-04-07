@@ -1,0 +1,325 @@
+{
+  "Species": [
+    "SPECIES_GLACEON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CELEBRATE",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FROST_BREATH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_CELEBRATE"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CELEBRATE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_PROTECT",
+        "MOVE_SNOWSCAPE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_TERA_BLAST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

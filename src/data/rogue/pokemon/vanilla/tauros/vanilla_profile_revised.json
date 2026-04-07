@@ -1,0 +1,40 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 53
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

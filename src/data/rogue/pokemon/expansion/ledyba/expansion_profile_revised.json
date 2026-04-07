@@ -1,0 +1,71 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LEDYBA": {
+      "Abilities": [
+        "ABILITY_RATTLED",
+        "ABILITY_IRON_FIST",
+        "ABILITY_TECHNICIAN"
+      ],
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 50,
+        "Defense": 30,
+        "Speed": 55,
+        "SpAttack": 20,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_METEOR_MASH",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SMART_STRIKE",
+    "MOVE_LUNGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_FLY",
+    "MOVE_MEGA_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_MACH_PUNCH",
+        "MOVE_METEOR_MASH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

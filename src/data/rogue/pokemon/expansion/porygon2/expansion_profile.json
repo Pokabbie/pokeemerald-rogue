@@ -1,0 +1,873 @@
+{
+  "Species": [
+    "SPECIES_PORYGON2"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONVERSION_2",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MAGIC_COAT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPEED_SWAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_TELEPORT",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM",
+        "MOVE_TELEPORT",
+        "MOVE_MAGIC_COAT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM",
+        "MOVE_TELEPORT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TELEPORT",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TELEPORT",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TELEPORT",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_DISCHARGE",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SPEED_SWAP"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_ICY_WIND",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRI_ATTACK",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_DISCHARGE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_DISCHARGE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TRI_ATTACK"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER",
+        "MOVE_TELEPORT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_DISCHARGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_TELEPORT",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

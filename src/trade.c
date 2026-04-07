@@ -51,6 +51,7 @@
 #include "constants/songs.h"
 #include "constants/union_room.h"
 
+#include "rogue_baked.h"
 #include "rogue_multiplayer.h"
 
 // IDs for RunTradeMenuCallback
@@ -2519,8 +2520,8 @@ int GetUnionRoomTradeMessageId(struct RfuGameCompatibilityData player, struct Rf
     else
     {
         // Player's Pokémon must be of the type the partner requested
-        if (gSpeciesInfo[playerSpecies2].types[0] != requestedType
-         && gSpeciesInfo[playerSpecies2].types[1] != requestedType)
+        if (GetTypeBySpecies(playerSpecies2, 0, 0) != requestedType 
+         && GetTypeBySpecies(playerSpecies2, 1, 0) != requestedType)
             return UR_TRADE_MSG_NOT_MON_PARTNER_WANTS;
     }
 

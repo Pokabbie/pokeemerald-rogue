@@ -1,0 +1,159 @@
+{
+  "Species": [
+    "SPECIES_PANSAGE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_GRASS_KNOT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_BULLET_SEED",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GASTRO_ACID",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASS_WHISTLE",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NATURE_POWER",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKY_SHIELD",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TICKLE",
+    "MOVE_TORMENT",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LOW_SWEEP",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LOW_SWEEP",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

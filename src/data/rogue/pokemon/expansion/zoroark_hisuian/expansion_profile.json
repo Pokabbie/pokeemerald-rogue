@@ -1,0 +1,339 @@
+{
+  "Species": [
+    "SPECIES_ZOROARK_HISUIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BITTER_MALICE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HAPPY_HOUR",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRICK",
+    "MOVE_U_TURN",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYPER_VOICE",
+        "MOVE_BITTER_MALICE"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYPER_VOICE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYPER_VOICE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_BITTER_MALICE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HAPPY_HOUR"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HAPPY_HOUR"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_BITTER_MALICE"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "Species": [
+    "SPECIES_SYLVEON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WISH",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HEAL_BELL",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_WISH",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_REST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_SNORE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHESTO_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_PIXIE_PLATE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_PIXIE_PLATE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYPER_VOICE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ECHOED_VOICE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_FAKE_TEARS",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_WISH",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYSHOCK",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_SKILL_SWAP"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_PIXIE_PLATE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PROTECT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_PIXIE_PLATE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_ECHOED_VOICE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_TEARS",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_TEARS",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1",
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_WISH",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_CALM_MIND",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FAKE_TEARS",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_DRAINING_KISS",
+        "MOVE_CHARM",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_HYPER_VOICE",
+        "MOVE_CALM_MIND",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_PIXILATE",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    }
+  ]
+}

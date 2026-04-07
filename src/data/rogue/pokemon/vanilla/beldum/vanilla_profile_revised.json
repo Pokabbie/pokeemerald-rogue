@@ -1,0 +1,20 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 1
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BELDUM": {
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

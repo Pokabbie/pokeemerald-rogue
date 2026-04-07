@@ -1,0 +1,259 @@
+{
+  "Species": [
+    "SPECIES_ROSELIA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_COTTON_SPORE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIFE_DEW",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAZOR_LEAF",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_POWDER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_UPROAR",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_POISON_POINT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_POISON_POINT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SPIKES",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

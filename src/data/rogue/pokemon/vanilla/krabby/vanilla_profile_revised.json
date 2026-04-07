@@ -1,0 +1,80 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "25",
+      "Species": "SPECIES_KINGLER"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 30
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HARDEN",
+        "MOVE_WHIRLPOOL"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_AQUA_JET",
+        "MOVE_CUT",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

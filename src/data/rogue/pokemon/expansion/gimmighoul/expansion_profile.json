@@ -1,0 +1,35 @@
+{
+  "Species": [
+    "SPECIES_GIMMIGHOUL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CONFUSE_RAY",
+    "MOVE_ENDURE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF"
+  ],
+  "CompetitiveSets": []
+}

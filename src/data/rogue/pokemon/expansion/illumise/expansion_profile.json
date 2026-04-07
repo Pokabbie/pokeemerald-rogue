@@ -1,0 +1,187 @@
+{
+  "Species": [
+    "SPECIES_ILLUMISE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GROWTH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_U_TURN",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_ENCORE",
+        "MOVE_ROOST",
+        "MOVE_INFESTATION"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    }
+  ]
+}

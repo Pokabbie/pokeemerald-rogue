@@ -1,0 +1,192 @@
+{
+  "Species": [
+    "SPECIES_EEVEE",
+    "SPECIES_EEVEE_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAIL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TICKLE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WISH",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_LAST_RESORT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAST_RESORT",
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_ANTICIPATION",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAST_RESORT",
+        "MOVE_BATON_PASS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_GENTLE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAST_RESORT",
+        "MOVE_BATON_PASS",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_LAST_RESORT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ANTICIPATION",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_LAST_RESORT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_ANTICIPATION",
+      "Item": "ITEM_EEVIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

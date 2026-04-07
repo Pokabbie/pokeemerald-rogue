@@ -1,0 +1,158 @@
+{
+  "Species": [
+    "SPECIES_TOEDSCRUEL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT_TYPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BULLET_SEED",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MYCELIUM_MIGHT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_MYCELIUM_MIGHT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

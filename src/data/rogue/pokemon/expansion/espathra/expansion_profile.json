@@ -1,0 +1,229 @@
+{
+  "Species": [
+    "SPECIES_ESPATHRA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LUMINA_CRASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BATON_PASS",
+        "MOVE_PROTECT",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BATON_PASS",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

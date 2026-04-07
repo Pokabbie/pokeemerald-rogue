@@ -1,0 +1,1309 @@
+{
+  "Species": [
+    "SPECIES_ZAPDOS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_BATON_PASS",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAILWIND",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAILWIND",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_CHARGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_SOUND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_DISCHARGE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_DISCHARGE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TAILWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MISTY_SEED",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DISCHARGE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_HURRICANE",
+        "MOVE_WEATHER_BALL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_HURRICANE",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_EERIE_IMPULSE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EERIE_IMPULSE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_ROOST",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_CHARGE_BEAM"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISCHARGE",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DISCHARGE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DISCHARGE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EERIE_IMPULSE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CLEAR_AMULET",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDER",
+        "MOVE_CHARGE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST",
+        "MOVE_EERIE_IMPULSE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CLEAR_AMULET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISCHARGE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

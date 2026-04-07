@@ -1,0 +1,340 @@
+{
+  "Species": [
+    "SPECIES_CRADILY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HYPER_BEAM",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SHOT",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_BIG_ROOT",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_BLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

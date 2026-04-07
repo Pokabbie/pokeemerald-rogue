@@ -1,0 +1,173 @@
+{
+  "Species": [
+    "SPECIES_PANSEAR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_BELCH",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GASTRO_ACID",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TICKLE",
+    "MOVE_TORMENT",
+    "MOVE_UPROAR",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

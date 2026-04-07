@@ -1,0 +1,200 @@
+{
+  "Species": [
+    "SPECIES_PINECO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_BULLDOZE",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRILL_RUN",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_POWER_TRICK",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

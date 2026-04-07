@@ -1,0 +1,58 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ELDEGOSS": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 50,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 90,
+        "SpDefense": 120
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EJECT_PACK",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

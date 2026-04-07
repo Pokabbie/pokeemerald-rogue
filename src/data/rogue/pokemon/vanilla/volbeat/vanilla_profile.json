@@ -1,0 +1,163 @@
+{
+  "Species": [
+    "SPECIES_VOLBEAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 37
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SILVER_WIND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TRICK",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_TAIL_GLOW",
+        "MOVE_SUBSTITUTE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_BRICK_BREAK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_ILLUMINATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "Species": [
+    "SPECIES_HERACROSS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BIDE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLAIL",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HARDEN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_BRICK_BREAK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_BRICK_BREAK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_BRICK_BREAK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGAHORN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_REVERSAL",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MEGAHORN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

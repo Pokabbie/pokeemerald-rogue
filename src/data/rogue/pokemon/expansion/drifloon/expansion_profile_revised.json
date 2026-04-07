@@ -1,0 +1,107 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DRIFLOON": {
+      "Abilities": [
+        "ABILITY_WIND_RIDER",
+        "ABILITY_UNBURDEN",
+        "ABILITY_FLARE_BOOST"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "Species": [
+    "SPECIES_PONYTA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_CHARM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HORN_DRILL",
+    "MOVE_HYPNOSIS",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_MORNING_SUN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_OVERHEAT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_THRASH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SUNNY_DAY",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_WILD_CHARGE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

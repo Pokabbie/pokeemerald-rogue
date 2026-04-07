@@ -1,0 +1,406 @@
+{
+  "Species": [
+    "SPECIES_TOXTRICITY",
+    "SPECIES_TOXTRICITY_AMPED_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_OVERDRIVE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SHIFT_GEAR",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_METAL_SOUND",
+    "MOVE_METRONOME",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNARL",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_UPROAR",
+    "MOVE_VENOSHOCK",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_BOOMBURST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERDRIVE",
+        "MOVE_BOOMBURST",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SHIFT_GEAR"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_BOOMBURST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_OVERDRIVE",
+        "MOVE_ENCORE",
+        "MOVE_SHIFT_GEAR"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERDRIVE",
+        "MOVE_BOOMBURST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_SNARL",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_BOOMBURST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

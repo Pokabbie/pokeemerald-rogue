@@ -1,0 +1,288 @@
+{
+  "Species": [
+    "SPECIES_DRUDDIGON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GLARE",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LASH_OUT",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_OUTRAGE",
+    "MOVE_PAYBACK",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVENGE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_ROSELI_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GLARE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_GLARE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_TAIL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_TAIL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GLARE",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

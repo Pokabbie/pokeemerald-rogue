@@ -1,0 +1,177 @@
+{
+  "Species": [
+    "SPECIES_DITTO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TRANSFORM",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6OU",
+        "GEN6RU",
+        "GEN6NU",
+        "GEN6PU",
+        "GEN6ZU",
+        "GEN6MONOTYPE",
+        "GEN7UBERS",
+        "GEN7OU",
+        "GEN7RU",
+        "GEN7PU",
+        "GEN7ZU",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7MONOTYPE",
+        "GEN8UBERS",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEX",
+        "GEN8ANYTHINGGOES",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEX",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN7OU",
+        "GEN7RU",
+        "GEN7PU",
+        "GEN7ZU",
+        "GEN7ANYTHINGGOES",
+        "GEN7MONOTYPE",
+        "GEN8UBERS",
+        "GEN8OU",
+        "GEN8RU",
+        "GEN8PU",
+        "GEN8ZU",
+        "GEN8ANYTHINGGOES",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9UBERS",
+        "GEN9OU",
+        "GEN9NU",
+        "GEN9PU",
+        "GEN9NATIONALDEX",
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG",
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_RED_CARD",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8UU",
+        "GEN8PU",
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_IMPOSTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_QUIET",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU",
+        "GEN9RU"
+      ]
+    }
+  ]
+}

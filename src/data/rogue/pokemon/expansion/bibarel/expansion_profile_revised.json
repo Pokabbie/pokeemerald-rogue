@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BIBAREL": {
+      "BaseStats": {
+        "HP": 94,
+        "Attack": 100,
+        "Defense": 65,
+        "Speed": 71,
+        "SpAttack": 55,
+        "SpDefense": 65
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

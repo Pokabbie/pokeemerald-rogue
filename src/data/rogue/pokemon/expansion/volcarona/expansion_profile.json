@@ -1,0 +1,1126 @@
+{
+  "Species": [
+    "SPECIES_VOLCARONA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIERY_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_AMNESIA",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_MORNING_SUN",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIERY_DANCE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHARTI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT",
+        "MOVE_OVERHEAT",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_RED_CARD",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_RAGE_POWDER",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7BATTLESPOTDOUBLES",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_OVERHEAT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIERY_DANCE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_RAGE_POWDER",
+        "MOVE_STRUGGLE_BUG",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HURRICANE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIERY_DANCE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHILAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_OVERHEAT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_PASSHO_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

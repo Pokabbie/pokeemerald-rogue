@@ -1,0 +1,233 @@
+{
+  "Species": [
+    "SPECIES_MASQUERAIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STICKY_WEB",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_STICKY_WEB",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_QUIVER_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "Species": [
+    "SPECIES_CHIMECHO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_HEAL_BELL",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_COSMIC_POWER",
+    "MOVE_CURSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_DISABLE",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECOVER",
+    "MOVE_RECYCLE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WISH",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HEAL_BELL",
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_RECOVER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_TAUNT",
+        "MOVE_PSYSHOCK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_DEFOG",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_STORED_POWER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

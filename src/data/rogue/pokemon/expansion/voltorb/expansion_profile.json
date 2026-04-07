@@ -1,0 +1,184 @@
+{
+  "Species": [
+    "SPECIES_VOLTORB"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_EERIE_IMPULSE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECYCLE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_THUNDER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EXPLOSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

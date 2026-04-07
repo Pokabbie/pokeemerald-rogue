@@ -1,0 +1,146 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_JYNX": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 40,
+        "Defense": 35,
+        "Speed": 95,
+        "SpAttack": 125,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOVELY_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LOVELY_KISS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_HEART_STAMP",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WAKE_UP_SLAP",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_PSYCHO_BOOST",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_GEM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHO_BOOST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOVELY_KISS",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHO_BOOST"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

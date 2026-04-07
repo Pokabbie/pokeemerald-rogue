@@ -1,0 +1,171 @@
+{
+  "Species": [
+    "SPECIES_PSYDUCK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SIMPLE_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

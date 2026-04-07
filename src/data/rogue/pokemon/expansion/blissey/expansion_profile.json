@@ -1,0 +1,731 @@
+{
+  "Species": [
+    "SPECIES_BLISSEY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SOFT_BOILED",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AROMATHERAPY",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFIDE",
+    "MOVE_COUNTER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METRONOME",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRI_ATTACK",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_SHED_SHELL",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_HEAL_BELL",
+        "MOVE_CONFIDE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_SHED_SHELL",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SOFT_BOILED",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_SHED_SHELL",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_CONFIDE",
+        "MOVE_AROMATHERAPY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_UTILITY_UMBRELLA",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AROMATHERAPY",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_TELEPORT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TELEPORT",
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_UTILITY_UMBRELLA",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_UPROAR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_ICE_BEAM",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AROMATHERAPY",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_UTILITY_UMBRELLA",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TELEPORT",
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SOFT_BOILED"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_CALM_MIND",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_CALM_MIND",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TRICK",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TELEPORT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TELEPORT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

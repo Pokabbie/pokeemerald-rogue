@@ -1,0 +1,91 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CAMOUFLAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 65
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_BODY_SLAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_COLOR_CHANGE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYPER_VOICE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_COLOR_CHANGE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

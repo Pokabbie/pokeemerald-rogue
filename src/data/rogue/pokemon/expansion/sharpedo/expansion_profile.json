@@ -1,0 +1,435 @@
+{
+  "Species": [
+    "SPECIES_SHARPEDO",
+    "SPECIES_SHARPEDO_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRINE",
+    "MOVE_BULLDOZE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DIVE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_PAYBACK",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_UPROAR",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_PROTECT",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_ICE_FANG",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_LIQUIDATION",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_LIQUIDATION",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_SHARPEDONITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    }
+  ]
+}

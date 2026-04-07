@@ -1,0 +1,104 @@
+{
+  "Species": [
+    "SPECIES_WYNAUT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_CHARM",
+    "MOVE_ENCORE",
+    "MOVE_SAFEGUARD",
+    "MOVE_TICKLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_SAFEGUARD"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENCORE",
+        "MOVE_TICKLE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIRROR_COAT",
+        "MOVE_COUNTER",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

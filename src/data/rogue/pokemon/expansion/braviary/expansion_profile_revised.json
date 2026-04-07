@@ -1,0 +1,28 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_QUASH",
+    "MOVE_STEEL_WING"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

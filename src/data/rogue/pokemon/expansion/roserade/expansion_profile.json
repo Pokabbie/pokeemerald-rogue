@@ -1,0 +1,359 @@
+{
+  "Species": [
+    "SPECIES_ROSERADE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_POWDER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_UPROAR",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_SPIKES",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EXTRASENSORY",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SPIKES",
+        "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SPIKES",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SPIKES",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_LUDICOLO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 90,
+        "SpDefense": 100
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_REGIROCK": {
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_STURDY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 67
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_ROCK_WRECKER",
+      "Level": 80
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

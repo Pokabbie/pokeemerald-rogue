@@ -1,0 +1,127 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LUNATONE": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 55,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 115,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NIGHT_DAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_EMBARGO",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_HEAL_BLOCK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MAGIC_ROOM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LUNAR_DANCE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_MOONLIGHT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_MOONLIGHT",
+        "MOVE_LUNAR_DANCE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

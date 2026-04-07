@@ -1,0 +1,87 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_VANILLITE": {
+      "BaseStats": {
+        "HP": 36,
+        "Attack": 44,
+        "Defense": 50,
+        "Speed": 50,
+        "SpAttack": 65,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MIRROR_SHOT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 53
+    }
+  ]
+}

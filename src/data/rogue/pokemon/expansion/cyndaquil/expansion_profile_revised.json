@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CYNDAQUIL": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_ADAPTABILITY"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE"
+  ]
+}

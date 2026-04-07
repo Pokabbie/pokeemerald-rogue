@@ -1,0 +1,21 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SKITTY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 60,
+        "SpAttack": 40,
+        "SpDefense": 40
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_HONE_CLAWS",
+    "MOVE_CUT"
+  ]
+}

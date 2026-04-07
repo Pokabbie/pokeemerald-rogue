@@ -1,0 +1,19 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DRIZZILE": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_SNIPER"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

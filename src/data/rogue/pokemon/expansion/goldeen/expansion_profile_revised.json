@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_GOLDEEN": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 77,
+        "Defense": 60,
+        "Speed": 73,
+        "SpAttack": 25,
+        "SpDefense": 50
+      }
+    }
+  }
+}

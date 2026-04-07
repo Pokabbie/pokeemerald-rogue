@@ -1,0 +1,271 @@
+{
+  "Species": [
+    "SPECIES_LUXRAY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 80
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_ICE_FANG",
+        "MOVE_SUPERPOWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FACADE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_FACADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_ICE_FANG",
+        "MOVE_CRUNCH",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_FACADE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILD_CHARGE",
+        "MOVE_TERA_BLAST",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_FACADE",
+        "MOVE_TRAILBLAZE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "Species": [
+    "SPECIES_KRABBY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRINE",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_HAMMER_ARM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAZOR_SHELL",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_WHIRLPOOL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRABHAMMER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_CRABHAMMER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

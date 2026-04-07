@@ -1,0 +1,17 @@
+{
+  "Species": [
+    "SPECIES_COSMOG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": []
+}

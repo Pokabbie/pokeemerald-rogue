@@ -1,0 +1,162 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LANTURN": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 58,
+        "Defense": 58,
+        "Speed": 67,
+        "SpAttack": 91,
+        "SpDefense": 86
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EERIE_IMPULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPOTLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_ION_DELUGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 62
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "Species": [
+    "SPECIES_RATTATA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HYPER_FANG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 34
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BITE",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFIDE",
+    "MOVE_COUNTER",
+    "MOVE_COVET",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FLAME_WHEEL",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_SWIPES",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_LAST_RESORT",
+    "MOVE_ME_FIRST",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_REVENGE",
+    "MOVE_REVERSAL",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FLAME_WHEEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_FLAME_WHEEL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

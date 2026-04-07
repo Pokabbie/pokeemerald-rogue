@@ -1,0 +1,150 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MINIOR": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_ORANGE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_YELLOW": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_GREEN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_BLUE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_INDIGO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_VIOLET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    },
+    "SPECIES_MINIOR_CORE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_ORANGE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_YELLOW": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_GREEN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_BLUE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_INDIGO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_MINIOR_CORE_VIOLET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 100,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_AIR_SLASH"
+  ]
+}

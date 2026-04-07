@@ -1,0 +1,87 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "40",
+      "Species": "SPECIES_GLALIE"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 35
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_SHARD",
+        "MOVE_BITE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_SHARD",
+        "MOVE_BITE",
+        "MOVE_HEADBUTT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

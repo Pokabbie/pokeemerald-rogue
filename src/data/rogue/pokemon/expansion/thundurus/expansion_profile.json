@@ -1,0 +1,675 @@
+{
+  "Species": [
+    "SPECIES_THUNDURUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_WILDBOLT_STORM",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DEFOG",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWAGGER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DISCHARGE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_RAZOR_FANG",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_BULK_UP",
+        "MOVE_WILD_CHARGE",
+        "MOVE_FLY"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_FLY"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLY",
+        "MOVE_WILD_CHARGE",
+        "MOVE_BULK_UP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLY",
+        "MOVE_TAUNT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_NASTY_PLOT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERCELL_SLAM",
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

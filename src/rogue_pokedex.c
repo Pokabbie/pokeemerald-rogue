@@ -1430,6 +1430,7 @@ static u16 GetMaxMoveScrollOffset()
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
     u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
     
     // Custom moves
     if(customMonId)
@@ -1440,7 +1441,7 @@ static u16 GetMaxMoveScrollOffset()
     // Level up
     for (i = 0; TRUE; i++)
     {
-        if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
+        if (pokemonProfile->levelUpMoves[i].move == MOVE_NONE)
             break;
         ++count;
     }
@@ -1448,7 +1449,7 @@ static u16 GetMaxMoveScrollOffset()
     // Tutor/TM moves
     for (i = 0; TRUE; i++)
     {
-        if (gRoguePokemonProfiles[species].tutorMoves[i] == MOVE_NONE)
+        if (pokemonProfile->tutorMoves[i] == MOVE_NONE)
             break;
         ++count;
     }
@@ -1464,6 +1465,7 @@ static void DisplayMonMovesText()
     const u8 ySpacing = 16;
     u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u16 species = sPokedexMenu->viewBaseSpecies;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     AddTitleText(sTitle_Moves);
 
@@ -1497,19 +1499,19 @@ static void DisplayMonMovesText()
     {
         for (i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; i++)
         {
-            if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
+            if (pokemonProfile->levelUpMoves[i].move == MOVE_NONE)
                 break;
 
-            if(gRoguePokemonProfiles[species].levelUpMoves[i].level == 0)
+            if(pokemonProfile->levelUpMoves[i].level == 0)
             {
                 // Is evo move
-                StringCopy(gStringVar1, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
+                StringCopy(gStringVar1, gMoveNames[pokemonProfile->levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesEvo);
             }
             else
             { 
-                ConvertUIntToDecimalStringN(gStringVar1, gRoguePokemonProfiles[species].levelUpMoves[i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                StringCopy(gStringVar2, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
+                ConvertUIntToDecimalStringN(gStringVar1, pokemonProfile->levelUpMoves[i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
+                StringCopy(gStringVar2, gMoveNames[pokemonProfile->levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesLevel);
             }
             
@@ -1529,7 +1531,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -1556,7 +1558,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -1583,7 +1585,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -3620,6 +3622,7 @@ static void MonEvos_OpenMoveQuery()
     u8 i;
     u16 moveId, itemId;
     u16 species = sPokedexMenu->viewBaseSpecies;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     // To help speed up viewing we're going to precalculate whether a special move is TM, TR or Tutor
     // (This isn't really a proper query, we're just reusing the bit field checking mostly)
@@ -3632,7 +3635,7 @@ static void MonEvos_OpenMoveQuery()
         u16 tmIndex = i;
         u16 trIndex = i + MOVE_QUERY_OFFSET;
 
-        moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+        moveId = pokemonProfile->tutorMoves[i];
 
         if(moveId == MOVE_NONE)
             break;
@@ -4463,40 +4466,36 @@ u8 const* RoguePokedex_GetSpeciesName(u16 species)
 
 u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex)
 {
-#ifdef ROGUE_EXPANSION
-    AGB_ASSERT(typeIndex < ARRAY_COUNT(gSpeciesInfo[species].types));
-    return gSpeciesInfo[species].types[typeIndex];
-#define gRogueSpeciesInfo  gSpeciesInfo
-#else
-    AGB_ASSERT(typeIndex < 2);
-
-    if(typeIndex == 0)
-        return gBaseStats[species].type1;
-    else
-        return gBaseStats[species].type2;
-#endif
+    return GetTypeBySpecies(species, typeIndex, 0);
 }
 
 u16 RoguePokedex_GetSpeciesBST(u16 species)
 {
-    u16 statTotal =
-        gRogueSpeciesInfo[species].baseHP +
-        gRogueSpeciesInfo[species].baseAttack +
-        gRogueSpeciesInfo[species].baseDefense +
-        gRogueSpeciesInfo[species].baseSpAttack +
-        gRogueSpeciesInfo[species].baseSpDefense +
-        gRogueSpeciesInfo[species].baseSpeed;
+    u16 statTotal;
+    struct RoguePokemonBaseStats speciesStats;
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    statTotal =
+        speciesStats.baseHP +
+        speciesStats.baseAttack +
+        speciesStats.baseDefense +
+        speciesStats.baseSpAttack +
+        speciesStats.baseSpDefense +
+        speciesStats.baseSpeed;
     return statTotal;
 }
 
 static void GatherSpeciesStatsArray(u16 species, u8* stats)
 {
-    stats[STAT_HP] = gRogueSpeciesInfo[species].baseHP;
-    stats[STAT_ATK] = gRogueSpeciesInfo[species].baseAttack;
-    stats[STAT_DEF] = gRogueSpeciesInfo[species].baseDefense;
-    stats[STAT_SPATK] = gRogueSpeciesInfo[species].baseSpAttack;
-    stats[STAT_SPDEF] = gRogueSpeciesInfo[species].baseSpDefense;
-    stats[STAT_SPEED] = gRogueSpeciesInfo[species].baseSpeed;
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    stats[STAT_HP] = speciesStats.baseHP;
+    stats[STAT_ATK] = speciesStats.baseAttack;
+    stats[STAT_DEF] = speciesStats.baseDefense;
+    stats[STAT_SPATK] = speciesStats.baseSpAttack;
+    stats[STAT_SPDEF] = speciesStats.baseSpDefense;
+    stats[STAT_SPEED] = speciesStats.baseSpeed;
 }
 
 static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)

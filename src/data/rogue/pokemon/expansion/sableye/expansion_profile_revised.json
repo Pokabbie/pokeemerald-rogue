@@ -1,0 +1,29 @@
+{
+  "PerSpecies": {
+    "SPECIES_SABLEYE": {
+      "Abilities": [
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_STALL",
+        "ABILITY_PRANKSTER"
+      ],
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 80,
+        "Defense": 80,
+        "Speed": 50,
+        "SpAttack": 70,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_SABLEYE_MEGA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 80,
+        "Defense": 130,
+        "Speed": 20,
+        "SpAttack": 90,
+        "SpDefense": 120
+      }
+    }
+  }
+}

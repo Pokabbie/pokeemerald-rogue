@@ -1,0 +1,295 @@
+{
+  "Species": [
+    "SPECIES_PECHARUNT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MALIGNANT_CHAIN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_CURSE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_ENDURE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_MEAN_LOOK",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_HEX",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_HEX",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_RECOVER",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_CURSE"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_CLEAR_AMULET",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_RECOVER",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_RECOVER",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_SPITE"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_DEFENSE_CURL",
+        "MOVE_RECOVER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_MALIGNANT_CHAIN"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ACID_SPRAY"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PARTING_SHOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MALIGNANT_CHAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_POISON_PUPPETEER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

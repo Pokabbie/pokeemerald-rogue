@@ -1,0 +1,142 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ENCORE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_PSYCHIC",
+        "MOVE_ENCORE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FAKE_OUT",
+        "MOVE_EXTRASENSORY",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_WATER_PULSE",
+        "MOVE_FAKE_OUT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SLASH",
+        "MOVE_PSYWAVE",
+        "MOVE_MIMIC"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_EXTRASENSORY",
+        "MOVE_RAIN_DANCE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_EXTRASENSORY",
+        "MOVE_FAKE_OUT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

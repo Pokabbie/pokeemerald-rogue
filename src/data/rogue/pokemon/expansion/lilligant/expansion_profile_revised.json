@@ -1,0 +1,121 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LILLIGANT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 95,
+        "SpAttack": 115,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FIERY_DANCE",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SLEEP_POWDER",
+    "MOVE_RECOVER",
+    "MOVE_STUN_SPORE",
+    "MOVE_AROMATHERAPY",
+    "MOVE_POISON_POWDER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

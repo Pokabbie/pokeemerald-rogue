@@ -1,0 +1,218 @@
+{
+  "Species": [
+    "SPECIES_KLEAVOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STONE_AXE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_X_SCISSOR",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_AXE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

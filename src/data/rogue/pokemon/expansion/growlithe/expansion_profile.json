@@ -1,0 +1,204 @@
+{
+  "Species": [
+    "SPECIES_GROWLITHE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COVET",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MORNING_SUN",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAGING_FURY",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THRASH",
+    "MOVE_THUNDER_FANG",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORNING_SUN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,917 @@
+{
+  "Species": [
+    "SPECIES_LATIAS",
+    "SPECIES_LATIAS_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MIST_BALL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_REFLECT_TYPE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DEFOG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROOST",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_DRACO_METEOR",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_REFLECT_TYPE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_HEALING_WISH",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_HEALING_WISH",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_ROOST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_REFLECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_SURF",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_TAILWIND",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICY_WIND",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_CHARM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT_TYPE",
+        "MOVE_ROOST",
+        "MOVE_CHARM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_RECOVER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_RECOVER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEALING_WISH",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_SURF",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_ROOST",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1",
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_DRACO_METEOR",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_STORED_POWER",
+        "MOVE_REFRESH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DEFOG",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_STORED_POWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_DEFOG",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_STORED_POWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_PSYCHIC",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AGILITY",
+        "MOVE_STORED_POWER",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HABAN_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_HEALING_WISH",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_STORED_POWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_AURA_SPHERE",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_AURA_SPHERE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STORED_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIASITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BEAUTIFLY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 70,
+        "Defense": 60,
+        "Speed": 75,
+        "SpAttack": 125,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_IRON_DEFENSE",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_FLY",
+    "MOVE_OMINOUS_WIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

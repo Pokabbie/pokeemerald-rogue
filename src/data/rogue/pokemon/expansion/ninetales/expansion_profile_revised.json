@@ -1,0 +1,431 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_NINETALES": {
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FAIRY"
+      ],
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 67,
+        "Defense": 75,
+        "Speed": 109,
+        "SpAttack": 81,
+        "SpDefense": 100
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PSYCHIC",
+    "MOVE_MOONBLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HEAT_WAVE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_ENCORE",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

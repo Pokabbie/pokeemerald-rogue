@@ -1,0 +1,183 @@
+{
+  "Species": [
+    "SPECIES_TRUBBISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_AUTOTOMIZE",
+    "MOVE_CORROSIVE_GAS",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROLLOUT",
+    "MOVE_ROUND",
+    "MOVE_SAND_ATTACK",
+    "MOVE_SEED_BOMB",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_THIEF",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RECYCLE",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_RECYCLE",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_EXPLOSION",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

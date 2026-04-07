@@ -1,0 +1,25 @@
+{
+  "Species": [
+    "SPECIES_SPEWPA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

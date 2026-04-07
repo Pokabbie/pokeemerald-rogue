@@ -1,0 +1,205 @@
+{
+  "Species": [
+    "SPECIES_LARVESTA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ABSORB",
+    "MOVE_ACROBATICS",
+    "MOVE_AMNESIA",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HARDEN",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_MORNING_SUN",
+    "MOVE_OVERHEAT",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_U_TURN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_MORNING_SUN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

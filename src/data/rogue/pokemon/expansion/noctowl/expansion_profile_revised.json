@@ -1,0 +1,44 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_NOCTOWL": {
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 40,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 106,
+        "SpDefense": 116
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FLASH",
+    "MOVE_MYSTICAL_FIRE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

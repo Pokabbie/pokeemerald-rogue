@@ -1,0 +1,161 @@
+{
+  "Species": [
+    "SPECIES_WISHIWASHI",
+    "SPECIES_WISHIWASHI_SCHOOL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BEAT_UP",
+    "MOVE_BRINE",
+    "MOVE_BULLDOZE",
+    "MOVE_DIVE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIQUIDATION",
+    "MOVE_MIST",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SCHOOLING",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SCHOOLING",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_U_TURN",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SCHOOLING",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_SCALD",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SCHOOLING",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_MOONBLAST",
+    "MOVE_DAZZLING_GLEAM"
+  ]
+}

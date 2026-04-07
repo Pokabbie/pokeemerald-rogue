@@ -1,0 +1,98 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_AZELF": {
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 76
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ADRENALINE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

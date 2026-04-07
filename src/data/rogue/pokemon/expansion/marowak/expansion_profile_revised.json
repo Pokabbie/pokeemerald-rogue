@@ -1,0 +1,28 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_HEAD_SMASH",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BONEMERANG",
+        "MOVE_HEAD_SMASH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_THICK_CLUB",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

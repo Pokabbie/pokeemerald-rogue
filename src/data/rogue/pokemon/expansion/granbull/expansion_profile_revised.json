@@ -1,0 +1,150 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GRANBULL": {
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FIGHTING"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 120,
+        "Defense": 75,
+        "Speed": 45,
+        "SpAttack": 60,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

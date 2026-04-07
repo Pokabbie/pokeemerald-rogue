@@ -1,0 +1,34 @@
+{
+  "Species": [
+    "SPECIES_BURMY",
+    "SPECIES_BURMY_SANDY_CLOAK",
+    "SPECIES_BURMY_TRASH_CLOAK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 20
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_ELECTROWEB",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_SNORE",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

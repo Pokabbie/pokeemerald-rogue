@@ -1,0 +1,45 @@
+{
+  "Species": [
+    "SPECIES_DREEPY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE"
+  ],
+  "CompetitiveSets": []
+}

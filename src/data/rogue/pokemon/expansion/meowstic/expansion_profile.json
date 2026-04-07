@@ -1,0 +1,319 @@
+{
+  "Species": [
+    "SPECIES_MEOWSTIC"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SAFEGUARD",
+        "MOVE_SWAGGER",
+        "MOVE_FAKE_OUT",
+        "MOVE_GRAVITY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_REFLECT",
+        "MOVE_ALLY_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_HELPING_HAND",
+        "MOVE_SAFEGUARD",
+        "MOVE_SWAGGER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_YAWN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    }
+  ]
+}

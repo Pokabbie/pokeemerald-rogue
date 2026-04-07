@@ -1,0 +1,71 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PYROAR": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 103,
+        "Defense": 72,
+        "Speed": 106,
+        "SpAttack": 109,
+        "SpDefense": 66
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 51
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_IRON_TAIL",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_RETURN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_RETURN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

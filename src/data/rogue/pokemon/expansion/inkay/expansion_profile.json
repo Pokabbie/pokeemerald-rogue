@@ -1,0 +1,201 @@
+{
+  "Species": [
+    "SPECIES_INKAY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_TOPSY_TURVY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACUPRESSURE",
+    "MOVE_AERIAL_ACE",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DISABLE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "Species": [
+    "SPECIES_SWOOBAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AIR_SLASH",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SPEED_SWAP",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_STORED_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STORED_POWER",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_STORED_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_STORED_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

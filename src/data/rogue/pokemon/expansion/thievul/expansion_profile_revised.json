@@ -1,0 +1,53 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_THIEVUL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 38,
+        "Defense": 58,
+        "Speed": 90,
+        "SpAttack": 97,
+        "SpDefense": 112
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THIEF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MYSTICAL_FIRE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

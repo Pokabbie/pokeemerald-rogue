@@ -1,0 +1,306 @@
+{
+  "Species": [
+    "SPECIES_NINJASK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MIND_READER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BUZZ",
+    "MOVE_DIG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_AERIAL_ACE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_AERIAL_ACE",
+        "MOVE_X_SCISSOR",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_X_SCISSOR",
+        "MOVE_U_TURN",
+        "MOVE_AERIAL_ACE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEECH_LIFE",
+        "MOVE_DIG",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_U_TURN",
+        "MOVE_AERIAL_ACE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEECH_LIFE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_DIG"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_U_TURN",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    }
+  ]
+}

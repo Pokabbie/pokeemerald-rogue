@@ -1,0 +1,388 @@
+{
+  "Species": [
+    "SPECIES_NIDOQUEEN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_AVALANCHE",
+    "MOVE_BEAT_UP",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MUD_SHOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PAY_DAY",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_UPROAR",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_TOXIC"
+      ],
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_SUPER_FANG",
+        "MOVE_ICE_BEAM"
+      ],
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_POISON_JAB"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_WOBBUFFET_ROGUEIAN",
+"Species": [ "SPECIES_WOBBUFFET_ROGUEIAN" ],
   "Moves": [
     {
       "originMethod": "LevelUp",

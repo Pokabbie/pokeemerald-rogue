@@ -1,0 +1,284 @@
+{
+  "Species": [
+    "SPECIES_JYNX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_LOVELY_KISS",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_UPROAR",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_LOVELY_KISS",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_LOVELY_KISS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_LOVELY_KISS",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOVELY_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_LOVELY_KISS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_LOVELY_KISS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOVELY_KISS",
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC",
+        "MOVE_LOVELY_KISS"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

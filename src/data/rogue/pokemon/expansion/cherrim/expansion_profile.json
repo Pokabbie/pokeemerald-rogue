@@ -1,0 +1,145 @@
+{
+  "Species": [
+    "SPECIES_CHERRIM",
+    "SPECIES_CHERRIM_SUNSHINE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLOWER_SHIELD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BULLET_SEED",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PETAL_BLIZZARD",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SOLAR_BLADE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_FLOWER_GIFT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

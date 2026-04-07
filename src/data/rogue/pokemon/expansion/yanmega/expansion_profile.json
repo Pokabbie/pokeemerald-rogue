@@ -1,0 +1,268 @@
+{
+  "Species": [
+    "SPECIES_YANMEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LUNGE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WHIRLWIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_AIR_SLASH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PROTECT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_TERA_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_TERA_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    }
+  ]
+}

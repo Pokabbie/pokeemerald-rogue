@@ -1,0 +1,147 @@
+{
+  "Species": [
+    "SPECIES_LAMPENT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HAZE",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_OVERHEAT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    }
+  ]
+}

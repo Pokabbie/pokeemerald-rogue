@@ -1,0 +1,124 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SKIPLOOM": {
+      "Abilities": [
+        "ABILITY_WIND_RIDER",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_AERILATE"
+      ],
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 80,
+        "SpAttack": 65,
+        "SpDefense": 65
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 64
+    }
+  ]
+}

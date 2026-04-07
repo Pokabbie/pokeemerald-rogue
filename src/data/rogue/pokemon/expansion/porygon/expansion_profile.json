@@ -1,0 +1,233 @@
+{
+  "Species": [
+    "SPECIES_PORYGON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONVERSION_2",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_PSYCHIC",
+        "MOVE_AGILITY",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_TELEPORT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

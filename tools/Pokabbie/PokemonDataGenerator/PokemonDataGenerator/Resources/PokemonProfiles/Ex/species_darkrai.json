@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_DARKRAI",
+  "Species": [ "SPECIES_DARKRAI" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_DISABLE",

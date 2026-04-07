@@ -1,0 +1,465 @@
+{
+  "Species": [
+    "SPECIES_ENTEI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_HEAD",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SACRED_FIRE",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SACRED_FIRE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_BULLDOZE",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SNARL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_STONE_EDGE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SACRED_FIRE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_BULLDOZE",
+        "MOVE_ERUPTION",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SACRED_FIRE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SACRED_FIRE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    }
+  ]
+}

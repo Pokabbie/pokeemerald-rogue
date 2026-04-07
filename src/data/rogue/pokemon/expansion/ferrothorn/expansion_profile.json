@@ -1,0 +1,980 @@
+{
+  "Species": [
+    "SPECIES_FERROTHORN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_PRESS",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CONFIDE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_SEED",
+    "MOVE_PAYBACK",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVENGE",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_GYRO_BALL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_GYRO_BALL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_GYRO_BALL",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_GYRO_BALL",
+        "MOVE_BULLET_SEED",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_BULLET_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2018",
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_PROTECT",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_CONFIDE",
+        "MOVE_CURSE",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_CURSE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_GYRO_BALL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_GYRO_BALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS",
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GYRO_BALL",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ENDURE",
+        "MOVE_PAYBACK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_LEECH_SEED",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_POWER_WHIP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_POWER_WHIP",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LEECH_SEED",
+        "MOVE_BODY_PRESS",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_GYRO_BALL",
+        "MOVE_SPIKES",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_BARBS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

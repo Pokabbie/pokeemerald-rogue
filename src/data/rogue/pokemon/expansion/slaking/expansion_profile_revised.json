@@ -1,0 +1,104 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SLAKING": {
+      "Abilities": [
+        "ABILITY_TRUANT",
+        "ABILITY_NONE",
+        "ABILITY_SLOW_START"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PUNISHMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_PUNISHMENT",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 62
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "Species": [
+    "SPECIES_ELEKID"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BARRIER",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KARATE_CHOP",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEDITATE",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROLLING_KICK",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THIEF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "Species": [
+    "SPECIES_WATTREL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIT_UP",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWALLOW",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_DISCHARGE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HURRICANE",
+        "MOVE_DISCHARGE",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "Species": [
+    "SPECIES_SPRIGATITO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_COPYCAT",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": []
+}

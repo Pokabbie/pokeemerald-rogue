@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_WATCHOG": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 95,
+        "Defense": 75,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 75
+      }
+    }
+  }
+}

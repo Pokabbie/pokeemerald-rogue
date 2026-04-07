@@ -1,0 +1,137 @@
+{
+  "Species": [
+    "SPECIES_YAMASK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CRAFTY_SHIELD",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GRUDGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_CALM_MIND",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_HEX",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_MEMENTO",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAYBACK",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MUMMY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_MUMMY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

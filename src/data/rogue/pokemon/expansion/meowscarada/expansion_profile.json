@@ -1,0 +1,325 @@
+{
+  "Species": [
+    "SPECIES_MEOWSCARADA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLOWER_TRICK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FRENZY_PLANT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLOWER_TRICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLOWER_TRICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DARK_PULSE",
+        "MOVE_POWER_GEM",
+        "MOVE_CHILLING_WATER"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLOWER_TRICK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

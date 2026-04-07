@@ -1,0 +1,304 @@
+{
+  "Species": [
+    "SPECIES_SIGILYPH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRAVITY",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_ATTRACT",
+    "MOVE_CALM_MIND",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYCHO_SHIFT",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPEED_SWAP",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHO_SHIFT",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER",
+        "MOVE_PSYCHO_SHIFT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_COSMIC_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH",
+        "MOVE_HEAT_WAVE",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    }
+  ]
+}

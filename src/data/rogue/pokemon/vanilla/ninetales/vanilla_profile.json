@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_NINETALES"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_GRUDGE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_GRUDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_WATER",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

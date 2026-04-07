@@ -1,0 +1,256 @@
+{
+  "Species": [
+    "SPECIES_CLAYDOL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BODY_PRESS",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEX",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PSYCHIC",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PSYCHIC",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

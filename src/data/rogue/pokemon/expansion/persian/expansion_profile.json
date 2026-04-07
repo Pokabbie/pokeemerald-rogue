@@ -1,0 +1,242 @@
+{
+  "Species": [
+    "SPECIES_PERSIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAY_DAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AMNESIA",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COVET",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_METAL_CLAW",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_AERIAL_ACE",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_WATER_PULSE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_U_TURN",
+        "MOVE_COVET",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_NORMAL_GEM",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

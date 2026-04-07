@@ -1,0 +1,86 @@
+{
+  "Species": [
+    "SPECIES_SOBBLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_JET",
+    "MOVE_AQUA_RING",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FELL_STINGER",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_SHARD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_MIST",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

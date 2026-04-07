@@ -1,0 +1,178 @@
+{
+  "Species": [
+    "SPECIES_ORBEETLE",
+    "SPECIES_ORBEETLE_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_PAYBACK",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYSHOCK",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STICKY_WEB",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_STICKY_WEB",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_BUG_BUZZ",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    }
+  ]
+}

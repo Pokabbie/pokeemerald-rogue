@@ -1,0 +1,1000 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_WHIMSICOTT": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 67,
+        "Defense": 85,
+        "Speed": 116,
+        "SpAttack": 87,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_GRASS_WHISTLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_STUN_SPORE",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SWITCHEROO",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND",
+        "MOVE_LEECH_SEED",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_LEECH_SEED",
+        "MOVE_MOONBLAST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND",
+        "MOVE_MOONBLAST",
+        "MOVE_SAFEGUARD"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_OCCA_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_YACHE_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_LEECH_SEED",
+        "MOVE_STUN_SPORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_LEECH_SEED",
+        "MOVE_DEFOG",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_TAUNT",
+        "MOVE_ENCORE",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_NATURE_POWER",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT",
+        "MOVE_FAKE_TEARS"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_OCCA_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_MOONBLAST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_SUNNY_DAY",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_U_TURN",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_TAUNT",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_MEMENTO",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_COTTON_GUARD",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MEMENTO",
+        "MOVE_LEECH_SEED",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_OCCA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_KEBIA_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASS_WHISTLE",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_PIXIE_PLATE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_DEFOG",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_COVERT_CLOAK",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BEAT_UP",
+        "MOVE_TAILWIND",
+        "MOVE_ENCORE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_OCCA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_KEBIA_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_TAUNT",
+        "MOVE_ENCORE",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_STUN_SPORE",
+        "MOVE_MOONBLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_ENCORE",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TAILWIND",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

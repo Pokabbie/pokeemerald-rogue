@@ -1,0 +1,47 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FROST_BREATH",
+    "MOVE_TOXIC",
+    "MOVE_RETURN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_FRUSTRATION"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SNIPE_SHOT",
+        "MOVE_AIR_CUTTER",
+        "MOVE_FROST_BREATH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

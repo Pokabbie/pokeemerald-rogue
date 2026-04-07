@@ -1,0 +1,107 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_EMBARGO",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 71
+    }
+  ]
+}

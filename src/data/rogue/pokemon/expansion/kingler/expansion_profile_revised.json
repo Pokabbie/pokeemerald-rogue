@@ -1,0 +1,121 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_ICE_HAMMER",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WATERFALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_HAMMER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

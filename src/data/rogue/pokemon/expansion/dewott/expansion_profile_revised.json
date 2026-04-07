@@ -1,0 +1,108 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_DEWOTT": {
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SUPER_LUCK"
+      ],
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 83,
+        "Defense": 60,
+        "Speed": 60,
+        "SpAttack": 75,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    }
+  ]
+}

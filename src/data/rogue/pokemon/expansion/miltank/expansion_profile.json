@@ -1,0 +1,251 @@
+{
+  "Species": [
+    "SPECIES_MILTANK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HEAL_BELL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MILK_DRINK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BELCH",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_BODY_SLAM",
+        "MOVE_HEAL_BELL",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_MILK_DRINK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_MILK_DRINK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_BODY_SLAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MILK_DRINK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

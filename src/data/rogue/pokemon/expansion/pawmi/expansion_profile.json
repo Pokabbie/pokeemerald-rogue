@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_PAWMI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FLING",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MACH_PUNCH",
+    "MOVE_METAL_CLAW",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWEET_KISS",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": []
+}

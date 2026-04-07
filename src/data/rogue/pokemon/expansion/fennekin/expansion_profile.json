@@ -1,0 +1,157 @@
+{
+  "Species": [
+    "SPECIES_FENNEKIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_COPYCAT",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPNOSIS",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MAGICIAN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

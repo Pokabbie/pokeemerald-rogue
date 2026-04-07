@@ -1,0 +1,205 @@
+{
+  "Species": [
+    "SPECIES_UNFEZANT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPNOSIS",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_HYPNOSIS",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_FACADE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_NIGHT_SLASH",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

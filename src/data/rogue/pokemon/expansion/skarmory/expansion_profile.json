@@ -1,0 +1,716 @@
+{
+  "Species": [
+    "SPECIES_SKARMORY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_PRESS",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DEFOG",
+    "MOVE_DRILL_RUN",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_WHIRLWIND",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND",
+        "MOVE_DRILL_PECK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SHED_SHELL",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRILL_PECK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SPIKES",
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BODY_PRESS",
+        "MOVE_DEFOG",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_RED_CARD",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_TAUNT",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_WHIRLWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROOST",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_ROOST",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BODY_PRESS",
+        "MOVE_DEFOG",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SPIKES",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

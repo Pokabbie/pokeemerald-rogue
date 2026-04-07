@@ -1,0 +1,137 @@
+{
+  "Species": [
+    "SPECIES_MAREEP",
+    "SPECIES_PIKIN_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AFTER_YOU",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLATTER",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

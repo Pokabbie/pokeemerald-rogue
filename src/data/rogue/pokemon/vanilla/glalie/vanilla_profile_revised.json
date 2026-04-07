@@ -1,0 +1,118 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_SLIDE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICY_WIND",
+        "MOVE_CRUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SCARY_FACE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAIL",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GLALIE": {
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "12",
+      "Species": "SPECIES_PIDGEOTTO"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_RAZOR_WIND",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 33
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_RAZOR_WIND",
+        "MOVE_REST",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_FOCUS_BAND",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

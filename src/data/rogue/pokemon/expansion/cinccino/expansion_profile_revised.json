@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_CINCCINO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 115,
+        "SpAttack": 65,
+        "SpDefense": 60
+      }
+    }
+  }
+}

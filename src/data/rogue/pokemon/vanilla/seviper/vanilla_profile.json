@@ -1,0 +1,168 @@
+{
+  "Species": [
+    "SPECIES_SEVIPER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SPIT_UP",
+    "MOVE_STOCKPILE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWALLOW",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CRUNCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_PSYCHIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

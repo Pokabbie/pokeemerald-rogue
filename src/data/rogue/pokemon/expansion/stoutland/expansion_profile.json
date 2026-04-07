@@ -1,0 +1,244 @@
+{
+  "Species": [
+    "SPECIES_STOUTLAND"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_FANG",
+    "MOVE_IRON_HEAD",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_RETURN",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH",
+        "MOVE_RETURN",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_FACADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_FACADE",
+        "MOVE_RETURN",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_RETURN",
+        "MOVE_FACADE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETALIATE",
+        "MOVE_LAST_RESORT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

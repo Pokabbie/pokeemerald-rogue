@@ -1,0 +1,126 @@
+{
+  "Species": [
+    "SPECIES_PONYTA_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HORN_DRILL",
+    "MOVE_HYPNOSIS",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_MORNING_SUN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THRASH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC",
+        "MOVE_MORNING_SUN",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

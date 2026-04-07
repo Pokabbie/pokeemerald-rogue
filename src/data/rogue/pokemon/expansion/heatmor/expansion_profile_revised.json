@@ -1,0 +1,115 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_HEATMOR": {
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_WHITE_SMOKE"
+      ],
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 105,
+        "Defense": 66,
+        "Speed": 65,
+        "SpAttack": 97,
+        "SpDefense": 66
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SNATCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_CROSS_CHOP",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FIRE_LASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POWER_WHIP",
+    "MOVE_WORK_UP",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP"
+  ]
+}

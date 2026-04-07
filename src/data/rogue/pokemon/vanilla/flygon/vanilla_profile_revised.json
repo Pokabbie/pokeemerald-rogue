@@ -1,0 +1,60 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CRUNCH",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_HYPER_VOICE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_WING_ATTACK",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

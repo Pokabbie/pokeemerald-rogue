@@ -1,0 +1,764 @@
+{
+  "Species": [
+    "SPECIES_AEGISLASH",
+    "SPECIES_AEGISLASH_BLADE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_KINGS_SHIELD",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AUTOTOMIZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_WIDE_GUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_GYRO_BALL",
+        "MOVE_IRON_HEAD",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_WIDE_GUARD",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SUBSTITUTE",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SACRED_SWORD",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_IRON_HEAD",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_GYRO_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES",
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_IRON_HEAD",
+        "MOVE_GYRO_BALL",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_IRON_BALL",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SUBSTITUTE",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_WIDE_GUARD",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_WIDE_GUARD",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_SOUND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEEL_BEAM",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_CLAW",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_METAL_SOUND"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KINGS_SHIELD",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEEL_BEAM",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KINGS_SHIELD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_STANCE_CHANGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

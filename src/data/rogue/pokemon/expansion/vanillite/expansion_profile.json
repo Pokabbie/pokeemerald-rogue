@@ -1,0 +1,130 @@
+{
+  "Species": [
+    "SPECIES_VANILLITE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_AURORA_VEIL",
+    "MOVE_AUTOTOMIZE",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SHARD",
+    "MOVE_ICICLE_CRASH",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGNET_RISE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AUTOTOMIZE",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EXPLOSION",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

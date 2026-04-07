@@ -1,0 +1,115 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_OCTILLERY": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 115,
+        "Defense": 75,
+        "Speed": 45,
+        "SpAttack": 115,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 65
+    }
+  ]
+}

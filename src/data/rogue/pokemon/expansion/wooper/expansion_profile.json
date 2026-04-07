@@ -1,0 +1,161 @@
+{
+  "Species": [
+    "SPECIES_WOOPER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AFTER_YOU",
+    "MOVE_AMNESIA",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_SPIT_UP",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOCKPILE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWALLOW",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RECOVER",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

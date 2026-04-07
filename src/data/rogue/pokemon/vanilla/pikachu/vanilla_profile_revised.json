@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_VOLT_TACKLE",
+      "Level": 53
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPARK",
+        "MOVE_FAKE_OUT",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_TAIL_GLOW"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPARK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DIG"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

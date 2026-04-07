@@ -1,0 +1,130 @@
+{
+  "Species": [
+    "SPECIES_KLAWF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HIGH_HORSEPOWER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CRABHAMMER",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_METAL_CLAW",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

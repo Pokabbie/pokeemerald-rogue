@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_DODRIO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRILL_PECK",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FLAIL",
+        "MOVE_AGILITY",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

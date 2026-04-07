@@ -1,0 +1,273 @@
+{
+  "Species": [
+    "SPECIES_ONIX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLOCK",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLDOZE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAD_SMASH",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_METEOR_BEAM",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_ROUND",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SCREECH",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_WIDE_GUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EXPLOSION",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

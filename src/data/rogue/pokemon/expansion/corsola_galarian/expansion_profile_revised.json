@@ -1,0 +1,28 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CORSOLA_GALARIAN": {
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_UNBURDEN",
+        "ABILITY_CURSED_BODY"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 120,
+        "Speed": 30,
+        "SpAttack": 90,
+        "SpDefense": 120
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

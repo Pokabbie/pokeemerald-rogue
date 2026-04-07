@@ -1,0 +1,143 @@
+{
+  "Species": [
+    "SPECIES_TEPIG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HEAT_CRASH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HEAD_SMASH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HEAD_SMASH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "Species": [
+    "SPECIES_SHINX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_ICE_FANG",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILD_CHARGE",
+        "MOVE_THIEF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILD_CHARGE",
+        "MOVE_THIEF",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

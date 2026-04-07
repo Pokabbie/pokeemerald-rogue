@@ -1,0 +1,137 @@
+{
+  "Species": [
+    "SPECIES_DIPPLIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SYRUP_BOMB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GYRO_BALL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INFESTATION",
+    "MOVE_LEAF_STORM",
+    "MOVE_OUTRAGE",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RECYCLE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_RECOVER",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

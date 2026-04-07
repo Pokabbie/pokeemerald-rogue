@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_PORYGON2"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION_2",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BLIZZARD",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3OU"
+      ]
+    }
+  ]
+}

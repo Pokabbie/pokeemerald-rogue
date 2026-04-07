@@ -1,0 +1,402 @@
+{
+  "Species": [
+    "SPECIES_HOUNDOOM",
+    "SPECIES_HOUNDOOM_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_COMEUPPANCE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_HOUNDOOMINITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

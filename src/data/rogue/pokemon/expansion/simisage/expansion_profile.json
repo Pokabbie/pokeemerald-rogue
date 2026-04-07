@@ -1,0 +1,258 @@
+{
+  "Species": [
+    "SPECIES_SIMISAGE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_ATTRACT",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GASTRO_ACID",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NATURE_POWER",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWAGGER",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TORMENT",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_BOMB",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_GUNK_SHOT",
+        "MOVE_LEAF_STORM"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SEED_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEAF_STORM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

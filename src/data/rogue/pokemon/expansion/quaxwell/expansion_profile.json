@@ -1,0 +1,119 @@
+{
+  "Species": [
+    "SPECIES_QUAXWELL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AQUA_CUTTER",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROOST",
+        "MOVE_LIQUIDATION",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

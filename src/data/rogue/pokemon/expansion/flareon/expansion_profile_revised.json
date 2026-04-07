@@ -1,0 +1,337 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLAREON": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 65,
+        "SpDefense": 65
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SIZZLY_SLIDE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_GRASS_KNOT",
+    "MOVE_WILD_CHARGE",
+    "MOVE_BLAZE_KICK",
+    "MOVE_ROCK_SLIDE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FACADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_FACADE",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SIZZLY_SLIDE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_FACADE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_TRAILBLAZE",
+        "MOVE_FACADE",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIZZLY_SLIDE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIZZLY_SLIDE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIZZLY_SLIDE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIZZLY_SLIDE",
+        "MOVE_FACADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

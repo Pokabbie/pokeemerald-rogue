@@ -1,0 +1,457 @@
+{
+  "Species": [
+    "SPECIES_UMBREON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WISH",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_HEAL_BELL",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_MOONLIGHT",
+        "MOVE_TOXIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_MOONLIGHT",
+        "MOVE_SNARL",
+        "MOVE_CHARM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_FOUL_PLAY",
+        "MOVE_HEAL_BELL",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_MOONLIGHT",
+        "MOVE_TOXIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_MOONLIGHT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_TOXIC",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_YAWN",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WISH",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

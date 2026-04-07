@@ -3213,7 +3213,8 @@ static bool8 ShouldBoostBattleGimickItems(struct TrainerPartyScratch* scratch)
 static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset)
 {
     u8 i;
-    u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+    u16 presetCount = pokemonProfile->competitiveSetCount;
 
     // Exact mirror copy trainer party
     //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
@@ -3243,7 +3244,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             // If none is found, we will use the last option and adjust below
             for(i = 0; i < presetCount; ++i)
             {
-                currPreset = &gRoguePokemonProfiles[species].competitiveSets[((randOffset + i) % presetCount)];
+                currPreset = &pokemonProfile->competitiveSets[((randOffset + i) % presetCount)];
                 currentScore = 1024;
 
                 // Avoid presets which don't have any damaging moves (e.g. Giratina)

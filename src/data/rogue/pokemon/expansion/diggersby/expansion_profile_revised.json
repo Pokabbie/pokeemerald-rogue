@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_DIGGERSBY": {
+      "BaseStats": {
+        "HP": 101,
+        "Attack": 61,
+        "Defense": 80,
+        "Speed": 78,
+        "SpAttack": 50,
+        "SpDefense": 80
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "Species": [
+    "SPECIES_NYMBLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_COUNTER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEECH_LIFE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

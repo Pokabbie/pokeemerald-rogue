@@ -1,0 +1,337 @@
+{
+  "Species": [
+    "SPECIES_SNEASEL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AVALANCHE",
+    "MOVE_BITE",
+    "MOVE_BLIZZARD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_COUNTER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_HIT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FEINT",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SHARD",
+    "MOVE_ICICLE_CRASH",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_CLAW",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_WATER_PULSE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_PURSUIT",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ICE_SHARD",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ICE_SHARD",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_ICE_SHARD",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_BEAT_UP",
+        "MOVE_SURF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICE_SHARD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICICLE_CRASH"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_ICE_SHARD",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_ICE_SHARD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_ICE_SHARD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

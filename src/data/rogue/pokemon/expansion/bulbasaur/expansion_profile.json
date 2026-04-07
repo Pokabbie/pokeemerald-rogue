@@ -1,0 +1,196 @@
+{
+  "Species": [
+    "SPECIES_BULBASAUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_CELEBRATE",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INGRAIN",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PETAL_DANCE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

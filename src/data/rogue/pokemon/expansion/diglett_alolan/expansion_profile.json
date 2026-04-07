@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_DIGLETT_ALOLAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HEADBUTT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HONE_CLAWS",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MEMENTO",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THRASH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SAND_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_TANGLING_HAIR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_TANGLING_HAIR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

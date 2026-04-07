@@ -1,0 +1,145 @@
+{
+  "Species": [
+    "SPECIES_RALTS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DISABLE",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MEAN_LOOK",
+    "MOVE_MEMENTO",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_TRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

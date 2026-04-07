@@ -1,0 +1,451 @@
+{
+  "Species": [
+    "SPECIES_MOLTRES"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BURN_UP",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_HURRICANE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BURN_UP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MARANGA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_WILL_O_WISP",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "Species": [
+    "SPECIES_SEWADDLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHARM",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LUNGE",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWITCHEROO",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    }
+  ]
+}

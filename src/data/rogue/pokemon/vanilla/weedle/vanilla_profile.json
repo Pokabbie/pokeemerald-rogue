@@ -1,0 +1,17 @@
+{
+  "Species": [
+    "SPECIES_WEEDLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": []
+}

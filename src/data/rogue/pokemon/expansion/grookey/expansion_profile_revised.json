@@ -1,0 +1,19 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GROOKEY": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_GRASSY_SURGE"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

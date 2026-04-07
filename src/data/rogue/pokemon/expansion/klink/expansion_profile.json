@@ -1,0 +1,105 @@
+{
+  "Species": [
+    "SPECIES_KLINK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AUTOTOMIZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GEAR_GRIND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHIFT_GEAR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_WILD_CHARGE",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

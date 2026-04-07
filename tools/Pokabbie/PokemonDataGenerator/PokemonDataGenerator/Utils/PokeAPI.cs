@@ -374,7 +374,7 @@ namespace PokemonDataGenerator.Utils
 
 					case "SPECIES_MAUSHOLD_FAMILY_OF_FOUR":
 						apiSpecies = "SPECIES_MAUSHOLD";
-						variantName = "maushold";
+						variantName = "maushold-family-of-four";
 						break;
 
 					case "SPECIES_TATSUGIRI_DROOPY":

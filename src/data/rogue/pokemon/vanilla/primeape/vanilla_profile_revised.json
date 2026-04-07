@@ -1,0 +1,79 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CROSS_CHOP",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAGE",
+        "MOVE_KARATE_CHOP",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_RAGE",
+        "MOVE_MEGA_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

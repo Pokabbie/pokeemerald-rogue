@@ -1,0 +1,594 @@
+{
+  "Species": [
+    "SPECIES_SALAZZLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_LASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_PROTECT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_OVERHEAT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_DISABLE",
+        "MOVE_ENCORE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENCORE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

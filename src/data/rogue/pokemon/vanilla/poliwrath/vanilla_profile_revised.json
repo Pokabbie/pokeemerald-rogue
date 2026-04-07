@@ -1,0 +1,71 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_JET",
+    "MOVE_FORCE_PALM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_ICE_PUNCH",
+        "MOVE_HYPNOSIS",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_BLACK_BELT",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HYPNOSIS",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

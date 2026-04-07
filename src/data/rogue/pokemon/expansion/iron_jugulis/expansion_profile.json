@@ -1,0 +1,204 @@
+{
+  "Species": [
+    "SPECIES_IRON_JUGULIS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EARTH_POWER",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_METAL_SOUND",
+    "MOVE_METEOR_BEAM",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HURRICANE",
+        "MOVE_TAUNT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HURRICANE",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DARK_PULSE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_DARK_PULSE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

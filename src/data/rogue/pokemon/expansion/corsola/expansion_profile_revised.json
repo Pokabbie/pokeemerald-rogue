@@ -1,0 +1,39 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CORSOLA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 45,
+        "Defense": 115,
+        "Speed": 35,
+        "SpAttack": 90,
+        "SpDefense": 115
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

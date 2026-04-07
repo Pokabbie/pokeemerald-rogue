@@ -1,0 +1,118 @@
+{
+  "Species": [
+    "SPECIES_DUGTRIO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AERIAL_ACE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,966 @@
+{
+  "Species": [
+    "SPECIES_SABLEYE",
+    "SPECIES_SABLEYE_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_QUASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFIDE",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLATTER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_BURST",
+    "MOVE_METAL_CLAW",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POISON_JAB",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECOVER",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TORMENT",
+    "MOVE_TRICK",
+    "MOVE_WILL_O_WISP",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FOUL_PLAY",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_QUASH",
+        "MOVE_FAKE_OUT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONFIDE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONFIDE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_CALM_MIND",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_FAKE_OUT",
+        "MOVE_PSYCH_UP",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAVITY",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_CALM_MIND",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUASH",
+        "MOVE_FAKE_OUT",
+        "MOVE_TAUNT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SABLENITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

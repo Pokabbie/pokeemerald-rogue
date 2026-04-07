@@ -1,0 +1,119 @@
+{
+  "Species": [
+    "SPECIES_CROCALOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_MUD_SLAP",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLACK_OFF",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_FANG",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLACK_OFF",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

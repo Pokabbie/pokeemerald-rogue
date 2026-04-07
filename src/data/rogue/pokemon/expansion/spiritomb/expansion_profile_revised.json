@@ -1,0 +1,86 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 56
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PARTING_SHOT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

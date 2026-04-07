@@ -1,0 +1,46 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "20",
+      "Species": "SPECIES_MILOTIC"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ATTRACT",
+        "MOVE_PSYBEAM",
+        "MOVE_AURORA_BEAM",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

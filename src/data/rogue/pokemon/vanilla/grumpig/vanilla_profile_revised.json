@@ -1,0 +1,110 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_MIST_BALL",
+      "Level": 42
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYBEAM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_DIG"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONFUSE_RAY",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_PSYCHIC",
+        "MOVE_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_BOUNCE",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

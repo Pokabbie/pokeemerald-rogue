@@ -1,0 +1,232 @@
+{
+  "Species": [
+    "SPECIES_CINCCINO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AFTER_YOU",
+    "MOVE_AQUA_TAIL",
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_BATON_PASS",
+    "MOVE_BULLET_SEED",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_SPINNER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LAST_RESORT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAIL_WHIP",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_TIDY_UP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TAIL_SLAP",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_TAIL_SLAP",
+        "MOVE_ROCK_BLAST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TAIL_SLAP",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TIDY_UP",
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TIDY_UP",
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_BULLET_SEED",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_TIDY_UP"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "Species": [
+    "SPECIES_CHANDELURE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_OVERHEAT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU",
+        "GEN9OU",
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE",
+        "GEN7UU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_SPOOKY_PLATE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TRICK",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_ACID_ARMOR",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENDURE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

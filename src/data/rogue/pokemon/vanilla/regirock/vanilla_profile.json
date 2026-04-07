@@ -1,0 +1,174 @@
+{
+  "Species": [
+    "SPECIES_REGIROCK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_CURSE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

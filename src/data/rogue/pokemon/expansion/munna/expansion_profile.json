@@ -1,0 +1,139 @@
+{
+  "Species": [
+    "SPECIES_MUNNA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_CALM_MIND",
+    "MOVE_CURSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

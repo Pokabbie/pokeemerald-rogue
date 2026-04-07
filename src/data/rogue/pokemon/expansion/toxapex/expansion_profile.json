@@ -1,0 +1,670 @@
+{
+  "Species": [
+    "SPECIES_TOXAPEX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BANEFUL_BUNKER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICY_WIND",
+    "MOVE_INFESTATION",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN8OU",
+        "GEN8NATIONALDEX",
+        "GEN8BATTLESTADIUMSINGLES",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAZE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HAZE",
+        "MOVE_RECOVER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_BANEFUL_BUNKER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_HAZE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_MERCILESS",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_RECOVER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_MERCILESS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_MERCILESS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_TOXIC",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC",
+        "MOVE_BANEFUL_BUNKER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_HAZE",
+        "MOVE_INFESTATION"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_TOXIC",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_INFESTATION"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_INFESTATION"
+      ],
+      "Ability": "ABILITY_MERCILESS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAZE",
+        "MOVE_INFESTATION",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BANEFUL_BUNKER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC",
+        "MOVE_BANEFUL_BUNKER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_TOXIC",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHILLING_WATER",
+        "MOVE_HAZE",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_POISON_JAB",
+        "MOVE_RECOVER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

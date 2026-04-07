@@ -1,0 +1,426 @@
+{
+  "Species": [
+    "SPECIES_REGISTEEL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HARD_PRESS",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_METEOR_BEAM",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_IRON_HEAD",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_AMNESIA",
+        "MOVE_COUNTER",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHESTO_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST",
+        "MOVE_AMNESIA"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_AMNESIA",
+        "MOVE_REST",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    }
+  ]
+}

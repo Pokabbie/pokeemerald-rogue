@@ -1,0 +1,356 @@
+{
+  "Species": [
+    "SPECIES_TSAREENA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TROP_KICK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_MEADOW_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_MEADOW_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TROP_KICK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_QUEENLY_MAJESTY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    }
+  ]
+}

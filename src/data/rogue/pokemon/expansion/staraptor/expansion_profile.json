@@ -1,0 +1,300 @@
+{
+  "Species": [
+    "SPECIES_STARAPTOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE",
+        "GEN7OU",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FEATHER_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 55
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYBEAM",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PSYWAVE",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLAPPLE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 95,
+        "SpAttack": 85,
+        "SpDefense": 60
+      }
+    },
+    "SPECIES_FLAPPLE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 95,
+        "SpAttack": 85,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_SCALE_SHOT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_OUTRAGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_GRAV_APPLE",
+        "MOVE_ACROBATICS",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_FLYING_GEM",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

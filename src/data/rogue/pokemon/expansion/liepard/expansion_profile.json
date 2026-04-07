@@ -1,0 +1,372 @@
+{
+  "Species": [
+    "SPECIES_LIEPARD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CHARM",
+    "MOVE_COPYCAT",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAY_DAY",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_U_TURN",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_COPYCAT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_ENCORE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_COPYCAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_ENCORE",
+        "MOVE_COPYCAT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAIN_DANCE",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_COPYCAT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_COPYCAT",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_COPYCAT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

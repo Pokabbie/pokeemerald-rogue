@@ -1,0 +1,446 @@
+{
+  "Species": [
+    "SPECIES_DECIDUEYE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPIRIT_SHACKLE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLET_SEED",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRENZY_PLANT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_DECIDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_LEAF_STORM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_GRASS_KNOT",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_LEAF_STORM",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_DECIDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPOOKY_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_U_TURN",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_U_TURN",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_U_TURN",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SPIRIT_SHACKLE",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_SPELL_TAG",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_U_TURN",
+        "MOVE_POLTERGEIST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LONG_REACH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

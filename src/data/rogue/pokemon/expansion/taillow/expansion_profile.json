@@ -1,0 +1,187 @@
+{
+  "Species": [
+    "SPECIES_TAILLOW"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BOOMBURST",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_MIRROR_MOVE",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAGE",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_WHIRLWIND",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_FACADE",
+        "MOVE_BOOMBURST"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

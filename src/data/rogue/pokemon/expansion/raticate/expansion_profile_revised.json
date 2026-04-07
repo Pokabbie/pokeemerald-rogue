@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_RATICATE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 97,
+        "Defense": 70,
+        "Speed": 113,
+        "SpAttack": 45,
+        "SpDefense": 70
+      }
+    }
+  }
+}

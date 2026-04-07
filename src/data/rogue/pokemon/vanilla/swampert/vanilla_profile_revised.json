@@ -1,0 +1,78 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MIRROR_COAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_MUDDY_WATER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWAMPERT": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

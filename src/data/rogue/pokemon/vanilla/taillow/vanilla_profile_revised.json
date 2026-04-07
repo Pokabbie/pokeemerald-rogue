@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 39
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

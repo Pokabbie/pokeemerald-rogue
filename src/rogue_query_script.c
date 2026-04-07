@@ -164,6 +164,9 @@ static u16 ParseScriptValue(struct QueryScriptContext* context)
     // If we have the final bit set, it means we want to do a var lookup
     if((value & QUERY_MASK_VAR_LOOKUP) != 0)
     {
+        struct RoguePokemonBaseStats speciesStats;
+        Rogue_GetPokemonBaseStats(context->currentSpecies, &speciesStats);
+
         value = value & ~QUERY_MASK_VAR_LOOKUP;
 
         switch (value)
@@ -185,20 +188,20 @@ static u16 ParseScriptValue(struct QueryScriptContext* context)
             return RoguePokedex_GetSpeciesBST(context->currentSpecies);
 
         case QUERY_VAR_MON_HP:
-            return gRogueSpeciesInfo[context->currentSpecies].baseHP;
+            return speciesStats.baseHP;
 
         case QUERY_VAR_MON_ATK:
-            return gRogueSpeciesInfo[context->currentSpecies].baseAttack;
+            return speciesStats.baseAttack;
         case QUERY_VAR_MON_DEF:
-            return gRogueSpeciesInfo[context->currentSpecies].baseDefense;
+            return speciesStats.baseDefense;
 
         case QUERY_VAR_MON_SPATK:
-            return gRogueSpeciesInfo[context->currentSpecies].baseSpAttack;
+            return speciesStats.baseSpAttack;
         case QUERY_VAR_MON_SPDEF:
-            return gRogueSpeciesInfo[context->currentSpecies].baseSpDefense;
+            return speciesStats.baseSpDefense;
 
         case QUERY_VAR_MON_SPEED:
-            return gRogueSpeciesInfo[context->currentSpecies].baseSpeed;
+            return speciesStats.baseSpeed;
 
         case QUERY_VAR_MON_BEST_STAT:
             return RoguePokedex_GetSpeciesBestStat(context->currentSpecies);

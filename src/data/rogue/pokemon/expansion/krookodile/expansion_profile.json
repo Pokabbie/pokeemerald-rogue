@@ -1,0 +1,601 @@
+{
+  "Species": [
+    "SPECIES_KROOKODILE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWER_TRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DARKEST_LARIAT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_FANG"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_DREAD_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_POWER_TRIP"
+      ],
+      "Ability": "ABILITY_ANGER_POINT",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_SNARL",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_CRUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULK_UP",
+        "MOVE_TAUNT",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULK_UP",
+        "MOVE_ROCK_TOMB",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SMACK_DOWN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DARKEST_LARIAT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SCALE_SHOT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_POWER_TRIP"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

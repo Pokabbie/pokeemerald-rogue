@@ -1,0 +1,214 @@
+{
+  "Species": [
+    "SPECIES_DRATINI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AQUA_JET",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_BREATH",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIST",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FIRE_BLAST",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_IRON_TAIL",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

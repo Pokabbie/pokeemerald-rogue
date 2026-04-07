@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BARRIER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DRAGON_BREATH",
+        "MOVE_BODY_SLAM",
+        "MOVE_SHOCK_WAVE"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_BREATH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DRAGONAIR": {
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_MARVEL_SCALE"
+      ]
+    }
+  }
+}

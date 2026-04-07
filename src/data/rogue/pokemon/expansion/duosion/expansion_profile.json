@@ -1,0 +1,217 @@
+{
+  "Species": [
+    "SPECIES_DUOSION"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_ASTONISH",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_ACID_ARMOR",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK",
+        "MOVE_ACID_ARMOR"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_RECOVER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC",
+        "MOVE_ACID_ARMOR"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

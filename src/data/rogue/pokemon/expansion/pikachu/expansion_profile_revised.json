@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SPLISHY_SPLASH",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_FLOATY_FALL",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_ZIPPY_ZAP",
+      "Level": 66
+    }
+  ]
+}

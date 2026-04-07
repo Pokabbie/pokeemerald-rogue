@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_TRAPINCH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_FLAIL",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUST",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FEINT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_SUPERPOWER",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_FIRST_IMPRESSION"
+      ],
+      "Ability": "ABILITY_ARENA_TRAP",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

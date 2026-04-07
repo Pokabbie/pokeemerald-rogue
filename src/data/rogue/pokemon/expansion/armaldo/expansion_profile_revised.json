@@ -1,0 +1,104 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 69
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_LUNGE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

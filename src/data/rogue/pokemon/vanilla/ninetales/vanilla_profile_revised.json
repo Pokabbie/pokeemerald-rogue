@@ -1,0 +1,32 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FIRE_PLEDGE",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_NIGHT_SHADE",
+    "MOVE_IMPRISON"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_NINETALES": {
+      "Abilities": [
+        "ABILITY_DROUGHT",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 27
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_PSYBEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

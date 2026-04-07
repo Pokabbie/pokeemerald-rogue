@@ -1,0 +1,227 @@
+{
+  "Species": [
+    "SPECIES_HOUNDOUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_COMEUPPANCE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_COUNTER",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_PURSUIT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

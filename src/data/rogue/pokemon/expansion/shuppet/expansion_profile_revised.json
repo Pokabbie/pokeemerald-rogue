@@ -1,0 +1,36 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SHUPPET": {
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_NORMAL"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_WORK_UP",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

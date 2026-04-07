@@ -1,0 +1,376 @@
+{
+  "Species": [
+    "SPECIES_ACCELGOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SHURIKEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BUZZ",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MUD_SHOT",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_U_TURN",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ENCORE",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ENCORE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SPIKES",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SPIKES",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ACID_SPRAY",
+        "MOVE_PROTECT",
+        "MOVE_STRUGGLE_BUG"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ACID_SPRAY",
+        "MOVE_ENCORE",
+        "MOVE_STRUGGLE_BUG"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BUG_BUZZ",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_ENCORE",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

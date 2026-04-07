@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CRANIDOS": {
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ]
+}

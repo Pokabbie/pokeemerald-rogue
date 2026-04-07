@@ -1,0 +1,131 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SKY_UPPERCUT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 50
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DIG",
+        "MOVE_SLASH",
+        "MOVE_METAL_CLAW",
+        "MOVE_WING_ATTACK"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WING_ATTACK",
+        "MOVE_X_SCISSOR",
+        "MOVE_DRILL_RUN",
+        "MOVE_POISON_TAIL"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_SHARP_BEAK",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DIG",
+        "MOVE_AERIAL_ACE",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_TAIL",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRILL_RUN",
+        "MOVE_POISON_TAIL",
+        "MOVE_WING_ATTACK"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GLIGAR": {
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_MARVEL_SCALE"
+      ]
+    }
+  }
+}

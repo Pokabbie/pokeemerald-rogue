@@ -1,0 +1,63 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "30",
+      "Species": "SPECIES_CRADILY"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 42
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LILEEP": {
+      "Abilities": [
+        "ABILITY_RAIN_DISH",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

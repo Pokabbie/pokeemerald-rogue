@@ -1,0 +1,403 @@
+{
+  "Species": [
+    "SPECIES_TENTACRUEL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT_TYPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACUPRESSURE",
+    "MOVE_AQUA_RING",
+    "MOVE_AURORA_BEAM",
+    "MOVE_BLIZZARD",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TICKLE",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ACID_SPRAY",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_ACID_SPRAY"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_ACID_SPRAY"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ACID_SPRAY",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_ACID_SPRAY"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_HAZE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HAZE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACID_SPRAY",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_MUDDY_WATER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACID_SPRAY",
+        "MOVE_SURF",
+        "MOVE_MIRROR_COAT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_LIQUID_OOZE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

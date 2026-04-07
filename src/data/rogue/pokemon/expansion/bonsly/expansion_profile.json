@@ -1,0 +1,122 @@
+{
+  "Species": [
+    "SPECIES_BONSLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CURSE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HARDEN",
+    "MOVE_HEADBUTT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LOW_KICK",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_POLISH",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

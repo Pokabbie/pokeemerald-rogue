@@ -1,0 +1,43 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

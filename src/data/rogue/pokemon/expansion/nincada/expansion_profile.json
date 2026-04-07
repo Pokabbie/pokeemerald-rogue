@@ -1,0 +1,89 @@
+{
+  "Species": [
+    "SPECIES_NINCADA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MIND_READER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FLAIL",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUST",
+    "MOVE_LEECH_LIFE",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_LEECH_LIFE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

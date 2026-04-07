@@ -1,0 +1,111 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 57
+    }
+  ]
+}

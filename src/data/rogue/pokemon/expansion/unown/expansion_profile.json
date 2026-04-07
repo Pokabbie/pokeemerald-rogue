@@ -1,0 +1,57 @@
+{
+  "Species": [
+    "SPECIES_UNOWN",
+    "SPECIES_UNOWN_B",
+    "SPECIES_UNOWN_C",
+    "SPECIES_UNOWN_D",
+    "SPECIES_UNOWN_E",
+    "SPECIES_UNOWN_F",
+    "SPECIES_UNOWN_G",
+    "SPECIES_UNOWN_H",
+    "SPECIES_UNOWN_I",
+    "SPECIES_UNOWN_J",
+    "SPECIES_UNOWN_K",
+    "SPECIES_UNOWN_L",
+    "SPECIES_UNOWN_M",
+    "SPECIES_UNOWN_N",
+    "SPECIES_UNOWN_O",
+    "SPECIES_UNOWN_P",
+    "SPECIES_UNOWN_Q",
+    "SPECIES_UNOWN_R",
+    "SPECIES_UNOWN_S",
+    "SPECIES_UNOWN_T",
+    "SPECIES_UNOWN_U",
+    "SPECIES_UNOWN_V",
+    "SPECIES_UNOWN_W",
+    "SPECIES_UNOWN_X",
+    "SPECIES_UNOWN_Y",
+    "SPECIES_UNOWN_Z",
+    "SPECIES_UNOWN_EMARK",
+    "SPECIES_UNOWN_QMARK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HIDDEN_POWER",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "REPLACE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_GRASS_KNOT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_RECOVER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_SURF",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_DEFOG",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_DEFOG",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SURF",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_SURF",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_POISON",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYCHIC",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_DEFOG",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUSTER_PURGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_DRACO_METEOR",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_SURF",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DEFOG",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_TRICK",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_ROOST",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUSTER_PURGE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_AURA_SPHERE",
+        "MOVE_PSYSHOCK",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_TRICK",
+        "MOVE_RECOVER",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_RECOVER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYSHOCK",
+        "MOVE_PSYCHIC",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_FLIP_TURN",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUSTER_PURGE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ROOST",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_AURA_SPHERE",
+        "MOVE_AGILITY",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUSTER_PURGE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SOUL_DEW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_LUSTER_PURGE",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PSYCHIC",
+        "MOVE_DEFOG",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUSTER_PURGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LATIOSITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

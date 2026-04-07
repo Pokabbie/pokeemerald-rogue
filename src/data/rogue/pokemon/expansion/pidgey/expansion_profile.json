@@ -1,0 +1,116 @@
+{
+  "Species": [
+    "SPECIES_PIDGEY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_FACADE",
+    "MOVE_FEINT_ATTACK",
+    "MOVE_FLY",
+    "MOVE_FORESIGHT",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

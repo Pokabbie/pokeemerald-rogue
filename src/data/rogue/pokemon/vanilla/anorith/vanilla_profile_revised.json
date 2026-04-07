@@ -1,0 +1,48 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 51
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

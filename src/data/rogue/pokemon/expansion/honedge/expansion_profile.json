@@ -1,0 +1,156 @@
+{
+  "Species": [
+    "SPECIES_HONEDGE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_AUTOTOMIZE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLOCK",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DESTINY_BOND",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GYRO_BALL",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_WIDE_GUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_PURSUIT",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SACRED_SWORD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SACRED_SWORD",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

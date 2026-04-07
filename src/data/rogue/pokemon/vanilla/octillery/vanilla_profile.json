@@ -1,0 +1,133 @@
+{
+  "Species": [
+    "SPECIES_OCTILLERY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BULLET_SEED",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU",
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

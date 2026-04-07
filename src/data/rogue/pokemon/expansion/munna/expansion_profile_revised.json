@@ -1,0 +1,48 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MUNNA": {
+      "Abilities": [
+        "ABILITY_FOREWARN",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_COMATOSE"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_COMATOSE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

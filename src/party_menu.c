@@ -2312,8 +2312,9 @@ u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity)
 {
     u16 read = 0;
     u16 write = 0;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for(read = 0; gRoguePokemonProfiles[species].tutorMoves[read] != MOVE_NONE; ++read)
+    for(read = 0; pokemonProfile->tutorMoves[read] != MOVE_NONE; ++read)
     {
         if(write >= tutorMovesCapacity)
         {
@@ -2322,10 +2323,10 @@ u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity)
         }
 
         // If this move has a TM, ignore it
-        if(BattleMoveIdToItemId(gRoguePokemonProfiles[species].tutorMoves[read]) != ITEM_NONE)
+        if(BattleMoveIdToItemId(pokemonProfile->tutorMoves[read]) != ITEM_NONE)
             continue;
 
-        tutorMoves[write++] = gRoguePokemonProfiles[species].tutorMoves[read];
+        tutorMoves[write++] = pokemonProfile->tutorMoves[read];
     }
 
     return write;
@@ -6088,7 +6089,7 @@ u16 BattleMoveIdToItemId(u16 move)
             return ITEM_TM01 + i;
     }
 
-    for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
+    for(i = 0; i < NUM_TECHNICAL_RECORDS_IN_USE; ++i)
     {
         if(Rogue_GetTRMove(i) == move)
             return ITEM_TR01 + i;

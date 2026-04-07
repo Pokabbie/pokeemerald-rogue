@@ -1,0 +1,80 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_YAMASK": {
+      "Abilities": [
+        "ABILITY_MUMMY",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GRUDGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 49
+    }
+  ]
+}

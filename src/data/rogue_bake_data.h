@@ -9,9150 +9,10675 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 		.eggSpecies = 0,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 0,
+		.evolutionChainTypeFlags_Revised = 0,
 	},
 	[1] =
 	{
 		.eggSpecies = 1,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[2] =
 	{
 		.eggSpecies = 1,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[3] =
 	{
 		.eggSpecies = 1,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[4] =
 	{
 		.eggSpecies = 4,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[5] =
 	{
 		.eggSpecies = 4,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[6] =
 	{
 		.eggSpecies = 4,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[7] =
 	{
 		.eggSpecies = 7,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[8] =
 	{
 		.eggSpecies = 7,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[9] =
 	{
 		.eggSpecies = 7,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[10] =
 	{
 		.eggSpecies = 10,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[11] =
 	{
 		.eggSpecies = 10,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[12] =
 	{
 		.eggSpecies = 10,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[13] =
 	{
 		.eggSpecies = 13,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[14] =
 	{
 		.eggSpecies = 13,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[15] =
 	{
 		.eggSpecies = 13,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[16] =
 	{
 		.eggSpecies = 16,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[17] =
 	{
 		.eggSpecies = 16,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[18] =
 	{
 		.eggSpecies = 16,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[19] =
 	{
 		.eggSpecies = 19,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[20] =
 	{
 		.eggSpecies = 19,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[21] =
 	{
 		.eggSpecies = 21,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[22] =
 	{
 		.eggSpecies = 21,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[23] =
 	{
 		.eggSpecies = 23,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[24] =
 	{
 		.eggSpecies = 23,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[25] =
 	{
 		.eggSpecies = 172,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 12288,
+		.evolutionChainTypeFlags_Revised = 12288,
 	},
 	[26] =
 	{
 		.eggSpecies = 172,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 12288,
+		.evolutionChainTypeFlags_Revised = 12288,
 	},
 	[27] =
 	{
 		.eggSpecies = 27,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[28] =
 	{
 		.eggSpecies = 27,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[29] =
 	{
 		.eggSpecies = 29,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[30] =
 	{
 		.eggSpecies = 29,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[31] =
 	{
 		.eggSpecies = 29,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[32] =
 	{
 		.eggSpecies = 32,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[33] =
 	{
 		.eggSpecies = 32,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[34] =
 	{
 		.eggSpecies = 32,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[35] =
 	{
 		.eggSpecies = 173,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[36] =
 	{
 		.eggSpecies = 173,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[37] =
 	{
 		.eggSpecies = 37,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[38] =
 	{
 		.eggSpecies = 37,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[39] =
 	{
 		.eggSpecies = 174,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131073,
+		.evolutionChainTypeFlags_Revised = 131073,
 	},
 	[40] =
 	{
 		.eggSpecies = 174,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131073,
+		.evolutionChainTypeFlags_Revised = 131073,
 	},
 	[41] =
 	{
 		.eggSpecies = 41,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12,
+		.evolutionChainTypeFlags_Revised = 12,
 	},
 	[42] =
 	{
 		.eggSpecies = 41,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12,
+		.evolutionChainTypeFlags_Revised = 12,
 	},
 	[43] =
 	{
 		.eggSpecies = 43,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[44] =
 	{
 		.eggSpecies = 43,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[45] =
 	{
 		.eggSpecies = 43,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[46] =
 	{
 		.eggSpecies = 46,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
+		.evolutionChainTypeFlags_Revised = 2112,
 	},
 	[47] =
 	{
 		.eggSpecies = 46,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2112,
+		.evolutionChainTypeFlags_Revised = 2112,
 	},
 	[48] =
 	{
 		.eggSpecies = 48,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[49] =
 	{
 		.eggSpecies = 48,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[50] =
 	{
 		.eggSpecies = 50,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[51] =
 	{
 		.eggSpecies = 50,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[52] =
 	{
 		.eggSpecies = 52,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[53] =
 	{
 		.eggSpecies = 52,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[54] =
 	{
 		.eggSpecies = 54,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[55] =
 	{
 		.eggSpecies = 54,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[56] =
 	{
 		.eggSpecies = 56,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 130,
+		.evolutionChainTypeFlags_Revised = 130,
 	},
 	[57] =
 	{
 		.eggSpecies = 56,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 130,
+		.evolutionChainTypeFlags_Revised = 130,
 	},
 	[58] =
 	{
 		.eggSpecies = 58,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[59] =
 	{
 		.eggSpecies = 58,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[60] =
 	{
 		.eggSpecies = 60,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[61] =
 	{
 		.eggSpecies = 60,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[62] =
 	{
 		.eggSpecies = 60,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[63] =
 	{
 		.eggSpecies = 63,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 9728,
 	},
 	[64] =
 	{
 		.eggSpecies = 63,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 9728,
 	},
 	[65] =
 	{
 		.eggSpecies = 63,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 9728,
 	},
 	[66] =
 	{
 		.eggSpecies = 66,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[67] =
 	{
 		.eggSpecies = 66,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[68] =
 	{
 		.eggSpecies = 66,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[69] =
 	{
 		.eggSpecies = 69,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[70] =
 	{
 		.eggSpecies = 69,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[71] =
 	{
 		.eggSpecies = 69,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[72] =
 	{
 		.eggSpecies = 72,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1032,
+		.evolutionChainTypeFlags_Revised = 1032,
 	},
 	[73] =
 	{
 		.eggSpecies = 72,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1032,
+		.evolutionChainTypeFlags_Revised = 1032,
 	},
 	[74] =
 	{
 		.eggSpecies = 74,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[75] =
 	{
 		.eggSpecies = 74,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[76] =
 	{
 		.eggSpecies = 74,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[77] =
 	{
 		.eggSpecies = 77,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[78] =
 	{
 		.eggSpecies = 77,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[79] =
 	{
 		.eggSpecies = 79,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[80] =
 	{
 		.eggSpecies = 79,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[81] =
 	{
 		.eggSpecies = 81,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4352,
+		.evolutionChainTypeFlags_Revised = 4352,
 	},
 	[82] =
 	{
 		.eggSpecies = 81,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4352,
+		.evolutionChainTypeFlags_Revised = 4352,
 	},
 	[83] =
 	{
 		.eggSpecies = 83,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[84] =
 	{
 		.eggSpecies = 84,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[85] =
 	{
 		.eggSpecies = 84,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[86] =
 	{
 		.eggSpecies = 86,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[87] =
 	{
 		.eggSpecies = 86,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[88] =
 	{
 		.eggSpecies = 88,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[89] =
 	{
 		.eggSpecies = 88,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[90] =
 	{
 		.eggSpecies = 90,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[91] =
 	{
 		.eggSpecies = 90,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[92] =
 	{
 		.eggSpecies = 92,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[93] =
 	{
 		.eggSpecies = 92,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[94] =
 	{
 		.eggSpecies = 92,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[95] =
 	{
 		.eggSpecies = 95,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 304,
+		.evolutionChainTypeFlags_Revised = 304,
 	},
 	[96] =
 	{
 		.eggSpecies = 96,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[97] =
 	{
 		.eggSpecies = 96,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[98] =
 	{
 		.eggSpecies = 98,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[99] =
 	{
 		.eggSpecies = 98,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[100] =
 	{
 		.eggSpecies = 100,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[101] =
 	{
 		.eggSpecies = 100,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[102] =
 	{
 		.eggSpecies = 102,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 43008,
+		.evolutionChainTypeFlags_Revised = 43008,
 	},
 	[103] =
 	{
 		.eggSpecies = 102,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 43008,
+		.evolutionChainTypeFlags_Revised = 43008,
 	},
 	[104] =
 	{
 		.eggSpecies = 104,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 656,
+		.evolutionChainTypeFlags_Revised = 656,
 	},
 	[105] =
 	{
 		.eggSpecies = 104,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 656,
+		.evolutionChainTypeFlags_Revised = 656,
 	},
 	[106] =
 	{
 		.eggSpecies = 236,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[107] =
 	{
 		.eggSpecies = 236,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[108] =
 	{
 		.eggSpecies = 108,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[109] =
 	{
 		.eggSpecies = 109,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131080,
+		.evolutionChainTypeFlags_Revised = 131080,
 	},
 	[110] =
 	{
 		.eggSpecies = 109,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131080,
+		.evolutionChainTypeFlags_Revised = 131080,
 	},
 	[111] =
 	{
 		.eggSpecies = 111,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[112] =
 	{
 		.eggSpecies = 111,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[113] =
 	{
 		.eggSpecies = 440,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[114] =
 	{
 		.eggSpecies = 114,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[115] =
 	{
 		.eggSpecies = 115,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[116] =
 	{
 		.eggSpecies = 116,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[117] =
 	{
 		.eggSpecies = 116,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[118] =
 	{
 		.eggSpecies = 118,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[119] =
 	{
 		.eggSpecies = 118,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[120] =
 	{
 		.eggSpecies = 120,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[121] =
 	{
 		.eggSpecies = 120,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[122] =
 	{
 		.eggSpecies = 439,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 155648,
+		.evolutionChainTypeFlags_Revised = 155648,
 	},
 	[123] =
 	{
 		.eggSpecies = 123,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 356,
+		.evolutionChainTypeFlags_Revised = 356,
 	},
 	[124] =
 	{
 		.eggSpecies = 238,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 24576,
+		.evolutionChainTypeFlags_Revised = 24576,
 	},
 	[125] =
 	{
 		.eggSpecies = 239,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[126] =
 	{
 		.eggSpecies = 240,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[127] =
 	{
 		.eggSpecies = 127,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[128] =
 	{
 		.eggSpecies = 128,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[129] =
 	{
 		.eggSpecies = 129,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[130] =
 	{
 		.eggSpecies = 129,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[131] =
 	{
 		.eggSpecies = 131,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[132] =
 	{
 		.eggSpecies = 132,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[133] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 10,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[134] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[135] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[136] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[137] =
 	{
 		.eggSpecies = 137,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[138] =
 	{
 		.eggSpecies = 138,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[139] =
 	{
 		.eggSpecies = 138,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[140] =
 	{
 		.eggSpecies = 140,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[141] =
 	{
 		.eggSpecies = 140,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[142] =
 	{
 		.eggSpecies = 142,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[143] =
 	{
 		.eggSpecies = 446,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[144] =
 	{
 		.eggSpecies = 144,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16388,
+		.evolutionChainTypeFlags_Revised = 16388,
 	},
 	[145] =
 	{
 		.eggSpecies = 145,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[146] =
 	{
 		.eggSpecies = 146,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[147] =
 	{
 		.eggSpecies = 147,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[148] =
 	{
 		.eggSpecies = 147,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[149] =
 	{
 		.eggSpecies = 147,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[150] =
 	{
 		.eggSpecies = 150,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[151] =
 	{
 		.eggSpecies = 151,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[152] =
 	{
 		.eggSpecies = 152,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[153] =
 	{
 		.eggSpecies = 152,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[154] =
 	{
 		.eggSpecies = 152,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[155] =
 	{
 		.eggSpecies = 155,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[156] =
 	{
 		.eggSpecies = 155,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[157] =
 	{
 		.eggSpecies = 155,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[158] =
 	{
 		.eggSpecies = 158,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[159] =
 	{
 		.eggSpecies = 158,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[160] =
 	{
 		.eggSpecies = 158,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[161] =
 	{
 		.eggSpecies = 161,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[162] =
 	{
 		.eggSpecies = 161,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[163] =
 	{
 		.eggSpecies = 163,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[164] =
 	{
 		.eggSpecies = 163,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[165] =
 	{
 		.eggSpecies = 165,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[166] =
 	{
 		.eggSpecies = 165,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[167] =
 	{
 		.eggSpecies = 167,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[168] =
 	{
 		.eggSpecies = 167,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[169] =
 	{
 		.eggSpecies = 41,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 12,
+		.evolutionChainTypeFlags_Revised = 12,
 	},
 	[170] =
 	{
 		.eggSpecies = 170,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5120,
+		.evolutionChainTypeFlags_Revised = 5120,
 	},
 	[171] =
 	{
 		.eggSpecies = 170,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5120,
+		.evolutionChainTypeFlags_Revised = 5120,
 	},
 	[172] =
 	{
 		.eggSpecies = 172,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12288,
+		.evolutionChainTypeFlags_Revised = 12288,
 	},
 	[173] =
 	{
 		.eggSpecies = 173,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[174] =
 	{
 		.eggSpecies = 174,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131073,
+		.evolutionChainTypeFlags_Revised = 131073,
 	},
 	[175] =
 	{
 		.eggSpecies = 175,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131076,
+		.evolutionChainTypeFlags_Revised = 131076,
 	},
 	[176] =
 	{
 		.eggSpecies = 175,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131076,
+		.evolutionChainTypeFlags_Revised = 131076,
 	},
 	[177] =
 	{
 		.eggSpecies = 177,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[178] =
 	{
 		.eggSpecies = 177,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[179] =
 	{
 		.eggSpecies = 179,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[180] =
 	{
 		.eggSpecies = 179,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[181] =
 	{
 		.eggSpecies = 179,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[182] =
 	{
 		.eggSpecies = 43,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[183] =
 	{
 		.eggSpecies = 298,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132097,
+		.evolutionChainTypeFlags_Revised = 132097,
 	},
 	[184] =
 	{
 		.eggSpecies = 298,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 132097,
+		.evolutionChainTypeFlags_Revised = 132097,
 	},
 	[185] =
 	{
 		.eggSpecies = 438,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[186] =
 	{
 		.eggSpecies = 60,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[187] =
 	{
 		.eggSpecies = 187,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2052,
+		.evolutionChainTypeFlags_Revised = 2052,
 	},
 	[188] =
 	{
 		.eggSpecies = 187,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2052,
+		.evolutionChainTypeFlags_Revised = 2052,
 	},
 	[189] =
 	{
 		.eggSpecies = 187,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2052,
+		.evolutionChainTypeFlags_Revised = 2052,
 	},
 	[190] =
 	{
 		.eggSpecies = 190,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[191] =
 	{
 		.eggSpecies = 191,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[192] =
 	{
 		.eggSpecies = 191,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[193] =
 	{
 		.eggSpecies = 193,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[194] =
 	{
 		.eggSpecies = 194,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[195] =
 	{
 		.eggSpecies = 194,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[196] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[197] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[198] =
 	{
 		.eggSpecies = 198,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[199] =
 	{
 		.eggSpecies = 79,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[200] =
 	{
 		.eggSpecies = 200,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[201] =
 	{
 		.eggSpecies = 201,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[202] =
 	{
 		.eggSpecies = 360,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[203] =
 	{
 		.eggSpecies = 203,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[204] =
 	{
 		.eggSpecies = 204,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[205] =
 	{
 		.eggSpecies = 204,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[206] =
 	{
 		.eggSpecies = 206,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[207] =
 	{
 		.eggSpecies = 207,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 20,
+		.evolutionChainTypeFlags_Revised = 20,
 	},
 	[208] =
 	{
 		.eggSpecies = 95,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 304,
+		.evolutionChainTypeFlags_Revised = 304,
 	},
 	[209] =
 	{
 		.eggSpecies = 209,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[210] =
 	{
 		.eggSpecies = 209,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[211] =
 	{
 		.eggSpecies = 211,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1032,
+		.evolutionChainTypeFlags_Revised = 1032,
 	},
 	[212] =
 	{
 		.eggSpecies = 123,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 356,
+		.evolutionChainTypeFlags_Revised = 356,
 	},
 	[213] =
 	{
 		.eggSpecies = 213,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 96,
+		.evolutionChainTypeFlags_Revised = 96,
 	},
 	[214] =
 	{
 		.eggSpecies = 214,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66,
+		.evolutionChainTypeFlags_Revised = 66,
 	},
 	[215] =
 	{
 		.eggSpecies = 215,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 81920,
+		.evolutionChainTypeFlags_Revised = 81920,
 	},
 	[216] =
 	{
 		.eggSpecies = 216,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[217] =
 	{
 		.eggSpecies = 216,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[218] =
 	{
 		.eggSpecies = 218,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[219] =
 	{
 		.eggSpecies = 218,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[220] =
 	{
 		.eggSpecies = 220,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16400,
+		.evolutionChainTypeFlags_Revised = 16400,
 	},
 	[221] =
 	{
 		.eggSpecies = 220,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16400,
+		.evolutionChainTypeFlags_Revised = 16400,
 	},
 	[222] =
 	{
 		.eggSpecies = 222,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[223] =
 	{
 		.eggSpecies = 223,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[224] =
 	{
 		.eggSpecies = 223,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[225] =
 	{
 		.eggSpecies = 225,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16388,
+		.evolutionChainTypeFlags_Revised = 16388,
 	},
 	[226] =
 	{
 		.eggSpecies = 458,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[227] =
 	{
 		.eggSpecies = 227,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[228] =
 	{
 		.eggSpecies = 228,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[229] =
 	{
 		.eggSpecies = 228,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[230] =
 	{
 		.eggSpecies = 116,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[231] =
 	{
 		.eggSpecies = 231,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[232] =
 	{
 		.eggSpecies = 231,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[233] =
 	{
 		.eggSpecies = 137,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[234] =
 	{
 		.eggSpecies = 234,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[235] =
 	{
 		.eggSpecies = 235,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[236] =
 	{
 		.eggSpecies = 236,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[237] =
 	{
 		.eggSpecies = 236,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[238] =
 	{
 		.eggSpecies = 238,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24576,
+		.evolutionChainTypeFlags_Revised = 24576,
 	},
 	[239] =
 	{
 		.eggSpecies = 239,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[240] =
 	{
 		.eggSpecies = 240,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[241] =
 	{
 		.eggSpecies = 241,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[242] =
 	{
 		.eggSpecies = 440,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[243] =
 	{
 		.eggSpecies = 243,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[244] =
 	{
 		.eggSpecies = 244,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[245] =
 	{
 		.eggSpecies = 245,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[246] =
 	{
 		.eggSpecies = 246,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65584,
+		.evolutionChainTypeFlags_Revised = 65584,
 	},
 	[247] =
 	{
 		.eggSpecies = 246,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65584,
+		.evolutionChainTypeFlags_Revised = 65584,
 	},
 	[248] =
 	{
 		.eggSpecies = 246,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65584,
+		.evolutionChainTypeFlags_Revised = 65584,
 	},
 	[249] =
 	{
 		.eggSpecies = 249,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[250] =
 	{
 		.eggSpecies = 250,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[251] =
 	{
 		.eggSpecies = 251,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10240,
+		.evolutionChainTypeFlags_Revised = 10240,
 	},
 	[252] =
 	{
 		.eggSpecies = 252,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[253] =
 	{
 		.eggSpecies = 252,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[254] =
 	{
 		.eggSpecies = 252,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[255] =
 	{
 		.eggSpecies = 255,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[256] =
 	{
 		.eggSpecies = 255,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[257] =
 	{
 		.eggSpecies = 255,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[258] =
 	{
 		.eggSpecies = 258,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[259] =
 	{
 		.eggSpecies = 258,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[260] =
 	{
 		.eggSpecies = 258,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[261] =
 	{
 		.eggSpecies = 261,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[262] =
 	{
 		.eggSpecies = 261,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[263] =
 	{
 		.eggSpecies = 263,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[264] =
 	{
 		.eggSpecies = 263,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[265] =
 	{
 		.eggSpecies = 265,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 76,
+		.evolutionChainTypeFlags_Revised = 76,
 	},
 	[266] =
 	{
 		.eggSpecies = 265,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 76,
+		.evolutionChainTypeFlags_Revised = 76,
 	},
 	[267] =
 	{
 		.eggSpecies = 265,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 76,
+		.evolutionChainTypeFlags_Revised = 76,
 	},
 	[268] =
 	{
 		.eggSpecies = 265,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 76,
+		.evolutionChainTypeFlags_Revised = 76,
 	},
 	[269] =
 	{
 		.eggSpecies = 265,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 76,
+		.evolutionChainTypeFlags_Revised = 76,
 	},
 	[270] =
 	{
 		.eggSpecies = 270,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3072,
+		.evolutionChainTypeFlags_Revised = 3072,
 	},
 	[271] =
 	{
 		.eggSpecies = 270,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3072,
+		.evolutionChainTypeFlags_Revised = 3072,
 	},
 	[272] =
 	{
 		.eggSpecies = 270,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3072,
+		.evolutionChainTypeFlags_Revised = 3072,
 	},
 	[273] =
 	{
 		.eggSpecies = 273,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[274] =
 	{
 		.eggSpecies = 273,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[275] =
 	{
 		.eggSpecies = 273,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[276] =
 	{
 		.eggSpecies = 276,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[277] =
 	{
 		.eggSpecies = 276,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[278] =
 	{
 		.eggSpecies = 278,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[279] =
 	{
 		.eggSpecies = 278,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[280] =
 	{
 		.eggSpecies = 280,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139266,
+		.evolutionChainTypeFlags_Revised = 139266,
 	},
 	[281] =
 	{
 		.eggSpecies = 280,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 139266,
+		.evolutionChainTypeFlags_Revised = 139266,
 	},
 	[282] =
 	{
 		.eggSpecies = 280,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139266,
+		.evolutionChainTypeFlags_Revised = 139266,
 	},
 	[283] =
 	{
 		.eggSpecies = 283,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1092,
+		.evolutionChainTypeFlags_Revised = 1092,
 	},
 	[284] =
 	{
 		.eggSpecies = 283,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1092,
+		.evolutionChainTypeFlags_Revised = 1092,
 	},
 	[285] =
 	{
 		.eggSpecies = 285,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[286] =
 	{
 		.eggSpecies = 285,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[287] =
 	{
 		.eggSpecies = 287,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[288] =
 	{
 		.eggSpecies = 287,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[289] =
 	{
 		.eggSpecies = 287,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[290] =
 	{
 		.eggSpecies = 290,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 212,
+		.evolutionChainTypeFlags_Revised = 212,
 	},
 	[291] =
 	{
 		.eggSpecies = 290,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 212,
+		.evolutionChainTypeFlags_Revised = 212,
 	},
 	[292] =
 	{
 		.eggSpecies = 290,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 212,
+		.evolutionChainTypeFlags_Revised = 212,
 	},
 	[293] =
 	{
 		.eggSpecies = 293,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[294] =
 	{
 		.eggSpecies = 293,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[295] =
 	{
 		.eggSpecies = 293,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[296] =
 	{
 		.eggSpecies = 296,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[297] =
 	{
 		.eggSpecies = 296,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[298] =
 	{
 		.eggSpecies = 298,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132097,
+		.evolutionChainTypeFlags_Revised = 132097,
 	},
 	[299] =
 	{
 		.eggSpecies = 299,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[300] =
 	{
 		.eggSpecies = 300,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[301] =
 	{
 		.eggSpecies = 300,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[302] =
 	{
 		.eggSpecies = 302,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65664,
+		.evolutionChainTypeFlags_Revised = 65664,
 	},
 	[303] =
 	{
 		.eggSpecies = 303,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[304] =
 	{
 		.eggSpecies = 304,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[305] =
 	{
 		.eggSpecies = 304,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[306] =
 	{
 		.eggSpecies = 304,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[307] =
 	{
 		.eggSpecies = 307,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[308] =
 	{
 		.eggSpecies = 307,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[309] =
 	{
 		.eggSpecies = 309,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[310] =
 	{
 		.eggSpecies = 309,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[311] =
 	{
 		.eggSpecies = 311,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[312] =
 	{
 		.eggSpecies = 312,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[313] =
 	{
 		.eggSpecies = 313,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[314] =
 	{
 		.eggSpecies = 314,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[315] =
 	{
 		.eggSpecies = 406,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[316] =
 	{
 		.eggSpecies = 316,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[317] =
 	{
 		.eggSpecies = 316,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[318] =
 	{
 		.eggSpecies = 318,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[319] =
 	{
 		.eggSpecies = 318,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[320] =
 	{
 		.eggSpecies = 320,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[321] =
 	{
 		.eggSpecies = 320,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[322] =
 	{
 		.eggSpecies = 322,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 528,
+		.evolutionChainTypeFlags_Revised = 528,
 	},
 	[323] =
 	{
 		.eggSpecies = 322,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 528,
+		.evolutionChainTypeFlags_Revised = 528,
 	},
 	[324] =
 	{
 		.eggSpecies = 324,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[325] =
 	{
 		.eggSpecies = 325,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[326] =
 	{
 		.eggSpecies = 325,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[327] =
 	{
 		.eggSpecies = 327,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[328] =
 	{
 		.eggSpecies = 328,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[329] =
 	{
 		.eggSpecies = 328,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[330] =
 	{
 		.eggSpecies = 328,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[331] =
 	{
 		.eggSpecies = 331,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[332] =
 	{
 		.eggSpecies = 331,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[333] =
 	{
 		.eggSpecies = 333,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32773,
+		.evolutionChainTypeFlags_Revised = 32773,
 	},
 	[334] =
 	{
 		.eggSpecies = 333,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32773,
+		.evolutionChainTypeFlags_Revised = 32773,
 	},
 	[335] =
 	{
 		.eggSpecies = 335,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[336] =
 	{
 		.eggSpecies = 336,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[337] =
 	{
 		.eggSpecies = 337,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8224,
+		.evolutionChainTypeFlags_Revised = 8224,
 	},
 	[338] =
 	{
 		.eggSpecies = 338,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8224,
+		.evolutionChainTypeFlags_Revised = 8224,
 	},
 	[339] =
 	{
 		.eggSpecies = 339,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[340] =
 	{
 		.eggSpecies = 339,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[341] =
 	{
 		.eggSpecies = 341,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[342] =
 	{
 		.eggSpecies = 341,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[343] =
 	{
 		.eggSpecies = 343,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8208,
+		.evolutionChainTypeFlags_Revised = 8208,
 	},
 	[344] =
 	{
 		.eggSpecies = 343,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8208,
+		.evolutionChainTypeFlags_Revised = 8208,
 	},
 	[345] =
 	{
 		.eggSpecies = 345,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2080,
+		.evolutionChainTypeFlags_Revised = 2080,
 	},
 	[346] =
 	{
 		.eggSpecies = 345,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2080,
+		.evolutionChainTypeFlags_Revised = 2080,
 	},
 	[347] =
 	{
 		.eggSpecies = 347,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 96,
+		.evolutionChainTypeFlags_Revised = 96,
 	},
 	[348] =
 	{
 		.eggSpecies = 347,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 96,
+		.evolutionChainTypeFlags_Revised = 96,
 	},
 	[349] =
 	{
 		.eggSpecies = 349,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[350] =
 	{
 		.eggSpecies = 349,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[351] =
 	{
 		.eggSpecies = 351,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[352] =
 	{
 		.eggSpecies = 352,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[353] =
 	{
 		.eggSpecies = 353,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[354] =
 	{
 		.eggSpecies = 353,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[355] =
 	{
 		.eggSpecies = 355,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[356] =
 	{
 		.eggSpecies = 355,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[357] =
 	{
 		.eggSpecies = 357,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2052,
+		.evolutionChainTypeFlags_Revised = 2052,
 	},
 	[358] =
 	{
 		.eggSpecies = 433,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[359] =
 	{
 		.eggSpecies = 359,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[360] =
 	{
 		.eggSpecies = 360,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[361] =
 	{
 		.eggSpecies = 361,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16512,
+		.evolutionChainTypeFlags_Revised = 16512,
 	},
 	[362] =
 	{
 		.eggSpecies = 361,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16512,
+		.evolutionChainTypeFlags_Revised = 16512,
 	},
 	[363] =
 	{
 		.eggSpecies = 363,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[364] =
 	{
 		.eggSpecies = 363,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[365] =
 	{
 		.eggSpecies = 363,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[366] =
 	{
 		.eggSpecies = 366,
 		.evolutionCount = 4,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[367] =
 	{
 		.eggSpecies = 366,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[368] =
 	{
 		.eggSpecies = 366,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[369] =
 	{
 		.eggSpecies = 369,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[370] =
 	{
 		.eggSpecies = 370,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[371] =
 	{
 		.eggSpecies = 371,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[372] =
 	{
 		.eggSpecies = 371,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[373] =
 	{
 		.eggSpecies = 371,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[374] =
 	{
 		.eggSpecies = 374,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[375] =
 	{
 		.eggSpecies = 374,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[376] =
 	{
 		.eggSpecies = 374,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[377] =
 	{
 		.eggSpecies = 377,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[378] =
 	{
 		.eggSpecies = 378,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[379] =
 	{
 		.eggSpecies = 379,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[380] =
 	{
 		.eggSpecies = 380,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40960,
+		.evolutionChainTypeFlags_Revised = 40960,
 	},
 	[381] =
 	{
 		.eggSpecies = 381,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40960,
+		.evolutionChainTypeFlags_Revised = 40960,
 	},
 	[382] =
 	{
 		.eggSpecies = 382,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[383] =
 	{
 		.eggSpecies = 383,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[384] =
 	{
 		.eggSpecies = 384,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[385] =
 	{
 		.eggSpecies = 385,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[386] =
 	{
 		.eggSpecies = 386,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[387] =
 	{
 		.eggSpecies = 387,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
+		.evolutionChainTypeFlags_Revised = 2064,
 	},
 	[388] =
 	{
 		.eggSpecies = 387,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
+		.evolutionChainTypeFlags_Revised = 2064,
 	},
 	[389] =
 	{
 		.eggSpecies = 387,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2064,
+		.evolutionChainTypeFlags_Revised = 2064,
 	},
 	[390] =
 	{
 		.eggSpecies = 390,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[391] =
 	{
 		.eggSpecies = 390,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[392] =
 	{
 		.eggSpecies = 390,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[393] =
 	{
 		.eggSpecies = 393,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1280,
+		.evolutionChainTypeFlags_Revised = 1280,
 	},
 	[394] =
 	{
 		.eggSpecies = 393,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1280,
+		.evolutionChainTypeFlags_Revised = 1280,
 	},
 	[395] =
 	{
 		.eggSpecies = 393,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1280,
+		.evolutionChainTypeFlags_Revised = 1280,
 	},
 	[396] =
 	{
 		.eggSpecies = 396,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[397] =
 	{
 		.eggSpecies = 396,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[398] =
 	{
 		.eggSpecies = 396,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[399] =
 	{
 		.eggSpecies = 399,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1025,
+		.evolutionChainTypeFlags_Revised = 1025,
 	},
 	[400] =
 	{
 		.eggSpecies = 399,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1025,
+		.evolutionChainTypeFlags_Revised = 1025,
 	},
 	[401] =
 	{
 		.eggSpecies = 401,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[402] =
 	{
 		.eggSpecies = 401,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[403] =
 	{
 		.eggSpecies = 403,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[404] =
 	{
 		.eggSpecies = 403,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[405] =
 	{
 		.eggSpecies = 403,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[406] =
 	{
 		.eggSpecies = 406,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[407] =
 	{
 		.eggSpecies = 406,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[408] =
 	{
 		.eggSpecies = 408,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[409] =
 	{
 		.eggSpecies = 408,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[410] =
 	{
 		.eggSpecies = 410,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[411] =
 	{
 		.eggSpecies = 410,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[412] =
 	{
 		.eggSpecies = 412,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2116,
+		.evolutionChainTypeFlags_Revised = 2116,
 	},
 	[413] =
 	{
 		.eggSpecies = 412,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2116,
+		.evolutionChainTypeFlags_Revised = 2116,
 	},
 	[414] =
 	{
 		.eggSpecies = 412,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2116,
+		.evolutionChainTypeFlags_Revised = 2116,
 	},
 	[415] =
 	{
 		.eggSpecies = 415,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[416] =
 	{
 		.eggSpecies = 415,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[417] =
 	{
 		.eggSpecies = 417,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[418] =
 	{
 		.eggSpecies = 418,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[419] =
 	{
 		.eggSpecies = 418,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[420] =
 	{
 		.eggSpecies = 420,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[421] =
 	{
 		.eggSpecies = 420,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[422] =
 	{
 		.eggSpecies = 422,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[423] =
 	{
 		.eggSpecies = 422,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[424] =
 	{
 		.eggSpecies = 190,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[425] =
 	{
 		.eggSpecies = 425,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132,
+		.evolutionChainTypeFlags_Revised = 132,
 	},
 	[426] =
 	{
 		.eggSpecies = 425,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 132,
+		.evolutionChainTypeFlags_Revised = 132,
 	},
 	[427] =
 	{
 		.eggSpecies = 427,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[428] =
 	{
 		.eggSpecies = 427,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[429] =
 	{
 		.eggSpecies = 200,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[430] =
 	{
 		.eggSpecies = 198,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[431] =
 	{
 		.eggSpecies = 431,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[432] =
 	{
 		.eggSpecies = 431,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[433] =
 	{
 		.eggSpecies = 433,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[434] =
 	{
 		.eggSpecies = 434,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[435] =
 	{
 		.eggSpecies = 434,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[436] =
 	{
 		.eggSpecies = 436,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[437] =
 	{
 		.eggSpecies = 436,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[438] =
 	{
 		.eggSpecies = 438,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[439] =
 	{
 		.eggSpecies = 439,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 155648,
+		.evolutionChainTypeFlags_Revised = 155648,
 	},
 	[440] =
 	{
 		.eggSpecies = 440,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[441] =
 	{
 		.eggSpecies = 441,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[442] =
 	{
 		.eggSpecies = 442,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65664,
+		.evolutionChainTypeFlags_Revised = 65664,
 	},
 	[443] =
 	{
 		.eggSpecies = 443,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[444] =
 	{
 		.eggSpecies = 443,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[445] =
 	{
 		.eggSpecies = 443,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[446] =
 	{
 		.eggSpecies = 446,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[447] =
 	{
 		.eggSpecies = 447,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 258,
+		.evolutionChainTypeFlags_Revised = 258,
 	},
 	[448] =
 	{
 		.eggSpecies = 447,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 258,
+		.evolutionChainTypeFlags_Revised = 258,
 	},
 	[449] =
 	{
 		.eggSpecies = 449,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[450] =
 	{
 		.eggSpecies = 449,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[451] =
 	{
 		.eggSpecies = 451,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65608,
+		.evolutionChainTypeFlags_Revised = 65608,
 	},
 	[452] =
 	{
 		.eggSpecies = 451,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65608,
+		.evolutionChainTypeFlags_Revised = 65608,
 	},
 	[453] =
 	{
 		.eggSpecies = 453,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 10,
+		.evolutionChainTypeFlags_Revised = 10,
 	},
 	[454] =
 	{
 		.eggSpecies = 453,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10,
+		.evolutionChainTypeFlags_Revised = 10,
 	},
 	[455] =
 	{
 		.eggSpecies = 455,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[456] =
 	{
 		.eggSpecies = 456,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[457] =
 	{
 		.eggSpecies = 456,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[458] =
 	{
 		.eggSpecies = 458,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[459] =
 	{
 		.eggSpecies = 459,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 18432,
+		.evolutionChainTypeFlags_Revised = 18432,
 	},
 	[460] =
 	{
 		.eggSpecies = 459,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 18432,
+		.evolutionChainTypeFlags_Revised = 18432,
 	},
 	[461] =
 	{
 		.eggSpecies = 215,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 81920,
+		.evolutionChainTypeFlags_Revised = 81920,
 	},
 	[462] =
 	{
 		.eggSpecies = 81,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4352,
+		.evolutionChainTypeFlags_Revised = 4352,
 	},
 	[463] =
 	{
 		.eggSpecies = 108,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[464] =
 	{
 		.eggSpecies = 111,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 48,
+		.evolutionChainTypeFlags_Revised = 48,
 	},
 	[465] =
 	{
 		.eggSpecies = 114,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[466] =
 	{
 		.eggSpecies = 239,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[467] =
 	{
 		.eggSpecies = 240,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[468] =
 	{
 		.eggSpecies = 175,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131076,
+		.evolutionChainTypeFlags_Revised = 131076,
 	},
 	[469] =
 	{
 		.eggSpecies = 193,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[470] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[471] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[472] =
 	{
 		.eggSpecies = 207,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 20,
+		.evolutionChainTypeFlags_Revised = 20,
 	},
 	[473] =
 	{
 		.eggSpecies = 220,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16400,
+		.evolutionChainTypeFlags_Revised = 16400,
 	},
 	[474] =
 	{
 		.eggSpecies = 137,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[475] =
 	{
 		.eggSpecies = 280,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139266,
+		.evolutionChainTypeFlags_Revised = 139266,
 	},
 	[476] =
 	{
 		.eggSpecies = 299,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[477] =
 	{
 		.eggSpecies = 355,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[478] =
 	{
 		.eggSpecies = 361,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16512,
+		.evolutionChainTypeFlags_Revised = 16512,
 	},
 	[479] =
 	{
 		.eggSpecies = 479,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4224,
+		.evolutionChainTypeFlags_Revised = 4224,
 	},
 	[480] =
 	{
 		.eggSpecies = 480,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[481] =
 	{
 		.eggSpecies = 481,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[482] =
 	{
 		.eggSpecies = 482,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[483] =
 	{
 		.eggSpecies = 483,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[484] =
 	{
 		.eggSpecies = 484,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[485] =
 	{
 		.eggSpecies = 485,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 768,
+		.evolutionChainTypeFlags_Revised = 768,
 	},
 	[486] =
 	{
 		.eggSpecies = 486,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[487] =
 	{
 		.eggSpecies = 487,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32896,
+		.evolutionChainTypeFlags_Revised = 32896,
 	},
 	[488] =
 	{
 		.eggSpecies = 488,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[489] =
 	{
 		.eggSpecies = 489,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[490] =
 	{
 		.eggSpecies = 490,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[491] =
 	{
 		.eggSpecies = 491,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[492] =
 	{
 		.eggSpecies = 492,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[493] =
 	{
 		.eggSpecies = 493,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[494] =
 	{
 		.eggSpecies = 494,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8704,
+		.evolutionChainTypeFlags_Revised = 8704,
 	},
 	[495] =
 	{
 		.eggSpecies = 495,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[496] =
 	{
 		.eggSpecies = 495,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[497] =
 	{
 		.eggSpecies = 495,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[498] =
 	{
 		.eggSpecies = 498,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[499] =
 	{
 		.eggSpecies = 498,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[500] =
 	{
 		.eggSpecies = 498,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[501] =
 	{
 		.eggSpecies = 501,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[502] =
 	{
 		.eggSpecies = 501,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[503] =
 	{
 		.eggSpecies = 501,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[504] =
 	{
 		.eggSpecies = 504,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[505] =
 	{
 		.eggSpecies = 504,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[506] =
 	{
 		.eggSpecies = 506,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[507] =
 	{
 		.eggSpecies = 506,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[508] =
 	{
 		.eggSpecies = 506,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[509] =
 	{
 		.eggSpecies = 509,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[510] =
 	{
 		.eggSpecies = 509,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[511] =
 	{
 		.eggSpecies = 511,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[512] =
 	{
 		.eggSpecies = 511,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[513] =
 	{
 		.eggSpecies = 513,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[514] =
 	{
 		.eggSpecies = 513,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[515] =
 	{
 		.eggSpecies = 515,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[516] =
 	{
 		.eggSpecies = 515,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[517] =
 	{
 		.eggSpecies = 517,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[518] =
 	{
 		.eggSpecies = 517,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[519] =
 	{
 		.eggSpecies = 519,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[520] =
 	{
 		.eggSpecies = 519,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[521] =
 	{
 		.eggSpecies = 519,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[522] =
 	{
 		.eggSpecies = 522,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[523] =
 	{
 		.eggSpecies = 522,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[524] =
 	{
 		.eggSpecies = 524,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[525] =
 	{
 		.eggSpecies = 524,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[526] =
 	{
 		.eggSpecies = 524,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[527] =
 	{
 		.eggSpecies = 527,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[528] =
 	{
 		.eggSpecies = 527,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[529] =
 	{
 		.eggSpecies = 529,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[530] =
 	{
 		.eggSpecies = 529,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[531] =
 	{
 		.eggSpecies = 531,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[532] =
 	{
 		.eggSpecies = 532,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[533] =
 	{
 		.eggSpecies = 532,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[534] =
 	{
 		.eggSpecies = 532,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[535] =
 	{
 		.eggSpecies = 535,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[536] =
 	{
 		.eggSpecies = 535,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[537] =
 	{
 		.eggSpecies = 535,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[538] =
 	{
 		.eggSpecies = 538,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[539] =
 	{
 		.eggSpecies = 539,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[540] =
 	{
 		.eggSpecies = 540,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
+		.evolutionChainTypeFlags_Revised = 2112,
 	},
 	[541] =
 	{
 		.eggSpecies = 540,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
+		.evolutionChainTypeFlags_Revised = 2112,
 	},
 	[542] =
 	{
 		.eggSpecies = 540,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2112,
+		.evolutionChainTypeFlags_Revised = 2112,
 	},
 	[543] =
 	{
 		.eggSpecies = 543,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[544] =
 	{
 		.eggSpecies = 543,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[545] =
 	{
 		.eggSpecies = 543,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[546] =
 	{
 		.eggSpecies = 546,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 133120,
+		.evolutionChainTypeFlags_Revised = 133120,
 	},
 	[547] =
 	{
 		.eggSpecies = 546,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 133120,
+		.evolutionChainTypeFlags_Revised = 133120,
 	},
 	[548] =
 	{
 		.eggSpecies = 548,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[549] =
 	{
 		.eggSpecies = 548,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[550] =
 	{
 		.eggSpecies = 550,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[551] =
 	{
 		.eggSpecies = 551,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65552,
+		.evolutionChainTypeFlags_Revised = 65552,
 	},
 	[552] =
 	{
 		.eggSpecies = 551,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65552,
+		.evolutionChainTypeFlags_Revised = 65552,
 	},
 	[553] =
 	{
 		.eggSpecies = 551,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65552,
+		.evolutionChainTypeFlags_Revised = 65552,
 	},
 	[554] =
 	{
 		.eggSpecies = 554,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[555] =
 	{
 		.eggSpecies = 554,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[556] =
 	{
 		.eggSpecies = 556,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[557] =
 	{
 		.eggSpecies = 557,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 96,
+		.evolutionChainTypeFlags_Revised = 96,
 	},
 	[558] =
 	{
 		.eggSpecies = 557,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 96,
+		.evolutionChainTypeFlags_Revised = 96,
 	},
 	[559] =
 	{
 		.eggSpecies = 559,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65538,
+		.evolutionChainTypeFlags_Revised = 65538,
 	},
 	[560] =
 	{
 		.eggSpecies = 559,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65538,
+		.evolutionChainTypeFlags_Revised = 65538,
 	},
 	[561] =
 	{
 		.eggSpecies = 561,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[562] =
 	{
 		.eggSpecies = 562,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[563] =
 	{
 		.eggSpecies = 562,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[564] =
 	{
 		.eggSpecies = 564,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[565] =
 	{
 		.eggSpecies = 564,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[566] =
 	{
 		.eggSpecies = 566,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[567] =
 	{
 		.eggSpecies = 566,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[568] =
 	{
 		.eggSpecies = 568,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[569] =
 	{
 		.eggSpecies = 568,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[570] =
 	{
 		.eggSpecies = 570,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[571] =
 	{
 		.eggSpecies = 570,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[572] =
 	{
 		.eggSpecies = 572,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[573] =
 	{
 		.eggSpecies = 572,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[574] =
 	{
 		.eggSpecies = 574,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[575] =
 	{
 		.eggSpecies = 574,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[576] =
 	{
 		.eggSpecies = 574,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[577] =
 	{
 		.eggSpecies = 577,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[578] =
 	{
 		.eggSpecies = 577,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[579] =
 	{
 		.eggSpecies = 577,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[580] =
 	{
 		.eggSpecies = 580,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[581] =
 	{
 		.eggSpecies = 580,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[582] =
 	{
 		.eggSpecies = 582,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[583] =
 	{
 		.eggSpecies = 582,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[584] =
 	{
 		.eggSpecies = 582,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[585] =
 	{
 		.eggSpecies = 585,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[586] =
 	{
 		.eggSpecies = 585,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[587] =
 	{
 		.eggSpecies = 587,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[588] =
 	{
 		.eggSpecies = 588,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[589] =
 	{
 		.eggSpecies = 588,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[590] =
 	{
 		.eggSpecies = 590,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[591] =
 	{
 		.eggSpecies = 590,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[592] =
 	{
 		.eggSpecies = 592,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1152,
+		.evolutionChainTypeFlags_Revised = 1152,
 	},
 	[593] =
 	{
 		.eggSpecies = 592,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1152,
+		.evolutionChainTypeFlags_Revised = 1152,
 	},
 	[594] =
 	{
 		.eggSpecies = 594,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[595] =
 	{
 		.eggSpecies = 595,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4160,
+		.evolutionChainTypeFlags_Revised = 4160,
 	},
 	[596] =
 	{
 		.eggSpecies = 595,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4160,
+		.evolutionChainTypeFlags_Revised = 4160,
 	},
 	[597] =
 	{
 		.eggSpecies = 597,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2304,
+		.evolutionChainTypeFlags_Revised = 2304,
 	},
 	[598] =
 	{
 		.eggSpecies = 597,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2304,
+		.evolutionChainTypeFlags_Revised = 2304,
 	},
 	[599] =
 	{
 		.eggSpecies = 599,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[600] =
 	{
 		.eggSpecies = 599,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[601] =
 	{
 		.eggSpecies = 599,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[602] =
 	{
 		.eggSpecies = 602,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[603] =
 	{
 		.eggSpecies = 602,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[604] =
 	{
 		.eggSpecies = 602,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[605] =
 	{
 		.eggSpecies = 605,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[606] =
 	{
 		.eggSpecies = 605,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[607] =
 	{
 		.eggSpecies = 607,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[608] =
 	{
 		.eggSpecies = 607,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[609] =
 	{
 		.eggSpecies = 607,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[610] =
 	{
 		.eggSpecies = 610,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[611] =
 	{
 		.eggSpecies = 610,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[612] =
 	{
 		.eggSpecies = 610,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[613] =
 	{
 		.eggSpecies = 613,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[614] =
 	{
 		.eggSpecies = 613,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[615] =
 	{
 		.eggSpecies = 615,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[616] =
 	{
 		.eggSpecies = 616,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[617] =
 	{
 		.eggSpecies = 616,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[618] =
 	{
 		.eggSpecies = 618,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4112,
+		.evolutionChainTypeFlags_Revised = 4112,
 	},
 	[619] =
 	{
 		.eggSpecies = 619,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[620] =
 	{
 		.eggSpecies = 619,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[621] =
 	{
 		.eggSpecies = 621,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[622] =
 	{
 		.eggSpecies = 622,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[623] =
 	{
 		.eggSpecies = 622,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[624] =
 	{
 		.eggSpecies = 624,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65792,
+		.evolutionChainTypeFlags_Revised = 65792,
 	},
 	[625] =
 	{
 		.eggSpecies = 624,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65792,
+		.evolutionChainTypeFlags_Revised = 65792,
 	},
 	[626] =
 	{
 		.eggSpecies = 626,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[627] =
 	{
 		.eggSpecies = 627,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8197,
+		.evolutionChainTypeFlags_Revised = 8197,
 	},
 	[628] =
 	{
 		.eggSpecies = 627,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8197,
+		.evolutionChainTypeFlags_Revised = 8197,
 	},
 	[629] =
 	{
 		.eggSpecies = 629,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[630] =
 	{
 		.eggSpecies = 629,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[631] =
 	{
 		.eggSpecies = 631,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[632] =
 	{
 		.eggSpecies = 632,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[633] =
 	{
 		.eggSpecies = 633,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 98304,
+		.evolutionChainTypeFlags_Revised = 98304,
 	},
 	[634] =
 	{
 		.eggSpecies = 633,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 98304,
+		.evolutionChainTypeFlags_Revised = 98304,
 	},
 	[635] =
 	{
 		.eggSpecies = 633,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 98304,
+		.evolutionChainTypeFlags_Revised = 98304,
 	},
 	[636] =
 	{
 		.eggSpecies = 636,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 576,
+		.evolutionChainTypeFlags_Revised = 576,
 	},
 	[637] =
 	{
 		.eggSpecies = 636,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 576,
+		.evolutionChainTypeFlags_Revised = 576,
 	},
 	[638] =
 	{
 		.eggSpecies = 638,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 258,
+		.evolutionChainTypeFlags_Revised = 258,
 	},
 	[639] =
 	{
 		.eggSpecies = 639,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34,
+		.evolutionChainTypeFlags_Revised = 34,
 	},
 	[640] =
 	{
 		.eggSpecies = 640,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[641] =
 	{
 		.eggSpecies = 641,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4,
+		.evolutionChainTypeFlags_Revised = 4,
 	},
 	[642] =
 	{
 		.eggSpecies = 642,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[643] =
 	{
 		.eggSpecies = 643,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33280,
+		.evolutionChainTypeFlags_Revised = 33280,
 	},
 	[644] =
 	{
 		.eggSpecies = 644,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36864,
+		.evolutionChainTypeFlags_Revised = 36864,
 	},
 	[645] =
 	{
 		.eggSpecies = 645,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 20,
+		.evolutionChainTypeFlags_Revised = 20,
 	},
 	[646] =
 	{
 		.eggSpecies = 646,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[647] =
 	{
 		.eggSpecies = 647,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[648] =
 	{
 		.eggSpecies = 648,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[649] =
 	{
 		.eggSpecies = 649,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[650] =
 	{
 		.eggSpecies = 650,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[651] =
 	{
 		.eggSpecies = 650,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[652] =
 	{
 		.eggSpecies = 650,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[653] =
 	{
 		.eggSpecies = 653,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8704,
+		.evolutionChainTypeFlags_Revised = 8704,
 	},
 	[654] =
 	{
 		.eggSpecies = 653,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8704,
+		.evolutionChainTypeFlags_Revised = 8704,
 	},
 	[655] =
 	{
 		.eggSpecies = 653,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8704,
+		.evolutionChainTypeFlags_Revised = 8704,
 	},
 	[656] =
 	{
 		.eggSpecies = 656,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[657] =
 	{
 		.eggSpecies = 656,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[658] =
 	{
 		.eggSpecies = 656,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[659] =
 	{
 		.eggSpecies = 659,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[660] =
 	{
 		.eggSpecies = 659,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[661] =
 	{
 		.eggSpecies = 661,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 517,
+		.evolutionChainTypeFlags_Revised = 517,
 	},
 	[662] =
 	{
 		.eggSpecies = 661,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 517,
+		.evolutionChainTypeFlags_Revised = 517,
 	},
 	[663] =
 	{
 		.eggSpecies = 661,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 517,
+		.evolutionChainTypeFlags_Revised = 517,
 	},
 	[664] =
 	{
 		.eggSpecies = 664,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[665] =
 	{
 		.eggSpecies = 664,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[666] =
 	{
 		.eggSpecies = 664,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[667] =
 	{
 		.eggSpecies = 667,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 513,
+		.evolutionChainTypeFlags_Revised = 513,
 	},
 	[668] =
 	{
 		.eggSpecies = 667,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 513,
+		.evolutionChainTypeFlags_Revised = 513,
 	},
 	[669] =
 	{
 		.eggSpecies = 669,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[670] =
 	{
 		.eggSpecies = 669,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[671] =
 	{
 		.eggSpecies = 669,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[672] =
 	{
 		.eggSpecies = 672,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[673] =
 	{
 		.eggSpecies = 672,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[674] =
 	{
 		.eggSpecies = 674,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65538,
+		.evolutionChainTypeFlags_Revised = 65538,
 	},
 	[675] =
 	{
 		.eggSpecies = 674,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65538,
+		.evolutionChainTypeFlags_Revised = 65538,
 	},
 	[676] =
 	{
 		.eggSpecies = 676,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[677] =
 	{
 		.eggSpecies = 677,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[678] =
 	{
 		.eggSpecies = 677,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[679] =
 	{
 		.eggSpecies = 679,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[680] =
 	{
 		.eggSpecies = 679,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[681] =
 	{
 		.eggSpecies = 679,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[682] =
 	{
 		.eggSpecies = 682,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[683] =
 	{
 		.eggSpecies = 682,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[684] =
 	{
 		.eggSpecies = 684,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[685] =
 	{
 		.eggSpecies = 684,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[686] =
 	{
 		.eggSpecies = 686,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 73728,
+		.evolutionChainTypeFlags_Revised = 73728,
 	},
 	[687] =
 	{
 		.eggSpecies = 686,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 73728,
+		.evolutionChainTypeFlags_Revised = 73728,
 	},
 	[688] =
 	{
 		.eggSpecies = 688,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[689] =
 	{
 		.eggSpecies = 688,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[690] =
 	{
 		.eggSpecies = 690,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 33800,
+		.evolutionChainTypeFlags_Revised = 33800,
 	},
 	[691] =
 	{
 		.eggSpecies = 690,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33800,
+		.evolutionChainTypeFlags_Revised = 33800,
 	},
 	[692] =
 	{
 		.eggSpecies = 692,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[693] =
 	{
 		.eggSpecies = 692,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[694] =
 	{
 		.eggSpecies = 694,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4097,
+		.evolutionChainTypeFlags_Revised = 4097,
 	},
 	[695] =
 	{
 		.eggSpecies = 694,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4097,
+		.evolutionChainTypeFlags_Revised = 4097,
 	},
 	[696] =
 	{
 		.eggSpecies = 696,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32800,
+		.evolutionChainTypeFlags_Revised = 32800,
 	},
 	[697] =
 	{
 		.eggSpecies = 696,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32800,
+		.evolutionChainTypeFlags_Revised = 32800,
 	},
 	[698] =
 	{
 		.eggSpecies = 698,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16416,
+		.evolutionChainTypeFlags_Revised = 16416,
 	},
 	[699] =
 	{
 		.eggSpecies = 698,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16416,
+		.evolutionChainTypeFlags_Revised = 16416,
 	},
 	[700] =
 	{
 		.eggSpecies = 133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 228865,
+		.evolutionChainTypeFlags_Revised = 228865,
 	},
 	[701] =
 	{
 		.eggSpecies = 701,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 6,
+		.evolutionChainTypeFlags_Revised = 6,
 	},
 	[702] =
 	{
 		.eggSpecies = 702,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 135168,
+		.evolutionChainTypeFlags_Revised = 135168,
 	},
 	[703] =
 	{
 		.eggSpecies = 703,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131104,
+		.evolutionChainTypeFlags_Revised = 131104,
 	},
 	[704] =
 	{
 		.eggSpecies = 704,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[705] =
 	{
 		.eggSpecies = 704,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[706] =
 	{
 		.eggSpecies = 704,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[707] =
 	{
 		.eggSpecies = 707,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[708] =
 	{
 		.eggSpecies = 708,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[709] =
 	{
 		.eggSpecies = 708,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[710] =
 	{
 		.eggSpecies = 710,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[711] =
 	{
 		.eggSpecies = 710,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[712] =
 	{
 		.eggSpecies = 712,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16416,
+		.evolutionChainTypeFlags_Revised = 16416,
 	},
 	[713] =
 	{
 		.eggSpecies = 712,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16416,
+		.evolutionChainTypeFlags_Revised = 16416,
 	},
 	[714] =
 	{
 		.eggSpecies = 714,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[715] =
 	{
 		.eggSpecies = 714,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[716] =
 	{
 		.eggSpecies = 716,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[717] =
 	{
 		.eggSpecies = 717,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[718] =
 	{
 		.eggSpecies = 718,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[719] =
 	{
 		.eggSpecies = 719,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131104,
+		.evolutionChainTypeFlags_Revised = 131104,
 	},
 	[720] =
 	{
 		.eggSpecies = 720,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8320,
+		.evolutionChainTypeFlags_Revised = 8320,
 	},
 	[721] =
 	{
 		.eggSpecies = 721,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1536,
+		.evolutionChainTypeFlags_Revised = 1536,
 	},
 	[722] =
 	{
 		.eggSpecies = 722,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2182,
+		.evolutionChainTypeFlags_Revised = 2182,
 	},
 	[723] =
 	{
 		.eggSpecies = 722,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2182,
+		.evolutionChainTypeFlags_Revised = 2182,
 	},
 	[724] =
 	{
 		.eggSpecies = 722,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2182,
+		.evolutionChainTypeFlags_Revised = 2182,
 	},
 	[725] =
 	{
 		.eggSpecies = 725,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[726] =
 	{
 		.eggSpecies = 725,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[727] =
 	{
 		.eggSpecies = 725,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[728] =
 	{
 		.eggSpecies = 728,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132096,
+		.evolutionChainTypeFlags_Revised = 132096,
 	},
 	[729] =
 	{
 		.eggSpecies = 728,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132096,
+		.evolutionChainTypeFlags_Revised = 132096,
 	},
 	[730] =
 	{
 		.eggSpecies = 728,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 132096,
+		.evolutionChainTypeFlags_Revised = 132096,
 	},
 	[731] =
 	{
 		.eggSpecies = 731,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[732] =
 	{
 		.eggSpecies = 731,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[733] =
 	{
 		.eggSpecies = 731,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[734] =
 	{
 		.eggSpecies = 734,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[735] =
 	{
 		.eggSpecies = 734,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[736] =
 	{
 		.eggSpecies = 736,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4160,
+		.evolutionChainTypeFlags_Revised = 4160,
 	},
 	[737] =
 	{
 		.eggSpecies = 736,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4160,
+		.evolutionChainTypeFlags_Revised = 4160,
 	},
 	[738] =
 	{
 		.eggSpecies = 736,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4160,
+		.evolutionChainTypeFlags_Revised = 4160,
 	},
 	[739] =
 	{
 		.eggSpecies = 739,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16386,
+		.evolutionChainTypeFlags_Revised = 16386,
 	},
 	[740] =
 	{
 		.eggSpecies = 739,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16386,
+		.evolutionChainTypeFlags_Revised = 16386,
 	},
 	[741] =
 	{
 		.eggSpecies = 741,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[742] =
 	{
 		.eggSpecies = 742,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131136,
+		.evolutionChainTypeFlags_Revised = 131136,
 	},
 	[743] =
 	{
 		.eggSpecies = 742,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131136,
+		.evolutionChainTypeFlags_Revised = 131136,
 	},
 	[744] =
 	{
 		.eggSpecies = 744,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[745] =
 	{
 		.eggSpecies = 744,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[746] =
 	{
 		.eggSpecies = 746,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[747] =
 	{
 		.eggSpecies = 747,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1032,
+		.evolutionChainTypeFlags_Revised = 1032,
 	},
 	[748] =
 	{
 		.eggSpecies = 747,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1032,
+		.evolutionChainTypeFlags_Revised = 1032,
 	},
 	[749] =
 	{
 		.eggSpecies = 749,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[750] =
 	{
 		.eggSpecies = 749,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[751] =
 	{
 		.eggSpecies = 751,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1088,
+		.evolutionChainTypeFlags_Revised = 1088,
 	},
 	[752] =
 	{
 		.eggSpecies = 751,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1088,
+		.evolutionChainTypeFlags_Revised = 1088,
 	},
 	[753] =
 	{
 		.eggSpecies = 753,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[754] =
 	{
 		.eggSpecies = 753,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[755] =
 	{
 		.eggSpecies = 755,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 133120,
+		.evolutionChainTypeFlags_Revised = 133120,
 	},
 	[756] =
 	{
 		.eggSpecies = 755,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 133120,
+		.evolutionChainTypeFlags_Revised = 133120,
 	},
 	[757] =
 	{
 		.eggSpecies = 757,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 520,
+		.evolutionChainTypeFlags_Revised = 520,
 	},
 	[758] =
 	{
 		.eggSpecies = 757,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 520,
+		.evolutionChainTypeFlags_Revised = 520,
 	},
 	[759] =
 	{
 		.eggSpecies = 759,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3,
+		.evolutionChainTypeFlags_Revised = 3,
 	},
 	[760] =
 	{
 		.eggSpecies = 759,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3,
+		.evolutionChainTypeFlags_Revised = 3,
 	},
 	[761] =
 	{
 		.eggSpecies = 761,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[762] =
 	{
 		.eggSpecies = 761,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[763] =
 	{
 		.eggSpecies = 761,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[764] =
 	{
 		.eggSpecies = 764,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[765] =
 	{
 		.eggSpecies = 765,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[766] =
 	{
 		.eggSpecies = 766,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[767] =
 	{
 		.eggSpecies = 767,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1088,
+		.evolutionChainTypeFlags_Revised = 1088,
 	},
 	[768] =
 	{
 		.eggSpecies = 767,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1088,
+		.evolutionChainTypeFlags_Revised = 1088,
 	},
 	[769] =
 	{
 		.eggSpecies = 769,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[770] =
 	{
 		.eggSpecies = 769,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[771] =
 	{
 		.eggSpecies = 771,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[772] =
 	{
 		.eggSpecies = 772,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[773] =
 	{
 		.eggSpecies = 772,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[774] =
 	{
 		.eggSpecies = 774,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[775] =
 	{
 		.eggSpecies = 775,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[776] =
 	{
 		.eggSpecies = 776,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33280,
+		.evolutionChainTypeFlags_Revised = 33280,
 	},
 	[777] =
 	{
 		.eggSpecies = 777,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4352,
+		.evolutionChainTypeFlags_Revised = 4352,
 	},
 	[778] =
 	{
 		.eggSpecies = 778,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131200,
+		.evolutionChainTypeFlags_Revised = 131200,
 	},
 	[779] =
 	{
 		.eggSpecies = 779,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[780] =
 	{
 		.eggSpecies = 780,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32769,
+		.evolutionChainTypeFlags_Revised = 32769,
 	},
 	[781] =
 	{
 		.eggSpecies = 781,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[782] =
 	{
 		.eggSpecies = 782,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32770,
+		.evolutionChainTypeFlags_Revised = 32770,
 	},
 	[783] =
 	{
 		.eggSpecies = 782,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32770,
+		.evolutionChainTypeFlags_Revised = 32770,
 	},
 	[784] =
 	{
 		.eggSpecies = 782,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32770,
+		.evolutionChainTypeFlags_Revised = 32770,
 	},
 	[785] =
 	{
 		.eggSpecies = 785,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 135168,
+		.evolutionChainTypeFlags_Revised = 135168,
 	},
 	[786] =
 	{
 		.eggSpecies = 786,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[787] =
 	{
 		.eggSpecies = 787,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 133120,
+		.evolutionChainTypeFlags_Revised = 133120,
 	},
 	[788] =
 	{
 		.eggSpecies = 788,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 132096,
+		.evolutionChainTypeFlags_Revised = 132096,
 	},
 	[789] =
 	{
 		.eggSpecies = 789,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8576,
+		.evolutionChainTypeFlags_Revised = 8576,
 	},
 	[790] =
 	{
 		.eggSpecies = 789,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8576,
+		.evolutionChainTypeFlags_Revised = 8576,
 	},
 	[791] =
 	{
 		.eggSpecies = 789,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8576,
+		.evolutionChainTypeFlags_Revised = 8576,
 	},
 	[792] =
 	{
 		.eggSpecies = 789,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8576,
+		.evolutionChainTypeFlags_Revised = 8576,
 	},
 	[793] =
 	{
 		.eggSpecies = 793,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40,
+		.evolutionChainTypeFlags_Revised = 40,
 	},
 	[794] =
 	{
 		.eggSpecies = 794,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66,
+		.evolutionChainTypeFlags_Revised = 66,
 	},
 	[795] =
 	{
 		.eggSpecies = 795,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66,
+		.evolutionChainTypeFlags_Revised = 66,
 	},
 	[796] =
 	{
 		.eggSpecies = 796,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[797] =
 	{
 		.eggSpecies = 797,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[798] =
 	{
 		.eggSpecies = 798,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2304,
+		.evolutionChainTypeFlags_Revised = 2304,
 	},
 	[799] =
 	{
 		.eggSpecies = 799,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 98304,
+		.evolutionChainTypeFlags_Revised = 98304,
 	},
 	[800] =
 	{
 		.eggSpecies = 800,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[801] =
 	{
 		.eggSpecies = 801,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[802] =
 	{
 		.eggSpecies = 802,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 130,
+		.evolutionChainTypeFlags_Revised = 130,
 	},
 	[803] =
 	{
 		.eggSpecies = 803,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32776,
+		.evolutionChainTypeFlags_Revised = 32776,
 	},
 	[804] =
 	{
 		.eggSpecies = 803,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32776,
+		.evolutionChainTypeFlags_Revised = 32776,
 	},
 	[805] =
 	{
 		.eggSpecies = 805,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 288,
+		.evolutionChainTypeFlags_Revised = 288,
 	},
 	[806] =
 	{
 		.eggSpecies = 806,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[807] =
 	{
 		.eggSpecies = 807,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[808] =
 	{
 		.eggSpecies = 808,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[809] =
 	{
 		.eggSpecies = 808,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[810] =
 	{
 		.eggSpecies = 810,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[811] =
 	{
 		.eggSpecies = 810,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[812] =
 	{
 		.eggSpecies = 810,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[813] =
 	{
 		.eggSpecies = 813,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[814] =
 	{
 		.eggSpecies = 813,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[815] =
 	{
 		.eggSpecies = 813,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[816] =
 	{
 		.eggSpecies = 816,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[817] =
 	{
 		.eggSpecies = 816,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[818] =
 	{
 		.eggSpecies = 816,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[819] =
 	{
 		.eggSpecies = 819,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[820] =
 	{
 		.eggSpecies = 819,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[821] =
 	{
 		.eggSpecies = 821,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[822] =
 	{
 		.eggSpecies = 821,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[823] =
 	{
 		.eggSpecies = 821,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[824] =
 	{
 		.eggSpecies = 824,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[825] =
 	{
 		.eggSpecies = 824,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[826] =
 	{
 		.eggSpecies = 824,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[827] =
 	{
 		.eggSpecies = 827,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[828] =
 	{
 		.eggSpecies = 827,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[829] =
 	{
 		.eggSpecies = 829,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[830] =
 	{
 		.eggSpecies = 829,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[831] =
 	{
 		.eggSpecies = 831,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[832] =
 	{
 		.eggSpecies = 831,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[833] =
 	{
 		.eggSpecies = 833,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[834] =
 	{
 		.eggSpecies = 833,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[835] =
 	{
 		.eggSpecies = 835,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[836] =
 	{
 		.eggSpecies = 835,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[837] =
 	{
 		.eggSpecies = 837,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[838] =
 	{
 		.eggSpecies = 837,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[839] =
 	{
 		.eggSpecies = 837,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[840] =
 	{
 		.eggSpecies = 840,
 		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[841] =
 	{
 		.eggSpecies = 840,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[842] =
 	{
 		.eggSpecies = 840,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[843] =
 	{
 		.eggSpecies = 843,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[844] =
 	{
 		.eggSpecies = 843,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[845] =
 	{
 		.eggSpecies = 845,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[846] =
 	{
 		.eggSpecies = 846,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[847] =
 	{
 		.eggSpecies = 846,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[848] =
 	{
 		.eggSpecies = 848,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4104,
+		.evolutionChainTypeFlags_Revised = 4104,
 	},
 	[849] =
 	{
 		.eggSpecies = 848,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4104,
+		.evolutionChainTypeFlags_Revised = 4104,
 	},
 	[850] =
 	{
 		.eggSpecies = 850,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 576,
+		.evolutionChainTypeFlags_Revised = 576,
 	},
 	[851] =
 	{
 		.eggSpecies = 850,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 576,
+		.evolutionChainTypeFlags_Revised = 576,
 	},
 	[852] =
 	{
 		.eggSpecies = 852,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[853] =
 	{
 		.eggSpecies = 852,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[854] =
 	{
 		.eggSpecies = 854,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[855] =
 	{
 		.eggSpecies = 854,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[856] =
 	{
 		.eggSpecies = 856,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[857] =
 	{
 		.eggSpecies = 856,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[858] =
 	{
 		.eggSpecies = 856,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[859] =
 	{
 		.eggSpecies = 859,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 196608,
+		.evolutionChainTypeFlags_Revised = 196608,
 	},
 	[860] =
 	{
 		.eggSpecies = 859,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 196608,
+		.evolutionChainTypeFlags_Revised = 196608,
 	},
 	[861] =
 	{
 		.eggSpecies = 859,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 196608,
+		.evolutionChainTypeFlags_Revised = 196608,
 	},
 	[862] =
 	{
 		.eggSpecies = 987,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65537,
+		.evolutionChainTypeFlags_Revised = 65537,
 	},
 	[863] =
 	{
 		.eggSpecies = 974,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[864] =
 	{
 		.eggSpecies = 986,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[865] =
 	{
 		.eggSpecies = 979,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[866] =
 	{
 		.eggSpecies = 439,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 155648,
+		.evolutionChainTypeFlags_Revised = 155648,
 	},
 	[867] =
 	{
 		.eggSpecies = 991,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[868] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 9,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[869] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[870] =
 	{
 		.eggSpecies = 870,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[871] =
 	{
 		.eggSpecies = 871,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[872] =
 	{
 		.eggSpecies = 872,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16448,
+		.evolutionChainTypeFlags_Revised = 16448,
 	},
 	[873] =
 	{
 		.eggSpecies = 872,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16448,
+		.evolutionChainTypeFlags_Revised = 16448,
 	},
 	[874] =
 	{
 		.eggSpecies = 874,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[875] =
 	{
 		.eggSpecies = 875,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[876] =
 	{
 		.eggSpecies = 876,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[877] =
 	{
 		.eggSpecies = 877,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 69632,
+		.evolutionChainTypeFlags_Revised = 69632,
 	},
 	[878] =
 	{
 		.eggSpecies = 878,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[879] =
 	{
 		.eggSpecies = 878,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[880] =
 	{
 		.eggSpecies = 880,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36864,
+		.evolutionChainTypeFlags_Revised = 36864,
 	},
 	[881] =
 	{
 		.eggSpecies = 881,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 20480,
+		.evolutionChainTypeFlags_Revised = 20480,
 	},
 	[882] =
 	{
 		.eggSpecies = 882,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[883] =
 	{
 		.eggSpecies = 883,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[884] =
 	{
 		.eggSpecies = 884,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[885] =
 	{
 		.eggSpecies = 885,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32896,
+		.evolutionChainTypeFlags_Revised = 32896,
 	},
 	[886] =
 	{
 		.eggSpecies = 885,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32896,
+		.evolutionChainTypeFlags_Revised = 32896,
 	},
 	[887] =
 	{
 		.eggSpecies = 885,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32896,
+		.evolutionChainTypeFlags_Revised = 32896,
 	},
 	[888] =
 	{
 		.eggSpecies = 888,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[889] =
 	{
 		.eggSpecies = 889,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[890] =
 	{
 		.eggSpecies = 890,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32776,
+		.evolutionChainTypeFlags_Revised = 32776,
 	},
 	[891] =
 	{
 		.eggSpecies = 891,
 		.evolutionCount = 4,
 		.evolutionChainTypeFlags = 66562,
+		.evolutionChainTypeFlags_Revised = 66562,
 	},
 	[892] =
 	{
 		.eggSpecies = 891,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66562,
+		.evolutionChainTypeFlags_Revised = 66562,
 	},
 	[893] =
 	{
 		.eggSpecies = 893,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[894] =
 	{
 		.eggSpecies = 894,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[895] =
 	{
 		.eggSpecies = 895,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[896] =
 	{
 		.eggSpecies = 896,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[897] =
 	{
 		.eggSpecies = 897,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[898] =
 	{
 		.eggSpecies = 898,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10240,
+		.evolutionChainTypeFlags_Revised = 10240,
 	},
 	[899] =
 	{
 		.eggSpecies = 234,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[900] =
 	{
 		.eggSpecies = 123,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 356,
+		.evolutionChainTypeFlags_Revised = 356,
 	},
 	[901] =
 	{
 		.eggSpecies = 216,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[902] =
 	{
 		.eggSpecies = 1091,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1152,
+		.evolutionChainTypeFlags_Revised = 1152,
 	},
 	[903] =
 	{
 		.eggSpecies = 999,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10,
+		.evolutionChainTypeFlags_Revised = 10,
 	},
 	[904] =
 	{
 		.eggSpecies = 998,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[905] =
 	{
 		.eggSpecies = 905,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131076,
+		.evolutionChainTypeFlags_Revised = 131076,
 	},
 	[906] =
 	{
 		.eggSpecies = 906,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[907] =
 	{
 		.eggSpecies = 907,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33280,
+		.evolutionChainTypeFlags_Revised = 33280,
 	},
 	[908] =
 	{
 		.eggSpecies = 908,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[909] =
 	{
 		.eggSpecies = 909,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[910] =
 	{
 		.eggSpecies = 910,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 72,
+		.evolutionChainTypeFlags_Revised = 72,
 	},
 	[911] =
 	{
 		.eggSpecies = 911,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[912] =
 	{
 		.eggSpecies = 912,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[913] =
 	{
 		.eggSpecies = 913,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[914] =
 	{
 		.eggSpecies = 914,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[915] =
 	{
 		.eggSpecies = 915,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[916] =
 	{
 		.eggSpecies = 916,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[917] =
 	{
 		.eggSpecies = 917,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[918] =
 	{
 		.eggSpecies = 918,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[919] =
 	{
 		.eggSpecies = 919,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[920] =
 	{
 		.eggSpecies = 920,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[921] =
 	{
 		.eggSpecies = 921,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36864,
+		.evolutionChainTypeFlags_Revised = 36864,
 	},
 	[922] =
 	{
 		.eggSpecies = 922,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[923] =
 	{
 		.eggSpecies = 923,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[924] =
 	{
 		.eggSpecies = 924,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66,
+		.evolutionChainTypeFlags_Revised = 66,
 	},
 	[925] =
 	{
 		.eggSpecies = 925,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[926] =
 	{
 		.eggSpecies = 926,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65568,
+		.evolutionChainTypeFlags_Revised = 65568,
 	},
 	[927] =
 	{
 		.eggSpecies = 927,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[928] =
 	{
 		.eggSpecies = 928,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[929] =
 	{
 		.eggSpecies = 929,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[930] =
 	{
 		.eggSpecies = 930,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[931] =
 	{
 		.eggSpecies = 931,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65664,
+		.evolutionChainTypeFlags_Revised = 65664,
 	},
 	[932] =
 	{
 		.eggSpecies = 932,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[933] =
 	{
 		.eggSpecies = 933,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[934] =
 	{
 		.eggSpecies = 934,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[935] =
 	{
 		.eggSpecies = 935,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[936] =
 	{
 		.eggSpecies = 936,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[937] =
 	{
 		.eggSpecies = 937,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 528,
+		.evolutionChainTypeFlags_Revised = 528,
 	},
 	[938] =
 	{
 		.eggSpecies = 938,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 163840,
+		.evolutionChainTypeFlags_Revised = 163840,
 	},
 	[939] =
 	{
 		.eggSpecies = 939,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[940] =
 	{
 		.eggSpecies = 940,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[941] =
 	{
 		.eggSpecies = 941,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[942] =
 	{
 		.eggSpecies = 942,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[943] =
 	{
 		.eggSpecies = 943,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[944] =
 	{
 		.eggSpecies = 944,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40960,
+		.evolutionChainTypeFlags_Revised = 40960,
 	},
 	[945] =
 	{
 		.eggSpecies = 945,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40960,
+		.evolutionChainTypeFlags_Revised = 40960,
 	},
 	[946] =
 	{
 		.eggSpecies = 946,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3,
+		.evolutionChainTypeFlags_Revised = 3,
 	},
 	[947] =
 	{
 		.eggSpecies = 947,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[948] =
 	{
 		.eggSpecies = 948,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 258,
+		.evolutionChainTypeFlags_Revised = 258,
 	},
 	[949] =
 	{
 		.eggSpecies = 949,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 18432,
+		.evolutionChainTypeFlags_Revised = 18432,
 	},
 	[950] =
 	{
 		.eggSpecies = 950,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[951] =
 	{
 		.eggSpecies = 951,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131073,
+		.evolutionChainTypeFlags_Revised = 131073,
 	},
 	[952] =
 	{
 		.eggSpecies = 952,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131104,
+		.evolutionChainTypeFlags_Revised = 131104,
 	},
 	[953] =
 	{
 		.eggSpecies = 953,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32772,
+		.evolutionChainTypeFlags_Revised = 32772,
 	},
 	[954] =
 	{
 		.eggSpecies = 954,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[955] =
 	{
 		.eggSpecies = 955,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 528,
+		.evolutionChainTypeFlags_Revised = 528,
 	},
 	[956] =
 	{
 		.eggSpecies = 956,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
+		.evolutionChainTypeFlags_Revised = 65537,
 	},
 	[957] =
 	{
 		.eggSpecies = 956,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65537,
+		.evolutionChainTypeFlags_Revised = 65537,
 	},
 	[958] =
 	{
 		.eggSpecies = 172,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 12288,
+		.evolutionChainTypeFlags_Revised = 12288,
 	},
 	[959] =
 	{
 		.eggSpecies = 959,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16640,
+		.evolutionChainTypeFlags_Revised = 16640,
 	},
 	[960] =
 	{
 		.eggSpecies = 959,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16640,
+		.evolutionChainTypeFlags_Revised = 16640,
 	},
 	[961] =
 	{
 		.eggSpecies = 961,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 147456,
+		.evolutionChainTypeFlags_Revised = 147456,
 	},
 	[962] =
 	{
 		.eggSpecies = 961,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 147456,
+		.evolutionChainTypeFlags_Revised = 147456,
 	},
 	[963] =
 	{
 		.eggSpecies = 963,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[964] =
 	{
 		.eggSpecies = 963,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[965] =
 	{
 		.eggSpecies = 965,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[966] =
 	{
 		.eggSpecies = 965,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[967] =
 	{
 		.eggSpecies = 967,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4128,
+		.evolutionChainTypeFlags_Revised = 4128,
 	},
 	[968] =
 	{
 		.eggSpecies = 967,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4128,
+		.evolutionChainTypeFlags_Revised = 4128,
 	},
 	[969] =
 	{
 		.eggSpecies = 967,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4128,
+		.evolutionChainTypeFlags_Revised = 4128,
 	},
 	[970] =
 	{
 		.eggSpecies = 970,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[971] =
 	{
 		.eggSpecies = 970,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[972] =
 	{
 		.eggSpecies = 102,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 43008,
+		.evolutionChainTypeFlags_Revised = 43008,
 	},
 	[973] =
 	{
 		.eggSpecies = 104,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 656,
+		.evolutionChainTypeFlags_Revised = 656,
 	},
 	[974] =
 	{
 		.eggSpecies = 974,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[975] =
 	{
 		.eggSpecies = 975,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[976] =
 	{
 		.eggSpecies = 975,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[977] =
 	{
 		.eggSpecies = 977,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8200,
+		.evolutionChainTypeFlags_Revised = 8200,
 	},
 	[978] =
 	{
 		.eggSpecies = 977,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8200,
+		.evolutionChainTypeFlags_Revised = 8200,
 	},
 	[979] =
 	{
 		.eggSpecies = 979,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[980] =
 	{
 		.eggSpecies = 109,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131080,
+		.evolutionChainTypeFlags_Revised = 131080,
 	},
 	[981] =
 	{
 		.eggSpecies = 439,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 155648,
+		.evolutionChainTypeFlags_Revised = 155648,
 	},
 	[982] =
 	{
 		.eggSpecies = 982,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[983] =
 	{
 		.eggSpecies = 983,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 6,
+		.evolutionChainTypeFlags_Revised = 6,
 	},
 	[984] =
 	{
 		.eggSpecies = 984,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[985] =
 	{
 		.eggSpecies = 977,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8200,
+		.evolutionChainTypeFlags_Revised = 8200,
 	},
 	[986] =
 	{
 		.eggSpecies = 986,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[987] =
 	{
 		.eggSpecies = 987,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
+		.evolutionChainTypeFlags_Revised = 65537,
 	},
 	[988] =
 	{
 		.eggSpecies = 987,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
+		.evolutionChainTypeFlags_Revised = 65537,
 	},
 	[989] =
 	{
 		.eggSpecies = 989,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[990] =
 	{
 		.eggSpecies = 989,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[991] =
 	{
 		.eggSpecies = 991,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
+		.evolutionChainTypeFlags_Revised = 144,
 	},
 	[992] =
 	{
 		.eggSpecies = 992,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[993] =
 	{
 		.eggSpecies = 993,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[994] =
 	{
 		.eggSpecies = 993,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[995] =
 	{
 		.eggSpecies = 995,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 6144,
+		.evolutionChainTypeFlags_Revised = 6144,
 	},
 	[996] =
 	{
 		.eggSpecies = 995,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 6144,
+		.evolutionChainTypeFlags_Revised = 6144,
 	},
 	[997] =
 	{
 		.eggSpecies = 155,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[998] =
 	{
 		.eggSpecies = 998,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
+		.evolutionChainTypeFlags_Revised = 65544,
 	},
 	[999] =
 	{
 		.eggSpecies = 999,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 10,
+		.evolutionChainTypeFlags_Revised = 10,
 	},
 	[1000] =
 	{
 		.eggSpecies = 501,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[1001] =
 	{
 		.eggSpecies = 548,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2050,
+		.evolutionChainTypeFlags_Revised = 2050,
 	},
 	[1002] =
 	{
 		.eggSpecies = 1002,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 129,
+		.evolutionChainTypeFlags_Revised = 129,
 	},
 	[1003] =
 	{
 		.eggSpecies = 1002,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 129,
+		.evolutionChainTypeFlags_Revised = 129,
 	},
 	[1004] =
 	{
 		.eggSpecies = 627,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8197,
+		.evolutionChainTypeFlags_Revised = 8197,
 	},
 	[1005] =
 	{
 		.eggSpecies = 704,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[1006] =
 	{
 		.eggSpecies = 704,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[1007] =
 	{
 		.eggSpecies = 712,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16416,
+		.evolutionChainTypeFlags_Revised = 16416,
 	},
 	[1008] =
 	{
 		.eggSpecies = 722,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2182,
+		.evolutionChainTypeFlags_Revised = 2182,
 	},
 	[1009] =
 	{
 		.eggSpecies = 1009,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1010] =
 	{
 		.eggSpecies = 1010,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1011] =
 	{
 		.eggSpecies = 1011,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1012] =
 	{
 		.eggSpecies = 1012,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1013] =
 	{
 		.eggSpecies = 1013,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1014] =
 	{
 		.eggSpecies = 1014,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1015] =
 	{
 		.eggSpecies = 1015,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1016] =
 	{
 		.eggSpecies = 1016,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1017] =
 	{
 		.eggSpecies = 1017,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1018] =
 	{
 		.eggSpecies = 1018,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1019] =
 	{
 		.eggSpecies = 1019,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1020] =
 	{
 		.eggSpecies = 1020,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1021] =
 	{
 		.eggSpecies = 1021,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1022] =
 	{
 		.eggSpecies = 1022,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1023] =
 	{
 		.eggSpecies = 1023,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1024] =
 	{
 		.eggSpecies = 1024,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1025] =
 	{
 		.eggSpecies = 1025,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1026] =
 	{
 		.eggSpecies = 1026,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1027] =
 	{
 		.eggSpecies = 1027,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1028] =
 	{
 		.eggSpecies = 1028,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1029] =
 	{
 		.eggSpecies = 1029,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1030] =
 	{
 		.eggSpecies = 1030,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1031] =
 	{
 		.eggSpecies = 1031,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1032] =
 	{
 		.eggSpecies = 1032,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1033] =
 	{
 		.eggSpecies = 1033,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1034] =
 	{
 		.eggSpecies = 1034,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1035] =
 	{
 		.eggSpecies = 1035,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1036] =
 	{
 		.eggSpecies = 1036,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1037] =
 	{
 		.eggSpecies = 1037,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1038] =
 	{
 		.eggSpecies = 1038,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1039] =
 	{
 		.eggSpecies = 1039,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1040] =
 	{
 		.eggSpecies = 1040,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1041] =
 	{
 		.eggSpecies = 1041,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1042] =
 	{
 		.eggSpecies = 1042,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1043] =
 	{
 		.eggSpecies = 1043,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1044] =
 	{
 		.eggSpecies = 1044,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1045] =
 	{
 		.eggSpecies = 1045,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1046] =
 	{
 		.eggSpecies = 1046,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1047] =
 	{
 		.eggSpecies = 1047,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1048] =
 	{
 		.eggSpecies = 1048,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1049] =
 	{
 		.eggSpecies = 1049,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1050] =
 	{
 		.eggSpecies = 1050,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1051] =
 	{
 		.eggSpecies = 1051,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[1052] =
 	{
 		.eggSpecies = 1052,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1053] =
 	{
 		.eggSpecies = 1053,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1054] =
 	{
 		.eggSpecies = 1054,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1055] =
 	{
 		.eggSpecies = 1055,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1056] =
 	{
 		.eggSpecies = 1056,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1057] =
 	{
 		.eggSpecies = 1057,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 80,
+		.evolutionChainTypeFlags_Revised = 80,
 	},
 	[1058] =
 	{
 		.eggSpecies = 1058,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1059] =
 	{
 		.eggSpecies = 1057,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 80,
+		.evolutionChainTypeFlags_Revised = 80,
 	},
 	[1060] =
 	{
 		.eggSpecies = 1058,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1061] =
 	{
 		.eggSpecies = 1061,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1062] =
 	{
 		.eggSpecies = 1062,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[1063] =
 	{
 		.eggSpecies = 1062,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1040,
+		.evolutionChainTypeFlags_Revised = 1040,
 	},
 	[1064] =
 	{
 		.eggSpecies = 1064,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4608,
+		.evolutionChainTypeFlags_Revised = 4608,
 	},
 	[1065] =
 	{
 		.eggSpecies = 1065,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5120,
+		.evolutionChainTypeFlags_Revised = 5120,
 	},
 	[1066] =
 	{
 		.eggSpecies = 1066,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 20480,
+		.evolutionChainTypeFlags_Revised = 20480,
 	},
 	[1067] =
 	{
 		.eggSpecies = 1067,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[1068] =
 	{
 		.eggSpecies = 1068,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 6144,
+		.evolutionChainTypeFlags_Revised = 6144,
 	},
 	[1069] =
 	{
 		.eggSpecies = 1069,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[1070] =
 	{
 		.eggSpecies = 1070,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[1071] =
 	{
 		.eggSpecies = 1071,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32896,
+		.evolutionChainTypeFlags_Revised = 32896,
 	},
 	[1072] =
 	{
 		.eggSpecies = 1072,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2052,
+		.evolutionChainTypeFlags_Revised = 2052,
 	},
 	[1073] =
 	{
 		.eggSpecies = 1073,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[1074] =
 	{
 		.eggSpecies = 1074,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4,
+		.evolutionChainTypeFlags_Revised = 4,
 	},
 	[1075] =
 	{
 		.eggSpecies = 1075,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[1076] =
 	{
 		.eggSpecies = 1076,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[1077] =
 	{
 		.eggSpecies = 1077,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1078] =
 	{
 		.eggSpecies = 1078,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[1079] =
 	{
 		.eggSpecies = 1079,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1080] =
 	{
 		.eggSpecies = 1080,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[1081] =
 	{
 		.eggSpecies = 1081,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[1082] =
 	{
 		.eggSpecies = 1082,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1083] =
 	{
 		.eggSpecies = 1083,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1084] =
 	{
 		.eggSpecies = 1084,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1085] =
 	{
 		.eggSpecies = 1085,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1086] =
 	{
 		.eggSpecies = 1086,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1087] =
 	{
 		.eggSpecies = 1087,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[1088] =
 	{
 		.eggSpecies = 1088,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[1089] =
 	{
 		.eggSpecies = 1089,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1090] =
 	{
 		.eggSpecies = 1090,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1091] =
 	{
 		.eggSpecies = 1091,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1152,
+		.evolutionChainTypeFlags_Revised = 1152,
 	},
 	[1092] =
 	{
 		.eggSpecies = 1092,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8704,
+		.evolutionChainTypeFlags_Revised = 8704,
 	},
 	[1093] =
 	{
 		.eggSpecies = 1093,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16896,
+		.evolutionChainTypeFlags_Revised = 16896,
 	},
 	[1094] =
 	{
 		.eggSpecies = 1094,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1095] =
 	{
 		.eggSpecies = 1095,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1096] =
 	{
 		.eggSpecies = 1096,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1097] =
 	{
 		.eggSpecies = 1094,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1098] =
 	{
 		.eggSpecies = 1095,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1099] =
 	{
 		.eggSpecies = 1096,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1100] =
 	{
 		.eggSpecies = 1100,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4,
+		.evolutionChainTypeFlags_Revised = 4,
 	},
 	[1101] =
 	{
 		.eggSpecies = 1101,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[1102] =
 	{
 		.eggSpecies = 1102,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 20,
+		.evolutionChainTypeFlags_Revised = 20,
 	},
 	[1103] =
 	{
 		.eggSpecies = 1103,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131076,
+		.evolutionChainTypeFlags_Revised = 131076,
 	},
 	[1104] =
 	{
 		.eggSpecies = 1104,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[1105] =
 	{
 		.eggSpecies = 1105,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[1106] =
 	{
 		.eggSpecies = 1106,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1107] =
 	{
 		.eggSpecies = 1107,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3,
+		.evolutionChainTypeFlags_Revised = 3,
 	},
 	[1108] =
 	{
 		.eggSpecies = 1108,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1109] =
 	{
 		.eggSpecies = 1109,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1110] =
 	{
 		.eggSpecies = 1110,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1111] =
 	{
 		.eggSpecies = 1111,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 320,
+		.evolutionChainTypeFlags_Revised = 320,
 	},
 	[1112] =
 	{
 		.eggSpecies = 1112,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[1113] =
 	{
 		.eggSpecies = 1113,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66560,
+		.evolutionChainTypeFlags_Revised = 66560,
 	},
 	[1114] =
 	{
 		.eggSpecies = 1114,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1115] =
 	{
 		.eggSpecies = 1115,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1116] =
 	{
 		.eggSpecies = 1116,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1117] =
 	{
 		.eggSpecies = 1117,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1118] =
 	{
 		.eggSpecies = 1118,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1119] =
 	{
 		.eggSpecies = 1119,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1120] =
 	{
 		.eggSpecies = 1120,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1121] =
 	{
 		.eggSpecies = 1121,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1122] =
 	{
 		.eggSpecies = 1122,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1123] =
 	{
 		.eggSpecies = 1123,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1124] =
 	{
 		.eggSpecies = 1124,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1125] =
 	{
 		.eggSpecies = 1125,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1126] =
 	{
 		.eggSpecies = 1126,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1127] =
 	{
 		.eggSpecies = 1127,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1128] =
 	{
 		.eggSpecies = 1128,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1129] =
 	{
 		.eggSpecies = 1129,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1130] =
 	{
 		.eggSpecies = 1130,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1131] =
 	{
 		.eggSpecies = 1131,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1132] =
 	{
 		.eggSpecies = 1132,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1133] =
 	{
 		.eggSpecies = 1133,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1134] =
 	{
 		.eggSpecies = 1134,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1135] =
 	{
 		.eggSpecies = 1135,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1136] =
 	{
 		.eggSpecies = 1136,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1137] =
 	{
 		.eggSpecies = 1133,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1138] =
 	{
 		.eggSpecies = 1134,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1139] =
 	{
 		.eggSpecies = 1135,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1140] =
 	{
 		.eggSpecies = 1136,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1141] =
 	{
 		.eggSpecies = 1141,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1142] =
 	{
 		.eggSpecies = 1133,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1143] =
 	{
 		.eggSpecies = 1134,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1144] =
 	{
 		.eggSpecies = 1135,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1145] =
 	{
 		.eggSpecies = 1136,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1146] =
 	{
 		.eggSpecies = 1146,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1147] =
 	{
 		.eggSpecies = 1147,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1148] =
 	{
 		.eggSpecies = 1148,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1149] =
 	{
 		.eggSpecies = 1149,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1150] =
 	{
 		.eggSpecies = 1150,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1151] =
 	{
 		.eggSpecies = 1151,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1152] =
 	{
 		.eggSpecies = 1152,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1153] =
 	{
 		.eggSpecies = 1153,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1154] =
 	{
 		.eggSpecies = 1154,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1155] =
 	{
 		.eggSpecies = 677,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1156] =
 	{
 		.eggSpecies = 1156,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[1157] =
 	{
 		.eggSpecies = 1157,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1158] =
 	{
 		.eggSpecies = 1158,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1159] =
 	{
 		.eggSpecies = 1159,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1160] =
 	{
 		.eggSpecies = 1157,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1161] =
 	{
 		.eggSpecies = 1158,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1162] =
 	{
 		.eggSpecies = 1159,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1163] =
 	{
 		.eggSpecies = 1163,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1164] =
 	{
 		.eggSpecies = 1164,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[1165] =
 	{
 		.eggSpecies = 1165,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[1166] =
 	{
 		.eggSpecies = 1166,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[1167] =
 	{
 		.eggSpecies = 1167,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32784,
+		.evolutionChainTypeFlags_Revised = 32784,
 	},
 	[1168] =
 	{
 		.eggSpecies = 1168,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 73728,
+		.evolutionChainTypeFlags_Revised = 73728,
 	},
 	[1169] =
 	{
 		.eggSpecies = 1169,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[1170] =
 	{
 		.eggSpecies = 1170,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8196,
+		.evolutionChainTypeFlags_Revised = 8196,
 	},
 	[1171] =
 	{
 		.eggSpecies = 1171,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 132,
+		.evolutionChainTypeFlags_Revised = 132,
 	},
 	[1172] =
 	{
 		.eggSpecies = 1172,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1173] =
 	{
 		.eggSpecies = 744,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1174] =
 	{
 		.eggSpecies = 1172,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1175] =
 	{
 		.eggSpecies = 1175,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1176] =
 	{
 		.eggSpecies = 1176,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[1177] =
 	{
 		.eggSpecies = 1177,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4,
+		.evolutionChainTypeFlags_Revised = 4,
 	},
 	[1178] =
 	{
 		.eggSpecies = 1178,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[1179] =
 	{
 		.eggSpecies = 1179,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[1180] =
 	{
 		.eggSpecies = 1180,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1181] =
 	{
 		.eggSpecies = 1181,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[1182] =
 	{
 		.eggSpecies = 1182,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1183] =
 	{
 		.eggSpecies = 1183,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[1184] =
 	{
 		.eggSpecies = 1184,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[1185] =
 	{
 		.eggSpecies = 1185,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1186] =
 	{
 		.eggSpecies = 1186,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1187] =
 	{
 		.eggSpecies = 1187,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1188] =
 	{
 		.eggSpecies = 1188,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1189] =
 	{
 		.eggSpecies = 1189,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1190] =
 	{
 		.eggSpecies = 1190,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32768,
+		.evolutionChainTypeFlags_Revised = 32768,
 	},
 	[1191] =
 	{
 		.eggSpecies = 1191,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[1192] =
 	{
 		.eggSpecies = 1192,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1193] =
 	{
 		.eggSpecies = 1193,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1194] =
 	{
 		.eggSpecies = 1194,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1195] =
 	{
 		.eggSpecies = 1195,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1196] =
 	{
 		.eggSpecies = 1196,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1197] =
 	{
 		.eggSpecies = 1197,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1198] =
 	{
 		.eggSpecies = 1198,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1199] =
 	{
 		.eggSpecies = 1199,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1200] =
 	{
 		.eggSpecies = 1200,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1201] =
 	{
 		.eggSpecies = 1201,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1202] =
 	{
 		.eggSpecies = 1202,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1203] =
 	{
 		.eggSpecies = 1203,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1204] =
 	{
 		.eggSpecies = 1204,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1205] =
 	{
 		.eggSpecies = 1205,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36,
+		.evolutionChainTypeFlags_Revised = 36,
 	},
 	[1206] =
 	{
 		.eggSpecies = 1206,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131200,
+		.evolutionChainTypeFlags_Revised = 131200,
 	},
 	[1207] =
 	{
 		.eggSpecies = 1207,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[1208] =
 	{
 		.eggSpecies = 1208,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8320,
+		.evolutionChainTypeFlags_Revised = 8320,
 	},
 	[1209] =
 	{
 		.eggSpecies = 1209,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40960,
+		.evolutionChainTypeFlags_Revised = 40960,
 	},
 	[1210] =
 	{
 		.eggSpecies = 1210,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[1211] =
 	{
 		.eggSpecies = 1211,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[1212] =
 	{
 		.eggSpecies = 1212,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1028,
+		.evolutionChainTypeFlags_Revised = 1028,
 	},
 	[1213] =
 	{
 		.eggSpecies = 848,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4104,
+		.evolutionChainTypeFlags_Revised = 4104,
 	},
 	[1214] =
 	{
 		.eggSpecies = 1214,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1215] =
 	{
 		.eggSpecies = 1214,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1216] =
 	{
 		.eggSpecies = 1216,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1217] =
 	{
 		.eggSpecies = 1217,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1218] =
 	{
 		.eggSpecies = 1218,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1219] =
 	{
 		.eggSpecies = 1219,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1220] =
 	{
 		.eggSpecies = 1220,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1221] =
 	{
 		.eggSpecies = 1221,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1222] =
 	{
 		.eggSpecies = 1222,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1223] =
 	{
 		.eggSpecies = 1223,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1224] =
 	{
 		.eggSpecies = 1224,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1225] =
 	{
 		.eggSpecies = 1225,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[1226] =
 	{
 		.eggSpecies = 1226,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 69632,
+		.evolutionChainTypeFlags_Revised = 69632,
 	},
 	[1227] =
 	{
 		.eggSpecies = 1227,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[1228] =
 	{
 		.eggSpecies = 1228,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 258,
+		.evolutionChainTypeFlags_Revised = 258,
 	},
 	[1229] =
 	{
 		.eggSpecies = 1229,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32776,
+		.evolutionChainTypeFlags_Revised = 32776,
 	},
 	[1230] =
 	{
 		.eggSpecies = 891,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66562,
+		.evolutionChainTypeFlags_Revised = 66562,
 	},
 	[1231] =
 	{
 		.eggSpecies = 1231,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1232] =
 	{
 		.eggSpecies = 1232,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 24576,
+		.evolutionChainTypeFlags_Revised = 24576,
 	},
 	[1233] =
 	{
 		.eggSpecies = 1233,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8320,
+		.evolutionChainTypeFlags_Revised = 8320,
 	},
 	[1234] =
 	{
 		.eggSpecies = 1091,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1152,
+		.evolutionChainTypeFlags_Revised = 1152,
 	},
 	[1235] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1236] =
 	{
 		.eggSpecies = 1236,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1237] =
 	{
 		.eggSpecies = 1237,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1238] =
 	{
 		.eggSpecies = 1238,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1239] =
 	{
 		.eggSpecies = 1239,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1240] =
 	{
 		.eggSpecies = 1240,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1241] =
 	{
 		.eggSpecies = 1241,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1242] =
 	{
 		.eggSpecies = 1242,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1243] =
 	{
 		.eggSpecies = 1243,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1244] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1245] =
 	{
 		.eggSpecies = 1245,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1246] =
 	{
 		.eggSpecies = 1246,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1247] =
 	{
 		.eggSpecies = 1247,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1248] =
 	{
 		.eggSpecies = 1248,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1249] =
 	{
 		.eggSpecies = 1249,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1250] =
 	{
 		.eggSpecies = 1250,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1251] =
 	{
 		.eggSpecies = 1251,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1252] =
 	{
 		.eggSpecies = 1252,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1253] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1254] =
 	{
 		.eggSpecies = 1254,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1255] =
 	{
 		.eggSpecies = 1255,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1256] =
 	{
 		.eggSpecies = 1256,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1257] =
 	{
 		.eggSpecies = 1257,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1258] =
 	{
 		.eggSpecies = 1258,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1259] =
 	{
 		.eggSpecies = 1259,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1260] =
 	{
 		.eggSpecies = 1260,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1261] =
 	{
 		.eggSpecies = 1261,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1262] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1263] =
 	{
 		.eggSpecies = 1263,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1264] =
 	{
 		.eggSpecies = 1264,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1265] =
 	{
 		.eggSpecies = 1265,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1266] =
 	{
 		.eggSpecies = 1266,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1267] =
 	{
 		.eggSpecies = 1267,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1268] =
 	{
 		.eggSpecies = 1268,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1269] =
 	{
 		.eggSpecies = 1269,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1270] =
 	{
 		.eggSpecies = 1270,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1271] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1272] =
 	{
 		.eggSpecies = 1272,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1273] =
 	{
 		.eggSpecies = 1273,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1274] =
 	{
 		.eggSpecies = 1274,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1275] =
 	{
 		.eggSpecies = 1275,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1276] =
 	{
 		.eggSpecies = 1276,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1277] =
 	{
 		.eggSpecies = 1277,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1278] =
 	{
 		.eggSpecies = 1278,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1279] =
 	{
 		.eggSpecies = 1279,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1280] =
 	{
 		.eggSpecies = 868,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1281] =
 	{
 		.eggSpecies = 1281,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1282] =
 	{
 		.eggSpecies = 1282,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1283] =
 	{
 		.eggSpecies = 1283,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1284] =
 	{
 		.eggSpecies = 1284,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1285] =
 	{
 		.eggSpecies = 1285,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1286] =
 	{
 		.eggSpecies = 1286,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1287] =
 	{
 		.eggSpecies = 1287,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1288] =
 	{
 		.eggSpecies = 1288,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1289] =
 	{
 		.eggSpecies = 1289,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1290] =
 	{
 		.eggSpecies = 1289,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1291] =
 	{
 		.eggSpecies = 1289,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1292] =
 	{
 		.eggSpecies = 1292,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[1293] =
 	{
 		.eggSpecies = 1292,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[1294] =
 	{
 		.eggSpecies = 1292,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 640,
+		.evolutionChainTypeFlags_Revised = 640,
 	},
 	[1295] =
 	{
 		.eggSpecies = 1295,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1296] =
 	{
 		.eggSpecies = 1295,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1297] =
 	{
 		.eggSpecies = 1295,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1298] =
 	{
 		.eggSpecies = 1298,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1299] =
 	{
 		.eggSpecies = 1298,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1300] =
 	{
 		.eggSpecies = 1298,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1301] =
 	{
 		.eggSpecies = 1301,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[1302] =
 	{
 		.eggSpecies = 1301,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 64,
+		.evolutionChainTypeFlags_Revised = 64,
 	},
 	[1303] =
 	{
 		.eggSpecies = 1303,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65600,
+		.evolutionChainTypeFlags_Revised = 65600,
 	},
 	[1304] =
 	{
 		.eggSpecies = 1303,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65600,
+		.evolutionChainTypeFlags_Revised = 65600,
 	},
 	[1305] =
 	{
 		.eggSpecies = 1305,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4098,
+		.evolutionChainTypeFlags_Revised = 4098,
 	},
 	[1306] =
 	{
 		.eggSpecies = 1305,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4098,
+		.evolutionChainTypeFlags_Revised = 4098,
 	},
 	[1307] =
 	{
 		.eggSpecies = 1305,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4098,
+		.evolutionChainTypeFlags_Revised = 4098,
 	},
 	[1308] =
 	{
 		.eggSpecies = 1308,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1309] =
 	{
 		.eggSpecies = 1308,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1310] =
 	{
 		.eggSpecies = 1308,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1311] =
 	{
 		.eggSpecies = 1311,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1312] =
 	{
 		.eggSpecies = 1311,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1313] =
 	{
 		.eggSpecies = 1313,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1314] =
 	{
 		.eggSpecies = 1313,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1315] =
 	{
 		.eggSpecies = 1313,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2049,
+		.evolutionChainTypeFlags_Revised = 2049,
 	},
 	[1316] =
 	{
 		.eggSpecies = 1316,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[1317] =
 	{
 		.eggSpecies = 1317,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[1318] =
 	{
 		.eggSpecies = 1318,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[1319] =
 	{
 		.eggSpecies = 1319,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 5,
+		.evolutionChainTypeFlags_Revised = 5,
 	},
 	[1320] =
 	{
 		.eggSpecies = 1320,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1321] =
 	{
 		.eggSpecies = 1320,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1322] =
 	{
 		.eggSpecies = 1320,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1323] =
 	{
 		.eggSpecies = 1323,
 		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8832,
+		.evolutionChainTypeFlags_Revised = 8832,
 	},
 	[1324] =
 	{
 		.eggSpecies = 1323,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8832,
+		.evolutionChainTypeFlags_Revised = 8832,
 	},
 	[1325] =
 	{
 		.eggSpecies = 1323,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8832,
+		.evolutionChainTypeFlags_Revised = 8832,
 	},
 	[1326] =
 	{
 		.eggSpecies = 1326,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1327] =
 	{
 		.eggSpecies = 1326,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1328] =
 	{
 		.eggSpecies = 1328,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[1329] =
 	{
 		.eggSpecies = 1328,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 	[1330] =
 	{
 		.eggSpecies = 1330,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[1331] =
 	{
 		.eggSpecies = 1330,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65536,
+		.evolutionChainTypeFlags_Revised = 65536,
 	},
 	[1332] =
 	{
 		.eggSpecies = 1332,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 9,
+		.evolutionChainTypeFlags_Revised = 9,
 	},
 	[1333] =
 	{
 		.eggSpecies = 1332,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9,
+		.evolutionChainTypeFlags_Revised = 9,
 	},
 	[1334] =
 	{
 		.eggSpecies = 1334,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1335] =
 	{
 		.eggSpecies = 1334,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1336] =
 	{
 		.eggSpecies = 1336,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
+		.evolutionChainTypeFlags_Revised = 2064,
 	},
 	[1337] =
 	{
 		.eggSpecies = 1336,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2064,
+		.evolutionChainTypeFlags_Revised = 2064,
 	},
 	[1338] =
 	{
 		.eggSpecies = 1338,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32,
+		.evolutionChainTypeFlags_Revised = 32,
 	},
 	[1339] =
 	{
 		.eggSpecies = 1339,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2560,
+		.evolutionChainTypeFlags_Revised = 2560,
 	},
 	[1340] =
 	{
 		.eggSpecies = 1339,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2560,
+		.evolutionChainTypeFlags_Revised = 2560,
 	},
 	[1341] =
 	{
 		.eggSpecies = 1341,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[1342] =
 	{
 		.eggSpecies = 1341,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[1343] =
 	{
 		.eggSpecies = 1343,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1344] =
 	{
 		.eggSpecies = 1343,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[1345] =
 	{
 		.eggSpecies = 1345,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[1346] =
 	{
 		.eggSpecies = 1345,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[1347] =
 	{
 		.eggSpecies = 1345,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131328,
+		.evolutionChainTypeFlags_Revised = 131328,
 	},
 	[1348] =
 	{
 		.eggSpecies = 1348,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1349] =
 	{
 		.eggSpecies = 1348,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1350] =
 	{
 		.eggSpecies = 1350,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[1351] =
 	{
 		.eggSpecies = 1351,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1352] =
 	{
 		.eggSpecies = 1351,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1353] =
 	{
 		.eggSpecies = 1353,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1354] =
 	{
 		.eggSpecies = 1354,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 264,
+		.evolutionChainTypeFlags_Revised = 264,
 	},
 	[1355] =
 	{
 		.eggSpecies = 1354,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 264,
+		.evolutionChainTypeFlags_Revised = 264,
 	},
 	[1356] =
 	{
 		.eggSpecies = 1356,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32769,
+		.evolutionChainTypeFlags_Revised = 32769,
 	},
 	[1357] =
 	{
 		.eggSpecies = 1357,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[1358] =
 	{
 		.eggSpecies = 1358,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 40,
+		.evolutionChainTypeFlags_Revised = 40,
 	},
 	[1359] =
 	{
 		.eggSpecies = 1358,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 40,
+		.evolutionChainTypeFlags_Revised = 40,
 	},
 	[1360] =
 	{
 		.eggSpecies = 1360,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1361] =
 	{
 		.eggSpecies = 1360,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1362] =
 	{
 		.eggSpecies = 1362,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 6,
+		.evolutionChainTypeFlags_Revised = 6,
 	},
 	[1363] =
 	{
 		.eggSpecies = 1363,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1364] =
 	{
 		.eggSpecies = 1363,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16384,
+		.evolutionChainTypeFlags_Revised = 16384,
 	},
 	[1365] =
 	{
 		.eggSpecies = 1365,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 9216,
+		.evolutionChainTypeFlags_Revised = 9216,
 	},
 	[1366] =
 	{
 		.eggSpecies = 1366,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1367] =
 	{
 		.eggSpecies = 1367,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[1368] =
 	{
 		.eggSpecies = 1368,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[1369] =
 	{
 		.eggSpecies = 1369,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[1370] =
 	{
 		.eggSpecies = 56,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 130,
+		.evolutionChainTypeFlags_Revised = 130,
 	},
 	[1371] =
 	{
 		.eggSpecies = 1405,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[1372] =
 	{
 		.eggSpecies = 203,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8193,
+		.evolutionChainTypeFlags_Revised = 8193,
 	},
 	[1373] =
 	{
 		.eggSpecies = 206,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1374] =
 	{
 		.eggSpecies = 206,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1375] =
 	{
 		.eggSpecies = 624,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65792,
+		.evolutionChainTypeFlags_Revised = 65792,
 	},
 	[1376] =
 	{
 		.eggSpecies = 1376,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 18,
+		.evolutionChainTypeFlags_Revised = 18,
 	},
 	[1377] =
 	{
 		.eggSpecies = 1377,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[1378] =
 	{
 		.eggSpecies = 1378,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1379] =
 	{
 		.eggSpecies = 1379,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131200,
+		.evolutionChainTypeFlags_Revised = 131200,
 	},
 	[1380] =
 	{
 		.eggSpecies = 1380,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66,
+		.evolutionChainTypeFlags_Revised = 66,
 	},
 	[1381] =
 	{
 		.eggSpecies = 1381,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4112,
+		.evolutionChainTypeFlags_Revised = 4112,
 	},
 	[1382] =
 	{
 		.eggSpecies = 1382,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 272,
+		.evolutionChainTypeFlags_Revised = 272,
 	},
 	[1383] =
 	{
 		.eggSpecies = 1383,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[1384] =
 	{
 		.eggSpecies = 1384,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4098,
+		.evolutionChainTypeFlags_Revised = 4098,
 	},
 	[1385] =
 	{
 		.eggSpecies = 1385,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65540,
+		.evolutionChainTypeFlags_Revised = 65540,
 	},
 	[1386] =
 	{
 		.eggSpecies = 1386,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 520,
+		.evolutionChainTypeFlags_Revised = 520,
 	},
 	[1387] =
 	{
 		.eggSpecies = 1387,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4128,
+		.evolutionChainTypeFlags_Revised = 4128,
 	},
 	[1388] =
 	{
 		.eggSpecies = 1388,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[1389] =
 	{
 		.eggSpecies = 1388,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[1390] =
 	{
 		.eggSpecies = 1388,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 49152,
+		.evolutionChainTypeFlags_Revised = 49152,
 	},
 	[1391] =
 	{
 		.eggSpecies = 1391,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
+		.evolutionChainTypeFlags_Revised = 128,
 	},
 	[1392] =
 	{
 		.eggSpecies = 1392,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[1393] =
 	{
 		.eggSpecies = 1392,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 384,
+		.evolutionChainTypeFlags_Revised = 384,
 	},
 	[1394] =
 	{
 		.eggSpecies = 1394,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 67584,
+		.evolutionChainTypeFlags_Revised = 67584,
 	},
 	[1395] =
 	{
 		.eggSpecies = 1395,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 81920,
+		.evolutionChainTypeFlags_Revised = 81920,
 	},
 	[1396] =
 	{
 		.eggSpecies = 1396,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65552,
+		.evolutionChainTypeFlags_Revised = 65552,
 	},
 	[1397] =
 	{
 		.eggSpecies = 1397,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 66048,
+		.evolutionChainTypeFlags_Revised = 66048,
 	},
 	[1398] =
 	{
 		.eggSpecies = 1398,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 98304,
+		.evolutionChainTypeFlags_Revised = 98304,
 	},
 	[1399] =
 	{
 		.eggSpecies = 1399,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131074,
+		.evolutionChainTypeFlags_Revised = 131074,
 	},
 	[1400] =
 	{
 		.eggSpecies = 1400,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 32770,
+		.evolutionChainTypeFlags_Revised = 32770,
 	},
 	[1401] =
 	{
 		.eggSpecies = 1401,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36864,
+		.evolutionChainTypeFlags_Revised = 36864,
 	},
 	[1402] =
 	{
 		.eggSpecies = 1402,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[1403] =
 	{
 		.eggSpecies = 1403,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 514,
+		.evolutionChainTypeFlags_Revised = 514,
 	},
 	[1404] =
 	{
 		.eggSpecies = 1404,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1405] =
 	{
 		.eggSpecies = 1405,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
+		.evolutionChainTypeFlags_Revised = 24,
 	},
 	[1406] =
 	{
 		.eggSpecies = 1406,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33792,
+		.evolutionChainTypeFlags_Revised = 33792,
 	},
 	[1407] =
 	{
 		.eggSpecies = 1407,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10240,
+		.evolutionChainTypeFlags_Revised = 10240,
 	},
 	[1408] =
 	{
 		.eggSpecies = 840,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[1409] =
 	{
 		.eggSpecies = 1409,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1410] =
 	{
 		.eggSpecies = 1410,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1411] =
 	{
 		.eggSpecies = 1409,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1412] =
 	{
 		.eggSpecies = 1410,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2176,
+		.evolutionChainTypeFlags_Revised = 2176,
 	},
 	[1413] =
 	{
 		.eggSpecies = 1413,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 10,
+		.evolutionChainTypeFlags_Revised = 10,
 	},
 	[1414] =
 	{
 		.eggSpecies = 1414,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8200,
+		.evolutionChainTypeFlags_Revised = 8200,
 	},
 	[1415] =
 	{
 		.eggSpecies = 1415,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131080,
+		.evolutionChainTypeFlags_Revised = 131080,
 	},
 	[1416] =
 	{
 		.eggSpecies = 1416,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1417] =
 	{
 		.eggSpecies = 1417,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3072,
+		.evolutionChainTypeFlags_Revised = 3072,
 	},
 	[1418] =
 	{
 		.eggSpecies = 1418,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2560,
+		.evolutionChainTypeFlags_Revised = 2560,
 	},
 	[1419] =
 	{
 		.eggSpecies = 1419,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2080,
+		.evolutionChainTypeFlags_Revised = 2080,
 	},
 	[1420] =
 	{
 		.eggSpecies = 1420,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1421] =
 	{
 		.eggSpecies = 1421,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 3072,
+		.evolutionChainTypeFlags_Revised = 3072,
 	},
 	[1422] =
 	{
 		.eggSpecies = 1422,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2560,
+		.evolutionChainTypeFlags_Revised = 2560,
 	},
 	[1423] =
 	{
 		.eggSpecies = 1423,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2080,
+		.evolutionChainTypeFlags_Revised = 2080,
 	},
 	[1424] =
 	{
 		.eggSpecies = 216,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17,
+		.evolutionChainTypeFlags_Revised = 17,
 	},
 	[1425] =
 	{
 		.eggSpecies = 884,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[1426] =
 	{
 		.eggSpecies = 840,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[1427] =
 	{
 		.eggSpecies = 1427,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33280,
+		.evolutionChainTypeFlags_Revised = 33280,
 	},
 	[1428] =
 	{
 		.eggSpecies = 1428,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 36864,
+		.evolutionChainTypeFlags_Revised = 36864,
 	},
 	[1429] =
 	{
 		.eggSpecies = 1429,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8224,
+		.evolutionChainTypeFlags_Revised = 8224,
 	},
 	[1430] =
 	{
 		.eggSpecies = 1430,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8448,
+		.evolutionChainTypeFlags_Revised = 8448,
 	},
 	[1431] =
 	{
 		.eggSpecies = 1431,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1432] =
 	{
 		.eggSpecies = 1432,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1433] =
 	{
 		.eggSpecies = 1433,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1434] =
 	{
 		.eggSpecies = 1434,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[1435] =
 	{
 		.eggSpecies = 1435,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1436] =
 	{
 		.eggSpecies = 1436,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1437] =
 	{
 		.eggSpecies = 1437,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1438] =
 	{
 		.eggSpecies = 1438,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1439] =
 	{
 		.eggSpecies = 1439,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1440] =
 	{
 		.eggSpecies = 1440,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1441] =
 	{
 		.eggSpecies = 1441,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1442] =
 	{
 		.eggSpecies = 1442,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1443] =
 	{
 		.eggSpecies = 1443,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1444] =
 	{
 		.eggSpecies = 1444,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1445] =
 	{
 		.eggSpecies = 1445,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1446] =
 	{
 		.eggSpecies = 1446,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1447] =
 	{
 		.eggSpecies = 1447,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1448] =
 	{
 		.eggSpecies = 1448,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1449] =
 	{
 		.eggSpecies = 1449,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1450] =
 	{
 		.eggSpecies = 1450,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1451] =
 	{
 		.eggSpecies = 1451,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1452] =
 	{
 		.eggSpecies = 1452,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1453] =
 	{
 		.eggSpecies = 1453,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1454] =
 	{
 		.eggSpecies = 1454,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1455] =
 	{
 		.eggSpecies = 1455,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1456] =
 	{
 		.eggSpecies = 1456,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1457] =
 	{
 		.eggSpecies = 1457,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1458] =
 	{
 		.eggSpecies = 1458,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1459] =
 	{
 		.eggSpecies = 1459,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1460] =
 	{
 		.eggSpecies = 1460,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1461] =
 	{
 		.eggSpecies = 1461,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1462] =
 	{
 		.eggSpecies = 1462,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1463] =
 	{
 		.eggSpecies = 1463,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1464] =
 	{
 		.eggSpecies = 1464,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1465] =
 	{
 		.eggSpecies = 1465,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1466] =
 	{
 		.eggSpecies = 1466,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1467] =
 	{
 		.eggSpecies = 1467,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1468] =
 	{
 		.eggSpecies = 1468,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1469] =
 	{
 		.eggSpecies = 1469,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1470] =
 	{
 		.eggSpecies = 1470,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1471] =
 	{
 		.eggSpecies = 1471,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1472] =
 	{
 		.eggSpecies = 1472,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1473] =
 	{
 		.eggSpecies = 1473,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1474] =
 	{
 		.eggSpecies = 1474,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1475] =
 	{
 		.eggSpecies = 1475,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1476] =
 	{
 		.eggSpecies = 1476,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1477] =
 	{
 		.eggSpecies = 1477,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1478] =
 	{
 		.eggSpecies = 1478,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1479] =
 	{
 		.eggSpecies = 1479,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1480] =
 	{
 		.eggSpecies = 1480,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1481] =
 	{
 		.eggSpecies = 1481,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1482] =
 	{
 		.eggSpecies = 1482,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1483] =
 	{
 		.eggSpecies = 1483,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1484] =
 	{
 		.eggSpecies = 1484,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1485] =
 	{
 		.eggSpecies = 1485,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1486] =
 	{
 		.eggSpecies = 1486,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1487] =
 	{
 		.eggSpecies = 1487,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1488] =
 	{
 		.eggSpecies = 1488,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1489] =
 	{
 		.eggSpecies = 1489,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2056,
+		.evolutionChainTypeFlags_Revised = 2056,
 	},
 	[1490] =
 	{
 		.eggSpecies = 1490,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1491] =
 	{
 		.eggSpecies = 1491,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 516,
+		.evolutionChainTypeFlags_Revised = 516,
 	},
 	[1492] =
 	{
 		.eggSpecies = 1492,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 68,
+		.evolutionChainTypeFlags_Revised = 68,
 	},
 	[1493] =
 	{
 		.eggSpecies = 1493,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4096,
+		.evolutionChainTypeFlags_Revised = 4096,
 	},
 	[1494] =
 	{
 		.eggSpecies = 1494,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1495] =
 	{
 		.eggSpecies = 1495,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2,
+		.evolutionChainTypeFlags_Revised = 2,
 	},
 	[1496] =
 	{
 		.eggSpecies = 1496,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 136,
+		.evolutionChainTypeFlags_Revised = 136,
 	},
 	[1497] =
 	{
 		.eggSpecies = 1497,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1498] =
 	{
 		.eggSpecies = 1498,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 17408,
+		.evolutionChainTypeFlags_Revised = 17408,
 	},
 	[1499] =
 	{
 		.eggSpecies = 1499,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1500] =
 	{
 		.eggSpecies = 1500,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1501] =
 	{
 		.eggSpecies = 1501,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8,
+		.evolutionChainTypeFlags_Revised = 8,
 	},
 	[1502] =
 	{
 		.eggSpecies = 1502,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[1503] =
 	{
 		.eggSpecies = 1503,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 2048,
+		.evolutionChainTypeFlags_Revised = 2048,
 	},
 	[1504] =
 	{
 		.eggSpecies = 1504,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 512,
+		.evolutionChainTypeFlags_Revised = 512,
 	},
 	[1505] =
 	{
 		.eggSpecies = 1505,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
+		.evolutionChainTypeFlags_Revised = 1024,
 	},
 	[1506] =
 	{
 		.eggSpecies = 1506,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 260,
+		.evolutionChainTypeFlags_Revised = 260,
 	},
 	[1507] =
 	{
 		.eggSpecies = 1507,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8256,
+		.evolutionChainTypeFlags_Revised = 8256,
 	},
 	[1508] =
 	{
 		.eggSpecies = 1508,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1056,
+		.evolutionChainTypeFlags_Revised = 1056,
 	},
 	[1509] =
 	{
 		.eggSpecies = 1509,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 544,
+		.evolutionChainTypeFlags_Revised = 544,
 	},
 	[1510] =
 	{
 		.eggSpecies = 1510,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[1511] =
 	{
 		.eggSpecies = 1511,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 34816,
+		.evolutionChainTypeFlags_Revised = 34816,
 	},
 	[1512] =
 	{
 		.eggSpecies = 1512,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 16,
+		.evolutionChainTypeFlags_Revised = 16,
 	},
 	[1513] =
 	{
 		.eggSpecies = 1513,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4104,
+		.evolutionChainTypeFlags_Revised = 4104,
 	},
 	[1514] =
 	{
 		.eggSpecies = 1514,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4104,
+		.evolutionChainTypeFlags_Revised = 4104,
 	},
 	[1515] =
 	{
 		.eggSpecies = 1515,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 576,
+		.evolutionChainTypeFlags_Revised = 576,
 	},
 	[1516] =
 	{
 		.eggSpecies = 1516,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 139264,
+		.evolutionChainTypeFlags_Revised = 139264,
 	},
 	[1517] =
 	{
 		.eggSpecies = 1517,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 196608,
+		.evolutionChainTypeFlags_Revised = 196608,
 	},
 	[1518] =
 	{
 		.eggSpecies = 1518,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 131072,
+		.evolutionChainTypeFlags_Revised = 131072,
 	},
 	[1519] =
 	{
 		.eggSpecies = 1519,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 256,
+		.evolutionChainTypeFlags_Revised = 256,
 	},
 	[1520] =
 	{
 		.eggSpecies = 1520,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 33024,
+		.evolutionChainTypeFlags_Revised = 33024,
 	},
 	[1521] =
 	{
 		.eggSpecies = 1521,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 65538,
+		.evolutionChainTypeFlags_Revised = 65538,
 	},
 	[1522] =
 	{
 		.eggSpecies = 1522,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1026,
+		.evolutionChainTypeFlags_Revised = 1026,
 	},
 	[1523] =
 	{
 		.eggSpecies = 1523,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
+		.evolutionChainTypeFlags_Revised = 8194,
 	},
 	[1524] =
 	{
 		.eggSpecies = 1524,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
+		.evolutionChainTypeFlags_Revised = 4100,
 	},
 };
 

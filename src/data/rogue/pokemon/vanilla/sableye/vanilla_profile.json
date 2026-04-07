@@ -1,0 +1,181 @@
+{
+  "Species": [
+    "SPECIES_SABLEYE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MOONLIGHT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_REST",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_DARK",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_TOXIC",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU",
+        "GEN3NU"
+      ]
+    }
+  ]
+}

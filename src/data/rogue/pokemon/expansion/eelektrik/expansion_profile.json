@@ -1,0 +1,134 @@
+{
+  "Species": [
+    "SPECIES_EELEKTRIK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 74
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_DISCHARGE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

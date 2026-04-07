@@ -1,0 +1,132 @@
+{
+  "Species": [
+    "SPECIES_GREAVARD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_ICE_FANG",
+    "MOVE_MEMENTO",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_POLTERGEIST",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

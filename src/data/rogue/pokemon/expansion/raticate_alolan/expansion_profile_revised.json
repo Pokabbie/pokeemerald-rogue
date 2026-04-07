@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RATICATE_ALOLAN": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 35,
+        "SpDefense": 100
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MIMIC",
+    "MOVE_SWIFT",
+    "MOVE_MUD_SLAP",
+    "MOVE_ENDURE",
+    "MOVE_COUNTER",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_BODY_SLAM"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COMET_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 33
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_COMET_PUNCH",
+        "MOVE_GUST"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

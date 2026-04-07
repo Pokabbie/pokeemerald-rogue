@@ -1,0 +1,17 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PRINPLUP": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_CALM_MIND"
+  ]
+}

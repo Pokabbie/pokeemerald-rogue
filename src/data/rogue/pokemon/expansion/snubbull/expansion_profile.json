@@ -1,0 +1,272 @@
+{
+  "Species": [
+    "SPECIES_SNUBBULL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COUNTER",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_FANG",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THIEF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THIEF",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THIEF",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THIEF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THIEF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

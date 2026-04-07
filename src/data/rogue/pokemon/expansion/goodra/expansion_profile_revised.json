@@ -1,0 +1,158 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOODRA": {
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_WATER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 73
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_RECOVER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

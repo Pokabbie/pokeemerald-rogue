@@ -1,0 +1,202 @@
+{
+  "Species": [
+    "SPECIES_GURDURR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DEFOG",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MACH_PUNCH",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_WIDE_GUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN6NU",
+        "GEN6NU",
+        "GEN7PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MACH_PUNCH",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

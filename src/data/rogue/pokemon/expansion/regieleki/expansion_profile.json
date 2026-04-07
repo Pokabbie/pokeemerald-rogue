@@ -1,0 +1,497 @@
+{
+  "Species": [
+    "SPECIES_REGIELEKI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTROWEB",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_THUNDER_CAGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_ASSURANCE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ELECTRO_BALL",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EXPLOSION",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ELECTROWEB",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_REFLECT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_CAGE",
+        "MOVE_THUNDER",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ELECTRO_BALL"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_CAGE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ELECTRO_BALL",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EXPLOSION",
+        "MOVE_ASSURANCE"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_CAGE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_EXPLOSION",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TERA_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_HYPER_BEAM",
+        "MOVE_THUNDER_CAGE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_RISING_VOLTAGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TRANSISTOR",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

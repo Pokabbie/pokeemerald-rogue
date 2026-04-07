@@ -1,0 +1,553 @@
+{
+  "Species": [
+    "SPECIES_URSHIFU_RAPID_STRIKE_STYLE",
+    "SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SURGING_STRIKES",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9UBERS",
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_COUNTER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_AQUA_JET",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOW_SWEEP",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_SUPERPOWER",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOW_SWEEP",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_SUPERPOWER",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_AQUA_JET",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ICE_SPINNER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_PUNCHING_GLOVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SURGING_STRIKES",
+        "MOVE_U_TURN",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_UNSEEN_FIST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

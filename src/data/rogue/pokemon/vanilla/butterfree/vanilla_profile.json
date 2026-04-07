@@ -1,0 +1,131 @@
+{
+  "Species": [
+    "SPECIES_BUTTERFREE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SILVER_WIND",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_STUN_SPORE",
+        "MOVE_PSYCHIC",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_STUN_SPORE",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_QUICK_CLAW",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

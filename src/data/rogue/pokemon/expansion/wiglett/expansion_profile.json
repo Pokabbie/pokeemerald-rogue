@@ -1,0 +1,91 @@
+{
+  "Species": [
+    "SPECIES_WIGLETT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_LIQUIDATION",
+    "MOVE_MEMENTO",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_WATER_PULSE",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

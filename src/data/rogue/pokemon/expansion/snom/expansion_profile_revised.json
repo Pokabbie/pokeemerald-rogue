@@ -1,0 +1,10 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_RETURN",
+    "MOVE_TOXIC"
+  ]
+}

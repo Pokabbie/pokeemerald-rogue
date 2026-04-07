@@ -1,0 +1,154 @@
+{
+  "Species": [
+    "SPECIES_ORICORIO_PAU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_REVELATION_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_ICY_WIND",
+    "MOVE_PLUCK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_QUIVER_DANCE",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HURRICANE",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DANCER",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_REVELATION_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DANCER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_AIR_SLASH",
+        "MOVE_ROOST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DANCER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

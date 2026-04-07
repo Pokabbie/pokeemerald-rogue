@@ -371,9 +371,16 @@ const union AnimCmd *const gAnims_MonPic[MAX_MON_PIC_FRAMES] =
 #include "data/rogue_routes.h"
 #include "data/rogue_strings.h"
 #include "data/rogue_trainers.h"
-#include "data/rogue_pokemon_profiles.h"
 #include "data/rogue_pokedex.h"
 #include "data/rogue_bake_data.h"
+
+#ifdef ROGUE_EXPANSION
+#include "data/rogue/pokemon_expansion_profiles.h"
+#include "data/rogue/pokemon_expansion_profiles_revised.h"
+#else
+#include "data/rogue/pokemon_vanilla_profiles.h"
+#include "data/rogue/pokemon_vanilla_profiles_revised.h"
+#endif
 
 #include "data/rogue/battle_music.h"
 #include "data/rogue/trainers.h"

@@ -1,0 +1,189 @@
+{
+  "Species": [
+    "SPECIES_FLAPPLE",
+    "SPECIES_FLAPPLE_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GRAV_APPLE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_BULLET_SEED",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_OUTRAGE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_GRAV_APPLE",
+        "MOVE_ACROBATICS",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_OUTRAGE",
+        "MOVE_U_TURN",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAV_APPLE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

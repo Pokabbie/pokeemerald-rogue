@@ -1,0 +1,60 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOVELY_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 62
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SMOOCHUM": {
+      "Abilities": [
+        "ABILITY_TRACE",
+        "ABILITY_INSOMNIA"
+      ]
+    }
+  }
+}

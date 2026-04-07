@@ -1,0 +1,235 @@
+{
+  "Species": [
+    "SPECIES_STARYU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_BRINE",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLIP_TURN",
+    "MOVE_GYRO_BALL",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRI_ATTACK",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_RECOVER",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "Species": [
+    "SPECIES_EMOLGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_CHARM",
+    "MOVE_COVET",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_HELPING_HAND",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPEED_SWAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_DISCHARGE",
+        "MOVE_ENCORE",
+        "MOVE_ELECTROWEB"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_AIR_SLASH",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

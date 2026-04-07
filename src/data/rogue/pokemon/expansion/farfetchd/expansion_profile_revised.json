@@ -1,0 +1,169 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FARFETCHD": {
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_SHARPNESS",
+        "ABILITY_DEFIANT"
+      ],
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 110,
+        "Defense": 65,
+        "Speed": 110,
+        "SpAttack": 55,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FOCUS_BLAST",
+    "MOVE_HURRICANE",
+    "MOVE_SWIRLING_BLADE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_LEAF_BLADE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_LEEK",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_LEEK",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SACRED_SWORD",
+        "MOVE_AERIAL_ACE",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_LEEK",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_URSARING": {
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_SUPERSWEET_SYRUP",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_STOMPING_TANTRUM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 65
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FACADE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_KICK",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SUPERSWEET_SYRUP",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

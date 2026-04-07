@@ -1,0 +1,190 @@
+{
+  "Species": [
+    "SPECIES_DUSKULL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRAVITY",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MEMENTO",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_POLTERGEIST",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

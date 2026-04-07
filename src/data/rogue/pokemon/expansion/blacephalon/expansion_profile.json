@@ -1,0 +1,581 @@
+{
+  "Species": [
+    "SPECIES_BLACEPHALON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MYSTICAL_FIRE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_MIND_BLOWN",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_OVERHEAT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROUND",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIND_BLOWN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIND_BLOWN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIND_BLOWN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEAT_WAVE",
+        "MOVE_MIND_BLOWN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FLAME_PLATE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_MIND_BLOWN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_CALM_MIND",
+        "MOVE_MIND_BLOWN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MIND_BLOWN",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TRICK",
+        "MOVE_MIND_BLOWN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIND_BLOWN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIND_BLOWN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MIND_BLOWN",
+        "MOVE_TRICK",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

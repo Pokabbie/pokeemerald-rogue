@@ -1,0 +1,94 @@
+{
+  "Species": [
+    "SPECIES_PICHU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_VOLT_TACKLE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

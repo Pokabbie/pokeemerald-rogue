@@ -1,0 +1,47 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 58
+    }
+  ]
+}

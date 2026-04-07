@@ -1,0 +1,235 @@
+{
+  "Species": [
+    "SPECIES_HONCHKROW"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_COMEUPPANCE",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

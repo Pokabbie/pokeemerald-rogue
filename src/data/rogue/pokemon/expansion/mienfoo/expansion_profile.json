@@ -1,0 +1,296 @@
+{
+  "Species": [
+    "SPECIES_MIENFOO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAIN_PUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CALM_MIND",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOUNCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC",
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

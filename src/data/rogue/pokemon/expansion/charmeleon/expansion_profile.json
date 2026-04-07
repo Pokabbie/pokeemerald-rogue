@@ -1,0 +1,107 @@
+{
+  "Species": [
+    "SPECIES_CHARMELEON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BITE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_METAL_CLAW",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": []
+}

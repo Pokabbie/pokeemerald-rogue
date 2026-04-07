@@ -1,0 +1,509 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SCEPTILE": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_UNBURDEN"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 65,
+        "Speed": 120,
+        "SpAttack": 90,
+        "SpDefense": 80
+      }
+    },
+    "SPECIES_SCEPTILE_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 75,
+        "Speed": 150,
+        "SpAttack": 145,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DUAL_CHOP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DUAL_CHOP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 67
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 76
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRACO_METEOR",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_WORK_UP",
+    "MOVE_ASSURANCE",
+    "MOVE_IRON_TAIL",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_GRASS_WHISTLE",
+    "MOVE_CROSS_POISON"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_QUICK_GUARD",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CROSS_POISON",
+        "MOVE_SCALE_SHOT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FRENZY_PLANT",
+        "MOVE_GRASS_WHISTLE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SCEPTILITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FRENZY_PLANT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_ACROBATICS",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_ACROBATICS",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_CROSS_POISON"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CROSS_POISON",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_BLADE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ACROBATICS",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FLYING_GEM",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

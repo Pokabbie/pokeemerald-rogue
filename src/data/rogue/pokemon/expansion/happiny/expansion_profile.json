@@ -1,0 +1,69 @@
+{
+  "Species": [
+    "SPECIES_HAPPINY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METRONOME",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

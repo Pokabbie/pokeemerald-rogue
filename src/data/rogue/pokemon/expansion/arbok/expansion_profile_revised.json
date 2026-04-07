@@ -1,0 +1,119 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_ARBOK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 80,
+        "SpAttack": 55,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MUD_BOMB",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 63
+    }
+  ]
+}

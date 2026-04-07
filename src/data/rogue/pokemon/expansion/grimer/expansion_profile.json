@@ -1,0 +1,171 @@
+{
+  "Species": [
+    "SPECIES_GRIMER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IMPRISON",
+    "MOVE_MEAN_LOOK",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_PUNCH",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPIT_UP",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWALLOW",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POISON_JAB",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_STICKY_HOLD",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

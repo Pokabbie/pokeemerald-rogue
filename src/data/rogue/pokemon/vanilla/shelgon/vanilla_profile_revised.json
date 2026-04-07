@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 64
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_BREATH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,671 @@
+{
+  "Species": [
+    "SPECIES_LOPUNNY",
+    "SPECIES_LOPUNNY_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MUD_SPORT",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POWER_UP_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_RETURN",
+    "MOVE_REVERSAL",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LOW_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LOW_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE",
+        "GEN7OU",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_HEALING_WISH",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_KLUTZ",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_KLUTZ",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SWITCHEROO",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SPLASH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_RETURN",
+        "MOVE_MUD_SPORT"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_HEALING_WISH",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_KLUTZ",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FACADE",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_RETURN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_UP_PUNCH",
+        "MOVE_ENCORE",
+        "MOVE_RETURN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LOPUNNITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "Species": [
+    "SPECIES_BRAMBLEGHAST"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BULLET_SEED",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_SPITE",
+    "MOVE_STRENGTH_SAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POLTERGEIST",
+        "MOVE_POWER_WHIP",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_POWER_WHIP",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_POLTERGEIST",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_WHIP",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_POWER_WHIP",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WIND_RIDER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

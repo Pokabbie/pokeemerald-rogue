@@ -1,0 +1,275 @@
+{
+  "Species": [
+    "SPECIES_HITMONTOP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TRIPLE_KICK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_PUNCH",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_COUNTER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FORESIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_JUMP_KICK",
+    "MOVE_ICE_SPINNER",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MACH_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_UPROAR",
+    "MOVE_VACUUM_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FORESIGHT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_FORESIGHT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_MACH_PUNCH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU",
+        "GEN8NU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EJECT_BUTTON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

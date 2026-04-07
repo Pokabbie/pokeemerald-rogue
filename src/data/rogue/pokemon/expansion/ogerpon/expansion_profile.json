@@ -1,0 +1,211 @@
+{
+  "Species": [
+    "SPECIES_OGERPON",
+    "SPECIES_OGERPON_TEAL_MASK_TERA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_IVY_CUDGEL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_COUNTER",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HORN_LEECH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SPIKES",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IVY_CUDGEL",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IVY_CUDGEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IVY_CUDGEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IVY_CUDGEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IVY_CUDGEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IVY_CUDGEL",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_MEADOW_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    }
+  ]
+}

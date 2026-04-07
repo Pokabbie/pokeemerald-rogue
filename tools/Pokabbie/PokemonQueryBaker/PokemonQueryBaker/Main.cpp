@@ -24,13 +24,24 @@ u16 eggLookup[NUM_SPECIES]{ SPECIES_NONE };
 u8 evolutionCountLookup[NUM_SPECIES]{ 0 };
 
 std::set<u16> eggEvolutionTypes[NUM_SPECIES];
+std::set<u16> eggEvolutionTypes_Revised[NUM_SPECIES];
 
-static bool HasEvolutionConnectionOfType(u16 species, u16 type)
+static bool HasEvolutionConnectionOfType(u16 species, u16 type, bool isRevised)
 {
-	u16 eggSpecies = eggLookup[species];
-	auto types = eggEvolutionTypes[eggSpecies];
+	if (isRevised)
+	{
+		u16 eggSpecies = eggLookup[species];
+		auto types = eggEvolutionTypes_Revised[eggSpecies];
 
-	return types.find(type) != types.end();
+		return types.find(type) != types.end();
+	}
+	else
+	{
+		u16 eggSpecies = eggLookup[species];
+		auto types = eggEvolutionTypes[eggSpecies];
+
+		return types.find(type) != types.end();
+	}
 }
 
 static void SetBitFlag(u16 elem, bool state, u8* arr)
@@ -101,19 +112,22 @@ int main()
 			eggLookup[s] = eggSpecies;
 			evolutionCountLookup[s] = Rogue_GetMaxEvolutionCount(s);
 
-#ifdef ROGUE_EXPANSION
-			if (gSpeciesInfo[s].types[0] != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gSpeciesInfo[s].types[0]);
+			RoguePokemonBaseStats baseStats;
 
-			if (gSpeciesInfo[s].types[1] != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gSpeciesInfo[s].types[1]);
-#else
-			if (gRogueSpeciesInfo[s].type1 != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gRogueSpeciesInfo[s].type1);
+			Rogue_GetPokemonBaseStatsFor(s, &baseStats, false);
+			if (baseStats.types[0] != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(baseStats.types[0]);
 
-			if (gRogueSpeciesInfo[s].type2 != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gRogueSpeciesInfo[s].type2);
-#endif
+			if (baseStats.types[1] != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(baseStats.types[1]);
+
+
+			Rogue_GetPokemonBaseStatsFor(s, &baseStats, true);
+			if (baseStats.types[0] != TYPE_NONE)
+				eggEvolutionTypes_Revised[eggSpecies].insert(baseStats.types[0]);
+
+			if (baseStats.types[1] != TYPE_NONE)
+				eggEvolutionTypes_Revised[eggSpecies].insert(baseStats.types[1]);
 		}
 	}
 
@@ -134,17 +148,22 @@ int main()
 		for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
 		{
 			u32 typeFlags = 0;
+			u32 typeFlagsRevised = 0;
 
 			for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
 			{
-				if (HasEvolutionConnectionOfType(s, t))
+				if (HasEvolutionConnectionOfType(s, t, false))
 					typeFlags |= MON_TYPE_VAL_TO_FLAGS(t);
+
+				if (HasEvolutionConnectionOfType(s, t, true))
+					typeFlagsRevised |= MON_TYPE_VAL_TO_FLAGS(t);
 			}
 
 			file << "\t[" << s << "] =\n\t{\n";
 			file << "\t\t.eggSpecies = " << (int)eggLookup[s] << ",\n";
 			file << "\t\t.evolutionCount = " << (int)evolutionCountLookup[s] << ",\n";
 			file << "\t\t.evolutionChainTypeFlags = " << (int)typeFlags << ",\n";
+			file << "\t\t.evolutionChainTypeFlags_Revised = " << (int)typeFlagsRevised << ",\n";
 			file << "\t},\n";
 		}
 		file << "};\n";

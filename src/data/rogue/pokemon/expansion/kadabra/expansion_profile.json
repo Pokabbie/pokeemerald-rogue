@@ -1,0 +1,280 @@
+{
+  "Species": [
+    "SPECIES_KADABRA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KINESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_COUNTER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SPEED_SWAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRI_ATTACK",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSHOCK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYCHIC",
+        "MOVE_ENERGY_BALL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_COUNTER",
+        "MOVE_TAUNT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_COUNTER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

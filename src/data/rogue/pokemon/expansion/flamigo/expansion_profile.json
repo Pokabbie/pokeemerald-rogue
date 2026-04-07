@@ -1,0 +1,159 @@
+{
+  "Species": [
+    "SPECIES_FLAMIGO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MEGA_KICK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BULK_UP",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_LUNGE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_QUICK_GUARD",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

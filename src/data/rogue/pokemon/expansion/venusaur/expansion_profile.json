@@ -1,0 +1,1285 @@
+{
+  "Species": [
+    "SPECIES_VENUSAUR",
+    "SPECIES_VENUSAUR_MEGA",
+    "SPECIES_VENUSAUR_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AMNESIA",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FRENZY_PLANT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INGRAIN",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MEGA_DRAIN",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PETAL_DANCE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_GROWTH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_SYNTHESIS",
+        "MOVE_POWER_WHIP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_TOXIC",
+        "MOVE_SYNTHESIS",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_TOXIC",
+        "MOVE_SYNTHESIS",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GRASS_PLEDGE",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_GRASS_PLEDGE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_CHARM",
+        "MOVE_LEECH_SEED",
+        "MOVE_AMNESIA"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_CHARM",
+        "MOVE_LEECH_SEED",
+        "MOVE_AMNESIA"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_WEATHER_BALL",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_GROWTH",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_WEATHER_BALL",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEAF_STORM"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FRENZY_PLANT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_LEECH_SEED",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_FRENZY_PLANT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_WEATHER_BALL",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_EARTH_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTH_POWER",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FRENZY_PLANT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_VENUSAURITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

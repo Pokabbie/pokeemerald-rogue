@@ -1,0 +1,119 @@
+{
+  "Species": [
+    "SPECIES_QUAXLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AQUA_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 35
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DETECT",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_LAST_RESORT",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROOST",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LIQUIDATION",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "Species": [
+    "SPECIES_KABUTOPS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_MEGA_KICK",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_FLAIL",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    }
+  ]
+}

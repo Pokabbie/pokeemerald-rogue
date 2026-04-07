@@ -1,0 +1,130 @@
+{
+  "Species": [
+    "SPECIES_MAGNETON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_MAGNET",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

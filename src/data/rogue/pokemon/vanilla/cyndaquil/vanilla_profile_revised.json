@@ -1,0 +1,59 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 44
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_SPIN",
+        "MOVE_DIG",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_GROWL"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

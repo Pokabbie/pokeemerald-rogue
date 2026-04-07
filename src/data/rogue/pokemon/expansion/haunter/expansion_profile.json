@@ -1,0 +1,297 @@
+{
+  "Species": [
+    "SPECIES_HAUNTER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POISON_JAB",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TRICK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

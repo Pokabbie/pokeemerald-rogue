@@ -1,0 +1,288 @@
+{
+  "Species": [
+    "SPECIES_BOMBIRDIER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THIEF",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRILL_RUN",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POWER_GEM",
+    "MOVE_POWER_TRIP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_STONE_EDGE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ROCKY_PAYLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

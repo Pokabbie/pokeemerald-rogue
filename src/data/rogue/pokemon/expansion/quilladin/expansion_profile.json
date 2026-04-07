@@ -1,0 +1,194 @@
+{
+  "Species": [
+    "SPECIES_QUILLADIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METAL_CLAW",
+    "MOVE_MUD_SHOT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_GUARD",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WIDE_GUARD",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ROAR",
+        "MOVE_SEED_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_ROAR",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "Species": [
+    "SPECIES_POLIWHIRL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METRONOME",
+    "MOVE_MIST",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPLASH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

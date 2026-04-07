@@ -1,0 +1,278 @@
+{
+  "Species": [
+    "SPECIES_MAGMORTAR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BELCH",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CROSS_CHOP",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOLLOW_ME",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MACH_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_THUNDERBOLT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

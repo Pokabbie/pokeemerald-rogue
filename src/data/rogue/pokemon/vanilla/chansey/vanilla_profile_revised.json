@@ -1,0 +1,108 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "50",
+      "Species": "SPECIES_BLISSEY"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOFT_BOILED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_EGG_BOMB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 47
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TACKLE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SOFT_BOILED",
+        "MOVE_TAIL_WHIP",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOFT_BOILED",
+        "MOVE_SEISMIC_TOSS",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

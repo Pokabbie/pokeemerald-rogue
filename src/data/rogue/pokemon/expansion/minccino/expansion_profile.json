@@ -1,0 +1,196 @@
+{
+  "Species": [
+    "SPECIES_MINCCINO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_TAIL",
+    "MOVE_BATON_PASS",
+    "MOVE_BULLET_SEED",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAIL_WHIP",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TIDY_UP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WAKE_UP_SLAP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_WAKE_UP_SLAP"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_WAKE_UP_SLAP"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_KINGS_ROCK",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SEED_BOMB",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_SLAP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

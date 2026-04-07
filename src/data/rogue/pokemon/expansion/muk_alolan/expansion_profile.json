@@ -1,0 +1,616 @@
+{
+  "Species": [
+    "SPECIES_MUK_ALOLAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_CONFIDE",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_MEGA_DRAIN",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_POISON_JAB",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RECYCLE",
+        "MOVE_POISON_JAB",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_POISON_JAB",
+        "MOVE_MINIMIZE"
+      ],
+      "Ability": "ABILITY_POWER_OF_ALCHEMY",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_IMPRISON",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_CURSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_POISON_JAB",
+        "MOVE_CURSE"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_ACID_ARMOR",
+        "MOVE_ACID_SPRAY",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_ACID_ARMOR",
+        "MOVE_CONFIDE",
+        "MOVE_SPITE"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_ACID_ARMOR",
+        "MOVE_ACID_SPRAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TOXIC"
+      ],
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_FIRE_BLAST",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_TOXIC"
+      ],
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_TOXIC",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_CURSE",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_GLUTTONY",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_CURSE",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_PURSUIT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_POISON_JAB",
+        "MOVE_PURSUIT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_POISON_TOUCH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

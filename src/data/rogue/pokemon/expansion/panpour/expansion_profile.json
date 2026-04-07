@@ -1,0 +1,157 @@
+{
+  "Species": [
+    "SPECIES_PANPOUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACROBATICS",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AQUA_RING",
+    "MOVE_AQUA_TAIL",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GASTRO_ACID",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MUD_SPORT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TICKLE",
+    "MOVE_TORMENT",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

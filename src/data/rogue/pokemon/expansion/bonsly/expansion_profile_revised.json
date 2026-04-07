@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_BONSLY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 95,
+        "Speed": 10,
+        "SpAttack": 10,
+        "SpDefense": 55
+      }
+    }
+  }
+}

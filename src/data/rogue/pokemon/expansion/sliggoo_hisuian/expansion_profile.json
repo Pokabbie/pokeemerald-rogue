@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_SLIGGOO_HISUIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHELTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CURSE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IRON_HEAD",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_IRON_HEAD",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ACID_SPRAY",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_CURSE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "Species": [
+    "SPECIES_IGGLYBUFF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_COVET",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HEAL_PULSE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_LAST_RESORT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PERISH_SONG",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

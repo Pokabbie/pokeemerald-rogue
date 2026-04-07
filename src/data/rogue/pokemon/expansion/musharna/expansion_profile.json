@@ -1,0 +1,260 @@
+{
+  "Species": [
+    "SPECIES_MUSHARNA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BARRIER",
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAL_BELL",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_MOONLIGHT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_MOONLIGHT",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONLIGHT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_REST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_BARRIER",
+        "MOVE_STORED_POWER",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_MOONLIGHT",
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

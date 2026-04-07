@@ -1,0 +1,80 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASSIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 35
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_TACKLE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ASSIST",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_FOCUS_BAND",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

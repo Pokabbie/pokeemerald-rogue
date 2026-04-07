@@ -1,0 +1,90 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TICKLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_BELLY_DRUM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_SURF",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SLASH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LINOONE": {
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

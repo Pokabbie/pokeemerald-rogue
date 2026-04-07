@@ -1,0 +1,90 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ION_DELUGE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 50
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ICE_BEAM",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

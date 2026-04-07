@@ -1,0 +1,171 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MARACTUS": {
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SEED_SOWER"
+      ],
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 106,
+        "Defense": 72,
+        "Speed": 60,
+        "SpAttack": 86,
+        "SpDefense": 81
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ACUPRESSURE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_NEEDLE_ARM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SCALD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SCALD",
+        "MOVE_NEEDLE_ARM",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_HORN_LEECH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SYNTHESIS",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SEED_SOWER",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

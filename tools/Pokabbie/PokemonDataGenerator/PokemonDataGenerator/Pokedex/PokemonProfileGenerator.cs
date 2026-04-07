@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -205,7 +206,7 @@ namespace PokemonDataGenerator.Pokedex
 		}
 
 
-		private class SourceMoveInfo
+        public class SourceMoveInfo
 		{
 			public enum LearnMethod
 			{
@@ -230,7 +231,7 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class SourcePokemonProfile
+        public class SourcePokemonProfile
 		{
 			public string Species;
 			public List<SourceMoveInfo> Moves;
@@ -304,7 +305,7 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class LevelUpMove
+        public class LevelUpMove
 		{
 			public string Move;
 			public int Level;
@@ -315,22 +316,39 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class PokemonProfile
+		public class PokemonBaseStats
+        {
+            public int HP;
+            public int Attack;
+            public int Defense;
+            public int Speed;
+            public int SpAttack;
+            public int SpDefense;
+        }
+
+		public class PokemonProfile
 		{
-			public string Species;
+			public List<string> Species;
 			public List<LevelUpMove> LevelUpMoves;
 			public List<string> TutorMoves;
 			public List<PokemonCompetitiveSet> CompetitiveSets;
+            public List<string> Types;
+            public List<string> Abilities;
+			public PokemonBaseStats BaseStats;
 
-			public static PokemonProfile FromSource(SourcePokemonProfile sourceProfile)
+
+            public static PokemonProfile FromSource(SourcePokemonProfile sourceProfile)
 			{
 				PokemonProfile profile = new PokemonProfile();
-				profile.Species = sourceProfile.Species;
+				profile.Species = new List<string>(new[] { sourceProfile.Species });
 				profile.CompetitiveSets = new List<PokemonCompetitiveSet>(sourceProfile.CompetitiveSets);
 				profile.LevelUpMoves = new List<LevelUpMove>();
 				profile.TutorMoves = new List<string>();
+                profile.Abilities = null;
+                profile.Types = null;
+				profile.BaseStats = null;
 
-				foreach (var move in sourceProfile.Moves)
+                foreach (var move in sourceProfile.Moves)
 				{
 					if (move.originMethod == SourceMoveInfo.LearnMethod.LevelUp)
 					{
@@ -355,9 +373,18 @@ namespace PokemonDataGenerator.Pokedex
 			public bool HasLevelUpMove(string move)
 			{
 				return LevelUpMoves.Where(m => m.Move == move).Any();
-			}
+            }
 
-			public bool HasTutorMove(string move)
+            public int GetLevelUpMoveLvl(string move)
+            {
+                LevelUpMove lvlMove = LevelUpMoves.Where(m => m.Move == move).SingleOrDefault();
+				if(lvlMove != null)
+					return lvlMove.Level;
+
+				return -1;
+            }
+
+            public bool HasTutorMove(string move)
 			{
 				return TutorMoves.Where(m => m == move).Any();
 			}
@@ -402,6 +429,17 @@ namespace PokemonDataGenerator.Pokedex
 						target.Moves[index] = testMove;
 						return true;
 					}
+				}
+
+				return false;
+			}
+
+			public bool HasCompatibleCompetitiveSet(PokemonCompetitiveSet otherSet)
+			{
+				foreach(PokemonCompetitiveSet set in CompetitiveSets)
+				{
+					if (set.IsCompatibleWith(otherSet))
+						return true;
 				}
 
 				return false;
@@ -497,7 +535,7 @@ namespace PokemonDataGenerator.Pokedex
 						// Replace all instances of hail with snowscape
 						ReplaceMove("MOVE_HAIL", "MOVE_SNOWSCAPE");
 
-						if (Species == "SPECIES_RAYQUAZA")
+						if (Species[0] == "SPECIES_RAYQUAZA")
 						{
 							// Make dragon ascent a late level learn
 							ReplaceMove("MOVE_DRAGON_ASCENT", "MOVE_DRAGON_ASCENT", 90);
@@ -507,10 +545,11 @@ namespace PokemonDataGenerator.Pokedex
 
 				// Now sort them before we export
 				LevelUpMoves = LevelUpMoves.OrderBy(m => m.Level).ToList();
-				TutorMoves = TutorMoves.OrderBy(m => m).ToList();
+                TutorMoves = TutorMoves.OrderBy(m => m).ToList();
+                CompetitiveSets = CompetitiveSets.OrderBy(m => m.ToString()).ToList();
 
 
-				if (!GameDataHelpers.IsVanillaVersion)
+                if (!GameDataHelpers.IsVanillaVersion)
 				{
 					// Now apply same move rename/removal to competitive sets
 					foreach (var compSet in CompetitiveSets)
@@ -552,7 +591,7 @@ namespace PokemonDataGenerator.Pokedex
 
 		}
 
-		private class PokemonCompetitiveSet
+        public class PokemonCompetitiveSet
 		{
 			public List<string> Moves = new List<string>();
 			public string Ability;
@@ -657,7 +696,12 @@ namespace PokemonDataGenerator.Pokedex
 
 				return output;
 			}
-		}
+
+            public override string ToString()
+            {
+                return JsonConvert.SerializeObject(this, c_JsonSettings);
+            }
+        }
 
 		private static string FormatMoveName(string moveName, bool fromLearnsets)
 		{
@@ -1041,12 +1085,21 @@ namespace PokemonDataGenerator.Pokedex
 						throw e;
 					}
 				}
-			}
+            }
 
-			ExportProfiles(profiles, redirectedSpecies, Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue_pokemon_profiles.h"));
-		}
+            foreach (var kvp in redirectedSpecies)
+            {
+                PokemonProfile profile = profiles.Find(p => p.Species[0] == kvp.Value);
+                profile.Species.Add(kvp.Key);
+            }
 
-		private static PokemonProfile GatherProfileFor(string speciesName)
+            // Always export to vanilla location
+            ExportProfilesToFolder(profiles, Path.Combine(GameDataHelpers.RootDirectory, "..\\pokeemerald-rogue\\src\\data\\rogue\\pokemon"));
+
+            ExportProfilesToHeader(profiles, Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue_pokemon_profiles.h"));
+        }
+
+        private static PokemonProfile GatherProfileFor(string speciesName)
 		{
 			string manualPath = ContentCache.GetWriteableCachePath($"res://PokemonProfiles//{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
 			string cachePath = ContentCache.GetWriteableCachePath($"pokemon_profiles/{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
@@ -1175,11 +1228,50 @@ namespace PokemonDataGenerator.Pokedex
 			return outputProfile;
 		}
 
-		private static void ExportProfiles(List<PokemonProfile> profiles, Dictionary<string, string> redirectedSpecies, string filePath)
-		{
-			Console.WriteLine($"Exporting profiles to '{filePath}'");
+		private static void ExportProfilesToFolder(List<PokemonProfile> profiles, string folderPath)
+        {
+            Console.WriteLine($"Exporting profiles to folder '{folderPath}'");
 
-			StringBuilder upperBlock = new StringBuilder();
+            HashSet<string> speciesFoldersLookup = new HashSet<string>();
+
+			foreach (PokemonProfile profile in profiles)
+			{
+				string folderName = profile.Species[0].Substring("species_".Length).ToLower();
+                speciesFoldersLookup.Add(folderName);
+            }
+
+            foreach (PokemonProfile profile in profiles)
+            {
+				string folderName = profile.Species[0].Substring("species_".Length).ToLower();
+
+				// Put forms into sub folders
+				string[] parts = folderName.Split('_');
+                if (parts.Length > 1)
+				{
+					if(speciesFoldersLookup.Contains(parts[0]))
+					{
+                        folderName = Path.Combine(parts[0], string.Join("_", parts.Skip(1)));
+                        Console.WriteLine($"\tRedirecting to {folderName}");
+                    }
+				}
+
+                string outputPath = Path.Combine(folderPath, folderName, GameDataHelpers.IsVanillaVersion ? "vanilla_profile.json" : "expansion_profile.json");
+                string outputDir = Path.GetDirectoryName(outputPath);
+
+				Directory.CreateDirectory(outputDir);
+
+                string profileJson = JsonConvert.SerializeObject(profile, c_JsonSettings);
+                File.WriteAllText(outputPath, profileJson);
+            }
+		}
+
+        private static void ExportProfilesToHeader(List<PokemonProfile> profiles, string filePath)
+		{
+			Console.WriteLine($"Exporting profiles to header '{filePath}'");
+
+            profiles = new List<PokemonProfile>(profiles.OrderBy(p => p.Species[0]));
+
+            StringBuilder upperBlock = new StringBuilder();
 			StringBuilder lowerBlock = new StringBuilder();
 
 			upperBlock.AppendLine("// == WARNING ==");
@@ -1189,14 +1281,14 @@ namespace PokemonDataGenerator.Pokedex
 			upperBlock.AppendLine();
 
 
-			// Gather some usage info to slap at the top
-			//
-			{
+            // Gather some usage info to slap at the top
+            //
+            {
 				PokemonProfile mostLevelMoves = null;
 				PokemonProfile mostTutorMoves = null;
 				HashSet<string> competitiveFormats = new HashSet<string>();
 
-				foreach (var profile in profiles)
+				foreach (var profile in profiles.OrderBy(p => p.Species[0]))
 				{
 					if (mostLevelMoves == null || profile.LevelUpMoves.Count > mostLevelMoves.LevelUpMoves.Count)
 						mostLevelMoves = profile;
@@ -1214,8 +1306,8 @@ namespace PokemonDataGenerator.Pokedex
 				upperBlock.AppendLine("// == INFO ==");
 				upperBlock.AppendLine("//");
 				upperBlock.AppendLine("// Highest Move Count");
-				upperBlock.AppendLine($"// Level Up: {mostLevelMoves.Species} ({mostLevelMoves.LevelUpMoves.Count})");
-				upperBlock.AppendLine($"// Tutor: {mostTutorMoves.Species} ({mostTutorMoves.TutorMoves.Count})");
+				upperBlock.AppendLine($"// Level Up: {mostLevelMoves.Species[0]} ({mostLevelMoves.LevelUpMoves.Count})");
+				upperBlock.AppendLine($"// Tutor: {mostTutorMoves.Species[0]} ({mostTutorMoves.TutorMoves.Count})");
 
 				upperBlock.AppendLine("//");
 				upperBlock.AppendLine("// Source Tiers:");
@@ -1228,9 +1320,9 @@ namespace PokemonDataGenerator.Pokedex
 
 			// Move/Item usages
 			//
-			Dictionary<string, int> moveCount = new Dictionary<string, int>();
-			Dictionary<string, int> specialMoveCount = new Dictionary<string, int>(); // i.e. moves found not in the level up moveset
-			Dictionary<string, int> heldItemCount = new Dictionary<string, int>();
+			SortedDictionary<string, int> moveCount = new SortedDictionary<string, int>();
+            SortedDictionary<string, int> specialMoveCount = new SortedDictionary<string, int>(); // i.e. moves found not in the level up moveset
+            SortedDictionary<string, int> heldItemCount = new SortedDictionary<string, int>();
 
 			foreach (var profile in profiles)
 			{
@@ -1307,16 +1399,16 @@ namespace PokemonDataGenerator.Pokedex
 						sourceTiers.Add(GameDataHelpers.FormatKeyword(tier));
 				}
 
-				upperBlock.AppendLine($"#ifdef APPEND_MON_FLAGS_{profile.Species}");
+				upperBlock.AppendLine($"#ifdef APPEND_MON_FLAGS_{profile.Species[0]}");
 
-				upperBlock.Append($"#define MON_FLAGS_{profile.Species} (APPEND_MON_FLAGS_{profile.Species}"); // allow easily appending flags
+				upperBlock.Append($"#define MON_FLAGS_{profile.Species[0]} (APPEND_MON_FLAGS_{profile.Species[0]}"); // allow easily appending flags
 				foreach (var tier in sourceTiers)
 					upperBlock.Append($" | MON_FLAGS_{tier}");
 				upperBlock.AppendLine(")");
 
 				upperBlock.AppendLine("#else");
 
-				upperBlock.Append($"#define MON_FLAGS_{profile.Species} (0");
+				upperBlock.Append($"#define MON_FLAGS_{profile.Species[0]} (0");
 				foreach (var tier in sourceTiers)
 					upperBlock.Append($" | MON_FLAGS_{tier}");
 				upperBlock.AppendLine(")");
@@ -1325,7 +1417,7 @@ namespace PokemonDataGenerator.Pokedex
 				upperBlock.AppendLine("");
 
 				// Level moves
-				upperBlock.AppendLine($"static struct LevelUpMove const sLevelUpMoves_{profile.Species}[] = \n{{");
+				upperBlock.AppendLine($"static struct LevelUpMove const sLevelUpMoves_{profile.Species[0]}[] = \n{{");
 				foreach(var move in profile.LevelUpMoves)
 				{
 					upperBlock.AppendLine($"\t{{ .move={move.Move}, .level={move.Level} }},");
@@ -1335,7 +1427,7 @@ namespace PokemonDataGenerator.Pokedex
 				upperBlock.AppendLine();
 
 				// Tutor moves
-				upperBlock.AppendLine($"static u16 const sTutorMoves_{profile.Species}[] = \n{{");
+				upperBlock.AppendLine($"static u16 const sTutorMoves_{profile.Species[0]}[] = \n{{");
 				foreach (var move in profile.TutorMoves)
 				{
 					upperBlock.AppendLine($"\t{move},");
@@ -1345,7 +1437,7 @@ namespace PokemonDataGenerator.Pokedex
 				upperBlock.AppendLine();
 
 				// Comp sets
-				upperBlock.AppendLine($"static struct RoguePokemonCompetitiveSet const sCompetitiveSets_{profile.Species}[] = \n{{");
+				upperBlock.AppendLine($"static struct RoguePokemonCompetitiveSet const sCompetitiveSets_{profile.Species[0]}[] = \n{{");
 				foreach(var compSet in profile.CompetitiveSets)
 				{
 					upperBlock.AppendLine($"\t{{");
@@ -1388,25 +1480,26 @@ namespace PokemonDataGenerator.Pokedex
 
 
 				// Add to species lookup below
-				lowerBlock.AppendLine($"\t[{profile.Species}] = \n\t{{");
-				lowerBlock.AppendLine($"\t\t.levelUpMoves = sLevelUpMoves_{profile.Species},");
-				lowerBlock.AppendLine($"\t\t.tutorMoves = sTutorMoves_{profile.Species},");
-				lowerBlock.AppendLine($"\t\t.competitiveSets = sCompetitiveSets_{profile.Species},");
-				lowerBlock.AppendLine($"\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_{profile.Species}),");
-				lowerBlock.AppendLine($"\t\t.monFlags = MON_FLAGS_{profile.Species},");
+				lowerBlock.AppendLine($"\t[{profile.Species[0]}] = \n\t{{");
+				lowerBlock.AppendLine($"\t\t.levelUpMoves = sLevelUpMoves_{profile.Species[0]},");
+				lowerBlock.AppendLine($"\t\t.tutorMoves = sTutorMoves_{profile.Species[0]},");
+				lowerBlock.AppendLine($"\t\t.competitiveSets = sCompetitiveSets_{profile.Species[0]},");
+				lowerBlock.AppendLine($"\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_{profile.Species[0]}),");
+				lowerBlock.AppendLine($"\t\t.monFlags = MON_FLAGS_{profile.Species[0]},");
 				lowerBlock.AppendLine($"\t}},");
-			}
 
-			// Attach redirected species info too
-			foreach(var kvp in redirectedSpecies)
-			{
-				lowerBlock.AppendLine($"\t[{kvp.Key}] = \n\t{{");
-				lowerBlock.AppendLine($"\t\t.levelUpMoves = sLevelUpMoves_{kvp.Value},");
-				lowerBlock.AppendLine($"\t\t.tutorMoves = sTutorMoves_{kvp.Value},");
-				lowerBlock.AppendLine($"\t\t.competitiveSets = sCompetitiveSets_{kvp.Value},");
-				lowerBlock.AppendLine($"\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_{kvp.Value}),");
-				lowerBlock.AppendLine($"\t\t.monFlags = MON_FLAGS_{kvp.Value},");
-				lowerBlock.AppendLine($"\t}},");
+
+				// Attach redirected species info too
+				for (int i = 1; i < profile.Species.Count; ++i)
+                {
+                    lowerBlock.AppendLine($"\t[{profile.Species[i]}] = \n\t{{");
+                    lowerBlock.AppendLine($"\t\t.levelUpMoves = sLevelUpMoves_{profile.Species[0]},");
+                    lowerBlock.AppendLine($"\t\t.tutorMoves = sTutorMoves_{profile.Species[0]},");
+                    lowerBlock.AppendLine($"\t\t.competitiveSets = sCompetitiveSets_{profile.Species[0]},");
+                    lowerBlock.AppendLine($"\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_{profile.Species[0]}),");
+                    lowerBlock.AppendLine($"\t\t.monFlags = MON_FLAGS_{profile.Species[0]},");
+                    lowerBlock.AppendLine($"\t}},");
+                }
 			}
 
 			lowerBlock.AppendLine("};");

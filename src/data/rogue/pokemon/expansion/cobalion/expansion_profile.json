@@ -1,0 +1,465 @@
+{
+  "Species": [
+    "SPECIES_COBALION"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MEGAHORN",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BOUNCE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SACRED_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

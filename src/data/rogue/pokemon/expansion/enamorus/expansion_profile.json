@@ -1,0 +1,308 @@
+{
+  "Species": [
+    "SPECIES_ENAMORUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MYSTICAL_FIRE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_SPRINGTIDE_STORM",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_OUTRAGE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_UPROAR",
+    "MOVE_WEATHER_BALL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STELLAR",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_CUTE_CHARM",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SUPERPOWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MOONBLAST",
+        "MOVE_SUPERPOWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUPERPOWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "Species": [
+    "SPECIES_TORKOAL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_ERUPTION",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_OVERHEAT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_TOXIC",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EXPLOSION",
+        "MOVE_TOXIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EXPLOSION",
+        "MOVE_TOXIC",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_AMNESIA",
+        "MOVE_TOXIC",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_EXPLOSION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WHITE_SMOKE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "Species": [
+    "SPECIES_MIME_JR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FLING",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POWER_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WONDER_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEALING_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    }
+  ]
+}

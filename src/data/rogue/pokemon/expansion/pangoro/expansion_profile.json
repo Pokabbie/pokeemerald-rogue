@@ -1,0 +1,299 @@
+{
+  "Species": [
+    "SPECIES_PANGORO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CIRCLE_THROW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_VITAL_THROW",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BEAT_UP",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DARKEST_LARIAT",
+    "MOVE_DIG",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_OUTRAGE",
+    "MOVE_PAYBACK",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVENGE",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HAMMER_ARM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    }
+  ]
+}

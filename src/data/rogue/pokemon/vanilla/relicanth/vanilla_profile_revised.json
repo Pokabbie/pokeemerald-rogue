@@ -1,0 +1,83 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 63
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIVE",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_MUDDY_WATER",
+        "MOVE_DIVE",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

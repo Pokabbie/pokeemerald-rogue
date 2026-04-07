@@ -1,0 +1,41 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PERSIAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 115,
+        "SpAttack": 80,
+        "SpDefense": 65
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_QUASH",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_SURF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

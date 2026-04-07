@@ -1,0 +1,113 @@
+{
+  "Species": [
+    "SPECIES_WHISMUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLEEP_TALK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CIRCLE_THROW",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMOKESCREEN",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_UPROAR",
+    "MOVE_WHIRLWIND",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

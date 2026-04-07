@@ -1,6 +1,6 @@
 #include "battle_scripts.h"
 
-const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
+const struct BattleMove gBattleMoves_Mainline[MOVES_COUNT_DYNAMAX] =
 {
     [MOVE_NONE] =
     {
@@ -130,11 +130,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ICE_PUNCH] =
     {
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
-            .effect = EFFECT_FREEZE_HIT,
-        #endif
+        .effect = EFFECT_FREEZE_HIT,
         .power = 75,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -1026,11 +1022,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         #endif
         // The following effect is also relevant in battle_pike.c
         // If you cherry-pick this to use something other than the config, make sure to update it there too
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
-            .effect = EFFECT_FREEZE_HIT,
-        #endif
+        .effect = EFFECT_FREEZE_HIT,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 10,
@@ -1049,11 +1041,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         #else
             .power = 120,
         #endif
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
-            .effect = EFFECT_FREEZE_HIT,
-        #endif
+        .effect = EFFECT_FREEZE_HIT,
         .type = TYPE_ICE,
         .accuracy = 70,
         .pp = 5,
@@ -3241,11 +3229,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_POWDER_SNOW] =
     {
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
-            .effect = EFFECT_FREEZE_HIT,
-        #endif
+        .effect = EFFECT_FREEZE_HIT,
         .power = 40,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -7502,11 +7486,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ICE_FANG] =
     {
-        #if B_USE_FROSTBITE == TRUE
-            .argument = STATUS1_FROSTBITE,
-        #else
-            .argument = STATUS1_FREEZE,
-        #endif
+        .argument = STATUS1_FREEZE,
         .effect = EFFECT_FLINCH_STATUS,
         .power = 65,
         .type = TYPE_ICE,
@@ -13008,11 +12988,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
     [MOVE_FREEZING_GLARE] =
     {
         .power = 90,
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
-            .effect = EFFECT_FREEZE_HIT,
-        #endif
+        .effect = EFFECT_FREEZE_HIT,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 10,
@@ -15915,4 +15891,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
 
+    [MOVE_SWIRLING_BLADE] =
+    {    //ANIM TODO
+        .effect = EFFECT_HIT,
+        .power = 1,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 1,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .argument = MAX_EFFECT_BYPASS_PROTECT,
+    },
 };

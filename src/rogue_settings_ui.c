@@ -91,6 +91,11 @@ static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_
 static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Doubles");
 static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mixed");
 
+static u8 const sMenuName_RevisionMode[] = _("Revision Mode");
+static u8 const sMenuName_RevisionModeNever[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Never");
+static u8 const sMenuName_RevisionModeAlwaysOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Always On");
+static u8 const sMenuName_RevisionModeInRun[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Adventures Only");
+
 //static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
 //static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
 //static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
@@ -468,6 +473,7 @@ enum
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
+    MENUITEM_MENU_SLIDER_REVISION_MODE,
 
     MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
     MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
@@ -561,6 +567,8 @@ static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection);
 static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection);
 static void GameMode_DrawChoices(u8 menuOffset, u8 selection);
+static u8 RevisionMode_ProcessInput(u8 menuOffset, u8 selection);
+static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -807,6 +815,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
     },
+    [MENUITEM_MENU_SLIDER_REVISION_MODE] = 
+    {
+        .itemName = sMenuName_RevisionMode,
+        .MULTI_DESC(sMenuNameDesc_BattleFormat),
+        .processInput = RevisionMode_ProcessInput,
+        .drawChoices = RevisionMode_DrawChoices
+    },
 
     [MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD] = 
     {
@@ -1018,6 +1033,11 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
+
+#ifdef ROGUE_FEATURE_REVISED_MODE
+            // TODO - Move
+            MENUITEM_MENU_SLIDER_REVISION_MODE,
+#endif
 
             MENUITEM_CANCEL
         }
@@ -1809,6 +1829,37 @@ static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
         DrawOptionMenuChoice(gText_DifficultyModeActive, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
+static u8 RevisionMode_ProcessInput(u8 menuOffset, u8 selection)
+{
+    return ProcessInputRange(menuOffset, selection, REVISION_MODE_COUNT);
+}
+
+static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text = NULL;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+
+    switch (selection)
+    {
+    case REVISION_MODE_NEVER:
+        text = sMenuName_RevisionModeNever;
+        break;
+
+    case REVISION_MODE_IN_RUN:
+        text = sMenuName_RevisionModeInRun;
+        break;
+
+    case REVISION_MODE_ALWAYS_ON:
+        text = sMenuName_RevisionModeAlwaysOn;
+        break;
+    }
+
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
+}
+
 #ifdef ROGUE_DEBUG
 
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection)
@@ -2150,6 +2201,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         return Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT);
 
+    case MENUITEM_MENU_SLIDER_REVISION_MODE:
+        return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE);
+
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
     case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
     case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
@@ -2317,6 +2371,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, value);
+        break;
+
+    case MENUITEM_MENU_SLIDER_REVISION_MODE:
+        Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, value);
         break;
 
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:

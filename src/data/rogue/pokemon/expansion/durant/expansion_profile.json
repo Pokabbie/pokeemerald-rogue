@@ -1,0 +1,297 @@
+{
+  "Species": [
+    "SPECIES_DURANT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BEAT_UP",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_FLAIL",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HONE_CLAWS",
+    "MOVE_INFESTATION",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_METAL_BURST",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_THUNDER_FANG",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENTRAINMENT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_TRUANT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_HONE_CLAWS",
+        "MOVE_FIRST_IMPRESSION"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

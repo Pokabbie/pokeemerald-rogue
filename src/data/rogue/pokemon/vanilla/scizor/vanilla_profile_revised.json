@@ -1,0 +1,67 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SUBMISSION",
+    "MOVE_VITAL_THROW"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_METAL_CLAW",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SILVER_WIND",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

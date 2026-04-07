@@ -1,0 +1,87 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BLAZE_KICK",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PECK",
+        "MOVE_DOUBLE_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLACK_BELT",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_WHEEL",
+        "MOVE_KARATE_CHOP",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_COMBUSKEN": {
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_BLAZE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SLASH",
+    "MOVE_BOUNCE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_WATER_PULSE",
+        "MOVE_CRUNCH",
+        "MOVE_FOCUS_ENERGY"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_POISON_FANG",
+        "MOVE_DIVE",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_SURF",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_POISON_FANG"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_SURF",
+        "MOVE_POISON_FANG",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_TAKE_DOWN",
+        "MOVE_DIVE",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SHARPEDO": {
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_ROUGH_SKIN"
+      ]
+    }
+  }
+}

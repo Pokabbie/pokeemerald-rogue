@@ -1,0 +1,198 @@
+{
+  "Species": [
+    "SPECIES_GROOKEY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BRANCH_POKE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GROWTH",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_LOW_KICK",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_ACROBATICS",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

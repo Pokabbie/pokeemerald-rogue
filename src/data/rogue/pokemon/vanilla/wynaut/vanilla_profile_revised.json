@@ -1,0 +1,16 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 65
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

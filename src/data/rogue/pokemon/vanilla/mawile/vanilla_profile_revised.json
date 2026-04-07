@@ -1,0 +1,111 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 50
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_HYPER_VOICE",
+        "MOVE_CRUNCH",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_BRICK_BREAK",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAWILE": {
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

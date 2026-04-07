@@ -1,0 +1,222 @@
+{
+  "Species": [
+    "SPECIES_BELLIBOLT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PARABOLIC_CHARGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOAK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MUDDY_WATER",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SLACK_OFF",
+        "MOVE_MUDDY_WATER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_TOXIC",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC",
+        "MOVE_MUDDY_WATER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_SLACK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MUDDY_WATER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SOAK",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SOAK"
+      ],
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SOAK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_ELECTROMORPHOSIS",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "Species": [
+    "SPECIES_GOLBAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_AERIAL_ACE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    }
+  ]
+}

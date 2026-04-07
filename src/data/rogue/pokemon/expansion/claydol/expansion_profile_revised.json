@@ -1,0 +1,152 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CLAYDOL": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 70,
+        "Defense": 105,
+        "Speed": 75,
+        "SpAttack": 80,
+        "SpDefense": 120
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HEAL_BLOCK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_POWER_TRICK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FLY",
+    "MOVE_POWER_GEM",
+    "MOVE_TRI_ATTACK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TELEPORT",
+        "MOVE_SCORCHING_SANDS",
+        "MOVE_RECOVER",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

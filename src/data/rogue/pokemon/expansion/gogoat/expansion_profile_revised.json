@@ -1,0 +1,61 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOGOAT": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_NORMAL"
+      ],
+      "BaseStats": {
+        "HP": 123,
+        "Attack": 108,
+        "Defense": 72,
+        "Speed": 74,
+        "SpAttack": 67,
+        "SpDefense": 87
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SUPERPOWER",
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
+        "MOVE_RETURN",
+        "MOVE_MILK_DRINK"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_MILK_DRINK"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

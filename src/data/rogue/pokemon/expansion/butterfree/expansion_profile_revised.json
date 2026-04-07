@@ -1,0 +1,24 @@
+{
+  "PerSpecies": {
+    "SPECIES_BUTTERFREE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 45,
+        "Defense": 60,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 90
+      }
+    },
+    "SPECIES_BUTTERFREE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 45,
+        "Defense": 60,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 90
+      }
+    }
+  }
+}

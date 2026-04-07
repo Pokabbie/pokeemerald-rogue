@@ -1,0 +1,663 @@
+{
+  "Species": [
+    "SPECIES_SEISMITOAD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAIN_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BOUNCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PAYBACK",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TERA_BLAST",
+    "MOVE_UPROAR",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SCALD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_REFRESH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_ICY_WIND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GASTRO_ACID"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_EARTH_POWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_WEATHER_BALL",
+        "MOVE_ICY_WIND",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SCALD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_POWER_WHIP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_POWER_WHIP",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LIQUIDATION",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_POWER_WHIP",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_POWER_WHIP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_POWER_WHIP",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SCALD",
+        "MOVE_GRASS_KNOT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

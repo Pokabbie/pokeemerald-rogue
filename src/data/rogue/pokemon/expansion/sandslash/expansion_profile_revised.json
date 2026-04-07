@@ -1,0 +1,468 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_SANDSLASH": {
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_ROUGH_SKIN",
+        "ABILITY_SAND_RUSH"
+      ],
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 120,
+        "Speed": 65,
+        "SpAttack": 25,
+        "SpDefense": 65
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_LOW_SWEEP",
+    "MOVE_ROCK_POLISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ACCELEROCK",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

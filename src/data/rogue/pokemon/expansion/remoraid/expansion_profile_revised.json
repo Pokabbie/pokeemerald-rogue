@@ -1,0 +1,79 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 57
+    }
+  ]
+}

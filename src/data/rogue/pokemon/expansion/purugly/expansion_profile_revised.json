@@ -1,0 +1,136 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PURUGLY": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 95,
+        "Defense": 70,
+        "Speed": 115,
+        "SpAttack": 65,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ASSIST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_CRUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_RETURN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_BODY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

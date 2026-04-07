@@ -1,0 +1,9 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_HEAD_SMASH",
+    "MOVE_ROCK_CLIMB"
+  ]
+}

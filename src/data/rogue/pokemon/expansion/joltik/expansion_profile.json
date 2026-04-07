@@ -1,0 +1,187 @@
+{
+  "Species": [
+    "SPECIES_JOLTIK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTROWEB",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INFESTATION",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_STING",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

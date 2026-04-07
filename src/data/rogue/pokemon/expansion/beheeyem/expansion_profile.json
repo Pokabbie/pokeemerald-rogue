@@ -1,0 +1,318 @@
+{
+  "Species": [
+    "SPECIES_BEHEEYEM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_CALM_MIND",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METEOR_BEAM",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRI_ATTACK",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_TELEPORT",
+        "MOVE_RECOVER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_METEOR_BEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

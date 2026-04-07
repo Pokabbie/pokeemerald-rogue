@@ -1,0 +1,178 @@
+{
+  "Species": [
+    "SPECIES_MANTYKE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BULLDOZE",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DIVE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MIRROR_COAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SLAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPLASH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_TWISTER",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_AIR_SLASH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_SCALD",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYSTRIKE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_MEWTWONITE_Y",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYSTRIKE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_MEWTWONITE_Y",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

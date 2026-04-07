@@ -262,4 +262,56 @@ struct RoguePokedexRegion
     u16 variantCount;
 };
 
+struct RoguePokemonCompetitiveSet
+{
+    u16 moves[MAX_MON_MOVES];
+    u16 flags;
+    u16 heldItem;
+    u16 ability;
+    u8 hiddenPowerType;
+    u8 teraType;
+    u8 nature;
+};
+
+struct RoguePokemonCompetitiveSetRules
+{
+    bool8 skipMoves : 1;
+    bool8 skipHeldItem : 1;
+    bool8 skipAbility : 1;
+    bool8 skipHiddenPowerType : 1;
+    bool8 skipTeraType : 1;
+    bool8 skipNature : 1;
+    bool8 allowMissingMoves : 1;
+};
+
+struct RoguePokemonBaseStats
+{
+    u8 baseHP;
+    u8 baseAttack;
+    u8 baseDefense;
+    u8 baseSpeed;
+    u8 baseSpAttack;
+    u8 baseSpDefense;
+    u8 types[2];
+    u16 abilities[NUM_ABILITY_SLOTS];
+};
+
+struct LevelUpMove
+{
+    u16 move;
+    u16 level;
+};
+
+struct RoguePokemonProfile
+{
+    struct Evolution const* evolutions;
+    struct RoguePokemonCompetitiveSet const* competitiveSets;
+    struct LevelUpMove const* levelUpMoves;
+    u16 const* tutorMoves;
+    struct RoguePokemonBaseStats baseStats;
+    u16 monFlags;
+    u16 competitiveSetCount;
+    u8 evolutionCount;
+};
+
 void memcpy(void* dst, void* src, size_t size);

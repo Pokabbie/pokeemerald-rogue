@@ -1,0 +1,127 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 41
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_ICE_PUNCH",
+        "MOVE_BODY_SLAM",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUBBLE_BEAM",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NEVER_MELT_ICE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_AQUA_JET",
+        "MOVE_BRICK_BREAK",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_AQUA_JET",
+        "MOVE_METAL_CLAW",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RAICHU": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 95,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 95,
+        "SpDefense": 80
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SPLISHY_SPLASH",
+    "MOVE_FLOATY_FALL",
+    "MOVE_PSYCHIC",
+    "MOVE_FLY",
+    "MOVE_ZIPPY_ZAP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SPLISHY_SPLASH"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZIPPY_ZAP",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLOATY_FALL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

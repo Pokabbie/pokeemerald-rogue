@@ -1,0 +1,239 @@
+{
+  "Species": [
+    "SPECIES_SLURPUFF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BELLY_DRUM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAMETHROWER",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_COAT",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_YAWN",
+        "MOVE_MAGIC_COAT",
+        "MOVE_MISTY_EXPLOSION"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_YAWN",
+        "MOVE_ENDEAVOR",
+        "MOVE_MISTY_EXPLOSION"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COTTON_GUARD",
+        "MOVE_REST",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_MAGIC_COAT",
+        "MOVE_MISTY_EXPLOSION",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    }
+  ]
+}

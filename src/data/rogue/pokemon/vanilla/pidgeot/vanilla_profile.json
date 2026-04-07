@@ -1,0 +1,138 @@
+{
+  "Species": [
+    "SPECIES_PIDGEOT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_RETURN",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_SILK_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

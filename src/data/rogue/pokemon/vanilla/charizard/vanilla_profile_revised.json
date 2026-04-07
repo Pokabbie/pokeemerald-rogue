@@ -1,0 +1,66 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TWISTER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_PUNCH",
+        "MOVE_WING_ATTACK",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_SLASH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

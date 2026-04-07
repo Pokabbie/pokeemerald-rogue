@@ -1,0 +1,80 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_VIGOROTH": {
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CHIP_AWAY",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    }
+  ]
+}

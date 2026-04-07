@@ -1,0 +1,89 @@
+{
+  "Species": [
+    "SPECIES_LEDYBA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_COMET_PUNCH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BIDE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROLLOUT",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SILVER_WIND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

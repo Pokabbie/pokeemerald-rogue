@@ -1,0 +1,98 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "40",
+      "Species": "SPECIES_KINGDRA"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 60
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BUBBLE_BEAM",
+        "MOVE_TAKE_DOWN",
+        "MOVE_TOXIC",
+        "MOVE_DRAGON_BREATH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OCTAZOOKA",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_SMOKESCREEN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SEADRA": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

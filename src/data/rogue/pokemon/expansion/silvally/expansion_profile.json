@@ -1,0 +1,285 @@
+{
+  "Species": [
+    "SPECIES_SILVALLY",
+    "SPECIES_SILVALLY_FIGHTING",
+    "SPECIES_SILVALLY_FLYING",
+    "SPECIES_SILVALLY_POISON",
+    "SPECIES_SILVALLY_GROUND",
+    "SPECIES_SILVALLY_ROCK",
+    "SPECIES_SILVALLY_BUG",
+    "SPECIES_SILVALLY_GHOST",
+    "SPECIES_SILVALLY_STEEL",
+    "SPECIES_SILVALLY_FIRE",
+    "SPECIES_SILVALLY_WATER",
+    "SPECIES_SILVALLY_GRASS",
+    "SPECIES_SILVALLY_ELECTRIC",
+    "SPECIES_SILVALLY_PSYCHIC",
+    "SPECIES_SILVALLY_ICE",
+    "SPECIES_SILVALLY_DRAGON",
+    "SPECIES_SILVALLY_DARK",
+    "SPECIES_SILVALLY_FAIRY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MULTI_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PARTING_SHOT",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_CRUNCH",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_OUTRAGE",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERRAIN_PULSE",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRI_ATTACK",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WORK_UP",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_EXPLOSION",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_CRUNCH",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION",
+        "MOVE_U_TURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_EXPLOSION",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MULTI_ATTACK",
+        "MOVE_FLAMETHROWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MULTI_ATTACK",
+        "MOVE_U_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_RKS_SYSTEM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

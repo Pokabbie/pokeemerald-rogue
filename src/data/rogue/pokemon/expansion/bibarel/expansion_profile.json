@@ -1,0 +1,215 @@
+{
+  "Species": [
+    "SPECIES_BIBAREL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROTOTILLER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HYPER_FANG",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_TAIL",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_LAST_RESORT",
+    "MOVE_LIQUIDATION",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_WATERFALL",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_CHESTO_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_WATERFALL",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RETURN",
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_AQUA_JET",
+        "MOVE_RETURN",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

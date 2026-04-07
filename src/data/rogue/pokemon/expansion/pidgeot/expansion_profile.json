@@ -1,0 +1,357 @@
+{
+  "Species": [
+    "SPECIES_PIDGEOT",
+    "SPECIES_PIDGEOT_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LASER_FOCUS",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RETURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RETURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_SKY_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TAILWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FEATHER_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_WORK_UP"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FEATHER_DANCE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_WORK_UP"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    }
+  ]
+}

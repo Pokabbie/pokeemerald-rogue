@@ -1,0 +1,192 @@
+{
+  "Species": [
+    "SPECIES_HOUNDSTONE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LAST_RESPECTS",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SHADE",
+        "MOVE_BODY_PRESS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_BODY_PRESS",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_BODY_PRESS",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FLUFFY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAST_RESPECTS",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CRUNCH",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

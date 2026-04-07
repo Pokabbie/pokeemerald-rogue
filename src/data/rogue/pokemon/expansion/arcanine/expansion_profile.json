@@ -1,0 +1,652 @@
+{
+  "Species": [
+    "SPECIES_ARCANINE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 5
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_BURN_UP",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MORNING_SUN",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_WILD_CHARGE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SNARL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_ROAR",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_OUTRAGE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_IRON_HEAD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SNARL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_WILD_CHARGE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_HELPING_HAND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SNARL",
+        "MOVE_BURN_UP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BURN_UP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_MORNING_SUN",
+        "MOVE_TELEPORT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORNING_SUN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SNARL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_BULLDOZE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BURN_UP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SNARL",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_OUTRAGE",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_OUTRAGE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_IRON_HEAD",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    }
+  ]
+}

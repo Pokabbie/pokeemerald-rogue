@@ -1,0 +1,104 @@
+{
+  "Species": [
+    "SPECIES_BRIONNE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AMNESIA",
+    "MOVE_AQUA_RING",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICY_WIND",
+    "MOVE_LIFE_DEW",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PERISH_SONG",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

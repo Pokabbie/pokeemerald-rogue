@@ -1,0 +1,90 @@
+{
+  "Species": [
+    "SPECIES_SWABLU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PURSUIT",
+    "MOVE_RAGE",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

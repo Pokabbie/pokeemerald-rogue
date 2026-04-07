@@ -1,0 +1,22 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DELCATTY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 95,
+        "Defense": 65,
+        "Speed": 95,
+        "SpAttack": 85,
+        "SpDefense": 75
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_POWER_GEM",
+    "MOVE_HONE_CLAWS",
+    "MOVE_CUT"
+  ]
+}

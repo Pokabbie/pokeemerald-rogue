@@ -1,0 +1,203 @@
+{
+  "Species": [
+    "SPECIES_VULPIX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAIL",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HEALING_WISH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_HYPNOSIS",
+    "MOVE_IMPRISON",
+    "MOVE_MEMENTO",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_WEATHER_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_ENCORE",
+        "MOVE_HEALING_WISH",
+        "MOVE_MEMENTO"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    }
+  ]
+}

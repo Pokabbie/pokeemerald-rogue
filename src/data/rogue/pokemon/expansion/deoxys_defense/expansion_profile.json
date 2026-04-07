@@ -1,0 +1,188 @@
+{
+  "Species": [
+    "SPECIES_DEOXYS_DEFENSE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_PSYCHO_BOOST",
+      "Level": 67
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 73
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AMNESIA",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METEOR_BEAM",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WATER_PULSE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RECOVER",
+        "MOVE_SKILL_SWAP",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_RECOVER",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_RECOVER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    }
+  ]
+}

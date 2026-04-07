@@ -1,0 +1,305 @@
+{
+  "Species": [
+    "SPECIES_DARMANITAN",
+    "SPECIES_DARMANITAN_ZEN_MODE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DIG",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LASH_OUT",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_OVERHEAT",
+    "MOVE_PAYBACK",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE",
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FLING"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_TRICK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_TRICK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    }
+  ]
+}

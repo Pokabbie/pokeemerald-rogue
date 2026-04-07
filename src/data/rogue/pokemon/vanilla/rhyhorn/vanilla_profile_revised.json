@@ -1,0 +1,47 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_RHYDON"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 43
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

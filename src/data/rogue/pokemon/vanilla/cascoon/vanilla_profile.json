@@ -1,0 +1,13 @@
+{
+  "Species": [
+    "SPECIES_CASCOON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": []
+}

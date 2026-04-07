@@ -1,0 +1,31 @@
+{
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_SLUDGE",
+        "MOVE_HEADBUTT",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_NIDORAN_M": {
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "Species": [
+    "SPECIES_YVELTAL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_OBLIVION_WING",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_FOCUS_BLAST",
+      "Level": 75
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 85
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_DARK_PULSE",
+    "MOVE_DEFOG",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HONE_CLAWS",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_PAYBACK",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_SNARL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_OBLIVION_WING"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHARTI_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_U_TURN",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_FOUL_PLAY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_TAUNT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_BLACK_GLASSES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_OBLIVION_WING"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_DARK_PULSE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_OBLIVION_WING",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OBLIVION_WING",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_DARK_PULSE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DARK_AURA",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    }
+  ]
+}

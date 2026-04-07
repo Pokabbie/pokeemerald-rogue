@@ -1,0 +1,354 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_BEARTIC": {
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_SLUSH_RUSH",
+        "ABILITY_TOUGH_CLAWS"
+      ],
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 70,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WATERFALL",
+    "MOVE_WORK_UP",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_LOW_SWEEP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_AQUA_JET",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_THROAT_CHOP",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THROAT_CHOP",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

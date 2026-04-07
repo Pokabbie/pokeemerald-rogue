@@ -1,0 +1,117 @@
+{
+  "Species": [
+    "SPECIES_DARUMAKA_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_DIG",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_WHEEL",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FREEZE_DRY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HEAT_WAVE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICE_PUNCH",
+    "MOVE_INCINERATE",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_OVERHEAT",
+    "MOVE_POWER_UP_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WORK_UP",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

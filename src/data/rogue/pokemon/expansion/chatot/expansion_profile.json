@@ -1,0 +1,259 @@
+{
+  "Species": [
+    "SPECIES_CHATOT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHATTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SYNCHRONOISE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_ATTRACT",
+    "MOVE_BOOMBURST",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENCORE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHATTER",
+        "MOVE_BOOMBURST",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_BOOMBURST",
+        "MOVE_ENCORE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_CHATTER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

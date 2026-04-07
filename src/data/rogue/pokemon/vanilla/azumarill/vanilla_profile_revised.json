@@ -1,0 +1,140 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TAIL_WHIP",
+    "MOVE_BOUNCE",
+    "MOVE_SUBMISSION"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_SURF",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROLLOUT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_BODY_SLAM",
+        "MOVE_CHARM",
+        "MOVE_ATTRACT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BODY_SLAM",
+        "MOVE_CHARM",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_WATERFALL",
+        "MOVE_CHARM",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROLLOUT",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_AZUMARILL": {
+      "Abilities": [
+        "ABILITY_HUGE_POWER",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

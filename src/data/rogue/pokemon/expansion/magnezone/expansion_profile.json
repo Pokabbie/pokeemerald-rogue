@@ -1,0 +1,891 @@
+{
+  "Species": [
+    "SPECIES_MAGNEZONE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HARD_PRESS",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGNET_RISE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_METAL_SOUND",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HYPER_BEAM",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ZAP_CANNON",
+        "MOVE_METAL_SOUND",
+        "MOVE_ELECTROWEB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ZAP_CANNON",
+        "MOVE_METAL_SOUND"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_MAGNET_RISE",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLASH_CANNON",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_STEEL_BEAM"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEEL_BEAM"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ENDURE",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ELECTROWEB"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1",
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_BODY_PRESS",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MAGNET_PULL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TRI_ATTACK",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

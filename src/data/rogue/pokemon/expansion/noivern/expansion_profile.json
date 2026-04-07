@@ -1,0 +1,434 @@
+{
+  "Species": [
+    "SPECIES_NOIVERN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_DARK_PULSE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LEECH_LIFE",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BOOMBURST",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_BOOMBURST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_BOOMBURST",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_TAUNT",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_DEFOG",
+        "MOVE_TAUNT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_BOOMBURST",
+        "MOVE_HURRICANE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_U_TURN",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE",
+        "MOVE_BOOMBURST",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

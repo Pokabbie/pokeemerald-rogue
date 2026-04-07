@@ -1,0 +1,787 @@
+{
+  "Species": [
+    "SPECIES_TAPU_FINI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_NATURES_MADNESS",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_BRINE",
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIVE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCALD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WONDER_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_MOONBLAST",
+        "MOVE_SCALD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_DEFOG",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NATURES_MADNESS",
+        "MOVE_MOONBLAST",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_MOONBLAST",
+        "MOVE_MIST"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NATURES_MADNESS",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_MOONBLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_CALM_MIND",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MUDDY_WATER",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_MUDDY_WATER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MUDDY_WATER",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_SCALD",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_RAIN_DANCE",
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_BRINE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_TAPUNIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_BRINE",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_TAPUNIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_SCALD",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DEFOG",
+        "MOVE_SURF",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WHIRLPOOL",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_TAUNT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WHIRLPOOL",
+        "MOVE_MOONBLAST",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT",
+        "MOVE_SCALD",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SCALD",
+        "MOVE_TAUNT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_SCALD",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WHIRLPOOL",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_TAUNT",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_MOONBLAST",
+        "MOVE_DEFOG",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_SCALD",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_ICY_WIND",
+        "MOVE_HEAL_PULSE"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_MUDDY_WATER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_TRICK",
+        "MOVE_NATURES_MADNESS"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SURF",
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_MOONBLAST",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_MOONBLAST",
+        "MOVE_TAUNT",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_DRAINING_KISS",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_TRICK",
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_SCALD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SCALD",
+        "MOVE_CALM_MIND",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MISTY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "Species": [
+    "SPECIES_LICKITUNG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BELCH",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLDOZE",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MUDDY_WATER",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERRAIN_PULSE",
+    "MOVE_THIEF",
+    "MOVE_THRASH",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WISH",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_BODY_SLAM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_SLAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    }
+  ]
+}

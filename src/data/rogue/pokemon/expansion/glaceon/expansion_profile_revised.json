@@ -1,0 +1,307 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GLACEON": {
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SERENE_GRACE"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 110,
+        "Speed": 95,
+        "SpAttack": 130,
+        "SpDefense": 65
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BARRIER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FREEZY_FROST",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_GRASS_KNOT",
+    "MOVE_GROWTH",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_TRI_ATTACK",
+    "MOVE_ICE_SHARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_CELEBRATE"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_EARTH_POWER",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_FREEZY_FROST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CELEBRATE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_PROTECT",
+        "MOVE_SNOWSCAPE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNOW_CLOAK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZY_FROST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_PULSE"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_ICE_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

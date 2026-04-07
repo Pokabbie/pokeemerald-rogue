@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_LOVELY_KISS"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_LIQUIDATION",
+        "MOVE_LOVELY_KISS",
+        "MOVE_THIEF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

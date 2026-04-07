@@ -1,0 +1,75 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 59
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_OVERHEAT",
+        "MOVE_ATTRACT"
+      ],
+      "Ability": "ABILITY_DROUGHT",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TORKOAL": {
+      "Abilities": [
+        "ABILITY_DROUGHT",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
+}

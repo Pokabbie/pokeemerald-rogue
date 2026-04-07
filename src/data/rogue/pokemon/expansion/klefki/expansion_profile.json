@@ -1,0 +1,581 @@
+{
+  "Species": [
+    "SPECIES_KLEFKI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FAIRY_LOCK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MAGIC_ROOM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGNET_RISE",
+    "MOVE_METAL_SOUND",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIKES",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_MAGNET_RISE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_FAIRY_LOCK",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_REFLECT",
+        "MOVE_SPIKES",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_SPIKES",
+        "MOVE_FAIRY_LOCK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWAGGER",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SWAGGER",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SAFEGUARD",
+        "MOVE_SWAGGER",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWAGGER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_MAGNET_RISE",
+        "MOVE_SWAGGER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SWAGGER",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SWAGGER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_METAL_SOUND",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIKES",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_DEFOG",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SPIKES",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SPIKES",
+        "MOVE_FOUL_PLAY",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_MAGNET_RISE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPOTLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BESTOW",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_WAKE_UP_SLAP",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_METRONOME",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_GRAVITY",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_METEOR_MASH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 58
+    }
+  ]
+}

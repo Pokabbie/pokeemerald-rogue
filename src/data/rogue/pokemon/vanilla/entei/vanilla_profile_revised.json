@@ -1,0 +1,44 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SACRED_FIRE",
+      "Level": 78
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

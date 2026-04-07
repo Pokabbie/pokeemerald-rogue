@@ -1,0 +1,135 @@
+{
+  "Species": [
+    "SPECIES_LILLIPUP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AFTER_YOU",
+    "MOVE_ATTRACT",
+    "MOVE_CHARM",
+    "MOVE_COVET",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HOWL",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_FANG",
+    "MOVE_LICK",
+    "MOVE_MUD_SLAP",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_RETURN",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WORK_UP",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RETURN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_FANG",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

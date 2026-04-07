@@ -1,0 +1,55 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "18",
+      "Species": "SPECIES_MAGCARGO"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FIRE_PLEDGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 37
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SLUGMA": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
+}

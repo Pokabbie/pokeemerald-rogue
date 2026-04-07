@@ -3359,10 +3359,16 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     static const u8 sTriAttackEffects[] =
                     {
                         MOVE_EFFECT_BURN,
-                        B_USE_FROSTBITE == TRUE ? MOVE_EFFECT_FROSTBITE : MOVE_EFFECT_FREEZE,
+                        MOVE_EFFECT_FREEZE,
                         MOVE_EFFECT_PARALYSIS
                     };
                     gBattleScripting.moveEffect = RandomElement(RNG_TRI_ATTACK, sTriAttackEffects);
+
+                    if(B_USE_FROSTBITE == TRUE && gBattleScripting.moveEffect == MOVE_EFFECT_FREEZE)
+                    {
+                        gBattleScripting.moveEffect = MOVE_EFFECT_FROSTBITE;
+                    }
+
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
@@ -3665,6 +3671,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
+                    gProtectStructs[gBattlerTarget].sheltered = FALSE;
                 }
                 break;
             case MOVE_EFFECT_V_CREATE:
@@ -5484,6 +5491,14 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_BeakBlastBurn;
                     effect = 1;
                 }
+                else if (Rogue_GetRevisionModeActive() && gProtectStructs[gBattlerTarget].sheltered)
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_DEF_PLUS_1,
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ShelterEffect_Revised;
+                    effect = 1;
+                }
             }
             gBattleScripting.moveendState++;
             break;
@@ -6378,8 +6393,8 @@ static void Cmd_switchindataupdate(void)
     for (i = 0; i < sizeof(struct BattlePokemon); i++)
         monData[i] = gBattleResources->bufferB[battler][4 + i];
 
-    gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
-    gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
+    gBattleMons[battler].type1 = GetTypeBySpecies(gBattleMons[battler].species, 0, gBattleMons[battler].otId);
+    gBattleMons[battler].type2 = GetTypeBySpecies(gBattleMons[battler].species, 1, gBattleMons[battler].otId);
     gBattleMons[battler].type3 = TYPE_MYSTERY;
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].otId);
 
@@ -10917,6 +10932,11 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].burningBulwarked = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
+            else if (Rogue_GetRevisionModeActive() && gCurrentMove == MOVE_SHELTER)
+            {
+                gProtectStructs[gBattlerAttacker].sheltered = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
 
             gDisableStructs[gBattlerAttacker].protectUses++;
             fail = FALSE;
@@ -12640,7 +12660,9 @@ static void Cmd_metronome(void)
 {
     CMD_ARGS();
 
-#if B_METRONOME_MOVES >= GEN_9
+#ifdef ROGUE_EXPANSION
+    u32 moveCount = Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE;
+#elif B_METRONOME_MOVES >= GEN_9
     u32 moveCount = MOVES_COUNT_GEN9;
 #elif B_METRONOME_MOVES >= GEN_8
     u32 moveCount = MOVES_COUNT_GEN8;
@@ -15931,6 +15953,15 @@ void BS_JumpIfHoldEffect(void)
         gLastUsedItem = gBattleMons[battler].item;   // For B_LAST_USED_ITEM
         gBattlescriptCurrInstr += 12;
     }
+}
+
+void BS_Rogue_JumpIfRevised(void)
+{
+    NATIVE_ARGS(const u8 *jumpInstr);
+    if (Rogue_GetRevisionModeActive())
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_DoStockpileStatChangesWearOff(void)

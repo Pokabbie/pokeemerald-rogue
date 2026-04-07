@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_NUZLEAF": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 80,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 40
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_WATERFALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_ROCK_CLIMB"
+  ]
+}

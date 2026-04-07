@@ -1,0 +1,121 @@
+{
+  "Species": [
+    "SPECIES_NIDORAN_M"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BEAT_UP",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CONFUSION",
+    "MOVE_COUNTER",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_HEAD_SMASH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HONE_CLAWS",
+    "MOVE_HORN_DRILL",
+    "MOVE_ICE_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THIEF",
+    "MOVE_THRASH",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_DRILL_RUN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_HONE_CLAWS"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    }
+  ]
+}

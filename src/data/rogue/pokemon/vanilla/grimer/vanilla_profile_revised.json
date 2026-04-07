@@ -1,0 +1,59 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_MUK"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 31
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GRIMER": {
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_POISON_POINT"
+      ]
+    }
+  }
+}
