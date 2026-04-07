@@ -5546,7 +5546,7 @@ static u8 TeraShardItemToType(u16 item)
 
 void Task_TeraShard(u8 taskId)
 {
-    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nTera Type to to {STR_VAR_2}?");
+    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nTera Type to {STR_VAR_2}?");
     static const u8 doneText[] = _("{STR_VAR_1}'s Tera Type became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
 
     s16 *data = gTasks[taskId].data;

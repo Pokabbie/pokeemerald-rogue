@@ -818,7 +818,7 @@ BattleScript_EffectMortalSpin:
 	call BattleScript_EffectHit_Ret
 	rapidspinfree
 	setmoveeffect MOVE_EFFECT_POISON
-	seteffectwithchance
+	seteffectprimary
 	tryfaintmon BS_TARGET
 	moveendall
 	end
@@ -846,18 +846,26 @@ BattleScript_CorrosiveGasFail:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectMakeItRain:
-	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_MakeItRainDoubles
-BattleScript_MakeItRainContinuous:
-	setmoveeffect MOVE_EFFECT_PAYDAY
-	call BattleScript_EffectHit_Ret
-	tryfaintmon BS_TARGET
+BattleScript_EffectMakeItRain::
 	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	seteffectprimary
-	goto BattleScript_MoveEnd
-BattleScript_MakeItRainDoubles:
-	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
-	goto BattleScript_MakeItRainContinuous
+	goto BattleScript_SetEffectPrimaryReturn
+
+BattleScript_EffectClangingScales::
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_SetEffectPrimaryReturn
+
+BattleScript_EffectDiamondStorm::
+	setmoveeffect MOVE_EFFECT_DEF_PLUS_2 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_SetEffectPrimaryReturn
+
+BattleScript_EffectClangorousSoulblaze::
+	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_SetEffectPrimaryReturn
+
+BattleScript_SetEffectPrimaryReturn:
+	seteffectprimary
+	return
 
 BattleScript_EffectSpinOut::
 	setmoveeffect MOVE_EFFECT_SPD_MINUS_2 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
@@ -1928,7 +1936,7 @@ BattleScript_SpectralThiefSteal::
 	setbyte sB_ANIM_ARG2, 0
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	spectralthiefprintstats
-	return
+	goto BattleScript_HitTargetHitAnimation
 
 BattleScript_EffectSpectralThief:
 	setmoveeffect MOVE_EFFECT_SPECTRAL_THIEF
@@ -3457,6 +3465,8 @@ BattleScript_HitFromCritCalc::
 BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
+	handleSpectralThief BattleScript_SpectralThiefSteal @Spectral thief is special among the special cases, so we'll use this solution for now
+BattleScript_HitTargetHitAnimation::
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
@@ -4178,6 +4188,7 @@ BattleScript_EffectToxic::
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
 	resultmessage
+	jumpifability BS_ATTACKER, ABILITY_POISON_PUPPETEER, BattleScript_EffectConfusePoisonPuppeteer
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -4532,6 +4543,19 @@ BattleScript_EffectPoison::
 	setmoveeffect MOVE_EFFECT_POISON
 	seteffectprimary
 	resultmessage
+	jumpifability BS_ATTACKER, ABILITY_POISON_PUPPETEER, BattleScript_EffectConfusePoisonPuppeteer
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectConfusePoisonPuppeteer:
+	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus2 BS_TARGET, STATUS2_CONFUSION, BattleScript_AlreadyConfused
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	jumpifsafeguard BattleScript_SafeguardProtected
+	setmoveeffect MOVE_EFFECT_CONFUSION
+	seteffectprimary
+	printstring STRINGID_POISONPUPPETEER
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -5531,8 +5555,6 @@ BattleScript_EffectSpecialAttackUpHit::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAllStatsUpHit::
-	@ Handle clangorous soulblaze boosting itself twice in doubles
-	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
@@ -8712,6 +8734,7 @@ BattleScript_MoveEffectRecoil::
 	jumpifmove MOVE_STRUGGLE, BattleScript_DoRecoil
 	jumpifability BS_ATTACKER, ABILITY_ROCK_HEAD, BattleScript_RecoilEnd
 BattleScript_DoRecoil::
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_RecoilEnd
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE | HITMARKER_IGNORE_DISGUISE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
@@ -9560,7 +9583,7 @@ BattleScript_ScriptingAbilityStatRaise::
 	call BattleScript_AbilityPopUp
 	copybyte sSAVED_DMG, gBattlerAttacker
 	copybyte gBattlerAttacker, sBATTLER
-	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | MOVE_EFFECT_CERTAIN, NULL
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_NOT_PROTECT_AFFECTED | MOVE_EFFECT_CERTAIN, NULL
 	setgraphicalstatchangevalues
 	playanimation BS_SCRIPTING, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	waitanimation
@@ -9766,6 +9789,7 @@ BattleScript_GooeyActivates::
 	call BattleScript_AbilityPopUp
 	swapattackerwithtarget  @ for defiant, mirror armor
 	seteffectsecondary
+	swapattackerwithtarget @ kleen: restore the target/attacker, for knock off and I imagine others 
 	return
 
 BattleScript_AbilityStatusEffect::
@@ -9943,6 +9967,16 @@ BattleScript_BerryCureSlpRet::
 	updatestatusicon BS_SCRIPTING
 	removeitem BS_SCRIPTING
 	return
+
+BattleScript_BoosterEnergyEnd2::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_BOOSTERENERGYACTIVATES
+	waitmessage B_WAIT_TIME_MED
+	printstring STRINGID_STATWASHEIGHTENED
+	waitmessage B_WAIT_TIME_MED
+	removeitem BS_SCRIPTING
+	end2
 
 BattleScript_GemActivates::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT

@@ -427,8 +427,9 @@ struct BattleMove
     u16 target;
     s8 priority;
     u8 split;
-    u16 argument;
     u8 zMoveEffect;
+    u16 argument;
+    const u8 *argument2;
     // Flags
     u32 makesContact:1;
     u32 ignoresProtect:1;
@@ -475,6 +476,7 @@ struct BattleMove
     u32 parentalBondBanned:1;
     u32 skyBattleBanned:1;
     u32 sketchBanned:1;
+    u32 spreadMoveAndEffect:1;
 };
 
 #define SPINDA_SPOT_WIDTH 16

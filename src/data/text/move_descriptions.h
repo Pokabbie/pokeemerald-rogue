@@ -2642,7 +2642,11 @@ static const u8 sPhotonGeyserDescription[] = _(
 
 static const u8 sZippyZapDescription[] = _(
     "Electric bursts always go\n"
+#if B_UPDATED_MOVE_DATA >= GEN_8
+    "first and raises evasiveness.");
+#else
     "first and land a critical hit.");
+#endif
 
 static const u8 sSplishySplashDescription[] = _(
     "A huge electrified wave that\n"
