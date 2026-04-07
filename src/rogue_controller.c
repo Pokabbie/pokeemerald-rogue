@@ -519,6 +519,7 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
 
 static bool32 GetRevisionModeActive_Slow(bool32 isRunActive)
 {
+#ifdef ROGUE_FEATURE_REVISED_MODE
     switch(Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE))
     {
         case REVISION_MODE_ALWAYS_ON:
@@ -527,18 +528,23 @@ static bool32 GetRevisionModeActive_Slow(bool32 isRunActive)
         case REVISION_MODE_IN_RUN:
             return isRunActive;
     }
+#endif
 
     return FALSE;
 }
 
 bool8 Rogue_GetRevisionModeActive(void)
 {
+#ifdef ROGUE_FEATURE_REVISED_MODE
     if(Rogue_IsRunActive())
         return gRogueRun.revisedModeEnabled; // cached result
     else
     {
         return GetRevisionModeActive_Slow(Rogue_IsRunActive());
     }
+#else
+    return FALSE;
+#endif
 }
 
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
