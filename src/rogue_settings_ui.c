@@ -101,8 +101,8 @@ static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_
 static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
 static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
 
-static u8 const sMenuName_GameMode_Standard[] = _("Standard Mode");
-static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet Mode");
+static u8 const sMenuName_GameMode_Standard[] = _("Standard");
+static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
@@ -207,20 +207,18 @@ static u8 const* const sMenuNameDesc_BattleFormat[] =
 
 static u8 const sMenuNameDesc_TrainerOrderDefault[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear randomly based on\n"
-    "their canon Trainer Class."
+    "Trainers appear somewhat randomly\n"
+    "based on their Trainer Class."
 );
 static u8 const sMenuNameDesc_TrainerOrderDoubles[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in any order but\n"
-    "will never repeat type specialties.\n"
-    "eg. E4 can be Gym Leaders and vice versa"
+    "Trainers appear randomly without\n"
+    "repeating types e.g. E4 can be Gyms."
 );
 static u8 const sMenuNameDesc_TrainerOrderOfficial[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in the order they\n"
-    "appear in their official games.\n"
-    "(Disables Challenges)"
+    "Trainers appear in the order they appear\n"
+    "in official games. (Disables Challenges)"
 );
 
 static u8 const* const sMenuNameDesc_TrainerOrder[] = 
@@ -1042,6 +1040,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
             MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
             MENUITEM_MENU_TOGGLE_TRAINER_JOHTO,
             MENUITEM_MENU_TOGGLE_TRAINER_HOENN,
@@ -1061,7 +1060,6 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
-            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
             MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
             MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
             MENUITEM_CANCEL
