@@ -1,0 +1,236 @@
+{
+  "Species": [
+    "SPECIES_CHI_YU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RUINATION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_OVERHEAT",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SNARL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PSYCHIC",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_BEADS_OF_RUIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

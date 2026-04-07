@@ -1,0 +1,289 @@
+{
+  "Species": [
+    "SPECIES_INDEEDEE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METRONOME",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK_ROOM",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENCORE",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_TERRAIN_EXTENDER",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENCORE",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_TERRAIN_EXTENDER",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_PSYCHIC_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

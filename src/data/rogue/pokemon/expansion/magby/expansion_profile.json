@@ -1,0 +1,183 @@
+{
+  "Species": [
+    "SPECIES_MAGBY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BELCH",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CROSS_CHOP",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOLLOW_ME",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LOW_KICK",
+    "MOVE_MACH_PUNCH",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CROSS_CHOP",
+        "MOVE_MACH_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_TEMPER_FLARE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

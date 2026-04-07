@@ -1,0 +1,226 @@
+{
+  "Species": [
+    "SPECIES_OMANYTE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_AURORA_BEAM",
+    "MOVE_BITE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_DIVE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAZE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT_TYPE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALD",
+    "MOVE_SLAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_THIEF",
+    "MOVE_TICKLE",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

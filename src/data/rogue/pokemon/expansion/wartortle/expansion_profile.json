@@ -1,0 +1,184 @@
+{
+  "Species": [
+    "SPECIES_WARTORTLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_WAVE_CRASH",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_JET",
+    "MOVE_AQUA_RING",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FORESIGHT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIFE_DEW",
+    "MOVE_LIQUIDATION",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MIST",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATER_SPOUT",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FORESIGHT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN",
+        "MOVE_FORESIGHT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN",
+        "MOVE_FORESIGHT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

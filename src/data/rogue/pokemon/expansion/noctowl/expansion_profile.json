@@ -1,0 +1,210 @@
+{
+  "Species": [
+    "SPECIES_NOCTOWL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_AMNESIA",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_UPROAR",
+    "MOVE_WHIRLWIND",
+    "MOVE_WING_ATTACK",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_HYPNOSIS",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_AIR_SLASH",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_INSOMNIA",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_WORK_UP",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_ROOST",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYPNOSIS",
+        "MOVE_HURRICANE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_BLUNDER_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_HURRICANE",
+        "MOVE_DEFOG",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

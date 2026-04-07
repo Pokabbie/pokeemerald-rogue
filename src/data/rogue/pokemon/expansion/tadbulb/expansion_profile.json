@@ -1,0 +1,95 @@
+{
+  "Species": [
+    "SPECIES_TADBULB"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PARABOLIC_CHARGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOAK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": []
+}

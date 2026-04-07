@@ -1,0 +1,334 @@
+{
+  "Species": [
+    "SPECIES_ELECTRODE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EERIE_IMPULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TAUNT",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TERA_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TERA_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TERA_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

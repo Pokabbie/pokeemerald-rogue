@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_TERAPAGOS",
+    "SPECIES_TERAPAGOS_TERASTAL",
+    "SPECIES_TERAPAGOS_STELLAR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TERA_STARSTORM",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 90
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IRON_HEAD",
+    "MOVE_METEOR_BEAM",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TERA_STARSTORM",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_TERA_SHELL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_TERA_STARSTORM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TERA_SHIFT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TERA_STARSTORM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_TERA_SHIFT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

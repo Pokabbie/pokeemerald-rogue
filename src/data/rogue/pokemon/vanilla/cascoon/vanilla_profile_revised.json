@@ -1,0 +1,34 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 7
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_HARDEN",
+        "MOVE_PROTECT",
+        "MOVE_ACID"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

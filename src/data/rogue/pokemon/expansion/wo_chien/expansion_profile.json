@@ -1,0 +1,246 @@
+{
+  "Species": [
+    "SPECIES_WO_CHIEN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RUINATION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_RUINATION",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_RUINATION",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BODY_PRESS",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_TABLETS_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

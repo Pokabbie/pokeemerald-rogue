@@ -1,0 +1,79 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_MUD_BOMB",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 49
+    }
+  ]
+}

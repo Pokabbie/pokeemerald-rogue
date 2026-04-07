@@ -1,0 +1,155 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MAGCARGO": {
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_SOLID_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 150,
+        "Speed": 30,
+        "SpAttack": 110,
+        "SpDefense": 100
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHELTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FLAME_BURST",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_LAVA_PLUME",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

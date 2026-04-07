@@ -1,0 +1,361 @@
+{
+  "Species": [
+    "SPECIES_GENESECT",
+    "SPECIES_GENESECT_DOUSE_DRIVE",
+    "SPECIES_GENESECT_SHOCK_DRIVE",
+    "SPECIES_GENESECT_BURN_DRIVE",
+    "SPECIES_GENESECT_CHILL_DRIVE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_TECHNO_BLAST",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ASSURANCE",
+    "MOVE_BLAZE_KICK",
+    "MOVE_BLIZZARD",
+    "MOVE_BUG_BUZZ",
+    "MOVE_DARK_PULSE",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPLOSION",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_FACADE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SHIFT_GEAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRI_ATTACK",
+    "MOVE_U_TURN",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_BUG_BUZZ",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLASH_CANNON",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_BLAZE_KICK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_LEECH_LIFE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    }
+  ]
+}

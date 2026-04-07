@@ -1,0 +1,116 @@
+{
+  "Species": [
+    "SPECIES_DEWPIDER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_POWER_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIT_UP",
+    "MOVE_STICKY_WEB",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_BUG_BUZZ",
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

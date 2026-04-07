@@ -1,0 +1,45 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_MACH_PUNCH",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_DRAIN_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_PUNCH",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

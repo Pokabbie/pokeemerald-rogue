@@ -1,0 +1,137 @@
+{
+  "Species": [
+    "SPECIES_SCORBUNNY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BLAZE_KICK",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_JUMP_KICK",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SAND_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BLAZE_KICK",
+        "MOVE_GUNK_SHOT",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_LIBERO",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BLAZE_KICK",
+        "MOVE_U_TURN",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_LIBERO",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_LIBERO",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

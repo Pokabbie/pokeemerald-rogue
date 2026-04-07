@@ -1,0 +1,35 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 7
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HARDEN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_TOXIC",
+        "MOVE_STRING_SHOT"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

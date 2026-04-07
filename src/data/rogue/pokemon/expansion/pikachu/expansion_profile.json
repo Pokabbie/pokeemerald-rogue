@@ -1,0 +1,296 @@
+{
+  "Species": [
+    "SPECIES_PIKACHU",
+    "SPECIES_PIKACHU_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_VOLT_TACKLE",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_KNOCK_OFF",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_IRON_TAIL",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SURF",
+        "MOVE_GRASS_KNOT",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_TACKLE",
+        "MOVE_FAKE_OUT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_STATIC",
+      "Item": "ITEM_LIGHT_BALL",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

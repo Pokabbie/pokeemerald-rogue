@@ -1,0 +1,724 @@
+{
+  "Species": [
+    "SPECIES_RAYQUAZA",
+    "SPECIES_RAYQUAZA_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_FLY",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 81
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 90
+    },
+    {
+      "Move": "MOVE_DRAGON_ASCENT",
+      "Level": 90
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_METEOR_BEAM",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_V_CREATE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS",
+        "GEN7ANYTHINGGOES",
+        "GEN8ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES",
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_V_CREATE"
+      ],
+      "Ability": "ABILITY_DELTA_STREAM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_OVERHEAT",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_V_CREATE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_ASCENT",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_AIR_LOCK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    }
+  ]
+}

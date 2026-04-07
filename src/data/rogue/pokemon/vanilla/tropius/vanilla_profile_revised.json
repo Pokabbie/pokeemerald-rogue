@@ -1,0 +1,70 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 54
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MAGICAL_LEAF",
+        "MOVE_AERIAL_ACE",
+        "MOVE_DRAGON_BREATH"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BASHFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TROPIUS": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_CHLOROPHYLL"
+      ]
+    }
+  }
+}

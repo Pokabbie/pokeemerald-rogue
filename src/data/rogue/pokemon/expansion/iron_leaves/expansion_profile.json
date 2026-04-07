@@ -1,0 +1,184 @@
+{
+  "Species": [
+    "SPECIES_IRON_LEAVES"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PSYBLADE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_SOLAR_BLADE",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METAL_SOUND",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_QUASH",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_PSYBLADE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYBLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PSYBLADE",
+        "MOVE_LEAF_BLADE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYBLADE",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

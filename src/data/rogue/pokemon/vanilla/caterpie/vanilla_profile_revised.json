@@ -1,0 +1,26 @@
+{
+  "LevelUpMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MEGA_DRAIN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_TAIL_WHIP",
+        "MOVE_POISON_STING"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

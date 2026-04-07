@@ -1,0 +1,203 @@
+{
+  "Species": [
+    "SPECIES_DEDENNE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_COVET",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DRAINING_KISS",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGNET_RISE",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEARFUL_LOOK",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECYCLE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_NUZZLE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_RECYCLE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_NUZZLE"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_SUPER_FANG"
+      ],
+      "Ability": "ABILITY_PICKUP",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_CHEEK_POUCH",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

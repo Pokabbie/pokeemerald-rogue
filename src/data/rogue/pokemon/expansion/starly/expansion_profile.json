@@ -1,0 +1,121 @@
+{
+  "Species": [
+    "SPECIES_STARLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_ASTONISH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_FURY_ATTACK",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SAND_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_U_TURN",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

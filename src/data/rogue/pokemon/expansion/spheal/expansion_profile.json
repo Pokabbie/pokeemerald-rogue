@@ -1,0 +1,124 @@
+{
+  "Species": [
+    "SPECIES_SPHEAL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_RING",
+    "MOVE_ATTRACT",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BULLDOZE",
+    "MOVE_CURSE",
+    "MOVE_DIVE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FISSURE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIT_UP",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWALLOW",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

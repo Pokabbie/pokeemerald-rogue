@@ -1,0 +1,114 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 79
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_STEEL_WING"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

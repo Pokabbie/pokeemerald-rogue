@@ -1,0 +1,21 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SLOWBRO_GALARIAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 75,
+        "Defense": 105,
+        "Speed": 30,
+        "SpAttack": 115,
+        "SpDefense": 70
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_RETURN",
+    "MOVE_FRUSTRATION"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 37
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SHADOW_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MEGA_DRAIN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_X_SCISSOR",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PARASECT": {
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

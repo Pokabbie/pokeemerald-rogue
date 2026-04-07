@@ -1,0 +1,1105 @@
+{
+  "Species": [
+    "SPECIES_EXCADRILL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HORN_DRILL",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MAGNET_RISE",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HORN_DRILL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SHADOW_CLAW"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_TOMB",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HORN_DRILL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_HORN_DRILL",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MAGNET_RISE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_HEAD",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_TOMB",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_TOMB",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_TOMB",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_HORN_DRILL",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEEL_BEAM",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_X_SCISSOR",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_TOMB",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_SOFT_SAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_RAPID_SPIN",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

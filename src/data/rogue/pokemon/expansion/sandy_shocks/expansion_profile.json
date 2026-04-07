@@ -1,0 +1,255 @@
+{
+  "Species": [
+    "SPECIES_SANDY_SHOCKS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_GRAVITY",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_MUD_SHOT",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EARTH_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRAVITY",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDERBOLT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

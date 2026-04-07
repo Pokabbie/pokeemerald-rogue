@@ -1,0 +1,31 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MASQUERAIN": {
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_LEVITATE",
+        "ABILITY_UNNERVE"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 100,
+        "SpAttack": 110,
+        "SpDefense": 100
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_TWISTER",
+    "MOVE_DIVE",
+    "MOVE_FLY"
+  ]
+}

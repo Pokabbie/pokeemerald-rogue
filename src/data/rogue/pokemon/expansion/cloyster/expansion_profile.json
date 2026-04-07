@@ -1,0 +1,695 @@
+{
+  "Species": [
+    "SPECIES_CLOYSTER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 5
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BARRIER",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DRILL_RUN",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_RAPID_SPIN",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7OU",
+        "GEN7ANYTHINGGOES",
+        "GEN8UU",
+        "GEN8ANYTHINGGOES",
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_KINGS_ROCK",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_RAZOR_SHELL"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU",
+        "GEN7RU",
+        "GEN8OU",
+        "GEN8RU",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXAG",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SPIKES",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_ICICLE_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_BARRIER"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_SELF_DESTRUCT"
+      ],
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_SELF_DESTRUCT"
+      ],
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_PIN_MISSILE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_KINGS_ROCK",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SURF",
+        "MOVE_SPIKES",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SURF",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ICICLE_SPEAR"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_DRILL_RUN",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICICLE_SPEAR",
+        "MOVE_SHELL_SMASH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_SKILL_LINK",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SPIKES",
+        "MOVE_SURF",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "Species": [
+    "SPECIES_ZEKROM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FUSION_BOLT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_BOLT_STRIKE",
+      "Level": 88
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EARTH_POWER",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HONE_CLAWS",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_OUTRAGE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ROOST",
+        "MOVE_SCALE_SHOT"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_STRIKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_TERAVOLT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    }
+  ]
+}

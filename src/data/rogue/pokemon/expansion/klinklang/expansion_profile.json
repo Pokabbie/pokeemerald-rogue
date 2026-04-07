@@ -1,0 +1,235 @@
+{
+  "Species": [
+    "SPECIES_KLINKLANG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GEAR_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AUTOTOMIZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GEAR_GRIND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SHIFT_GEAR",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ASSURANCE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_MAGNET_RISE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEAR_GRIND",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_WILD_CHARGE",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_WILD_CHARGE",
+        "MOVE_MAGNET_RISE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_WILD_CHARGE",
+        "MOVE_MAGNET_RISE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEAR_GRIND",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_WILD_CHARGE",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_STEELIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GEAR_GRIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEAR_GRIND",
+        "MOVE_WILD_CHARGE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GEAR_GRIND",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_WILD_CHARGE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

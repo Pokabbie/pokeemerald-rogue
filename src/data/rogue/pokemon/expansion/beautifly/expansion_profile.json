@@ -1,0 +1,115 @@
+{
+  "Species": [
+    "SPECIES_BEAUTIFLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BUG_BITE",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INFESTATION",
+    "MOVE_LASER_FOCUS",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    }
+  ]
+}

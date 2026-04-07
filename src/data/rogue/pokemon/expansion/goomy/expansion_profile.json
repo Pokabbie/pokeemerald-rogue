@@ -1,0 +1,115 @@
+{
+  "Species": [
+    "SPECIES_GOOMY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIFE_DEW",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_GOOEY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

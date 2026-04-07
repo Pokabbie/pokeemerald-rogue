@@ -1,0 +1,354 @@
+{
+  "Species": [
+    "SPECIES_TYRANTRUM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HORN_DRILL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_FANG",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LASH_OUT",
+    "MOVE_METEOR_BEAM",
+    "MOVE_OUTRAGE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_POLISH",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_SUPERPOWER",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_SCALE_SHOT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_OUTRAGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAGON_CLAW"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SCALE_SHOT",
+        "MOVE_HEAD_SMASH",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    }
+  ]
+}

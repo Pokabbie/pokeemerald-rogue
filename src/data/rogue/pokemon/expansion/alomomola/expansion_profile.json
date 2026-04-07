@@ -1,0 +1,329 @@
+{
+  "Species": [
+    "SPECIES_ALOMOMOLA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MIST",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TICKLE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WHIRLPOOL",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FLIP_TURN",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_FLIP_TURN",
+        "MOVE_SCALD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_RED_CARD",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_WISH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_FLIP_TURN",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,749 @@
+{
+  "Species": [
+    "SPECIES_PORYGON_Z"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONVERSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRICK_ROOM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONVERSION_2",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_TRI_ATTACK",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_TRICK",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_HYPER_BEAM",
+        "MOVE_TRI_ATTACK",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_TRICK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_CONVERSION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CONVERSION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_CONVERSION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_HYPER_BEAM",
+        "MOVE_CONVERSION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_CONVERSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CONVERSION",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_TRI_ATTACK",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_ENDURE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_UPROAR"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_TRICK",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HYPER_BEAM",
+        "MOVE_REFLECT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_CONVERSION",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRI_ATTACK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_DOWNLOAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_UPROAR"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_UPROAR",
+        "MOVE_TRICK",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_BEAM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ENDURE",
+        "MOVE_UPROAR"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONVERSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1015,6 +1015,8 @@ static u32 GetMonMasteryIndex(u16 species)
 {
     u32 i;
     u16 eggSpecies;
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
 
 #ifdef ROGUE_EXPANSION
     if(species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE)
@@ -1025,7 +1027,7 @@ static u32 GetMonMasteryIndex(u16 species)
         species = GET_BASE_SPECIES_ID(species);
     }
 
-    if(gRogueSpeciesInfo[species].baseHP == 0)
+    if(speciesStats.baseHP == 0)
         return SPECIES_EGG;
 #else
     if(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)

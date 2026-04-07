@@ -1,0 +1,162 @@
+{
+  "Species": [
+    "SPECIES_LILEEP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BIND",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CURSE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TICKLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RECOVER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RECOVER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_VULPIX_ALOLAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AURORA_VEIL",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_BATON_PASS",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLAIL",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MOONBLAST",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WEATHER_BALL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AURORA_VEIL",
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURORA_VEIL",
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

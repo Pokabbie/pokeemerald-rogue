@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 49
+    }
+  ]
+}

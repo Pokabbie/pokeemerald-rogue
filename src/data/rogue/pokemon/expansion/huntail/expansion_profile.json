@@ -1,0 +1,190 @@
+{
+  "Species": [
+    "SPECIES_HUNTAIL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_TAIL",
+    "MOVE_ATTRACT",
+    "MOVE_BIND",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_CONFIDE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_INFESTATION",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SHELL_SMASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPER_FANG",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_WATERFALL",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_WHITE_HERB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

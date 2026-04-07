@@ -1,0 +1,218 @@
+{
+  "Species": [
+    "SPECIES_ZORUA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_NIGHT_DAZE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_COPYCAT",
+    "MOVE_COUNTER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_MEMENTO",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_DAZE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_U_TURN",
+        "MOVE_EXTRASENSORY",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TERA_BLAST",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ILLUSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

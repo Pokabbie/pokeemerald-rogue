@@ -1,0 +1,257 @@
+{
+  "Species": [
+    "SPECIES_CERULEDGE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_BITTER_BLADE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_OVERHEAT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POISON_JAB",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_QUICK_GUARD",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SHADOW_SNEAK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BITTER_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BITTER_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_BITTER_BLADE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BITTER_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BITTER_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BITTER_BLADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BITTER_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_BITTER_BLADE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_BITTER_BLADE",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "Species": [
+    "SPECIES_OCTILLERY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_OCTAZOOKA",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRINE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_WATER_SPOUT",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

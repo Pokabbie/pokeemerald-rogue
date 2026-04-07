@@ -1,0 +1,1423 @@
+{
+  "Species": [
+    "SPECIES_SCIZOR",
+    "SPECIES_SCIZOR_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BULLET_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HARD_PRESS",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_METAL_CLAW",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROOST",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_PURSUIT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BUG_BITE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN61V1",
+        "GEN71V1",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_BUG_BITE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BUG_BITE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_BUG_BITE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_PURSUIT",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BUG_BITE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_STRUGGLE_BUG"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_STRUGGLE_BUG"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_BUG_BITE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_FACADE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SAND_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_SAND_TOMB"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_ROOST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ROOST",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BUG_BITE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULLET_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRAILBLAZE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_SCIZORITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_BULLET_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

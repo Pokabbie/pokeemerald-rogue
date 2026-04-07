@@ -1,0 +1,234 @@
+{
+  "Species": [
+    "SPECIES_TINKATON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GIGATON_HAMMER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BRUTAL_SWING",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SKITTER_SMACK",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HARD_PRESS",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_HAMMER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_METRONOME",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE",
+        "MOVE_ICE_HAMMER"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_ENCORE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGATON_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

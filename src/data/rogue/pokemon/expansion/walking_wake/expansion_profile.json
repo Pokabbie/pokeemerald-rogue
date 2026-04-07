@@ -1,0 +1,347 @@
+{
+  "Species": [
+    "SPECIES_WALKING_WAKE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BREAKING_SWIPE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYDRO_STEAM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 84
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HONE_CLAWS",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MUD_SHOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCALD",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_STEAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLAMETHROWER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_BREAKING_SWIPE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SNARL",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HURRICANE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SCALD",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYDRO_STEAM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_STEAM",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FLIP_TURN",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HYDRO_STEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

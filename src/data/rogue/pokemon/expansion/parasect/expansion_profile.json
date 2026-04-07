@@ -1,0 +1,146 @@
+{
+  "Species": [
+    "SPECIES_PARASECT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CROSS_POISON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AFTER_YOU",
+    "MOVE_ATTRACT",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BITE",
+    "MOVE_CONFIDE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NATURE_POWER",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_VENOSHOCK",
+    "MOVE_WIDE_GUARD",
+    "MOVE_WORRY_SEED",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SYNTHESIS",
+        "MOVE_SEED_BOMB",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_LEECH_LIFE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAGE_POWDER",
+        "MOVE_SPORE",
+        "MOVE_WIDE_GUARD",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    }
+  ]
+}

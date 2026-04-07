@@ -1,0 +1,169 @@
+{
+  "Species": [
+    "SPECIES_REVAVROOM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHIFT_GEAR",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SPIN_OUT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HARD_PRESS",
+    "MOVE_HAZE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LASH_OUT",
+    "MOVE_METAL_SOUND",
+    "MOVE_OVERHEAT",
+    "MOVE_PARTING_SHOT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_UPROAR",
+    "MOVE_VENOSHOCK",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_IRON_HEAD",
+        "MOVE_GUNK_SHOT",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_IRON_HEAD",
+        "MOVE_PARTING_SHOT",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_SHIFT_GEAR",
+        "MOVE_GUNK_SHOT",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    }
+  ]
+}

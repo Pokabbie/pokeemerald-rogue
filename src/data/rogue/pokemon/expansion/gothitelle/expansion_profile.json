@@ -1,0 +1,393 @@
+{
+  "Species": [
+    "SPECIES_GOTHITELLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_MAGIC_ROOM",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CONFIDE",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_HEAL_PULSE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MEAN_LOOK",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK",
+        "MOVE_REST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEAN_LOOK",
+        "MOVE_PSYCHIC",
+        "MOVE_CALM_MIND",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM",
+        "MOVE_HELPING_HAND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_PULSE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONFIDE",
+        "MOVE_CHARM",
+        "MOVE_TAUNT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DARK_PULSE",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HELPING_HAND",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHIC",
+        "MOVE_HEAL_PULSE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CONFIDE",
+        "MOVE_TAUNT",
+        "MOVE_REST",
+        "MOVE_CHARM"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CHESTO_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_FAKE_OUT",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_COSMIC_POWER",
+        "MOVE_TAUNT",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_REST",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_CALM_MIND",
+        "MOVE_CHARM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DARK_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

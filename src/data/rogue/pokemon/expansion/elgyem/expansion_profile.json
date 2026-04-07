@@ -1,0 +1,141 @@
+{
+  "Species": [
+    "SPECIES_ELGYEM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_CALM_MIND",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DISABLE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METEOR_BEAM",
+    "MOVE_NASTY_PLOT",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

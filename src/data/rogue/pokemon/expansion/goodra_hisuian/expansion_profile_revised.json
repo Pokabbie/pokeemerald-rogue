@@ -1,0 +1,418 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHELTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MIRROR_SHOT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_STEEL_ROLLER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 73
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SHELTER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_GOOEY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_LIFE_DEW",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_RECOVER",
+        "MOVE_METAL_BURST"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_CHOPLE_BERRY",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OUTRAGE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SKITTER_SMACK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_SHELTER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELTER",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_DRACO_METEOR",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_SHELTER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS",
+        "MOVE_RECOVER",
+        "MOVE_SHELTER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELTER",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_DIVE",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MUDDY_WATER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTH_POWER",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_SECRET_POWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIVE",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_WHIRLPOOL"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

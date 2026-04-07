@@ -1,0 +1,180 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TYPHLOSION": {
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_ADAPTABILITY"
+      ],
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 79,
+        "Defense": 73,
+        "Speed": 101,
+        "SpAttack": 124,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCORCHING_SANDS",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCORCHING_SANDS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_BURN_UP",
+      "Level": 74
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 82
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 90
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

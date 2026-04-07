@@ -1,0 +1,164 @@
+{
+  "Species": [
+    "SPECIES_BRAVIARY_HISUIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ESPER_WING",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 80
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BULK_UP",
+    "MOVE_CALM_MIND",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_METAL_CLAW",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ESPER_WING",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_PSYCHIC",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 24
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUICK_ATTACK",
+        "MOVE_SWIFT"
+      ],
+      "Ability": "ABILITY_RUN_AWAY",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

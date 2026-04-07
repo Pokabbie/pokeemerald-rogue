@@ -1,0 +1,167 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_AROMATISSE": {
+      "BaseStats": {
+        "HP": 101,
+        "Attack": 72,
+        "Defense": 80,
+        "Speed": 29,
+        "SpAttack": 109,
+        "SpDefense": 99
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SKILL_SWAP",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_SPARKLY_SWIRL",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_CHARGE_BEAM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SPARKLY_SWIRL",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_QUIET",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPARKLY_SWIRL",
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_ENCORE",
+        "MOVE_DISABLE",
+        "MOVE_SPARKLY_SWIRL"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

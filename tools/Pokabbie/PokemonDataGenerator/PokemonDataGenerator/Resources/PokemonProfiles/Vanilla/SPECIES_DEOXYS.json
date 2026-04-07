@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_DEOXYS",
+  "Species": [ "SPECIES_DEOXYS" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_LEER",

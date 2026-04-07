@@ -1,0 +1,99 @@
+{
+  "Species": [
+    "SPECIES_GRUBBIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VISE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BITE",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DISCHARGE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HARDEN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_X_SCISSOR",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

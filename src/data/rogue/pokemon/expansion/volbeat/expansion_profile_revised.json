@@ -1,0 +1,304 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_VOLBEAT": {
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_TINTED_LENS",
+        "ABILITY_PRANKSTER"
+      ],
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 33,
+        "Defense": 75,
+        "Speed": 100,
+        "SpAttack": 107,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_VOLT_SWITCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_TAIL_GLOW"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_RAIN_DANCE",
+        "MOVE_ENCORE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ENCORE",
+        "MOVE_DEFOG",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAT_ROCK",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_THUNDERBOLT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_BATON_PASS",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_SNORE"
+  ]
+}

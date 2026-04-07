@@ -1,0 +1,156 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ILLUMISE": {
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FAIRY"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 33,
+        "Defense": 85,
+        "Speed": 100,
+        "SpAttack": 87,
+        "SpDefense": 95
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FLATTER",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_LUNGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_TINTED_LENS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BATON_PASS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ENCORE",
+        "MOVE_DRAINING_KISS"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

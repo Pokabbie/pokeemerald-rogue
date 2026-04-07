@@ -1,0 +1,242 @@
+{
+  "Species": [
+    "SPECIES_VICTREEBEL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GASTRO_ACID",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GROWTH",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INGRAIN",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LUNGE",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIT_UP",
+    "MOVE_STOCKPILE",
+    "MOVE_STRENGTH_SAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWALLOW",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TICKLE",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_GROWTH"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_LEAF_STORM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_POWER_WHIP",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEAF_STORM"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_POWER_WHIP",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POWER_WHIP",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GROWTH",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WEATHER_BALL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

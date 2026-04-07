@@ -1,0 +1,423 @@
+{
+  "Species": [
+    "SPECIES_SHEDINJA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRUDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MIND_READER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BUZZ",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAL_BLOCK",
+    "MOVE_HEX",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MIMIC",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCREECH",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_WILL_O_WISP",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_X_SCISSOR",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_X_SCISSOR",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_X_SCISSOR",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_X_SCISSOR",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_X_SCISSOR",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCREECH",
+        "MOVE_SPITE",
+        "MOVE_HEAL_BLOCK",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_BUGINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST",
+        "MOVE_X_SCISSOR",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_POLTERGEIST"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_X_SCISSOR",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_MIMIC",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_POLTERGEIST",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST",
+        "MOVE_X_SCISSOR",
+        "MOVE_SCREECH"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_PROTECTIVE_PADS",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_X_SCISSOR",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_BATON_PASS",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_LONELY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_POLTERGEIST",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_X_SCISSOR"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_SNEAK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_POLTERGEIST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WONDER_GUARD",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

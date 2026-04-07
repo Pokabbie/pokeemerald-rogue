@@ -1,0 +1,199 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 47
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_SANDSTORM",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SELF_DESTRUCT"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_PUNCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_QUIRKY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ATTRACT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_NOSEPASS": {
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

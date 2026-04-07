@@ -1,0 +1,83 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MIRACLE_EYE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHO_SHIFT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SYNCHRONOISE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_ME_FIRST",
+      "Level": 50
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

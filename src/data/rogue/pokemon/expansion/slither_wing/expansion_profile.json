@@ -1,0 +1,242 @@
+{
+  "Species": [
+    "SPECIES_SLITHER_WING"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_LOW_SWEEP",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_LUNGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SANDSTORM",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_U_TURN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_BUG",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_WILD_CHARGE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

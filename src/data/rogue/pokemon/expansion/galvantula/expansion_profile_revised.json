@@ -1,0 +1,39 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GALVANTULA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 92,
+        "Defense": 60,
+        "Speed": 108,
+        "SpAttack": 103,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_THUNDER",
+        "MOVE_ENERGY_BALL",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

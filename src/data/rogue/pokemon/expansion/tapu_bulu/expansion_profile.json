@@ -1,0 +1,707 @@
+{
+  "Species": [
+    "SPECIES_TAPU_BULU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_NATURES_MADNESS",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SKULL_BASH",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULK_UP",
+    "MOVE_BULLET_SEED",
+    "MOVE_CALM_MIND",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DARKEST_LARIAT",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MEGAHORN",
+    "MOVE_PAYBACK",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVENGE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAUNT",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_PROTECT",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HORN_LEECH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_STONE_EDGE",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_DISABLE",
+        "MOVE_HORN_LEECH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_NATURES_MADNESS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HORN_LEECH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FLING",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_ROCK_TOMB",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_STONE_EDGE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_STONE_EDGE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_SUPERPOWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISABLE",
+        "MOVE_HORN_LEECH",
+        "MOVE_TAUNT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

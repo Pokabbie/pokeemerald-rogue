@@ -1,0 +1,224 @@
+{
+  "Species": [
+    "SPECIES_DRAMPA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LASH_OUT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIST",
+    "MOVE_OUTRAGE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_ROOST",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ROOST",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_ROOST",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "Species": [
+    "SPECIES_CAPSAKID"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BULLET_SEED",
+    "MOVE_CRUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INGRAIN",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PROTECT",
+    "MOVE_RAGE_POWDER",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SANDSTORM",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WORRY_SEED",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

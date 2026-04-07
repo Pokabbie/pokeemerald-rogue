@@ -1,0 +1,79 @@
+{
+  "Species": [
+    "SPECIES_WIMPOD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_JET",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BUG_BUZZ",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HARDEN",
+    "MOVE_LEECH_LIFE",
+    "MOVE_METAL_CLAW",
+    "MOVE_MUD_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPIKES",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_WATERFALL",
+    "MOVE_WIDE_GUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_SCALD",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_WIMP_OUT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_AQUA_JET",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_WIMP_OUT",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

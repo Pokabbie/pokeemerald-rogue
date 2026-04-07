@@ -1,0 +1,288 @@
+{
+  "Species": [
+    "SPECIES_FLUTTER_MANE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_MYSTICAL_FIRE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FAKE_TEARS",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST",
+        "MOVE_PSYSHOCK",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST",
+        "MOVE_POWER_GEM",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_PSYSHOCK",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MOONBLAST",
+        "MOVE_ENERGY_BALL",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_PROTOSYNTHESIS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

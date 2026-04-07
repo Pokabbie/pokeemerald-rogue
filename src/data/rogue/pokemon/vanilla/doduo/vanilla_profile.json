@@ -1,0 +1,159 @@
+{
+  "Species": [
+    "SPECIES_DODUO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FLAIL",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_DRILL_PECK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DRILL_PECK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DRILL_PECK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRILL_PECK",
+        "MOVE_BODY_SLAM",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRILL_PECK",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

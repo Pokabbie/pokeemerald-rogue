@@ -1,0 +1,360 @@
+{
+  "Species": [
+    "SPECIES_LYCANROC"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_LYCANIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_LYCANIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_LYCANIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ENDEAVOR",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACCELEROCK",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ACCELEROCK",
+        "MOVE_ENDEAVOR",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_ACCELEROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ENDEAVOR",
+        "MOVE_ACCELEROCK"
+      ],
+      "Ability": "ABILITY_STEADFAST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACCELEROCK",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_SAND_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

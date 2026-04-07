@@ -1,0 +1,152 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TEDDIURSA": {
+      "Abilities": [
+        "ABILITY_QUICK_FEET",
+        "ABILITY_SUPERSWEET_SYRUP",
+        "ABILITY_HONEY_GATHER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FLING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_STOMPING_TANTRUM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FLING",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_MEGA_KICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_KICK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_SUPERSWEET_SYRUP",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEGA_KICK",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SUPERSWEET_SYRUP",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

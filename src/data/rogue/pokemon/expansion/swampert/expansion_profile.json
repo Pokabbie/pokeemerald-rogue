@@ -1,0 +1,1142 @@
+{
+  "Species": [
+    "SPECIES_SWAMPERT",
+    "SPECIES_SWAMPERT_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_AVALANCHE",
+    "MOVE_BITE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HARD_PRESS",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYDRO_CANNON",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_UP_PUNCH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SMACK_DOWN",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMP",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WIDE_GUARD",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POWER_UP_PUNCH"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POWER_UP_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POWER_UP_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_AVALANCHE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN61V1",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR",
+        "MOVE_YAWN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTH_POWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_PROTECT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT",
+        "MOVE_YAWN",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROAR",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLIP_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_YAWN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLIP_TURN",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLIP_TURN",
+        "MOVE_YAWN",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_CANNON",
+        "MOVE_EARTHQUAKE",
+        "MOVE_YAWN",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_YAWN",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_CHILAN_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROAR",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLIP_TURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_FLIP_TURN",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FLIP_TURN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_PUNCH",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_SWAMPERTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

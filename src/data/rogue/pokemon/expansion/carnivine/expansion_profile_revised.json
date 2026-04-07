@@ -1,0 +1,21 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CARNIVINE": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 110,
+        "Defense": 72,
+        "Speed": 36,
+        "SpAttack": 100,
+        "SpDefense": 72
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_DARK_PULSE",
+    "MOVE_LEECH_LIFE"
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "Species": [
+    "SPECIES_EELEKTROSS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 5
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_COIL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_U_TURN",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_DISCHARGE",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_SUPERCELL_SLAM",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

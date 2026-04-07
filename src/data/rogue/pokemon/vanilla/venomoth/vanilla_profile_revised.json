@@ -1,0 +1,68 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 52
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VENOMOTH": {
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

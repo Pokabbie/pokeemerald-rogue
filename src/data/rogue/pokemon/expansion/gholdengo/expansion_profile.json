@@ -1,0 +1,363 @@
+{
+  "Species": [
+    "SPECIES_GHOLDENGO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MAKE_IT_RAIN",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_SOUND",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_TRICK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9UBERS",
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_MAKE_IT_RAIN"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_NASTY_PLOT",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_MAKE_IT_RAIN"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_RECOVER",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_MAKE_IT_RAIN",
+        "MOVE_RECOVER",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_GOOD_AS_GOLD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

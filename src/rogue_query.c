@@ -1052,8 +1052,11 @@ static bool8 Query_IsSpeciesEnabledInDexInternal(u16 species, bool32 forceDexChe
 
 static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
 {
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
     // Check if mon has valid data
-    if(gRogueSpeciesInfo[species].baseHP != 0)
+    if(speciesStats.baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
         if(species > GEN9_START && species < PLACEHOLDER_START)
@@ -1681,7 +1684,7 @@ static u16 Query_MaxBitCount()
         return QUERY_NUM_ADVENTURE_PATH;
     
     case QUERY_TYPE_MOVES:
-        return QUERY_NUM_MOVES;
+        return Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE;
     
     default: // QUERY_TYPE_CUSTOM
         return MAX_QUERY_BIT_COUNT;

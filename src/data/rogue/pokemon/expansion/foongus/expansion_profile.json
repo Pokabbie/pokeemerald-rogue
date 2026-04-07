@@ -1,0 +1,157 @@
+{
+  "Species": [
+    "SPECIES_FOONGUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POISON_POWDER",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC",
+        "GEN8LC",
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SPORE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_CLEAR_SMOG"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

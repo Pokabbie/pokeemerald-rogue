@@ -1,0 +1,23 @@
+{
+  "Species": [
+    "SPECIES_CATERPIE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 9
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ELECTROWEB"
+  ],
+  "CompetitiveSets": []
+}

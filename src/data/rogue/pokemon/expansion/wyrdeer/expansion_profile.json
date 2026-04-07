@@ -1,0 +1,142 @@
+{
+  "Species": [
+    "SPECIES_WYRDEER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PSYSHIELD_BASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TERA_BLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

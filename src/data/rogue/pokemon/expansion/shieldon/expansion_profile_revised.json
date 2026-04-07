@@ -1,0 +1,28 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SHIELDON": {
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_SOUNDPROOF"
+      ],
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 62,
+        "Defense": 118,
+        "Speed": 30,
+        "SpAttack": 22,
+        "SpDefense": 88
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 51
+    }
+  ]
+}

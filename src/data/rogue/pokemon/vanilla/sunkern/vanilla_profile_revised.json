@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 40
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

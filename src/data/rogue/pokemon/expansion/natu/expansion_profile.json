@@ -1,0 +1,319 @@
+{
+  "Species": [
+    "SPECIES_NATU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYCHO_SHIFT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRILL_PECK",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HEAT_WAVE",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIMPLE_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_U_TURN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ROOST",
+        "MOVE_HEAT_WAVE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NIGHT_SHADE",
+        "MOVE_U_TURN",
+        "MOVE_REFLECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROOST",
+        "MOVE_STORED_POWER",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TELEPORT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_PSYCHIC",
+        "MOVE_ROOST",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

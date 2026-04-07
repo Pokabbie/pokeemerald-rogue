@@ -1,0 +1,176 @@
+{
+  "Species": [
+    "SPECIES_BAGON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CRUNCH",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MUD_SLAP",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TWISTER",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_CRUNCH",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FIRE_FANG",
+        "MOVE_CRUNCH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_FIRE_FANG",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

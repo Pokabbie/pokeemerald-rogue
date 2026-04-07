@@ -1,0 +1,324 @@
+{
+  "Species": [
+    "SPECIES_TING_LU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_STOMPING_TANTRUM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RUINATION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_FISSURE",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LASH_OUT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPIKES",
+    "MOVE_SPITE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_PAYBACK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_RUINATION"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WHIRLWIND",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_RUINATION",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WHIRLWIND",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SPIKES",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WHIRLWIND",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_VESSEL_OF_RUIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

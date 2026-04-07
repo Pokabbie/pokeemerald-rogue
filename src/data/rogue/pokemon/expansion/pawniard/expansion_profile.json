@@ -1,0 +1,365 @@
+{
+  "Species": [
+    "SPECIES_PAWNIARD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_BEAT_UP",
+    "MOVE_BRICK_BREAK",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEADBUTT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MEAN_LOOK",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_QUICK_GUARD",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN7PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_PURSUIT",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_LOW_SWEEP"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8LC",
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_IRON_HEAD",
+        "MOVE_BEAT_UP",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_HEAD",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "Species": [
+    "SPECIES_BAYLEEF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_LEECH_SEED",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

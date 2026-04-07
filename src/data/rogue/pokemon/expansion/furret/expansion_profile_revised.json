@@ -1,0 +1,184 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FURRET": {
+      "Abilities": [
+        "ABILITY_FRISK",
+        "ABILITY_SCRAPPY",
+        "ABILITY_FUR_COAT"
+      ],
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 105,
+        "SpAttack": 45,
+        "SpDefense": 55
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_ME_FIRST",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_TAIL_SLAP",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_QUASH",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXTREME_SPEED",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_U_TURN",
+        "MOVE_FLAME_WHEEL"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

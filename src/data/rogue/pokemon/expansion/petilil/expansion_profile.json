@@ -1,0 +1,132 @@
+{
+  "Species": [
+    "SPECIES_PETILIL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INGRAIN",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWEET_SCENT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_HEALING_WISH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

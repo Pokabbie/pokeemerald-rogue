@@ -1,0 +1,112 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FLY",
+        "MOVE_PROTECT",
+        "MOVE_SWALLOW"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLY",
+        "MOVE_SURF",
+        "MOVE_PROTECT",
+        "MOVE_SHOCK_WAVE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SURF",
+        "MOVE_CONFUSE_RAY",
+        "MOVE_SHOCK_WAVE"
+      ],
+      "Ability": "ABILITY_DRIZZLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PELIPPER": {
+      "Abilities": [
+        "ABILITY_DRIZZLE",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
+}

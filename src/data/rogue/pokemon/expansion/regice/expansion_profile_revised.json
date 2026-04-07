@@ -1,0 +1,340 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_REGICE": {
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_FILTER",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 67
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_FREEZY_FROST",
+      "Level": 80
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_FREEZY_FROST",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ROCK_POLISH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_FREEZY_FROST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROCK_POLISH"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AMNESIA",
+        "MOVE_REST",
+        "MOVE_FREEZY_FROST",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_ICIUM_Z",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICE_BEAM",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_FREEZY_FROST",
+        "MOVE_FREEZE_DRY",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_AMNESIA",
+        "MOVE_FROST_BREATH",
+        "MOVE_CHARGE_BEAM"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FROST_BREATH",
+        "MOVE_COUNTER",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CLEAR_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    }
+  ]
+}

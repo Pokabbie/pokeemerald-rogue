@@ -1,0 +1,501 @@
+{
+  "Species": [
+    "SPECIES_AUDINO",
+    "SPECIES_AUDINO_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HEALING_WISH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LUCKY_CHANT",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWEET_KISS",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH",
+    "MOVE_WORK_UP",
+    "MOVE_YAWN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN6PU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_BABY_DOLL_EYES",
+        "MOVE_AMNESIA",
+        "MOVE_LUCKY_CHANT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SIMPLE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BABY_DOLL_EYES",
+        "MOVE_AMNESIA",
+        "MOVE_REST",
+        "MOVE_LUCKY_CHANT"
+      ],
+      "Ability": "ABILITY_HEALER",
+      "Item": "ITEM_AUDINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1",
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_HEAL_BELL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "Species": [
+    "SPECIES_GUZZLORD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_STOMPING_TANTRUM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLDOZE",
+    "MOVE_CORROSIVE_GAS",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LASH_OUT",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_OUTRAGE",
+    "MOVE_PAYBACK",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THIEF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DARK_PULSE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_DRAGONIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    }
+  ]
+}

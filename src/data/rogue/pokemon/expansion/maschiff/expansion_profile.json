@@ -1,0 +1,121 @@
+{
+  "Species": [
+    "SPECIES_MASCHIFF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_JAW_LOCK",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_FANG",
+    "MOVE_LASH_OUT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRAILBLAZE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_FANG",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STAKEOUT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

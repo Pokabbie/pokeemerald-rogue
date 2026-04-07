@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_CLAMPERL": {
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
+}

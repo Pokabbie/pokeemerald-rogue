@@ -1,0 +1,236 @@
+{
+  "Species": [
+    "SPECIES_ZANGOOSE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_POWER_TRIP",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_HIT",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FEINT",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAIL",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FURY_SWIPES",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_CLAW",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_GUARD",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_IMMUNITY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_NIGHT_SLASH"
+      ],
+      "Ability": "ABILITY_TOXIC_BOOST",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}

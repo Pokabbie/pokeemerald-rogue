@@ -1,0 +1,140 @@
+{
+  "Species": [
+    "SPECIES_BOLTUND"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIFY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BULK_UP",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_FANG",
+        "MOVE_FIRE_FANG",
+        "MOVE_CRUNCH",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_FANG",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FIRE_FANG",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_FANG",
+        "MOVE_FIRE_FANG",
+        "MOVE_CRUNCH",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

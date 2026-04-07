@@ -1,0 +1,44 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WHISCASH": {
+      "Abilities": [
+        "ABILITY_SIMPLE",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_HYDRATION"
+      ],
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 93,
+        "Defense": 88,
+        "Speed": 60,
+        "SpAttack": 76,
+        "SpDefense": 73
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_BREAKING_SWIPE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_LIQUIDATION",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_SIMPLE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

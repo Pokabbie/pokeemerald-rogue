@@ -1,0 +1,564 @@
+{
+  "Species": [
+    "SPECIES_VICTINI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_V_CREATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STORED_POWER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_SEARING_SHOT",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_BLAZE_KICK",
+    "MOVE_BLUE_FLARE",
+    "MOVE_BOLT_STRIKE",
+    "MOVE_BOUNCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CELEBRATE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GLACIATE",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_OVERHEAT",
+    "MOVE_POWER_SWAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPEED_SWAP",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_GLACIATE",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDER",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_SKILL_SWAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_BOLT_STRIKE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_SKILL_SWAP"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_REVERSAL"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_BLUE_FLARE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_U_TURN",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_SEARING_SHOT",
+        "MOVE_STORED_POWER",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_GLACIATE",
+        "MOVE_U_TURN",
+        "MOVE_INCINERATE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_FLAME_CHARGE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_STORED_POWER",
+        "MOVE_V_CREATE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_BLUE_FLARE",
+        "MOVE_GLACIATE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_PSYCHIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_BLUE_FLARE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_GLACIATE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLUE_FLARE",
+        "MOVE_PSYCHIC",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_U_TURN",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_FINAL_GAMBIT"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_V_CREATE",
+        "MOVE_BOLT_STRIKE",
+        "MOVE_U_TURN",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_VICTORY_STAR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

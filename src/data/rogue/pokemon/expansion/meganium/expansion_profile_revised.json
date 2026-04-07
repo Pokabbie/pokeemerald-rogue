@@ -1,0 +1,290 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEGANIUM": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_FILTER",
+        "ABILITY_TRIAGE"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 82,
+        "Defense": 100,
+        "Speed": 80,
+        "SpAttack": 93,
+        "SpDefense": 100
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_PLAY_ROUGH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AROMATHERAPY",
+        "MOVE_SYNTHESIS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AROMATHERAPY",
+        "MOVE_SYNTHESIS",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_AROMATHERAPY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PETAL_BLIZZARD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AROMATHERAPY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_AROMATHERAPY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AROMATHERAPY",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SYNTHESIS",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_FILTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAINING_KISS",
+        "MOVE_AROMATHERAPY",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAINING_KISS",
+        "MOVE_MOONBLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_DRAINING_KISS",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

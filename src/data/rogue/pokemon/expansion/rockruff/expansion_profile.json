@@ -1,0 +1,123 @@
+{
+  "Species": [
+    "SPECIES_ROCKRUFF"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LAST_RESORT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

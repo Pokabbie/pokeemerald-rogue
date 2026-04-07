@@ -1,0 +1,29 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_PAYBACK",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_THROAT_SPRAY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "Species": [
+    "SPECIES_BRELOOM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEAF_STORM",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPORE",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC",
+    "MOVE_VENOSHOCK",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_MACH_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUPERPOWER",
+        "MOVE_SEED_BOMB",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_MACH_PUNCH",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SPORE",
+        "MOVE_LEECH_SEED",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_MACH_PUNCH",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BULLET_SEED",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SEED_BOMB",
+        "MOVE_SUPERPOWER",
+        "MOVE_FRUSTRATION"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SNATCH",
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_LEECH_SEED",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_POISON_HEAL",
+      "Item": "ITEM_TOXIC_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BULLET_SEED",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_ROCK_TOMB",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_BULLDOZE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MACH_PUNCH",
+        "MOVE_BULLET_SEED",
+        "MOVE_SPORE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_MACH_PUNCH",
+        "MOVE_SPORE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

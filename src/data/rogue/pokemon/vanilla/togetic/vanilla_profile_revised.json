@@ -1,0 +1,82 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EGG_BOMB",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SWAGGER",
+        "MOVE_METRONOME"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COSMIC_POWER",
+        "MOVE_CALM_MIND",
+        "MOVE_MAGICAL_LEAF",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

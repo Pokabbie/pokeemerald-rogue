@@ -1,0 +1,314 @@
+{
+  "Species": [
+    "SPECIES_PYUKUMUKU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PURIFY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BLOCK",
+    "MOVE_ENDURE",
+    "MOVE_HELPING_HAND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIRROR_COAT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TICKLE",
+    "MOVE_VENOM_DRENCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BLOCK",
+        "MOVE_RECOVER",
+        "MOVE_SPITE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLOCK",
+        "MOVE_TOXIC",
+        "MOVE_SOAK",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_SOAK",
+        "MOVE_BLOCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_REST",
+        "MOVE_BLOCK",
+        "MOVE_SPITE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLOCK",
+        "MOVE_SPITE",
+        "MOVE_RECOVER",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8PU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_SOAK",
+        "MOVE_BLOCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SPITE",
+        "MOVE_TOXIC",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BLOCK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_SOAK",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURIFY",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SPITE",
+        "MOVE_TOXIC",
+        "MOVE_SOAK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_INNARDS_OUT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_RECOVER",
+        "MOVE_SOAK",
+        "MOVE_BLOCK"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_BLOCK",
+        "MOVE_SPITE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_TOXIC",
+        "MOVE_BLOCK",
+        "MOVE_SPITE"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    }
+  ]
+}

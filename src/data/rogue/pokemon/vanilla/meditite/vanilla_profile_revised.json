@@ -1,0 +1,102 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_HI_JUMP_KICK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 59
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KARATE_CHOP",
+        "MOVE_FAKE_OUT",
+        "MOVE_PSYBEAM"
+      ],
+      "Ability": "ABILITY_PURE_POWER",
+      "Item": "ITEM_BLACK_BELT",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_PSYBEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PURE_POWER",
+      "Item": "ITEM_STARF_BERRY",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_DETECT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SHADOW_PUNCH"
+      ],
+      "Ability": "ABILITY_PURE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

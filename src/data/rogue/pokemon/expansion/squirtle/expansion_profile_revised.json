@@ -1,0 +1,32 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SQUIRTLE": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_RAIN_DISH",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_FAKE_OUT",
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

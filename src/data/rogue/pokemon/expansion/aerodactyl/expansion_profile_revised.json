@@ -1,0 +1,663 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SKY_DROP",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 81
+    },
+    {
+      "Move": "MOVE_GIGA_IMPACT",
+      "Level": 88
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_AQUA_TAIL",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PURSUIT",
+        "MOVE_AERIAL_ACE",
+        "MOVE_AQUA_TAIL",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_WING_ATTACK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HONE_CLAWS",
+        "MOVE_STONE_EDGE",
+        "MOVE_WING_ATTACK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SKY_DROP",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_TAILWIND",
+        "MOVE_SKY_DROP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_GIGA_IMPACT",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": null,
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": null,
+      "Item": null,
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PURSUIT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_AQUA_TAIL"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_TAUNT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAILWIND",
+        "MOVE_WIDE_GUARD"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_AERODACTYLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

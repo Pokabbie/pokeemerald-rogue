@@ -1,0 +1,227 @@
+{
+  "Species": [
+    "SPECIES_SEVIPER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ASSURANCE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAMETHROWER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_IRON_HEAD",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNARL",
+    "MOVE_SPIT_UP",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWALLOW",
+    "MOVE_SWITCHEROO",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_FANG",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_RASH",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MILD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_SHED_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GUNK_SHOT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

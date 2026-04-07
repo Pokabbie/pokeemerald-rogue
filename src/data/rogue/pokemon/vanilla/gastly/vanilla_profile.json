@@ -1,0 +1,150 @@
+{
+  "Species": [
+    "SPECIES_GASTLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 36
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRUDGE",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_NIGHTMARE",
+    "MOVE_PERISH_SONG",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYWAVE",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXPLOSION",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PSYCHIC",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_THIEF",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

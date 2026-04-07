@@ -1,0 +1,110 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_VOLT_TACKLE",
+      "Level": 51
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_THIEF",
+        "MOVE_FIRE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_VOLT_TACKLE",
+        "MOVE_NUZZLE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

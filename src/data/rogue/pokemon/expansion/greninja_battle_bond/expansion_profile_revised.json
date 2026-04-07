@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_GRENINJA_BATTLE_BOND": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 100,
+        "Defense": 67,
+        "Speed": 122,
+        "SpAttack": 103,
+        "SpDefense": 71
+      }
+    }
+  }
+}

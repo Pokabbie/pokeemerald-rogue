@@ -1,0 +1,30 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MR_MIME_GALARIAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 55,
+        "Defense": 65,
+        "Speed": 105,
+        "SpAttack": 100,
+        "SpDefense": 90
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FREEZY_FROST",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_RAZOR_WIND",
+    "MOVE_HEAT_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_HEAT_WAVE",
+        "MOVE_STEEL_WING",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_SHARP_BEAK",
+      "Nature": "NATURE_LAX",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

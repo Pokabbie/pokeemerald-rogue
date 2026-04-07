@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WOOLOO": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 48,
+        "SpAttack": 40,
+        "SpDefense": 45
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN"
+  ]
+}

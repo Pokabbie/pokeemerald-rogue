@@ -1,0 +1,144 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ALTARIA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 90,
+        "SpDefense": 105
+      }
+    },
+    "SPECIES_ALTARIA_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 130,
+        "Defense": 110,
+        "Speed": 80,
+        "SpAttack": 130,
+        "SpDefense": 105
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 58
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

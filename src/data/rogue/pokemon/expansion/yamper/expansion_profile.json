@@ -1,0 +1,85 @@
+{
+  "Species": [
+    "SPECIES_YAMPER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_CHARM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DISCHARGE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HOWL",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROUND",
+    "MOVE_SAND_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,99 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 68
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_ROCK_TOMB",
+        "MOVE_DETECT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_PIN_MISSILE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_PIN_MISSILE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

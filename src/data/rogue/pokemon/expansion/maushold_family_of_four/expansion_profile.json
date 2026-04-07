@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_MAUSHOLD_FAMILY_OF_FOUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TIDY_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BEAT_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_POPULATION_BOMB",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BITE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FEINT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TICKLE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TIDY_UP",
+        "MOVE_POPULATION_BOMB",
+        "MOVE_BITE",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POPULATION_BOMB",
+        "MOVE_FEINT",
+        "MOVE_ENCORE",
+        "MOVE_TICKLE"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_NORMAL",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    }
+  ]
+}

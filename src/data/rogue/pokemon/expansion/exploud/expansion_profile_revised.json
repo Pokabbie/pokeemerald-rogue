@@ -1,0 +1,151 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_EXPLOUD": {
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_SCRAPPY",
+        "ABILITY_PUNK_ROCK"
+      ],
+      "BaseStats": {
+        "HP": 104,
+        "Attack": 101,
+        "Defense": 63,
+        "Speed": 78,
+        "SpAttack": 101,
+        "SpDefense": 73
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLEEP_TALK",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SYNCHRONOISE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_OVERDRIVE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BUZZ"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOOMBURST",
+        "MOVE_OVERDRIVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_PUNK_ROCK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

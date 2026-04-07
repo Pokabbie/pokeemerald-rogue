@@ -1,0 +1,74 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "27",
+      "Species": "SPECIES_PILOSWINE"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 29
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROCK_TOMB",
+        "MOVE_MUD_SLAP",
+        "MOVE_YAWN",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SWINUB": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

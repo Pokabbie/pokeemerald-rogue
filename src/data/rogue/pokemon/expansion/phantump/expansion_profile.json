@@ -1,0 +1,176 @@
+{
+  "Species": [
+    "SPECIES_PHANTUMP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BRANCH_POKE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FORESTS_CURSE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BULLDOZE",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POISON_JAB",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HORN_LEECH"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_LEECH",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_HORN_LEECH",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_ORAN_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FORESTS_CURSE",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

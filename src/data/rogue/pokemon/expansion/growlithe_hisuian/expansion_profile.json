@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_GROWLITHE_HISUIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COVET",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAD_SMASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MORNING_SUN",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SMART_STRIKE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_THUNDER_FANG",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HEAD_SMASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

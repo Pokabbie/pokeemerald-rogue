@@ -1,0 +1,112 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_JIGGLYPUFF": {
+      "Abilities": [
+        "ABILITY_FRIEND_GUARD",
+        "ABILITY_COMPETITIVE",
+        "ABILITY_HUGE_POWER"
+      ],
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 35,
+        "Defense": 20,
+        "Speed": 20,
+        "SpAttack": 55,
+        "SpDefense": 25
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_WAKE_UP_SLAP",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 49
+    }
+  ]
+}

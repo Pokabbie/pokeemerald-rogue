@@ -1194,17 +1194,19 @@ static bool8 HasTeachableMoves(struct Pokemon* mon, u8 fromLevel, u8 toLevel)
 {
     u8 i;
     u16 species;
+    struct RoguePokemonProfile const* pokemonProfile;
 
     if(fromLevel == toLevel)
         return FALSE;
 
     species = GetMonData(mon, MON_DATA_SPECIES);
+    pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
     {
-        if(gRoguePokemonProfiles[species].levelUpMoves[i].level > fromLevel && gRoguePokemonProfiles[species].levelUpMoves[i].level <= toLevel)
+        if(pokemonProfile->levelUpMoves[i].level > fromLevel && pokemonProfile->levelUpMoves[i].level <= toLevel)
         {
-            if(!MonKnowsMove(mon, gRoguePokemonProfiles[species].levelUpMoves[i].move))
+            if(!MonKnowsMove(mon, pokemonProfile->levelUpMoves[i].move))
                 return TRUE;
         }
     }

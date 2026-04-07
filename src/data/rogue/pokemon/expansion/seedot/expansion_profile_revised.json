@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_SEEDOT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 30
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "PerSpecies": {
+    "SPECIES_BURMY": {
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_OVERCOAT"
+      ],
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 20,
+        "Defense": 45,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 45
+      }
+    },
+    "SPECIES_BURMY_SANDY_CLOAK": {
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_OVERCOAT"
+      ],
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 20,
+        "Defense": 45,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 45
+      }
+    },
+    "SPECIES_BURMY_TRASH_CLOAK": {
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_OVERCOAT"
+      ],
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 20,
+        "Defense": 45,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 45
+      }
+    }
+  }
+}

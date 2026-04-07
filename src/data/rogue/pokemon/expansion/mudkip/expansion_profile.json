@@ -1,0 +1,132 @@
+{
+  "Species": [
+    "SPECIES_MUDKIP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_AVALANCHE",
+    "MOVE_BITE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_STOMP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WIDE_GUARD",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUPERPOWER",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

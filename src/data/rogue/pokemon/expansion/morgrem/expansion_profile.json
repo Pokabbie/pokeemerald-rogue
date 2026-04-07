@@ -1,0 +1,118 @@
+{
+  "Species": [
+    "SPECIES_MORGREM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FALSE_SURRENDER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PARTING_SHOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

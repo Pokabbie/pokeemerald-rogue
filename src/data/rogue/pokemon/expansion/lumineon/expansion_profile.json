@@ -1,0 +1,145 @@
+{
+  "Species": [
+    "SPECIES_LUMINEON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BLIZZARD",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_U_TURN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN7PU",
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DEFOG",
+        "MOVE_U_TURN",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

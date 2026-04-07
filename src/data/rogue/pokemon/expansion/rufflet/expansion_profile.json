@@ -1,0 +1,177 @@
+{
+  "Species": [
+    "SPECIES_RUFFLET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLY",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SUPERPOWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROOST",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_U_TURN",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_SUPERPOWER",
+        "MOVE_BULK_UP",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

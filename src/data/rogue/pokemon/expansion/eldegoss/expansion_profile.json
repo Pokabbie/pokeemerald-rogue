@@ -1,0 +1,163 @@
+{
+  "Species": [
+    "SPECIES_ELDEGOSS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_LEAF_TORNADO",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_POWDER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_AROMATHERAPY",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AROMATHERAPY",
+        "MOVE_SLEEP_POWDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_RAPID_SPIN",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_POLLEN_PUFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

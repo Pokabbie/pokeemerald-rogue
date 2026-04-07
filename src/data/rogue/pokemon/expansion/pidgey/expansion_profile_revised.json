@@ -1,0 +1,99 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_PIDGEY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 35,
+        "Defense": 35,
+        "Speed": 56,
+        "SpAttack": 50,
+        "SpDefense": 35
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    }
+  ]
+}

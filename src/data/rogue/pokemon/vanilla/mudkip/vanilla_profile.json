@@ -1,0 +1,99 @@
+{
+  "Species": [
+    "SPECIES_MUDKIP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BALL",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STOMP",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": []
+}

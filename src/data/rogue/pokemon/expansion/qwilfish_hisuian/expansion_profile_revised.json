@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_QWILFISH_HISUIAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 45,
+        "SpDefense": 55
+      }
+    }
+  }
+}

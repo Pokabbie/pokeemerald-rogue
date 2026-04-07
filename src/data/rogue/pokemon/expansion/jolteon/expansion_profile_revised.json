@@ -1,0 +1,142 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BUZZY_BUZZ",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_GRASS_KNOT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_YAWN",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_BUZZY_BUZZ",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_QUICK_FEET",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUZZY_BUZZ",
+        "MOVE_SHADOW_BALL",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_EXTRASENSORY"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUZZY_BUZZ",
+        "MOVE_SHADOW_BALL",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

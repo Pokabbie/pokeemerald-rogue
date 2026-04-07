@@ -1,0 +1,685 @@
+{
+  "Species": [
+    "SPECIES_RHYPERIOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HORN_DRILL",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_ROCK_WRECKER",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_TAIL",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_COUNTER",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUARD_SPLIT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_METAL_BURST",
+    "MOVE_METAL_CLAW",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_OUTRAGE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_POLISH",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SMART_STRIKE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDERBOLT",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_MEGAHORN",
+        "MOVE_AQUA_TAIL"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_MEGAHORN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_PUNCH",
+        "MOVE_HORN_DRILL"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ENDURE",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_COUNTER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_MEGAHORN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_BLAST",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_DRILL_RUN",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_LIGHTNING_ROD",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ROCK_WRECKER"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_SERIOUS",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_WRECKER",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_AVALANCHE",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BULLDOZE",
+        "MOVE_AVALANCHE"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_ROCK_POLISH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_STONE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_MEGAHORN"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_WRECKER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_AVALANCHE",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SMACK_DOWN",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

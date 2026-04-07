@@ -1,0 +1,42 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_RILLABOOM": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_GRASSY_SURGE"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_RILLABOOM_GIGANTAMAX": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_GRASSY_SURGE"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

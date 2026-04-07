@@ -1,0 +1,965 @@
+{
+  "Species": [
+    "SPECIES_AZUMARILL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_AQUA_JET",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DIG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PERISH_SONG",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE",
+        "GEN6MONOTYPE",
+        "GEN8UU",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU",
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_WATERFALL",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_WATERFALL",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN61V1",
+        "GEN6MONOTYPE",
+        "GEN8UU",
+        "GEN8MONOTYPE",
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_WATERFALL",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_ENCORE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_TAIL",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_ENDURE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_TAIL",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_WATERFALL",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PROTECT",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUPERPOWER",
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_BELLY_DRUM",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_WHIRLPOOL",
+        "MOVE_REST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_BELLY_DRUM",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_BELLY_DRUM",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AMNESIA",
+        "MOVE_CHARM",
+        "MOVE_REST",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1",
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_SPINNER"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_DIG"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_KEBIA_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CHILLING_WATER",
+        "MOVE_CHARM",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_BELLY_DRUM",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

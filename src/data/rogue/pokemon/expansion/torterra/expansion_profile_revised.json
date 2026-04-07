@@ -1,0 +1,493 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_TORTERRA": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_SHELL_ARMOR"
+      ],
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 109,
+        "Defense": 110,
+        "Speed": 61,
+        "SpAttack": 65,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_SHELL_SMASH",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 76
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 82
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB",
+    "MOVE_GRAV_APPLE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_SOFT_SAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STONE_EDGE",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_ROCK_POLISH"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRAV_APPLE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SYNTHESIS",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAD_SMASH",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_HEADLONG_RUSH"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_BULLET_SEED",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_BULLET_SEED",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_ROCK_BLAST",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHELL_SMASH",
+        "MOVE_BULLET_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_HEADLONG_RUSH"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_LOADED_DICE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

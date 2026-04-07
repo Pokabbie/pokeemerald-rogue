@@ -1,0 +1,276 @@
+{
+  "Species": [
+    "SPECIES_COMFEY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_GRASS_KNOT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLORAL_HEALING",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AFTER_YOU",
+    "MOVE_AMNESIA",
+    "MOVE_AROMATHERAPY",
+    "MOVE_BULLET_SEED",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DEFOG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CALM_MIND",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLORAL_HEALING",
+        "MOVE_DRAINING_KISS",
+        "MOVE_AROMATHERAPY",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLORAL_HEALING",
+        "MOVE_DRAINING_KISS",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_BABIRI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_TERA_BLAST",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_TRIAGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_GRIMER": {
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
+}

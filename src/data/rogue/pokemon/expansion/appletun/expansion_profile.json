@@ -1,0 +1,284 @@
+{
+  "Species": [
+    "SPECIES_APPLETUN",
+    "SPECIES_APPLETUN_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_APPLE_ACID",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CURSE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_OUTRAGE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_LEECH_SEED",
+        "MOVE_RECOVER",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_APPLE_ACID",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_APPLE_ACID",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_EJECT_PACK",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_RECOVER",
+        "MOVE_DRACO_METEOR",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_RECOVER",
+        "MOVE_LEECH_SEED",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEAF_STORM"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_APPLE_ACID",
+        "MOVE_RECOVER",
+        "MOVE_RECYCLE"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_EJECT_PACK",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_LEECH_SEED",
+        "MOVE_RECOVER",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_RECOVER",
+        "MOVE_LEECH_SEED",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_APPLE_ACID",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_LEECH_SEED",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_SASSY",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_APPLE_ACID",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

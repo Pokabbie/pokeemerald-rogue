@@ -1,0 +1,158 @@
+{
+  "Species": [
+    "SPECIES_SPINDA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DIZZY_PUNCH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSIST",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFIDE",
+    "MOVE_COVET",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENCORE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GUARD_SPLIT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_LAST_RESORT",
+    "MOVE_LOW_KICK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_PSYCHO_SHIFT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_RECYCLE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SING",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMELLING_SALTS",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SPOTLIGHT",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWAGGER",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR",
+    "MOVE_WATER_PULSE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WISH",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECYCLE",
+        "MOVE_TEETER_DANCE",
+        "MOVE_DIZZY_PUNCH",
+        "MOVE_SING"
+      ],
+      "Ability": "ABILITY_TANGLED_FEET",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_SUPERPOWER",
+        "MOVE_RETURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    }
+  ]
+}

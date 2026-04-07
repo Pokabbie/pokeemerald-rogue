@@ -1,0 +1,133 @@
+{
+  "Species": [
+    "SPECIES_WOBBUFFET",
+    "SPECIES_WOBBUFFET_PUNCHING"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_CHARM",
+    "MOVE_ENCORE",
+    "MOVE_SAFEGUARD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_MIRROR_COAT",
+        "MOVE_COUNTER",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MIRROR_COAT",
+        "MOVE_COUNTER",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_TELEPATHY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

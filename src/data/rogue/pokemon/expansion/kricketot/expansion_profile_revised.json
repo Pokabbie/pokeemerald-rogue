@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_KRICKETOT": {
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_RUN_AWAY"
+      ],
+      "BaseStats": {
+        "HP": 37,
+        "Attack": 35,
+        "Defense": 41,
+        "Speed": 25,
+        "SpAttack": 35,
+        "SpDefense": 41
+      }
+    }
+  }
+}

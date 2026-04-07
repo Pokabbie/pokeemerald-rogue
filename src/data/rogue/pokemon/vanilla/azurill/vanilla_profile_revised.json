@@ -1,0 +1,51 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 43
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CHARM",
+        "MOVE_REST",
+        "MOVE_WATER_GUN",
+        "MOVE_ROLLOUT"
+      ],
+      "Ability": "ABILITY_HUGE_POWER",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

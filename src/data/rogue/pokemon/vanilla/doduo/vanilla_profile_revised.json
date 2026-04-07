@@ -1,0 +1,67 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 44
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DODUO": {
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "Species": [
+    "SPECIES_PIDOVE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_DEFOG",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPNOSIS",
+    "MOVE_MORNING_SUN",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WISH",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SUPER_LUCK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_POWER_GEM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

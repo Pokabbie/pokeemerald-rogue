@@ -1,0 +1,18 @@
+{
+  "Species": [
+    "SPECIES_BLIPBUG"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_INFESTATION",
+    "MOVE_RECOVER",
+    "MOVE_STICKY_WEB",
+    "MOVE_SUPERSONIC"
+  ],
+  "CompetitiveSets": []
+}

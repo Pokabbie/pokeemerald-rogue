@@ -1,0 +1,164 @@
+{
+  "Species": [
+    "SPECIES_WORMADAM_TRASH_CLOAK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_MIRROR_SHOT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CAPTIVATE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BUG_BITE",
+    "MOVE_CONFIDE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INFESTATION",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_MAGNET_RISE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TELEKINESIS",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_UPROAR",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6PU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_OVERCOAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    }
+  ]
+}

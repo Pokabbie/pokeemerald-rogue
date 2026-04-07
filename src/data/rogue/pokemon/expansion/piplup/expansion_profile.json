@@ -1,0 +1,124 @@
+{
+  "Species": [
+    "SPECIES_PIPLUP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AQUA_RING",
+    "MOVE_BLIZZARD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DEFOG",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_POWER_TRIP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROOST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_DEFOG",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "Species": [
+    "SPECIES_MORPEKO",
+    "SPECIES_MORPEKO_HANGRY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_POWER_TRIP",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_AURA_WHEEL",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_FANG",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PARTING_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_QUASH",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_UPROAR",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_PARTING_SHOT",
+        "MOVE_RAPID_SPIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU",
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_CRUNCH",
+        "MOVE_SEED_BOMB",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_RAPID_SPIN",
+        "MOVE_PROTECT",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_RAPID_SPIN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PARTING_SHOT",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_WHEEL",
+        "MOVE_KNOCK_OFF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_HUNGER_SWITCH",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

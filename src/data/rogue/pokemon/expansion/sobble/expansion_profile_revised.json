@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SOBBLE": {
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_SNIPER"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_AIR_CUTTER",
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ]
+}

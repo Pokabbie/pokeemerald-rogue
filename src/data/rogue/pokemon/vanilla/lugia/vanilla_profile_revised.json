@@ -1,0 +1,63 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_AEROBLAST",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 78
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EXTRASENSORY",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_FRUSTRATION",
+        "MOVE_RAGE"
+      ],
+      "Ability": "ABILITY_DAMP",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LUGIA": {
+      "Abilities": [
+        "ABILITY_DAMP",
+        "ABILITY_PRESSURE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "Species": [
+    "SPECIES_BASCULIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WAVE_CRASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_ICE_BEAM",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_WATERFALL",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUPERPOWER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_SUPERPOWER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_HEAD_SMASH",
+        "MOVE_AQUA_JET",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_AQUA_JET",
+        "MOVE_HEAD_SMASH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_WAVE_CRASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_LIQUIDATION"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

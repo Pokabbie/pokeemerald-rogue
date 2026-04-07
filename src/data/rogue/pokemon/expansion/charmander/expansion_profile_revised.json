@@ -1,0 +1,32 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CHARMANDER": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_DEFIANT",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

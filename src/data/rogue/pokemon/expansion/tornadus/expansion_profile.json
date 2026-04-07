@@ -1,0 +1,424 @@
+{
+  "Species": [
+    "SPECIES_TORNADUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_BLEAKWIND_STORM",
+      "Level": 77
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DEFOG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FLY",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_GRASS_KNOT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_ACROBATICS",
+        "MOVE_REST",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHESTO_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_TAUNT",
+        "MOVE_HURRICANE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_FLY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ICY_WIND",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_SUPERPOWER",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_SUPERPOWER",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_SUPERPOWER",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_MISTY_SEED",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACROBATICS",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_WEATHER_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_WEATHER_BALL",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLEAKWIND_STORM",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLEAKWIND_STORM",
+        "MOVE_TAILWIND",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_COVERT_CLOAK",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_BLEAKWIND_STORM",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_BLEAKWIND_STORM",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_COVERT_CLOAK",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    }
+  ]
+}

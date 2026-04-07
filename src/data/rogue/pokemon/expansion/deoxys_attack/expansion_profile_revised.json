@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_DEOXYS_ATTACK": {
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
+}

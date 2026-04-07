@@ -1,0 +1,85 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SPIKES"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SILVER_WIND",
+        "MOVE_CUT"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_SPIKES",
+        "MOVE_ROLLOUT",
+        "MOVE_SILVER_WIND"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_SERIOUS",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FORRETRESS": {
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

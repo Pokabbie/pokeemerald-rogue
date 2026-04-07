@@ -1,0 +1,131 @@
+{
+  "Species": [
+    "SPECIES_DEWOTT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_AQUA_CUTTER",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHILLING_WATER",
+    "MOVE_COPYCAT",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FLIP_TURN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIQUIDATION",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SACRED_SWORD",
+    "MOVE_SCREECH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WATER_PLEDGE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

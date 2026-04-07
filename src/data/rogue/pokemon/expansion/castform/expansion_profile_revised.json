@@ -1,0 +1,44 @@
+{
+  "PerSpecies": {
+    "SPECIES_CASTFORM": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 105,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_CASTFORM_SUNNY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 105,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_CASTFORM_RAINY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 105,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_CASTFORM_SNOWY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 105,
+        "SpDefense": 70
+      }
+    }
+  }
+}

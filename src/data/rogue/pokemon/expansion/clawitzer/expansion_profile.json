@@ -1,0 +1,243 @@
+{
+  "Species": [
+    "SPECIES_CLAWITZER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_WATER_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_U_TURN",
+        "MOVE_WATER_PULSE",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_WATER_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_PULSE",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_AURA_SPHERE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_MEGA_LAUNCHER",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

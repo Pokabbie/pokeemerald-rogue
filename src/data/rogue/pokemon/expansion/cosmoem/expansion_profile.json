@@ -1,0 +1,17 @@
+{
+  "Species": [
+    "SPECIES_COSMOEM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": []
+}

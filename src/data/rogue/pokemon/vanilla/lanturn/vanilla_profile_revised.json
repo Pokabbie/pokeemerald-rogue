@@ -1,0 +1,138 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 51
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ICY_WIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHOCK_WAVE",
+        "MOVE_SURF",
+        "MOVE_AURORA_BEAM",
+        "MOVE_CONFUSE_RAY"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DIVE",
+        "MOVE_SHOCK_WAVE",
+        "MOVE_AURORA_BEAM",
+        "MOVE_CONFUSE_RAY"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPARK",
+        "MOVE_SURF",
+        "MOVE_AURORA_BEAM",
+        "MOVE_CONFUSE_RAY"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SIGNAL_BEAM"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_THUNDER",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LANTURN": {
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
+}

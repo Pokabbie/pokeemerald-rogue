@@ -1,0 +1,43 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SPEAROW": {
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SNIPER",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DUAL_WINGBEAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DRILL_RUN",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SNIPER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

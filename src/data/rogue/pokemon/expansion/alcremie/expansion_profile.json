@@ -1,0 +1,279 @@
+{
+  "Species": [
+    "SPECIES_ALCREMIE",
+    "SPECIES_ALCREMIE_RUBY_CREAM",
+    "SPECIES_ALCREMIE_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_MINT_CREAM",
+    "SPECIES_ALCREMIE_LEMON_CREAM",
+    "SPECIES_ALCREMIE_SALTED_CREAM",
+    "SPECIES_ALCREMIE_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_BERRY",
+    "SPECIES_ALCREMIE_BERRY_RUBY_CREAM",
+    "SPECIES_ALCREMIE_BERRY_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_BERRY_MINT_CREAM",
+    "SPECIES_ALCREMIE_BERRY_LEMON_CREAM",
+    "SPECIES_ALCREMIE_BERRY_SALTED_CREAM",
+    "SPECIES_ALCREMIE_BERRY_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_BERRY_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_BERRY_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_LOVE",
+    "SPECIES_ALCREMIE_LOVE_RUBY_CREAM",
+    "SPECIES_ALCREMIE_LOVE_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_LOVE_MINT_CREAM",
+    "SPECIES_ALCREMIE_LOVE_LEMON_CREAM",
+    "SPECIES_ALCREMIE_LOVE_SALTED_CREAM",
+    "SPECIES_ALCREMIE_LOVE_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_LOVE_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_LOVE_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_STAR",
+    "SPECIES_ALCREMIE_STAR_RUBY_CREAM",
+    "SPECIES_ALCREMIE_STAR_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_STAR_MINT_CREAM",
+    "SPECIES_ALCREMIE_STAR_LEMON_CREAM",
+    "SPECIES_ALCREMIE_STAR_SALTED_CREAM",
+    "SPECIES_ALCREMIE_STAR_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_STAR_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_STAR_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_CLOVER",
+    "SPECIES_ALCREMIE_CLOVER_RUBY_CREAM",
+    "SPECIES_ALCREMIE_CLOVER_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_CLOVER_MINT_CREAM",
+    "SPECIES_ALCREMIE_CLOVER_LEMON_CREAM",
+    "SPECIES_ALCREMIE_CLOVER_SALTED_CREAM",
+    "SPECIES_ALCREMIE_CLOVER_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_CLOVER_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_CLOVER_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_FLOWER",
+    "SPECIES_ALCREMIE_FLOWER_RUBY_CREAM",
+    "SPECIES_ALCREMIE_FLOWER_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_FLOWER_MINT_CREAM",
+    "SPECIES_ALCREMIE_FLOWER_LEMON_CREAM",
+    "SPECIES_ALCREMIE_FLOWER_SALTED_CREAM",
+    "SPECIES_ALCREMIE_FLOWER_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_FLOWER_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_FLOWER_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_RIBBON",
+    "SPECIES_ALCREMIE_RIBBON_RUBY_CREAM",
+    "SPECIES_ALCREMIE_RIBBON_MATCHA_CREAM",
+    "SPECIES_ALCREMIE_RIBBON_MINT_CREAM",
+    "SPECIES_ALCREMIE_RIBBON_LEMON_CREAM",
+    "SPECIES_ALCREMIE_RIBBON_SALTED_CREAM",
+    "SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL",
+    "SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL",
+    "SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL",
+    "SPECIES_ALCREMIE_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DECORATE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AROMATHERAPY",
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FLING",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LAST_RESORT",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_AROMATHERAPY"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_RECOVER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ACID_ARMOR",
+        "MOVE_STORED_POWER",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PSYCHIC",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_SWEET_VEIL",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_RECOVER",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DECORATE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWEET_VEIL",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ACID_ARMOR",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ACID_ARMOR",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_AROMA_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

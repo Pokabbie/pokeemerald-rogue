@@ -1,0 +1,12 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_SWAGGER",
+    "MOVE_FURY_CUTTER"
+  ]
+}

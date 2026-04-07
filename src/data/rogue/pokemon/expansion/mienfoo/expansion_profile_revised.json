@@ -1,0 +1,130 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRAIN_PUNCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

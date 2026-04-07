@@ -1,0 +1,154 @@
+{
+  "Species": [
+    "SPECIES_CUBCHOO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_FROST_BREATH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 42
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_METAL_CLAW",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_X_SCISSOR",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_RATTLED",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_SUPERPOWER",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "Species": [
+    "SPECIES_GARBODOR",
+    "SPECIES_GARBODOR_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CORROSIVE_GAS",
+    "MOVE_CROSS_POISON",
+    "MOVE_DARK_PULSE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_THIEF",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_TOXIC_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7NU",
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NU",
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_AFTERMATH",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

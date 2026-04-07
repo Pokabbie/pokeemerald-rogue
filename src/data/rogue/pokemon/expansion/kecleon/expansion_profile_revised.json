@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_KECLEON": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 60,
+        "SpDefense": 120
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_ACROBATICS"
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "Species": [
+    "SPECIES_LAPRAS",
+    "SPECIES_LAPRAS_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FISSURE",
+    "MOVE_FREEZE_DRY",
+    "MOVE_FROST_BREATH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HORN_DRILL",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPARKLING_ARIA",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_BLIZZARD",
+        "MOVE_THUNDER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SURF",
+        "MOVE_SHEER_COLD",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_SHARD",
+        "MOVE_SHEER_COLD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SHEER_COLD",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_ICE_SHARD",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_REST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHEER_COLD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_SHARD",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICE_SHARD",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SURF",
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_SHEER_COLD",
+        "MOVE_ICE_SHARD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_SHEER_COLD",
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PROTECT",
+        "MOVE_FREEZE_DRY",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHEER_COLD",
+        "MOVE_HORN_DRILL",
+        "MOVE_REST",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPARKLING_ARIA",
+        "MOVE_PSYCHIC",
+        "MOVE_PROTECT",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    }
+  ]
+}

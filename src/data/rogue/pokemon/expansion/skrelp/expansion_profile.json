@@ -1,0 +1,193 @@
+{
+  "Species": [
+    "SPECIES_SKRELP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_ACID_SPRAY",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TWISTER",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SURF",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

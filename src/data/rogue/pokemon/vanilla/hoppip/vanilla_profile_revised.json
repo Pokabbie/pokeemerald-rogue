@@ -1,0 +1,55 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "15",
+      "Species": "SPECIES_SKIPLOOM"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 27
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

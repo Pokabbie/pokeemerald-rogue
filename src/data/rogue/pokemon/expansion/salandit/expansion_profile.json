@@ -1,0 +1,187 @@
+{
+  "Species": [
+    "SPECIES_SALANDIT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AGILITY",
+    "MOVE_BELCH",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SAND_ATTACK",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAME_CHARGE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_POISONIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_BERRY_JUICE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FLAMETHROWER",
+        "MOVE_TOXIC",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

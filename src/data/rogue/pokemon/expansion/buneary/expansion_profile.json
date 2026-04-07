@@ -1,0 +1,225 @@
+{
+  "Species": [
+    "SPECIES_BUNEARY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BOUNCE",
+    "MOVE_CHARM",
+    "MOVE_CIRCLE_THROW",
+    "MOVE_COPYCAT",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_HIT",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAIL",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HEAL_BELL",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_PAYBACK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWEET_KISS",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_TEETER_DANCE",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_HEALING_WISH",
+        "MOVE_SWITCHEROO"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_RETURN",
+        "MOVE_HEAL_BELL",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_KLUTZ",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEALING_WISH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPLASH",
+        "MOVE_RETURN",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_RETURN",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

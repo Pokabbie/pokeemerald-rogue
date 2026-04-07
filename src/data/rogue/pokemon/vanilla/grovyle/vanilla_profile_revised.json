@@ -1,0 +1,52 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_X_SCISSOR",
+    "MOVE_CRUNCH"
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

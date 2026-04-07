@@ -1,0 +1,71 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SECRET_POWER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SLEEP_POWDER",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_LEECH_SEED",
+        "MOVE_MEGA_DRAIN",
+        "MOVE_GUST"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_ZANGOOSE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 115,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_HONE_CLAWS",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_CRUSH_CLAW",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_EMBARGO",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_ROCK_CLIMB",
+    "MOVE_CUT"
+  ]
+}

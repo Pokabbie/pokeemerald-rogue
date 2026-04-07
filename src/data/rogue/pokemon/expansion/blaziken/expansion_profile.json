@@ -1,0 +1,767 @@
+{
+  "Species": [
+    "SPECIES_BLAZIKEN",
+    "SPECIES_BLAZIKEN_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BLAZE_KICK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FLARE_BLITZ",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BLAST_BURN",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_COUNTER",
+    "MOVE_CRUSH_CLAW",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_EMBER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FEINT",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_JUMP_KICK",
+    "MOVE_HYPER_BEAM",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LAST_RESORT",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_OVERHEAT",
+    "MOVE_PECK",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BLAZE_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BLAZE_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_SUPERPOWER",
+        "MOVE_STONE_EDGE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUPERPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_BATON_PASS",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_SUPERPOWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BLAZE_KICK",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLAZE_KICK",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS",
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BLAZE_KICK",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BLAZE_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_LOW_KICK",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BATON_PASS",
+        "MOVE_BLAZE_KICK",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLAZE_KICK",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_BLAZIKENITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BATON_PASS",
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_OVERHEAT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BLAZE_KICK"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_BLAZE_KICK",
+        "MOVE_BATON_PASS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_BATON_PASS",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

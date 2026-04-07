@@ -1,0 +1,76 @@
+{
+  "Species": [
+    "SPECIES_SHELLDER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CLAMP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BARRIER",
+    "MOVE_BLIZZARD",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SCREECH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": []
+}

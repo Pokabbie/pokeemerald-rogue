@@ -1,0 +1,94 @@
+{
+  "Species": [
+    "SPECIES_BOUNSWEET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PLAY_NICE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TEETER_DANCE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 32
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACUPRESSURE",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAPID_SPIN",
+        "MOVE_SEED_BOMB",
+        "MOVE_SYNTHESIS",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

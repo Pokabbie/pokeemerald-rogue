@@ -1,0 +1,35 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TALONFLAME": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 91,
+        "Defense": 71,
+        "Speed": 126,
+        "SpAttack": 74,
+        "SpDefense": 69
+      }
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

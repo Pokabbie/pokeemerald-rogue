@@ -1,0 +1,374 @@
+{
+  "Species": [
+    "SPECIES_MAGEARNA",
+    "SPECIES_MAGEARNA_ORIGINAL_COLOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MAGNETIC_FLUX",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SHIFT_GEAR",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 78
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_FLEUR_CANNON",
+      "Level": 90
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRAVITY",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEAL_BELL",
+    "MOVE_HEART_SWAP",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_SPINNER",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_MISTY_EXPLOSION",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HEART_SWAP",
+        "MOVE_FLEUR_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEART_SWAP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FLEUR_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_FLEUR_CANNON",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_FAIRIUM_Z",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_HEART_SWAP",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_CALM_MIND",
+        "MOVE_FLEUR_CANNON",
+        "MOVE_SHIFT_GEAR"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLEUR_CANNON",
+        "MOVE_TRICK_ROOM",
+        "MOVE_SPIKES",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_FLEUR_CANNON"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHIFT_GEAR",
+        "MOVE_BATON_PASS",
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLEUR_CANNON",
+        "MOVE_BATON_PASS",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SOUL_HEART",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

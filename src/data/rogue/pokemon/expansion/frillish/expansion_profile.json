@@ -1,0 +1,238 @@
+{
+  "Species": [
+    "SPECIES_FRILLISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_WATER_SPOUT",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BRINE",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HEX",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_MIST",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCALD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STRENGTH_SAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_RECOVER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6NU",
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

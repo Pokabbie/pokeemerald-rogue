@@ -1,0 +1,36 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 36
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

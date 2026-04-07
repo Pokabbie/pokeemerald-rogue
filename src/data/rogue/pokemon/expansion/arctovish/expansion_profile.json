@@ -1,0 +1,141 @@
+{
+  "Species": [
+    "SPECIES_ARCTOVISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AURORA_VEIL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_FISHIOUS_REND",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 77
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_CRUNCH",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIQUIDATION",
+    "MOVE_METEOR_BEAM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FISHIOUS_REND",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FISHIOUS_REND",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CRUNCH",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FISHIOUS_REND",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_CRUNCH",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

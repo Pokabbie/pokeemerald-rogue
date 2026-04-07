@@ -1,0 +1,169 @@
+{
+  "Species": [
+    "SPECIES_GOURGEIST",
+    "SPECIES_GOURGEIST_SMALL",
+    "SPECIES_GOURGEIST_LARGE",
+    "SPECIES_GOURGEIST_SUPER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_SNEAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRICK_OR_TREAT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_BULLET_SEED",
+    "MOVE_DARK_PULSE",
+    "MOVE_DESTINY_BOND",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEX",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SEED_BOMB",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_OR_TREAT",
+        "MOVE_SEED_BOMB",
+        "MOVE_PHANTOM_FORCE",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAME_CHARGE",
+        "MOVE_POLTERGEIST",
+        "MOVE_POWER_WHIP",
+        "MOVE_SHADOW_SNEAK"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

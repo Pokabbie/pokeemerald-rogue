@@ -1,0 +1,424 @@
+{
+  "Species": [
+    "SPECIES_AURORUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROUND",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_NATURE_POWER",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_AURORA_VEIL",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_DARK_PULSE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FROST_BREATH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METEOR_BEAM",
+    "MOVE_MUD_SHOT",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_POLISH",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WEATHER_BALL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYPER_VOICE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_REFRIGERATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_POLISH",
+        "MOVE_HYPER_VOICE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_REFRIGERATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_FROST_BREATH"
+      ],
+      "Ability": "ABILITY_REFRIGERATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_HYPER_VOICE",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_REFRIGERATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FREEZE_DRY",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_ICICLE_PLATE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BLIZZARD",
+        "MOVE_ENCORE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZE_DRY",
+        "MOVE_EARTH_POWER",
+        "MOVE_BLIZZARD",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BLIZZARD",
+        "MOVE_ENCORE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_AURORA_VEIL",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURORA_VEIL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BLIZZARD",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLIZZARD",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_FREEZE_DRY"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_ROCK_POLISH",
+        "MOVE_HYPER_VOICE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_REFRIGERATE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_BLIZZARD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HYPER_VOICE"
+      ],
+      "Ability": "ABILITY_SNOW_WARNING",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    }
+  ]
+}

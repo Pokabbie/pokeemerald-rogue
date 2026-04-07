@@ -1,0 +1,1173 @@
+{
+  "Species": [
+    "SPECIES_SLOWBRO",
+    "SPECIES_SLOWBRO_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 51
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BLOCK",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TELEPORT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_FIRE_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_AMNESIA",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SLACK_OFF",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLOCK",
+        "MOVE_REST",
+        "MOVE_SCALD",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYSHOCK"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLACK_OFF",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLACK_OFF",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAL_PULSE",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_RINDO_BERRY",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_AMNESIA"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SCALD",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_SCALD",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SLOWBRONITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_SCALD",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TELEPORT",
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_TELEPORT",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT",
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_TELEPORT",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TELEPORT",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_SCALD",
+        "MOVE_TELEPORT",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PSYSHOCK",
+        "MOVE_CALM_MIND",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SCALD",
+        "MOVE_PSYSHOCK",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SLACK_OFF",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_BODY_PRESS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_TELEPORT",
+        "MOVE_SLACK_OFF",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SCALD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLACK_OFF",
+        "MOVE_ICE_BEAM",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF",
+        "MOVE_TELEPORT",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

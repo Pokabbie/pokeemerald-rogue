@@ -1,0 +1,79 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BONE_RUSH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BONE_CLUB",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_BONEMERANG",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SHADOW_PUNCH",
+    "MOVE_FLAME_WHEEL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHADOW_PUNCH",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_BODY_SLAM",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

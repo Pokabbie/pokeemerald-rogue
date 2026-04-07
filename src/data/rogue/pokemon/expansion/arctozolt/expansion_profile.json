@@ -1,0 +1,176 @@
+{
+  "Species": [
+    "SPECIES_ARCTOZOLT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FREEZE_DRY",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_BOLT_BEAK",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 77
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METEOR_BEAM",
+    "MOVE_PAYBACK",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TAUNT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_BLIZZARD",
+        "MOVE_LOW_KICK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_LOW_KICK",
+        "MOVE_BLIZZARD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_BLIZZARD",
+        "MOVE_LOW_KICK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_BLIZZARD",
+        "MOVE_FREEZE_DRY",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOLT_BEAK",
+        "MOVE_ICICLE_CRASH",
+        "MOVE_FREEZE_DRY",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_SLUSH_RUSH",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    }
+  ]
+}

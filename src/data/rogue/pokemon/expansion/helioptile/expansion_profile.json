@@ -1,0 +1,143 @@
+{
+  "Species": [
+    "SPECIES_HELIOPTILE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ELECTRIFY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BULLDOZE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GLARE",
+    "MOVE_GRASS_KNOT",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_SWEEP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RISING_VOLTAGE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GLARE",
+        "MOVE_U_TURN",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_SURF",
+        "MOVE_GLARE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_EXEGGUTOR_ALOLAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 125,
+        "Defense": 85,
+        "Speed": 45,
+        "SpAttack": 105,
+        "SpDefense": 75
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_SOFT_BOILED",
+    "MOVE_SUPERPOWER",
+    "MOVE_EXPLOSION",
+    "MOVE_EARTH_POWER",
+    "MOVE_MIMIC",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_SWAGGER",
+    "MOVE_DREAM_EATER",
+    "MOVE_IRON_TAIL",
+    "MOVE_ROLLOUT",
+    "MOVE_SNORE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_OUTRAGE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DRAGON_HAMMER",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_HARVEST",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

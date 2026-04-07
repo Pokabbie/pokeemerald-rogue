@@ -1,0 +1,124 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAL_BLOCK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MIRACLE_EYE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MYSTICAL_FIRE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SIMPLE_BEAM",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ROLE_PLAY",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_SYNCHRONOISE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_TRICK_ROOM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_MAGIC_ROOM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_WORK_UP",
+    "MOVE_BUG_BUZZ",
+    "MOVE_POWER_GEM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_TRI_ATTACK",
+    "MOVE_SIGNAL_BEAM"
+  ]
+}

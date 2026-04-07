@@ -1,0 +1,291 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GARBODOR": {
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_TOXIC_DEBRIS",
+        "ABILITY_AFTERMATH"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 95,
+        "Defense": 82,
+        "Speed": 75,
+        "SpAttack": 60,
+        "SpDefense": 82
+      }
+    },
+    "SPECIES_GARBODOR_GIGANTAMAX": {
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_TOXIC_DEBRIS",
+        "ABILITY_AFTERMATH"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 95,
+        "Defense": 82,
+        "Speed": 75,
+        "SpAttack": 60,
+        "SpDefense": 82
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RECYCLE",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_CROSS_POISON",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PAIN_SPLIT",
+    "MOVE_SUPERPOWER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_FIRE_PUNCH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_GUNK_SHOT",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_GUNK_SHOT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SEED_BOMB"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_TOXIC",
+        "MOVE_SPIKES",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_TOXIC_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_CROSS_POISON",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_SPIKES",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_STOMPING_TANTRUM"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

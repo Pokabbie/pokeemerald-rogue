@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_DEOXYS_SPEED": {
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
+}

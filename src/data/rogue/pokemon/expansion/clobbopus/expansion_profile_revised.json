@@ -1,0 +1,103 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CLOBBOPUS": {
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_FLIP_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_MACH_PUNCH",
+        "MOVE_FLIP_TURN",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_TECHNICIAN",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

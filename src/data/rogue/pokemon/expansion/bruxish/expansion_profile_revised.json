@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_BRUXISH": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 105,
+        "Defense": 70,
+        "Speed": 102,
+        "SpAttack": 60,
+        "SpDefense": 80
+      }
+    }
+  }
+}

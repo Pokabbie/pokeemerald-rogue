@@ -1,0 +1,44 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_POISON_FANG",
+        "MOVE_DIG",
+        "MOVE_SUBMISSION"
+      ],
+      "Ability": "ABILITY_POISON_POINT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

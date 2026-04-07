@@ -1,0 +1,143 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LYCANROC_DUSK": {
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ROCK_CLIMB",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_IRON_TAIL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ACCELEROCK",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_CRUNCH",
+        "MOVE_PSYCHIC_FANGS"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

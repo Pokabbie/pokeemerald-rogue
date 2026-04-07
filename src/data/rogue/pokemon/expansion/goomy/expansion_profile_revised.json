@@ -1,0 +1,120 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOOMY": {
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_WATER"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_WATERFALL",
+    "MOVE_SURF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_RECOVER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_RECOVER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

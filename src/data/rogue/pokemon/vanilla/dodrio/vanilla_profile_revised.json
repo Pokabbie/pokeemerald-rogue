@@ -1,0 +1,70 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_TRI_ATTACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_KNOCK_OFF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FLY",
+        "MOVE_TRI_ATTACK",
+        "MOVE_FRUSTRATION",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_DODRIO": {
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_WAILORD": {
+      "BaseStats": {
+        "HP": 200,
+        "Attack": 90,
+        "Defense": 45,
+        "Speed": 60,
+        "SpAttack": 90,
+        "SpDefense": 45
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WATER_SPOUT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_BOUNCY_BUBBLE",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FOCUS_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BOUNCY_BUBBLE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_NOBLE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

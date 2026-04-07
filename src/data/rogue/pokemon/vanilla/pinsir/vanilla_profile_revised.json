@@ -1,0 +1,91 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SUPERPOWER",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 64
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_LEECH_LIFE",
+        "MOVE_BULK_UP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PIN_MISSILE",
+        "MOVE_FORCE_PALM",
+        "MOVE_ROCK_TOMB",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_GENTLE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PINSIR": {
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

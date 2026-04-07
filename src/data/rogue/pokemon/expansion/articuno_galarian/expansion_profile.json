@@ -1,0 +1,256 @@
+{
+  "Species": [
+    "SPECIES_ARTICUNO_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FREEZING_GLARE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_TRICK_ROOM",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_CALM_MIND",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_FUTURE_SIGHT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_HURRICANE",
+        "MOVE_RECOVER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_PSYSHOCK",
+        "MOVE_HURRICANE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZING_GLARE",
+        "MOVE_HURRICANE",
+        "MOVE_RECOVER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FREEZING_GLARE",
+        "MOVE_HURRICANE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_POISON",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_TERA_BLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIGHTING",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FREEZING_GLARE",
+        "MOVE_CALM_MIND",
+        "MOVE_HURRICANE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FUTURE_SIGHT",
+        "MOVE_HURRICANE",
+        "MOVE_U_TURN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "Species": [
+    "SPECIES_IRON_MOTH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FIERY_DANCE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_MORNING_SUN",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 91
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_METAL_SOUND",
+    "MOVE_METEOR_BEAM",
+    "MOVE_OVERHEAT",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_U_TURN",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TERA_BLAST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_OVERHEAT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_DISCHARGE"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_BOOSTER_ENERGY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DISCHARGE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_DISCHARGE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FIERY_DANCE",
+        "MOVE_DISCHARGE",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_DANCE",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_QUARK_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

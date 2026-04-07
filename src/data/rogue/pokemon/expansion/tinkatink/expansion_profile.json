@@ -1,0 +1,141 @@
+{
+  "Species": [
+    "SPECIES_TINKATINK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BRUTAL_SWING",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SKITTER_SMACK",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FEINT",
+    "MOVE_FLASH_CANNON",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_HAMMER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_METRONOME",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_QUASH",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRAINING_KISS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_KNOCK_OFF",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PICKPOCKET",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

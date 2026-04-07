@@ -1,0 +1,160 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PIDGEOT": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 101,
+        "SpAttack": 115,
+        "SpDefense": 70
+      }
+    },
+    "SPECIES_PIDGEOT_MEGA": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 126,
+        "SpAttack": 180,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ECHOED_VOICE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 62
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 74
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_DUAL_WINGBEAT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_ROOST",
+        "MOVE_AIR_SLASH",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_SKY_PLATE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TAILWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BIG_PECKS",
+      "Item": "ITEM_PIDGEOTITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "SINGLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

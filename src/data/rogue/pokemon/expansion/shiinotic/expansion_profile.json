@@ -1,0 +1,179 @@
+{
+  "Species": [
+    "SPECIES_SHIINOTIC"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_STRENGTH_SAP",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WONDER_ROOM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SPORE"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SPORE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_MOONBLAST"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPORE",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_SPORE",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_SPORE",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EFFECT_SPORE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "Species": [
+    "SPECIES_RABSCA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_POWER_SWAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SPEED_SWAP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRAVITY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LUNGE",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POLTERGEIST",
+    "MOVE_POUNCE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_STORED_POWER",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WEATHER_BALL",
+    "MOVE_X_SCISSOR",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEPPA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

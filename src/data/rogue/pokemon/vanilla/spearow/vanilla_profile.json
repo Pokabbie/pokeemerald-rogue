@@ -1,0 +1,78 @@
+{
+  "Species": [
+    "SPECIES_SPEAROW"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SCARY_FACE",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_TRI_ATTACK"
+  ],
+  "CompetitiveSets": []
+}

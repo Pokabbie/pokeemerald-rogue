@@ -1,0 +1,61 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CINDERACE": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_RECEIVER",
+        "ABILITY_LIBERO"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 116,
+        "Defense": 75,
+        "Speed": 119,
+        "SpAttack": 70,
+        "SpDefense": 75
+      }
+    },
+    "SPECIES_CINDERACE_GIGANTAMAX": {
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_RECEIVER",
+        "ABILITY_LIBERO"
+      ],
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 116,
+        "Defense": 75,
+        "Speed": 119,
+        "SpAttack": 70,
+        "SpDefense": 75
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PYRO_BALL",
+        "MOVE_GUNK_SHOT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_LIBERO",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "Species": [
+    "SPECIES_KELDEO",
+    "SPECIES_KELDEO_RESOLUTE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WORK_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SECRET_SWORD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SACRED_SWORD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_SLASH",
+    "MOVE_AURA_SPHERE",
+    "MOVE_BATON_PASS",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLIP_TURN",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_LOW_KICK",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WATER_PULSE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_QUICK_GUARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_ICY_WIND",
+        "MOVE_SURF",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AURA_SPHERE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_SURF",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD",
+        "MOVE_VACUUM_WAVE",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SECRET_SWORD",
+        "MOVE_SURF",
+        "MOVE_VACUUM_WAVE"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SECRET_SWORD"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VACUUM_WAVE",
+        "MOVE_SECRET_SWORD",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SECRET_SWORD",
+        "MOVE_AIR_SLASH",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_JUSTIFIED",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

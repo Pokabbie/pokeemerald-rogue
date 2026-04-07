@@ -1,0 +1,478 @@
+{
+  "Species": [
+    "SPECIES_CRAWDAUNT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_RAZOR_SHELL",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ANCIENT_POWER",
+    "MOVE_AQUA_JET",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HARD_PRESS",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_LIQUIDATION",
+    "MOVE_METAL_CLAW",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWITCHEROO",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_AERIAL_ACE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN6MONOTYPE",
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_AQUA_JET",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CRABHAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_AQUA_JET",
+        "MOVE_CRABHAMMER",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ADAPTABILITY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    }
+  ]
+}

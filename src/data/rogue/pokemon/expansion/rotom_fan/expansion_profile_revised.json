@@ -1,0 +1,323 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_ROTOM_FAN": {
+      "Abilities": [
+        "ABILITY_MOTOR_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ELECTRO_BALL",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SUBSTITUTE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HURRICANE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_WATER",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_WATER",
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILL_O_WISP",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_IAPAPA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_WILL_O_WISP",
+        "MOVE_DEFOG"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HURRICANE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_DEFOG",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DISCHARGE",
+        "MOVE_HURRICANE",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DEFOG",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_VOLT_SWITCH",
+        "MOVE_HURRICANE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_MOTOR_DRIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

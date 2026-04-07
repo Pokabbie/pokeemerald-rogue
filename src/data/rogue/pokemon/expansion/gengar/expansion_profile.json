@@ -1,0 +1,1675 @@
+{
+  "Species": [
+    "SPECIES_GENGAR",
+    "SPECIES_GENGAR_MEGA",
+    "SPECIES_GENGAR_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REFLECT_TYPE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISABLE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_METRONOME",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POISON_JAB",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS",
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISABLE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_HEX",
+        "MOVE_DESTINY_BOND",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES",
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_HEX",
+        "MOVE_DESTINY_BOND",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DESTINY_BOND",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PERISH_SONG",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PERISH_SONG",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_WILL_O_WISP",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISABLE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_HEX"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_COUNTER",
+        "MOVE_HEX",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DESTINY_BOND",
+        "MOVE_TAUNT",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICY_WIND",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICY_WIND",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TAUNT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HEX",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PERISH_SONG",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HEX",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HEX",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HEX",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEX",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PERISH_SONG",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TAUNT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_PERISH_SONG",
+        "MOVE_SUBSTITUTE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_GENGARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SELF_DESTRUCT"
+      ],
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TRICK_ROOM",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_DISABLE",
+        "MOVE_HEX",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_TRICK",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES",
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_GHOSTIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_TRICK",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEX",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TRICK",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

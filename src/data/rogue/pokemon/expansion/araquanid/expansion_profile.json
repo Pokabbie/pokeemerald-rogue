@@ -1,0 +1,540 @@
+{
+  "Species": [
+    "SPECIES_ARAQUANID"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LASER_FOCUS",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIQUIDATION",
+    "MOVE_LUNGE",
+    "MOVE_MAGIC_COAT",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_POWER_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIT_UP",
+    "MOVE_STICKY_WEB",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_MAGIC_COAT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STICKY_WEB",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_MAGIC_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_SPLASH_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_STICKY_WEB",
+        "MOVE_LEECH_LIFE",
+        "MOVE_LUNGE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_MAGIC_COAT",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_SPLASH_PLATE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_INFESTATION",
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_STICKY_WEB",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN8NU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_BUG_BITE",
+        "MOVE_STICKY_WEB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_FIGY_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SLEEP_TALK",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_MIRROR_COAT",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT",
+        "MOVE_LEECH_LIFE",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_BUG_BITE",
+        "MOVE_WIDE_GUARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT",
+        "MOVE_WIDE_GUARD",
+        "MOVE_BUG_BITE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_MIRROR_COAT",
+        "MOVE_LASER_FOCUS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_LEECH_LIFE",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_WACAN_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STICKY_WEB"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_STICKY_WEB",
+        "MOVE_LEECH_LIFE",
+        "MOVE_MAGIC_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LIQUIDATION",
+        "MOVE_INFESTATION",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_MIRROR_COAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_MAGIC_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_STICKY_WEB",
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STICKY_WEB",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STICKY_WEB",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_LIQUIDATION",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_INFESTATION",
+        "MOVE_STICKY_WEB",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_LIQUIDATION",
+        "MOVE_INFESTATION",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_SUBSTITUTE",
+        "MOVE_STICKY_WEB",
+        "MOVE_LEECH_LIFE"
+      ],
+      "Ability": "ABILITY_WATER_BUBBLE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

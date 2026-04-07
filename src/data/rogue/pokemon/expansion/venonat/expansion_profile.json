@@ -1,0 +1,145 @@
+{
+  "Species": [
+    "SPECIES_VENONAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LUNGE",
+    "MOVE_MORNING_SUN",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_RAGE_POWDER",
+    "MOVE_REST",
+    "MOVE_SCREECH",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLEEP_POWDER",
+        "MOVE_SIGNAL_BEAM",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLEEP_POWDER",
+        "MOVE_MORNING_SUN",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MORNING_SUN",
+        "MOVE_LEECH_LIFE",
+        "MOVE_STUN_SPORE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_COMPOUND_EYES",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

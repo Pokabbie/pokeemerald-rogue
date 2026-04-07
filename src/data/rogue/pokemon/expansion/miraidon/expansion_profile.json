@@ -1,0 +1,347 @@
+{
+  "Species": [
+    "SPECIES_MIRAIDON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHOCK_WAVE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_PARABOLIC_CHARGE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ELECTRO_DRIFT",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 77
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 84
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 91
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 98
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METAL_SOUND",
+    "MOVE_OUTRAGE",
+    "MOVE_OVERHEAT",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERCELL_SLAM",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_U_TURN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_OVERHEAT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRACO_METEOR",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_OVERHEAT",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_ELECTRIC",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAUNT",
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AGILITY",
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTRO_DRIFT",
+        "MOVE_DRACO_METEOR",
+        "MOVE_VOLT_SWITCH",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_HADRON_ENGINE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

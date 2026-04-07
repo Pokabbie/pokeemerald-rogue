@@ -1,0 +1,94 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROAR_OF_TIME",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPACIAL_REND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_FORCE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PUNISHMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRAVITY",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EXTREME_SPEED",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 90
+    },
+    {
+      "Move": "MOVE_JUDGMENT",
+      "Level": 100
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_SHADOW_CLAW",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MULTITYPE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

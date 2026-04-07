@@ -1,0 +1,436 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_AGGRON": {
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_EARTH_EATER"
+      ],
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 180,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 80
+      }
+    },
+    "SPECIES_AGGRON_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 140,
+        "Defense": 230,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    }
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_AVALANCHE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROAR",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_LOW_KICK",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6RU",
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_SUPERPOWER",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN6NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HEAD_SMASH",
+        "MOVE_METAL_BURST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_CURSE",
+        "MOVE_REST",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_CURSE",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_AQUA_TAIL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU",
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METAL_BURST",
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_AGGRONITE",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_ROCK_TOMB",
+        "MOVE_SCREECH",
+        "MOVE_HEAVY_SLAM"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METAL_BURST",
+        "MOVE_HEAD_SMASH",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_ROCK_BLAST",
+        "MOVE_AVALANCHE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HEAD_SMASH",
+        "MOVE_SUPERPOWER",
+        "MOVE_ROCK_BLAST"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_METAL_BURST",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAD_SMASH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_METAL_BURST",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    }
+  ]
+}

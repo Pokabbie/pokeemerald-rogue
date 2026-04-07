@@ -1,0 +1,136 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CACTURNE": {
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_UNNERVE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_NEEDLE_ARM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_NEEDLE_ARM",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

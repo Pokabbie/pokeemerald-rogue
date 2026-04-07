@@ -1,0 +1,19 @@
+{
+  "PerSpecies": {
+    "SPECIES_WORMADAM_SANDY_CLOAK": {
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_ROUGH_SKIN",
+        "ABILITY_OVERCOAT"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 110,
+        "Speed": 30,
+        "SpAttack": 110,
+        "SpDefense": 90
+      }
+    }
+  }
+}

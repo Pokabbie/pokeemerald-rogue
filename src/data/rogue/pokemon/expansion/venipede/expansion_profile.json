@@ -1,0 +1,148 @@
+{
+  "Species": [
+    "SPECIES_VENIPEDE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_POISON_TAIL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ATTRACT",
+    "MOVE_BITE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GYRO_BALL",
+    "MOVE_HEX",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_PAYBACK",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SCREECH",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPIKES",
+    "MOVE_STEEL_ROLLER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_PROTECT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_PIN_MISSILE"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_SERIOUS",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_PIN_MISSILE",
+        "MOVE_PROTECT",
+        "MOVE_ENDEAVOR"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

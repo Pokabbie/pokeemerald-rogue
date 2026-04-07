@@ -1,0 +1,102 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_TOGEDEMARU": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 103,
+        "Defense": 68,
+        "Speed": 101,
+        "SpAttack": 40,
+        "SpDefense": 73
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MAGNET_RISE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_ZING_ZAP",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ELECTRIC_TERRAIN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SPIKY_SHIELD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ZIPPY_ZAP",
+      "Level": 57
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ZIPPY_ZAP",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

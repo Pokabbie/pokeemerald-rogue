@@ -1,0 +1,99 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SIGNAL_BEAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 46
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEECH_LIFE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_PROTECT",
+        "MOVE_DOUBLE_TEAM"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SILVER_WIND",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_AERIAL_ACE",
+        "MOVE_EXTREME_SPEED"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_SHARP_BEAK",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BUG_BUZZ",
+        "MOVE_AIR_SLASH",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}

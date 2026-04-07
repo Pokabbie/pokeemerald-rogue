@@ -1,0 +1,131 @@
+{
+  "Species": [
+    "SPECIES_SQUAWKABILLY",
+    "SPECIES_SQUAWKABILLY_BLUE_PLUMAGE",
+    "SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE",
+    "SPECIES_SQUAWKABILLY_WHITE_PLUMAGE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIMIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FACADE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FINAL_GAMBIT",
+    "MOVE_FLATTER",
+    "MOVE_FLY",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LASH_OUT",
+    "MOVE_PARTING_SHOT",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_FACADE",
+        "MOVE_QUICK_ATTACK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

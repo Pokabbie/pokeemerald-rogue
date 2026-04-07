@@ -1,0 +1,23 @@
+{
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  },
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PARABOLIC_CHARGE",
+        "MOVE_SURF",
+        "MOVE_GLARE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_DRY_SKIN",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

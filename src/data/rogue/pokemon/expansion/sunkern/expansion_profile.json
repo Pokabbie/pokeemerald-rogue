@@ -1,0 +1,94 @@
+{
+  "Species": [
+    "SPECIES_SUNKERN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BULLET_SEED",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INGRAIN",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MORNING_SUN",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": []
+}

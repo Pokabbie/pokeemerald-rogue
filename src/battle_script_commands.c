@@ -1667,8 +1667,11 @@ u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
 {
     s32 i = 0;
     u8 flags = 0;
-    u8 type1 = gBaseStats[targetSpecies].type1, type2 = gBaseStats[targetSpecies].type2;
+    u8 type1, type2;
     u8 moveType;
+    
+    type1 = GetTypeBySpecies(targetSpecies, 0, 0);
+    type2 = GetTypeBySpecies(targetSpecies, 1, 0);
 
     if (move == MOVE_STRUGGLE)
         return 0;
@@ -4806,8 +4809,8 @@ static void Cmd_switchindataupdate(void)
     for (i = 0; i < sizeof(struct BattlePokemon); i++)
         monData[i] = gBattleBufferB[gActiveBattler][4 + i];
 
-    gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-    gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
+    gBattleMons[gActiveBattler].type1 = GetTypeBySpecies(gBattleMons[gActiveBattler].species, 0, gBattleMons[gActiveBattler].otId);
+    gBattleMons[gActiveBattler].type2 = GetTypeBySpecies(gBattleMons[gActiveBattler].species, 1, gBattleMons[gActiveBattler].otId);
     gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum, gBattleMons[gActiveBattler].otId);
 
     // check knocked off item
@@ -9136,14 +9139,18 @@ static void Cmd_trydobeatup(void)
         }
         if (gBattleCommunication[0] < PARTY_SIZE)
         {
+            struct RoguePokemonBaseStats speciesStats;
+
             PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattleCommunication[0])
 
             gBattlescriptCurrInstr += 9;
 
-            gBattleMoveDamage = gBaseStats[GetMonData(&party[gBattleCommunication[0]], MON_DATA_SPECIES)].baseAttack;
+            Rogue_GetPokemonBaseStats(GetMonData(&party[gBattleCommunication[0]], MON_DATA_SPECIES), &speciesStats);
+            gBattleMoveDamage = speciesStats.baseAttack;
             gBattleMoveDamage *= gBattleMoves[gCurrentMove].power;
             gBattleMoveDamage *= (GetMonData(&party[gBattleCommunication[0]], MON_DATA_LEVEL) * 2 / 5 + 2);
-            gBattleMoveDamage /= gBaseStats[gBattleMons[gBattlerTarget].species].baseDefense;
+            Rogue_GetPokemonBaseStats(gBattleMons[gBattlerTarget].species, &speciesStats);
+            gBattleMoveDamage /= speciesStats.baseDefense;
             gBattleMoveDamage = (gBattleMoveDamage / 50) + 2;
             if (gProtectStructs[gBattlerAttacker].helpingHand)
                 gBattleMoveDamage = gBattleMoveDamage * 15 / 10;

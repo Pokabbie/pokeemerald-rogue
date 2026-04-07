@@ -1,0 +1,20 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SIZZLIPEDE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 45,
+        "SpDefense": 50
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_TOXIC"
+  ]
+}

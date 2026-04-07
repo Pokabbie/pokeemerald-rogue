@@ -1,0 +1,153 @@
+{
+  "Species": [
+    "SPECIES_FARFETCHD_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BRUTAL_SWING",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DEFOG",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 65
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COUNTER",
+    "MOVE_COVET",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEINT",
+    "MOVE_FLAIL",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_HELPING_HAND",
+    "MOVE_LEAF_BLADE",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_QUICK_GUARD",
+    "MOVE_REST",
+    "MOVE_RETALIATE",
+    "MOVE_REVENGE",
+    "MOVE_ROUND",
+    "MOVE_SIMPLE_BEAM",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THROAT_CHOP",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_FINAL_GAMBIT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_LEAF_BLADE"
+      ],
+      "Ability": "ABILITY_SCRAPPY",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    }
+  ]
+}

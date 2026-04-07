@@ -1,0 +1,122 @@
+{
+  "Species": [
+    "SPECIES_REMORAID"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ASSURANCE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRINE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DIVE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAIL",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MUD_SHOT",
+    "MOVE_OCTAZOOKA",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROUND",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_WATER_SPOUT",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WATER_SPOUT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_BULLET_SEED"
+      ],
+      "Ability": "ABILITY_HUSTLE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    }
+  ]
+}

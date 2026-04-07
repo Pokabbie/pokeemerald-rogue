@@ -1,0 +1,142 @@
+{
+  "Species": [
+    "SPECIES_CASTFORM",
+    "SPECIES_CASTFORM_SUNNY",
+    "SPECIES_CASTFORM_RAINY",
+    "SPECIES_CASTFORM_SNOWY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_CONFIDE",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DEFOG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GUARD_SWAP",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LAST_RESORT",
+    "MOVE_LUCKY_CHANT",
+    "MOVE_OMINOUS_WIND",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT_TYPE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROUND",
+    "MOVE_SANDSTORM",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_SUNNY_DAY",
+        "MOVE_SNOWSCAPE",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    }
+  ]
+}

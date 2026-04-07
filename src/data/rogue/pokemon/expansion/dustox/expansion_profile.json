@@ -1,0 +1,145 @@
+{
+  "Species": [
+    "SPECIES_DUSTOX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 40
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BUG_BITE",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_INFESTATION",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LASER_FOCUS",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_U_TURN",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_ROOST",
+        "MOVE_DEFOG",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_QUIVER_DANCE",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    }
+  ]
+}

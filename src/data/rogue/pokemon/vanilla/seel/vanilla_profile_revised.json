@@ -1,0 +1,90 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "26",
+      "Species": "SPECIES_DEWGONG"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICE_SHARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 40
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICY_WIND",
+        "MOVE_WATER_PULSE",
+        "MOVE_BODY_SLAM",
+        "MOVE_ENCORE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_SURF",
+        "MOVE_BODY_SLAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SEEL": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
+}

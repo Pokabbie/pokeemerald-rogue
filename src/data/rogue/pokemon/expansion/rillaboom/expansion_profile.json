@@ -1,0 +1,728 @@
+{
+  "Species": [
+    "SPECIES_RILLABOOM",
+    "SPECIES_RILLABOOM_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRUM_BEATING",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NOBLE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BRANCH_POKE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_BOOMBURST",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRENZY_PLANT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GROWTH",
+    "MOVE_HAMMER_ARM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MUD_SHOT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERPOWER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORRY_SEED"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX",
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRUM_BEATING",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_SUPERPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_GRASSY_GLIDE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_LEECH_SEED",
+        "MOVE_DRUM_BEATING"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_BULK_UP",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_DRUM_BEATING",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_SUPERPOWER",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN",
+        "MOVE_LOW_KICK"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_TERRAIN_EXTENDER",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_KNOCK_OFF",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_U_TURN",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_KNOCK_OFF",
+        "MOVE_BULK_UP"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRUM_BEATING",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRUM_BEATING",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_GRASSY_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_WOOD_HAMMER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GRASSY_GLIDE",
+        "MOVE_U_TURN",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HIGH_HORSEPOWER"
+      ],
+      "Ability": "ABILITY_GRASSY_SURGE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

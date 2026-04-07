@@ -1,0 +1,176 @@
+{
+  "Species": [
+    "SPECIES_RAPIDASH_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGAHORN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRILL_RUN",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_TAIL",
+    "MOVE_LOW_KICK",
+    "MOVE_MAGIC_ROOM",
+    "MOVE_MEGAHORN",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_MORNING_SUN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_PAY_DAY",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNORE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRICK_ROOM",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MYSTICAL_FIRE"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_KEE_BERRY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_MORNING_SUN"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CALM_MIND",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_PASTEL_VEIL",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    }
+  ]
+}

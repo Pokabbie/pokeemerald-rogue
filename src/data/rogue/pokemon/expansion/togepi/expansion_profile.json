@@ -1,0 +1,136 @@
+{
+  "Species": [
+    "SPECIES_TOGEPI"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_METRONOME",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_FOLLOW_ME",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BATON_PASS",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLING",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MORNING_SUN",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PECK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PRESENT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHO_SHIFT",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRI_ATTACK",
+    "MOVE_TRICK",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_MORNING_SUN",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

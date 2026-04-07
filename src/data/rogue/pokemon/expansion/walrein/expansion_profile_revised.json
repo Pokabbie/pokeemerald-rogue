@@ -1,0 +1,111 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ICE_BALL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_SCALD"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ROAR",
+        "MOVE_TOXIC",
+        "MOVE_SCALD",
+        "MOVE_SLACK_OFF"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

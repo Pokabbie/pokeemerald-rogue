@@ -1,0 +1,97 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "22",
+      "Species": "SPECIES_SEAKING"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_DRILL_RUN",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 36
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AQUA_JET",
+        "MOVE_SUPERSONIC",
+        "MOVE_HORN_ATTACK",
+        "MOVE_TAIL_WHIP"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_DOCILE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HORN_ATTACK",
+        "MOVE_AQUA_JET",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_GOLDEEN": {
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

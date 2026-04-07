@@ -1,0 +1,83 @@
+{
+  "Species": [
+    "SPECIES_VENONAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SCREECH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,105 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_UMBREON": {
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_POISON_TOUCH"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_SNARL",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_GUARD_SWAP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BADDY_BAD",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_GUNK_SHOT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_QUASH",
+    "MOVE_PSYSHOCK",
+    "MOVE_MYSTICAL_FIRE",
+    "MOVE_POWER_GEM"
+  ]
+}

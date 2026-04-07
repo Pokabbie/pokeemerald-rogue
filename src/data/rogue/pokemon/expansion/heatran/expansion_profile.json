@@ -1,0 +1,1263 @@
+{
+  "Species": [
+    "SPECIES_HEATRAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_CLAW",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HEAT_WAVE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_MAGMA_STORM",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_ERUPTION",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HARD_PRESS",
+    "MOVE_HEAT_CRASH",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_LUNGE",
+    "MOVE_METAL_CLAW",
+    "MOVE_METAL_SOUND",
+    "MOVE_OVERHEAT",
+    "MOVE_POUNCE",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_MAGMA_STORM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_ROCK_TOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_STONE_EDGE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_LAVA_PLUME",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_FIRIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_PROTECT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_FLAMETHROWER",
+        "MOVE_LAVA_PLUME"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES",
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HEAT_WAVE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT",
+        "MOVE_HEAT_WAVE",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_SHUCA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_OVERHEAT",
+        "MOVE_ANCIENT_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_GRASSIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_ERUPTION",
+        "MOVE_PROTECT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_TAUNT",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_ERUPTION",
+        "MOVE_TAUNT",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_STEEL_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ERUPTION",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_STEEL_BEAM",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_EARTH_POWER",
+        "MOVE_ERUPTION",
+        "MOVE_OVERHEAT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ERUPTION",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_MAGMA_STORM",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_ERUPTION"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_EARTH_POWER",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TERA_BLAST",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FLAMETHROWER",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LAVA_PLUME",
+        "MOVE_EARTH_POWER",
+        "MOVE_ROAR",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MAGMA_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_MAGMA_STORM",
+        "MOVE_FLASH_CANNON",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

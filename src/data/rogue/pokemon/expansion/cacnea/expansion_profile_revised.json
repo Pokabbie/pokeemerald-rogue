@@ -1,0 +1,128 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_CACNEA": {
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_UNNERVE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FEINT_ATTACK",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_NEEDLE_ARM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_COTTON_SPORE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SCORCHING_SANDS",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_NEEDLE_ARM",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_NEEDLE_ARM",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

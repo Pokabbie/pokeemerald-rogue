@@ -517,6 +517,36 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return GetBattleSceneOption() != OPTIONS_BATTLE_SCENE_DISABLED;
 }
 
+static bool32 GetRevisionModeActive_Slow(bool32 isRunActive)
+{
+#ifdef ROGUE_FEATURE_REVISED_MODE
+    switch(Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE))
+    {
+        case REVISION_MODE_ALWAYS_ON:
+            return TRUE;
+
+        case REVISION_MODE_IN_RUN:
+            return isRunActive;
+    }
+#endif
+
+    return FALSE;
+}
+
+bool8 Rogue_GetRevisionModeActive(void)
+{
+#ifdef ROGUE_FEATURE_REVISED_MODE
+    if(Rogue_IsRunActive())
+        return gRogueRun.revisedModeEnabled; // cached result
+    else
+    {
+        return GetRevisionModeActive_Slow(Rogue_IsRunActive());
+    }
+#else
+    return FALSE;
+#endif
+}
+
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
 
 bool8 Rogue_UseFinalQuestEffects(void)
@@ -4224,6 +4254,7 @@ static void BeginRogueRun(void)
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
     memset(&gRogueRun, 0, sizeof(gRogueRun));
     memset(&gRogueAdvPath, 0, sizeof(gRogueAdvPath));
+
     ClearHoneyTreePokeblock();
     ResetHotTracking();
 
@@ -4238,6 +4269,7 @@ static void BeginRogueRun(void)
     gRogueRun.terastallizeEnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
+    gRogueRun.revisedModeEnabled = GetRevisionModeActive_Slow(TRUE);
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
@@ -7150,14 +7182,15 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
 {
     u16 eggSpecies;
     s32 i;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
     {
         u16 moveLevel;
 
-        if(move == gRoguePokemonProfiles[species].levelUpMoves[i].move)
+        if(move == pokemonProfile->levelUpMoves[i].move)
         {
-            moveLevel = gRoguePokemonProfiles[species].levelUpMoves[i].level;
+            moveLevel = pokemonProfile->levelUpMoves[i].level;
 
             if (moveLevel > level)
                 return FALSE;
@@ -8057,7 +8090,8 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
             u16 presetIndex;
-            u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
+            struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+            u16 presetCount = pokemonProfile->competitiveSetCount;
             u16 statA = (Random() % 6);
             //u16 statB = (statA + 1 + (Random() % 5)) % 6;
             u16 temp = 31;
@@ -8068,7 +8102,7 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                 memset(&rules, 0, sizeof(rules));
 
                 presetIndex = Random() % presetCount;
-                Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
+                Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &pokemonProfile->competitiveSets[presetIndex], &rules);
             }
 
             // Clear friendship
@@ -9388,7 +9422,7 @@ u8 Rogue_GetEncounterDifficultyModifier()
 
 u16 Rogue_GetTRMove(u16 trNumber)
 {
-    if(trNumber < NUM_TECHNICAL_RECORDS && Rogue_IsRunActive())
+    if(trNumber < NUM_TECHNICAL_RECORDS_IN_USE && Rogue_IsRunActive())
         return gRogueRun.dynamicTRMoves[trNumber];
 
     // Return dud moves for item pricing calcs etc.
@@ -9398,16 +9432,16 @@ u16 Rogue_GetTRMove(u16 trNumber)
 static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 {
     // We're specifically going to use moves which would be Tutor moves i.e. ignore moves like growl or splash
-    u16 usage = gRoguePokemonSpecialMoveUsages[move];
+    u16 usage = Rogue_GetPokemonSpecialMoveUsage(move);
 
     // If we only have little usage on mons we're not going to allow it to be a tm
 #ifdef ROGUE_EXPANSION
     if(usage <= 2)
+        return 0;
 #else
     if(usage <= 1)
-#endif
         return 0;
-        
+#endif
 
     if(usage >= 300)
         return 5;
@@ -9424,7 +9458,7 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 static u8 TRMove_CalculateWeightFallback(u16 index, u16 move, void* data)
 {
     // Only take moves with 0 weight
-    u16 usage = gRoguePokemonSpecialMoveUsages[move];
+    u16 usage = Rogue_GetPokemonSpecialMoveUsage(move);
 
     if(usage == 0)
         return 1;
@@ -9447,7 +9481,7 @@ static void RandomiseTRMoves()
         u8 i;
         RogueWeightQuery_CalculateWeights(TRMove_CalculateWeight, NULL);
 
-        for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
+        for(i = 0; i < NUM_TECHNICAL_RECORDS_IN_USE; ++i)
         {
             if(!RogueWeightQuery_HasAnyWeights())
             {

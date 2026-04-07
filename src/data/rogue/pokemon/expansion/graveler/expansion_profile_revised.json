@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SPORT",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_POLISH",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 64
+    }
+  ]
+}

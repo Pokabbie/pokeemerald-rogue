@@ -1,0 +1,43 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BOLTUND": {
+      "BaseStats": {
+        "HP": 69,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 121,
+        "SpAttack": 80,
+        "SpDefense": 60
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_RETURN",
+    "MOVE_ICE_FANG"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_THUNDER_FANG",
+        "MOVE_ICE_FANG",
+        "MOVE_FIRE_FANG",
+        "MOVE_VOLT_SWITCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

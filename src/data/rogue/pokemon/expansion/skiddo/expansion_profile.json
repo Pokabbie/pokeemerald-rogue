@@ -1,0 +1,141 @@
+{
+  "Species": [
+    "SPECIES_SKIDDO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_HORN_LEECH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BULLDOZE",
+    "MOVE_BULLET_SEED",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MILK_DRINK",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROLLOUT",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WILD_CHARGE",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    }
+  ]
+}

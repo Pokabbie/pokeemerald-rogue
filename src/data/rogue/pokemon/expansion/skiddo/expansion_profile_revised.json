@@ -1,0 +1,36 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_SKIDDO": {
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_NORMAL"
+      ]
+    }
+  },
+  "TutorMoves": [
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_HORN_LEECH",
+        "MOVE_ROCK_CLIMB",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_SAP_SIPPER",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

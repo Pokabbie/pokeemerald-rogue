@@ -1,0 +1,102 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 63
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_METAL_CLAW",
+        "MOVE_ROCK_TOMB",
+        "MOVE_DIG",
+        "MOVE_TAKE_DOWN"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DIG",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_LAIRON": {
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

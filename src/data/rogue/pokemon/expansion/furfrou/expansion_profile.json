@@ -1,0 +1,225 @@
+{
+  "Species": [
+    "SPECIES_FURFROU",
+    "SPECIES_FURFROU_HEART_TRIM",
+    "SPECIES_FURFROU_STAR_TRIM",
+    "SPECIES_FURFROU_DIAMOND_TRIM",
+    "SPECIES_FURFROU_DEBUTANTE_TRIM",
+    "SPECIES_FURFROU_MATRON_TRIM",
+    "SPECIES_FURFROU_DANDY_TRIM",
+    "SPECIES_FURFROU_LA_REINE_TRIM",
+    "SPECIES_FURFROU_KABUKI_TRIM",
+    "SPECIES_FURFROU_PHARAOH_TRIM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_BABY_DOLL_EYES",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_RETALIATE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_COTTON_GUARD",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_CAPTIVATE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFIDE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENDEAVOR",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IRON_TAIL",
+    "MOVE_LAST_RESORT",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROLE_PLAY",
+    "MOVE_ROUND",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WORK_UP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_RETURN",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_COTTON_GUARD",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_IRON_TAIL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_U_TURN",
+        "MOVE_SURF",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_U_TURN",
+        "MOVE_RETURN",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_CONFIDE",
+        "MOVE_SECRET_POWER",
+        "MOVE_GROWL"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    }
+  ]
+}

@@ -22,6 +22,7 @@
 // Seems to be slower overall
 //#define ROGUE_FEATURE_HQ_RANDOM 1
 //#define ROGUE_FEATURE_SAFTEY_CHECKS 1
+//#define ROGUE_FEATURE_REVISED_MODE 1
 
 #ifdef ROGUE_EXPANSION
 #define ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
@@ -179,7 +180,13 @@
 
 #define FIRST_ITEM_TR                   ITEM_TR01
 #define LAST_ITEM_TR                    ITEM_TR50
-#define NUM_TECHNICAL_RECORDS           50
+#define CAPACITY_TECHNICAL_RECORDS      50
+
+#ifdef ROGUE_EXPANSION
+#define NUM_TECHNICAL_RECORDS_IN_USE    CAPACITY_TECHNICAL_RECORDS
+#else
+#define NUM_TECHNICAL_RECORDS_IN_USE    CAPACITY_TECHNICAL_RECORDS
+#endif
 
 #define ITEM_SORT_MODE_TYPE         0
 #define ITEM_SORT_MODE_NAME         1
@@ -395,6 +402,10 @@
 #define MON_FLAG_DOUBLES_STRONG         (1 << 1)
 #define MON_FLAG_STRONG_WILD            (1 << 2) // Used to filter for early legendary encounters
 
+#define MON_FLAGS_DEFAULT_REVISED_MODE      MON_FLAG_SINGLES_STRONG | MON_FLAG_DOUBLES_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_SINGLES_REVISED_MODE      MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_DOUBLES_REVISED_MODE      MON_FLAG_DOUBLES_STRONG | MON_FLAG_STRONG_WILD
+
 // These's are the category names fed in by the Showdown presets
 #ifdef ROGUE_EXPANSION
 #define MON_FLAGS_GEN6UBERS                 MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
@@ -473,6 +484,7 @@
 #define MON_FLAGS_GEN3OU                    MON_FLAG_SINGLES_STRONG
 #define MON_FLAGS_GEN3UU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN3RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3LC                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3ZU                    MON_FLAG_NONE
@@ -526,7 +538,8 @@
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
 #define CONFIG_RANGE_GAME_MODE_NUM          5
 #define CONFIG_RANGE_DIFFICULTY_PRESET      6
-#define CONFIG_RANGE_COUNT                  7
+#define CONFIG_RANGE_REVISION_MODE          7
+#define CONFIG_RANGE_COUNT                  8
 
 #define DEBUG_START_VALUE           0x7FFF
 
@@ -559,6 +572,11 @@
 #define BATTLE_FORMAT_DOUBLES   1
 #define BATTLE_FORMAT_MIXED     2
 #define BATTLE_FORMAT_COUNT     3
+
+#define REVISION_MODE_NEVER         0
+#define REVISION_MODE_IN_RUN        1
+#define REVISION_MODE_ALWAYS_ON     2
+#define REVISION_MODE_COUNT         3
 
 
 // Game Modes

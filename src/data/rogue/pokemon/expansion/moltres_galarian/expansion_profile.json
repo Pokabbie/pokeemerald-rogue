@@ -1,0 +1,471 @@
+{
+  "Species": [
+    "SPECIES_MOLTRES_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAYBACK",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_AFTER_YOU",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FIERY_WRATH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_DARK_PULSE",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SANDSTORM",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_TAUNT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1",
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_SNARL",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_TAUNT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_HURRICANE",
+        "MOVE_FIERY_WRATH",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_AGILITY",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_FIERY_WRATH",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_SNARL",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FIERY_WRATH",
+        "MOVE_AIR_SLASH",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HURRICANE",
+        "MOVE_FIERY_WRATH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HURRICANE",
+        "MOVE_FIERY_WRATH",
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_AGILITY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_AGILITY",
+        "MOVE_HURRICANE",
+        "MOVE_FIERY_WRATH"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FIERY_WRATH",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIERY_WRATH",
+        "MOVE_AGILITY",
+        "MOVE_NASTY_PLOT",
+        "MOVE_HURRICANE"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

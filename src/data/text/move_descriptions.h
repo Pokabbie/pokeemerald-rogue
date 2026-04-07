@@ -1417,6 +1417,9 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
+static const u8 sPlaceholderDescription[] = _(
+    "Placeholder move");
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1774,4 +1777,26 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_WATER_PULSE - 1] = sWaterPulseDescription,
     [MOVE_DOOM_DESIRE - 1] = sDoomDesireDescription,
     [MOVE_PSYCHO_BOOST - 1] = sPsychoBoostDescription,
+    
+    [MOVE_AIR_SLASH - 1] = sPlaceholderDescription,
+    [MOVE_AQUA_JET - 1] = sPlaceholderDescription,
+    [MOVE_BRAVE_BIRD - 1] = sPlaceholderDescription,
+    [MOVE_BUG_BUZZ - 1] = sPlaceholderDescription,
+    [MOVE_BULLET_PUNCH - 1] = sPlaceholderDescription,
+    [MOVE_DARK_PULSE - 1] = sPlaceholderDescription,
+    [MOVE_DOUBLE_IRON_BASH - 1] = sPlaceholderDescription,
+    [MOVE_DRACO_METEOR - 1] = sPlaceholderDescription,
+    [MOVE_DRILL_RUN - 1] = sPlaceholderDescription,
+    [MOVE_DUAL_WINGBEAT - 1] = sPlaceholderDescription,
+    [MOVE_EARTH_POWER - 1] = sPlaceholderDescription,
+    [MOVE_FIRE_PLEDGE - 1] = sPlaceholderDescription,
+    [MOVE_FLASH_CANNON - 1] = sPlaceholderDescription,
+    [MOVE_FORCE_PALM - 1] = sPlaceholderDescription,
+    [MOVE_HEAD_SMASH - 1] = sPlaceholderDescription,
+    [MOVE_ICE_SHARD - 1] = sPlaceholderDescription,
+    [MOVE_ICICLE_CRASH - 1] = sPlaceholderDescription,
+    [MOVE_NIGHT_SLASH - 1] = sPlaceholderDescription,
+    [MOVE_OMINOUS_WIND - 1] = sPlaceholderDescription,
+    [MOVE_SHADOW_SNEAK - 1] = sPlaceholderDescription,
+    [MOVE_X_SCISSOR - 1] = sPlaceholderDescription,
 };

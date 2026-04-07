@@ -1,0 +1,11 @@
+{
+  "PerSpecies": {
+    "SPECIES_LARVITAR": {
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_EARTH_EATER",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
+}

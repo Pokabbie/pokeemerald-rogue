@@ -1,0 +1,159 @@
+{
+  "Species": [
+    "SPECIES_SUNFLORA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BULLET_SEED",
+    "MOVE_CURSE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_WEATHER_BALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_SOLAR_POWER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_EARLY_BIRD",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

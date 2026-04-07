@@ -1,0 +1,294 @@
+{
+  "Species": [
+    "SPECIES_BRUXISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_WAVE_CRASH",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_BULK_UP",
+    "MOVE_CALM_MIND",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_ENDURE",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_FROST_BREATH",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_FANG",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPER_FANG",
+    "MOVE_SURF",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET",
+        "MOVE_LIQUIDATION",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_FROST_BREATH",
+        "MOVE_PROTECT",
+        "MOVE_DISABLE"
+      ],
+      "Ability": "ABILITY_DAZZLING",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WAVE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_POISON_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WAVE_CRASH",
+        "MOVE_FLIP_TURN",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_WAVE_CRASH",
+        "MOVE_AQUA_JET",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_PSYCHIC",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_FLIP_TURN",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WAVE_CRASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WAVE_CRASH",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_STRONG_JAW",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

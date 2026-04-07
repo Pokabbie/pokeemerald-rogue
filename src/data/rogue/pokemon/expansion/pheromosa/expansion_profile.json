@@ -1,0 +1,434 @@
+{
+  "Species": [
+    "SPECIES_PHEROMOSA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_TRIPLE_KICK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SPEED_SWAP",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_ASSURANCE",
+    "MOVE_BLIZZARD",
+    "MOVE_BOUNCE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_COACHING",
+    "MOVE_DRILL_RUN",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_OUTRAGE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SPEED_SWAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_LOW_KICK",
+        "MOVE_ICE_BEAM",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ICE_BEAM",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_U_TURN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_QUIVER_DANCE",
+        "MOVE_BUG_BUZZ"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_U_TURN",
+        "MOVE_DRILL_RUN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_BUG_BUZZ",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAUGHTY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_LUNGE",
+        "MOVE_POISON_JAB",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUNGE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LUNGE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_BUG_BUZZ",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FIGHTINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THROAT_CHOP",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_NAIVE",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_PROTECT",
+        "MOVE_TRIPLE_AXEL"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_U_TURN",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_THROAT_CHOP",
+        "MOVE_GIGA_IMPACT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM",
+        "MOVE_BUG_BUZZ",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_U_TURN",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_TRIPLE_AXEL",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    }
+  ]
+}

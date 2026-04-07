@@ -1,0 +1,88 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_BAYLEEF": {
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_FILTER",
+        "ABILITY_TRIAGE"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_NATURAL_GIFT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 54
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ANCIENT_POWER"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_PETAL_DANCE",
+        "MOVE_EXTRASENSORY",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_ANCIENT_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_POISON_POWDER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_MEGANIUM": {
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
+}

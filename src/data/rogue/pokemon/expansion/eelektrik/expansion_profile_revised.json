@@ -1,0 +1,91 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BREAKING_SWIPE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_THUNDERBOLT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ZAP_CANNON",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 74
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEDITATE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_SLAP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRAIN_PUNCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_JUMP_KICK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_WIDE_GUARD",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HIGH_JUMP_KICK",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 63
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 70
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLAZE_KICK",
+    "MOVE_ROCK_CLIMB"
+  ]
+}

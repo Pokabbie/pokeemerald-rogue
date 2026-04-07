@@ -1,0 +1,87 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SHELTER",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SHELTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TEARFUL_LOOK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BIDE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MIRROR_SHOT",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_STEEL_ROLLER",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 58
+    }
+  ]
+}

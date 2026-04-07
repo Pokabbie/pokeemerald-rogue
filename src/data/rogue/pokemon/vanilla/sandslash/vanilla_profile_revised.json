@@ -1,0 +1,23 @@
+{
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICICLE_CRASH",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRILL_RUN",
+        "MOVE_SLASH"
+      ],
+      "Ability": "ABILITY_ROUGH_SKIN",
+      "Item": "ITEM_METAL_COAT",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "CompetitiveSets": "MERGE"
+  }
+}

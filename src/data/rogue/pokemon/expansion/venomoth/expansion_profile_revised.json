@@ -1,0 +1,21 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_VENOMOTH": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 60,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 75
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_MORNING_SUN",
+    "MOVE_HURRICANE"
+  ]
+}

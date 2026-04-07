@@ -1,0 +1,388 @@
+{
+  "Species": [
+    "SPECIES_PERSIAN_ALOLAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAY_DAY",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_AMNESIA",
+    "MOVE_BEAT_UP",
+    "MOVE_BODY_SLAM",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LASH_OUT",
+    "MOVE_METAL_CLAW",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PARTING_SHOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SEED_BOMB",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SNARL",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_PARTING_SHOT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_TAUNT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_TAUNT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_SNARL"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_SNARL",
+        "MOVE_FOUL_PLAY",
+        "MOVE_FEINT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_PARTING_SHOT",
+        "MOVE_QUASH"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_MAGO_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_FAKE_OUT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_DARKINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWITCHEROO",
+        "MOVE_PARTING_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_SWITCHEROO",
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FAKE_OUT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_BEAT_UP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_FOUL_PLAY",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PARTING_SHOT",
+        "MOVE_SWITCHEROO",
+        "MOVE_FOUL_PLAY",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_FUR_COAT",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "Species": [
+    "SPECIES_QWILFISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_MINIMIZE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_ACUPRESSURE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AGILITY",
+    "MOVE_AQUA_JET",
+    "MOVE_ASTONISH",
+    "MOVE_BARB_BARRAGE",
+    "MOVE_BLIZZARD",
+    "MOVE_BUBBLE_BEAM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAZE",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPIKES",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERSONIC",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_POISON_JAB",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_SPIKES",
+        "MOVE_POISON_JAB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_TAUNT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TAUNT",
+        "MOVE_WATERFALL",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POISON_JAB",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LIQUIDATION",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LIQUIDATION",
+        "MOVE_POISON_JAB",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_LIQUIDATION",
+        "MOVE_POISON_JAB",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_TOXIC",
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_POISON_POINT",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_FLIP_TURN",
+        "MOVE_TAUNT",
+        "MOVE_BARB_BARRAGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLIP_TURN",
+        "MOVE_BARB_BARRAGE",
+        "MOVE_SPIKES",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_LIQUIDATION",
+        "MOVE_FLIP_TURN",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_LIQUIDATION",
+        "MOVE_GUNK_SHOT",
+        "MOVE_AQUA_JET"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

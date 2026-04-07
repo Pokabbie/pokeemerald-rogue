@@ -1,0 +1,134 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_KINESIS",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_KINESIS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_MIRACLE_EYE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_TELEKINESIS",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_ALLY_SWITCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_TRICK",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARGE_BEAM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_AURA_SPHERE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYSHOCK",
+        "MOVE_AURA_SPHERE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_ALAKAZITE",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_PSYCHIC",
+        "MOVE_AURA_SPHERE",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

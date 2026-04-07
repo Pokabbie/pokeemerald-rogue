@@ -1,0 +1,151 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_BASTIODON": {
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_SOUNDPROOF"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 72,
+        "Defense": 168,
+        "Speed": 30,
+        "SpAttack": 27,
+        "SpDefense": 138
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SLACK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_METAL_BURST",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 58
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 66
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_METAL_BURST",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SLACK_OFF",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SOLID_ROCK",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLACK_OFF",
+        "MOVE_ROAR",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SOUNDPROOF",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

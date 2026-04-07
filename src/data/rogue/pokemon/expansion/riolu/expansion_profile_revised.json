@@ -1,0 +1,55 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FORCE_PALM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_COPYCAT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AURA_SPHERE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_FINAL_GAMBIT",
+      "Level": 50
+    }
+  ]
+}

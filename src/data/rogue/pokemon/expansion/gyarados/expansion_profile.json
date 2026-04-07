@@ -1,0 +1,1213 @@
+{
+  "Species": [
+    "SPECIES_GYARADOS",
+    "SPECIES_GYARADOS_MEGA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BOUNCE",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HURRICANE",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_LASH_OUT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_OUTRAGE",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOUNCE",
+        "MOVE_WATERFALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6BATTLESPOTSINGLES",
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_WATERFALL",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6UU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1",
+        "GEN61V1",
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_OUTRAGE",
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_TAUNT",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_TAUNT",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOUNCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_IRON_HEAD",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_GROUNDIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_AGUAV_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BOUNCE",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7LETSGOOU",
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_EARTHQUAKE",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7LETSGOOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOUNCE",
+        "MOVE_WATERFALL",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BOUNCE",
+        "MOVE_WATERFALL",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_ICE_FANG",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_POWER_WHIP",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_MYSTIC_WATER",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_POWER_WHIP",
+        "MOVE_BOUNCE",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_POWER_WHIP",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AQUA_TAIL",
+        "MOVE_POWER_WHIP",
+        "MOVE_AVALANCHE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_POWER_WHIP",
+        "MOVE_WATERFALL",
+        "MOVE_OUTRAGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_POWER_WHIP"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_FANG"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TERA_BLAST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_TERA_BLAST",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_FLYING",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_CRUNCH",
+        "MOVE_TAUNT",
+        "MOVE_DRAGON_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_GYARADOSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_WATERFALL",
+        "MOVE_BOUNCE",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_MOXIE",
+      "Item": "ITEM_FLYINIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_TAUNT",
+        "MOVE_WATERFALL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WATERFALL",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLOETTE": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_YELLOW_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_ORANGE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_BLUE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_WHITE_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_ETERNAL_FLOWER": {
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_LUCKY_CHANT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AROMATHERAPY",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 58
+    }
+  ]
+}

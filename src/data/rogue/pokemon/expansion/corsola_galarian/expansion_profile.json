@@ -1,0 +1,233 @@
+{
+  "Species": [
+    "SPECIES_CORSOLA_GALARIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPITE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CURSE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_STRENGTH_SAP",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_GRUDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRINE",
+    "MOVE_BULLDOZE",
+    "MOVE_CALM_MIND",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DIG",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HAZE",
+    "MOVE_HEAD_SMASH",
+    "MOVE_HEX",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LIQUIDATION",
+    "MOVE_METEOR_BEAM",
+    "MOVE_NATURE_POWER",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SCALD",
+    "MOVE_SCREECH",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_WATER_PULSE",
+    "MOVE_WHIRLPOOL",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8UU",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_WHIRLPOOL"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_WILL_O_WISP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_AMNESIA",
+        "MOVE_WILL_O_WISP"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_AMNESIA",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_STRENGTH_SAP",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_NIGHT_SHADE"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STRENGTH_SAP",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_NIGHT_SHADE",
+        "MOVE_WILL_O_WISP",
+        "MOVE_STRENGTH_SAP"
+      ],
+      "Ability": "ABILITY_CURSED_BODY",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

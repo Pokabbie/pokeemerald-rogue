@@ -1,0 +1,666 @@
+{
+  "Species": [
+    "SPECIES_GRIMMSNARL",
+    "SPECIES_GRIMMSNARL_GIGANTAMAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPIRIT_BREAK",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFIDE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FALSE_SURRENDER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAKE_TEARS",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_HAMMER_ARM",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_DARKEST_LARIAT",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_BLAST",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IMPRISON",
+    "MOVE_LASH_OUT",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PARTING_SHOT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POWER_WHIP",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPERPOWER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8OU",
+        "GEN8OU",
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK",
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUPERPOWER",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_FRISK",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARKEST_LARIAT",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN8NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_FOUL_PLAY"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_DARKEST_LARIAT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_HARDY",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_POWER_WHIP",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_BULK_UP",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN8ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_DARKEST_LARIAT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_PLAY_ROUGH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU",
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CRUNCH",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_CRUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PARTING_SHOT",
+        "MOVE_PLAY_ROUGH",
+        "MOVE_CRUNCH"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_TAUNT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_SPIRIT_BREAK",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "GEN9DOUBLESOU",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PLAY_ROUGH",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_PARTING_SHOT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_REFLECT",
+        "MOVE_TAUNT",
+        "MOVE_PARTING_SHOT"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_PARTING_SHOT",
+        "MOVE_SPIRIT_BREAK"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LIGHT_CLAY",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

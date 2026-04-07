@@ -1,0 +1,209 @@
+{
+  "Species": [
+    "SPECIES_KOFFING"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SELF_DESTRUCT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_DARK_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_GUNK_SHOT",
+    "MOVE_GYRO_BALL",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SPIT_UP",
+    "MOVE_SPITE",
+    "MOVE_STOCKPILE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWALLOW",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC",
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PAIN_SPLIT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC_SPIKES"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FIRE_BLAST",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_MODEST",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_WILL_O_WISP",
+        "MOVE_PAIN_SPLIT",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_NEUTRALIZING_GAS",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9LC"
+      ]
+    }
+  ]
+}

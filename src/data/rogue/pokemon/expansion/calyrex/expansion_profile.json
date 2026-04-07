@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_CALYREX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PSYCHIC_TERRAIN",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_HEAL_PULSE",
+      "Level": 72
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 80
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 88
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_PRESS",
+    "MOVE_BULLET_SEED",
+    "MOVE_CALM_MIND",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_EXPANDING_FORCE",
+    "MOVE_FACADE",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GRAVITY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IMPRISON",
+    "MOVE_LEAF_STORM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METRONOME",
+    "MOVE_MUD_SHOT",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYCHIC_TERRAIN",
+    "MOVE_PSYSHOCK",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCARY_FACE",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SOLAR_BLADE",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK",
+    "MOVE_TRICK_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_CALM_MIND",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_AGILITY",
+        "MOVE_STORED_POWER",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_UNNERVE",
+      "Item": "ITEM_WEAKNESS_POLICY",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

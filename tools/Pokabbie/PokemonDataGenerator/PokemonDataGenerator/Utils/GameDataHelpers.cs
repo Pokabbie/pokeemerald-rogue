@@ -62,7 +62,7 @@ namespace PokemonDataGenerator.Utils
 		public static bool IsVanillaVersion
 		{
 			get => s_RootDirectory.EndsWith("pokeemerald-rogue\\", StringComparison.CurrentCultureIgnoreCase);
-			set 
+			set
 			{
 				bool isVanilla = IsVanillaVersion;
 				if (isVanilla != value)
@@ -97,9 +97,9 @@ namespace PokemonDataGenerator.Utils
 						s_SpeciesDefines.Remove("SPECIES_1024_FORM_3");
 						s_SpeciesDefines.Remove("SPECIES_1025");
 
-						foreach(var key in s_SpeciesDefines.Keys.ToArray())
+						foreach (var key in s_SpeciesDefines.Keys.ToArray())
 						{
-							if(s_SpeciesDefines[key].StartsWith("PLACEHOLDER_START"))
+							if (s_SpeciesDefines[key].StartsWith("PLACEHOLDER_START"))
 								s_SpeciesDefines.Remove(key);
 						}
 
@@ -115,7 +115,7 @@ namespace PokemonDataGenerator.Utils
 						{
 							anyAdjustments = false;
 							var copy = new Dictionary<string, string>(s_SpeciesDefines);
-						
+
 							foreach (var kvp in copy)
 							{
 								if (copy.ContainsKey(kvp.Value))
@@ -135,7 +135,7 @@ namespace PokemonDataGenerator.Utils
 
 							foreach (var kvp in copy)
 							{
-								if(!existingValues.Contains(kvp.Value))
+								if (!existingValues.Contains(kvp.Value))
 								{
 									s_SpeciesDefines.Add(kvp.Key, kvp.Value);
 									existingValues.Add(kvp.Value);
@@ -312,25 +312,33 @@ namespace PokemonDataGenerator.Utils
 		}
 
 
-		private static void ParseFileDefines(string prefix, string filePath, Dictionary<string, string> dest)
-		{
-			using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-			using (var reader = new StreamReader(stream))
-			{
-				string line;
+        public static void ParseFileDefines(string prefix, string filePath, Dictionary<string, string> dest)
+        {
+			ParseFileDefines(new string[] { prefix }, filePath, dest);
+        }
+
+        public static void ParseFileDefines(IEnumerable<string> prefixes, string filePath, Dictionary<string, string> dest)
+        {
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (var reader = new StreamReader(stream))
+            {
+                string line;
 
 				while ((line = reader.ReadLine()) != null)
 				{
-					if (line.StartsWith(prefix))
+					foreach (string prefix in prefixes)
 					{
-						var kvp = ParseDefine(line);
-						dest.Add(kvp.Key, kvp.Value);
+						if (line.StartsWith(prefix))
+						{
+							var kvp = ParseDefine(line);
+							dest.Add(kvp.Key, kvp.Value);
+						}
 					}
-				}
-			}
-		}
+                }
+            }
+        }
 
-		private static KeyValuePair<string, string> ParseDefine(string line)
+        private static KeyValuePair<string, string> ParseDefine(string line)
 		{
 			string key = "";
 			string value = "";
@@ -338,15 +346,23 @@ namespace PokemonDataGenerator.Utils
 			line = line.Substring("#define ".Length);
 			int splitIdx = line.IndexOf(' ');
 
-			key = line.Substring(0, splitIdx);
-			value = line.Substring(key.Length).Trim();
+			if(splitIdx == -1)
+            {
+                key = line.Trim();
+                value = null;
+            }
+			else
+			{
+                key = line.Substring(0, splitIdx);
+                value = line.Substring(key.Length).Trim();
+            }
 
 			return new KeyValuePair<string, string>(key, value);
 		}
 
 		private static bool TryManualPalettePath(string mon, out string path)
 		{
-			switch(mon.ToLower())
+			switch (mon.ToLower())
 			{
 				case "mime_jr":
 					path = "mime_jr";
@@ -361,7 +377,7 @@ namespace PokemonDataGenerator.Utils
 		{
 			string[] parts = mon.Split('_');
 
-			if(TryManualPalettePath(mon, out string path))
+			if (TryManualPalettePath(mon, out string path))
 			{
 				return Path.Combine(RootDirectory, $"graphics\\pokemon\\{path}\\{pal}.pal");
 			}
@@ -401,5 +417,56 @@ namespace PokemonDataGenerator.Utils
 				.Replace("é", "e")
 				.ToUpper();
 		}
-	}
+
+		public static string FormatToMatch(Dictionary<string, string> lookup, string key)
+		{
+			foreach (var kvp in lookup)
+            {
+                string lhs = kvp.Key.ToLower().Replace(" ", "").Replace("_", "");
+                string rhs = key.ToLower().Replace(" ", "").Replace("_", "");
+
+				if (lhs == rhs)
+					return kvp.Key;
+            }
+
+			return key;
+        }
+
+        public static int ResolveLookupToConstant(Dictionary<string, string> lookup, string key)
+        {
+			if (lookup[key] == null)
+				return int.MinValue;
+
+			string rawStr = lookup[key].Replace('(', ' ').Replace(')', ' ');
+
+			int total = 0;
+
+			foreach (string arg in rawStr.Split('+'))
+			{
+				if(int.TryParse(arg.Trim(), out int val ))
+				{
+					total += val;
+				}
+				else
+				{
+					total += ResolveLookupToConstant(lookup, arg.Trim());
+				}
+			}
+
+			return total;
+        }
+
+        public static string FindKeyFromConstant(Dictionary<string, string> lookup, int value)
+        {
+            foreach (string key in lookup.Keys)
+            {
+                int val = ResolveLookupToConstant(lookup, key);
+                if(val == value) 
+					return key;
+            }
+
+			throw new Exception();
+			return null;
+        }
+    }
 }

@@ -1,0 +1,32 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EXTRASENSORY",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_FRENZY_PLANT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 60
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

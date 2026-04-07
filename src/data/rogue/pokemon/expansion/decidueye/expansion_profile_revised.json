@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_DECIDUEYE": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 107,
+        "Defense": 75,
+        "Speed": 75,
+        "SpAttack": 100,
+        "SpDefense": 100
+      }
+    }
+  }
+}

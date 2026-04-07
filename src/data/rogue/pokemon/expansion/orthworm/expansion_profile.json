@@ -1,0 +1,212 @@
+{
+  "Species": [
+    "SPECIES_ORTHWORM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_SHED_TAIL",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_PRESS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLDOZE",
+    "MOVE_COIL",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HIGH_HORSEPOWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_IRON_HEAD",
+    "MOVE_METAL_BURST",
+    "MOVE_METAL_SOUND",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SPIKES",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STEEL_BEAM",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SHED_TAIL",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9NU",
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_COIL",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_TAIL",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_EARTH_EATER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    }
+  ]
+}

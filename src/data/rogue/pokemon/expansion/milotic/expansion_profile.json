@@ -1,0 +1,569 @@
+{
+  "Species": [
+    "SPECIES_MILOTIC"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISARMING_VOICE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AQUA_TAIL",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SURF",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BULLDOZE",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CONFIDE",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRAGON_BREATH",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_HAZE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MIST",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_TICKLE",
+    "MOVE_TRIPLE_AXEL",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WEATHER_BALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6OU",
+        "GEN6UU",
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_HAZE",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICY_WIND",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_ICE_BEAM",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_ICY_WIND",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6VGC2016"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_HYPNOSIS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_HYPNOSIS",
+        "MOVE_REFRESH"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_HYPNOSIS",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7RU",
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICY_WIND",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_ICY_WIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_RECOVER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_PROTECT",
+        "MOVE_RECOVER",
+        "MOVE_ICY_WIND"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_WIKI_BERRY",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_CONFIDE",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_FLAME_ORB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_FLIP_TURN",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN8RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_MUDDY_WATER",
+        "MOVE_HYPNOSIS",
+        "MOVE_COIL"
+      ],
+      "Ability": "ABILITY_COMPETITIVE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN8VGC2020"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_HAZE",
+        "MOVE_RECOVER",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_RECOVER",
+        "MOVE_HAZE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_DRAGON_TAIL",
+        "MOVE_FLIP_TURN",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_CALM",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER",
+        "MOVE_FLIP_TURN"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_FAIRY",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_HAZE",
+        "MOVE_ICE_BEAM",
+        "MOVE_RECOVER"
+      ],
+      "Ability": "ABILITY_MARVEL_SCALE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_BOLD",
+      "TeraType": "TYPE_DRAGON",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

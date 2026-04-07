@@ -1,0 +1,135 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POWER_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BRINE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_WRING_OUT",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_SAPPY_SEED",
+      "Level": 69
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_TOXIC",
+    "MOVE_POWER_GEM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SAPPY_SEED",
+        "MOVE_ROCK_BLAST",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GIGA_DRAIN",
+        "MOVE_POWER_GEM",
+        "MOVE_RECOVER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_STORM_DRAIN",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

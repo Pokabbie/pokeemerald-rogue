@@ -1,0 +1,14 @@
+{
+  "PerSpecies": {
+    "SPECIES_SHIINOTIC": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 45,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 105
+      }
+    }
+  }
+}

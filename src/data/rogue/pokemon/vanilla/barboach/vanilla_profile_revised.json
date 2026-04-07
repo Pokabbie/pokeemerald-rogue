@@ -1,0 +1,48 @@
+{
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_REFRESH",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MAGNITUDE",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_MUDDY_WATER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 50
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE"
+  }
+}

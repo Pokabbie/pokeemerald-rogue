@@ -1,0 +1,639 @@
+{
+  "Species": [
+    "SPECIES_NIHILEGO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_TICKLE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_GUARD_SPLIT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_POWER_SPLIT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_WONDER_ROOM",
+      "Level": 65
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRUTAL_SWING",
+    "MOVE_CORROSIVE_GAS",
+    "MOVE_CROSS_POISON",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_HEAD",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_METEOR_BEAM",
+    "MOVE_POISON_JAB",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_PSYSHOCK",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAFEGUARD",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRICK_ROOM",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK",
+    "MOVE_WONDER_ROOM",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TOXIC_SPIKES",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ELECTRIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POWER_GEM",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN7BATTLESPOTSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7BATTLESPOTDOUBLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POWER_GEM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2017"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ADRENALINE_ORB",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7VGC2018"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACID_SPRAY",
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_MIRROR_COAT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_THUNDERBOLT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_BLACK_SLUDGE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_POWER_GEM",
+        "MOVE_METEOR_BEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POWER_GEM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8BATTLESTADIUMSINGLES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_ACID_SPRAY",
+        "MOVE_MIRROR_COAT",
+        "MOVE_LIGHT_SCREEN"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ACID_SPRAY",
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_POWER_GEM",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN81V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_THUNDERBOLT",
+        "MOVE_METEOR_BEAM",
+        "MOVE_POWER_GEM"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_POWER_GEM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_GRASS_KNOT"
+      ],
+      "Ability": "ABILITY_BEAST_BOOST",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    }
+  ]
+}

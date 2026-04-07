@@ -1,0 +1,54 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_FALINKS": {
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_BUG"
+      ],
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_LEECH_LIFE",
+    "MOVE_RETURN",
+    "MOVE_ROCK_CLIMB"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LEECH_LIFE",
+        "MOVE_THROAT_CHOP",
+        "MOVE_ROCK_CLIMB"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

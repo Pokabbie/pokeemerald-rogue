@@ -1,0 +1,44 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "PerSpecies": {
+    "SPECIES_PACHIRISU": {
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_PICKUP",
+        "ABILITY_VOLT_ABSORB"
+      ],
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 80,
+        "Speed": 95,
+        "SpAttack": 80,
+        "SpDefense": 90
+      }
+    }
+  },
+  "TutorMoves": [
+    "MOVE_REFLECT"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REFLECT",
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_PRANKSTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HARDY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

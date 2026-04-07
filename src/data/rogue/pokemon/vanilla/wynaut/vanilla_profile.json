@@ -1,0 +1,54 @@
+{
+  "Species": [
+    "SPECIES_WYNAUT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 15
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ENCORE",
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    }
+  ]
+}

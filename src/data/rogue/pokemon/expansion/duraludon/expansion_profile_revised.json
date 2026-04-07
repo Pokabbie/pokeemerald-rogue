@@ -1,0 +1,45 @@
+{
+  "BuildSettings": {
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
+  "TutorMoves": [
+    "MOVE_FRUSTRATION",
+    "MOVE_TOXIC",
+    "MOVE_RETURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRAGON_TAIL"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_EVIOLITE",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_DRACO_METEOR",
+        "MOVE_STEEL_BEAM",
+        "MOVE_DRAGON_PULSE"
+      ],
+      "Ability": "ABILITY_LIGHT_METAL",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": "TYPE_STEEL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "27",
+      "Species": "SPECIES_PRIMEAPE"
+    }
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_MEGA_PUNCH",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 46
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REVERSAL",
+        "MOVE_KARATE_CHOP",
+        "MOVE_FACADE",
+        "MOVE_ROCK_TOMB"
+      ],
+      "Ability": "ABILITY_VITAL_SPIRIT",
+      "Item": "ITEM_NONE",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ],
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  }
+}
