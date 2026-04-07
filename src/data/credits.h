@@ -4,6 +4,23 @@
 
 #define ENTRIES_PER_PAGE 5
 
+#ifdef ROGUE_FEATURE_REVISED_MODE
+#define REVISED_CREDITS(method) \
+    method(5060, "Expansion Revised Balancing", CREDITS_FLAG_TITLE) \
+    method(5061, "underFlorence", 0) \
+    method(5062, "Amber Starlight", 0) \
+    method(5063, "", CREDITS_FLAG_BREAK) \
+    \
+    method(5070, "Vanilla Revised Balancing", CREDITS_FLAG_TITLE) \
+    method(5071, "Based on Royal Sapphire by", 0) \
+    method(5072, "ShockinglyGongas", 0) \
+    method(5073, "", CREDITS_FLAG_BREAK) \
+    \
+
+#else
+#define REVISED_CREDITS(method)
+#endif
+
 // The index doesn't matter too much here, just make sure it's unique and that's fine
 #define FOR_EACH_CREDIT(method) \
     method(0, "", 0) \
@@ -40,15 +57,13 @@
     method(504, "Hex", 0) \
     method(505, "", CREDITS_FLAG_BREAK) \
     \
-    method(5050, "Community Developers", CREDITS_FLAG_TITLE) \
-    method(5051, "underFlorence", 0) \
-    method(5052, "Amber Starlight", 0) \
-    method(5053, "", CREDITS_FLAG_BREAK) \
+    method(5050, "Community Programmers", CREDITS_FLAG_TITLE) \
+    method(5051, "DepressoMocha", 0) \
+    method(5052, "Kleeenexfeu", 0) \
+    method(5053, "Lemonancy", 0) \
+    method(5054, "", CREDITS_FLAG_BREAK) \
     \
-    method(5060, "Vanilla Revised Balancing", CREDITS_FLAG_TITLE) \
-    method(5061, "Based on Royal Sapphire by", 0) \
-    method(5062, "ShockinglyGongas", 0) \
-    method(5063, "", CREDITS_FLAG_BREAK) \
+    REVISED_CREDITS(method) \
     \
     method(600, "RH Hideout - Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(601, "UltimaSoul", 0) \

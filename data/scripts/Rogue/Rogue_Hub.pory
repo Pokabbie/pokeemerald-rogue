@@ -8,7 +8,7 @@ script Rogue_Area_InteractWithWorkbench
     if(var(VAR_RESULT) == YES)
     {
         lock
-        msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+        msgbox(format("It's a workbench!\pIt has a bunch of complicated designs and tools on top."))
         release
     }
     elif(var(VAR_ROGUE_INTRO_STATE) > ROGUE_INTRO_STATE_LEARN_TO_BUILD)
@@ -24,7 +24,7 @@ script Rogue_Area_InteractWithWorkbench
     else
     {
         lock
-        msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+        msgbox(format("It's a workbench!\pIt has a bunch of complicated designs and tools on top."))
         release
     }
 }

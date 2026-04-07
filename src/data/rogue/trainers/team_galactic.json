@@ -202,7 +202,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're suppose to be here.",
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're supposed to be here.",
                         "POST_BATTLE_TAUNT": "I guess I was wrong",
                         "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
                     }

@@ -1353,7 +1353,7 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
 
         if(collision == COLLISION_START_SWIMMING || collision == COLLISION_STOP_SWIMMING)
         {
-            if(Rogue_IsRideMonFlying())
+            if(Rogue_IsRideMonFlying() && PlayerGetElevation() < 4)
             {
                 collision = COLLISION_NONE;
             }
@@ -1363,7 +1363,7 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
         {
             sRideMonData.rideFrameCounter = 0;
 
-            if(collision == COLLISION_START_SWIMMING || collision == COLLISION_STOP_SWIMMING)
+            if((collision == COLLISION_START_SWIMMING || collision == COLLISION_STOP_SWIMMING) && PlayerGetElevation() < 4)
             {
                 PlayerJumpLedgeShort(direction);
             }

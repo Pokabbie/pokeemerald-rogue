@@ -256,7 +256,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: No matter what kind of plan your refined mind may be plotting…",
                         "PRE_BATTLE_TAUNT": "My partner and I will be sure to sink it!",
                         "POST_BATTLE_TAUNT": "I was totally washed away!",
-                        "POST_BATTLE_CLOSER": "How…? How can this be?!\\pNow that I've battled you, I think I understand.\\pContinue to seize victories in your Adventure with you Pokemon."
+                        "POST_BATTLE_CLOSER": "How…? How can this be?!\\pNow that I've battled you, I think I understand.\\pContinue to seize victories in your Adventure with your Pokemon."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",

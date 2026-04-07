@@ -4863,7 +4863,7 @@ static u8 MintItemToNature(u16 item)
 
 void Task_NatureMint(u8 taskId)
 {
-    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nnature to to {STR_VAR_2}?");
+    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nnature to {STR_VAR_2}?");
     static const u8 doneText[] = _("{STR_VAR_1}'s nature became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
 
     s16 *data = gTasks[taskId].data;

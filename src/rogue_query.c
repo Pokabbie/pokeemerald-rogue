@@ -589,6 +589,16 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
                 break;
         }
 
+#ifdef ROGUE_EXPANSION
+        if(evo.targetSpecies == SPECIES_GIMMIGHOUL_ROAMING)
+        {
+		    // Speculative dev code
+            DebugPrintf("Gimmighoul edge case: %i > %i", species, evo.targetSpecies);
+            AGB_ASSERT(FALSE);
+            continue;
+        }
+#endif
+
         // If we reach here we're allowed to evolve
         SetQueryBitFlag(evo.targetSpecies, TRUE);
 
@@ -1049,7 +1059,7 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
     if(speciesStats.baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
-        if(species > GEN9_START && species <= PLACEHOLDER_START)
+        if(species > GEN9_START && species < PLACEHOLDER_START)
         {
             // Gen 9 section is after the forms start
             // Illegal species for either wild or trainers
@@ -1080,7 +1090,12 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
             // Alt forms
             // Gen4
             if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
+            {
+                if(species == SPECIES_CHERRIM_SUNSHINE)
+                    return FALSE;
+
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
+            }
 
             // Gen5
             if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)

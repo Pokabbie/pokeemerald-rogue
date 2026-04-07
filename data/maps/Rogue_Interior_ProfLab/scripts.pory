@@ -96,7 +96,7 @@ script Rogue_Interior_ProfLab_FrameState0
 
     setvar(VAR_0x8004, 0)
     special(BufferMonNickname)
-    msgbox(format("Hi {PLAYER}!\pYour {STR_VAR_1} seems to really enjoy walking around outside of it's Poké Ball.\pWould you like {STR_VAR_1} to follow you?"), MSGBOX_YESNO)
+    msgbox(format("Hi {PLAYER}!\pYour {STR_VAR_1} seems to really enjoy walking around outside of its Poké Ball.\pWould you like {STR_VAR_1} to follow you?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -163,7 +163,7 @@ script Rogue_Interior_ProfLab_TalkAssistant
         special(BufferMonNickname)
         if(flag(FLAG_SYS_SHOW_POKE_FOLLOWER))
         {
-            msgbox(format("Hi {PLAYER}!\pWould you like to put {STR_VAR_1} back in it's Poké Ball?"), MSGBOX_YESNO)
+            msgbox(format("Hi {PLAYER}!\pWould you like to put {STR_VAR_1} back in its Poké Ball?"), MSGBOX_YESNO)
             if(var(VAR_RESULT) == YES)
             {
                 clearflag(FLAG_SYS_SHOW_POKE_FOLLOWER)
@@ -187,7 +187,7 @@ script Rogue_Interior_ProfLab_TalkBirch_AdventureExplain
 {
     msgbox(format("As you may remember, the world outside of {POKEMON_HUB} has gone a bit strange.\pRoutes will be shuffled around and may appear in a new random order every time you embark on an Adventure."))
     msgbox(format("When you leave on Adventures you'll notice that your Pokémon's level will get reset.\pIt will still know all of the same moves however."))
-    msgbox(format("The items in your bag also possess a strange quality.\pWhenever you leave on Adventure the state of your Bag seems to be remembered!\pWhen you finally return to {POKEMON_HUB}, your bag will be in the very same state as it was when you left.\pLet's say, for example, you find a Super Potion whilst you're Adventuring.\pWhen you return, that Super Potion will magically have disappeared from your Bag!\pThe opposite is also true. For example, if you have a Poké Ball in your Bag when you leave and you use it on your Adventure, when you return, you'll notice that it will have reappered right back inside your Bag!"))
+    msgbox(format("The items in your bag also possess a strange quality.\pWhenever you leave on an Adventure the state of your Bag seems to be remembered!\pWhen you finally return to {POKEMON_HUB}, your bag will be in the very same state as it was when you left.\pLet's say, for example, you find a Super Potion whilst you're Adventuring.\pWhen you return, that Super Potion will magically have disappeared from your Bag!\pThe opposite is also true. For example, if you have a Poké Ball in your Bag when you leave and you use it on your Adventure, when you return, you'll notice that it will have reappeared right back inside your Bag!"))
     msgbox(format("Rather unsurprisingly, Trainers are still very much itching for fights too!\pSo, be careful and make sure to train your Pokémon well!"))
     msgbox(format("It's all very strange!\pWe're still trying to research it and figure out what's going on!"))
 }
