@@ -8515,6 +8515,7 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
     u16 randomChanceMinimum = 0;
     u16 maxPriceRange = 65000;
     u16 originalItemCategory = itemCategory;
+    u16 randomSeed;
 
     if(gRogueRun.gameRules.forceFullShopInventory)
     {
@@ -8524,6 +8525,7 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
 
     applyMartSeed(itemCategory);
+    randomSeed = RogueRandom();
 
     if(itemCategory == ROGUE_SHOP_COURIER)
     {
@@ -8851,7 +8853,7 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
 
             if(applyRandomChance)
             {
-                u8 chance = 100;
+                u32 chance = 100;
 
                 if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
                 {
@@ -8865,7 +8867,9 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
                 chance = max(randomChanceMinimum, chance);
 
                 if(chance < 100)
-                    RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance, 1);
+                {
+                    RogueMiscQuery_FilterByChance(randomSeed, QUERY_FUNC_INCLUDE, chance, 1);
+                }
             }
         }
     }

@@ -28,6 +28,7 @@ bool8 RogueMiscQuery_CheckState(u16 elem);
 bool8 RogueMiscQuery_CheckStateCustom(u16 elem, u8* bitFlags);
 bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId);
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount);
+void RogueMiscQuery_FilterToPercLength(u16 rngSeed, u8 func, u8 perc, u8 minCount);
 bool8 RogueMiscQuery_AnyActiveElements();
 u16 RogueMiscQuery_SelectRandomElement(u16 rngValue);
 

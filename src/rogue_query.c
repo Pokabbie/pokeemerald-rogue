@@ -311,6 +311,7 @@ bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId)
 
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
+    bool8 state;
     u32 elem;
     u32 count = Query_MaxBitCount();
     RAND_TYPE startSeed = gRngRogueValue;
@@ -321,18 +322,20 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 
     for(elem = 1; elem < count && sRogueQuery.bitCount > minCount; ITERATOR_INC(elem))
     {
+        state = RogueRandomChance(chance, 0);
+
         if(GetQueryBitFlag(elem))
         {
             if(func == QUERY_FUNC_INCLUDE)
             {
-                if(!RogueRandomChance(chance, 0))
+                if(!state)
                 {
                     SetQueryBitFlag(elem, FALSE);
                 }
             }
             else if(func == QUERY_FUNC_EXCLUDE)
             {
-                if(RogueRandomChance(chance, 0))
+                if(state)
                 {
                     SetQueryBitFlag(elem, FALSE);
                 }
