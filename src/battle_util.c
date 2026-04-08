@@ -8912,6 +8912,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     if (gBattleStruct->zmove.active)
         return GetZMovePower(gBattleStruct->zmove.baseMoves[battlerAtk]);
 
+    if (gBattleStruct->dynamax.dynamaxed[battlerAtk])
+        return GetMaxMovePower(move);
+
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_PLEDGE:
