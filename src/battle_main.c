@@ -4747,6 +4747,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     u8 holdEffectParam = 0;
     u16 moveBattler1 = 0, moveBattler2 = 0;
 
+    // Probably don't need this check, but better safe than sorry
+    if(gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+    {
+        if(gChosenActionByBattler[battler1] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler1) == B_SIDE_PLAYER ? battler1 : battler2;
+        }
+        if(gChosenActionByBattler[battler2] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler2) == B_SIDE_PLAYER ? battler2 : battler1;
+        }
+    }
+
     if (WEATHER_HAS_EFFECT)
     {
         if ((gBattleMons[battler1].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
