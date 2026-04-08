@@ -30,6 +30,7 @@ struct MartInfo
     const struct MenuAction *menuActions;
     u16 (*listItemCallback)(u16);
     void const* listItemData;
+    u8* prevShopItemBits;
     u16 listItemTerminator;
     u16 itemCount;
     u16 minPrice;

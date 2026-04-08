@@ -270,6 +270,7 @@ struct RogueRunData
     struct RogueWildEncounters wildEncounters;
     struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
     struct RoguePokemonFacade labParty[LAB_MON_COUNT];
+    u16 subSeeds[ROGUE_SUBSEED_COUNT];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
@@ -281,6 +282,7 @@ struct RogueRunData
     u8 teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
+    u8 lastShopVisitDifficulty[ROGUE_SHOP_COUNT];
     u8 activeEvoItemFlags[8];
     u8 activeFormItemFlags[16]; // technically this isn't needed for Vanilla
     union

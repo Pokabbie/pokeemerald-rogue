@@ -219,7 +219,7 @@ u16 Rogue_GetTRMove(u16 trNumber);
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);
 bool8 Rogue_GiveLabEncounterMon(u16 index);
 
-void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice);
+void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice);
 void Rogue_CloseMartQuery();
 void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves);
 

@@ -30,6 +30,13 @@
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
+
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+#define RAND_TYPE struct PCG32
+#else
+#define RAND_TYPE u32
+#endif
+
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
@@ -47,6 +54,19 @@
 #define UNUSED_RELEASE UNUSED
 #endif
 
+// Sub-Seeds
+//
+#define ROGUE_SUBSEED_SHOP_GENERAL              0
+#define ROGUE_SUBSEED_SHOP_BALLS                1
+#define ROGUE_SUBSEED_SHOP_TMS                  2
+#define ROGUE_SUBSEED_SHOP_BATTLE_ENHANCERS     3
+#define ROGUE_SUBSEED_SHOP_HELD_ITEMS           4
+#define ROGUE_SUBSEED_SHOP_RARE_HELD_ITEMS      5
+#define ROGUE_SUBSEED_SHOP_BERRIES              6
+#define ROGUE_SUBSEED_SHOP_TREATS               7
+#define ROGUE_SUBSEED_MOVE_TUTOR                8
+#define ROGUE_SUBSEED_COUNT                     9
+
 // Items
 //
 #define ROGUE_SHOP_NONE                 0
@@ -63,6 +83,7 @@
 #define ROGUE_SHOP_CHARMS               12
 #define ROGUE_SHOP_HUB_UPGRADES         13
 #define ROGUE_SHOP_COURIER              14
+#define ROGUE_SHOP_COUNT                15
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
