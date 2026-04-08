@@ -121,3 +121,33 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from Rough Skin without break
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
 }
+
+SINGLE_BATTLE_TEST("Disguise does not break from a teammate's Wish")
+{
+    GIVEN {
+        ASSUME(gBattleMoves[MOVE_WISH].effect == EFFECT_WISH);
+        PLAYER(SPECIES_JIRACHI);
+        PLAYER(SPECIES_MIMIKYU_DISGUISED) { Ability(ABILITY_DISGUISE); HP(219); MaxHP(220); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_WISH); }
+        TURN { SWITCH(player, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_WISH, player);
+        NOT ABILITY_POPUP(player, ABILITY_DISGUISE);
+    }
+}
+
+SINGLE_BATTLE_TEST("Disguise does not break from a Drain Punch")
+{
+    GIVEN {
+        ASSUME(gBattleMoves[MOVE_DRAIN_PUNCH].effect == EFFECT_ABSORB);
+        PLAYER(SPECIES_MIMIKYU_DISGUISED) { Ability(ABILITY_DISGUISE); HP(219); MaxHP(220); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DRAIN_PUNCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAIN_PUNCH, player);
+        NOT ABILITY_POPUP(player, ABILITY_DISGUISE);
+    }
+}
