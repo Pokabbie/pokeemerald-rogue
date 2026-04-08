@@ -4868,6 +4868,18 @@ u32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
 {
     u32 strikesFirst = 0;
 
+  if(gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+    {
+        if(gChosenActionByBattler[battler1] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler1) == B_SIDE_PLAYER ? 0 : 1;
+        }
+        if(gChosenActionByBattler[battler2] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler2) == B_SIDE_PLAYER ? 1 : 0;
+        }
+    }
+
     if (priority1 == priority2)
     {
         // QUICK CLAW / CUSTAP - always first
