@@ -25,8 +25,10 @@ void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 bool8 RogueMiscQuery_CheckState(u16 elem);
+bool8 RogueMiscQuery_CheckStateCustom(u16 elem, u8* bitFlags);
 bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId);
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount);
+void RogueMiscQuery_FilterToPercLength(u16 rngSeed, u8 func, u8 perc, u8 minCount);
 bool8 RogueMiscQuery_AnyActiveElements();
 u16 RogueMiscQuery_SelectRandomElement(u16 rngValue);
 
@@ -60,6 +62,7 @@ bool8 Query_IsSpeciesEnabledForceDexChecking(u16 species);
 // Item Query
 void RogueItemQuery_Begin();
 void RogueItemQuery_End();
+u8* RogueItemQuery_EndWithBitwiseCloneAlloc();
 void RogueItemQuery_Reset(u8 func);
 void RogueItemQuery_IsItemActive();
 void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket);
@@ -104,7 +107,7 @@ u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updated
 // List selection
 void RogueListQuery_Begin();
 void RogueListQuery_End();
-u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort);
+u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort, u8* prevItemFlags);
 
 // Debug
 void RogueDebugQuery_FillPC(bool8 append);

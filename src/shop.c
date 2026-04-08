@@ -103,6 +103,7 @@ struct MartInfo
     const struct MenuAction *menuActions;
     u16 (*listItemCallback)(u16);
     void const* listItemData;
+    u8* prevShopItemBits;
     u16 listItemTerminator;
     u16 itemCount;
     u16 minPrice;
@@ -447,6 +448,7 @@ static void ResetMartInfo()
     sMartInfo.anythingBought = FALSE;
     sMartInfo.listItemCallback = NULL;
     sMartInfo.listItemData = NULL;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = 0;
     sMartInfo.itemCount = INVALID_ITEM_COUNT;
 }
@@ -456,6 +458,7 @@ static void SetShopItemsFromStaticList(const u16 *items, u16 terminatorItem)
     sMartInfo.dynamicMartCategory = 0;
     sMartInfo.listItemCallback = StaticShopItemListCallback;
     sMartInfo.listItemData = (void*)items;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = terminatorItem;
 }
 
@@ -464,6 +467,7 @@ static void SetShopItemsFromCallback(u16 (*listItemCallback)(u16), u16 terminato
     sMartInfo.dynamicMartCategory = 0;
     sMartInfo.listItemCallback = listItemCallback;
     sMartInfo.listItemData = userData;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = terminatorItem;
 }
 
@@ -1871,7 +1875,14 @@ static void FreeQueryShopItemList()
     {
         RogueListQuery_End();
         Rogue_CloseMartQuery();
+        RogueItemQuery_End();
         sMartInfo.listItemData = NULL;
+
+        if(sMartInfo.prevShopItemBits != NULL)
+        {
+            Free(sMartInfo.prevShopItemBits);
+            sMartInfo.prevShopItemBits = NULL;
+        }
     }
 }
 
@@ -1882,33 +1893,49 @@ static u16 QueryShopItemListCallback(u16 index)
     // Run the query once and cache it for later
     if(sMartInfo.listItemData == NULL)
     {
-        Rogue_OpenMartQuery(sMartInfo.dynamicMartCategory, &sMartInfo.minPrice);
+        u8 prevDifficulty;
+        u8 currDifficulty;
+        u8 sortMode = ITEM_SORT_MODE_TYPE;
+        bool8 flipSort = FALSE;
+
+        currDifficulty = Rogue_GetCurrentDifficulty();
+        prevDifficulty = currDifficulty;
+
+        if(Rogue_IsRunActive())
         {
-            u8 sortMode = ITEM_SORT_MODE_TYPE;
-            bool8 flipSort = FALSE;
-
-            switch (sMartInfo.dynamicMartCategory)
-            {
-            case ROGUE_SHOP_BERRIES:
-            case ROGUE_SHOP_HELD_ITEMS:
-            case ROGUE_SHOP_BATTLE_ENHANCERS:
-            case ROGUE_SHOP_CHARMS:
-            case ROGUE_SHOP_CURSES:
-            case ROGUE_SHOP_TMS:
-            case ROGUE_SHOP_COURIER:
-                sortMode = ITEM_SORT_MODE_NAME;
-                break;
-
-            //case ROGUE_SHOP_BALLS:
-            //    sortMode = ITEM_SORT_MODE_VALUE;
-            //    flipSort = TRUE;
-            //    break;
-            }
-
-            RogueListQuery_Begin();
-            sMartInfo.listItemData = RogueListQuery_CollapseItems(sortMode, flipSort);
+            prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
+            gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory] = currDifficulty;
         }
 
+        switch (sMartInfo.dynamicMartCategory)
+        {
+        case ROGUE_SHOP_BERRIES:
+        case ROGUE_SHOP_HELD_ITEMS:
+        case ROGUE_SHOP_BATTLE_ENHANCERS:
+        case ROGUE_SHOP_CHARMS:
+        case ROGUE_SHOP_CURSES:
+        case ROGUE_SHOP_TMS:
+        case ROGUE_SHOP_COURIER:
+            sortMode = ITEM_SORT_MODE_NAME;
+            break;
+        }
+
+        if(prevDifficulty != currDifficulty)
+        {
+            u16 temp = 0;
+
+            RogueItemQuery_Begin();
+            Rogue_OpenMartQuery(prevDifficulty, sMartInfo.dynamicMartCategory, &temp);
+            
+            sMartInfo.prevShopItemBits = RogueItemQuery_EndWithBitwiseCloneAlloc();
+        }
+        
+        RogueItemQuery_Begin();
+        Rogue_OpenMartQuery(currDifficulty, sMartInfo.dynamicMartCategory, &sMartInfo.minPrice);
+
+        RogueListQuery_Begin();
+        sMartInfo.listItemData = RogueListQuery_CollapseItems(sortMode, flipSort, sMartInfo.prevShopItemBits);
+        
         // End inner and outer query when we leave shop, as we might need some dynamic allocs
         sFreeCallback = FreeQueryShopItemList;
     }
@@ -1950,11 +1977,21 @@ void CreateDynamicPokemartMenu(const u16 category)
 // Item type callbacks
 //
 
+static u8 const sString_NewItemIndicator[] = _("{SPARKLE_ICON}");
+
 static void CopyShopItemName(u16 item, u8* name)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
-        CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
+        if(sMartInfo.prevShopItemBits != NULL && !RogueMiscQuery_CheckStateCustom(item, sMartInfo.prevShopItemBits))
+        {
+            StringCopyN(name, sString_NewItemIndicator, ITEM_NAME_LENGTH + 4);
+            CopyItemNameN(item, name + 1, ITEM_NAME_LENGTH + 3);
+        }
+        else
+        {
+            CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
+        }
         return;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)

@@ -30,6 +30,13 @@
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
+
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+#define RAND_TYPE struct PCG32
+#else
+#define RAND_TYPE u32
+#endif
+
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
@@ -47,6 +54,19 @@
 #define UNUSED_RELEASE UNUSED
 #endif
 
+// Sub-Seeds
+//
+#define ROGUE_SUBSEED_SHOP_GENERAL              0
+#define ROGUE_SUBSEED_SHOP_BALLS                1
+#define ROGUE_SUBSEED_SHOP_TMS                  2
+#define ROGUE_SUBSEED_SHOP_BATTLE_ENHANCERS     3
+#define ROGUE_SUBSEED_SHOP_HELD_ITEMS           4
+#define ROGUE_SUBSEED_SHOP_RARE_HELD_ITEMS      5
+#define ROGUE_SUBSEED_SHOP_BERRIES              6
+#define ROGUE_SUBSEED_SHOP_TREATS               7
+#define ROGUE_SUBSEED_MOVE_TUTOR                8
+#define ROGUE_SUBSEED_COUNT                     9
+
 // Items
 //
 #define ROGUE_SHOP_NONE                 0
@@ -63,6 +83,7 @@
 #define ROGUE_SHOP_CHARMS               12
 #define ROGUE_SHOP_HUB_UPGRADES         13
 #define ROGUE_SHOP_COURIER              14
+#define ROGUE_SHOP_COUNT                15
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
@@ -520,18 +541,20 @@
 #define CONFIG_TOGGLE_TRAINER_JOHTO         11
 #define CONFIG_TOGGLE_TRAINER_HOENN         12
 #ifdef ROGUE_EXPANSION
+// These still exist for vanilla, just aren't referenced
 #define CONFIG_TOGGLE_TRAINER_SINNOH        13
 #define CONFIG_TOGGLE_TRAINER_UNOVA         14
 #define CONFIG_TOGGLE_TRAINER_KALOS         15
 #define CONFIG_TOGGLE_TRAINER_ALOLA         16
 #define CONFIG_TOGGLE_TRAINER_GALAR         17
 #define CONFIG_TOGGLE_TRAINER_PALDEA        18
+#define CONFIG_TOGGLE_TRAINER_GEN10_PLACEHOLDER     19
 #endif
-#define CONFIG_TOGGLE_COUNT                 19
+#define CONFIG_TOGGLE_COUNT                 20
 #define CONFIG_TOGGLE_BYTE_COUNT            (1 + CONFIG_TOGGLE_COUNT / 8)
 
 // CONFIG_RANGE_
-#define CONFIG_RANGE_TRAINER                0
+#define CONFIG_RANGE_TRAINER_LVL            0
 #define CONFIG_RANGE_ITEM                   1 // unused
 #define CONFIG_RANGE_LEGENDARY              2 // unused
 #define CONFIG_RANGE_BATTLE_FORMAT          3
@@ -539,7 +562,8 @@
 #define CONFIG_RANGE_GAME_MODE_NUM          5
 #define CONFIG_RANGE_DIFFICULTY_PRESET      6
 #define CONFIG_RANGE_REVISION_MODE          7
-#define CONFIG_RANGE_COUNT                  8
+#define CONFIG_RANGE_TRAINER_ORDER          8
+#define CONFIG_RANGE_COUNT                  9
 
 #define DEBUG_START_VALUE           0x7FFF
 
@@ -582,11 +606,8 @@
 // Game Modes
 //
 #define ROGUE_GAME_MODE_STANDARD                0
-#define ROGUE_GAME_MODE_RAINBOW                 1
-#define ROGUE_GAME_MODE_OFFICIAL                2
-#define ROGUE_GAME_MODE_GAUNTLET                3
-#define ROGUE_GAME_MODE_RAINBOW_GAUNTLET        4
-#define ROGUE_GAME_MODE_COUNT                   5
+#define ROGUE_GAME_MODE_GAUNTLET                1
+#define ROGUE_GAME_MODE_COUNT                   2
 
 // Order
 #define TRAINER_ORDER_DEFAULT                   0

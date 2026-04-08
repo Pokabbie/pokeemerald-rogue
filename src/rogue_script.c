@@ -1905,7 +1905,7 @@ void Rogue_AppendMultichoicePokeblockItems()
         u16 const* itemsList;
         RogueListQuery_Begin();
 
-        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE, NULL);
 
         for(;*itemsList != ITEM_NONE; ++itemsList)
         {
@@ -1946,7 +1946,7 @@ void Rogue_AppendMultichoiceBerriesForPokeblock()
         u16 const* itemsList;
         RogueListQuery_Begin();
 
-        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE, NULL);
 
         for(;*itemsList != ITEM_NONE; ++itemsList)
         {

@@ -12,8 +12,6 @@ extern struct PCG32 gRngValue;
 extern struct PCG32 gRng2Value;
 extern struct PCG32 gRngRogueValue;
 
-#define RAND_TYPE struct PCG32
-
 u32 Random32(void);
 u32 RandomAlt32(void);
 u32 RogueRandom32(void);
@@ -40,8 +38,6 @@ void SeedRogueRng(u32 seed);
 extern u32 gRngValue;
 extern u32 gRng2Value;
 extern u32 gRngRogueValue;
-
-#define RAND_TYPE u32
 
 //Returns a 16-bit pseudorandom number
 u16 Random(void);
