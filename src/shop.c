@@ -1837,6 +1837,13 @@ static u16 QueryShopItemListCallback(u16 index)
         if(Rogue_IsRunActive())
         {
             prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
+
+            if(prevDifficulty > ROGUE_MAX_BOSS_COUNT)
+            {
+                // Never visited shop so far
+                prevDifficulty = currDifficulty;
+            }
+
             gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory] = currDifficulty;
         }
 

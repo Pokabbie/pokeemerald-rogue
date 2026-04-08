@@ -3177,7 +3177,7 @@ void Rogue_OnNewGame(void)
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
     StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    memset(&gRogueRun.lastShopVisitDifficulty[0], 0, sizeof(gRogueRun.lastShopVisitDifficulty));
+    memset(&gRogueRun.lastShopVisitDifficulty[0], 255, sizeof(gRogueRun.lastShopVisitDifficulty));
     
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
