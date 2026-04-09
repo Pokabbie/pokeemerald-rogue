@@ -2042,7 +2042,7 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacit
         }
 
         // Use the PID to detemine tutor move availability 
-        compatValue = ((personality >> ((read / tutorMoveLvlCount) % 32)) & 0x3 + read) % tutorMoveLvlCount;
+        compatValue = (((personality >> ((read / tutorMoveLvlCount) % 32)) & 0x3) + read) % tutorMoveLvlCount;
 
         if(compatValue <= tutorMoveLvl)
         {
