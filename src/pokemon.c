@@ -2414,7 +2414,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = substruct3->worldRibbon;
             break;
         case MON_DATA_UNUSED_RIBBONS:
-            retVal = substruct3->unusedRibbons;
+            retVal = 0;
             break;
         case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
             retVal = substruct3->modernFatefulEncounter;
@@ -2878,7 +2878,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(substruct3->worldRibbon);
             break;
         case MON_DATA_UNUSED_RIBBONS:
-            SET8(substruct3->unusedRibbons);
             break;
         case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
             SET8(substruct3->modernFatefulEncounter);
