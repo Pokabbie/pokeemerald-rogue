@@ -311,6 +311,9 @@ void GetBerryCountString(u8 *dst, const u8 *berryName, u32 quantity)
     else
         berryString = gText_Berries;
 
+    ConvertUIntToDecimalStringN(dst, quantity, STR_CONV_MODE_LEFT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);
+    dst = StringAppend(dst, gText_Space);
+
     txtPtr = StringCopy(dst, berryName);
     *txtPtr = CHAR_SPACE;
     StringCopy(txtPtr + 1, berryString);
