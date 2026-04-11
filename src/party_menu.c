@@ -2030,7 +2030,7 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacit
     u8 tutorMoveLvl = GetMonData(pokemon, MON_DATA_TUTOR_MOVE_LVL);
     u8 tutorMoveLvlCount = Rogue_IsRunActive() ? TUTOR_MOVE_LVL_COUNT_RUN : TUTOR_MOVE_LVL_COUNT_HUB;
     u32 compatValue = 0;
-    u32 personality = GetMonData(pokemon, MON_DATA_PERSONALITY);
+    u32 uniqueMoveSet = Rogue_IsRunActive() ? GetMonData(pokemon, MON_DATA_PERSONALITY) : GetMonData(pokemon, MON_DATA_OT_ID);
     struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     for(read = 0; pokemonProfile->tutorMoves[read] != MOVE_NONE; ++read)
@@ -2042,9 +2042,9 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacit
         }
 
         // Use the PID to detemine tutor move availability 
-        compatValue = (((personality >> ((read / tutorMoveLvlCount) % 32)) & 0x3) + read) % tutorMoveLvlCount;
+        compatValue = (((uniqueMoveSet >> ((read / tutorMoveLvlCount) % 32)) & 0x3) + read) % tutorMoveLvlCount;
 
-        if(compatValue <= tutorMoveLvl)
+        if(tutorMoveLvlCount <= 1 || compatValue <= tutorMoveLvl)
         {
             // If this move has a TM, ignore it
             if(BattleMoveIdToItemId(pokemonProfile->tutorMoves[read]) != ITEM_NONE)
@@ -2056,6 +2056,11 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacit
 
     if(tutorMoveLvl + 1 < tutorMoveLvlCount)
     {
+        if(write >= tutorMovesCapacity)
+        {
+            AGB_ASSERT(FALSE);
+        }
+
         tutorMoves[write++] = MOVE_UNAVAILABLE;
     }
 
