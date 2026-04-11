@@ -3517,7 +3517,7 @@ static void CursorCb_QuickHeal(u8 taskId)
             if(CheckBagHasItem(sPrioritisedReviveItems[i], 1))
             {
                 healingItemId = sPrioritisedReviveItems[i];
-                healingItemCount = 0;
+                healingItemCount = 1;
                 break;
             }
         }
@@ -3558,7 +3558,7 @@ static void CursorCb_QuickHeal(u8 taskId)
     if(healingItemId == ITEM_NONE || healingItemCount == 0)
     {
         PlaySE(SE_FAILURE);
-        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        gTasks[taskId].func = Task_TryCreateSelectionWindow;
     }
     else
     {
@@ -3601,6 +3601,7 @@ static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
         PlaySE(SE_SELECT);
         // fallthrough
     case 1:
+        ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
     }
