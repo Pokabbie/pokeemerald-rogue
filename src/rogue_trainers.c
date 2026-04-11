@@ -1655,6 +1655,21 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
     {
     case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+                fixedIV = 16;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+                fixedIV = 8;
+            else
+                fixedIV = 0;
+        }
+        else
+        {
+            fixedIV = 0;
+        }
+        break;
+
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
@@ -1662,10 +1677,10 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
                 fixedIV = 20;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 15;
-            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1)
                 fixedIV = 10;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
-                fixedIV = 8;
+                fixedIV = 5;
             else
                 fixedIV = 0;
         }
@@ -1776,7 +1791,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY + 1)
                 return TRUE;
             else
                 return FALSE;
@@ -1802,6 +1817,12 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
 static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 {
     u8 monCount = 0;
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(gRogueRun.gameRules.forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
 
     // Hack for EXP trainer
     if(monLevel == 1)
@@ -1814,42 +1835,37 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 
     if(Rogue_IsKeyTrainer(trainerNum))
     {
-        if(gRogueRun.gameRules.forceEndGameTrainers)
-            monCount = 6;
-        else
+        switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
         {
-            switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
-            {
-            case DIFFICULTY_LEVEL_EASY:
-            case DIFFICULTY_LEVEL_AVERAGE:
-                if(Rogue_GetCurrentDifficulty() == 0)
-                    monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
-                else if(Rogue_GetCurrentDifficulty() <= 1)
-                    monCount = 3;
-                else if(Rogue_GetCurrentDifficulty() <= 2)
-                    monCount = 4;
-                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY)
-                    monCount = 5;
-                else
-                    monCount = 6;
-                break;
-            
-            case DIFFICULTY_LEVEL_HARD:
-                if(Rogue_GetCurrentDifficulty() == 0)
-                    monCount = Rogue_IsRivalTrainer(trainerNum) ? 3 : 4;
-                else if(Rogue_GetCurrentDifficulty() == 1)
-                    monCount = 5;
-                else
-                    monCount = 6;
-                break;
-            
-            case DIFFICULTY_LEVEL_BRUTAL:
-                if(Rogue_GetCurrentDifficulty() == 0)
-                    monCount = Rogue_IsRivalTrainer(trainerNum) ? RIVAL_BASE_PARTY_SIZE : 6; // Haven't generate the rest of the party by this point
-                else
-                    monCount = 6;
-                break;
-            }
+        case DIFFICULTY_LEVEL_EASY:
+        case DIFFICULTY_LEVEL_AVERAGE:
+            if(difficulty == 0)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
+            else if(difficulty <= 1)
+                monCount = 3;
+            else if(difficulty <= 2)
+                monCount = 4;
+            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY)
+                monCount = 5;
+            else
+                monCount = 6;
+            break;
+        
+        case DIFFICULTY_LEVEL_HARD:
+            if(difficulty == 0)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? 3 : 4;
+            else if(difficulty == 1)
+                monCount = 5;
+            else
+                monCount = 6;
+            break;
+        
+        case DIFFICULTY_LEVEL_BRUTAL:
+            if(difficulty == 0)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? RIVAL_BASE_PARTY_SIZE : 6; // Haven't generate the rest of the party by this point
+            else
+                monCount = 6;
+            break;
         }
 
         // Clamp team boss to 5 mons on easy and avg
@@ -1864,17 +1880,17 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         u8 minMonCount;
         u8 maxMonCount;
 
-        if(Rogue_GetCurrentDifficulty() <= 1)
+        if(difficulty <= 1)
         {
             minMonCount = 1;
             maxMonCount = 2;
         }
-        else if(Rogue_GetCurrentDifficulty() <= 2)
+        else if(difficulty <= 2)
         {
             minMonCount = 1;
             maxMonCount = 3;
         }
-        else if(Rogue_GetCurrentDifficulty() <= ROGUE_CHAMP_START_DIFFICULTY - 1)
+        else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY - 1)
         {
             minMonCount = 2;
             maxMonCount = 4;
@@ -1914,22 +1930,26 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
         difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
     }
 
-    if(!Rogue_IsKeyTrainer(trainerNum))
-        return FALSE;
-
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
     {
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(difficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
-            return TRUE;
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY + 1)
+                return TRUE;
+        }
         return FALSE;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-            return TRUE;
+        
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY - 1)
+                return TRUE;
+        }
         return FALSE;
 
     case DIFFICULTY_LEVEL_BRUTAL:
@@ -3542,6 +3562,8 @@ static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16
 
 static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
 {
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
 #ifndef ROGUE_EXPANSION
     // Vanilla only: AI can't use trick
     if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
@@ -3615,10 +3637,10 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct R
     if(!ShouldTrainerUseValidTeraTypes(trainerNum))
         presetRules->skipTeraType = TRUE;
 #ifdef ROGUE_EXPANSION
-    else if(preset->teraType != TYPE_NONE)
+    // Prefer selecting a tera type that doesn't match our base type
+    else if(preset->teraType == TYPE_NONE || RoguePokedex_GetSpeciesType(species, 0) == preset->teraType || RoguePokedex_GetSpeciesType(species, 1) == preset->teraType)
     {
         // No tera type provided, so assign something here
-        u16 species = GetMonData(mon, MON_DATA_SPECIES);
         u8 bestStat = RoguePokedex_GetSpeciesBestStat(species);
         u16 types[NUMBER_OF_MON_TYPES];
         u32 typeCount = 0;
