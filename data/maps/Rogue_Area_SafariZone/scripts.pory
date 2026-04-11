@@ -6,9 +6,31 @@ script Rogue_Area_SafariZone_TalkSign
 
     msgbox(format("It's a sign which lists all of the Pokémon that have been recently sighted in the Safari Area!"))
     
-    special(RogueSafari_CompactEmptyEntries)
-    special(Special_SelectSafariMonInPokedex)
-    waitstate
+    begindynamicmultichoice
+    appenddynamicmultichoice("View Pokémon", 0)
+    appenddynamicmultichoice("Dismiss Pokémon", 1)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What would you like to do?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            special(RogueSafari_CompactEmptyEntries)
+            special(Special_SelectSafariMonInPokedex)
+            waitstate
+
+        case 1:
+            msgbox(format("Are you sure you want to Dismiss all the Pokémon currently in the Safari?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(RogueSafari_ResetAllRegularEntries)
+                special(ReloadWarpSilent)
+            }
+    }
 
     release
 }

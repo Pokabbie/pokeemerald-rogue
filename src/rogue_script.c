@@ -1785,8 +1785,8 @@ void Rogue_OnHealWithNurse()
     Rogue_RefillFlightCharges(TRUE);
 }
 
-#define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
-#define VAR_CATCH_CONTEST_STAT VAR_TEMP_3
+#define VAR_CATCH_CONTEST_TYPE VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
+#define VAR_CATCH_CONTEST_STAT VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
 
 void Rogue_SelectCatchingContestMode()
 {
@@ -1796,6 +1796,31 @@ void Rogue_SelectCatchingContestMode()
     while(!IS_STANDARD_TYPE(type))
     {
         type = Random() % NUMBER_OF_MON_TYPES;
+
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_KANTO_RBY)
+        {
+            switch (type)
+            {
+            case TYPE_DARK:
+            case TYPE_STEEL:
+#ifdef ROGUE_EXPANSION
+            case TYPE_FAIRY:
+#endif
+                type = TYPE_NONE;
+                break;
+            }
+        }
+#ifdef ROGUE_EXPANSION
+        else if(RoguePokedex_GetDexGenLimit() < 6)
+        {
+            switch (type)
+            {
+            case TYPE_FAIRY:
+                type = TYPE_NONE;
+                break;
+            }
+        }
+#endif
     }
 
     VarSet(VAR_CATCH_CONTEST_TYPE, type);

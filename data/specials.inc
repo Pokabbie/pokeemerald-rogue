@@ -302,7 +302,6 @@ gSpecials::
 	def_special Rogue_SetupDaycareSpeciesGraphics
 	def_special Rogue_HealAlivePlayerParty
 	def_special Rogue_OnHealWithNurse
-	def_special Rogue_SelectCatchingContestMode
 	def_special Rogue_BufferContestMode
 	def_special Rogue_CatchingContestBegin
 	def_special Rogue_CatchingContestEnd
@@ -335,6 +334,8 @@ gSpecials::
 	def_special RogueAdv_WarpLastInteractedRoom
 	def_special RoguePlayer_HandleEasterEggOutfitUnlocks
 	def_special RogueSafari_CompactEmptyEntries
+	def_special RogueSafari_ResetAllRegularEntries
+	def_special RogueSafari_ResetAllLegendEntries
 	def_special GameShow_RestartGameShow
 	def_special GameShow_SelectRandomSpecies
 	def_special GameShow_BufferSpecies
