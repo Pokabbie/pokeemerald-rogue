@@ -25,5 +25,7 @@ u16 RogueSafari_GetActivePokeballType();
 void RogueSafari_SetActivePokeballType(u16 itemId);
 
 void RogueSafari_CompactEmptyEntries();
+void RogueSafari_ResetAllRegularEntries();
+void RogueSafari_ResetAllLegendEntries();
 
 #endif

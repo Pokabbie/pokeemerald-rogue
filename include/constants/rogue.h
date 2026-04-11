@@ -769,7 +769,7 @@
 #define ROGUE_SAFARI_LEGENDS_START_INDEX    45
 #define ROGUE_SAFARI_TOTAL_CUSTOM_MONS      16
 
-#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 20
+#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 10
 
 #define LAB_MON_COUNT               3
 #define DAYCARE_SLOT_COUNT          3
@@ -823,10 +823,10 @@
 #define PIE_SIZE_MEDIUM     1
 #define PIE_SIZE_LARGE      2
 
-#define PIE_CRUST_AMOUNT                3
-#define PIE_SMALL_FILLING_AMOUNT        3
-#define PIE_MEDIUM_FILLING_AMOUNT       6
-#define PIE_LARGE_FILLING_AMOUNT        9
+#define PIE_CRUST_AMOUNT                2
+#define PIE_SMALL_FILLING_AMOUNT        1
+#define PIE_MEDIUM_FILLING_AMOUNT       3
+#define PIE_LARGE_FILLING_AMOUNT        6
 
 #include "rogue_pokedex.h"
 #include "rogue_quests.h"

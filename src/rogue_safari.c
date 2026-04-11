@@ -476,3 +476,23 @@ void RogueSafari_CompactEmptyEntries()
         }
     }
 }
+
+void RogueSafari_ResetAllRegularEntries()
+{
+    u8 i;
+
+    for(i = 0; i < ROGUE_SAFARI_LEGENDS_START_INDEX; ++i)
+    {
+        ZeroSafariMon(&gRogueSaveBlock->safariMons[i]);
+    }
+}
+
+void RogueSafari_ResetAllLegendEntries()
+{
+    u8 i;
+
+    for(i = ROGUE_SAFARI_LEGENDS_START_INDEX; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+    {
+        ZeroSafariMon(&gRogueSaveBlock->safariMons[i]);
+    }
+}
