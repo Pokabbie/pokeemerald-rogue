@@ -571,6 +571,11 @@ text gHubUpgradeDesc_DayCare_Phone
     format("Remotely access Day Care in and out of Adventures.")
 }
 
+text gHubUpgradeDesc_DayCare_Phone1
+{
+    format("Increases charges for remote Day Care access.")
+}
+
 text gHubUpgradeDesc_DayCare_Bakery
 {
     format("Bake {POKEBLOCK} into snacks used to improve IVs.")

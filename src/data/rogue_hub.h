@@ -44,6 +44,7 @@ extern const u8 gHubUpgradeDesc_DayCare_DayCareSlots[];
 extern const u8 gHubUpgradeDesc_DayCare_Breeder[];
 extern const u8 gHubUpgradeDesc_DayCare_BreederSeenDex[];
 extern const u8 gHubUpgradeDesc_DayCare_Phone[];
+extern const u8 gHubUpgradeDesc_DayCare_Phone1[];
 extern const u8 gHubUpgradeDesc_DayCare_Bakery[];
 extern const u8 gHubUpgradeDesc_DayCare_PokeblockBlenders[];
 extern const u8 gHubUpgradeDesc_DayCare_TreatShop[];
@@ -590,13 +591,29 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS, HUB_UPGRADE_NONE }, // reserved
         .isHidden = TRUE,
     },
-    [HUB_UPGRADE_DAY_CARE_PHONE] = 
+    [HUB_UPGRADE_DAY_CARE_PHONE0] = 
     {
-        .upgradeName = _("Day Care Phone"),
+        .upgradeName = _("Pokégear"),
         .targetArea = HUB_AREA_DAY_CARE,
         .buildCost = 7,
         .descText = gHubUpgradeDesc_DayCare_Phone,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_PHONE1] = 
+    {
+        .upgradeName = _("Pokégear+"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 9,
+        .descText = gHubUpgradeDesc_DayCare_Phone1,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_PHONE0, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_PHONE2] = 
+    {
+        .upgradeName = _("Pokégear++"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 12,
+        .descText = gHubUpgradeDesc_DayCare_Phone1,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_PHONE1, HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_DAY_CARE_TEA_SHOP] = 
     {

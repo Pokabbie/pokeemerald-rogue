@@ -80,7 +80,7 @@
 #define VAR_REGICE_STEPS_2                   0x403C
 #define VAR_REGICE_STEPS_3                   0x403D
 #define VAR_ROGUE_REMAINING_FLIGHT_CHARGES   0x403E
-#define VAR_LAST_REPEL_USED                  0x403F
+#define VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES 0x403F
 #define VAR_DAYS                             0x4040
 #define VAR_ROGUE_FLASK_HEALS_USED           0x4041
 #define VAR_ROGUE_FLASK_HEALS_MAX            0x4042
@@ -113,7 +113,7 @@
 #define VAR_UNUSED_0x405D                    0x405D
 #define VAR_UNUSED_0x405E                    0x405E
 #define VAR_UNUSED_0x405F                    0x405F 
-#define VAR_UNUSED_0x4060                    0x4060
+#define VAR_LAST_REPEL_USED                  0x4060
 
 #define VAR_ROGUE_ITEM0                      0x4061 
 #define VAR_ROGUE_ITEM1                      0x4062 
