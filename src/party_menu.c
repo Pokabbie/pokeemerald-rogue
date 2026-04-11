@@ -410,6 +410,7 @@ static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
 static void CursorCb_Release(u8);
 static void CursorCb_ReleaseField(u8);
+static void CursorCb_QuickHeal(u8);
 static void CursorCb_RenameField(u8);
 static void CursorCb_RelearnMoves(u8);
 static void CursorCb_Evolve(u8);
@@ -420,6 +421,7 @@ static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
+static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount);
 
 // static const data
 #include "data/party_menu.h"
@@ -2673,6 +2675,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if(!inCatchingContest)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_QUICK_HEAL);
         }
 
         if(!inCatchingContest && Rogue_CanRenameMon(&mons[slotId]))
@@ -3462,6 +3465,137 @@ static void Task_ReleaseSelectedMonYesNoInput(u8 taskId)
         ReleasePartyPokemon(GetCursorSelectionMonId(), TRUE);
 
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+        break;
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        // fallthrough
+    case 1:
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        break;
+    }
+}
+
+static void Task_QuickHealSelectedMonYesNo(u8 taskId);
+static void Task_QuickHealSelectedMonYesNoInput(u8 taskId);
+
+static const u16 sPrioritisedReviveItems[] =
+{
+    ITEM_REVIVE,
+    ITEM_REVIVAL_HERB,
+    ITEM_MAX_REVIVE,
+};
+
+static const u16 sPrioritisedHealingItems[] =
+{
+    ITEM_ORAN_BERRY,
+    ITEM_POTION,
+    ITEM_FRESH_WATER,
+    ITEM_SODA_POP,
+    ITEM_SUPER_POTION,
+    ITEM_LEMONADE,
+    ITEM_MOOMOO_MILK,
+    ITEM_HYPER_POTION,
+    ITEM_SITRUS_BERRY,
+    ITEM_MAX_POTION,
+    ITEM_FULL_RESTORE,
+};
+
+static void CursorCb_QuickHeal(u8 taskId)
+{
+    u16 healingItemId = ITEM_NONE;
+    u32 healingItemCount = 0;
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u32 hp = GetMonData(mon, MON_DATA_HP);
+    u32 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+
+    if(hp == 0)
+    {
+        u32 i;
+
+        for(i = 0; i < ARRAY_COUNT(sPrioritisedReviveItems); ++i)
+        {
+            if(CheckBagHasItem(sPrioritisedReviveItems[i], 1))
+            {
+                healingItemId = sPrioritisedReviveItems[i];
+                healingItemCount = 0;
+                break;
+            }
+        }
+    }
+    else if(hp < maxHp)
+    {
+        u32 i;
+
+        for(i = 0; i < ARRAY_COUNT(sPrioritisedHealingItems); ++i)
+        {
+            if(CheckBagHasItem(sPrioritisedHealingItems[i], 1))
+            {
+                healingItemId = sPrioritisedHealingItems[i];
+                break;
+            }
+        }
+
+        if(healingItemId != ITEM_NONE)
+        {
+            u32 healAmount = ItemId_GetHoldEffectParam(healingItemId);
+
+            if(healAmount == 255)
+            {
+                healingItemCount = 1;
+            }
+            else
+            {
+                u32 missingHp = maxHp - hp;
+                healingItemCount = 1 + ((missingHp - 1) / healAmount);
+            }
+        }
+    }
+    else
+    {
+        // todo - look for status items
+    }
+
+    if(healingItemId == ITEM_NONE || healingItemCount == 0)
+    {
+        PlaySE(SE_FAILURE);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    }
+    else
+    {
+        u32 numInBag = GetItemCountInBag(healingItemId);
+        gSpecialVar_ItemId = healingItemId;
+        gSpecialVar_0x8000 = min(healingItemCount, numInBag);
+
+        CopyItemNameHandlePlural(gSpecialVar_ItemId, gStringVar1, gSpecialVar_0x8000);
+        ConvertUIntToDecimalStringN(gStringVar2, numInBag, STR_CONV_MODE_LEFT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);
+        StringExpandPlaceholders(gStringVar4, gText_UseItemToQuickHeal);
+
+        PlaySE(SE_SELECT);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        gTasks[taskId].func = Task_QuickHealSelectedMonYesNo;
+    }
+}
+
+static void Task_QuickHealSelectedMonYesNo(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive() != TRUE)
+    {
+        PartyMenuDisplayYesNoMenu();
+        gTasks[taskId].func = Task_QuickHealSelectedMonYesNoInput;
+    }
+}
+
+static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:
+        PlaySE(SE_SELECT);
+        UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000);
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
@@ -4695,7 +4829,7 @@ static bool8 ExecuteTableBasedItemEffect_(u8 partyMonIndex, u16 item, u8 monMove
     return result;
 }
 
-void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
+static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
 {
     u16 hp = 0;
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -4708,14 +4842,23 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     }
     else
     {
+        u32 i;
         canHeal = IsHPRecoveryItem(item);
+
         if (canHeal == TRUE)
         {
             hp = GetMonData(mon, MON_DATA_HP);
             if (hp == GetMonData(mon, MON_DATA_MAX_HP))
                 canHeal = FALSE;
         }
-        cannotUse = ExecuteTableBasedItemEffect_(gPartyMenu.slotId, item, 0);
+
+        for(i = 0; i < itemCount; ++i)
+        {
+            if(i == 0)
+                cannotUse = ExecuteTableBasedItemEffect_(gPartyMenu.slotId, item, 0);
+            else
+                ExecuteTableBasedItemEffect_(gPartyMenu.slotId, item, 0);
+        }
     }
 
     if (cannotUse != FALSE)
@@ -4742,7 +4885,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         {
             PlaySE(SE_USE_ITEM);
             if (gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
-                RemoveBagItem(item, 1);
+                RemoveBagItem(item, itemCount);
         }
         else
         {
@@ -4787,6 +4930,11 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             }
         }
     }
+}
+
+void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
+{
+    UseMedicineInternal(taskId, task, 1);
 }
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
