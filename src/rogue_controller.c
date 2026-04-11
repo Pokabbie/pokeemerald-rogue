@@ -219,6 +219,8 @@ static void ClearHoneyTreePokeblock(void);
 
 static void SetupTrainerBattleInternal(u16 trainerNum);
 
+void Rogue_SelectCatchingContestMode();
+
 u16 RogueRandomRange(u16 range, u8 flag)
 {
     // Always use rogue random to avoid seeding issues based on flag
@@ -5606,6 +5608,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_CATCHING_CONTEST:
                 {
+                    Rogue_SelectCatchingContestMode();
                     break;
                 }
 

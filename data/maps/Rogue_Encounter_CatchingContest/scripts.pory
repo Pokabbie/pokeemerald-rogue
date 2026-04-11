@@ -1,8 +1,8 @@
-const VAR_CONTEST_STATE = VAR_TEMP_0
+const VAR_CONTEST_STATE = VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 
 // Keep in sync with Rogue_SelectCatchingContestMode
-const VAR_CURRENT_TYPE = VAR_TEMP_2
-const VAR_CURRENT_STAT = VAR_TEMP_3
+const VAR_CURRENT_TYPE = VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
+const VAR_CURRENT_STAT = VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
 
 const NPC_OBJ_HOST = 1
 
@@ -17,7 +17,6 @@ mapscripts Rogue_Encounter_CatchingContest_MapScripts
 
 script Rogue_Encounter_CatchingContest_OnLoad
 {
-    special(Rogue_SelectCatchingContestMode)
     setvar(VAR_CONTEST_STATE, 0)
 }
 

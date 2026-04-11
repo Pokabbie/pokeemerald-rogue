@@ -302,7 +302,6 @@ gSpecials::
 	def_special Rogue_SetupDaycareSpeciesGraphics
 	def_special Rogue_HealAlivePlayerParty
 	def_special Rogue_OnHealWithNurse
-	def_special Rogue_SelectCatchingContestMode
 	def_special Rogue_BufferContestMode
 	def_special Rogue_CatchingContestBegin
 	def_special Rogue_CatchingContestEnd
