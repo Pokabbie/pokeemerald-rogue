@@ -5250,6 +5250,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
     {
         u32 i;
         canHeal = IsHPRecoveryItem(item);
+        cannotUse = TRUE;
 
         if (canHeal == TRUE)
         {
@@ -5315,6 +5316,11 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
                 gTasks[taskId].func = task;
         }
     }
+}
+
+void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
+{
+    UseMedicineInternal(taskId, task, 1);
 }
 
 #define tState      data[0]
