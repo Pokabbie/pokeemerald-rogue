@@ -609,16 +609,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
                 break;
         }
 
-#ifdef ROGUE_EXPANSION
-        if(evo.targetSpecies == SPECIES_GIMMIGHOUL_ROAMING)
-        {
-		    // Speculative dev code
-            DebugPrintf("Gimmighoul edge case: %i > %i", species, evo.targetSpecies);
-            AGB_ASSERT(FALSE);
-            continue;
-        }
-#endif
-
         // If we reach here we're allowed to evolve
         SetQueryBitFlag(evo.targetSpecies, TRUE);
 
@@ -971,6 +961,16 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     u32 genLimit = RoguePokedex_GetDexGenLimit();
     u32 species = Rogue_GetEggSpecies(inSpecies);
 
+#ifdef ROGUE_EXPANSION
+    // Edge case ;-;
+    switch (species)
+    {
+    case SPECIES_GIMMIGHOUL_ROAMING:
+        species = SPECIES_GIMMIGHOUL_CHEST;
+        break;
+    }
+#endif
+
     if(genLimit == 1)
     {
         // Check egg species
@@ -1135,8 +1135,8 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
             if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
-            if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
+            if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR) // never let this spawn
+                return FALSE;
 
             // Gen8
             if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)

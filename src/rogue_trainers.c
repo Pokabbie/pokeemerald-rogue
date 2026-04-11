@@ -1838,6 +1838,18 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
         {
         case DIFFICULTY_LEVEL_EASY:
+            if(difficulty == 0)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
+            else if(difficulty <= 1)
+                monCount = 3;
+            else if(difficulty <= 2)
+                monCount = 4;
+            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY - 1)
+                monCount = 5;
+            else
+                monCount = 6;
+            break;
+
         case DIFFICULTY_LEVEL_AVERAGE:
             if(difficulty == 0)
                 monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
@@ -1845,7 +1857,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                 monCount = 3;
             else if(difficulty <= 2)
                 monCount = 4;
-            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY)
+            else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY - 1)
                 monCount = 5;
             else
                 monCount = 6;
@@ -3037,27 +3049,6 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
         {
             // Just put it to some really high number if we failed, as we need to move to the next subset
             scratch->subsetSampleCount = 128;
-        }
-        else
-        {
-#ifdef ROGUE_EXPANSION
-            // Common bug species :(
-            // (Not really sure what the underlying cause is so handle these here)
-            AGB_ASSERT(species != SPECIES_GIMMIGHOUL_ROAMING);
-            AGB_ASSERT(species != SPECIES_MAGEARNA_ORIGINAL_COLOR);
-
-            if(species == SPECIES_GIMMIGHOUL_ROAMING)
-            {
-                if(scratch->allowItemEvos)
-                    species = SPECIES_GHOLDENGO;
-                else
-                    species = SPECIES_GIMMIGHOUL;
-            }
-            else if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-            {
-                species = SPECIES_MAGEARNA;
-            }
-#endif
         }
 
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
