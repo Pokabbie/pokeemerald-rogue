@@ -3596,6 +3596,7 @@ static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
     case 0:
         PlaySE(SE_SELECT);
         UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000);
+        gSpecialVar_ItemId = ITEM_NONE;
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
@@ -3603,6 +3604,7 @@ static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
     case 1:
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        gSpecialVar_ItemId = ITEM_NONE;
         break;
     }
 }
