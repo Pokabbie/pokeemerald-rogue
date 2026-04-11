@@ -1838,6 +1838,18 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
         {
         case DIFFICULTY_LEVEL_EASY:
+            if(difficulty == 0)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
+            else if(difficulty <= 1)
+                monCount = 3;
+            else if(difficulty <= 2)
+                monCount = 4;
+            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY - 1)
+                monCount = 5;
+            else
+                monCount = 6;
+            break;
+
         case DIFFICULTY_LEVEL_AVERAGE:
             if(difficulty == 0)
                 monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
@@ -1845,7 +1857,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                 monCount = 3;
             else if(difficulty <= 2)
                 monCount = 4;
-            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY)
+            else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY - 1)
                 monCount = 5;
             else
                 monCount = 6;
