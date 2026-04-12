@@ -2159,23 +2159,26 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        // Spawn in order ofr left to right, to prioritise objects nearer to us
+        // Spawn rows at a time, focusing on rows in the centre of the screen
         if(RogueAdv_IsViewingPath())
         {
-            s16 currX;
-            s16 minX = 0;
-            s16 maxX = 0;
+            s16 centreHeight = gSaveBlock1Ptr->pos.y + 8;
+            s16 maxHeightRadius = 0;
+            s16 currHeightRadius;
+
+            // Make narrower 
+            left  += +2;
+            right += -2;
 
             for (i = 0; i < objectCount; i++)
             {
                 const struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
-                s16 npcX = template->x + MAP_OFFSET;
-                minX = min(minX, npcX);
-                maxX = max(maxX, npcX);
+                s16 npcY = template->y + MAP_OFFSET;
+                maxHeightRadius = max(maxHeightRadius, abs(centreHeight - npcY));
             }
 
             // Process coord at a time
-            for(currX = minX; currX <= maxX; ++currX)
+            for(currHeightRadius = 0; currHeightRadius <= maxHeightRadius; ++currHeightRadius)
             {
                 for (i = 0; i < objectCount; i++)
                 {
@@ -2183,7 +2186,7 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
                     s16 npcX = template->x + MAP_OFFSET;
                     s16 npcY = template->y + MAP_OFFSET;
 
-                    if(currX == npcX)
+                    if(npcY >= centreHeight - currHeightRadius && npcY <= centreHeight + currHeightRadius)
                     {
                         if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
                             && !FlagGet(template->flagId))
@@ -2246,6 +2249,8 @@ static void RemoveObjectEventIfOutsideView(struct ObjectEvent *objectEvent)
         // Apply tighter bounds once still (e.g. at end of movement)
         if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
         {
+            left    += +2;
+            right   += -3;
             top     += +1;
             bottom  += -1;
         }        
@@ -2866,11 +2871,21 @@ void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
 {
     UpdateObjectEventCoordsForCameraUpdate();
 
-    if(RogueAdv_IsViewingPath() && gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+    if(RogueAdv_IsViewingPath())
     {
-        // We now have a tighter view because we are still so attempt to spawn objects
         RemoveObjectEventsOutsideView();
         TrySpawnObjectEvents(x, y);
+
+        // Do this once we finish the movement, not start
+        //if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        //{
+        //    RemoveObjectEventsOutsideView();
+        //    TrySpawnObjectEvents(x, y);
+        //}
+        //else
+        //{
+//
+        //}
     }
     else
     {
