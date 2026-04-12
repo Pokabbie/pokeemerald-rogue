@@ -319,6 +319,7 @@ static u8 GetPartyLayoutFromBattleType(void);
 static void Task_SetSacredAshCB(u8);
 static void CB2_ReturnToBagMenu(void);
 static void Task_DisplayHPRestoredMessage(u8);
+static void Task_DisplayHPRestoredMessage_StayInMenu(u8);
 static u16 ItemEffectToMonEv(struct Pokemon*, u8);
 static void ItemEffectToStatString(u8, u8*);
 static void ReturnToUseOnWhichMon(u8);
@@ -421,7 +422,7 @@ static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
-static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount);
+static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu);
 
 // static const data
 #include "data/party_menu.h"
@@ -3500,6 +3501,102 @@ static const u16 sPrioritisedHealingItems[] =
     ITEM_FULL_RESTORE,
 };
 
+static const u16 sPrioritisedStatusItems_Sleep[] =
+{
+    ITEM_AWAKENING,
+    ITEM_CHESTO_BERRY,
+#ifdef ROGUE_EXPANSION
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
+    ITEM_LAVA_COOKIE,
+    ITEM_OLD_GATEAU,
+    ITEM_CASTELIACONE,
+    ITEM_LUMIOSE_GALETTE,
+    ITEM_SHALOUR_SABLE,
+    ITEM_BIG_MALASADA,
+#else
+    ITEM_LAVA_COOKIE,
+#endif
+    ITEM_FULL_HEAL,
+    ITEM_LUM_BERRY,
+};
+static const u16 sPrioritisedStatusItems_Poison[] =
+{
+    ITEM_ANTIDOTE,
+    ITEM_PECHA_BERRY,
+#ifdef ROGUE_EXPANSION
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
+    ITEM_LAVA_COOKIE,
+    ITEM_OLD_GATEAU,
+    ITEM_CASTELIACONE,
+    ITEM_LUMIOSE_GALETTE,
+    ITEM_SHALOUR_SABLE,
+    ITEM_BIG_MALASADA,
+#else
+    ITEM_LAVA_COOKIE,
+#endif
+    ITEM_FULL_HEAL,
+    ITEM_LUM_BERRY,
+};
+static const u16 sPrioritisedStatusItems_Burn[] =
+{
+    ITEM_BURN_HEAL,
+    ITEM_RAWST_BERRY,
+#ifdef ROGUE_EXPANSION
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
+    ITEM_LAVA_COOKIE,
+    ITEM_OLD_GATEAU,
+    ITEM_CASTELIACONE,
+    ITEM_LUMIOSE_GALETTE,
+    ITEM_SHALOUR_SABLE,
+    ITEM_BIG_MALASADA,
+#else
+    ITEM_LAVA_COOKIE,
+#endif
+    ITEM_FULL_HEAL,
+    ITEM_LUM_BERRY,
+};
+static const u16 sPrioritisedStatusItems_Freeze[] =
+{
+    ITEM_ICE_HEAL,
+    ITEM_ASPEAR_BERRY,
+#ifdef ROGUE_EXPANSION
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
+    ITEM_LAVA_COOKIE,
+    ITEM_OLD_GATEAU,
+    ITEM_CASTELIACONE,
+    ITEM_LUMIOSE_GALETTE,
+    ITEM_SHALOUR_SABLE,
+    ITEM_BIG_MALASADA,
+#else
+    ITEM_LAVA_COOKIE,
+#endif
+    ITEM_FULL_HEAL,
+    ITEM_LUM_BERRY,
+};
+static const u16 sPrioritisedStatusItems_Paralysis[] =
+{
+    ITEM_PARALYZE_HEAL,
+    ITEM_CHERI_BERRY,
+#ifdef ROGUE_EXPANSION
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
+    ITEM_LAVA_COOKIE,
+    ITEM_OLD_GATEAU,
+    ITEM_CASTELIACONE,
+    ITEM_LUMIOSE_GALETTE,
+    ITEM_SHALOUR_SABLE,
+    ITEM_BIG_MALASADA,
+#else
+    ITEM_LAVA_COOKIE,
+#endif
+    ITEM_FULL_HEAL,
+    ITEM_LUM_BERRY,
+};
+
 static void CursorCb_QuickHeal(u8 taskId)
 {
     u16 healingItemId = ITEM_NONE;
@@ -3507,6 +3604,7 @@ static void CursorCb_QuickHeal(u8 taskId)
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     u32 hp = GetMonData(mon, MON_DATA_HP);
     u32 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+    u32 status = GetMonData(mon, MON_DATA_STATUS);
 
     if(hp == 0)
     {
@@ -3550,9 +3648,51 @@ static void CursorCb_QuickHeal(u8 taskId)
             }
         }
     }
-    else
+    else // try apply status items if at full health
     {
-        // todo - look for status items
+        u16 const *prioritisedStatusItems = NULL;
+        u32 prioritisedStatusItemCount = 0;
+
+        if(status & STATUS1_SLEEP)
+        {
+            prioritisedStatusItems = sPrioritisedStatusItems_Sleep;
+            prioritisedStatusItemCount = ARRAY_COUNT(sPrioritisedStatusItems_Sleep);
+        }
+        else if(status & STATUS1_PSN_ANY)
+        {
+            prioritisedStatusItems = sPrioritisedStatusItems_Poison;
+            prioritisedStatusItemCount = ARRAY_COUNT(sPrioritisedStatusItems_Poison);
+        }
+        else if(status & STATUS1_BURN)
+        {
+            prioritisedStatusItems = sPrioritisedStatusItems_Burn;
+            prioritisedStatusItemCount = ARRAY_COUNT(sPrioritisedStatusItems_Burn);
+        }
+        else if(status & STATUS1_FREEZE)
+        {
+            prioritisedStatusItems = sPrioritisedStatusItems_Freeze;
+            prioritisedStatusItemCount = ARRAY_COUNT(sPrioritisedStatusItems_Freeze);
+        }
+        else if(status & STATUS1_PARALYSIS)
+        {
+            prioritisedStatusItems = sPrioritisedStatusItems_Paralysis;
+            prioritisedStatusItemCount = ARRAY_COUNT(sPrioritisedStatusItems_Paralysis);
+        }
+
+        if(prioritisedStatusItems != NULL)
+        {
+            u32 i;
+
+            for(i = 0; i < prioritisedStatusItemCount; ++i)
+            {
+                if(CheckBagHasItem(prioritisedStatusItems[i], 1))
+                {
+                    healingItemId = prioritisedStatusItems[i];
+                    healingItemCount = 1;
+                    break;
+                }
+            }
+        }
     }
 
     if(healingItemId == ITEM_NONE || healingItemCount == 0)
@@ -3595,7 +3735,7 @@ static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
     {
     case 0:
         PlaySE(SE_SELECT);
-        UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000);
+        UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000, TRUE);
         gSpecialVar_ItemId = ITEM_NONE;
         break;
     case MENU_B_PRESSED:
@@ -4832,7 +4972,7 @@ static bool8 ExecuteTableBasedItemEffect_(u8 partyMonIndex, u16 item, u8 monMove
     return result;
 }
 
-static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
+static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu)
 {
     u16 hp = 0;
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -4876,7 +5016,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
 
         ScheduleBgCopyTilemapToVram(2);
 
-        if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1))
+        if (forceStayInPartyMenu || ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1)))
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = task;
@@ -4901,7 +5041,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
         {
             if (hp == 0)
                 AnimatePartySlot(gPartyMenu.slotId, 1);
-            PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, Task_DisplayHPRestoredMessage);
+            PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, forceStayInPartyMenu ? Task_DisplayHPRestoredMessage_StayInMenu : Task_DisplayHPRestoredMessage);
             ResetHPTaskData(taskId, 0, hp);
             return;
         }
@@ -4916,7 +5056,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
             {
                 if (hp == 0)
                     AnimatePartySlot(gPartyMenu.slotId, 1);
-                PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, Task_DisplayHPRestoredMessage);
+                PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, forceStayInPartyMenu ? Task_DisplayHPRestoredMessage_StayInMenu : Task_DisplayHPRestoredMessage);
                 ResetHPTaskData(taskId, 0, hp);
                 return;
             }
@@ -4926,7 +5066,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
                 GetMedicineItemEffectMessage(item);
                 DisplayPartyMenuMessage(gStringVar4, TRUE);
                 ScheduleBgCopyTilemapToVram(2);
-                if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1))
+                if (forceStayInPartyMenu || ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1)))
                     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
                 else
                     gTasks[taskId].func = task;
@@ -4937,7 +5077,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount)
 
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 {
-    UseMedicineInternal(taskId, task, 1);
+    UseMedicineInternal(taskId, task, 1, FALSE);
 }
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
@@ -4952,6 +5092,17 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
     else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+}
+
+static void Task_DisplayHPRestoredMessage_StayInMenu(u8 taskId)
+{
+    GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
+    StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+    DisplayPartyMenuMessage(gStringVar4, FALSE);
+    ScheduleBgCopyTilemapToVram(2);
+    HandleBattleLowHpMusicChange();
+
+    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 }
 
 static void Task_ClosePartyMenuAfterText(u8 taskId)
