@@ -19,6 +19,7 @@
 #include "string_util.h"
 #include "text.h"
 #include "item.h"
+#include "item_menu.h"
 #include "overworld.h"
 #include "menu.h"
 #include "sound.h"
@@ -986,6 +987,13 @@ static void Task_PageFadeOutAndExit(u8 taskId)
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
+
+        if(sPokedexViewReq.inBattleScreen)
+        {
+            // If this is set to a healing item, it thinks we're trying to heal a mon
+            // i.e. it hasn't been cleared since last heal was used
+            gSpecialVar_ItemId = ITEM_NONE;
+        }
 
         if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
         {
