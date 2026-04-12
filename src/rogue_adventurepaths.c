@@ -919,7 +919,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             if(GetPathGenerationDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2)
             {
                 // Only activate after 2nd badge
-                weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
+                weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 6;
             }
             else if(GetPathGenerationDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
             {
