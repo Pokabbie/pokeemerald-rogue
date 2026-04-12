@@ -103,6 +103,7 @@ static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT
 
 static u8 const sMenuName_GameMode_Standard[] = _("Standard");
 static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
+static u8 const sMenuName_GameMode_Experimental[] = _("Experimental");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
@@ -330,6 +331,12 @@ static u8 const sMenuNameDesc_GameMode_Gauntlet[] = _(
     "Trainers back to back without a chance\n"
     "to catch any {PKMN}. (Disables Challenges)"
 );
+static u8 const sMenuNameDesc_GameMode_Experimental[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "This Experiment should result in faster\n"
+    "Adventures. Subject to change.\n"
+    "(All Quests still Enabled)"
+);
 
 
 static const u8 sText_DifficultyExpAllDescOff[] = _(
@@ -480,10 +487,8 @@ enum
     MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
     MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
-    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
-    MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
     MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
-    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
+    MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG_SUBMENU,
@@ -851,6 +856,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
+    [MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL] = 
+    {
+        .itemName = sMenuName_GameMode_Experimental,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_Experimental),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
+    },
 
 #ifdef ROGUE_DEBUG
     [MENUITEM_MENU_DEBUG_SUBMENU] = 
@@ -1062,6 +1074,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
             MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
+            MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL,
             MENUITEM_CANCEL
         }
     },
@@ -2231,6 +2244,7 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL:
         return Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == (ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
 
 #ifdef ROGUE_DEBUG
@@ -2405,6 +2419,7 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL:
         if(value != 0)
             Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
         else

@@ -59,6 +59,10 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
+    [ROGUE_GAME_MODE_EXPERIMENTAL] = 
+    {
+        .adventureGenerator = ADV_GENERATOR_EXPERIMENTAL,
+    }
 };
 
 EWRAM_DATA struct RogueDifficultyLocal gRogueDifficultyLocal;
@@ -265,6 +269,7 @@ bool8 Rogue_CanEditConfig()
 void Rogue_GenerateModeRules(struct GameModeRules* outRules)
 {
     u8 mode = Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM);
+    DebugPrintf("gameMode: %d", mode);
     AGB_ASSERT(mode < ROGUE_GAME_MODE_COUNT);
 
     memcpy(outRules, &sGameModeRules[mode], sizeof(struct GameModeRules));
@@ -274,6 +279,21 @@ void Rogue_GenerateModeRules(struct GameModeRules* outRules)
     {
         outRules->disableChallengeQuests = TRUE;
     }
+
+    DebugPrintf("initialLevelOffset: %d", outRules->initialLevelOffset);
+    DebugPrintf("levelOffsetInterval: %d", outRules->levelOffsetInterval);
+    DebugPrintf("enterPartySize: %d", outRules->enterPartySize);
+    DebugPrintf("adventureGenerator: %d", outRules->adventureGenerator);
+    DebugPrintf("trainerOrder: %d", outRules->trainerOrder);
+    DebugPrintf("disableMainQuests: %d", outRules->disableMainQuests);
+    DebugPrintf("disableChallengeQuests: %d", outRules->disableChallengeQuests);
+    DebugPrintf("disablePerBadgeLvlCaps: %d", outRules->disablePerBadgeLvlCaps);
+    DebugPrintf("forceEndGameTrainers: %d", outRules->forceEndGameTrainers);
+    DebugPrintf("forceEndGameRouteItems: %d", outRules->forceEndGameRouteItems);
+    DebugPrintf("forceRandomanAlwaysActive: %d", outRules->forceRandomanAlwaysActive);
+    DebugPrintf("disableRivalEncounters: %d", outRules->disableRivalEncounters);
+    DebugPrintf("disableRouteTrainers: %d", outRules->disableRouteTrainers);
+    DebugPrintf("forceFullShopInventory: %d", outRules->forceFullShopInventory);
 }
 
 bool8 Rogue_ShouldDisableMainQuests()
