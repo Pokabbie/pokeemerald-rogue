@@ -2140,13 +2140,6 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
-static bool8 ShouldSpawnObjectEventsLeftToRight()
-{
-    // If adventure path screen, there can sometimes be too many objects
-    // so prioritise spawning earliest objects
-    return RogueAdv_IsViewingPath();
-}
-
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
 {
     u8 i;
@@ -2166,7 +2159,8 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        if(ShouldSpawnObjectEventsLeftToRight())
+        // Spawn in order ofr left to right, to prioritise objects nearer to us
+        if(RogueAdv_IsViewingPath())
         {
             s16 currX;
             s16 minX = 0;
@@ -2243,6 +2237,19 @@ static void RemoveObjectEventIfOutsideView(struct ObjectEvent *objectEvent)
     s16 right =  gSaveBlock1Ptr->pos.x + 17;
     s16 top =    gSaveBlock1Ptr->pos.y;
     s16 bottom = gSaveBlock1Ptr->pos.y + 16;
+
+    if(RogueAdv_IsViewingPath())
+    {
+        top     = gSaveBlock1Ptr->pos.y + 1;
+        bottom  = gSaveBlock1Ptr->pos.y + 13;
+
+        // Apply tighter bounds once still (e.g. at end of movement)
+        if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        {
+            top     += +1;
+            bottom  += -1;
+        }        
+    }
 
     if (objectEvent->currentCoords.x >= left && objectEvent->currentCoords.x <= right
      && objectEvent->currentCoords.y >= top && objectEvent->currentCoords.y <= bottom)
@@ -2858,8 +2865,18 @@ static bool8 ObjectEventDoesElevationMatch(struct ObjectEvent *objectEvent, u8 e
 void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
 {
     UpdateObjectEventCoordsForCameraUpdate();
-    TrySpawnObjectEvents(x, y);
-    RemoveObjectEventsOutsideView();
+
+    if(RogueAdv_IsViewingPath() && gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+    {
+        // We now have a tighter view because we are still so attempt to spawn objects
+        RemoveObjectEventsOutsideView();
+        TrySpawnObjectEvents(x, y);
+    }
+    else
+    {
+        TrySpawnObjectEvents(x, y);
+        RemoveObjectEventsOutsideView();
+    }
 }
 
 #define sLinkedSpriteId data[0]
