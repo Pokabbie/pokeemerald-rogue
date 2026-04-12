@@ -1830,6 +1830,7 @@ static u16 QueryShopItemListCallback(u16 index)
         u8 currDifficulty;
         u8 sortMode = ITEM_SORT_MODE_TYPE;
         bool8 flipSort = FALSE;
+        bool8 showInventoryChanges = TRUE;
 
         currDifficulty = Rogue_GetCurrentDifficulty();
         prevDifficulty = currDifficulty;
@@ -1838,7 +1839,7 @@ static u16 QueryShopItemListCallback(u16 index)
         {
             prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
 
-            if(prevDifficulty > ROGUE_MAX_BOSS_COUNT)
+            if(prevDifficulty >= ROGUE_MAX_BOSS_COUNT)
             {
                 // Never visited shop so far
                 prevDifficulty = currDifficulty;
@@ -1855,12 +1856,16 @@ static u16 QueryShopItemListCallback(u16 index)
         case ROGUE_SHOP_CHARMS:
         case ROGUE_SHOP_CURSES:
         case ROGUE_SHOP_TMS:
+            sortMode = ITEM_SORT_MODE_NAME;
+            showInventoryChanges = TRUE;
+            break;
+
         case ROGUE_SHOP_COURIER:
             sortMode = ITEM_SORT_MODE_NAME;
             break;
         }
 
-        if(prevDifficulty != currDifficulty)
+        if(showInventoryChanges && prevDifficulty != currDifficulty)
         {
             u16 temp = 0;
 
