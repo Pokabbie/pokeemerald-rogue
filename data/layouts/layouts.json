@@ -2130,6 +2130,16 @@
       "secondary_tileset": "gTileset_CaveAlt",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_BATTLE_TOWER",
+      "name": "Rogue_Encounter_BattleTower_Layout",
+      "width": 18,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/Rogue_Encounter_BattleTower/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_BattleTower/map.bin"
     }
   ]
 }

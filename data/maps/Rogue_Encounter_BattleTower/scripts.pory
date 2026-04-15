@@ -1,0 +1,39 @@
+const FLAG_HAS_COLLECTED = FLAG_TEMP_1
+
+mapscripts Rogue_Encounter_BattleTower_MapScripts 
+{
+}
+
+script Rogue_Encounter_BattleTower_TalkReward
+{
+    lock
+    faceplayer
+
+    if(flag(FLAG_HAS_COLLECTED))
+    {
+        msgbox(format("Good luck on your Adventure!"))
+    }
+    else
+    {
+        special(Rogue_HasDefeatedAllRouteTrainers)
+
+        if(var(VAR_RESULT) == TRUE)
+        {
+            setflag(FLAG_HAS_COLLECTED)
+
+            msgbox(format("Oh, my!\nYou've defeated all the Trainers.\pHere let me heal up your team."))
+            
+            call(Common_EventScript_OutOfCenterPartyHeal)
+
+            msgbox(format("And, of course, your reward!"))
+
+            special(Rogue_BattleTower_GiveReward)
+        }
+        else
+        {
+            msgbox(format("If you can defeat all of the Tower Trainers, I'll happily give you a reward!"))
+        }
+    }
+
+    release
+}

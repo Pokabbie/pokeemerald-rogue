@@ -156,19 +156,19 @@ script Rogue_Encounter_CatchingContest_EndContest
             {
                 addmoney(15000)
                 playfanfare(MUS_OBTAIN_TMHM)
-                message(format("You won ¥15000!"))
+                message(format("Received ¥15000!"))
             }
             elif(var(VAR_ROGUE_DIFFICULTY) >= ROGUE_GYM_MID_DIFFICULTY)
             {
                 addmoney(10000)
                 playfanfare(MUS_OBTAIN_TMHM)
-                message(format("You won ¥10000!"))
+                message(format("Received ¥10000!"))
             }
             else
             {
                 addmoney(5000)
                 playfanfare(MUS_OBTAIN_TMHM)
-                message(format("You won ¥5000!"))
+                message(format("Received ¥5000!"))
             }
 
             waitfanfare

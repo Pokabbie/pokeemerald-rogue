@@ -7,6 +7,7 @@
 
 #include "battle_main.h"
 #include "battle_message.h"
+#include "battle_setup.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
@@ -1076,6 +1077,22 @@ void Rogue_GetTrainerNum(void)
     else
     {
         gSpecialVar_Result = FALSE;
+    }
+}
+
+void Rogue_HasDefeatedAllRouteTrainers()
+{
+    u32 i;
+    gSpecialVar_Result = TRUE;
+    
+    for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+    {
+        u16 trainerNum = Rogue_GetDynamicTrainer(i);
+        if(trainerNum != TRAINER_NONE && !HasTrainerBeenFought(trainerNum))
+        {
+            gSpecialVar_Result = FALSE;
+            return;
+        }
     }
 }
 
@@ -2185,6 +2202,10 @@ void Rogue_BattleSim_WagerItem()
     {
         amount = 1;
     }
+    else if(itemId == ITEM_RARE_CANDY)
+    {
+        amount = 5;
+    }
     else
     {
         u32 targetAmount = ItemId_GetPrice(ITEM_RARE_CANDY) * 10;
@@ -2319,6 +2340,37 @@ void Rogue_BattleSim_HandleItemMoney()
         RemoveMoney(&gSaveBlock1Ptr->money, money);
         Rogue_PushPopup_LostMoney(money);
     }
+}
+
+void Rogue_BattleTower_GiveReward()
+{
+    RAND_TYPE rngSeedToRestore = gRngRogueValue;
+
+    SeedRogueRng(VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA));
+
+    if(RogueRandomChance(20, 0) && AddBagItem(ITEM_MAX_POTION, 3))
+    {
+        Rogue_PushPopup_AddItem(ITEM_MAX_POTION, 3);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_ULTRA_BALL, 10))
+    {
+        Rogue_PushPopup_AddItem(ITEM_ULTRA_BALL, 10);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_RARE_CANDY, 5))
+    {
+        Rogue_PushPopup_AddItem(ITEM_RARE_CANDY, 5);
+    }
+    else if(AddBagItem(ITEM_POKE_BALL, 20))
+    {
+        Rogue_PushPopup_AddItem(ITEM_POKE_BALL, 20);
+    }
+    else
+    {
+        AddMoney(&gSaveBlock1Ptr->money, 8000);
+        Rogue_PushPopup_AddMoney(8000);
+    }
+    
+    gRngRogueValue = rngSeedToRestore;
 }
 
 #undef VAR_WAGER_PARAM0

@@ -642,13 +642,16 @@ bool8 Rogue_ShouldTrainerTrySetup(u16 trainerNum)
         break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(Rogue_IsKeyTrainer(trainerNum))
-            return TRUE;
-        else
-            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY);
+        return Rogue_IsKeyTrainer(trainerNum);
         break;
 
     case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return TRUE;
+        else
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY);
+        break;
+
     case DIFFICULTY_LEVEL_BRUTAL:
             return TRUE;
         break;
@@ -1892,7 +1895,25 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         u8 minMonCount;
         u8 maxMonCount;
 
-        if(difficulty <= 1)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
+        {
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            {
+                minMonCount = 3;
+                maxMonCount = 3;
+            }
+            else if(difficulty >= ROGUE_GYM_MID_DIFFICULTY - 1)
+            {
+                minMonCount = 2;
+                maxMonCount = 3;
+            }
+            else
+            {
+                minMonCount = 1;
+                maxMonCount = 3;
+            }
+        }
+        else if(difficulty <= 1)
         {
             minMonCount = 1;
             maxMonCount = 2;
