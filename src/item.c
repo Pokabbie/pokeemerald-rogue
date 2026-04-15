@@ -173,8 +173,8 @@ u16 GetBagReservedTotalSlots()
 
 void RemoveEmptyBagItems(void)
 {
-    u16 read;
-    u16 write;
+    u16 read = 0;
+    u16 write = 0;
 
     for (read = 0; read < BAG_ITEM_CAPACITY; read++)
     {
