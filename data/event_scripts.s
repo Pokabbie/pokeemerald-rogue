@@ -897,3 +897,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Sinnoh_MtCoronet/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_IronIsland/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_BattleTower/scripts.inc"

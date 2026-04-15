@@ -460,13 +460,14 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
 
     // Usually only allow 1, but encourage multiple in experimental
     case ADVPATH_ROOM_BATTLE_SIM:
+    case ADVPATH_ROOM_BATTLE_TOWER:
         if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             count = CountRoomType(roomType);
             if(count >= 2)
+                return 0;
+            else if(count >= 1)
                 return 1;
-            else if(count != 0)
-                return 3;
             else
                 return 10;
         }
@@ -614,18 +615,21 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
     case ADVPATH_ROOM_CATCHING_CONTEST:
     case ADVPATH_ROOM_GAMESHOW:
     case ADVPATH_ROOM_BATTLE_SIM:
-        // Don't want to place in first column
-        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
-            weight -= 40;
-        // Like being placed in the middle columns but can occasionally end up in other one
-        else if(existingRoom->coords.x > 2)
-            weight += 80;
-
+    case ADVPATH_ROOM_BATTLE_TOWER:
         if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // Don't place after or before the same type
             if(IsPrecededByRoomType(existingRoom, roomType) || IsProceededByRoomType(existingRoom, roomType))
                 weight = 0;
+        }
+        else
+        {
+            // Don't want to place in first column
+            if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+                weight -= 40;
+            // Like being placed in the middle columns but can occasionally end up in other one
+            else if(existingRoom->coords.x > 2)
+                weight += 80;
         }
         break;
 
@@ -821,13 +825,17 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     else if(gRogueRun.gameRules.adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SIGN;
 
+    // Battle Tower
+    if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY)
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_TOWER;
+
     // Shrine (Gauntlet will always offer this encounter)
     if((gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) || GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
 
     // Battle sim
     if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
     else if(gRogueRun.gameRules.adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
 
@@ -1126,6 +1134,9 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
         case ADVPATH_ROOM_SIGN:
             // Use same RNG seed as boss so we can generate their team
             gRogueAdvPath.rooms[roomId].rngSeed = gRogueAdvPath.rooms[FindRoomOfType(ADVPATH_ROOM_BOSS)].rngSeed;
+            break;
+
+        case ADVPATH_ROOM_BATTLE_TOWER:
             break;
     }
 
@@ -1725,6 +1736,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_BATTLE_SIM);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_BATTLE_SIM);
             break;
+
+        case ADVPATH_ROOM_BATTLE_TOWER:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_BATTLE_TOWER);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_BATTLE_TOWER);
+            break;
     }
 }
 
@@ -1981,6 +1997,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BATTLE_STATUE;
+
+        case ADVPATH_ROOM_BATTLE_TOWER:
+            return OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F;
     }
 
     return 0;

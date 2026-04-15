@@ -230,6 +230,7 @@ gSpecials::
 	def_special Rogue_SetupFollowMonFromParty
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
+	def_special Rogue_HasDefeatedAllRouteTrainers
 	def_special Rogue_PlayStaticTrainerEncounterBGM
 	def_special Rogue_PlayRivalTrainerEncounterBGM
 	def_special Rogue_PlayTeamBossTrainerEncounterBGM
@@ -262,6 +263,7 @@ gSpecials::
 	def_special Rogue_BattleSim_HandleItemWager
 	def_special Rogue_BattleSim_HandleItemIVs
 	def_special Rogue_BattleSim_HandleItemMoney
+	def_special Rogue_BattleTower_GiveReward
 	def_special Rogue_FixPartyMonDetails
 	def_special Rogue_RememberAdventure
 	def_special Rogue_IsValidAdventureToRemember

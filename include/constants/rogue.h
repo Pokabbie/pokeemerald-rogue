@@ -250,8 +250,9 @@
 #define ADVPATH_ROOM_CATCHING_CONTEST   12
 #define ADVPATH_ROOM_SIGN               13
 #define ADVPATH_ROOM_BATTLE_SIM         14
+#define ADVPATH_ROOM_BATTLE_TOWER       15
 
-#define ADVPATH_ROOM_BOSS               15
+#define ADVPATH_ROOM_BOSS               16
 
 #define ADVPATH_ROOM_COUNT              16
 
