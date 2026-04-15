@@ -4578,6 +4578,8 @@ extern const u32 gStatusPal_Icons[];
 
 extern const u32 gShopMenu_Gfx[];
 extern const u32 gShopMenu_Tilemap[];
+extern const u32 gShopMenu_TM_Gfx[];
+extern const u32 gShopMenu_TM_Tilemap[];
 extern const u32 gShopMenu_Pal[];
 extern const u32 gShopMenuMoney_Gfx[];
 
