@@ -1501,7 +1501,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW(A_BUTTON | B_BUTTON) || Rogue_IsRunActive())
     {
         if (sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
         {
