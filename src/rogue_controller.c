@@ -1222,8 +1222,10 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
 
         if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
         {
-            mon->rogueExtraData.isSafariIllegal = TRUE;
+            bool8 ribbonSet = TRUE;
+
             SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerName(gTrainerBattleOpponent_A));
+            SetMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
         }
 
         // Make sure we log if we end up replacing a fainted mon
@@ -3742,9 +3744,21 @@ static void GiveMonPartnerRibbon(void)
         if(species != SPECIES_NONE)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_TEMP_PARTNER_RIBBON, &ribbonSet);
+            SetMonData(&gPlayerParty[i], MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
 
             if(Rogue_GetMaxEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
                 Rogue_PushPopup_UnableToEvolve(i);
+        }
+    }
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(i);
+
+        species = GetBoxMonData(mon, MON_DATA_SPECIES);
+        if(species != SPECIES_NONE)
+        {
+            SetBoxMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
         }
     }
 }
@@ -4058,16 +4072,6 @@ static void BeginRogueRun_ModifyParty(void)
                 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
-                if(starterSpecies != SPECIES_NONE)
-                {
-                    // This mon was just added so it can appear in the safari
-                }
-                else
-                {
-                    // Partner's can't reappear in safari
-                    gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
-                }
-
                 // Adjust item
                 temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
                 if(!CanBringInHeldItem(temp))
@@ -4107,8 +4111,6 @@ static void BeginRogueRun_ModifyParty(void)
                     SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &temp);
                 }
             }
-
-            gRogueSaveBlock->daycarePokemon[i].isSafariIllegal = TRUE;
         }
     }
 }
@@ -4507,6 +4509,17 @@ static void EndRogueRun(void)
             if(species != SPECIES_NONE)
             {
                 RogueSafari_PushMon(&gPlayerParty[i]);
+            }
+        }
+
+        for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+        {
+            struct BoxPokemon* boxMon = Rogue_GetDaycareBoxMon(i);
+            u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+                RogueSafari_PushBoxMon(boxMon);
             }
         }
     }
@@ -5965,10 +5978,12 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
     {
         if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
         {
+            bool8 ribbonSet = TRUE;
+
             CopyMon(&gPlayerParty[gPlayerPartyCount], &gEnemyParty[index], sizeof(gPlayerParty[gPlayerPartyCount]));
 
             // Already in safari from? (Maybe should track index and then wipe here, as we could have higher priority)
-            gPlayerParty[gPlayerPartyCount].rogueExtraData.isSafariIllegal = TRUE;
+            SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
 
             gPlayerPartyCount = CalculatePlayerPartyCount();
             ResetFaintedLabMonAtSlot(index);
@@ -8303,7 +8318,7 @@ u8 Rogue_GetCurrentDaycareSlotCount()
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot)
 {
     u16 species;
-    u8 wasSafariIllegal = (GetMonData(partyMon, MON_DATA_SPECIES) == SPECIES_NONE) ? FALSE : partyMon->rogueExtraData.isSafariIllegal;
+    u8 wasSafariIllegal = (GetMonData(partyMon, MON_DATA_SPECIES) == SPECIES_NONE) ? FALSE : !!GetMonData(partyMon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON);
     struct BoxPokemon* daycareMon = (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[daycareSlot].boxMonFacade;
     struct BoxPokemon temp = *daycareMon;
 
@@ -8314,12 +8329,6 @@ void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot)
 
     ZeroMonData(partyMon);
     BoxMonToMon(&temp, partyMon);
-
-    if(Rogue_IsRunActive())
-    {
-        partyMon->rogueExtraData.isSafariIllegal = gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal;
-        gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal = wasSafariIllegal;
-    }
 
     species = GetMonData(partyMon, MON_DATA_SPECIES);
 

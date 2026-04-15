@@ -6,11 +6,7 @@ struct RoguePartyMon
 {
     bool8 hasPendingEvo : 1;
     u8 lastPopupLevel : 7;
-
-    bool8 isSafariIllegal : 1;
-    u8 pad0 : 7;
-
-    u8 pad1[2];
+    u8 pad0[3];
 };
 
 #ifndef ROGUE_BAKING
@@ -238,7 +234,7 @@ struct RoguePokemonFacade
 struct RogueDaycarePokemon
 {
     struct RogueBoxPokemonFacade boxMonFacade;
-    u8 isSafariIllegal : 1;
+    u8 unused : 1;
 };
 
 struct RoguePartySnapshot
