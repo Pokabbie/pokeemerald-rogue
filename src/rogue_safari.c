@@ -73,29 +73,41 @@ static void PushBoxMonInternal(struct BoxPokemon* monToCopy, bool32 isLowPriorit
 
 void RogueSafari_PushMon(struct Pokemon* mon)
 {
-    if(!mon->rogueExtraData.isSafariIllegal)
+    if(!GetMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON))
     {
-        PushBoxMonInternal(&mon->box, FALSE);
+        bool8 ribbonSet = TRUE;
 
         // Just in case we somehow try to add this mon twice, don't
-        mon->rogueExtraData.isSafariIllegal = TRUE;
+        SetMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
+
+        PushBoxMonInternal(&mon->box, FALSE);
     }
 }
 
 void RogueSafari_PushLowPriorityMon(struct Pokemon* mon)
 {
-    if(!mon->rogueExtraData.isSafariIllegal)
+    if(!GetMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON))
     {
-        PushBoxMonInternal(&mon->box, TRUE);
+        bool8 ribbonSet = TRUE;
 
         // Just in case we somehow try to add this mon twice, don't
-        mon->rogueExtraData.isSafariIllegal = TRUE;
+        SetMonData(mon, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
+
+        PushBoxMonInternal(&mon->box, TRUE);
     }
 }
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    PushBoxMonInternal(monToCopy, FALSE);
+    if(!GetBoxMonData(monToCopy, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON))
+    {
+        bool8 ribbonSet = TRUE;
+        
+        // Just in case we somehow try to add this mon twice, don't
+        SetBoxMonData(monToCopy, MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON, &ribbonSet);
+
+        PushBoxMonInternal(monToCopy, FALSE);
+    }
 }
 
 static void ZeroSafariMon(struct RogueSafariMon* mon)
