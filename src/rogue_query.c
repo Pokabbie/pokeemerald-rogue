@@ -1610,6 +1610,33 @@ void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
     }
 }
 
+void RoguePathsQuery_IsInColumn(u8 func, u8 column)
+{
+    u32 i;
+
+    ASSERT_PATHS_QUERY;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ITERATOR_INC(i))
+    {
+        if(GetQueryBitFlag(i))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].coords.x != column)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].coords.x == column)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+        }
+    }
+}
 
 // MOVES QUERY
 //

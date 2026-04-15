@@ -84,6 +84,7 @@ void RoguePathsQuery_Begin();
 void RoguePathsQuery_Reset(u8 func);
 void RoguePathsQuery_End();
 void RoguePathsQuery_IsOfType(u8 func, u8 roomType);
+void RoguePathsQuery_IsInColumn(u8 func, u8 column);
 
 // Move Query
 void RogueMoveQuery_Begin();

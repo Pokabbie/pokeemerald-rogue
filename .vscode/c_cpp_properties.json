@@ -10,6 +10,7 @@
             "defines": 
             [
                 "ROGUE_DEBUG=1",
+		"MODERN=1",
 		"ROGUE_EXPANSION=1"
             ],
             "includePath": 

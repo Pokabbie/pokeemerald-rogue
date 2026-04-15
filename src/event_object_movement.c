@@ -2154,13 +2154,6 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
-static bool8 ShouldSpawnObjectEventsLeftToRight()
-{
-    // If adventure path screen, there can sometimes be too many objects
-    // so prioritise spawning earliest objects
-    return RogueAdv_IsViewingPath();
-}
-
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
 {
     u8 i;
@@ -2180,22 +2173,26 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        if(ShouldSpawnObjectEventsLeftToRight())
+        // Spawn rows at a time, focusing on rows in the centre of the screen
+        if(RogueAdv_IsViewingPath())
         {
-            s16 currX;
-            s16 minX = 0;
-            s16 maxX = 0;
+            s16 centreHeight = gSaveBlock1Ptr->pos.y + 8;
+            s16 maxHeightRadius = 0;
+            s16 currHeightRadius;
+
+            // Make narrower 
+            left  += +2;
+            right += -2;
 
             for (i = 0; i < objectCount; i++)
             {
                 const struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
-                s16 npcX = template->x + MAP_OFFSET;
-                minX = min(minX, npcX);
-                maxX = max(maxX, npcX);
+                s16 npcY = template->y + MAP_OFFSET;
+                maxHeightRadius = max(maxHeightRadius, abs(centreHeight - npcY));
             }
 
             // Process coord at a time
-            for(currX = minX; currX <= maxX; ++currX)
+            for(currHeightRadius = 0; currHeightRadius <= maxHeightRadius; ++currHeightRadius)
             {
                 for (i = 0; i < objectCount; i++)
                 {
@@ -2203,7 +2200,7 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
                     s16 npcX = template->x + MAP_OFFSET;
                     s16 npcY = template->y + MAP_OFFSET;
 
-                    if(currX == npcX)
+                    if(npcY >= centreHeight - currHeightRadius && npcY <= centreHeight + currHeightRadius)
                     {
                         if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
                             && !FlagGet(template->flagId))
@@ -2257,6 +2254,21 @@ static void RemoveObjectEventIfOutsideView(struct ObjectEvent *objectEvent)
     s16 right =  gSaveBlock1Ptr->pos.x + 17;
     s16 top =    gSaveBlock1Ptr->pos.y;
     s16 bottom = gSaveBlock1Ptr->pos.y + 16;
+
+    if(RogueAdv_IsViewingPath())
+    {
+        top     = gSaveBlock1Ptr->pos.y + 1;
+        bottom  = gSaveBlock1Ptr->pos.y + 13;
+
+        // Apply tighter bounds once still (e.g. at end of movement)
+        if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        {
+            left    += +2;
+            right   += -3;
+            top     += +1;
+            bottom  += -1;
+        }        
+    }
 
     if (objectEvent->currentCoords.x >= left && objectEvent->currentCoords.x <= right
      && objectEvent->currentCoords.y >= top && objectEvent->currentCoords.y <= bottom)
@@ -2867,8 +2879,28 @@ static bool8 ObjectEventDoesElevationMatch(struct ObjectEvent *objectEvent, u8 e
 void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
 {
     UpdateObjectEventCoordsForCameraUpdate();
-    TrySpawnObjectEvents(x, y);
-    RemoveObjectEventsOutsideView();
+
+    if(RogueAdv_IsViewingPath())
+    {
+        RemoveObjectEventsOutsideView();
+        TrySpawnObjectEvents(x, y);
+
+        // Do this once we finish the movement, not start
+        //if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        //{
+        //    RemoveObjectEventsOutsideView();
+        //    TrySpawnObjectEvents(x, y);
+        //}
+        //else
+        //{
+//
+        //}
+    }
+    else
+    {
+        TrySpawnObjectEvents(x, y);
+        RemoveObjectEventsOutsideView();
+    }
 }
 
 #define sLinkedSpriteId data[0]

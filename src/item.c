@@ -169,20 +169,25 @@ u16 GetBagReservedTotalSlots()
 
 void RemoveEmptyBagItems(void)
 {
-    u16 i;
-    u16 j;
+    u16 read = 0;
+    u16 write = 0;
 
-    for (i = 0; i < BAG_ITEM_CAPACITY - 1; i++)
+    for (read = 0; read < BAG_ITEM_CAPACITY; read++)
     {
-        for (j = i + 1; j < BAG_ITEM_CAPACITY; j++)
+        if(gSaveBlock1Ptr->bagPockets[read].itemId != ITEM_NONE)
         {
-            if (gSaveBlock1Ptr->bagPockets[i].itemId == 0)
+            if(read != write)
             {
-                struct ItemSlot temp = gSaveBlock1Ptr->bagPockets[i];
-                gSaveBlock1Ptr->bagPockets[i] = gSaveBlock1Ptr->bagPockets[j];
-                gSaveBlock1Ptr->bagPockets[j] = temp;
+                gSaveBlock1Ptr->bagPockets[write] = gSaveBlock1Ptr->bagPockets[read];
             }
+
+            write++;
         }
+    }
+
+    for (; write < BAG_ITEM_CAPACITY; write++)
+    {
+        gSaveBlock1Ptr->bagPockets[write].itemId = ITEM_NONE;
     }
 
     UpdateBagItemsPointers();
