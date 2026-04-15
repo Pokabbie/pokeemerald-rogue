@@ -4541,7 +4541,8 @@ static void EndRogueRun(void)
         // Give ball guy a random ball
         ChooseRandomPokeballReward();
     }
-    else if(Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
+    
+    if(Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
     {
         // Increment stats
         IncrementGameStat(GAME_STAT_RUN_LOSSES);
