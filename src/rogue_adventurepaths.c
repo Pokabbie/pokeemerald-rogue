@@ -367,7 +367,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // too many at this point
-            if(count >= 5)
+            if(count >= 4)
                 return 0;
         }
 
@@ -460,11 +460,32 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
 
     // Usually only allow 1, but encourage multiple in experimental
     case ADVPATH_ROOM_BATTLE_SIM:
-    case ADVPATH_ROOM_CATCHING_CONTEST:
         if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             count = CountRoomType(roomType);
             if(count >= 2)
+                return 1;
+            else if(count != 0)
+                return 3;
+            else
+                return 10;
+        }
+        else
+        {
+            count = CountRoomType(roomType);
+            if(count != 0)
+                return 0;
+            // else default weight
+        }
+        break;
+
+    case ADVPATH_ROOM_CATCHING_CONTEST:
+        if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
+        {
+            count = CountRoomType(roomType);
+            if(count >= 3)
+                return 0;
+            else if(count >= 2)
                 return 1;
             else if(count != 0)
                 return 3;
