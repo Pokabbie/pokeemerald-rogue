@@ -69,6 +69,12 @@ enum {
     WIN_QUANTITY_IN_BAG,
     WIN_QUANTITY_PRICE,
     WIN_MESSAGE,
+    WIN_MON_ICON_0,
+    WIN_MON_ICON_1,
+    WIN_MON_ICON_2,
+    WIN_MON_ICON_3,
+    WIN_MON_ICON_4,
+    WIN_MON_ICON_5,
 };
 
 enum {
@@ -192,6 +198,8 @@ static bool8 IsZeroPriceMarkedAsFree();
 
 static u32 GetShopCurrencyAmount();
 static void RemoveShopCurrencyAmount(u32 amount);
+
+static void BlitMonSlotIconForItem(u8 windowId, u16 slot, u16 itemId);
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
@@ -361,6 +369,62 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x01A2,
     },
+
+    [WIN_MON_ICON_0] = {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 2,
+        .baseBlock = 0x023A,
+    },
+    [WIN_MON_ICON_1] = {
+        .bg = 0,
+        .tilemapLeft = 5,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 3,
+        .baseBlock = 0x023A + 16 * 1,
+    },
+    [WIN_MON_ICON_2] = {
+        .bg = 0,
+        .tilemapLeft = 9,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 4,
+        .baseBlock = 0x023A + 16 * 2,
+    },
+    [WIN_MON_ICON_3] = {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 5,
+        .baseBlock = 0x023A + 16 * 3,
+    },
+    [WIN_MON_ICON_4] = {
+        .bg = 0,
+        .tilemapLeft = 5,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 6,
+        .baseBlock = 0x023A + 16 * 4,
+    },
+    [WIN_MON_ICON_5] = {
+        .bg = 0,
+        .tilemapLeft = 9,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 7,
+        .baseBlock = 0x023A + 16 * 5,
+    },
+
     DUMMY_WIN_TEMPLATE
 };
 
@@ -755,12 +819,16 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if (item != LIST_CANCEL)
-        BuyMenuAddItemIcon(item, sShopData->iconSlot);
-    else
-        BuyMenuAddItemIcon(ITEM_LIST_END, sShopData->iconSlot);
+    if(sMartInfo.dynamicMartCategory != ROGUE_SHOP_TMS)
+    {
+        if (item != LIST_CANCEL)
+            BuyMenuAddItemIcon(item, sShopData->iconSlot);
+        else
+            BuyMenuAddItemIcon(ITEM_LIST_END, sShopData->iconSlot);
 
-    BuyMenuRemoveItemIcon(item, sShopData->iconSlot ^ 1);
+        BuyMenuRemoveItemIcon(item, sShopData->iconSlot ^ 1);
+    }
+
     sShopData->iconSlot ^= 1;
     if (item != LIST_CANCEL)
     {
@@ -773,6 +841,33 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
+
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    {
+        // Blit mon icons
+        BlitMonSlotIconForItem(WIN_MON_ICON_0, 0, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_1, 1, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_2, 2, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_3, 3, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_4, 4, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_5, 5, item);
+    }
+    else
+    {
+        // Blit mon icons
+        ClearWindowTilemap(WIN_MON_ICON_0);
+        ClearWindowTilemap(WIN_MON_ICON_1);
+        ClearWindowTilemap(WIN_MON_ICON_2);
+        ClearWindowTilemap(WIN_MON_ICON_3);
+        ClearWindowTilemap(WIN_MON_ICON_4);
+        ClearWindowTilemap(WIN_MON_ICON_5);
+        CopyWindowToVram(WIN_MON_ICON_0, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_1, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_2, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_3, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_4, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_5, COPYWIN_GFX);
+    }
 }
 
 static u32 Mart_GetItemPrice(u16 itemId)
@@ -957,8 +1052,17 @@ static void BuyMenuInitBgs(void)
 
 static void BuyMenuDecompressBgGraphics(void)
 {
-    DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
-    LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    {
+        DecompressAndCopyTileDataToVram(1, gShopMenu_TM_Gfx, 0x3A0, 0x3E3, 0);
+        LZDecompressWram(gShopMenu_TM_Tilemap, sShopData->tilemapBuffers[0]);
+    }
+    else
+    {
+        DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
+        LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    }
+
     LoadCompressedPalette(gShopMenu_Pal, BG_PLTT_ID(12), PLTT_SIZE_4BPP);
 }
 
@@ -971,6 +1075,12 @@ static void BuyMenuInitWindows(void)
     PutWindowTilemap(WIN_MONEY);
     PutWindowTilemap(WIN_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
 }
 
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet)
@@ -1005,9 +1115,19 @@ static void BuyMenuDrawGraphics(void)
 
 static void BuyMenuDrawMapGraphics(void)
 {
-    BuyMenuCollectObjectEventData();
-    BuyMenuDrawObjectEvents();
-    BuyMenuDrawMapBg();
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    {
+        u8 i;
+
+        for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+            sShopData->viewportObjects[i][OBJ_EVENT_ID] = OBJECT_EVENTS_COUNT;
+    }
+    else
+    {
+        BuyMenuCollectObjectEventData();
+        BuyMenuDrawObjectEvents();
+        BuyMenuDrawMapBg();
+    }
 }
 
 static void BuyMenuDrawMapBg(void)
@@ -1352,6 +1472,21 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     }
 }
 
+static void Task_RefreshMonSlotsThenBuyMenuConfirmPurchase(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    
+    // Tthe in bag window previously overlapped us
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
+
+    BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+}
+
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1368,6 +1503,7 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             ClearStdWindowAndFrameToTransparent(WIN_QUANTITY_PRICE, FALSE);
             ClearStdWindowAndFrameToTransparent(WIN_QUANTITY_IN_BAG, FALSE);
+            
             ClearWindowTilemap(WIN_QUANTITY_PRICE);
             ClearWindowTilemap(WIN_QUANTITY_IN_BAG);
             PutWindowTilemap(WIN_ITEM_LIST);
@@ -1375,6 +1511,16 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, SHOP_ITEM_CAPACITY_DIGITS);
             ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
             BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+            
+            if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+            {
+                gTasks[taskId].func = Task_RefreshMonSlotsThenBuyMenuConfirmPurchase;
+            }
+            else
+            {
+                BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+            }
+            
         }
         else if (JOY_NEW(B_BUTTON))
         {
@@ -1638,6 +1784,12 @@ static void BuyMenuReturnToItemList(u8 taskId)
     BuyMenuPrintCursor(tListTaskId, COLORID_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
     ScheduleBgCopyTilemapToVram(0);
     BuyMenuAddScrollIndicatorArrows();
     gTasks[taskId].func = Task_BuyMenu;
@@ -2147,4 +2299,24 @@ static void RemoveShopCurrencyAmount(u32 amount)
         RemoveMoney(&gSaveBlock1Ptr->money, amount);
         Rogue_OnSpendMoney(amount);
     }
+}
+
+static void BlitMonSlotIconForItem(u8 windowId, u16 slot, u16 itemId)
+{
+    u16 species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+
+    if(species != SPECIES_NONE)
+    {
+        BlitPokemonIconToWindow(species, windowId, 0, 0, NULL);
+
+        if(!CanSpeciesLearnTM(species, itemId))
+        {
+            // Make grey if can't teach move
+            TintPalette_GrayScale2(&gPlttBufferUnfaded[BG_PLTT_ID(gWindows[windowId].window.paletteNum)], PLTT_SIZE_4BPP);
+            TintPalette_GrayScale2(&gPlttBufferFaded[BG_PLTT_ID(gWindows[windowId].window.paletteNum)], PLTT_SIZE_4BPP);
+        }
+    }
+
+    CopyWindowToVram(windowId, COPYWIN_GFX);
 }
