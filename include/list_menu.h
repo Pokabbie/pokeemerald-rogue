@@ -27,6 +27,13 @@ enum {
     SCROLL_ARROW_DOWN
 };
 
+enum {
+    CURSOR_BLACK_ARROW,
+    CURSOR_INVISIBLE,
+    CURSOR_RED_OUTLINE,
+    CURSOR_RED_ARROW,
+};
+
 struct ListMenu;
 
 struct ListMenuItem
