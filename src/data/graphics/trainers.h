@@ -343,8 +343,12 @@ const u32 gTrainerPalette_PlayerRosaFrontLayers[] = INCBIN_U32("graphics/rogue_p
 
 const u32 gTrainerPalette_PlayerCalemFrontBase[] = INCBIN_U32("graphics/rogue_palettes/calem/trainer_front_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerCalemFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/calem/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerCalemBackBase[] = INCBIN_U32("graphics/rogue_palettes/calem/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerCalemBackLayers[] = INCBIN_U32("graphics/rogue_palettes/calem/trainer_back_layers.gbapal.lz");
 const u32 gTrainerPalette_PlayerSerenaFrontBase[] = INCBIN_U32("graphics/rogue_palettes/serena/trainer_front_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerSerenaFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/serena/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerSerenaBackBase[] = INCBIN_U32("graphics/rogue_palettes/serena/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerSerenaBackLayers[] = INCBIN_U32("graphics/rogue_palettes/serena/trainer_back_layers.gbapal.lz");
 
 const u32 gTrainerPalette_PlayerElioFrontBase[] = INCBIN_U32("graphics/rogue_palettes/elio/trainer_front_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerElioFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/elio/trainer_front_layers.gbapal.lz");
@@ -378,6 +382,8 @@ const u8 gTrainerBackPic_Wally[] = INCBIN_U8("graphics/trainers/back_pics/wally.
 const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steven.4bpp");
 const u8 gTrainerBackPic_Lucas[] = INCBIN_U8("graphics/trainers/back_pics/lucas_back_pic.4bpp");
 const u8 gTrainerBackPic_Dawn[] = INCBIN_U8("graphics/trainers/back_pics/dawn_back_pic.4bpp");
+const u8 gTrainerBackPic_Calem[] = INCBIN_U8("graphics/trainers/back_pics/calem_back_pic.4bpp");
+const u8 gTrainerBackPic_Serena[] = INCBIN_U8("graphics/trainers/back_pics/serena_back_pic.4bpp");
 const u8 gTrainerBackPic_CommunityZefa[] = INCBIN_U8("graphics/trainers/back_pics/community/zefa_back_pic.4bpp");
 const u8 gTrainerBackPic_CommunityNacholord[] = INCBIN_U8("graphics/trainers/back_pics/community/nacho_back_pic.4bpp");
 const u8 gTrainerBackPic_CommunityPokabbie[] = INCBIN_U8("graphics/trainers/back_pics/community/pokabbie_back_pic.4bpp");
