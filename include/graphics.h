@@ -3334,8 +3334,12 @@ extern const u32 gTrainerPalette_PlayerRosaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
 extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
+extern const u32 gTrainerPalette_PlayerCalemBackBase[];
+extern const u32 gTrainerPalette_PlayerCalemBackLayers[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSerenaBackBase[];
+extern const u32 gTrainerPalette_PlayerSerenaBackLayers[];
 
 extern const u32 gTrainerPalette_PlayerElioFrontBase[];
 extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
@@ -3472,6 +3476,8 @@ extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
 extern const u8 gTrainerBackPic_Lucas[];
 extern const u8 gTrainerBackPic_Dawn[];
+extern const u8 gTrainerBackPic_Calem[];
+extern const u8 gTrainerBackPic_Serena[];
 
 extern const u8 gTrainerBackPic_CommunityZefa[];
 extern const u8 gTrainerBackPic_CommunityNacholord[];
