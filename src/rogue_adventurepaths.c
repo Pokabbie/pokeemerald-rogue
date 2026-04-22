@@ -825,19 +825,23 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     else if(gRogueRun.gameRules.adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SIGN;
 
-    // Battle Tower
-    if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY)
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_TOWER;
-
     // Shrine (Gauntlet will always offer this encounter)
     if((gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) || GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
 
-    // Battle sim
+    // Battle Sim / Battle Tower
     if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
+    {
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
-    else if(gRogueRun.gameRules.adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_TOWER;
+    }
+    else if(gRogueRun.gameRules.adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1)
+    {
+        if(RogueRandomChance(50, 0))
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
+        else
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_TOWER;
+    }
 
     {
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);

@@ -565,7 +565,7 @@ bool8 Rogue_ShouldTrainerSmartSwitch(u16 trainerNum)
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 1)
                 return TRUE;
             else
                 return FALSE;
@@ -649,7 +649,7 @@ bool8 Rogue_ShouldTrainerTrySetup(u16 trainerNum)
         if(Rogue_IsKeyTrainer(trainerNum))
             return TRUE;
         else
-            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY);
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1);
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
@@ -1845,9 +1845,9 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                 monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
             else if(difficulty <= 1)
                 monCount = 3;
-            else if(difficulty <= 2)
+            else if(difficulty <= ROGUE_GYM_MID_DIFFICULTY + 2)
                 monCount = 4;
-            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY - 1)
+            else if(difficulty <= ROGUE_CHAMP_START_DIFFICULTY)
                 monCount = 5;
             else
                 monCount = 6;
@@ -1858,9 +1858,9 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                 monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
             else if(difficulty <= 1)
                 monCount = 3;
-            else if(difficulty <= 2)
+            else if(difficulty <= ROGUE_GYM_MID_DIFFICULTY + 2)
                 monCount = 4;
-            else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY - 1)
+            else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY)
                 monCount = 5;
             else
                 monCount = 6;
@@ -1869,7 +1869,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         case DIFFICULTY_LEVEL_HARD:
             if(difficulty == 0)
                 monCount = Rogue_IsRivalTrainer(trainerNum) ? 3 : 4;
-            else if(difficulty == 1)
+            else if(difficulty <= ROGUE_GYM_MID_DIFFICULTY + 1)
                 monCount = 5;
             else
                 monCount = 6;
@@ -1952,6 +1952,57 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 #endif
 
     return monCount;
+}
+
+static bool8 ShouldTrainerUseValidHeldItems(u16 trainerNum)
+{
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(gRogueRun.gameRules.forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
+
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                return TRUE;
+        }
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY + 2)
+                return TRUE;
+        }
+        else
+        {
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY + 1)
+                return TRUE;
+        }
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            return TRUE;
+        }
+        else
+        {
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY + 1)
+                return TRUE;
+        }
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
@@ -3629,6 +3680,9 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct R
 
     }
 
+    if(ShouldTrainerUseValidHeldItems(trainerNum))
+        presetRules->skipHeldItem = TRUE;
+
     // Edge case to handle scarfed ditto
     if(IsChoiceItem(preset->heldItem) && (MonPresetCountMoves(preset) > 2))
     {
@@ -4123,9 +4177,9 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
             u8 i;
             u16 score;
             u16 highestScore = CalculateTerastallizeScore(&party[0]);
-            sTrainerTemp.teraSlot = 0;
+            sTrainerTemp.teraSlot = 1;
 
-            for(i = 1; i < monCount; ++i)
+            for(i = 2; i < monCount; ++i)
             {
                 score = CalculateTerastallizeScore(&party[i]);
                 if(score >= highestScore)
