@@ -9436,11 +9436,11 @@ static void RandomiseEnabledTrainers()
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
     {
-        u16 enabledCount = 1 + RogueRandomRange(3, 0);
+        u16 enabledCount = 2 + RogueRandomRange(3, 0);
 
-        if(RogueRandomChance(15, 0))
+        if(RogueRandomChance(20, 0))
         {
-            enabledCount = 2 + RogueRandomRange(5, 0);
+            enabledCount = 4 + RogueRandomRange(3, 0);
         }
 
         for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
