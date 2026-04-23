@@ -144,6 +144,8 @@ struct RogueLocalData
     u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
     bool8 runningToggleActive : 1;
+    bool8 speedupToggleActive : 1;
+    bool8 speedupJustToggled : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
@@ -403,9 +405,22 @@ static u8 GetBattleSceneOption()
 
 static bool8 TryOverrideSpeedScale(u8 speed)
 {
-    // Hold L to slow down
-    if(JOY_HELD(L_BUTTON))
+    // Tap L to toggle slow down
+    if(speed > 1 && !gRogueLocal.speedupJustToggled)
+    {
+        if(JOY_NEW(L_BUTTON))
+        {
+            gRogueLocal.speedupToggleActive = !gRogueLocal.speedupToggleActive;
+            gRogueLocal.speedupJustToggled = TRUE;
+            Rogue_PushPopup_ToggleSpeedup(!gRogueLocal.speedupToggleActive);
+        }
+    }
+
+    // toggle is inverted i.e. toggle active means we force the override
+    if(gRogueLocal.speedupToggleActive)
+    {
         return 1;
+    }
 
     return speed;
 }
@@ -3533,6 +3548,14 @@ void Rogue_MainInit(void)
 
 void Rogue_MainEarlyCB(void)
 {
+    gRogueLocal.speedupJustToggled = FALSE;
+
+    if(gMain.inBattle)
+    {
+        // Just call this here to force the speed toggling
+        Rogue_GetBattleSpeedScale();
+    }
+    
     // Want to process before overworld update
     Rogue_AssistantMainCB();
 }
@@ -3562,6 +3585,12 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
             if(gSaveBlock2Ptr->optionsAutoRunToggle && (newKeys & B_BUTTON) != 0)
             {
                 gRogueLocal.runningToggleActive = !gRogueLocal.runningToggleActive;
+            }
+
+            // Update speed up toggle
+            {
+                // Just call this here to force the speed toggling
+                Rogue_GetOverworldSpeedScale();
             }
         }
     }
