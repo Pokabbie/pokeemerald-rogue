@@ -173,11 +173,11 @@ struct RogueHotTracking
 static struct RogueHotTracking gRogueHotTracking;
 #endif
 
-EWRAM_DATA struct RogueRunData gRogueRun = {};
+struct RogueRunData gRogueRun = {};
 
 // Temporary data, that isn't remembered
-EWRAM_DATA struct RogueLocalData gRogueLocal = {};
-EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
+struct RogueLocalData gRogueLocal = {};
+struct RogueAdvPath gRogueAdvPath = {};
 
 static void ResetHotTracking();
 
