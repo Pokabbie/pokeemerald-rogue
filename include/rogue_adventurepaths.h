@@ -5,7 +5,7 @@
 #define ROGUE_WARP_TO_ROOM 1
 #define ROGUE_WARP_TO_ADVPATH 2 
 
-extern struct RogueAdvPath gRogueAdvPath;
+extern EWRAM_DATA struct RogueAdvPath gRogueAdvPath;
 
 bool8 RogueAdv_GenerateAdventurePathsIfRequired();
 void RogueAdv_ApplyAdventureMetatiles();
