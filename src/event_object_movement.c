@@ -50,6 +50,7 @@ enum {
     MOVE_SPEED_FAST_2, // water current / acro bike
     MOVE_SPEED_FASTER, // mach bike's max speed
     MOVE_SPEED_FASTEST,
+    MOVE_SPEED_FASTEST_2, // (sigh...)
 };
 
 enum {
@@ -5996,6 +5997,9 @@ void InitNpcForMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite, 
     s16 x;
     s16 y;
 
+    // Speed up
+    //speed += 1;
+
     x = objectEvent->currentCoords.x;
     y = objectEvent->currentCoords.y;
     SetObjectEventDirection(objectEvent, direction);
@@ -9324,6 +9328,11 @@ static void Step8(struct Sprite *sprite, u8 dir)
     sprite->x += 8 * (u16) sDirectionToVectors[dir].x;
     sprite->y += 8 * (u16) sDirectionToVectors[dir].y;
 }
+static void Step16(struct Sprite *sprite, u8 dir)
+{
+    sprite->x += 16 * (u16) sDirectionToVectors[dir].x;
+    sprite->y += 16 * (u16) sDirectionToVectors[dir].y;
+}
 
 #define sSpeed data[4]
 #define sTimer data[5]
@@ -9388,12 +9397,17 @@ static const SpriteStepFunc sStep8Funcs[] = {
     Step8,
 };
 
+static const SpriteStepFunc sStep16Funcs[] = {
+    Step16,
+};
+
 static const SpriteStepFunc *const sNpcStepFuncTables[] = {
     [MOVE_SPEED_NORMAL] = sStep1Funcs,
     [MOVE_SPEED_FAST_1] = sStep2Funcs,
     [MOVE_SPEED_FAST_2] = sStep3Funcs,
     [MOVE_SPEED_FASTER] = sStep4Funcs,
     [MOVE_SPEED_FASTEST] = sStep8Funcs,
+    [MOVE_SPEED_FASTEST_2] = sStep16Funcs,
 };
 
 static const s16 sStepTimes[] = {
@@ -9402,16 +9416,33 @@ static const s16 sStepTimes[] = {
     [MOVE_SPEED_FAST_2] = ARRAY_COUNT(sStep3Funcs),
     [MOVE_SPEED_FASTER] = ARRAY_COUNT(sStep4Funcs),
     [MOVE_SPEED_FASTEST] = ARRAY_COUNT(sStep8Funcs),
+    [MOVE_SPEED_FASTEST_2] = ARRAY_COUNT(sStep16Funcs),
 };
 
 static bool8 NpcTakeStep(struct Sprite *sprite)
 {
+    u32 i, count;
+
+    count = Rogue_GetOverworldSpeedScale();
+
     if (sprite->sTimer >= sStepTimes[sprite->sSpeed])
         return FALSE;
 
-    sNpcStepFuncTables[sprite->sSpeed][sprite->sTimer](sprite, sprite->sDirection);
+    for(i = 0; i < count; ++i)
+    {
+        sNpcStepFuncTables[sprite->sSpeed][sprite->sTimer](sprite, sprite->sDirection);
 
-    sprite->sTimer++;
+        sprite->sTimer++;
+
+        // Anim speed up hack
+        if(i != 0 && sprite->animDelayCounter > 0)
+        {
+            --sprite->animDelayCounter;
+        }
+
+        if (sprite->sTimer == sStepTimes[sprite->sSpeed])
+            break;
+    }
 
     if (sprite->sTimer < sStepTimes[sprite->sSpeed])
         return FALSE;

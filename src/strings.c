@@ -1685,6 +1685,7 @@ const u8 gText_FadeSpeed[] = _("Menu Transitions");
 const u8 gText_BattleSceneWild[] = _("Wild Battle Anims");
 const u8 gText_BattleSceneTrainer[] = _("Trainer Battle Anims");
 const u8 gText_BattleSceneKey[] = _("Important Battle Anim");
+const u8 gText_OWSpeedKey[] = _("Overworld Movement");
 const u8 gText_BattleStyle[] = _("Battle Style");
 const u8 gText_AutoRun[] = _("Running Button");
 const u8 gText_NicknameMode[] = _("Nickname Mode");

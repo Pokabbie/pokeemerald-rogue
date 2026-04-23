@@ -394,21 +394,31 @@ bool8 InBattleRunningActions();
 static u8 GetBattleSceneOption() 
 {
     if(Rogue_UseKeyBattleAnims())
-        return gSaveBlock2Ptr->optionsBossBattleScene;
+        return gSaveBlock2Ptr->optionsOverworldSpeed;
     else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
         return gSaveBlock2Ptr->optionsTrainerBattleScene;
     else
         return gSaveBlock2Ptr->optionsWildBattleScene;
 }
 
+static bool8 TryOverrideSpeedScale(u8 speed)
+{
+    // Hold L to slow down
+    if(JOY_HELD(L_BUTTON))
+        return 1;
+
+    return speed;
+}
+
+u8 Rogue_GetOverworldSpeedScale()
+{
+    return TryOverrideSpeedScale(1 + gSaveBlock2Ptr->optionsOverworldSpeed);
+}
+
 u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 {
     u8 speedScale = 1;
     u8 battleSceneOption = GetBattleSceneOption();
-
-    // Hold L to slow down
-    if(JOY_HELD(L_BUTTON))
-        return 1;
 
     // We want to speed up all anims until input selection starts
     if(InBattleChoosingMoves())
@@ -418,11 +428,11 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
     {
         // Always run at 1x speed here
         if(InBattleChoosingMoves())
-            return 1;
+            return TryOverrideSpeedScale(1);
 
         // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
         if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
-            return 1;
+            return TryOverrideSpeedScale(1);
     }
     else
     {
@@ -443,23 +453,23 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         switch (battleSceneOption)
         {
         case OPTIONS_BATTLE_SCENE_1X:
-            return forHealthbar ? 1 : 1;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 1);
 
         case OPTIONS_BATTLE_SCENE_2X:
-            return forHealthbar ? 1 : 2;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 2);
 
         case OPTIONS_BATTLE_SCENE_3X:
-            return forHealthbar ? 1 : 3;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 3);
 
         case OPTIONS_BATTLE_SCENE_4X:
-            return forHealthbar ? 1 : 4;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 4);
 
         // Print text at a readable speed still
         case OPTIONS_BATTLE_SCENE_DISABLED:
             if(gRogueLocal.hasBattleInputStarted)
-                return forHealthbar ? 10 : 1;
+                return TryOverrideSpeedScale(forHealthbar ? 10 : 1);
             else
-                return 4;
+                return TryOverrideSpeedScale(4);
         }
     }
     else // speeds for battle transitions
@@ -467,21 +477,21 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         switch (battleSceneOption)
         {
         case OPTIONS_BATTLE_SCENE_1X:
-            return 1;
+            return TryOverrideSpeedScale(1);
 
         case OPTIONS_BATTLE_SCENE_2X:
-            return 3;
+            return TryOverrideSpeedScale(3);
 
         case OPTIONS_BATTLE_SCENE_3X:
-            return 4;
+            return TryOverrideSpeedScale(4);
 
         case OPTIONS_BATTLE_SCENE_4X:
         case OPTIONS_BATTLE_SCENE_DISABLED:
-            return 6;
+            return TryOverrideSpeedScale(6);
         }
     }
 
-    return 1 ;
+    return TryOverrideSpeedScale(1);
 }
 
 bool8 Rogue_UseKeyBattleAnims(void)

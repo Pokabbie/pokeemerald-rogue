@@ -353,6 +353,7 @@ extern const u8 gText_FadeSpeed[];
 extern const u8 gText_BattleSceneWild[];
 extern const u8 gText_BattleSceneTrainer[];
 extern const u8 gText_BattleSceneKey[];
+extern const u8 gText_OWSpeedKey[];
 extern const u8 gText_BattleStyle[];
 extern const u8 gText_AutoRun[];
 extern const u8 gText_NicknameMode[];
