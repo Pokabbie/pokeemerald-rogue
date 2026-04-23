@@ -344,8 +344,12 @@ static void SpriteCb_TeraTrigger(struct Sprite *sprite)
 
     if (sprite->tHide)
     {
-        if (sprite->x != gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xSlide)
+        s16 target = gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xSlide;
+
+        if (sprite->x < target)
             sprite->x++;
+        else
+            sprite->x = target;
 
         if (sprite->x >= gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xPriority)
             sprite->oam.priority = 2;
@@ -354,13 +358,17 @@ static void SpriteCb_TeraTrigger(struct Sprite *sprite)
 
         sprite->y = gSprites[gHealthboxSpriteIds[sprite->tBattler]].y - yDiff;
         sprite->y2 = gSprites[gHealthboxSpriteIds[sprite->tBattler]].y2 - yDiff;
-        if (sprite->x == gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xSlide)
+        if (sprite->x == target)
             DestroyTeraTriggerSprite();
     }
     else
     {
-        if (sprite->x != gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xOptimal)
+        s16 target = gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xOptimal;
+
+        if (sprite->x > target)
             sprite->x--;
+        else
+            sprite->x = target;
 
         if (sprite->x >= gSprites[gHealthboxSpriteIds[sprite->tBattler]].x - xPriority)
             sprite->oam.priority = 2;
