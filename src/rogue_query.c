@@ -42,9 +42,8 @@
 
 // Old API
 //
-EWRAM_DATA u16 gRogueQueryBufferSize = 0;
-EWRAM_DATA u8 gRogueQueryBits[MAX_QUERY_BYTE_COUNT];
-EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
+u8 gRogueQueryBits[MAX_QUERY_BYTE_COUNT];
+u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
 // 2.0 API
 //
@@ -75,7 +74,7 @@ struct RogueQueryData
 #endif
 };
 
-EWRAM_DATA static struct RogueQueryData sRogueQuery = {0};
+static struct RogueQueryData sRogueQuery = {0};
 
 #define ASSERT_NO_QUERY         AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_NONE)
 #define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQuery.queryType != QUERY_TYPE_NONE)

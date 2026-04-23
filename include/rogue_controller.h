@@ -14,7 +14,7 @@ struct MenuAction;
 struct MusicPlayerInfo;
 
 extern struct RogueSaveBlock* gRogueSaveBlock;
-extern EWRAM_DATA struct RogueRunData gRogueRun;
+extern struct RogueRunData gRogueRun;
 
 #ifdef ROGUE_DEBUG
 extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
