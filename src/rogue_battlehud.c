@@ -574,11 +574,16 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
 {
     if(gRogueBattleOverlay != NULL)
     {
+        u32 i;
+
+        for(i = 0; i < gRogueBattleOverlay->spriteCount; ++i)
+        {
+            FreeSpriteOamMatrix(&gSprites[gRogueBattleOverlay->sprites[i]]);
+        }
+
         // Remove sprites manually, as the scene is not being fully reset
         if(!fromResetSprites)
         {
-            u8 i;
-
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Rain.tag);
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sandstorm.tag);
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sun.tag);
@@ -600,8 +605,6 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
             }
         }
 
-        // This should be safe to do? (I hope)
-        ResetAffineAnimData();
 
         FREE_AND_SET_NULL(gRogueBattleOverlay);
     }
