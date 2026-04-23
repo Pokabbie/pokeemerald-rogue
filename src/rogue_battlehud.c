@@ -598,6 +598,9 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
             {
                 DestroySprite(&gSprites[gRogueBattleOverlay->sprites[i]]);
             }
+
+            // This should be safe to do? (I hope)
+            ResetAffineAnimData();
         }
 
         FREE_AND_SET_NULL(gRogueBattleOverlay);
