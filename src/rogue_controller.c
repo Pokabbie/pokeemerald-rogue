@@ -396,7 +396,7 @@ bool8 InBattleRunningActions();
 static u8 GetBattleSceneOption() 
 {
     if(Rogue_UseKeyBattleAnims())
-        return gSaveBlock2Ptr->optionsOverworldSpeed;
+        return gSaveBlock2Ptr->optionsBossBattleScene;
     else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
         return gSaveBlock2Ptr->optionsTrainerBattleScene;
     else
@@ -3552,8 +3552,18 @@ void Rogue_MainEarlyCB(void)
 
     if(gMain.inBattle)
     {
-        // Just call this here to force the speed toggling
-        Rogue_GetBattleSpeedScale();
+        u8 battleSceneOption = GetBattleSceneOption();
+        switch (battleSceneOption)
+        {
+        case OPTIONS_BATTLE_SCENE_1X:
+        //case OPTIONS_BATTLE_SCENE_DISABLED:
+            break;
+
+        default:
+            // Just call this here to force the speed toggling
+            TryOverrideSpeedScale(4);
+            break;
+        }
     }
     
     // Want to process before overworld update

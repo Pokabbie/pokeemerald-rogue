@@ -9599,6 +9599,7 @@ static void SetJumpSpriteData(struct Sprite *sprite, u8 direction, u8 distance, 
 
 static u8 DoJumpSpriteMovement(struct Sprite *sprite)
 {
+    u32 i, count;
     s16 distanceToTime[] = {
         [JUMP_DISTANCE_IN_PLACE] = 16,
         [JUMP_DISTANCE_NORMAL] = 16,
@@ -9611,20 +9612,33 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
     };
     u8 result = 0;
 
-    if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE)
-        Step1(sprite, sprite->sDirection);
+    count = Rogue_GetOverworldSpeedScale();
 
-    sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
-
-    sprite->sTimer++;
-
-    if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
-        result = JUMP_HALFWAY;
-
-    if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+    if(sprite->anims == sAnimTable_GenericOverworldMon)
     {
-        sprite->y2 = 0;
-        result = JUMP_FINISHED;
+        count *= 3;
+    }
+
+    for(i = 0; i < count; ++i)
+    {
+        if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE)
+            Step1(sprite, sprite->sDirection);
+
+        sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
+
+        sprite->sTimer++;
+
+        if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
+            result = JUMP_HALFWAY;
+
+        if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+        {
+            sprite->y2 = 0;
+            result = JUMP_FINISHED;
+        }
+
+        if(result != 0)
+            break;
     }
 
     return result;
@@ -9632,6 +9646,7 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
 
 static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
 {
+    u32 i, count;
     s16 distanceToTime[] = {
         [JUMP_DISTANCE_IN_PLACE] = 32,
         [JUMP_DISTANCE_NORMAL] = 32,
@@ -9644,20 +9659,33 @@ static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
     };
     u8 result = 0;
 
-    if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE && !(sprite->sTimer & 1))
-        Step1(sprite, sprite->sDirection);
+    count = Rogue_GetOverworldSpeedScale();
 
-    sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
-
-    sprite->sTimer++;
-
-    if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
-        result = JUMP_HALFWAY;
-
-    if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+    if(sprite->anims == sAnimTable_GenericOverworldMon)
     {
-        sprite->y2 = 0;
-        result = JUMP_FINISHED;
+        count *= 3;
+    }
+
+    for(i = 0; i < count; ++i)
+    {
+        if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE && !(sprite->sTimer & 1))
+            Step1(sprite, sprite->sDirection);
+
+        sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
+
+        sprite->sTimer++;
+
+        if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
+            result = JUMP_HALFWAY;
+
+        if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+        {
+            sprite->y2 = 0;
+            result = JUMP_FINISHED;
+        }
+
+        if(result != 0)
+            break;
     }
 
     return result;

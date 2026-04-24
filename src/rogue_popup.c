@@ -1901,7 +1901,7 @@ void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
     if(gMain.inBattle)
     {
         // Can't push in battle, so just play sound
-        PlaySE(speedupEnabled ? SE_SUCCESS : SE_FAILURE);
+        PlaySE(speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF);
     }
     else
     {
@@ -1909,7 +1909,7 @@ void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
 
         popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
         popup->iconId = speedupEnabled ? POPUP_CUSTOM_ICON_FAST_SPEED : POPUP_CUSTOM_ICON_DEFAULT_SPEED;
-        popup->soundEffect = speedupEnabled ? SE_SUCCESS : SE_FAILURE;
+        popup->soundEffect = speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF;
         popup->allowHiPriSkipping = TRUE;
 
         popup->titleText = speedupEnabled ? sText_Popup_SpeedupEnabled : sText_Popup_SpeedupDisabled;
