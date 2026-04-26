@@ -813,13 +813,29 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
     menuItem->id = item;
 }
 
+static bool8 ShowTMView()
+{
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    {
+        return TRUE;
+    }
+
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_COURIER && sMartInfo.listItemData != NULL)
+    {
+        u16 const* listPtr = (u16 const*)sMartInfo.listItemData;
+        return ItemIdToBattleMoveId(listPtr[0]) != MOVE_NONE;
+    }
+
+    return FALSE;
+}
+
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if(sMartInfo.dynamicMartCategory != ROGUE_SHOP_TMS)
+    if(!ShowTMView())
     {
         if (item != LIST_CANCEL)
             BuyMenuAddItemIcon(item, sShopData->iconSlot);
@@ -842,7 +858,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
 
-    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    if(ShowTMView())
     {
         // Blit mon icons
         BlitMonSlotIconForItem(WIN_MON_ICON_0, 0, item);
@@ -1052,7 +1068,7 @@ static void BuyMenuInitBgs(void)
 
 static void BuyMenuDecompressBgGraphics(void)
 {
-    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    if(ShowTMView())
     {
         DecompressAndCopyTileDataToVram(1, gShopMenu_TM_Gfx, 0x3A0, 0x3E3, 0);
         LZDecompressWram(gShopMenu_TM_Tilemap, sShopData->tilemapBuffers[0]);
@@ -1115,7 +1131,7 @@ static void BuyMenuDrawGraphics(void)
 
 static void BuyMenuDrawMapGraphics(void)
 {
-    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    if(ShowTMView())
     {
         u8 i;
 
@@ -1512,7 +1528,7 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
             BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
             
-            if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+            if(ShowTMView())
             {
                 gTasks[taskId].func = Task_RefreshMonSlotsThenBuyMenuConfirmPurchase;
             }
@@ -2049,23 +2065,10 @@ static u16 QueryShopItemListCallback(u16 index)
         u8 currDifficulty;
         u8 sortMode = ITEM_SORT_MODE_TYPE;
         bool8 flipSort = FALSE;
-        bool8 showInventoryChanges = TRUE;
+        bool8 showInventoryChanges = FALSE;
 
         currDifficulty = Rogue_GetCurrentDifficulty();
         prevDifficulty = currDifficulty;
-
-        if(Rogue_IsRunActive())
-        {
-            prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
-
-            if(prevDifficulty >= ROGUE_MAX_BOSS_COUNT)
-            {
-                // Never visited shop so far
-                prevDifficulty = currDifficulty;
-            }
-
-            gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory] = currDifficulty;
-        }
 
         switch (sMartInfo.dynamicMartCategory)
         {
@@ -2082,6 +2085,19 @@ static u16 QueryShopItemListCallback(u16 index)
         case ROGUE_SHOP_COURIER:
             sortMode = ITEM_SORT_MODE_NAME;
             break;
+        }
+
+        if(Rogue_IsRunActive())
+        {
+            prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
+
+            if(prevDifficulty >= ROGUE_MAX_BOSS_COUNT)
+            {
+                // Never visited shop so far
+                showInventoryChanges = FALSE;
+            }
+
+            gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory] = currDifficulty;
         }
 
         if(showInventoryChanges && prevDifficulty != currDifficulty)
@@ -2208,7 +2224,7 @@ static u32 GetShopItemPrice(u16 item)
     {
         u32 price = Mart_GetItemPrice(item) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
 
-        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        if(ShowTMView())
         {
             // Override TMs/HMs price if we have them
             if(item >= ITEM_TM01 && item <= ITEM_HM08 && CheckBagHasItem(item, 1))
@@ -2237,7 +2253,7 @@ static bool8 IsZeroPriceMarkedAsFree()
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
-        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        if(ShowTMView())
         {
             // Theses aren't free just mark as already bought
             return FALSE;
