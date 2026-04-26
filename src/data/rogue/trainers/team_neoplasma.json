@@ -4,26 +4,28 @@
     {
         "name": "GRUNT",
         "type_assignment": "NONE",
-        "trainer_class": "TRAINER_CLASS_TEAM_GALACTIC",
-        "music_player": "team_galactic",
+        "trainer_class": "TRAINER_CLASS_TEAM_NEOPLASMA",
+        "music_player": "team_neoplasma",
         "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
-        "class_flags": [ "TEAM_GALACTIC" ],
+        "class_flags": [ "TEAM_NEOPLASMA" ],
         "team_generator":
         {
             "subsets": 
             [
                 {
                     "max_samples": 2,
-                    "include_types": [ "NORMAL", "DARK", "GHOST" ]
+                    "include_types": [ "NORMAL", "ELECTRIC", "STEEL" ],
+                    "excluded_types": [ "FAIRY" ]
                 },
                 {
                     "max_samples": 6,
-                    "include_types": [ "POISON", "DARK", "GHOST", "DRAGON" ]
+                    "include_types": [ "NORMAL", "ELECTRIC", "STEEL", "GHOST" ],
+                    "excluded_types": [ "FAIRY" ]
                 }
             ],
             "weight_script":
             [
-                "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                 "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
             ]
         }
@@ -33,13 +35,13 @@
         "boss":
         [
             {
-                "name": "CYRUS",
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_CYRUS",
+                "name": "COLRESS",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_COLRESS",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
-                "trainer_class": "TRAINER_CLASS_TEAM_GALACTIC_LEADER",
+                "trainer_class": "TRAINER_CLASS_TEAM_NEOPLASMA_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
-                "shiny_species": "SPECIES_CYRUS_ACE",
-                "weather": "PSYCHIC_FOG",
+                "shiny_species": "SPECIES_COLRESS_ACE",
+                "weather": "RAIN_THUNDERSTORM",
                 "encounter_text":
                 [
                     {
@@ -56,13 +58,17 @@
                     [
                         {
                             "max_samples": 1,
-                            "include_types": [ "NORMAL", "POISON" ],
+                            "include_types": [ "ELECTRIC", "STEEL" ],
+                            "excluded_types": [ "FAIRY" ],
                             "extra_species":
                             [
                                 "#ifdef ROGUE_EXPANSION",
-                                    "SPECIES_DIALGA",
-                                    "SPECIES_PALKIA",
-                                    "SPECIES_GIRATINA",
+                                    "SPECIES_COBALION",
+                                    "SPECIES_TERRAKION",
+                                    "SPECIES_VIRIZION",
+                                    "SPECIES_TORNADUS_INCARNATE",
+                                    "SPECIES_THUNDURUS_INCARNATE",
+                                    "SPECIES_LANDORUS_INCARNATE",
                                 "#else",
                                     "SPECIES_KYOGRE",
                                     "SPECIES_GROUDON",
@@ -72,13 +78,17 @@
                         },
                         {
                             "max_samples": 10,
-                            "include_types": [ "DRAGON", "DARK", "GHOST" ],
+                            "include_types": [ "ELECTRIC", "STEEL", "PSYCHIC" ],
+                            "excluded_types": [ "FAIRY" ],
                             "extra_species":
                             [
                                 "#ifdef ROGUE_EXPANSION",
-                                    "SPECIES_DIALGA",
-                                    "SPECIES_PALKIA",
-                                    "SPECIES_GIRATINA",
+                                    "SPECIES_COBALION",
+                                    "SPECIES_TERRAKION",
+                                    "SPECIES_VIRIZION",
+                                    "SPECIES_TORNADUS_INCARNATE",
+                                    "SPECIES_THUNDURUS_INCARNATE",
+                                    "SPECIES_LANDORUS_INCARNATE",
                                 "#else",
                                     "SPECIES_KYOGRE",
                                     "SPECIES_GROUDON",
@@ -89,8 +99,8 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CYRUS_ACE", "INC_FAVOUR", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_COLRESS_ACE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
                         "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
@@ -100,7 +110,7 @@
         "route":
         [
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
@@ -114,7 +124,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
@@ -132,7 +142,7 @@
         "hideout":
         [
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -145,7 +155,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -158,7 +168,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -171,7 +181,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -184,7 +194,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -197,7 +207,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -210,7 +220,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -223,7 +233,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -236,7 +246,7 @@
                 "preferred_mon_gender": "MALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
                 "encounter_text":
                 [
@@ -250,7 +260,7 @@
             },
 
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -263,7 +273,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -276,7 +286,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -289,7 +299,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -302,7 +312,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -315,7 +325,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -328,7 +338,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -341,7 +351,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [
@@ -354,7 +364,7 @@
                 "preferred_mon_gender": "FEMALE"
             },
             {
-                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F",
                 "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
                 "encounter_text":
                 [

@@ -4793,21 +4793,15 @@ static u16 ChooseTeamEncounterNum()
 #ifdef ROGUE_EXPANSION
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_GALACTIC);
-//
+
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_UNOVA;
-//
+    //{
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
+    //}
+
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KALOS;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ALOLA;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())

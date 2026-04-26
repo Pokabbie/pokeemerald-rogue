@@ -1963,6 +1963,15 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             case TEAM_NUM_GALACTIC:
                 return gender ? OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M : OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F;
 
+            case TEAM_NUM_PLASMA:
+                return gender ? OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M : OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F;
+
+            case TEAM_NUM_NEOPLASMA:
+                return gender ? OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M : OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F;
+
+            case TEAM_NUM_FLARE:
+                return gender ? OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M : OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F;
+
             default:
                 AGB_ASSERT(FALSE);
                 return OBJ_EVENT_GFX_ROCKET_M;
