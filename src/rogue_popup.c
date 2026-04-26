@@ -149,6 +149,7 @@ struct PopupManager
     bool8 forceEnabledFromScript : 1;
     bool8 forceEnabledCanSkip : 1;
     bool8 hasPopupBeenSkipped : 1;
+    bool8 forceInstantSkip : 1;
 };
 
 struct CustomIcon
@@ -635,6 +636,7 @@ static u8 AddQuestPopUpWindow(struct PopupRequest* request)
 {
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
     sRoguePopups.hasPopupBeenSkipped = FALSE;
+    sRoguePopups.forceInstantSkip = FALSE;
 
     RemoveQuestPopUpWindow();
 
@@ -771,9 +773,10 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         }
         
 
-        if(GetCurrentPopup()->allowHiPriSkipping && GetNextPopup() != NULL)
+        if(!sRoguePopups.hasPopupBeenSkipped && GetCurrentPopup()->allowHiPriSkipping && GetNextPopup() != NULL)
         {
             sRoguePopups.hasPopupBeenSkipped = TRUE;
+            sRoguePopups.forceInstantSkip = TRUE;
         }
 
         // If you press a button during a script, it will skip this notification
@@ -904,6 +907,12 @@ static void Task_QuestPopUpWindow(u8 taskId)
     bool8 useEnterAnim = FALSE;
     u16 animDuration = sRoguePopups.hasPopupBeenSkipped ? 1 : template->animDuration;
     u16 displayDuration = sRoguePopups.hasPopupBeenSkipped ? SKIP_DISPLAY_DURATION : popupRequest->displayDuration;
+
+    if(sRoguePopups.forceInstantSkip)
+    {
+        animDuration = 0;
+        displayDuration = 0;
+    }
 
     switch (task->sStateNum)
     {
@@ -1931,13 +1940,13 @@ void Rogue_PushPopup_UpgradeBagCapacity()
 
 void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
 {
-    //if(gMain.inBattle)
-    //{
-    //    // Can't push in battle, so just play sound
-    //    PlaySE(speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF);
-    //}
-    //else
-    //{
+    if(gMain.inBattle && !Rogue_InBattleChoosingMoves())
+    {
+        // Can't push in current battle state, so just play sound
+        PlaySE(speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF);
+    }
+    else
+    {
         struct PopupRequest* popup = CreateNewPopup();
 
         popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
@@ -1947,7 +1956,7 @@ void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
 
         popup->titleText = speedupEnabled ? sText_Popup_SpeedupEnabled : sText_Popup_SpeedupDisabled;
         popup->subtitleText = sText_Popup_SpeedupTip;
-    //}
+    }
 }
 
 void Rogue_PushPopup_AssistantConnected()

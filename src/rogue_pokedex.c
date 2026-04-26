@@ -525,6 +525,11 @@ void Rogue_SelectPokemonInSafari()
     sPokedexViewReq.view = DEX_VIEW_SELECT_SAFARI_MON;
 }
 
+bool8 Rogue_IsViewingPokedex()
+{
+    return sPokedexMenu != NULL;
+}
+
 static bool8 IsCurrentlySelectingMon()
 {
     return sPokedexViewReq.view == DEX_VIEW_SELECT_MON || sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON;

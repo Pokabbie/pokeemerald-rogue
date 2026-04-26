@@ -408,7 +408,7 @@ static bool8 TryOverrideSpeedScale(u8 speed)
     // Tap L to toggle slow down
     if(speed > 1 && !gRogueLocal.speedupJustToggled)
     {
-        if(JOY_NEW(L_BUTTON))
+        if(JOY_NEW(L_BUTTON) && !Rogue_IsViewingPokedex())
         {
             gRogueLocal.speedupToggleActive = !gRogueLocal.speedupToggleActive;
             gRogueLocal.speedupJustToggled = TRUE;
