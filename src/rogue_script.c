@@ -1807,6 +1807,7 @@ void Rogue_OnHealWithNurse()
     Rogue_RefillDayCareCharges(TRUE);
 }
 
+#define VAR_CATCH_CONTEST_STATE VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 #define VAR_CATCH_CONTEST_TYPE VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
 #define VAR_CATCH_CONTEST_STAT VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
 
@@ -1825,9 +1826,6 @@ void Rogue_SelectCatchingContestMode()
             {
             case TYPE_DARK:
             case TYPE_STEEL:
-#ifdef ROGUE_EXPANSION
-            case TYPE_FAIRY:
-#endif
                 type = TYPE_NONE;
                 break;
             }
@@ -1845,6 +1843,7 @@ void Rogue_SelectCatchingContestMode()
 #endif
     }
 
+    VarSet(VAR_CATCH_CONTEST_STATE, 0);
     VarSet(VAR_CATCH_CONTEST_TYPE, type);
     VarSet(VAR_CATCH_CONTEST_STAT, stat);
 }
