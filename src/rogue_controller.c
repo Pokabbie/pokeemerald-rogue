@@ -144,6 +144,8 @@ struct RogueLocalData
     u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
     bool8 runningToggleActive : 1;
+    bool8 speedupToggleActive : 1;
+    bool8 speedupJustToggled : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
@@ -401,14 +403,37 @@ static u8 GetBattleSceneOption()
         return gSaveBlock2Ptr->optionsWildBattleScene;
 }
 
+static bool8 TryOverrideSpeedScale(u8 speed)
+{
+    // Tap L to toggle slow down
+    if(speed > 1 && !gRogueLocal.speedupJustToggled)
+    {
+        if(JOY_NEW(L_BUTTON))
+        {
+            gRogueLocal.speedupToggleActive = !gRogueLocal.speedupToggleActive;
+            gRogueLocal.speedupJustToggled = TRUE;
+            Rogue_PushPopup_ToggleSpeedup(!gRogueLocal.speedupToggleActive);
+        }
+    }
+
+    // toggle is inverted i.e. toggle active means we force the override
+    if(gRogueLocal.speedupToggleActive)
+    {
+        return 1;
+    }
+
+    return speed;
+}
+
+u8 Rogue_GetOverworldSpeedScale()
+{
+    return TryOverrideSpeedScale(1 + gSaveBlock2Ptr->optionsOverworldSpeed);
+}
+
 u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 {
     u8 speedScale = 1;
     u8 battleSceneOption = GetBattleSceneOption();
-
-    // Hold L to slow down
-    if(JOY_HELD(L_BUTTON))
-        return 1;
 
     // We want to speed up all anims until input selection starts
     if(InBattleChoosingMoves())
@@ -418,11 +443,11 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
     {
         // Always run at 1x speed here
         if(InBattleChoosingMoves())
-            return 1;
+            return TryOverrideSpeedScale(1);
 
         // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
         if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
-            return 1;
+            return TryOverrideSpeedScale(1);
     }
     else
     {
@@ -443,23 +468,23 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         switch (battleSceneOption)
         {
         case OPTIONS_BATTLE_SCENE_1X:
-            return forHealthbar ? 1 : 1;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 1);
 
         case OPTIONS_BATTLE_SCENE_2X:
-            return forHealthbar ? 1 : 2;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 2);
 
         case OPTIONS_BATTLE_SCENE_3X:
-            return forHealthbar ? 1 : 3;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 3);
 
         case OPTIONS_BATTLE_SCENE_4X:
-            return forHealthbar ? 1 : 4;
+            return TryOverrideSpeedScale(forHealthbar ? 1 : 4);
 
         // Print text at a readable speed still
         case OPTIONS_BATTLE_SCENE_DISABLED:
             if(gRogueLocal.hasBattleInputStarted)
-                return forHealthbar ? 10 : 1;
+                return TryOverrideSpeedScale(forHealthbar ? 10 : 1);
             else
-                return 4;
+                return TryOverrideSpeedScale(4);
         }
     }
     else // speeds for battle transitions
@@ -467,21 +492,21 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         switch (battleSceneOption)
         {
         case OPTIONS_BATTLE_SCENE_1X:
-            return 1;
+            return TryOverrideSpeedScale(1);
 
         case OPTIONS_BATTLE_SCENE_2X:
-            return 3;
+            return TryOverrideSpeedScale(3);
 
         case OPTIONS_BATTLE_SCENE_3X:
-            return 4;
+            return TryOverrideSpeedScale(4);
 
         case OPTIONS_BATTLE_SCENE_4X:
         case OPTIONS_BATTLE_SCENE_DISABLED:
-            return 6;
+            return TryOverrideSpeedScale(6);
         }
     }
 
-    return 1 ;
+    return TryOverrideSpeedScale(1);
 }
 
 bool8 Rogue_UseKeyBattleAnims(void)
@@ -3523,6 +3548,24 @@ void Rogue_MainInit(void)
 
 void Rogue_MainEarlyCB(void)
 {
+    gRogueLocal.speedupJustToggled = FALSE;
+
+    if(gMain.inBattle)
+    {
+        u8 battleSceneOption = GetBattleSceneOption();
+        switch (battleSceneOption)
+        {
+        case OPTIONS_BATTLE_SCENE_1X:
+        //case OPTIONS_BATTLE_SCENE_DISABLED:
+            break;
+
+        default:
+            // Just call this here to force the speed toggling
+            TryOverrideSpeedScale(4);
+            break;
+        }
+    }
+    
     // Want to process before overworld update
     Rogue_AssistantMainCB();
 }
@@ -3552,6 +3595,12 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
             if(gSaveBlock2Ptr->optionsAutoRunToggle && (newKeys & B_BUTTON) != 0)
             {
                 gRogueLocal.runningToggleActive = !gRogueLocal.runningToggleActive;
+            }
+
+            // Update speed up toggle
+            {
+                // Just call this here to force the speed toggling
+                Rogue_GetOverworldSpeedScale();
             }
         }
     }
@@ -4744,21 +4793,15 @@ static u16 ChooseTeamEncounterNum()
 #ifdef ROGUE_EXPANSION
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_GALACTIC);
-//
+
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_UNOVA;
-//
+    //{
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
+    //}
+
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KALOS;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ALOLA;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
-//
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())

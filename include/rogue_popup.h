@@ -63,6 +63,7 @@ void Rogue_PushPopup_DaycareChargeRefilled(u32 totalCharges);
 void Rogue_PushPopup_UnlockPokedex();
 void Rogue_PushPopup_UpgradePokedex();
 void Rogue_PushPopup_UpgradeBagCapacity();
+void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled);
 
 void Rogue_PushPopup_AssistantConnected();
 void Rogue_PushPopup_AssistantDisconnected();

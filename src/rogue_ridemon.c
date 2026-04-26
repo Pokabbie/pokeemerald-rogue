@@ -1387,6 +1387,7 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
         //MOVE_SPEED_FAST_2, // water current / acro bike                   PlayerRideWaterCurrent
         //MOVE_SPEED_FASTER, // mach bike's max speed                       PlayerWalkFaster
         //MOVE_SPEED_FASTEST,                                               ??
+        //MOVE_SPEED_FASTEST_2                                              ??
 
         switch (CalculateMovementModeFor(GetCurrentRideMonSpecies()))
         {

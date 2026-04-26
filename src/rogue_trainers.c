@@ -1469,6 +1469,15 @@ static u32 GetActiveTeamFlag()
 
         case TEAM_NUM_GALACTIC:
             return CLASS_FLAG_TEAM_GALACTIC;
+
+        case TEAM_NUM_PLASMA:
+            return CLASS_FLAG_TEAM_PLASMA;
+
+        case TEAM_NUM_NEOPLASMA:
+            return CLASS_FLAG_TEAM_NEOPLASMA;
+
+        case TEAM_NUM_FLARE:
+            return CLASS_FLAG_TEAM_FLARE;
     }
 
     AGB_ASSERT(FALSE);

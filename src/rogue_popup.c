@@ -19,6 +19,7 @@
 #include "sound.h"
 #include "task.h"
 #include "text.h"
+#include "text_window.h"
 #include "constants/battle_frontier.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
@@ -40,6 +41,8 @@
 #define POPUP_QUEUE_CAPACITY 16
 
 extern const u32 gItemIcon_RogueStatusMoney[];
+extern const u32 gItemIcon_RogueDefaultSpeed[];
+extern const u32 gItemIcon_RogueFastSpeed[];
 extern const u32 gItemIconPalette_RogueStatusStarCustom[];
 
 enum
@@ -71,6 +74,8 @@ enum
     POPUP_CUSTOM_ICON_POKEDEX,
     POPUP_CUSTOM_ICON_CLOUD,
     POPUP_CUSTOM_ICON_MONEY,
+    POPUP_CUSTOM_ICON_DEFAULT_SPEED,
+    POPUP_CUSTOM_ICON_FAST_SPEED,
     POPUP_CUSTOM_ICON_TYPE_NORMAL,
     POPUP_CUSTOM_ICON_TYPE_FIGHTING,
     POPUP_CUSTOM_ICON_TYPE_FLYING,
@@ -125,6 +130,7 @@ struct PopupRequest
     u16 fanfare;
     bool8 scriptAudioOnly : 1;
     bool8 cantBeSkipped : 1;
+    bool8 allowHiPriSkipping : 1;
 };
 
 struct PopupManager
@@ -166,6 +172,16 @@ static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] =
     [POPUP_CUSTOM_ICON_MONEY] = 
     {
         .icon = gItemIcon_RogueStatusMoney,
+        .palette = gItemIconPalette_RogueStatusStarCustom
+    },
+    [POPUP_CUSTOM_ICON_DEFAULT_SPEED] = 
+    {
+        .icon = gItemIcon_RogueDefaultSpeed,
+        .palette = gItemIconPalette_RogueStatusStarCustom
+    },
+    [POPUP_CUSTOM_ICON_FAST_SPEED] = 
+    {
+        .icon = gItemIcon_RogueFastSpeed,
         .palette = gItemIconPalette_RogueStatusStarCustom
     },
     [POPUP_CUSTOM_ICON_TYPE_NORMAL] = 
@@ -327,6 +343,10 @@ static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RE
 
 static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Received Pokedex!");
 static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
+
+static const u8 sText_Popup_SpeedupEnabled[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Speedup Enabled");
+static const u8 sText_Popup_SpeedupDisabled[] = _("{COLOR LIGHT_RED}{SHADOW RED}Speedup Disabled");
+static const u8 sText_Popup_SpeedupTip[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}{L_BUTTON} to toggle");
 
 static const u8 sText_Popup_BagUpdate[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Bag Upgraded!");
 static const u8 sText_Popup_UpgradeSlots[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}+{STR_VAR_1} ({STR_VAR_2}) slots"); // assuming ITEM_BAG_SLOTS_PER_UPGRADE value
@@ -552,6 +572,8 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     },
 };
 
+bool8 InBattleChoosingMoves();
+
 static void ShowQuestPopup(void);
 static void HideQuestPopUpWindow(void);
 
@@ -570,6 +592,18 @@ void InitQuestWindow()
 static struct PopupRequest* GetCurrentPopup()
 {
     return &sRoguePopups.requestQueue[sRoguePopups.lastShownId];
+}
+
+static struct PopupRequest* GetNextPopup()
+{
+    u8 nextIdx = (sRoguePopups.lastShownId + 1) % POPUP_QUEUE_CAPACITY;
+
+    if(nextIdx == sRoguePopups.queuedId)
+    {
+        return NULL;
+    }
+
+    return &sRoguePopups.requestQueue[nextIdx];
 }
 
 static u8 GetQuestPopUpWindowId(void)
@@ -605,7 +639,7 @@ static u8 AddQuestPopUpWindow(struct PopupRequest* request)
     RemoveQuestPopUpWindow();
 
     sRoguePopups.windowId = AddWindowParameterized(
-        0, 
+        gMain.inBattle ? 1 : 0, 
         template->left,
         template->down,
         template->width,
@@ -619,7 +653,7 @@ static u8 AddQuestPopUpWindow(struct PopupRequest* request)
     if(template->iconMode != POPUP_ICON_MODE_NONE)
     {
         sRoguePopups.iconWindowId = AddWindowParameterized(
-            0, 
+            gMain.inBattle ? 1 : 0, 
             template->iconLeft,
             template->iconDown,
             template->iconWidth,
@@ -688,6 +722,11 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 
     START_TIMER(ROGUE_POPUPS);
 
+    if(gMain.inBattle && InBattleChoosingMoves())
+    {
+        enabled = TRUE;
+    }
+
     if(sRoguePopups.forceEnabled)
     {
         enabled = TRUE;
@@ -725,12 +764,18 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
                     Rogue_PushPopup_WeatherActive(sRoguePopups.lastWeatherPopup);
             }
         }
-        else
+        else if(inOverworld)
         {
             // Push next party notification, if
             Rogue_PushPopup_NextPartyNotification();
         }
         
+
+        if(GetCurrentPopup()->allowHiPriSkipping && GetNextPopup() != NULL)
+        {
+            sRoguePopups.hasPopupBeenSkipped = TRUE;
+        }
+
         // If you press a button during a script, it will skip this notification
         if(sRoguePopups.forceEnabled && !GetCurrentPopup()->cantBeSkipped)
         {
@@ -788,6 +833,16 @@ void Rogue_DisplayPopupsFromScriptSkippable()
     sRoguePopups.forceEnabledCanSkip = TRUE;
 }
 
+static u8 TryOverrideAnim(u8 anim)
+{
+    if(gMain.inBattle)
+    {
+        return POPUP_ANIM_NONE;
+    }
+
+    return anim;
+}
+
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
 {
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
@@ -802,7 +857,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
     yStart = 0;
     yEnd = 0;
 
-    switch (useEnterAnim ? template->enterAnim : template->exitAnim)
+    switch (TryOverrideAnim(useEnterAnim ? template->enterAnim : template->exitAnim))
     {
     case POPUP_ANIM_SLIDE_VERTICAL:
         yStart = (template->height + 2) * 8;
@@ -816,19 +871,19 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
     }
 
     if(xStart == xEnd)
-        SetGpuReg(REG_OFFSET_BG0HOFS, xStart);
+        SetGpuReg(gMain.inBattle ? REG_OFFSET_BG1HOFS : REG_OFFSET_BG0HOFS, xStart);
     else
     {
         value = (invTimer * xEnd) / template->animDuration + (timer * xStart) / template->animDuration;
-        SetGpuReg(REG_OFFSET_BG0HOFS, value);
+        SetGpuReg(gMain.inBattle ? REG_OFFSET_BG1HOFS : REG_OFFSET_BG0HOFS, value);
     }
 
     if(yStart == yEnd)
-        SetGpuReg(REG_OFFSET_BG0VOFS, yStart);
+        SetGpuReg(gMain.inBattle ? REG_OFFSET_BG1VOFS : REG_OFFSET_BG0VOFS, yStart);
     else
     {
         value = (invTimer * yEnd) / template->animDuration + (timer * yStart) / template->animDuration;
-        SetGpuReg(REG_OFFSET_BG0VOFS, value);
+        SetGpuReg(gMain.inBattle ? REG_OFFSET_BG1VOFS : REG_OFFSET_BG0VOFS, value);
     }
 }
 
@@ -934,8 +989,17 @@ static void HideQuestPopUpWindow(void)
         }
 
         RemoveQuestPopUpWindow();
-        SetGpuReg_ForcedBlank(REG_OFFSET_BG0VOFS, 0);
-        SetGpuReg_ForcedBlank(REG_OFFSET_BG0HOFS, 0);
+        if(gMain.inBattle)
+        {
+            SetGpuReg_ForcedBlank(REG_OFFSET_BG1VOFS, 0);
+            SetGpuReg_ForcedBlank(REG_OFFSET_BG1HOFS, 0);
+            //HideBg(1);
+        }
+        else
+        {
+            SetGpuReg_ForcedBlank(REG_OFFSET_BG0VOFS, 0);
+            SetGpuReg_ForcedBlank(REG_OFFSET_BG0HOFS, 0);
+        }
         DestroyTask(sRoguePopups.taskId);
         
         sRoguePopups.lastShownId = (sRoguePopups.lastShownId + 1) % POPUP_QUEUE_CAPACITY;
@@ -1110,6 +1174,12 @@ static void ShowQuestPopUpWindow(void)
 {
     struct PopupRequest* popupRequest = GetCurrentPopup();
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
+
+    if(gMain.inBattle)
+    {
+        LoadPalette(GetTextWindowPalette(0), 0xF0, 0x20);
+        //ShowBg(1);
+    }
 
     AddQuestPopUpWindow(popupRequest);
 
@@ -1857,6 +1927,27 @@ void Rogue_PushPopup_UpgradeBagCapacity()
 
     popup->expandTextData[1] = GetBagUnreservedTotalSlots();
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
+{
+    //if(gMain.inBattle)
+    //{
+    //    // Can't push in battle, so just play sound
+    //    PlaySE(speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF);
+    //}
+    //else
+    //{
+        struct PopupRequest* popup = CreateNewPopup();
+
+        popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+        popup->iconId = speedupEnabled ? POPUP_CUSTOM_ICON_FAST_SPEED : POPUP_CUSTOM_ICON_DEFAULT_SPEED;
+        popup->soundEffect = speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF;
+        popup->allowHiPriSkipping = TRUE;
+
+        popup->titleText = speedupEnabled ? sText_Popup_SpeedupEnabled : sText_Popup_SpeedupDisabled;
+        popup->subtitleText = sText_Popup_SpeedupTip;
+    //}
 }
 
 void Rogue_PushPopup_AssistantConnected()

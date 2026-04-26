@@ -315,12 +315,23 @@ static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon)
         // Count down priorities
         for(i = startIndex; i <= endIndex; ++i)
         {
-            if(gRogueSaveBlock->safariMons[i].priorityCounter != 0)
-                --gRogueSaveBlock->safariMons[i].priorityCounter;
-
             // Keep track of lowest priority in case there isn't a free slot
             lowestPriority = min(lowestPriority, gRogueSaveBlock->safariMons[i].priorityCounter);
         }
+
+        // Reduce everything by the lowest priority, so we're basically evicting batches of mons at a time
+        for(i = startIndex; i <= endIndex; ++i)
+        {
+            if(gRogueSaveBlock->safariMons[i].priorityCounter == lowestPriority)
+            {
+                ZeroSafariMon(&gRogueSaveBlock->safariMons[i]);
+            }
+            else
+            {
+                gRogueSaveBlock->safariMons[i].priorityCounter -= lowestPriority;
+            }
+        }
+
 
         offset = Random();
 
@@ -329,8 +340,9 @@ static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon)
         {
             idx = startIndex + (offset + i - startIndex) % (endIndex - startIndex + 1);
 
-            if(gRogueSaveBlock->safariMons[idx].priorityCounter == lowestPriority)
+            if(gRogueSaveBlock->safariMons[idx].species == SPECIES_NONE)
             {
+                // There is a free slot here
                 return idx;
             }
         }

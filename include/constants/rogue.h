@@ -340,8 +340,11 @@
 #define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
 #define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
 #define CLASS_FLAG_TEAM_GALACTIC                (1 << 3)
+#define CLASS_FLAG_TEAM_PLASMA                  (1 << 4)
+#define CLASS_FLAG_TEAM_NEOPLASMA               (1 << 5)
+#define CLASS_FLAG_TEAM_FLARE                   (1 << 6)
 
-#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC)
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC) // todo - expand when needed
 
 // TRAINER_FLAG_CLASS_SPECIAL
 //
@@ -361,7 +364,10 @@
 #define TEAM_NUM_AQUA           2
 #define TEAM_NUM_MAGMA          3
 #define TEAM_NUM_GALACTIC       4
-#define TEAM_NUM_COUNT          5
+#define TEAM_NUM_PLASMA         5
+#define TEAM_NUM_NEOPLASMA      6
+#define TEAM_NUM_FLARE          7
+#define TEAM_NUM_COUNT          8
 
 #define TEAM_PRE_LEGEND_MAP_OFFSET 100
 
@@ -392,6 +398,9 @@
 #define SPECIES_KATE_ACE                SPECIES_TAROUNTULA
 
 #define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
+#define SPECIES_GHETSIS_ACE             SPECIES_KYUREM
+#define SPECIES_COLRESS_ACE             SPECIES_LANDORUS_INCARNATE // needs to be gen 5 really for team builder
+#define SPECIES_LYSANDER_ACE            SPECIES_ZYGARDE
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
 #define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
@@ -404,6 +413,10 @@
 #define SPECIES_KATE_ACE                SPECIES_GASTLY
 
 #define SPECIES_CYRUS_ACE               SPECIES_RAYQUAZA
+
+#define SPECIES_GHETSIS_ACE             SPECIES_RAYQUAZA
+#define SPECIES_COLRESS_ACE             SPECIES_RAYQUAZA
+#define SPECIES_LYSANDER_ACE            SPECIES_RAYQUAZA
 #endif
 
 // For final quest we're going to only show a single rival per "gym gen"
