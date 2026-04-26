@@ -3148,6 +3148,17 @@ bool8 InBattleRunningActions()
     return gBattleMainFunc == RunTurnActionsFunctions;
 }
 
+bool8 Rogue_InBattleChoosingMoves()
+{
+    // Make sure we're actually in the battle scene
+    return gMain.callback2 == BattleMainCB2 && InBattleChoosingMoves();
+}
+
+bool8 Rogue_InBattleRunningActions()
+{
+    // Make sure we're actually in the battle scene
+    return gMain.callback2 == BattleMainCB2 && InBattleRunningActions();
+}
 
 static void BattleMainCB1(void)
 {

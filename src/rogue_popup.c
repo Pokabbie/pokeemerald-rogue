@@ -572,7 +572,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     },
 };
 
-bool8 InBattleChoosingMoves();
+bool8 Rogue_InBattleChoosingMoves();
 
 static void ShowQuestPopup(void);
 static void HideQuestPopUpWindow(void);
@@ -722,7 +722,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 
     START_TIMER(ROGUE_POPUPS);
 
-    if(gMain.inBattle && InBattleChoosingMoves())
+    if(gMain.inBattle && Rogue_InBattleChoosingMoves())
     {
         enabled = TRUE;
     }

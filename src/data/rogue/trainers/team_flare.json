@@ -15,12 +15,12 @@
                 {
                     "max_samples": 2,
                     "include_types": [ "NORMAL", "FIRE", "FAIRY" ],
-                    "excluded_types": [ "WATER" ]
+                    "excluded_types": [ "DRAGON" ]
                 },
                 {
                     "max_samples": 6,
                     "include_types": [ "NORMAL", "FIRE", "FAIRY", "DARK" ],
-                    "excluded_types": [ "WATER" ]
+                    "excluded_types": [ "DRAGON" ]
                 }
             ],
             "weight_script":
@@ -41,6 +41,7 @@
                 "trainer_class": "TRAINER_CLASS_TEAM_FLARE_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
                 "shiny_species": "SPECIES_LYSANDER_ACE",
+                "weather": "DROUGHT",
                 "encounter_text":
                 [
                     {
@@ -58,7 +59,7 @@
                         {
                             "max_samples": 1,
                             "include_types": [ "NORMAL", "FIRE" ],
-                            "excluded_types": [ "WATER" ],
+                            "excluded_types": [ "DRAGON" ],
                             "extra_species":
                             [
                                 "#ifdef ROGUE_EXPANSION",
@@ -75,7 +76,7 @@
                         {
                             "max_samples": 10,
                             "include_types": [ "FAIRY", "FIRE", "DARK" ],
-                            "excluded_types": [ "WATER" ],
+                            "excluded_types": [ "DRAGON" ],
                             "extra_species":
                             [
                                 "#ifdef ROGUE_EXPANSION",

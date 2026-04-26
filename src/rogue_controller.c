@@ -390,8 +390,8 @@ bool8 Rogue_FastBattleAnims(void)
     return !Rogue_UseKeyBattleAnims();
 }
 
-bool8 InBattleChoosingMoves();
-bool8 InBattleRunningActions();
+bool8 Rogue_InBattleChoosingMoves();
+bool8 Rogue_InBattleRunningActions();
 
 static u8 GetBattleSceneOption() 
 {
@@ -436,17 +436,17 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
     u8 battleSceneOption = GetBattleSceneOption();
 
     // We want to speed up all anims until input selection starts
-    if(InBattleChoosingMoves())
+    if(Rogue_InBattleChoosingMoves())
         gRogueLocal.hasBattleInputStarted = TRUE;
 
     if(gRogueLocal.hasBattleInputStarted)
     {
         // Always run at 1x speed here
-        if(InBattleChoosingMoves())
+        if(Rogue_InBattleChoosingMoves())
             return TryOverrideSpeedScale(1);
 
         // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
-        if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
+        if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && Rogue_InBattleRunningActions())
             return TryOverrideSpeedScale(1);
     }
     else
