@@ -31,6 +31,7 @@
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
+#include "item_icon.h"
 #include "link.h"
 #include "link_rfu.h"
 #include "mail.h"
@@ -96,6 +97,10 @@
 #define MENU_DIR_RIGHT    2
 #define MENU_DIR_LEFT    -2
 
+enum {
+    TAG_ITEM_ICON = 100,
+};
+
 enum
 {
     CAN_LEARN_MOVE,
@@ -123,6 +128,8 @@ struct PartyMenuInternal
     u32 spriteIdConfirmPokeball:7;
     u32 spriteIdCancelPokeball:7;
     u32 messageId:14;
+    u16 displayItemId;
+    u8 displayItemSpriteId;
     u8 windowId[3];
     u8 actions[10];
     u8 numActions;
@@ -423,6 +430,7 @@ static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
 static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu);
+static void UpdateDisplayedItem(u8 slot);
 
 // static const data
 #include "data/party_menu.h"
@@ -449,6 +457,8 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
         sPartyMenuInternal->lastSelectedSlot = 0;
         sPartyMenuInternal->spriteIdConfirmPokeball = 0x7F;
         sPartyMenuInternal->spriteIdCancelPokeball = 0x7F;
+        sPartyMenuInternal->displayItemId = ITEM_NONE;
+        sPartyMenuInternal->displayItemSpriteId = SPRITE_NONE;
 
         if (menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
             sPartyMenuInternal->chooseHalf = TRUE;
@@ -807,7 +817,10 @@ static void RenderPartyMenuBox(u8 slot)
             if (gPartyMenu.menuType == PARTY_MENU_TYPE_MULTI_SHOWCASE)
                 AnimatePartySlot(slot, 0);
             else if (gPartyMenu.slotId == slot)
+            {
                 AnimatePartySlot(slot, 1);
+                UpdateDisplayedItem(slot);
+            }
             else
                 AnimatePartySlot(slot, 0);
         }
@@ -1084,6 +1097,9 @@ void AnimatePartySlot(u8 slot, u8 animNum)
             LoadPartyBoxPalette(&sPartyMenuBoxes[slot], GetPartyBoxPaletteFlags(slot, animNum));
             AnimateSelectedPartyIcon(sPartyMenuBoxes[slot].monSpriteId, animNum);
             PartyMenuStartSpriteAnim(sPartyMenuBoxes[slot].pokeballSpriteId, animNum);
+
+
+            // load item icon?
         }
         return;
     case PARTY_SIZE: // Confirm
@@ -1483,6 +1499,8 @@ static void UpdateCurrentPartySelection(s8 *slotPtr, s8 movementDir)
         PlaySE(SE_SELECT);
         AnimatePartySlot(newSlotId, 0);
         AnimatePartySlot(*slotPtr, 1);
+
+        UpdateDisplayedItem(*slotPtr);
     }
 }
 
@@ -2963,6 +2981,8 @@ static void SwitchSelectedMons(u8 taskId)
         AnimatePartySlot(gPartyMenu.slotId2, 1);
         SlidePartyMenuBoxOneStep(taskId);
         gTasks[taskId].func = Task_SlideSelectedSlotsOffscreen;
+
+        UpdateDisplayedItem(PARTY_SIZE);
     }
 }
 
@@ -3080,6 +3100,8 @@ static void Task_SlideSelectedSlotsOnscreen(u8 taskId)
         Free(sSlot1TilemapBuffer);
         Free(sSlot2TilemapBuffer);
         FinishTwoMonAction(taskId);
+
+        UpdateDisplayedItem(gPartyMenu.slotId);
     }
     // Continue sliding
     else
@@ -3369,6 +3391,8 @@ static void Task_UpdateHeldItemSprite(u8 taskId)
         }
         Task_ReturnToChooseMonAfterText(taskId);
     }
+
+    UpdateDisplayedItem(gPartyMenu.slotId);
 }
 
 static void CursorCb_TakeItem(u8 taskId)
@@ -7294,5 +7318,66 @@ void IsLastMonThatKnowsSurf(void)
         }
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
+    }
+}
+
+static void UpdateDisplayedItem(u8 slot)
+{
+    u16 displayedItem = ITEM_NONE;
+
+    AGB_ASSERT(sPartyMenuInternal);
+
+    if(sPartyMenuInternal == NULL)
+        return;
+
+    if(slot < PARTY_SIZE)
+    {
+        if (GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            displayedItem = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+        }
+    }
+
+    // Add a full sizes item sprite
+    if(displayedItem != sPartyMenuInternal->displayItemId)
+    {
+        sPartyMenuInternal->displayItemId = displayedItem;
+        if(sPartyMenuInternal->displayItemSpriteId != SPRITE_NONE)
+        {
+            FreeSpriteTilesByTag(TAG_ITEM_ICON);
+            FreeSpritePaletteByTag(TAG_ITEM_ICON);
+            DestroySpriteAndFreeResources(&gSprites[sPartyMenuInternal->displayItemSpriteId]);
+            sPartyMenuInternal->displayItemSpriteId = SPRITE_NONE;
+        }
+
+        if(displayedItem != ITEM_NONE)
+        {
+            sPartyMenuInternal->displayItemSpriteId = AddItemIconSprite(TAG_ITEM_ICON, TAG_ITEM_ICON, displayedItem);
+        }
+    }
+        
+    if (sPartyMenuInternal->displayItemSpriteId != MAX_SPRITES)
+    {
+        // Move display location
+        gSprites[sPartyMenuInternal->displayItemSpriteId].x = sPartyMenuBoxes[slot].spriteCoords[2] + 8;
+        gSprites[sPartyMenuInternal->displayItemSpriteId].y = sPartyMenuBoxes[slot].spriteCoords[3] + 4;
+    }
+
+
+    // Hide the small item sprite
+    u8 i;
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            if(i == slot)
+            {
+                ShowOrHideHeldItemSprite(ITEM_NONE, &sPartyMenuBoxes[i]);
+            }
+            else
+            {
+                UpdatePartyMonHeldItemSprite(&gPlayerParty[i], &sPartyMenuBoxes[i]);
+            }
+        }
     }
 }
