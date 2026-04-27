@@ -98,6 +98,16 @@ static const struct FormChange sMachampFormChangeTable[] =
 };
 #endif //P_FAMILY_MACHOP
 
+#if P_FAMILY_BELLSPROUT
+static const struct FormChange sVictreebelFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_VICTREEBEL_MEGA, ITEM_VICTREEBELITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_VICTREEBEL},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_VICTREEBEL},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_BELLSPROUT
+
 #if P_FAMILY_SLOWPOKE
 static const struct FormChange sSlowbroFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SLOWBRO_MEGA, ITEM_SLOWBRONITE},

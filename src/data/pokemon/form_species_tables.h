@@ -196,6 +196,14 @@ static const u16 sMachampFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_MACHOP
 
+#if P_FAMILY_BELLSPROUT
+static const u16 sVictreebelFormSpeciesIdTable[] = {
+    SPECIES_VICTREEBEL,
+    SPECIES_VICTREEBEL_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_BELLSPROUT
+
 #if P_FAMILY_GEODUDE
 static const u16 sGeodudeFormSpeciesIdTable[] = {
     SPECIES_GEODUDE,

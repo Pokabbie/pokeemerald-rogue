@@ -977,6 +977,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Victreebel[] = INCBIN_U32("graphics/pokemon/victreebel/shiny.gbapal.lz");
     const u8 gMonIcon_Victreebel[] = INCBIN_U8("graphics/pokemon/victreebel/icon.4bpp");
     const u8 gMonFootprint_Victreebel[] = INCBIN_U8("graphics/pokemon/victreebel/footprint.1bpp");
+
+    const u32 gMonFrontPic_VictreebelMega[] = INCBIN_U32("graphics/pokemon/victreebel/mega/front.4bpp.lz");
+    const u32 gMonPalette_VictreebelMega[] = INCBIN_U32("graphics/pokemon/victreebel/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_VictreebelMega[] = INCBIN_U32("graphics/pokemon/victreebel/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_VictreebelMega[] = INCBIN_U32("graphics/pokemon/victreebel/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_VictreebelMega[] = INCBIN_U8("graphics/pokemon/victreebel/mega/icon.4bpp");
 #endif //P_FAMILY_BELLSPROUT
 
 #if P_FAMILY_TENTACOOL
