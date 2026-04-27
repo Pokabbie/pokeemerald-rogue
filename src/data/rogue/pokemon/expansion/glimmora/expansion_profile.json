@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_GLIMMORA"
+    "SPECIES_GLIMMORA",
+    "SPECIES_GLIMMORA_MEGA"
   ],
   "LevelUpMoves": [
     {

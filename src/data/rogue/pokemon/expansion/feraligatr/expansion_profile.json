@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_FERALIGATR"
+    "SPECIES_FERALIGATR",
+    "SPECIES_FERALIGATR_MEGA"
   ],
   "LevelUpMoves": [
     {

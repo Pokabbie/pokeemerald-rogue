@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_SCOVILLAIN"
+    "SPECIES_SCOVILLAIN",
+    "SPECIES_SCOVILLAIN_MEGA"
   ],
   "LevelUpMoves": [
     {

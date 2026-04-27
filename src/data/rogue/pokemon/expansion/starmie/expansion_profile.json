@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_STARMIE"
+    "SPECIES_STARMIE",
+    "SPECIES_STARMIE_MEGA"
   ],
   "LevelUpMoves": [
     {

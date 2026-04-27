@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_SKARMORY"
+    "SPECIES_SKARMORY",
+    "SPECIES_SKARMORY_MEGA"
   ],
   "LevelUpMoves": [
     {

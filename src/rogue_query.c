@@ -1078,7 +1078,7 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
     if(speciesStats.baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
-        if(species > GEN9_START && species < PLACEHOLDER_START)
+        if(species > GEN9_START && species <= SPECIES_PECHARUNT)
         {
             // Gen 9 section is after the forms start
             // Illegal species for either wild or trainers

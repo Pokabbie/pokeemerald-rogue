@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_MALAMAR"
+    "SPECIES_MALAMAR",
+    "SPECIES_MALAMAR_MEGA"
   ],
   "LevelUpMoves": [
     {

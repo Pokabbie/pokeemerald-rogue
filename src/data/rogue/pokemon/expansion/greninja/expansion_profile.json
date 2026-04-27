@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_GRENINJA"
+    "SPECIES_GRENINJA",
+    "SPECIES_GRENINJA_MEGA"
   ],
   "LevelUpMoves": [
     {

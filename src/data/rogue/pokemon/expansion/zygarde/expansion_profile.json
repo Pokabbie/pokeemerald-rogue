@@ -1,7 +1,8 @@
 {
   "Species": [
     "SPECIES_ZYGARDE",
-    "SPECIES_ZYGARDE_50_POWER_CONSTRUCT"
+    "SPECIES_ZYGARDE_50_POWER_CONSTRUCT",
+    "SPECIES_ZYGARDE_MEGA"
   ],
   "LevelUpMoves": [
     {

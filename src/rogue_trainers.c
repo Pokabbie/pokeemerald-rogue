@@ -3394,7 +3394,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 }
 
                 // Handle megas
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                if(IS_MEGA_STONE(currPreset->heldItem))
                 {
                     if(IsMegaEvolutionEnabled())
                     {
@@ -3508,7 +3508,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
 
         if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
         {
-            if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
+            if(IS_MEGA_STONE(outPreset->heldItem))
             {
                 outPreset->heldItem = ITEM_NONE;
             }
@@ -3554,7 +3554,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 outPreset->heldItem == ITEM_LEFTOVERS;
             }
         }
-        else if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
+        else if(IS_MEGA_STONE(outPreset->heldItem))
         {
             scratch->heldItems.hasMegaStone = TRUE;
         }
@@ -3798,7 +3798,7 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
         score -= 15;
     }
 
-    if(item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE)
+    if(IS_MEGA_STONE(item))
     {
         // Try to push megas towards the end
         score -= 20;
@@ -4065,7 +4065,7 @@ static u16 CalculateDynamaxScore(struct Pokemon *mon)
     // Ignore any banned items
     if(
         (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        IS_MEGA_STONE(item) ||
         (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
     )
         return 0;
@@ -4113,7 +4113,7 @@ static u16 CalculateTerastallizeScore(struct Pokemon *mon)
     // Ignore any banned items
     if(
         (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        IS_MEGA_STONE(item) ||
         (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
     )
         return 0;

@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_DRAGALGE"
+    "SPECIES_DRAGALGE",
+    "SPECIES_DRAGALGE_MEGA"
   ],
   "LevelUpMoves": [
     {

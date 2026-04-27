@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_DRAGONITE"
+    "SPECIES_DRAGONITE",
+    "SPECIES_DRAGONITE_MEGA"
   ],
   "LevelUpMoves": [
     {

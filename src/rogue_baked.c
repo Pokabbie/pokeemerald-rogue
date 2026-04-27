@@ -1234,6 +1234,12 @@ u16 Rogue_GetPrice(u16 itemId)
         price = HELD_ITEM_HIGH_PRICE;
         applyDefaultHubIncrease = TRUE;
     }
+    if(itemId >= ITEM_CLEFABLITE && itemId <= ITEM_GLIMMORANITE)
+    {
+        // Expect price from above
+        price = HELD_ITEM_HIGH_PRICE;
+        applyDefaultHubIncrease = TRUE;
+    }
 
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
@@ -1537,7 +1543,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 
 #ifdef ROGUE_EXPANSION
-    if(itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE)
+    if(IS_MEGA_STONE(itemId))
     {
         outItem->pocket = POCKET_STONES;
     }

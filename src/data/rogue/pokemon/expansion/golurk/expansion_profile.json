@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_GOLURK"
+    "SPECIES_GOLURK",
+    "SPECIES_GOLURK_MEGA"
   ],
   "LevelUpMoves": [
     {

@@ -1,7 +1,8 @@
 {
   "Species": [
     "SPECIES_ABSOL",
-    "SPECIES_ABSOL_MEGA"
+    "SPECIES_ABSOL_MEGA",
+    "SPECIES_ABSOL_MEGA_Z"
   ],
   "LevelUpMoves": [
     {
