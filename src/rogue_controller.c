@@ -2430,6 +2430,38 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // No mochi
         if(itemId >= ITEM_HEALTH_MOCHI && itemId <= ITEM_FRESH_START_MOCHI)
             return FALSE;
+
+        // Always disable these megas, as they're not game ready yet
+        if(IS_MEGA_STONE(itemId))
+        {
+            switch (itemId)
+            {
+            case ITEM_SCOLIPITE:
+            case ITEM_SCRAFTINITE:
+            case ITEM_EELEKTROSSITE:
+            case ITEM_PYROARITE:
+            case ITEM_MALAMARITE:
+            case ITEM_BARBARACITE:
+            case ITEM_DRAGALGITE:
+            case ITEM_ZYGARDITE:
+            case ITEM_FALINKSITE:
+            case ITEM_HEATRANITE:
+            case ITEM_DARKRANITE:
+            case ITEM_ZERAORITE:
+            case ITEM_RAICHUNITE_X:
+            case ITEM_RAICHUNITE_Y:
+            case ITEM_ABSOLITE_Z:
+            case ITEM_STARAPTITE:
+            case ITEM_GARCHOMPITE_Z:
+            case ITEM_LUCARIONITE_Z:
+            case ITEM_GOLURKITE:
+            case ITEM_GOLISOPITE:
+            case ITEM_MAGEARNITE:
+            case ITEM_BAXCALIBRITE:
+            case ITEM_TATSUGIRINITE:
+                return FALSE;
+            }
+        }
 #endif
 
         if(Rogue_IsRunActive())
