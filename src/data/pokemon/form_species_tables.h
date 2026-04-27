@@ -114,6 +114,14 @@ static const u16 sSandslashFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_SANDSHREW
 
+#if P_FAMILY_CLEFAIRY
+static const u16 sClefableFormSpeciesIdTable[] = {
+    SPECIES_CLEFABLE,
+    SPECIES_CLEFABLE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_CLEFAIRY
+
 #if P_FAMILY_VULPIX
 static const u16 sVulpixFormSpeciesIdTable[] = {
     SPECIES_VULPIX,

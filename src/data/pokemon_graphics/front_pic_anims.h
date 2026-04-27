@@ -499,6 +499,9 @@ static const union AnimCmd sAnim_Clefable_1[] =
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ClefableMega);
+
 #endif //P_FAMILY_CLEFAIRY
 
 #if P_FAMILY_VULPIX
@@ -10294,6 +10297,7 @@ SINGLE_ANIMATION(Cleffa);
 #endif //P_GEN_2_CROSS_EVOS
 SINGLE_ANIMATION(Clefairy);
 SINGLE_ANIMATION(Clefable);
+SINGLE_ANIMATION(ClefableMega);
 #endif //P_FAMILY_CLEFAIRY
 #if P_FAMILY_VULPIX
 SINGLE_ANIMATION(Vulpix);

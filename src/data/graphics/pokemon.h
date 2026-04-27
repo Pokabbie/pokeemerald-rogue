@@ -535,6 +535,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Clefable[] = INCBIN_U32("graphics/pokemon/clefable/shiny.gbapal.lz");
     const u8 gMonIcon_Clefable[] = INCBIN_U8("graphics/pokemon/clefable/icon.4bpp");
     const u8 gMonFootprint_Clefable[] = INCBIN_U8("graphics/pokemon/clefable/footprint.1bpp");
+
+    const u32 gMonFrontPic_ClefableMega[] = INCBIN_U32("graphics/pokemon/clefable/mega/front.4bpp.lz");
+    const u32 gMonPalette_ClefableMega[] = INCBIN_U32("graphics/pokemon/clefable/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_ClefableMega[] = INCBIN_U32("graphics/pokemon/clefable/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_ClefableMega[] = INCBIN_U32("graphics/pokemon/clefable/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_ClefableMega[] = INCBIN_U8("graphics/pokemon/clefable/mega/icon.4bpp");
 #endif //P_FAMILY_CLEFAIRY
 
 #if P_FAMILY_VULPIX

@@ -2059,16 +2059,12 @@ static void DisplaySwitchedHeldItemMessage(u16 item, u16 item2, bool8 keepOpen)
 
 static void GiveItemToMon(struct Pokemon *mon, u16 item)
 {
-    u8 itemBytes[2];
-
     if (ItemIsMail(item) == TRUE)
     {
         if (GiveMailToMonByItemId(mon, item) == MAIL_NONE)
             return;
     }
-    itemBytes[0] = item;
-    itemBytes[1] = item >> 8;
-    SetMonData(mon, MON_DATA_HELD_ITEM, itemBytes);
+    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
     TryItemHoldFormChange(&gPlayerParty[gPartyMenu.slotId]);
 }
 

@@ -109,9 +109,10 @@ enum {
 struct PokemonSubstruct0
 {
     u32 species:11; // 2047 species.
-    u32 heldItem:10; // 1023 items.
+    u32 heldItem1:10; // 1023 items.
     u32 teraType:5; // 30 types.
-    u32 unused_0:6;
+    u32 heldItem2:1; // pushes item count to 3777.
+    u32 unused_0:5;
     u32 experience:21;
     u32 unused_1:11;
     /*0x08*/ u8 ppBonuses;

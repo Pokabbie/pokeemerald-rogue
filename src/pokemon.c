@@ -2236,6 +2236,16 @@ u32 GetMonData2(struct Pokemon *mon, s32 field)
     return GetMonData3(mon, field, NULL);
 }
 
+union HeldItemLayout
+{
+    struct 
+    {
+        u16 heldItem1 : 10;
+        u16 heldItem2 : 1;
+    };
+    u16 itemId;
+};
+
 /* GameFreak called GetBoxMonData with either 2 or 3 arguments, for type
  * safety we have a GetBoxMonData macro (in include/pokemon.h) which
  * dispatches to either GetBoxMonData2 or GetBoxMonData3 based on the
@@ -2272,7 +2282,12 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = boxMon->isBadEgg ? SPECIES_EGG : substruct0->species;
             break;
         case MON_DATA_HELD_ITEM:
-            retVal = substruct0->heldItem;
+            {
+                union HeldItemLayout layout;
+                layout.heldItem1 = substruct0->heldItem1;
+                layout.heldItem2 = substruct0->heldItem2;
+                retVal = layout.itemId;
+            }
             break;
         case MON_DATA_EXP:
             retVal = substruct0->experience;
@@ -2731,7 +2746,12 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             break;
         }
         case MON_DATA_HELD_ITEM:
-            SET16(substruct0->heldItem);
+            {
+                union HeldItemLayout layout;
+                SET16(layout.itemId);
+                substruct0->heldItem1 = layout.heldItem1;
+                substruct0->heldItem2 = layout.heldItem2;
+            }
             break;
         case MON_DATA_EXP:
             SET32(substruct0->experience);
