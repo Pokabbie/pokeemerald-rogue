@@ -14,12 +14,12 @@
             [
                 {
                     "max_samples": 2,
-                    "include_types": [ "NORMAL", "ELECTRIC", "STEEL" ],
+                    "include_types": [ "BUG", "ELECTRIC", "STEEL" ],
                     "excluded_types": [ "FAIRY" ]
                 },
                 {
                     "max_samples": 6,
-                    "include_types": [ "NORMAL", "ELECTRIC", "STEEL", "GHOST" ],
+                    "include_types": [ "BUG", "ELECTRIC", "STEEL", "GHOST" ],
                     "excluded_types": [ "FAIRY" ]
                 }
             ],
@@ -66,9 +66,7 @@
                                     "SPECIES_COBALION",
                                     "SPECIES_TERRAKION",
                                     "SPECIES_VIRIZION",
-                                    "SPECIES_TORNADUS_INCARNATE",
-                                    "SPECIES_THUNDURUS_INCARNATE",
-                                    "SPECIES_LANDORUS_INCARNATE",
+                                    "SPECIES_GENESECT",
                                 "#else",
                                     "SPECIES_KYOGRE",
                                     "SPECIES_GROUDON",
@@ -78,7 +76,7 @@
                         },
                         {
                             "max_samples": 10,
-                            "include_types": [ "ELECTRIC", "STEEL", "PSYCHIC" ],
+                            "include_types": [ "ELECTRIC", "STEEL", "BUG", "GHOST" ],
                             "excluded_types": [ "FAIRY" ],
                             "extra_species":
                             [
@@ -86,9 +84,7 @@
                                     "SPECIES_COBALION",
                                     "SPECIES_TERRAKION",
                                     "SPECIES_VIRIZION",
-                                    "SPECIES_TORNADUS_INCARNATE",
-                                    "SPECIES_THUNDURUS_INCARNATE",
-                                    "SPECIES_LANDORUS_INCARNATE",
+                                    "SPECIES_GENESECT",
                                 "#else",
                                     "SPECIES_KYOGRE",
                                     "SPECIES_GROUDON",

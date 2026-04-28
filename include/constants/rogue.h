@@ -344,7 +344,7 @@
 #define CLASS_FLAG_TEAM_NEOPLASMA               (1 << 5)
 #define CLASS_FLAG_TEAM_FLARE                   (1 << 6)
 
-#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC) // todo - expand when needed
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC | CLASS_FLAG_TEAM_PLASMA | CLASS_FLAG_TEAM_NEOPLASMA | CLASS_FLAG_TEAM_FLARE)
 
 // TRAINER_FLAG_CLASS_SPECIAL
 //
@@ -399,7 +399,7 @@
 
 #define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
 #define SPECIES_GHETSIS_ACE             SPECIES_KYUREM
-#define SPECIES_COLRESS_ACE             SPECIES_LANDORUS_INCARNATE // needs to be gen 5 really for team builder
+#define SPECIES_COLRESS_ACE             SPECIES_GENESECT // needs to be gen 5 to fit if picked for BW1 dex (kinda dumb choice though)
 #define SPECIES_LYSANDER_ACE            SPECIES_ZYGARDE
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL

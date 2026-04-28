@@ -508,25 +508,40 @@ script Rogue_EventScript_UseDayCarePhoneItem
         if(!flag(FLAG_ROGUE_RUN_ACTIVE))
         {
             msgbox(format("{PLAYER}? Is that you?\pThe signal is so good in {POKEMON_HUB}!\pYou'd like to swap out one of your Pokémon, would you?"))
+            setvar(VAR_RESULT, TRUE)
         }
         else
         {
             msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
+
+            specialvar(VAR_RESULT, Rogue_IsCatchingContestActive)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                msgbox(format("What's that?\pYou're in a catching contest, and you'd like to store a Pokémon you just caught even though you haven't finished the contest yet?\pWell that doesn't seem very honourable!\pI couldn't possible help you cheat!\nCall me back once you've completed your contest and I'll happily swap out a Pokémon for you."))
+                setvar(VAR_RESULT, FALSE)
+            }
+            else
+            {
+                setvar(VAR_RESULT, TRUE)
+            }
         }
 
-        message(format("Which {PKMN} slot are you interested in?"))
-        waitmessage
-
-        multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
-
-        switch(var(VAR_RESULT))
+        if(var(VAR_RESULT) == TRUE)
         {
-            case MULTI_B_PRESSED:
-                setvar(VAR_RESULT, NO)
+            message(format("Which {PKMN} slot are you interested in?"))
+            waitmessage
 
-            default:
-                copyvar(VAR_0x8005, VAR_RESULT)
-                call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+            multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case MULTI_B_PRESSED:
+                    setvar(VAR_RESULT, NO)
+
+                default:
+                    copyvar(VAR_0x8005, VAR_RESULT)
+                    call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+            }
         }
 
         playse(SE_POKENAV_HANG_UP)

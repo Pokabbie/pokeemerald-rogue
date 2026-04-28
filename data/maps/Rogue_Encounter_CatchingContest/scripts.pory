@@ -17,7 +17,6 @@ mapscripts Rogue_Encounter_CatchingContest_MapScripts
 
 script Rogue_Encounter_CatchingContest_OnLoad
 {
-    setvar(VAR_CONTEST_STATE, 0)
 }
 
 script Rogue_Encounter_CatchingContest_TalkHost
