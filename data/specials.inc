@@ -298,6 +298,7 @@ gSpecials::
 	def_special Rogue_SwapMonGender
 	def_special Rogue_CanPlantBerries
 	def_special Rogue_CheckDaycareCount
+	def_special Rogue_IsCatchingContestActive
 	def_special Rogue_IsDaycareSlotEmpty
 	def_special Rogue_SwapDaycareMon
 	def_special Rogue_TransformIntoValidDaycareEgg

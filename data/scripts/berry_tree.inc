@@ -189,7 +189,7 @@ BerryTree_Text_PlantedOneBerry:
 	.string "the soft, loamy soil.$"
 
 BerryTree_Text_BerryGrowthStage1:
-	.string "One {STR_VAR_1} was planted here.$"
+	.string "{STR_VAR_1} was planted here.$"
 
 BerryTree_Text_BerryGrowthStage2:
 	.string "{STR_VAR_1} has sprouted.$"

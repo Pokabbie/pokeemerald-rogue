@@ -1593,31 +1593,27 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->stopGrowth)
         {
-            // RogueNote: Don't ever reset tree
-            if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
-            {
-                // RogueNote: Don't ever reset tree
-                //*tree = gBlankBerryTree;
-                continue;
-            }
-            else
-            {
-                s32 time = minutes;
+            s32 time = minutes;
 
-                while (time != 0)
+            if(i >= BERRY_TREE_DAYCARE_FIRST && i <= BERRY_TREE_DAYCARE_LAST)
+            {
+                // We want to grow daycare berries instantly
+                time = 99999;
+            }
+
+            while (time != 0)
+            {
+                if (tree->minutesUntilNextStage > time)
                 {
-                    if (tree->minutesUntilNextStage > time)
-                    {
-                        tree->minutesUntilNextStage -= time;
-                        break;
-                    }
-                    time -= tree->minutesUntilNextStage;
-                    tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
-                    if (!BerryTreeGrow(tree))
-                        break;
-                    if (tree->stage == BERRY_STAGE_BERRIES)
-                        tree->minutesUntilNextStage *= 4;
+                    tree->minutesUntilNextStage -= time;
+                    break;
                 }
+                time -= tree->minutesUntilNextStage;
+                tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
+                if (!BerryTreeGrow(tree))
+                    break;
+                if (tree->stage == BERRY_STAGE_BERRIES)
+                    tree->minutesUntilNextStage *= 4;
             }
         }
     }
@@ -1804,6 +1800,10 @@ void ObjectEventInteractionGetBerryCountString(void)
     u8 treeId = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     u8 berry = GetBerryTypeByBerryTreeId(treeId);
     u8 count = GetBerryCountByBerryTreeId(treeId);
+
+    if(count == 0)
+        count = 1;
+    
     GetBerryCountStringByBerryType(berry, gStringVar1, count);
 }
 

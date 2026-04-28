@@ -5500,9 +5500,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             FlagSet(FLAG_ROGUE_TERA_ORB_CHARGED);
 
-            // Grow berries based on progress in runs (This will grow in run berries and hub berries)
-            BerryTreeTimeUpdate(120);
-
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
             // We're warping into a valid map
@@ -6088,6 +6085,15 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots)
 
             // Forget about re-equipping the held item
             gRogueRun.partyHeldItems[slot] = ITEM_NONE;
+
+            // Only push mons if run is active
+            if(Rogue_IsRunActive() && !Rogue_IsVictoryLapActive())
+            {
+                RogueSafari_PushMon(&gPlayerParty[slot]);
+            }
+
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_POKEMON_RELEASED);
 
             PushFaintedMonToLab(&gPlayerParty[slot]);
 
@@ -6735,6 +6741,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
                 gRogueRun.currentLevelOffset = nextLevel - prevLevel;
                 gRogueRun.wildEncounters.roamerActiveThisPath = TRUE;
+
+                // Grow berries based on progress in runs (This will grow in run berries and hub berries)
+                BerryTreeTimeUpdate(600);
 
                 // Increase tutor move lvl
                 {

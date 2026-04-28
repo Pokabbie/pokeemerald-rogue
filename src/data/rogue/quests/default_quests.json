@@ -907,7 +907,7 @@
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "Taste the Rainbow",
-                "description": "Enable and all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "description": "Enable all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
                 "triggers":
                 [
                     {
@@ -940,7 +940,7 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "name": "Taste the Rainbow",
-                "description": "Enable and all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "description": "Enable all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
                 "triggers":
                 [
                     {

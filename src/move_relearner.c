@@ -545,7 +545,7 @@ static u8 GetMoveStatsYOffset(u8 yEnabledOffset)
 
 static bool8 HasEnoughMoneyToTeach(u16 chosenMove)
 {
-    u32 cost = Rogue_CalculateMovePrice(chosenMove);
+    u32 cost = Rogue_CalculateMovePrice(chosenMove, ITEM_NONE);
     u32 playerMoney = GetMoney(&gSaveBlock1Ptr->money);
     return playerMoney >= cost;
 }
@@ -1001,7 +1001,7 @@ static void DoMoveRelearnerMain(void)
         {
             if(DoesTeachingCostMoney())
             {
-                u32 cost = Rogue_CalculateMovePrice(GetCurrentSelectedMove());
+                u32 cost = Rogue_CalculateMovePrice(GetCurrentSelectedMove(), ITEM_NONE);
                 RemoveMoney(&gSaveBlock1Ptr->money, cost);
                 PlaySE(SE_VEND);
             }
@@ -1398,7 +1398,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     // Price
     if(DoesTeachingCostMoney())
     {
-        u32 cost = Rogue_CalculateMovePrice(chosenMove);
+        u32 cost = Rogue_CalculateMovePrice(chosenMove, ITEM_NONE);
         u32 playerMoney = GetMoney(&gSaveBlock1Ptr->money);
 
         ConvertIntToDecimalStringN(gStringVar1, cost, STR_CONV_MODE_LEFT_ALIGN, 6);
