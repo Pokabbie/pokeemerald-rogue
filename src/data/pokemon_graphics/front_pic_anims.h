@@ -2318,6 +2318,9 @@ static const union AnimCmd sAnim_Dragonite_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(DragoniteMega);
+
 #endif //P_FAMILY_DRATINI
 
 #if P_FAMILY_MEWTWO
@@ -10756,6 +10759,7 @@ SINGLE_ANIMATION(MoltresGalarian);
 SINGLE_ANIMATION(Dratini);
 SINGLE_ANIMATION(Dragonair);
 SINGLE_ANIMATION(Dragonite);
+SINGLE_ANIMATION(DragoniteMega);
 #endif //P_FAMILY_DRATINI
 #if P_FAMILY_MEWTWO
 SINGLE_ANIMATION(Mewtwo);

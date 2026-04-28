@@ -464,6 +464,14 @@ static const u16 sMoltresFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_MOLTRES
 
+#if P_FAMILY_DRATINI
+static const u16 sDragoniteFormSpeciesIdTable[] = {
+    SPECIES_DRAGONITE,
+    SPECIES_DRAGONITE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_DRATINI
+
 #if P_FAMILY_MEWTWO
 static const u16 sMewtwoFormSpeciesIdTable[] = {
     SPECIES_MEWTWO,
