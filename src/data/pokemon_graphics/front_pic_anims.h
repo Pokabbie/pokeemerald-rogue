@@ -1787,6 +1787,9 @@ static const union AnimCmd sAnim_Starmie_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(StarmieMega);
+
 #endif //P_FAMILY_STARYU
 
 #if P_FAMILY_MR_MIME
@@ -10603,6 +10606,7 @@ SINGLE_ANIMATION(Seaking);
 #if P_FAMILY_STARYU
 SINGLE_ANIMATION(Staryu);
 SINGLE_ANIMATION(Starmie);
+SINGLE_ANIMATION(StarmieMega);
 #endif //P_FAMILY_STARYU
 #if P_FAMILY_MR_MIME
 #if P_GEN_4_CROSS_EVOS

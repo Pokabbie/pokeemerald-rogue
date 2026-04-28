@@ -155,6 +155,16 @@ static const struct FormChange sKangaskhanFormChangeTable[] = {
 };
 #endif //P_FAMILY_KANGASKHAN
 
+#if P_FAMILY_STARYU
+static const struct FormChange sStarmieFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_STARMIE_MEGA, ITEM_STARMINITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_STARMIE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_STARMIE},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_STARYU
+
 #if P_FAMILY_SCYTHER
 #if P_GEN_2_CROSS_EVOS
 static const struct FormChange sScizorFormChangeTable[] = {
