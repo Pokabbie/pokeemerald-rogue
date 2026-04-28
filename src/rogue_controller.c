@@ -2481,21 +2481,37 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
                     return FALSE;
 
 #ifdef ROGUE_EXPANSION
-                // Specific held items which don't trigger form changes, so won't be caught by the logic below
-                // we don't want unless the mon is avaliable
+                // Specific held items trigger form changes
                 case ITEM_SOUL_DEW:
                     return Query_IsSpeciesEnabledForceDexChecking(SPECIES_LATIAS) || Query_IsSpeciesEnabledForceDexChecking(SPECIES_LATIOS);
 
                 case ITEM_ADAMANT_ORB:
+                case ITEM_ADAMANT_CRYSTAL:
                     return Query_IsSpeciesEnabledForceDexChecking(SPECIES_DIALGA);
 
                 case ITEM_LUSTROUS_ORB:
+                case ITEM_LUSTROUS_GLOBE:
                     return Query_IsSpeciesEnabledForceDexChecking(SPECIES_PALKIA);
 
                 case ITEM_GRISEOUS_ORB:
+                case ITEM_GRISEOUS_CORE:
                     return Query_IsSpeciesEnabledForceDexChecking(SPECIES_GIRATINA);
+
+                case ITEM_RED_ORB:
+                    return IsMegaEvolutionEnabled() && Query_IsSpeciesEnabledForceDexChecking(SPECIES_GROUDON);
+
+                case ITEM_BLUE_ORB:
+                    return IsMegaEvolutionEnabled() && Query_IsSpeciesEnabledForceDexChecking(SPECIES_KYOGRE);
 #endif
             }
+#ifdef ROGUE_EXPANSION
+            if(!IsMegaEvolutionEnabled() && IS_MEGA_STONE(itemId))
+            {
+                u16 species = Rogue_GetSpeciesForMegaItem(itemId);
+                AGB_ASSERT(species != SPECIES_NONE);
+                return Query_IsSpeciesEnabledForceDexChecking(species);
+            }
+#endif
         }
 
         switch (itemId)
@@ -2614,22 +2630,7 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
             else
                 return TRUE;
         }
-        
-        if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
-        {
-            if(Rogue_IsRunActive())
-                return IsMegaEvolutionEnabled();
-            else
-                return TRUE;
-        }
-        if(itemId >= ITEM_CLEFABLITE && itemId <= ITEM_GLIMMORANITE)
-        {
-            if(Rogue_IsRunActive())
-                return IsMegaEvolutionEnabled();
-            else
-                return TRUE;
-        }
-        
+                
         if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
         {
             if(Rogue_IsRunActive())

@@ -92,6 +92,10 @@ extern const u16 gRogueBake_EvoItems_Count;
 extern const u16 gRogueBake_FormItems[];
 extern const u16 gRogueBake_FormItems_Count;
 
+#ifdef ROGUE_EXPANSION
+extern const u16 gRogueBake_MegaItemToSpecies[];
+#endif
+
 extern const u16 gRogueBake_FinalEvoSpecies[];
 extern const u16 gRogueBake_FinalEvoSpecies_Count;
 extern const u16 gRogueBake_EggSpecies[];
@@ -1907,6 +1911,16 @@ u16 Rogue_GetFormItemIndex(u16 itemId)
 #endif
 }
 
+u16 Rogue_GetSpeciesForMegaItem(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    if(IS_MEGA_STONE(itemId))
+        return gRogueBake_MegaItemToSpecies[itemId - ITEM_VENUSAURITE];
+#endif
+
+    return 0;
+}
+
 #else
 
 bool8 Rogue_IsFormItem(u16 itemId)
@@ -1917,6 +1931,11 @@ bool8 Rogue_IsFormItem(u16 itemId)
 u16 Rogue_GetFormItemIndex(u16 itemId)
 {
     return 0;
+}
+
+u16 Rogue_GetSpeciesForMegaItem(u16 itemId)
+{
+    return SPECIES_NONE;
 }
 
 #endif
