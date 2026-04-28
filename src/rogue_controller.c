@@ -47,6 +47,7 @@
 #include "safari_zone.h"
 #include "script.h"
 #include "script_pokemon_util.h"
+#include "sound.h"
 #include "siirtc.h"
 #include "strings.h"
 #include "string_util.h"
@@ -143,6 +144,8 @@ struct RogueLocalData
     u16 wildEncounterHistoryBuffer[3];
     u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
+    s16 autoPickupLastX;
+    s16 autoPickupLastY;
     bool8 runningToggleActive : 1;
     bool8 speedupToggleActive : 1;
     bool8 speedupJustToggled : 1;
@@ -412,6 +415,8 @@ static bool8 TryOverrideSpeedScale(u8 speed)
         {
             gRogueLocal.speedupToggleActive = !gRogueLocal.speedupToggleActive;
             gRogueLocal.speedupJustToggled = TRUE;
+            
+            Rogue_RemoveCurrentShownPopup();
             Rogue_PushPopup_ToggleSpeedup(!gRogueLocal.speedupToggleActive);
         }
     }
@@ -3595,6 +3600,105 @@ void Rogue_MainLateCB(void)
 #endif
     RogueDebug_MainCB();
 }
+// Keep inline with Rogue_GiveItem_Internal
+#define VAR_ITEM_ID_VAL VAR_0x8001
+
+static void TryAutoItemPickup()
+{
+    u8 i;
+    s16 x, y;
+    struct ObjectEventTemplate * template;
+
+    if(ScriptContext_IsEnabled() || ArePlayerFieldControlsLocked())
+        return;
+
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    if(gRogueLocal.autoPickupLastX == x && gRogueLocal.autoPickupLastY == y)
+        return;
+
+    if(Rogue_IsRunActive())
+    {
+        // Disable in these encounters
+        if( gRogueAdvPath.currentRoomType == ADVPATH_ROOM_DARK_DEAL || 
+            gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LAB
+        )
+            return;
+    }
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (!gObjectEvents[i].active || i == gPlayerAvatar.objectEventId)
+            continue;
+
+        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y)
+            continue;
+
+        // Object is directly infront of player
+        template = GetBaseTemplateForObjectEvent(&gObjectEvents[i]);
+        
+        if(template != NULL)
+        {
+            if(template->flagId >= FLAG_ROGUE_ITEM_START && template->flagId <= FLAG_ROGUE_ITEM_END)
+            {
+                // this is an item, so attempt to pick it up
+                u16 amount;
+                u16 idx = template->flagId- FLAG_ROGUE_ITEM_START;
+                u16 itemId = VarGet(VAR_ROGUE_ITEM_START + idx);
+
+                
+                VarSet(VAR_0x8001, itemId);
+                amount = Rogue_ModifyItemPickupAmount(itemId, 1);
+
+                if(AddBagItem(itemId, amount))
+                {
+                    // Force clear popups
+                    Rogue_RemoveCurrentShownPopup();
+
+                    // Fast added the item
+                    Rogue_PushPopup_AddItem2(itemId, amount, 1);
+                    RemoveObjectEventByLocalIdAndMap(gObjectEvents[i].localId, gObjectEvents[i].mapNum, gObjectEvents[i].mapGroup);
+                }
+            }
+            else if(template->movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
+            {
+                u16 stage;
+
+                gSelectedObjectEvent = i;
+                gSpecialVar_LastTalked = gObjectEvents[i].localId;
+
+                ObjectEventInteractionGetBerryTreeData();
+                stage = gSpecialVar_0x8004;
+
+                if(stage == BERRY_STAGE_BERRIES)
+                {
+                    u16 id = GetObjectEventBerryTreeId(i);
+                    u16 berry = GetBerryTypeByBerryTreeId(id);
+                    u16 itemId = BerryTypeToItemId(berry);
+                    u16 amount = Rogue_ModifyItemPickupAmount(itemId, 1);
+
+                    if(AddBagItem(itemId, amount))
+                    {
+                        // Force clear popups
+                        Rogue_RemoveCurrentShownPopup();
+
+                        // Fast added the item
+                        Rogue_PushPopup_AddItem2(itemId, amount, 1);
+
+                        ObjectEventInteractionRemoveBerryTree();
+                    }
+                }
+            }
+        }
+
+        break;
+    }
+
+    gRogueLocal.autoPickupLastX = x;
+    gRogueLocal.autoPickupLastY = y;
+}
+
+#undef VAR_ITEM_ID_VAL
 
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
 {
@@ -3614,6 +3718,8 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
                 Rogue_GetOverworldSpeedScale();
             }
         }
+
+        TryAutoItemPickup();
     }
     
     START_TIMER(ROGUE_ASSISTANT_CALLBACK);
