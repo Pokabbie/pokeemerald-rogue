@@ -691,11 +691,16 @@ static void ShowQuestPopup(void)
 
 void Rogue_ClearPopupQueue(void)
 {
-    if (FuncIsActiveTask(Task_QuestPopUpWindow))
-        HideQuestPopUpWindow();
+    Rogue_RemoveCurrentShownPopup();
 
     sRoguePopups.queuedId = 0;
     sRoguePopups.lastShownId = 0;
+}
+
+void Rogue_RemoveCurrentShownPopup(void)
+{
+    if (FuncIsActiveTask(Task_QuestPopUpWindow))
+        HideQuestPopUpWindow();
 }
 
 
@@ -797,8 +802,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     }
     else
     {
-        if (FuncIsActiveTask(Task_QuestPopUpWindow))
-            HideQuestPopUpWindow();
+        Rogue_RemoveCurrentShownPopup();
     }
 
     sRoguePopups.wasEnabled = enabled;
@@ -919,7 +923,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
     case 6:
         if (task->data[4] <= 5)
             task->data[4]++;
-        else if (sRoguePopups.hasPopupBeenSkipped || (WaitFanfare(FALSE) && !IsSEPlaying()))
+        else if (sRoguePopups.hasPopupBeenSkipped || (IsFanfareTaskInactive() && !IsSEPlaying()))
         {
             task->sStateNum = 0;
             task->data[4] = 0;
@@ -1528,13 +1532,25 @@ void Rogue_PushPopup_RoamerPokemonActivated(u16 species)
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
 {
+    Rogue_PushPopup_AddItem2(itemId, amount, 0);
+}
+
+void Rogue_PushPopup_AddItem2(u16 itemId, u16 amount, u32 pickupType)
+{
     struct PopupRequest* popup = CreateNewPopup();
 
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
 
-    popup->fanfare = MUS_OBTAIN_ITEM;
-    popup->scriptAudioOnly = TRUE;
+    if(pickupType == 0)
+    {
+        popup->fanfare = MUS_OBTAIN_ITEM;
+        popup->scriptAudioOnly = TRUE;
+    }
+    else
+    {
+        popup->soundEffect = SE_SELECT;
+    }
 
     if(amount == 1)
     {
@@ -1952,7 +1968,7 @@ void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled)
         popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
         popup->iconId = speedupEnabled ? POPUP_CUSTOM_ICON_FAST_SPEED : POPUP_CUSTOM_ICON_DEFAULT_SPEED;
         popup->soundEffect = speedupEnabled ? SE_POKENAV_ON : SE_POKENAV_OFF;
-        popup->allowHiPriSkipping = TRUE;
+        popup->allowHiPriSkipping = FALSE;
 
         popup->titleText = speedupEnabled ? sText_Popup_SpeedupEnabled : sText_Popup_SpeedupDisabled;
         popup->subtitleText = sText_Popup_SpeedupTip;

@@ -1669,7 +1669,9 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_EASY:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                fixedIV = 10;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 16;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 8;
@@ -1685,7 +1687,9 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                fixedIV = 25;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 20;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 15;
@@ -1707,10 +1711,12 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         {
             if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 31;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+                fixedIV = 25;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
-                fixedIV = 21;
+                fixedIV = 20;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
-                fixedIV = 19;
+                fixedIV = 18;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 fixedIV = 15;
             else if(Rogue_GetCurrentDifficulty() >= 1)
