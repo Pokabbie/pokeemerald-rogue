@@ -301,6 +301,42 @@ int main()
 		file << "};\n";
 		file << "const u16 gRogueBake_FormItems_Count = ARRAY_COUNT(gRogueBake_FormItems);\n";
 		file << "\n";
+
+
+#ifdef ROGUE_EXPANSION
+		std::vector<u16> megaItemToSpecies;
+		megaItemToSpecies.resize(ITEMS_COUNT - ITEM_VENUSAURITE);
+
+		// Form change to base species
+		for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+		{
+			if (gSpeciesInfo[s].formChangeTable != NULL)
+			{
+				int i = 0;
+
+				while (gSpeciesInfo[s].formChangeTable[i].method != FORM_CHANGE_TERMINATOR)
+				{
+					if (gSpeciesInfo[s].formChangeTable[i].method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM)
+					{
+						u16 itemId = gSpeciesInfo[s].formChangeTable[i].param1;
+						megaItemToSpecies[itemId - ITEM_VENUSAURITE] = s;
+					}
+					++i;
+				}
+			}
+		}
+
+		file << "\n";
+		file << "const u16 gRogueBake_MegaItemToSpecies[ITEMS_COUNT - ITEM_VENUSAURITE] =\n{\n";
+
+		for (int i = 0; i < megaItemToSpecies.size(); ++i)
+		{
+			file << "\t[" << i << "] = " << megaItemToSpecies[i] << ",\n";
+		}
+
+		file << "};\n";
+		file << "\n";
+#endif
 	}
 
 	file.close();
