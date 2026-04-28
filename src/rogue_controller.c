@@ -3719,7 +3719,8 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
             }
         }
 
-        TryAutoItemPickup();
+        if(gSaveBlock2Ptr->optionsItemPickupAutomatic)
+            TryAutoItemPickup();
     }
     
     START_TIMER(ROGUE_ASSISTANT_CALLBACK);
