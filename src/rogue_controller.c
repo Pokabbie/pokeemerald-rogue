@@ -427,6 +427,9 @@ static bool8 TryOverrideSpeedScale(u8 speed)
 
 u8 Rogue_GetOverworldSpeedScale()
 {
+    if(ScriptContext_IsEnabled() || ArePlayerFieldControlsLocked())
+        return 1;
+
     return TryOverrideSpeedScale(1 + gSaveBlock2Ptr->optionsOverworldSpeed);
 }
 
