@@ -4820,6 +4820,11 @@ static u16 ChooseTeamEncounterNum()
         // Enable all teams if we wouldn't have one active now
         for(i = 0; i < TEAM_NUM_COUNT; ++i)
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+
+        // Temp exclude while these are incomplete
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_PLASMA);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_NEOPLASMA);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_FLARE);
     }
 
     RogueWeightQuery_Begin();
