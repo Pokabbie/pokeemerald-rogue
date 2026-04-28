@@ -997,7 +997,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
 
-u32 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move, u16 forItemId)
 {
     return 0;
 }
@@ -1177,7 +1177,7 @@ u16 Rogue_GetPrice(u16 itemId)
     if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
     {
         u16 move = ItemIdToBattleMoveId(itemId);
-        price = Rogue_CalculateMovePrice(move);
+        price = Rogue_CalculateMovePrice(move, itemId);
     }
 
     if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
@@ -1185,7 +1185,7 @@ u16 Rogue_GetPrice(u16 itemId)
         u16 move = ItemIdToBattleMoveId(itemId);
 
         // increase as these are re-usable
-        price = Rogue_CalculateMovePrice(move) * 4;
+        price = Rogue_CalculateMovePrice(move, itemId);
         applyDefaultHubIncrease = TRUE;
     }
 
@@ -1662,7 +1662,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 }
 
-u32 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move, u16 itemId)
 {
     // Move cost takes into account high level stats and then modifies based on usage
     u32 cost = 0;
@@ -1748,8 +1748,19 @@ u32 Rogue_CalculateMovePrice(u16 move)
     else if(usageCount >= 100)
         cost += 500;
 
+    cost /= 2; // price experiment
+
     if(cost < 100)
         cost = 100;
+
+    // tutor moves
+    if(itemId == ITEM_NONE)
+    {
+        if(Rogue_IsRunActive())
+            cost *= 2; // price experiment (keep same cost in hub)
+    }
+    else if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+        cost *= 4 * 2; // *2 price experiment
 
     return cost;
 }
