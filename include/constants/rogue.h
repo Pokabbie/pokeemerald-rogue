@@ -399,7 +399,7 @@
 
 #define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
 #define SPECIES_GHETSIS_ACE             SPECIES_KYUREM
-#define SPECIES_COLRESS_ACE             SPECIES_LANDORUS_INCARNATE // needs to be gen 5 really for team builder
+#define SPECIES_COLRESS_ACE             SPECIES_GENESECT // needs to be gen 5 to fit if picked for BW1 dex (kinda dumb choice though)
 #define SPECIES_LYSANDER_ACE            SPECIES_ZYGARDE
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
