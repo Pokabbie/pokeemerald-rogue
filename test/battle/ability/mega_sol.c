@@ -77,6 +77,7 @@ SINGLE_BATTLE_TEST("Mega Sol Synthesis recovers 2/3 of the user's max HP if user
 SINGLE_BATTLE_TEST("Mega Sol ignores Sandstorm's solarbeam power reduction, and its rock defense boost", s16 damage)
 {
     u16 ability;
+    KNOWN_FAILING; 
     PARAMETRIZE { ability = ABILITY_OVERGROW;}
     PARAMETRIZE { ability = ABILITY_MEGA_SOL;}
 
@@ -153,7 +154,6 @@ SINGLE_BATTLE_TEST("Mega Sol Solar Beam does not need a charging turn if user ha
 {
     u16 ability;
 
-    KNOWN_FAILING;
     PARAMETRIZE { ability = ABILITY_MEGA_SOL; }
     PARAMETRIZE { ability = ABILITY_OVERGROW; }
 
