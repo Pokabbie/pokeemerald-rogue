@@ -1,0 +1,96 @@
+name: Compile
+
+on: 
+  workflow_dispatch:
+    inputs:
+      debug_version:
+        required: true
+        type: boolean
+      perform_tests:
+        required: true
+        type: boolean
+      upload_artifacts:
+        required: true
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GAME_VERSION: EMERALD
+      GAME_REVISION: 0
+      GAME_LANGUAGE: ENGLISH
+      MODERN: 0
+      COMPARE: 0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Checkout agbcc
+        uses: actions/checkout@master
+        with:
+          path: agbcc
+          repository: pret/agbcc
+
+      - name: Install binutils
+        run: |
+          sudo apt install -y gcc-arm-none-eabi binutils-arm-none-eabi libpng-dev libelf-dev
+        # build-essential and git are already installed
+        # gcc-arm-none-eabi is only needed for the modern build
+        # as an alternative to dkP
+        
+      - name: Install Dependencies
+        run: |
+          ./init_deps.sh
+
+      - name: Install agbcc
+        run: |
+          ./build.sh
+          ./install.sh ../
+        working-directory: agbcc
+
+      - name: Modern Release
+        env:
+          MODERN: 1
+          COMPARE: 0
+          RELEASE: 1
+        if: ${{ !inputs.debug_version }}
+        run: make -j${nproc} -O all
+
+      - name: Modern Debug
+        env:
+          MODERN: 1
+          COMPARE: 0
+          RELEASE: 0
+        if: ${{ inputs.debug_version }}
+        run: make -j${nproc} -O all
+
+      - name: Test
+        env:
+          MODERN: 1
+          TEST: 1
+        if: ${{ inputs.perform_tests }}
+        run: |
+          make -j${nproc} -O emerogue-test.elf
+          make -j${nproc} check
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.upload_artifacts }}
+        with:
+            name: emerogue
+            path: emerogue.gba
+            retention-days: 1
+  
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.upload_artifacts }}
+        with:
+            name: emerogue_elf
+            path: emerogue.elf
+            retention-days: 1
+            
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.upload_artifacts }}
+        with:
+            name: emerogue_map
+            path: emerogue.map
+            retention-days: 1
