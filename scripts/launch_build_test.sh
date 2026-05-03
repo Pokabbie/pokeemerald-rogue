@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
 
-testToRunPrefix="Disguise does not break"
+testToRunPrefix="Mega Sol ignores Sandstorm's solarbeam power reduction"
 
 echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
 make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"

@@ -296,6 +296,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_EARTH_EATER] = 7,
     [ABILITY_WELL_BAKED_BODY] = 7,
+    [ABILITY_DRAGONIZE] = 8,
 
     [ABILITY_FORECAST_PRIORITY] = 9,
 };
@@ -1397,7 +1398,7 @@ u32 AI_GetWeather(struct AiLogicData *aiData)
         return B_WEATHER_NONE;
     if (!AI_WeatherHasEffect(aiData))
         return B_WEATHER_NONE;
-    return gBattleWeather;
+    return GetWeather();
 }
 
 u32 AI_GetBattlerMoveTargetType(u32 battlerId, u32 move)

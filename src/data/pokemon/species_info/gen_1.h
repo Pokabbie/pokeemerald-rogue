@@ -2860,6 +2860,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         LEARNSETS(Clefable),
         .formChangeTable = sClefableFormChangeTable,
         .formSpeciesIdTable = sClefableFormSpeciesIdTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_CLEFAIRY
 
@@ -5441,6 +5442,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         LEARNSETS(VictreebelMega),
         .formSpeciesIdTable = sVictreebelFormSpeciesIdTable,
         .formChangeTable = sVictreebelFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_BELLSPROUT
 
@@ -9418,6 +9420,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         LEARNSETS(StarmieMega),
         .formSpeciesIdTable = sStarmieFormSpeciesIdTable,
         .formChangeTable = sStarmieFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_STARYU
 
@@ -12253,6 +12256,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         LEARNSETS(DragoniteMega),
         .formSpeciesIdTable = sDragoniteFormSpeciesIdTable,
         .formChangeTable = sDragoniteFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_DRATINI
 

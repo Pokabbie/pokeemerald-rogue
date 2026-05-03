@@ -5794,6 +5794,57 @@ void RunBattleScriptCommands(void)
         gBattleScriptingCommandsTable[gBattlescriptCurrInstr[0]]();
 }
 
+
+static u32 TrySetAteType(u16 move, u16 battlerAtk, u16 attackerAbility)
+{
+    u32 ateType = TYPE_NONE;
+
+    switch (gBattleMoves[move].effect)
+    {
+    case EFFECT_TERA_BLAST:
+        if (IsTerastallized(battlerAtk))
+            return ateType;
+        break;
+    case EFFECT_TERA_STARSTORM:
+        if (gBattleMons[battlerAtk].species == SPECIES_TERAPAGOS_STELLAR)
+            return ateType;
+        break;
+    case EFFECT_HIDDEN_POWER:
+    case EFFECT_WEATHER_BALL:
+    case EFFECT_NATURAL_GIFT:
+    case EFFECT_CHANGE_TYPE_ON_ITEM:
+    case EFFECT_REVELATION_DANCE:
+    case EFFECT_TERRAIN_PULSE:
+        return ateType;
+    default:
+        break;
+    }
+
+    switch (attackerAbility)
+    {
+    case ABILITY_PIXILATE:
+        ateType = TYPE_FAIRY;
+        break;
+    case ABILITY_REFRIGERATE:
+        ateType = TYPE_ICE;
+        break;
+    case ABILITY_AERILATE:
+        ateType = TYPE_FLYING;
+        break;
+    case ABILITY_GALVANIZE:
+        ateType = TYPE_ELECTRIC;
+        break;
+    case ABILITY_DRAGONIZE:
+        ateType = TYPE_DRAGON;
+        break;
+    default:
+        ateType = TYPE_NONE;
+        break;
+    }
+
+    return ateType;
+}
+
 void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 {
     u32 moveType, ateType, attackerAbility;
@@ -5808,19 +5859,18 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 
     if (gBattleMoves[move].effect == EFFECT_WEATHER_BALL)
     {
-        if (WEATHER_HAS_EFFECT)
-        {
-            if (gBattleWeather & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
-                gBattleStruct->dynamicMoveType = TYPE_WATER | F_DYNAMIC_TYPE_SET;
-            else if (gBattleWeather & B_WEATHER_SANDSTORM)
-                gBattleStruct->dynamicMoveType = TYPE_ROCK | F_DYNAMIC_TYPE_SET;
-            else if (gBattleWeather & B_WEATHER_SUN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
-                gBattleStruct->dynamicMoveType = TYPE_FIRE | F_DYNAMIC_TYPE_SET;
-            else if (gBattleWeather & (B_WEATHER_HAIL |B_WEATHER_SNOW))
-                gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_SET;
-            else
-                gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_SET;
-        }
+        u32 weather = GetAttackerWeather(holdEffect, GetBattlerAbility(battlerAtk), GetWeather());
+
+        if (weather & B_WEATHER_RAIN)
+            gBattleStruct->dynamicMoveType = TYPE_WATER | F_DYNAMIC_TYPE_SET;
+        else if (weather & B_WEATHER_SANDSTORM)
+            gBattleStruct->dynamicMoveType = TYPE_ROCK | F_DYNAMIC_TYPE_SET;
+        else if (weather & B_WEATHER_SUN)
+            gBattleStruct->dynamicMoveType = TYPE_FIRE | F_DYNAMIC_TYPE_SET;
+        else if (weather & (B_WEATHER_HAIL | B_WEATHER_SNOW))
+            gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_SET;
+        else
+            gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_SET;
     }
     else if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER)
     {
@@ -5894,22 +5944,17 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     attackerAbility = GetBattlerAbility(battlerAtk);
 
     if (gBattleMoves[move].type == TYPE_NORMAL
-             && gBattleMoves[move].effect != EFFECT_HIDDEN_POWER
-             && gBattleMoves[move].effect != EFFECT_WEATHER_BALL
-             && gBattleMoves[move].effect != EFFECT_CHANGE_TYPE_ON_ITEM
-             && gBattleMoves[move].effect != EFFECT_NATURAL_GIFT
-             && !(gBattleMoves[move].effect == EFFECT_TERA_BLAST && IsTerastallized(battlerAtk))
-             && !(gBattleMoves[move].effect == EFFECT_TERA_STARSTORM && gBattleMons[battlerAtk].species == SPECIES_TERAPAGOS_STELLAR)
-             && ((attackerAbility == ABILITY_PIXILATE && (ateType = TYPE_FAIRY))
-                 || (attackerAbility == ABILITY_REFRIGERATE && (ateType = TYPE_ICE))
-                 || (attackerAbility == ABILITY_AERILATE && (ateType = TYPE_FLYING))
-                 || ((attackerAbility == ABILITY_GALVANIZE) && (ateType = TYPE_ELECTRIC))
-                )
+             && attackerAbility != ABILITY_NORMALIZE
+             && !IsDynamaxed(battlerAtk)
+             && gBattleStruct->zmove.toBeUsed[gBattlerAttacker] == MOVE_NONE
              )
     {
-        gBattleStruct->dynamicMoveType = ateType | F_DYNAMIC_TYPE_SET;
-        if (!IsDynamaxed(battlerAtk))
+        ateType = TrySetAteType(move, battlerAtk, attackerAbility);
+        if(ateType != TYPE_NONE)
+        {
+            gBattleStruct->dynamicMoveType = ateType | F_DYNAMIC_TYPE_SET;
             gBattleStruct->ateBoost[battlerAtk] = 1;
+        }
     }
     else if (gBattleMoves[move].type != TYPE_NORMAL
              && gBattleMoves[move].effect != EFFECT_HIDDEN_POWER
