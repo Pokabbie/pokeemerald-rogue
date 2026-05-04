@@ -5837,6 +5837,10 @@ static u32 TrySetAteType(u16 move, u16 battlerAtk, u16 attackerAbility)
     case ABILITY_DRAGONIZE:
         ateType = TYPE_DRAGON;
         break;
+    case ABILITY_LIQUID_VOICE:
+        if(gBattleMoves[move].effect == EFFECT_RELIC_SONG)
+            ateType = TYPE_WATER;
+        break;
     default:
         ateType = TYPE_NONE;
         break;
