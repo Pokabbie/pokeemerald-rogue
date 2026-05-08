@@ -593,6 +593,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         ICON(FeraligatrMega, 0),
         .footprint = gMonFootprint_Feraligatr,
         LEARNSETS(FeraligatrMega),
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
     },
 #endif //P_FAMILY_TOTODILE
 
