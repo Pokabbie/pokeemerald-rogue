@@ -239,9 +239,9 @@ namespace PokemonDataGenerator
                             {
                                 if (latestLine.StartsWith(lineStart))
                                 {
-                                    if(latestFile.Contains("MON_TYPES("))
+                                    if(latestLine.Contains("MON_TYPES("))
                                     {
-                                        latestFile = latestFile.Replace("MON_TYPES", "").Replace("(", "{ ").Replace(")", " }");
+                                        return latestLine.Replace("MON_TYPES", "").Replace("(", "{ ").Replace(")", " }");
                                     }
 
                                     return latestLine;

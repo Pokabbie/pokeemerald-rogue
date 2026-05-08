@@ -4929,6 +4929,9 @@ static const union AnimCmd sAnim_Froslass_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(FroslassMega);
+
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_SNORUNT
 
@@ -11343,6 +11346,7 @@ SINGLE_ANIMATION(GlalieMega);
 #endif //P_MEGA_EVOLUTIONS
 #if P_GEN_4_CROSS_EVOS
 SINGLE_ANIMATION(Froslass);
+SINGLE_ANIMATION(FroslassMega);
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_SNORUNT
 #if P_FAMILY_SPHEAL

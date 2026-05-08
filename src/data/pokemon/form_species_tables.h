@@ -795,6 +795,14 @@ static const u16 sGlalieFormSpeciesIdTable[] = {
     SPECIES_GLALIE_MEGA,
     FORM_SPECIES_END,
 };
+
+static const struct FormChange sFroslassFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FROSLASS_MEGA, ITEM_FROSLASSITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_FROSLASS},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_FROSLASS},
+    {FORM_CHANGE_TERMINATOR},
+};
 #endif //P_FAMILY_SNORUNT
 
 #if P_FAMILY_BAGON
