@@ -2433,6 +2433,9 @@ static const union AnimCmd sAnim_Feraligatr_1[] =
     ANIMCMD_FRAME(0, 40),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(FeraligatrMega);
+
 #endif //P_FAMILY_TOTODILE
 
 #if P_FAMILY_SENTRET
@@ -10792,6 +10795,7 @@ SINGLE_ANIMATION(TyphlosionHisuian);
 SINGLE_ANIMATION(Totodile);
 SINGLE_ANIMATION(Croconaw);
 SINGLE_ANIMATION(Feraligatr);
+SINGLE_ANIMATION(FeraligatrMega);
 #endif //P_FAMILY_TOTODILE
 #if P_FAMILY_SENTRET
 SINGLE_ANIMATION(Sentret);

@@ -491,6 +491,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Croconaw,
         LEARNSETS(Croconaw),
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_FERALIGATR}),
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
     },
 
     [SPECIES_FERALIGATR] =
@@ -540,6 +542,57 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         ICON(Feraligatr, 0),
         .footprint = gMonFootprint_Feraligatr,
         LEARNSETS(Feraligatr),
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
+    },
+
+    [SPECIES_FERALIGATR_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 160,
+        .baseDefense   = 125,
+        .baseSpeed     = 78,
+        .baseSpAttack  = 89,
+        .baseSpDefense = 93,
+        .types = { TYPE_WATER, TYPE_DRAGON },
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Attack = 2,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_WATER_1 },
+        .abilities = { ABILITY_DRAGONIZE, ABILITY_DRAGONIZE, ABILITY_DRAGONIZE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Feraligatr"),
+        .cryId = CRY_FERALIGATR,
+        .natDexNum = NATIONAL_DEX_FERALIGATR,
+        .categoryName = _("Big Jaw"),
+        .height = 23,
+        .weight = 888,
+        .description = POKEDEX_DESC_STRING(
+            "It opens its huge mouth to intimidate\n"
+            "enemies. In battle, it runs using its thick\n"
+            "and powerful hind legs to charge the\n"
+            "foe with incredible speed."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 342,
+        .trainerOffset = 7,
+        FRONT_PIC(FeraligatrMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_FeraligatrMega,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 5,
+        BACK_PIC(FeraligatrMega, 56, 64),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(FeraligatrMega),
+        ICON(FeraligatrMega, 0),
+        .footprint = gMonFootprint_Feraligatr,
+        LEARNSETS(FeraligatrMega),
     },
 #endif //P_FAMILY_TOTODILE
 

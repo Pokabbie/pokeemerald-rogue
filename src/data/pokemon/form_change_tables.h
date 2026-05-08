@@ -254,6 +254,15 @@ static const struct FormChange sMeganiumFormChangeTable[] =
 };
 #endif //P_FAMILY_CHIKORITA
 
+#if P_FAMILY_TOTODILE
+static const u16 sFeraligatrFormSpeciesIdTable[] = 
+{
+    SPECIES_FERALIGATR,
+    SPECIES_FERALIGATR_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_TOTODILE
+
 #if P_FAMILY_MAREEP
 static const struct FormChange sMareepFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE,    SPECIES_PIKIN_MEGA, MOVE_HURRICANE},

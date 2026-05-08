@@ -489,6 +489,16 @@ static const u16 sMeganiumFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_CHIKORITA
 
+#if P_FAMILY_TOTODILE
+static const struct FormChange sFeraligatrFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FERALIGATR_MEGA, ITEM_FERALIGITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_FERALIGATR},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_FERALIGATR},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_TOTODILE
+
 #if P_FAMILY_CYNDAQUIL
 static const u16 sTyphlosionFormSpeciesIdTable[] = {
     SPECIES_TYPHLOSION,

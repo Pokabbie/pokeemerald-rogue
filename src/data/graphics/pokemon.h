@@ -2320,6 +2320,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Feraligatr[] = INCBIN_U32("graphics/pokemon/feraligatr/shiny.gbapal.lz");
     const u8 gMonIcon_Feraligatr[] = INCBIN_U8("graphics/pokemon/feraligatr/icon.4bpp");
     const u8 gMonFootprint_Feraligatr[] = INCBIN_U8("graphics/pokemon/feraligatr/footprint.1bpp");
+
+    const u32 gMonFrontPic_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/front.4bpp.lz");
+    const u32 gMonPalette_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_FeraligatrMega[] = INCBIN_U8("graphics/pokemon/feraligatr/mega/icon.4bpp");
 #endif //P_FAMILY_TOTODILE
 
 #if P_FAMILY_SENTRET
