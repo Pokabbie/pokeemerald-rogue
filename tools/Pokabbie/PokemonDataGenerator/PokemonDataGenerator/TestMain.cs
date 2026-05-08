@@ -90,7 +90,7 @@ namespace PokemonDataGenerator
                     else if(readingAnims && line.Contains($"#endif"))
                     {
                         output.WriteLine();
-                        output.WriteLine($"PLACEHOLDER_ANIM_SINGLE_FRAME({speciesName}Mega)");
+                        output.WriteLine($"PLACEHOLDER_ANIM_SINGLE_FRAME({speciesName}Mega);");
                         output.WriteLine();
                         output.WriteLine(line);
 
@@ -239,6 +239,11 @@ namespace PokemonDataGenerator
                             {
                                 if (latestLine.StartsWith(lineStart))
                                 {
+                                    if(latestFile.Contains("MON_TYPES("))
+                                    {
+                                        latestFile = latestFile.Replace("MON_TYPES", "").Replace("(", "{ ").Replace(")", " }");
+                                    }
+
                                     return latestLine;
                                 }
                             }

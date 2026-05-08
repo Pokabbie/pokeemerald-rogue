@@ -4998,7 +4998,60 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         ICON(Skarmory, 0),
         .footprint = gMonFootprint_Skarmory,
         LEARNSETS(Skarmory),
+        .formSpeciesIdTable = sSkarmoryFormSpeciesIdTable,
+        .formChangeTable = sSkarmoryFormChangeTable,
     },
+
+    [SPECIES_SKARMORY_MEGA] =
+    {
+        .baseHP        = 65,
+        .baseAttack    = 140,
+        .baseDefense   = 110,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 100,
+        .types = { TYPE_STEEL, TYPE_FLYING },
+        .catchRate = 25,
+        .expYield = 163,
+        .evYield_Defense = 2,
+        .itemRare = ITEM_METAL_COAT,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .abilities = { ABILITY_STALWART, ABILITY_STALWART, ABILITY_STALWART },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Skarmory"),
+        .cryId = CRY_SKARMORY,
+        .natDexNum = NATIONAL_DEX_SKARMORY,
+        .categoryName = _("Armor Bird"),
+        .height = 17,
+        .weight = 505,
+        .description = POKEDEX_DESC_STRING(
+            "A Pokémon that has a body and wings of\n"
+            "steel. People in the past used feathers\n"
+            "fallen from SkarmoryMega to make swords and\n"
+            "knives."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 271,
+        .trainerOffset = 1,
+        FRONT_PIC(SkarmoryMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SkarmoryMega,
+        .frontAnimId = ANIM_V_SHAKE,
+        BACK_PIC(SkarmoryMega, 64, 64),
+        .backPicYOffset = 1,
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        PALETTES(SkarmoryMega),
+        ICON(SkarmoryMega, 0),
+        .footprint = gMonFootprint_Skarmory,
+        LEARNSETS(SkarmoryMega),
+        .formSpeciesIdTable = sSkarmoryFormSpeciesIdTable,
+        .formChangeTable = sSkarmoryFormChangeTable,
+    },
+
 #endif //P_FAMILY_SKARMORY
 
 #if P_FAMILY_HOUNDOUR

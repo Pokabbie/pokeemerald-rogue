@@ -288,6 +288,14 @@ static const struct FormChange sHeracrossFormChangeTable[] = {
 };
 #endif //P_FAMILY_HERACROSS
 
+#if P_FAMILY_SKARMORY
+static const u16 sSkarmoryFormSpeciesIdTable[] = {
+    SPECIES_SKARMORY,
+    SPECIES_SKARMORY_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_SKARMORY
+
 #if P_FAMILY_HOUNDOUR
 static const struct FormChange sHoundoomFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_HOUNDOOM_MEGA, ITEM_HOUNDOOMINITE},

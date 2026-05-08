@@ -3199,6 +3199,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Skarmory[] = INCBIN_U32("graphics/pokemon/skarmory/shiny.gbapal.lz");
     const u8 gMonIcon_Skarmory[] = INCBIN_U8("graphics/pokemon/skarmory/icon.4bpp");
     const u8 gMonFootprint_Skarmory[] = INCBIN_U8("graphics/pokemon/skarmory/footprint.1bpp");
+
+    const u32 gMonFrontPic_SkarmoryMega[] = INCBIN_U32("graphics/pokemon/skarmory/mega/front.4bpp.lz");
+    const u32 gMonPalette_SkarmoryMega[] = INCBIN_U32("graphics/pokemon/skarmory/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_SkarmoryMega[] = INCBIN_U32("graphics/pokemon/skarmory/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_SkarmoryMega[] = INCBIN_U32("graphics/pokemon/skarmory/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_SkarmoryMega[] = INCBIN_U8("graphics/pokemon/skarmory/mega/icon.4bpp");
 #endif //P_FAMILY_SKARMORY
 
 #if P_FAMILY_HOUNDOUR

@@ -1,4 +1,4 @@
-﻿#define PLACEHOLDER_ANIM_SINGLE_FRAME(name)     \
+#define PLACEHOLDER_ANIM_SINGLE_FRAME(name)     \
 static const union AnimCmd sAnim_##name##_1[] = \
 {                                               \
     ANIMCMD_FRAME(0, 1),                        \
@@ -3254,6 +3254,9 @@ static const union AnimCmd sAnim_Skarmory_1[] =
     ANIMCMD_FRAME(0, 20),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(SkarmoryMega);
+
 #endif //P_FAMILY_SKARMORY
 
 #if P_FAMILY_HOUNDOUR
@@ -10993,6 +10996,7 @@ SINGLE_ANIMATION(Mantine);
 #endif //P_FAMILY_MANTINE
 #if P_FAMILY_SKARMORY
 SINGLE_ANIMATION(Skarmory);
+SINGLE_ANIMATION(SkarmoryMega);
 #endif //P_FAMILY_SKARMORY
 #if P_FAMILY_HOUNDOUR
 SINGLE_ANIMATION(Houndour);
