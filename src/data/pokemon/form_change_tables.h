@@ -939,6 +939,22 @@ static const struct FormChange sFloetteEternalFormChangeTable[] =
 };
 #endif //P_FAMILY_FLABEBE
 
+#if P_FAMILY_ESPURR
+static const struct FormChange sMeowsticMFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEOWSTIC_MALE_MEGA, ITEM_MEOWSTICITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_MEOWSTIC_MALE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_MEOWSTIC_MALE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sMeowsticFFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEOWSTIC_FEMALE_MEGA, ITEM_MEOWSTICITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_MEOWSTIC_FEMALE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_MEOWSTIC_FEMALE},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_ESPURR
+
 #if P_FAMILY_HONEDGE
 static const struct FormChange sAegislashFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_SWITCH, SPECIES_AEGISLASH_SHIELD},

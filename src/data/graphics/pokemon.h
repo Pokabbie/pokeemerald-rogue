@@ -7732,6 +7732,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonIcon_MeowsticMale[] = INCBIN_U8("graphics/pokemon/meowstic/icon.4bpp");
     const u8 gMonFootprint_Meowstic[] = INCBIN_U8("graphics/pokemon/meowstic/footprint.1bpp");
 
+    const u32 gMonFrontPic_MeowsticMega[] = INCBIN_U32("graphics/pokemon/meowstic/mega/front.4bpp.lz");
+    const u32 gMonPalette_MeowsticMega[] = INCBIN_U32("graphics/pokemon/meowstic/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_MeowsticMega[] = INCBIN_U32("graphics/pokemon/meowstic/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_MeowsticMega[] = INCBIN_U32("graphics/pokemon/meowstic/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_MeowsticMega[] = INCBIN_U8("graphics/pokemon/meowstic/mega/icon.4bpp");
+
     const u32 gMonFrontPic_MeowsticFemale[] = INCBIN_U32("graphics/pokemon/meowstic/female/anim_front.4bpp.lz");
     const u32 gMonPalette_MeowsticFemale[] = INCBIN_U32("graphics/pokemon/meowstic/female/normal.gbapal.lz");
     const u32 gMonBackPic_MeowsticFemale[] = INCBIN_U32("graphics/pokemon/meowstic/female/back.4bpp.lz");

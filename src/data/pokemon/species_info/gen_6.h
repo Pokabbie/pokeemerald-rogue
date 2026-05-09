@@ -2086,6 +2086,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         PALETTES(MeowsticMale),
         ICON(MeowsticMale, 0),
         LEARNSETS(MeowsticMale),
+        .formChangeTable = sMeowsticMFormChangeTable,
     },
 
     [SPECIES_MEOWSTIC_FEMALE] =
@@ -2105,6 +2106,79 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         PALETTES(MeowsticFemale),
         ICON(MeowsticFemale, 0),
         LEARNSETS(MeowsticFemale),
+        .formChangeTable = sMeowsticFFormChangeTable,
+    },
+    
+#define MEOWSTIC_MEGA_MISC_INFO                             \
+        .baseHP        = 74,                                \
+        .baseAttack    = 48,                                \
+        .baseDefense   = 76,                                \
+        .baseSpeed     = 124,                               \
+        .baseSpAttack  = 143,                               \
+        .baseSpDefense = 101,                               \
+        .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },            \
+        .catchRate = 75,                                    \
+        .expYield = 163,                                    \
+        .evYield_Speed = 2,                                 \
+        .eggCycles = 20,                                    \
+        .friendship = STANDARD_FRIENDSHIP,                  \
+        .growthRate = GROWTH_MEDIUM_FAST,                   \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },  \
+        .speciesName = _("Meowstic"),                       \
+        .cryId = CRY_MEOWSTIC,                              \
+        .natDexNum = NATIONAL_DEX_MEOWSTIC,                 \
+        .categoryName = _("Constraint"),                    \
+        .height = 6,                                        \
+        .weight = 85,                                       \
+        .pokemonScale = 422,                                \
+        .pokemonOffset = 12,                                \
+        .trainerScale = 256,                                \
+        .trainerOffset = 0,                                 \
+        .frontAnimFrames = sAnims_MeowsticMega,             \
+        .frontAnimId = ANIM_GROW_VIBRATE,                   \
+        .backPicYOffset = 3,                                \
+        .backAnimId = BACK_ANIM_CONCAVE_ARC_LARGE,          \
+        .footprint = gMonFootprint_Meowstic,                \
+        .formSpeciesIdTable = sMeowsticFormSpeciesIdTable
+
+    [SPECIES_MEOWSTIC_MALE_MEGA] =
+    {
+        MEOWSTIC_MEGA_MISC_INFO,
+        .genderRatio = MON_MALE,
+        .abilities = { ABILITY_TRACE, ABILITY_TRACE, ABILITY_TRACE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .description = POKEDEX_DESC_STRING(
+            "The defensive instinct of the\n"
+            "males is strong. It's when they're\n"
+            "protecting themselves or their partners\n"
+            "that they unleash their full power."),
+        FRONT_PIC(MeowsticMega, 64, 64),
+        .frontPicYOffset = 0,
+        BACK_PIC(MeowsticMega, 64, 64),
+        PALETTES(MeowsticMega),
+        ICON(MeowsticMega, 0),
+        LEARNSETS(MeowsticMale),
+        .formChangeTable = sMeowsticMFormChangeTable,
+    },
+
+    [SPECIES_MEOWSTIC_FEMALE_MEGA] =
+    {
+        MEOWSTIC_MEGA_MISC_INFO,
+        .genderRatio = MON_FEMALE,
+        .abilities = { ABILITY_TRACE, ABILITY_TRACE, ABILITY_TRACE },
+        .bodyColor = BODY_COLOR_WHITE,
+        .description = POKEDEX_DESC_STRING(
+            "Females are a bit more selfish and\n"
+            "aggressive than males. If they\n"
+            "don't get what they want, they will\n"
+            "torment you with their psychic abilities."),
+        FRONT_PIC(MeowsticMega, 64, 64),
+        .frontPicYOffset = 0,
+        BACK_PIC(MeowsticMega, 64, 64),
+        PALETTES(MeowsticMega),
+        ICON(MeowsticMega, 0),
+        LEARNSETS(MeowsticMega),
+        .formChangeTable = sMeowsticFFormChangeTable,
     },
 #endif //P_FAMILY_ESPURR
 

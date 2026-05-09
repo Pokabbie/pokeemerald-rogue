@@ -8438,6 +8438,9 @@ static const union AnimCmd sAnim_Meowstic_1[] =
     ANIMCMD_FRAME(0, 15),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(MeowsticMega);
+
 #endif //P_FAMILY_ESPURR
 
 #if P_FAMILY_HONEDGE
@@ -12088,6 +12091,7 @@ SINGLE_ANIMATION(Furfrou);
 #if P_FAMILY_ESPURR
 SINGLE_ANIMATION(Espurr);
 SINGLE_ANIMATION(Meowstic);
+SINGLE_ANIMATION(MeowsticMega);
 #endif //P_FAMILY_ESPURR
 #if P_FAMILY_HONEDGE
 SINGLE_ANIMATION(Honedge);
