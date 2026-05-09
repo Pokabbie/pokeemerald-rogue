@@ -113,7 +113,8 @@
     "MOVE_TERA_BLAST",
     "MOVE_TOXIC",
     "MOVE_TOXIC_SPIKES",
-    "MOVE_VENOSHOCK"
+    "MOVE_VENOSHOCK",
+    "MOVE_MEMENTO"
   ],
   "CompetitiveSets": [
     {
@@ -360,6 +361,155 @@
       "Nature": "NATURE_TIMID",
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_METEOR_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_MEMENTO",
+        "MOVE_MUD_SHOT",
+        "MOVE_MORTAL_SPIN"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_NAIVE",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_MORTAL_SPIN",
+        "MOVE_MUD_SHOT",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TOXIC",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_CORROSION",
+      "Item": "ITEM_AIR_BALLOON",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POWER_GEM",
+        "MOVE_EARTH_POWER",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_GLIMMORANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_POWER_GEM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_GLIMMORANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTH_POWER",
+        "MOVE_POWER_GEM",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_GLIMMORANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_EARTH_POWER",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_GLIMMORANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_POWER_GEM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_TOXIC_DEBRIS",
+      "Item": "ITEM_GLIMMORANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
       ]
     }
   ]
