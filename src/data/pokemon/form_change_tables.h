@@ -814,6 +814,14 @@ static const struct FormChange sChandelureFormChangeTable[] =
 };
 #endif //P_FAMILY_LITWICK
 
+#if P_FAMILY_GOLETT
+static const u16 sGolurkFormSpeciesIdTable[] = {
+    SPECIES_GOLURK,
+    SPECIES_GOLURK_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_GOLETT
+
 #if P_FAMILY_TORNADUS
 static const struct FormChange sTornadusFormChangeTable[] = {
     {FORM_CHANGE_ITEM_USE, SPECIES_TORNADUS_THERIAN,   ITEM_REVEAL_GLASS},

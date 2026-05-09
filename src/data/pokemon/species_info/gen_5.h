@@ -7314,7 +7314,62 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Golurk, 0),
         .footprint = gMonFootprint_Golurk,
         LEARNSETS(Golurk),
+        .formSpeciesIdTable = sGolurkFormSpeciesIdTable,
+        .formChangeTable = sGolurkFormChangeTable,
     },
+
+    [SPECIES_GOLURK_MEGA] =
+    {
+        .baseHP        = 89,
+        .baseAttack    = 159,
+        .baseDefense   = 105,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 105,
+        .types = { TYPE_GROUND, TYPE_GHOST },
+        .catchRate = 90,
+        .expYield = 169,
+        .evYield_Attack = 2,
+        .itemRare = ITEM_LIGHT_CLAY,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+        .abilities = { ABILITY_UNSEEN_FIST, ABILITY_UNSEEN_FIST, ABILITY_UNSEEN_FIST },
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = TRUE,
+        .speciesName = _("Golurk"),
+        .cryId = CRY_GOLURK,
+        .natDexNum = NATIONAL_DEX_GOLURK,
+        .categoryName = _("Automaton"),
+        .height = 28,
+        .weight = 3300,
+        .description = POKEDEX_DESC_STRING(
+            "GolurkMega were created to protect people\n"
+            "and Pokémon by an ancient civilisation.\n"
+            "Removing the seal on its chest makes its\n"
+            "internal energy go out of control."),
+        .pokemonScale = 275,
+        .pokemonOffset = 3,
+        .trainerScale = 300,
+        .trainerOffset = 0,
+        FRONT_PIC(GolurkMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GolurkMega,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        BACK_PIC(GolurkMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(GolurkMega),
+        ICON(GolurkMega, 0),
+        .footprint = gMonFootprint_Golurk,
+        LEARNSETS(GolurkMega),
+        .formSpeciesIdTable = sGolurkFormSpeciesIdTable,
+        .formChangeTable = sGolurkFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_GOLETT
 
 #if P_FAMILY_PAWNIARD

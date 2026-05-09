@@ -1136,6 +1136,15 @@ static const u16 sChandelureFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_LITWICK
 
+#if P_FAMILY_GOLETT
+static const struct FormChange sGolurkFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GOLURK_MEGA, ITEM_GOLURKITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_GOLURK},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_GOLURK},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_GOLETT
+
 #if P_FAMILY_STUNFISK
 static const u16 sStunfiskFormSpeciesIdTable[] = {
     SPECIES_STUNFISK,
