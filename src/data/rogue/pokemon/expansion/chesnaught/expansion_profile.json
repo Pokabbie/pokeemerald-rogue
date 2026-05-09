@@ -342,6 +342,156 @@
       "SourceTiers": [
         "GEN9RU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_KNOCK_OFF",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_WIDE_GUARD",
+        "MOVE_LEECH_SEED",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_POISON_JAB"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_WIDE_GUARD",
+        "MOVE_BODY_PRESS"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_IRON_DEFENSE",
+        "MOVE_WOOD_HAMMER",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WOOD_HAMMER",
+        "MOVE_BODY_PRESS",
+        "MOVE_LEECH_SEED",
+        "MOVE_SPIKY_SHIELD"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKY_SHIELD",
+        "MOVE_LEECH_SEED",
+        "MOVE_COACHING"
+      ],
+      "Ability": "ABILITY_BULLETPROOF",
+      "Item": "ITEM_CHESNAUGHTITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
