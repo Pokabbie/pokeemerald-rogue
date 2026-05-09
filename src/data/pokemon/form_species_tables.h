@@ -781,6 +781,14 @@ static const u16 sBanetteFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_SHUPPET
 
+#if P_FAMILY_CHIMECHO
+static const u16 sChimechoFormSpeciesIdTable[] = {
+    SPECIES_CHIMECHO,
+    SPECIES_CHIMECHO_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_CHIMECHO
+
 #if P_FAMILY_ABSOL
 static const u16 sAbsolFormSpeciesIdTable[] = {
     SPECIES_ABSOL,
@@ -1509,6 +1517,14 @@ static const u16 sMimikyuFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_MIMIKYU
+
+#if P_FAMILY_DRAMPA
+static const u16 sDrampaFormSpeciesIdTable[] = {
+    SPECIES_DRAMPA,
+    SPECIES_DRAMPA_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_DRAMPA
 
 #if P_FAMILY_NECROZMA
 static const u16 sNecrozmaFormSpeciesIdTable[] = {

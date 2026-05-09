@@ -449,6 +449,15 @@ static const struct FormChange sBanetteFormChangeTable[] = {
 };
 #endif //P_FAMILY_SHUPPET
 
+#if P_FAMILY_CHIMECHO
+static const struct FormChange sChimechoFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHIMECHO_MEGA, ITEM_CHIMECHITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_CHIMECHO},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_CHIMECHO},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_CHIMECHO
+
 #if P_FAMILY_ABSOL
 static const struct FormChange sAbsolFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ABSOL_MEGA, ITEM_ABSOLITE},
@@ -1109,6 +1118,16 @@ static const struct FormChange sMimikyuFormChangeTable[] = {
     {FORM_CHANGE_TERMINATOR},
 };
 #endif //P_FAMILY_MIMIKYU
+
+#if P_FAMILY_DRAMPA
+static const struct FormChange sDrampaFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DRAMPA_MEGA, ITEM_DRAMPANITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_DRAMPA},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_DRAMPA},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_DRAMPA
 
 #if P_FAMILY_NECROZMA
 static const struct Fusion sNecrozmaFusionTable[] = {

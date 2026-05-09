@@ -6388,7 +6388,63 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         ICON(Chimecho, 0),
         .footprint = gMonFootprint_Chimecho,
         LEARNSETS(Chimecho),
+        .formSpeciesIdTable = sChimechoFormSpeciesIdTable,
+        .formChangeTable = sChimechoFormChangeTable,
     },
+
+    [SPECIES_CHIMECHO_MEGA] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 50,
+        .baseDefense   = 110,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 120,
+        .types = { TYPE_PSYCHIC, TYPE_STEEL },
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_SpAttack = 1,
+        .evYield_SpDefense = 1,
+        .itemRare = ITEM_CLEANSE_TAG,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
+        .abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_LEVITATE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Chimecho"),
+        .cryId = CRY_CHIMECHO,
+        .natDexNum = NATIONAL_DEX_CHIMECHO,
+        .categoryName = _("Wind Chime"),
+        .height = 6,
+        .weight = 10,
+        .description = POKEDEX_DESC_STRING(
+            "They fly about very actively when the hot\n"
+            "season arrives. They communicate among\n"
+            "themselves using seven different and\n"
+            "distinguishing cries."),
+        .pokemonScale = 505,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(ChimechoMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ChimechoMega,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
+        .enemyMonElevation = 16,
+        BACK_PIC(ChimechoMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        PALETTES(ChimechoMega),
+        ICON(ChimechoMega, 0),
+        .footprint = gMonFootprint_Chimecho,
+        LEARNSETS(ChimechoMega),
+        .formSpeciesIdTable = sChimechoFormSpeciesIdTable,
+        .formChangeTable = sChimechoFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_CHIMECHO
 
 #if P_FAMILY_ABSOL

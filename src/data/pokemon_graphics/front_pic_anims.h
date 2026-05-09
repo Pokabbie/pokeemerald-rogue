@@ -4878,6 +4878,9 @@ static const union AnimCmd sAnim_Chimecho_1[] =
     ANIMCMD_FRAME(0, 15),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ChimechoMega);
+
 #endif //P_FAMILY_CHIMECHO
 
 #if P_FAMILY_ABSOL
@@ -9328,6 +9331,9 @@ static const union AnimCmd sAnim_Drampa_1[] =
     ANIMCMD_FRAME(0, 50),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(DrampaMega);
+
 #endif //P_FAMILY_DRAMPA
 
 #if P_FAMILY_DHELMISE
@@ -11355,6 +11361,7 @@ SINGLE_ANIMATION(Tropius);
 SINGLE_ANIMATION(Chingling);
 #endif //P_GEN_4_CROSS_EVOS
 SINGLE_ANIMATION(Chimecho);
+SINGLE_ANIMATION(ChimechoMega);
 #endif //P_FAMILY_CHIMECHO
 #if P_FAMILY_ABSOL
 SINGLE_ANIMATION(Absol);
@@ -12308,6 +12315,7 @@ SINGLE_ANIMATION(Bruxish);
 #endif //P_FAMILY_BRUXISH
 #if P_FAMILY_DRAMPA
 SINGLE_ANIMATION(Drampa);
+SINGLE_ANIMATION(DrampaMega);
 #endif //P_FAMILY_DRAMPA
 #if P_FAMILY_DHELMISE
 SINGLE_ANIMATION(Dhelmise);

@@ -4479,6 +4479,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Chimecho[] = INCBIN_U32("graphics/pokemon/chimecho/shiny.gbapal.lz");
     const u8 gMonIcon_Chimecho[] = INCBIN_U8("graphics/pokemon/chimecho/icon.4bpp");
     const u8 gMonFootprint_Chimecho[] = INCBIN_U8("graphics/pokemon/chimecho/footprint.1bpp");
+
+    const u32 gMonFrontPic_ChimechoMega[] = INCBIN_U32("graphics/pokemon/chimecho/mega/front.4bpp.lz");
+    const u32 gMonPalette_ChimechoMega[] = INCBIN_U32("graphics/pokemon/chimecho/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_ChimechoMega[] = INCBIN_U32("graphics/pokemon/chimecho/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_ChimechoMega[] = INCBIN_U32("graphics/pokemon/chimecho/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_ChimechoMega[] = INCBIN_U8("graphics/pokemon/chimecho/mega/icon.4bpp");
 #endif //P_FAMILY_CHIMECHO
 
 #if P_FAMILY_ABSOL
@@ -8763,6 +8769,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Drampa[] = INCBIN_U32("graphics/pokemon/drampa/shiny.gbapal.lz");
     const u8 gMonIcon_Drampa[] = INCBIN_U8("graphics/pokemon/drampa/icon.4bpp");
     const u8 gMonFootprint_Drampa[] = INCBIN_U8("graphics/pokemon/drampa/footprint.1bpp");
+
+    const u32 gMonFrontPic_DrampaMega[] = INCBIN_U32("graphics/pokemon/drampa/mega/front.4bpp.lz");
+    const u32 gMonPalette_DrampaMega[] = INCBIN_U32("graphics/pokemon/drampa/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_DrampaMega[] = INCBIN_U32("graphics/pokemon/drampa/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_DrampaMega[] = INCBIN_U32("graphics/pokemon/drampa/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_DrampaMega[] = INCBIN_U8("graphics/pokemon/drampa/mega/icon.4bpp");
 #endif //P_FAMILY_DRAMPA
 
 #if P_FAMILY_DHELMISE
