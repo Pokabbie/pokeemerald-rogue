@@ -948,6 +948,183 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_EXTRASENSORY",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_WATER_SHURIKEN",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_U_TURN",
+        "MOVE_ICE_BEAM",
+        "MOVE_GUNK_SHOT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_HASTY",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE"
+      ],
+      "Ability": "ABILITY_BATTLE_BOND",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_WATER_SHURIKEN"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_LOW_KICK",
+        "MOVE_BLIZZARD",
+        "MOVE_DARK_PULSE"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PROTECT",
+        "MOVE_WEATHER_BALL"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_GUNK_SHOT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_DARK_PULSE",
+        "MOVE_BLIZZARD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_WAVE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PROTEAN",
+      "Item": "ITEM_GRENINJITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
