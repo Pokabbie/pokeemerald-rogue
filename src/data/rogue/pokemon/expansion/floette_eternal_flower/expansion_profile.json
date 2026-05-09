@@ -1,10 +1,7 @@
 {
   "Species": [
-    "SPECIES_FLOETTE",
-    "SPECIES_FLOETTE_YELLOW_FLOWER",
-    "SPECIES_FLOETTE_ORANGE_FLOWER",
-    "SPECIES_FLOETTE_BLUE_FLOWER",
-    "SPECIES_FLOETTE_WHITE_FLOWER"
+    "SPECIES_FLOETTE_ETERNAL_FLOWER",
+    "SPECIES_FLOETTE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -60,6 +57,10 @@
       "Level": 51
     },
     {
+      "Move": "MOVE_LIGHT_OF_RUIN",
+      "Level": 50
+    },
+    {
       "Move": "MOVE_SOLAR_BEAM",
       "Level": 58
     }
@@ -101,7 +102,55 @@
     "MOVE_SWIFT",
     "MOVE_TERA_BLAST",
     "MOVE_TRAILBLAZE",
-    "MOVE_TRICK"
+    "MOVE_TRICK",
+    "MOVE_HYPER_BEAM"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": 
+  [
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_LIGHT_OF_RUIN",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYMBIOSIS",
+      "Item": "ITEM_FLOETTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYMBIOSIS",
+      "Item": "ITEM_FLOETTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_DRAINING_KISS",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYMBIOSIS",
+      "Item": "ITEM_FLOETTITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    }
+  ]
 }

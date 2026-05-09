@@ -2170,6 +2170,9 @@ $(OBJEVENTGFXDIR)/pokemon_ow/flabebe.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/pokemon_ow/floette.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/pokemon_ow/floette_eternal.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/pokemon_ow/florges.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

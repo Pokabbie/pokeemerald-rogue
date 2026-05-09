@@ -1071,7 +1071,6 @@ static bool8 IsDebugAltForm(u16 species)
     switch (species)
     {
     case SPECIES_PICHU_SPIKY_EARED:
-    case SPECIES_FLOETTE_ETERNAL_FLOWER:
     case SPECIES_MIMIKYU_BUSTED:
     case SPECIES_EISCUE_NOICE_FACE:
     case SPECIES_MORPEKO_HANGRY:

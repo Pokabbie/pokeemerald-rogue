@@ -89,7 +89,7 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
         species = SPECIES_FLABEBE;
     }
 
-    if(species >= SPECIES_FLOETTE_YELLOW_FLOWER && species <= SPECIES_FLOETTE_ETERNAL_FLOWER)
+    if(species >= SPECIES_FLOETTE_YELLOW_FLOWER && species <= SPECIES_FLOETTE_WHITE_FLOWER)
     {
         species = SPECIES_FLOETTE;
     }

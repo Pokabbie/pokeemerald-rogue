@@ -8686,6 +8686,18 @@ static const struct SpriteFrameImage sPicTable_Mon_floette[] = {
     overworld_frame(gObjectEventPic_Overworld_floette, 4, 4, 5),
 };
 
+
+static const struct SpriteFrameImage sPicTable_Mon_floette_eternal[] = {
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_floette_eternal, 4, 4, 5),
+};
 static const struct SpriteFrameImage sPicTable_Mon_florges[] = {
     overworld_frame(gObjectEventPic_Overworld_florges, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_florges, 4, 4, 1),
@@ -14847,6 +14859,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_litleo = {TAG_
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pyroar = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pyroar, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_flabebe = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_flabebe, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_floette = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_floette, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_floette_eternal = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_floette_eternal, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_florges = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_florges, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_skiddo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_skiddo, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_gogoat = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_gogoat, gDummySpriteAffineAnimTable};
@@ -19645,6 +19658,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_floette,
 		.normalPal = gObjectEventPal_Overworld_floette,
 		.shinyPal = gObjectEventPal_Overworld_floette_shiny,
+	},
+	[SPECIES_FLOETTE_ETERNAL_FLOWER] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_floette_eternal,
+		.normalPal = gObjectEventPal_Overworld_floette_eternal,
+		.shinyPal = gObjectEventPal_Overworld_floette_eternal_shiny,
 	},
 	[SPECIES_FLORGES] =
 	{
