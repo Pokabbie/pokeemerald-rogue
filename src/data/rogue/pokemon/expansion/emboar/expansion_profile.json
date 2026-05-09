@@ -313,6 +313,124 @@
       "SourceTiers": [
         "GEN9ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_HEAVY_SLAM",
+        "MOVE_HEAD_SMASH"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_ASSAULT_VEST",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FLARE_BLITZ",
+        "MOVE_SUCKER_PUNCH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_HIGH_HORSEPOWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BURN_UP",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_SCORCHING_SANDS"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLARE_BLITZ",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_WILD_CHARGE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_SUCKER_PUNCH",
+        "MOVE_STONE_EDGE",
+        "MOVE_FLARE_BLITZ"
+      ],
+      "Ability": "ABILITY_RECKLESS",
+      "Item": "ITEM_EMBOARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
