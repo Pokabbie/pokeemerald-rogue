@@ -2139,7 +2139,8 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .backPicYOffset = 3,                                \
         .backAnimId = BACK_ANIM_CONCAVE_ARC_LARGE,          \
         .footprint = gMonFootprint_Meowstic,                \
-        .formSpeciesIdTable = sMeowsticFormSpeciesIdTable
+        .formSpeciesIdTable = sMeowsticFormSpeciesIdTable,  \
+        .isMegaEvolution = TRUE
 
     [SPECIES_MEOWSTIC_MALE_MEGA] =
     {
