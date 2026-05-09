@@ -8188,6 +8188,9 @@ static const union AnimCmd sAnim_Delphox_1[] =
     ANIMCMD_FRAME(0, 15),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(DelphoxMega);
+
 #endif //P_FAMILY_FENNEKIN
 
 #if P_FAMILY_FROAKIE
@@ -12013,6 +12016,7 @@ SINGLE_ANIMATION(ChesnaughtMega);
 SINGLE_ANIMATION(Fennekin);
 SINGLE_ANIMATION(Braixen);
 SINGLE_ANIMATION(Delphox);
+SINGLE_ANIMATION(DelphoxMega);
 #endif //P_FAMILY_FENNEKIN
 #if P_FAMILY_FROAKIE
 SINGLE_ANIMATION(Froakie);

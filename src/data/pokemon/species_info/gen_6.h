@@ -343,7 +343,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Delphox, 0),
         .footprint = gMonFootprint_Delphox,
         LEARNSETS(Delphox),
+        .formSpeciesIdTable = sDelphoxFormSpeciesIdTable,
+        .formChangeTable = sDelphoxFormChangeTable,
     },
+
+    [SPECIES_DELPHOX_MEGA] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 69,
+        .baseDefense   = 72,
+        .baseSpeed     = 134,
+        .baseSpAttack  = 159,
+        .baseSpDefense = 125,
+        .types = { TYPE_FIRE, TYPE_PSYCHIC },
+        .catchRate = 45,
+        .expYield = 240,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_LEVITATE },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Delphox"),
+        .cryId = CRY_DELPHOX,
+        .natDexNum = NATIONAL_DEX_DELPHOX,
+        .categoryName = _("Fox"),
+        .height = 15,
+        .weight = 390,
+        .description = POKEDEX_DESC_STRING(
+            "It gazes into the flame at the tip of its\n"
+            "branch to achieve a focused state, which\n"
+            "allows it to see into the future. It uses\n"
+            "psychic power to incinerate its foes."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        FRONT_PIC(DelphoxMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_DelphoxMega,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(DelphoxMega, 64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(DelphoxMega),
+        ICON(DelphoxMega, 2),
+        .footprint = gMonFootprint_Delphox,
+        LEARNSETS(DelphoxMega),
+        .formSpeciesIdTable = sDelphoxFormSpeciesIdTable,
+        .formChangeTable = sDelphoxFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_FENNEKIN
 
 #if P_FAMILY_FROAKIE

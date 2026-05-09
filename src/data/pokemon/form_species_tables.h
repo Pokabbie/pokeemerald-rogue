@@ -1231,6 +1231,16 @@ static const struct FormChange sChesnaughtFormChangeTable[] =
 };
 #endif //P_FAMILY_CHESPIN
 
+#if P_FAMILY_FENNEKIN
+static const struct FormChange sDelphoxFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DELPHOX_MEGA, ITEM_DELPHOXITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_DELPHOX},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_DELPHOX},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_FENNEKIN
+
 #if P_FAMILY_FROAKIE
 static const u16 sGreninjaFormSpeciesIdTable[] = {
     SPECIES_GRENINJA,
