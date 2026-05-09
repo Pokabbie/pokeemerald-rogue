@@ -73,7 +73,7 @@ namespace PokemonDataGenerator
 			using (HttpClient web = new HttpClient())
 			{
 				var task = web.GetStringAsync(uri);
-				task.Wait();
+				task.Wait(); // if we fail here, can manually populate cache to work around
 
 				File.WriteAllText(cachePath, task.Result);
 				return task.Result;

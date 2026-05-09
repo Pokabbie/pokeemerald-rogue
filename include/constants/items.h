@@ -547,4 +547,8 @@
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)
 
+#define IS_MEGA_STONE(itemId) FALSE
+#define IS_GIMMICK_ITEM(itemId) FALSE
+
+
 #endif  // GUARD_CONSTANTS_ITEMS_H

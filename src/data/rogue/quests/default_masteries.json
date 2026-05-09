@@ -629,7 +629,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GLALITITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GLALITITE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FROSLASSITE" }
                 ]
             },
             {
@@ -948,6 +949,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_GRENINJITE" },
                     { "species": "SPECIES_GRENINJA_BATTLE_BOND", "shiny": false }
                 ]
             },

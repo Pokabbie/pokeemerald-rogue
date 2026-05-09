@@ -1969,7 +1969,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     return monCount;
 }
 
-static bool8 ShouldTrainerUseValidHeldItems(u16 trainerNum)
+static bool8 ShouldTrainerUseValidHeldItems(u16 trainerNum, bool8 isGimmickItem)
 {
     u8 difficulty = Rogue_GetCurrentDifficulty();
 
@@ -1983,7 +1983,10 @@ static bool8 ShouldTrainerUseValidHeldItems(u16 trainerNum)
     case DIFFICULTY_LEVEL_EASY:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(difficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            if(isGimmickItem && difficulty >= ROGUE_GYM_MID_DIFFICULTY + 2)
+                return TRUE;
+
+            if(isGimmickItem || difficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
                 return TRUE;
         }
         return FALSE;
@@ -1991,6 +1994,9 @@ static bool8 ShouldTrainerUseValidHeldItems(u16 trainerNum)
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
+            if(isGimmickItem && difficulty >= ROGUE_GYM_MID_DIFFICULTY)
+                return TRUE;
+
             if(difficulty >= ROGUE_GYM_MID_DIFFICULTY + 2)
                 return TRUE;
         }
@@ -3391,16 +3397,20 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 }
 
                 // Special case for primal reversion
-                if(!IsMegaEvolutionEnabled())
+                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
                 {
-                    if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                    if(IsMegaEvolutionEnabled())
+                    {
+                        currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
+                    }
+                    else
                     {
                         currentScore /= 4;
                     }
                 }
 
                 // Handle megas
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                if(IS_MEGA_STONE(currPreset->heldItem))
                 {
                     if(IsMegaEvolutionEnabled())
                     {
@@ -3430,6 +3440,12 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     }
                 }
 #endif
+                // Prefer presets with items which are enabled
+                if(currPreset->heldItem != ITEM_NONE && !Rogue_IsItemEnabled(currPreset->heldItem))
+                {
+                    currentScore /= 2;
+                }
+
                 // Handle identical scores by adding on some random amount
                 // so we will essentially randomlly choose between the best sets and get more variety
                 currentScore += RogueRandom() % 64;
@@ -3514,7 +3530,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
 
         if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
         {
-            if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
+            if(IS_MEGA_STONE(outPreset->heldItem))
             {
                 outPreset->heldItem = ITEM_NONE;
             }
@@ -3528,7 +3544,6 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             }
         }
 #endif
-
         // Give an item if we're missing one
         //
         if(outPreset->heldItem == ITEM_NONE)
@@ -3560,7 +3575,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 outPreset->heldItem == ITEM_LEFTOVERS;
             }
         }
-        else if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
+        else if(IS_MEGA_STONE(outPreset->heldItem))
         {
             scratch->heldItems.hasMegaStone = TRUE;
         }
@@ -3695,7 +3710,7 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct R
 
     }
 
-    if(ShouldTrainerUseValidHeldItems(trainerNum))
+    if(!ShouldTrainerUseValidHeldItems(trainerNum, IS_GIMMICK_ITEM(preset->heldItem)))
         presetRules->skipHeldItem = TRUE;
 
     // Edge case to handle scarfed ditto
@@ -3804,7 +3819,7 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
         score -= 15;
     }
 
-    if(item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE)
+    if(IS_MEGA_STONE(item))
     {
         // Try to push megas towards the end
         score -= 20;
@@ -4071,7 +4086,7 @@ static u16 CalculateDynamaxScore(struct Pokemon *mon)
     // Ignore any banned items
     if(
         (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        IS_MEGA_STONE(item) ||
         (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
     )
         return 0;
@@ -4119,7 +4134,7 @@ static u16 CalculateTerastallizeScore(struct Pokemon *mon)
     // Ignore any banned items
     if(
         (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        IS_MEGA_STONE(item) ||
         (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
     )
         return 0;

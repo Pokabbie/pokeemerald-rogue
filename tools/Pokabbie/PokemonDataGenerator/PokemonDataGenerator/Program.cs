@@ -17,16 +17,15 @@ namespace PokemonDataGenerator
 
 		static void Main(string[] args)
 		{
-			//TestMain.Run();
-
-
             Console.WriteLine("1 - Vanilla");
 			Console.WriteLine("2 - EX");
 			bool isVanillaVersion = ReadOption(1, 2) == 1;
 
 			GameDataHelpers.IsVanillaVersion = isVanillaVersion;
 
-			Console.WriteLine("1 - Gather Pokemon data profile");
+            //TestMain.Run();
+
+            Console.WriteLine("1 - Gather Pokemon data profile");
 			Console.WriteLine("2 - Generate OW Sprites");
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
 			Console.WriteLine("4 - OW Sprites Palette Generator");
@@ -38,7 +37,9 @@ namespace PokemonDataGenerator
 			{
 				case 1:
 					Console.WriteLine("==Gathering Pokemon Data Profile==");
-					PokemonProfileGenerator.GatherProfiles();
+                    Console.WriteLine("Species name:");
+                    string raw = Console.ReadLine();
+                    NewPokemonProfileGenerator.GatherProfile(raw);
 					break;
 
 				case 2:

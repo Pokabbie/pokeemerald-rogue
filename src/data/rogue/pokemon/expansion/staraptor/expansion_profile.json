@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_STARAPTOR"
+    "SPECIES_STARAPTOR",
+    "SPECIES_STARAPTOR_MEGA"
   ],
   "LevelUpMoves": [
     {

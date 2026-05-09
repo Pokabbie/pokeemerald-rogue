@@ -1,0 +1,282 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "%MON_SPECIES% Mastery",
+        "description": "Enter the Hall of Fame with a Pokémon from the %MON_SPECIES% line in your party.",
+        "display_group": "mon_masteries",
+        "flags": 
+        [
+            "MON_MASTERY_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ],
+        "triggers":
+        [
+            {
+                "on": [ "ENTER_HALL_OF_FAME" ],
+                "condition": "SpeciesMasteryComplete",
+                "template_params": [ "MON_SPECIES" ],
+                "pass": "SUCCESS",
+                "fail": "FAIL"
+            }
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CLEFFA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_CLEFABLITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_BELLSPROUT"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_VICTREEBELITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_STARYU"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_STARMINITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_DRATINI"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_DRAGONINITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CHIKORITA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_MEGANIUMITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_TOTODILE"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_FERALIGITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_SKARMORY"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_SKARMORITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_TEPIG"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_EMBOARITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_DRILBUR"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_EXCADRITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_LITWICK"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_CHANDELURITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_GOLETT"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_GOLURKITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CHESPIN"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_CHESNAUGHTITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_FENNEKIN"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_DELPHOXITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_HAWLUCHA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_HAWLUCHANITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_FLABEBE"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_FLOETTITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_DRAMPA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_DRAMPANITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CHINGLING"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_CHIMECHITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_ESPURR"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_MEOWSTICITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CRABRAWLER"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_CRABOMINITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_CAPSAKID"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_SCOVILLAINITE" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_GLIMMET"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_GLIMMORANITE" }
+                ]
+            }
+        ]
+    }
+}

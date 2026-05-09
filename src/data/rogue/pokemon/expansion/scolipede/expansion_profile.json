@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_SCOLIPEDE"
+    "SPECIES_SCOLIPEDE",
+    "SPECIES_SCOLIPEDE_MEGA"
   ],
   "LevelUpMoves": [
     {
