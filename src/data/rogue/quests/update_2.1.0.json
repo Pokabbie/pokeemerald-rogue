@@ -1,0 +1,9 @@
+{
+    "includes":
+    [
+        "2_1_0_masteries.json"
+    ],
+    "quest_groups":
+    {
+    }
+}
