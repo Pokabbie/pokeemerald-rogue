@@ -246,6 +246,154 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRICK_ROOM",
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYCHIC",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_MENTAL_HERB",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN6ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_RECOVER",
+        "MOVE_COSMIC_POWER",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLASH_CANNON",
+        "MOVE_PSYSHOCK",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLASH_CANNON",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLASH_CANNON",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PSYSHOCK",
+        "MOVE_FLASH_CANNON"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_FLASH_CANNON",
+        "MOVE_RECOVER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_STORED_POWER",
+        "MOVE_FLASH_CANNON",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHIMECHITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
