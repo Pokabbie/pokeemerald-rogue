@@ -127,6 +127,9 @@ namespace PokemonDataGenerator.Pokedex
                             }
                         }
                     }
+
+                    string[] parts = headData.Replace('>', '<').Split('<');
+                    currItem = parts[20].Trim();
                 }
 
                 if(speciesKeyword == "SPECIES_" + GameDataHelpers.FormatKeyword(currSpecies))
@@ -136,7 +139,7 @@ namespace PokemonDataGenerator.Pokedex
                     newSet.SourceTiers.Add("CHAMPIONS_SINGLES_S1");
                     newSet.SourceTiers.Add("CHAMPIONS_DOUBLES_S1");
                     newSet.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(currAbility);
-                    newSet.Item = "ITEM_TODO";
+                    newSet.Item = "ITEM_" + GameDataHelpers.FormatKeyword(currItem);
 
                     // Read moves
                     {
