@@ -23,7 +23,7 @@ namespace PokemonDataGenerator
 
 			GameDataHelpers.IsVanillaVersion = isVanillaVersion;
 
-            TestMain.Run();
+            //TestMain.Run();
 
             Console.WriteLine("1 - Gather Pokemon data profile");
 			Console.WriteLine("2 - Generate OW Sprites");

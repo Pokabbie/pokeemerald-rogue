@@ -82,18 +82,25 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami", "blueberry"));
 
 				fullDexes.Add(GatherDexData("extras_conquest", "Conquest", 5, "conquest-gallery"));
-				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 8, "hisui"));
+				fullDexes.Add(GatherDexData("legends_arceus", "Arceus", 8, "hisui"));
 
-				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
+                fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
 				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
 				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
 				fullDexes.Add(GatherDexData("national_gen4", "Gen. 4", 4, "national"));
 				fullDexes.Add(GatherDexData("national_gen5", "Gen. 5", 5, "national"));
-				fullDexes.Add(GatherDexData("national_gen6", "Gen. 6", 6, "national"));
-				fullDexes.Add(GatherDexData("national_gen7", "Gen. 7", 7, "national"));
-				fullDexes.Add(GatherDexData("national_gen8", "Gen. 8", 8, "national"));
+				fullDexes.Add(GatherDexData("national_gen6", "Gen. 6", 6, "national")); // source data fliped for some reason
+				fullDexes.Add(GatherDexData("national_gen7", "Gen. 7", 7, "national")); // source data fliped for some reason
+                fullDexes.Add(GatherDexData("national_gen8", "Gen. 8", 8, "national"));
 				fullDexes.Add(GatherDexData("national_gen9", "Gen. 9", 9, "national"));
-			}
+
+                // 2.1 
+                //
+                fullDexes.Add(GatherDexData("legends_za", "Z-A", 9, "lumiose-city"));
+                //fullDexes.Add(GatherDexData("legends_hyperspace", "Hyperspace", 9, "hyperspace")); // Not enough mons in this dex
+                fullDexes.Add(GatherDexData("legends_zafulldlc", "Z-A + DLC", 9, "lumiose-city", "hyperspace"));
+                //fullDexes.Add(GatherDexData("extras_champions", "Champions", 9, "champions"));
+            }
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
 
@@ -239,8 +246,12 @@ namespace PokemonDataGenerator.Pokedex
 							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MELOETTA"))
 								continue;
 							break;
-						case 7:
-							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_VOLCANION"))
+                        case 6:
+                            if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_VOLCANION"))
+                                continue;
+                            break;
+                        case 7:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MELMETAL"))
 								continue;
 							break;
 						case 8:
