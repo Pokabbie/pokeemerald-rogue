@@ -73,6 +73,7 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-A Royale" },
                     { 
                         "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_MON_LAB",
                         "custom_popup":
