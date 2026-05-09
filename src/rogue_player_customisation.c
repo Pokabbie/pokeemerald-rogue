@@ -1079,11 +1079,11 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 
     [PLAYER_OUTFIT_DOLPHIN] =
     {
-        .name = _("Dolphin"),
+        .name = _("Finn"),
         .trainerFrontPic = TRAINER_PIC_COMMUNITY_DOLPHIN,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
-        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_GENERICDOLPHIN,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_THEFINNEFFECT,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -1216,19 +1216,15 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_EASTER_EGG_GENERICDOLPHIN] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_THEFINNEFFECT] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
         {
             .easterEgg = 
             {
-                .name = _("DOLPHIN"),
-#ifdef ROGUE_EXPANSION
-                .eggSpecies = SPECIES_FINIZEN,
-#else
-                .eggSpecies = SPECIES_GOLDEEN,
-#endif
+                .name = _("FINN"),
+                .eggSpecies = SPECIES_TRAPINCH,
             }
         }
     },
