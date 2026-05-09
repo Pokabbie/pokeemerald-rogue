@@ -2049,15 +2049,13 @@ u8 SpeciesToGen(u16 species)
         case SPECIES_ZARUDE_DADA:
         case SPECIES_CALYREX_ICE_RIDER:
         case SPECIES_CALYREX_SHADOW_RIDER:
-            return 8;
-
         case SPECIES_ENAMORUS_THERIAN:
             return 8;
-    }
 
-    // Alternate forms
-    switch(species)
-    {
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
+            return 9;
+
+        // Alternate forms
         case SPECIES_MEOWSTIC_FEMALE:
             return 7;
 

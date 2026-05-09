@@ -4271,6 +4271,9 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
 
         case SPECIES_TERAPAGOS_TERASTAL:
         case SPECIES_TERAPAGOS_STELLAR:
+
+        // It's not but we are treating it as is it is
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
 #endif
             return TRUE;
     };
@@ -4341,6 +4344,9 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
         case SPECIES_CALYREX_ICE_RIDER:
         case SPECIES_CALYREX_SHADOW_RIDER:
+
+        // Z-A
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
 #endif
             return TRUE;
     };

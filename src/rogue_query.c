@@ -1150,6 +1150,29 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
             if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
+            // Z-A
+            if(species == SPECIES_FLOETTE_ETERNAL_FLOWER)
+            {
+                switch (RoguePokedex_GetDexRegion())
+                {
+                    case POKEDEX_REGION_NATIONAL:
+                        // Only enable when on Gen9+
+                        if(RoguePokedex_GetDexGenLimit() >= 9)
+                            return FALSE;
+                        break;
+                    
+                    case POKEDEX_REGION_LEGENDS:
+                    {
+                        // Only enabled for Z-A dexes for now
+                        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_LEGENDS_ZA || RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_LEGENDS_ZAFULLDLC)
+                        {
+                            return TRUE;
+                        }
+                        break;
+                    }
+                }
+            }
+
             // If we've gotten here then we're not interested in this form
             return FALSE;
         }
