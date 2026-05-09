@@ -220,6 +220,111 @@
       "SourceTiers": [
         "GEN8NU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_CALM_MIND",
+        "MOVE_HYPER_VOICE",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPER_VOICE",
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_DRAGON_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYPER_VOICE",
+        "MOVE_DRACO_METEOR"
+      ],
+      "Ability": "ABILITY_BERSERK",
+      "Item": "ITEM_DRAMPANITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
