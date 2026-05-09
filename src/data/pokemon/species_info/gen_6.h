@@ -3172,7 +3172,65 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Hawlucha, 0),
         .footprint = gMonFootprint_Hawlucha,
         LEARNSETS(Hawlucha),
+        .formSpeciesIdTable = sHawluchaFormSpeciesIdTable,
+        .formChangeTable = sHawluchaFormChangeTable,
     },
+
+    [SPECIES_HAWLUCHA_MEGA] =
+    {
+        .baseHP        = 78,
+        .baseAttack    = 137,
+        .baseDefense   = 100,
+        .baseSpeed     = 118,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 93,
+        .types = { TYPE_FIGHTING, TYPE_FLYING },
+        .catchRate = 100,
+        .expYield = 175,
+        .evYield_Attack = 2,
+        .itemRare = ITEM_KINGS_ROCK,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        #if P_UPDATED_EGG_GROUPS >= GEN_8
+            .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_HUMAN_LIKE },
+        #else
+            .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        #endif
+        .abilities = { ABILITY_NO_GUARD, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Hawlucha"),
+        .cryId = CRY_HAWLUCHA,
+        .natDexNum = NATIONAL_DEX_HAWLUCHA,
+        .categoryName = _("Wrestling"),
+        .height = 8,
+        .weight = 215,
+        .description = POKEDEX_DESC_STRING(
+            "With its wings, it controls its position in\n"
+            "the air. Its proficient fighting skills\n"
+            "enable it to keep up with big bruisers\n"
+            "like Machamp and Hariyama."),
+        .pokemonScale = 366,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        FRONT_PIC(HawluchaMega, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_HawluchaMega,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
+        BACK_PIC(HawluchaMega, 64, 64),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(HawluchaMega),
+        ICON(HawluchaMega, 0),
+        .footprint = gMonFootprint_Hawlucha,
+        LEARNSETS(HawluchaMega),
+        .formSpeciesIdTable = sHawluchaFormSpeciesIdTable,
+        .formChangeTable = sHawluchaFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_HAWLUCHA
 
 #if P_FAMILY_DEDENNE
