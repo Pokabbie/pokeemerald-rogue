@@ -1143,4 +1143,8 @@
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1
 
+#define IS_MEGA_STONE(itemId) FALSE
+#define IS_GIMMICK_ITEM(itemId) FALSE
+
+
 #endif  // GUARD_CONSTANTS_ITEMS_H
