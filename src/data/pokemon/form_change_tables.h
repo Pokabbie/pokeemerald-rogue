@@ -1398,6 +1398,15 @@ static const struct FormChange sPalafinZeroFormChangeTable[] =
 };
 #endif //P_FAMILY_FINIZEN
 
+#if P_FAMILY_GLIMMET
+static const struct FormChange sGlimmoraFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GLIMMORA_MEGA, ITEM_GLIMMORANITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_GLIMMORA},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_GLIMMORA},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_GLIMMET
+
 #if P_FAMILY_OGERPON
 static const struct FormChange sOgerponFormChangeTable[] = {
     {FORM_CHANGE_ITEM_HOLD,               SPECIES_OGERPON_TEAL_MASK,             ITEM_NONE},

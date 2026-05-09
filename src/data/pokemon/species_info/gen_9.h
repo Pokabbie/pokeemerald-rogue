@@ -3339,7 +3339,61 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Glimmora, 0),
         //.footprint = gMonFootprint_Glimmora,
         LEARNSETS(Glimmora),
+        .formSpeciesIdTable = sGlimmoraFormSpeciesIdTable,
+        .formChangeTable = sGlimmoraFormChangeTable,
     },
+
+    [SPECIES_GLIMMORA_MEGA] =
+    {
+        .baseHP        = 83,
+        .baseAttack    = 90,
+        .baseDefense   = 105,
+        .baseSpeed     = 101,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 96,
+        .types = { TYPE_ROCK, TYPE_POISON },
+        .catchRate = 25,
+        .expYield = 184,
+        .evYield_SpAttack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 30,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+        .abilities = { ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Glimmora"),
+        .cryId = CRY_GLIMMORA,
+        .natDexNum = NATIONAL_DEX_GLIMMORA,
+        .categoryName = _("Ore"),
+        .height = 15,
+        .weight = 450,
+        .description = POKEDEX_DESC_STRING(
+            "GlimmoraMega's petals are made of\n"
+            "crystallized poison energy. It has\n"
+            "recently become evident that these\n"
+            "petals resemble Tera Jewels."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(GlimmoraMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GlimmoraMega,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 8,
+        BACK_PIC(GlimmoraMega, 64, 64),
+        .backPicYOffset = 12,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(GlimmoraMega),
+        ICON(GlimmoraMega, 0),
+        //.footprint = gMonFootprint_Glimmora,
+        LEARNSETS(GlimmoraMega),
+        .formSpeciesIdTable = sGlimmoraFormSpeciesIdTable,
+        .formChangeTable = sGlimmoraFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_GLIMMET
 
 #if P_FAMILY_GREAVARD
