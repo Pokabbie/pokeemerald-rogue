@@ -4873,9 +4873,25 @@ u16 GetAbilityBySpecies_ForRevised(u16 species, u8 abilityNum, u32 otId, bool32 
 
 u8 GetTypeBySpecies(u16 species, u8 typeSlot, u32 otId)
 {
-    struct RoguePokemonBaseStats speciesStats;
-    Rogue_GetPokemonBaseStats(species, &speciesStats);
-    return speciesStats.types[typeSlot];
+    u8 type = TYPE_NONE;
+
+    if(IsOtherTrainer(otId))
+    {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0)
+        {
+            type = RogueGift_GetCustomMonType(customMonId, typeSlot);
+        }
+    }
+
+    if(type == TYPE_NONE)
+    {
+        struct RoguePokemonBaseStats speciesStats;
+        Rogue_GetPokemonBaseStats(species, &speciesStats);
+        type = speciesStats.types[typeSlot];
+    }
+
+    return type;
 }
 
 u8 GetMonAbility(struct Pokemon *mon)

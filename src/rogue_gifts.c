@@ -487,6 +487,28 @@ u16 RogueGift_GetCustomMonAbilityCount(u32 id)
     }
 }
 
+u8 RogueGift_GetCustomMonType(u32 id, u8 i)
+{
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+    {
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return i == 0 ? dynamicData.ability : ABILITY_NONE;
+    }
+    else
+    {
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        if(id != CUSTOM_MON_NONE)
+        {
+            struct CustomMonData const* monData = &sCustomPokemon[id];
+            return (monData->abilities != NULL && i < NUM_ABILITY_SLOTS) ? monData->abilities[i] : ABILITY_NONE;
+        }
+    }
+
+    return TYPE_NONE;
+}
+
 bool8 RogueGift_CanRenameCustomMon(u32 id)
 {
     if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
