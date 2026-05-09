@@ -1025,6 +1025,14 @@ static const u16 sSamurottFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_OSHAWOTT
 
+#if P_FAMILY_DRILBUR
+static const u16 sExcadrillFormSpeciesIdTable[] = {
+    SPECIES_EXCADRILL,
+    SPECIES_EXCADRILL_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_DRILBUR
+
 #if P_FAMILY_AUDINO
 static const u16 sAudinoFormSpeciesIdTable[] = {
     SPECIES_AUDINO,

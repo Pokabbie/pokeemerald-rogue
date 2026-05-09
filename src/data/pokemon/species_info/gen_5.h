@@ -1906,7 +1906,61 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Excadrill, 0),
         .footprint = gMonFootprint_Excadrill,
         LEARNSETS(Excadrill),
+        .formSpeciesIdTable = sExcadrillFormSpeciesIdTable,
+        .formChangeTable = sExcadrillFormChangeTable,
     },
+
+    [SPECIES_EXCADRILL_MEGA] =
+    {
+        .baseHP        = 110,
+        .baseAttack    = 165,
+        .baseDefense   = 100,
+        .baseSpeed     = 103,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 65,
+        .types = { TYPE_GROUND, TYPE_STEEL },
+        .catchRate = 60,
+        .expYield = 178,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_PIERCING_DRILL, ABILITY_PIERCING_DRILL, ABILITY_PIERCING_DRILL },
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = TRUE,
+        .speciesName = _("Excadrill"),
+        .cryId = CRY_EXCADRILL,
+        .natDexNum = NATIONAL_DEX_EXCADRILL,
+        .categoryName = _("Subterrene"),
+        .height = 7,
+        .weight = 404,
+        .description = POKEDEX_DESC_STRING(
+            "More than 300 feet below the surface,\n"
+            "they build mazelike nests. Their activity\n"
+            "can be destructive to subway tunnels,\n"
+            "but it can also help with construction."),
+        .pokemonScale = 365,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(ExcadrillMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ExcadrillMega,
+        .frontAnimId = ANIM_H_SHAKE,
+        BACK_PIC(ExcadrillMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        PALETTES(ExcadrillMega),
+        ICON(ExcadrillMega, 0),
+        .footprint = gMonFootprint_Excadrill,
+        LEARNSETS(ExcadrillMega),
+        .formSpeciesIdTable = sExcadrillFormSpeciesIdTable,
+        .formChangeTable = sExcadrillFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_DRILBUR
 
 #define AUDINO_MISC_INFO                                    \

@@ -757,6 +757,16 @@ static const struct FormChange sEmboarFormChangeTable[] =
 };
 #endif //P_FAMILY_TEPIG
 
+#if P_FAMILY_DRILBUR
+static const struct FormChange sExcadrillFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EXCADRILL_MEGA, ITEM_EXCADRITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_EXCADRILL},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_EXCADRILL},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_DRILBUR
+
 #if P_FAMILY_AUDINO
 static const struct FormChange sAudinoFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_AUDINO_MEGA, ITEM_AUDINITE},

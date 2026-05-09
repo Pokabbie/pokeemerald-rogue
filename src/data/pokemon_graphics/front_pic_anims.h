@@ -6665,6 +6665,9 @@ static const union AnimCmd sAnim_Excadrill_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ExcadrillMega);
+
 #endif //P_FAMILY_DRILBUR
 
 #if P_FAMILY_AUDINO
@@ -11692,6 +11695,7 @@ SINGLE_ANIMATION(Swoobat);
 #if P_FAMILY_DRILBUR
 SINGLE_ANIMATION(Drilbur);
 SINGLE_ANIMATION(Excadrill);
+SINGLE_ANIMATION(ExcadrillMega);
 #endif //P_FAMILY_DRILBUR
 #if P_FAMILY_AUDINO
 SINGLE_ANIMATION(Audino);
