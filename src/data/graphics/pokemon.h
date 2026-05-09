@@ -7565,6 +7565,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonBackPic_Floette[] = INCBIN_U32("graphics/pokemon/floette/back.4bpp.lz");
     const u8 gMonFootprint_Floette[] = INCBIN_U8("graphics/pokemon/floette/footprint.1bpp");
 
+    const u32 gMonFrontPic_FloetteMega[] = INCBIN_U32("graphics/pokemon/floette/mega/front.4bpp.lz");
+    const u32 gMonPalette_FloetteMega[] = INCBIN_U32("graphics/pokemon/floette/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_FloetteMega[] = INCBIN_U32("graphics/pokemon/floette/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_FloetteMega[] = INCBIN_U32("graphics/pokemon/floette/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_FloetteMega[] = INCBIN_U8("graphics/pokemon/floette/mega/icon.4bpp");
+
     const u32 gMonPalette_FloetteRedFlower[] = INCBIN_U32("graphics/pokemon/floette/normal.gbapal.lz");
     const u32 gMonShinyPalette_FloetteRedFlower[] = INCBIN_U32("graphics/pokemon/floette/shiny.gbapal.lz");
     const u8 gMonIcon_FloetteRedFlower[] = INCBIN_U8("graphics/pokemon/floette/icon.4bpp");
