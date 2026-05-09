@@ -201,6 +201,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         LEARNSETS(Meganium),
         .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
         .formChangeTable = sMeganiumFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_CHIKORITA
 
@@ -595,6 +596,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         LEARNSETS(FeraligatrMega),
         .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
         .formChangeTable = sFeraligatrFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_TOTODILE
 
@@ -5050,6 +5052,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         LEARNSETS(SkarmoryMega),
         .formSpeciesIdTable = sSkarmoryFormSpeciesIdTable,
         .formChangeTable = sSkarmoryFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 
 #endif //P_FAMILY_SKARMORY

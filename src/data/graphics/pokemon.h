@@ -5755,6 +5755,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Emboar[] = INCBIN_U32("graphics/pokemon/emboar/shiny.gbapal.lz");
     const u8 gMonIcon_Emboar[] = INCBIN_U8("graphics/pokemon/emboar/icon.4bpp");
     const u8 gMonFootprint_Emboar[] = INCBIN_U8("graphics/pokemon/emboar/footprint.1bpp");
+
+    const u32 gMonFrontPic_EmboarMega[] = INCBIN_U32("graphics/pokemon/emboar/mega/front.4bpp.lz");
+    const u32 gMonPalette_EmboarMega[] = INCBIN_U32("graphics/pokemon/emboar/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_EmboarMega[] = INCBIN_U32("graphics/pokemon/emboar/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_EmboarMega[] = INCBIN_U32("graphics/pokemon/emboar/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_EmboarMega[] = INCBIN_U8("graphics/pokemon/emboar/mega/icon.4bpp");
 #endif //P_FAMILY_TEPIG
 
 #if P_FAMILY_OSHAWOTT

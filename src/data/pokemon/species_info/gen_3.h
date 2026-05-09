@@ -6720,6 +6720,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         LEARNSETS(FroslassMega),
         .formSpeciesIdTable = sFroslassFormSpeciesIdTable,
         .formChangeTable = sFroslassFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 
 #endif //P_GEN_4_CROSS_EVOS

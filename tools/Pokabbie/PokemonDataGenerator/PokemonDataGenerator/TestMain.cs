@@ -153,6 +153,7 @@ namespace PokemonDataGenerator
 
                                 megaOutput.WriteLine($"        .formSpeciesIdTable = s{speciesName}FormSpeciesIdTable,");
                                 megaOutput.WriteLine($"        .formChangeTable = s{speciesName}FormChangeTable,");
+                                megaOutput.WriteLine($"        .isMegaEvolution = TRUE,");
                                 megaOutput.WriteLine(line);
 
                                 readingSpeciesInfo = false;

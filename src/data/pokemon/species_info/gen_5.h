@@ -341,7 +341,61 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Emboar, 0),
         .footprint = gMonFootprint_Emboar,
         LEARNSETS(Emboar),
+        .formSpeciesIdTable = sEmboarFormSpeciesIdTable,
+        .formChangeTable = sEmboarFormChangeTable,
     },
+
+    [SPECIES_EMBOAR_MEGA] =
+    {
+        .baseHP        = 110,
+        .baseAttack    = 148,
+        .baseDefense   = 75,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 110,
+        .types = { TYPE_FIRE, TYPE_FIGHTING },
+        .catchRate = 45,
+        .expYield = 238,
+        .evYield_Attack = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_MOLD_BREAKER, ABILITY_MOLD_BREAKER, ABILITY_MOLD_BREAKER },
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = TRUE,
+        .speciesName = _("Emboar"),
+        .cryId = CRY_EMBOAR,
+        .natDexNum = NATIONAL_DEX_EMBOAR,
+        .categoryName = _("Fire Pig"),
+        .height = 16,
+        .weight = 1500,
+        .description = POKEDEX_DESC_STRING(
+            "It is adept at using many different moves.\n" 
+            "It can throw a fire punch by setting its\n"
+            "fists on fire with its fiery chin.\n"
+            "It cares deeply about its friends."),
+        .pokemonScale = 259,
+        .pokemonOffset = 1,
+        .trainerScale = 296,
+        .trainerOffset = 1,
+        FRONT_PIC(EmboarMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_EmboarMega,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(EmboarMega, 64, 64),
+        .backPicYOffset = 1,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        PALETTES(EmboarMega),
+        ICON(EmboarMega, 5),
+        .footprint = gMonFootprint_Emboar,
+        LEARNSETS(EmboarMega),
+        .formSpeciesIdTable = sEmboarFormSpeciesIdTable,
+        .formChangeTable = sEmboarFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_TEPIG
 
 #if P_FAMILY_OSHAWOTT
