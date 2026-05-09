@@ -6795,6 +6795,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Chandelure[] = INCBIN_U32("graphics/pokemon/chandelure/shiny.gbapal.lz");
     const u8 gMonIcon_Chandelure[] = INCBIN_U8("graphics/pokemon/chandelure/icon.4bpp");
     const u8 gMonFootprint_Chandelure[] = INCBIN_U8("graphics/pokemon/chandelure/footprint.1bpp");
+
+    const u32 gMonFrontPic_ChandelureMega[] = INCBIN_U32("graphics/pokemon/chandelure/mega/front.4bpp.lz");
+    const u32 gMonPalette_ChandelureMega[] = INCBIN_U32("graphics/pokemon/chandelure/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_ChandelureMega[] = INCBIN_U32("graphics/pokemon/chandelure/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_ChandelureMega[] = INCBIN_U32("graphics/pokemon/chandelure/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_ChandelureMega[] = INCBIN_U8("graphics/pokemon/chandelure/mega/icon.4bpp");
 #endif //P_FAMILY_LITWICK
 
 #if P_FAMILY_AXEW

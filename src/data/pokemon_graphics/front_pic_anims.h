@@ -7542,6 +7542,9 @@ static const union AnimCmd sAnim_Chandelure_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ChandelureMega);
+
 #endif //P_FAMILY_LITWICK
 
 #if P_FAMILY_AXEW
@@ -11877,6 +11880,7 @@ SINGLE_ANIMATION(Beheeyem);
 SINGLE_ANIMATION(Litwick);
 SINGLE_ANIMATION(Lampent);
 SINGLE_ANIMATION(Chandelure);
+SINGLE_ANIMATION(ChandelureMega);
 #endif //P_FAMILY_LITWICK
 #if P_FAMILY_AXEW
 SINGLE_ANIMATION(Axew);

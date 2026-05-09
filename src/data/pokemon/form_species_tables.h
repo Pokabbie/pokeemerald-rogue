@@ -1128,6 +1128,14 @@ static const u16 sSawsbuckFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_DEERLING
 
+#if P_FAMILY_LITWICK
+static const u16 sChandelureFormSpeciesIdTable[] = {
+    SPECIES_CHANDELURE,
+    SPECIES_CHANDELURE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_LITWICK
+
 #if P_FAMILY_STUNFISK
 static const u16 sStunfiskFormSpeciesIdTable[] = {
     SPECIES_STUNFISK,

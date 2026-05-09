@@ -6529,7 +6529,61 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Chandelure, 2),
         .footprint = gMonFootprint_Chandelure,
         LEARNSETS(Chandelure),
+        .formSpeciesIdTable = sChandelureFormSpeciesIdTable,
+        .formChangeTable = sChandelureFormChangeTable,
     },
+
+    [SPECIES_CHANDELURE_MEGA] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 75,
+        .baseDefense   = 110,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 175,
+        .baseSpDefense = 110,
+        .types = { TYPE_GHOST, TYPE_FIRE },
+        .catchRate = 45,
+        .expYield = 234,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
+        .abilities = { ABILITY_INFILTRATOR, ABILITY_INFILTRATOR, ABILITY_INFILTRATOR },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("Chandelure"),
+        .cryId = CRY_CHANDELURE,
+        .natDexNum = NATIONAL_DEX_CHANDELURE,
+        .categoryName = _("Luring"),
+        .height = 10,
+        .weight = 343,
+        .description = POKEDEX_DESC_STRING(
+            "Being consumed in ChandelureMega's flame burns\n"
+            "up the spirit, leaving the body behind.\n"
+            "By waving the flames on its arms, it puts\n"
+            "its foes into a hypnotic trance."),
+        .pokemonScale = 305,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        FRONT_PIC(ChandelureMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ChandelureMega,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
+        .enemyMonElevation = 6,
+        BACK_PIC(ChandelureMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        PALETTES(ChandelureMega),
+        ICON(ChandelureMega, 2),
+        .footprint = gMonFootprint_Chandelure,
+        LEARNSETS(ChandelureMega),
+        .formSpeciesIdTable = sChandelureFormSpeciesIdTable,
+        .formChangeTable = sChandelureFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_LITWICK
 
 #if P_FAMILY_AXEW
