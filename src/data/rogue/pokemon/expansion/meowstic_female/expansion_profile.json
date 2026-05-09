@@ -190,6 +190,52 @@
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ALLURING_VOICE",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_ALLURING_VOICE",
+        "MOVE_DARK_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
