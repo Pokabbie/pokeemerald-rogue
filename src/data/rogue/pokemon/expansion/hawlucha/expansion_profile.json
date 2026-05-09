@@ -490,6 +490,164 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACROBATICS",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_ELECTRIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ACROBATICS",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_PSYCHIC_SEED",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SKY_ATTACK",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_ACROBATICS"
+      ],
+      "Ability": "ABILITY_UNBURDEN",
+      "Item": "ITEM_POWER_HERB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_FLYING_PRESS",
+        "MOVE_ENTRAINMENT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENTRAINMENT",
+        "MOVE_PROTECT",
+        "MOVE_HIGH_JUMP_KICK",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DETECT",
+        "MOVE_CROSS_CHOP",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_ENTRAINMENT",
+        "MOVE_DETECT",
+        "MOVE_FLYING_PRESS"
+      ],
+      "Ability": "ABILITY_MOLD_BREAKER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENTRAINMENT",
+        "MOVE_PROTECT",
+        "MOVE_CROSS_CHOP",
+        "MOVE_DUAL_WINGBEAT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_ENTRAINMENT",
+        "MOVE_DETECT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENTRAINMENT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_HAWLUCHANITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
