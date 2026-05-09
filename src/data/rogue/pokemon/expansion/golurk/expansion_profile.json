@@ -371,6 +371,141 @@
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_HEAT_CRASH"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DYNAMIC_PUNCH",
+        "MOVE_STONE_EDGE"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_POLTERGEIST",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_DARK",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_POLTERGEIST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_GOLURKITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_POLTERGEIST",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_GOLURKITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_POLTERGEIST",
+        "MOVE_HEADLONG_RUSH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_GOLURKITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_POLTERGEIST",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_NO_GUARD",
+      "Item": "ITEM_GOLURKITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_HEADLONG_RUSH",
+        "MOVE_DRAIN_PUNCH"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_GOLURKITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
