@@ -8151,6 +8151,9 @@ static const union AnimCmd sAnim_Chesnaught_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ChesnaughtMega);
+
 #endif //P_FAMILY_CHESPIN
 
 #if P_FAMILY_FENNEKIN
@@ -12004,6 +12007,7 @@ SINGLE_ANIMATION(Genesect);
 SINGLE_ANIMATION(Chespin);
 SINGLE_ANIMATION(Quilladin);
 SINGLE_ANIMATION(Chesnaught);
+SINGLE_ANIMATION(ChesnaughtMega);
 #endif //P_FAMILY_CHESPIN
 #if P_FAMILY_FENNEKIN
 SINGLE_ANIMATION(Fennekin);

@@ -145,7 +145,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Chesnaught, 1),
         .footprint = gMonFootprint_Chesnaught,
         LEARNSETS(Chesnaught),
+        .formSpeciesIdTable = sChesnaughtFormSpeciesIdTable,
+        .formChangeTable = sChesnaughtFormChangeTable,
     },
+
+    [SPECIES_CHESNAUGHT_MEGA] =
+    {
+        .baseHP        = 88,
+        .baseAttack    = 137,
+        .baseDefense   = 172,
+        .baseSpeed     = 44,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 115,
+        .types = { TYPE_GRASS, TYPE_FIGHTING },
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Defense = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_BULLETPROOF, ABILITY_BULLETPROOF, ABILITY_BULLETPROOF },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Chesnaught"),
+        .cryId = CRY_CHESNAUGHT,
+        .natDexNum = NATIONAL_DEX_CHESNAUGHT,
+        .categoryName = _("Spiny Armor"),
+        .height = 16,
+        .weight = 900,
+        .description = POKEDEX_DESC_STRING(
+            "It shields its allies from danger with\n"
+            "its own body. When it takes a defensive\n"
+            "posture with its fists guarding its face,\n"
+            "it can withstand a bomb blast."),
+        .pokemonScale = 259,
+        .pokemonOffset = 1,
+        .trainerScale = 296,
+        .trainerOffset = 1,
+        FRONT_PIC(ChesnaughtMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ChesnaughtMega,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
+        BACK_PIC(ChesnaughtMega, 64, 64),
+        .backPicYOffset = 10,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        PALETTES(ChesnaughtMega),
+        ICON(ChesnaughtMega, 1),
+        .footprint = gMonFootprint_Chesnaught,
+        LEARNSETS(ChesnaughtMega),
+        .formSpeciesIdTable = sChesnaughtFormSpeciesIdTable,
+        .formChangeTable = sChesnaughtFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_CHESPIN
 
 #if P_FAMILY_FENNEKIN

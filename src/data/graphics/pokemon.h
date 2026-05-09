@@ -7262,6 +7262,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Chesnaught[] = INCBIN_U32("graphics/pokemon/chesnaught/shiny.gbapal.lz");
     const u8 gMonIcon_Chesnaught[] = INCBIN_U8("graphics/pokemon/chesnaught/icon.4bpp");
     const u8 gMonFootprint_Chesnaught[] = INCBIN_U8("graphics/pokemon/chesnaught/footprint.1bpp");
+
+    const u32 gMonFrontPic_ChesnaughtMega[] = INCBIN_U32("graphics/pokemon/chesnaught/mega/front.4bpp.lz");
+    const u32 gMonPalette_ChesnaughtMega[] = INCBIN_U32("graphics/pokemon/chesnaught/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_ChesnaughtMega[] = INCBIN_U32("graphics/pokemon/chesnaught/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_ChesnaughtMega[] = INCBIN_U32("graphics/pokemon/chesnaught/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_ChesnaughtMega[] = INCBIN_U8("graphics/pokemon/chesnaught/mega/icon.4bpp");
 #endif //P_FAMILY_CHESPIN
 
 #if P_FAMILY_FENNEKIN
