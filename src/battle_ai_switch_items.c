@@ -1003,6 +1003,10 @@ bool32 ShouldSwitch(u32 battler)
             return FALSE;
     }
 
+    // Unless this is the very first turn switch, if this is the first turn this mon has been in the field, don't swap it out in singles
+    if(gBattleResults.battleTurnCounter != 0 && gDisableStructs[battler].isFirstTurn && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+        return FALSE;
+
     //NOTE: The sequence of the below functions matter! Do not change unless you have carefully considered the outcome.
     //Since the order is sequencial, and some of these functions prompt switch to specific party members.
 
