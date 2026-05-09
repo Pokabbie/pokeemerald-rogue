@@ -11,7 +11,7 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "name": "Z-A Royale",
-                "description": "Enable all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run, with the Mega Ring equipped and the Pokédex set to any Legend's Z-A variant.",
+                "description": "Enable all Trainers and Rainbow Mode in the Config Lab, then win a full Run with the Mega Ring equipped and the Pokédex set to any Legend's Z-A variant.",
                 "flags": 
                 [
                     "CHALLENGE_DEFAULT",
@@ -54,7 +54,11 @@
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
                     {
-                        "species": "SPECIES_FLOETTE_ETERNAL_FLOWER",
+                        "species": "SPECIES_TRAPINCH",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_TRAPINCH"
+                    },
+                    {
+                        "species": "SPECIES_RIOLU",
                         "shiny": true,
                         "difficulty": "HARD"
                     }

@@ -706,6 +706,32 @@
                     "ABILITY_POISON_PUPPETEER",
                     "ABILITY_TECHNICIAN"
                 ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_TRAPINCH",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "types":
+                [
+                    "TYPE_BUG",
+                    "TYPE_DRAGON"
+                ],
+                "moves":
+                [
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_LUNGE",
+                    "MOVE_SIGNAL_BEAM",
+                    "MOVE_INFESTATION"
+                ],
+                "abilities":
+                [
+                    "ABILITY_EARTH_EATER",
+                    "ABILITY_NONE",
+                    "ABILITY_DRAGONIZE"
+                ]
             }
         ]
     }
