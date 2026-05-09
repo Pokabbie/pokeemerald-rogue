@@ -1046,6 +1046,7 @@
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 #define IS_MEGA_STONE(itemId) ((itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE) || (itemId >= ITEM_CLEFABLITE && itemId <= ITEM_GLIMMORANITE))
+#define IS_GIMMICK_ITEM(itemId) (IS_MEGA_STONE(itemId) || itemId == ITEM_RED_ORB || itemId == ITEM_BLUE_ORB || (itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z))
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow

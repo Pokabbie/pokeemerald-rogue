@@ -62,6 +62,7 @@
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen8.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen9.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Hisui.cs" />
+    <Compile Include="Pokedex\NewPokemonProfileGenerator.cs" />
     <Compile Include="Pokedex\PokedexGenerator.cs" />
     <Compile Include="Pokedex\PokemonProfileGenerator.cs" />
     <Compile Include="Program.cs" />

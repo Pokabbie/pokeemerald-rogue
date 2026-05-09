@@ -1099,7 +1099,9 @@ namespace PokemonDataGenerator.Pokedex
             ExportProfilesToHeader(profiles, Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue_pokemon_profiles.h"));
         }
 
-        private static PokemonProfile GatherProfileFor(string speciesName)
+		private static HashSet<string> s_LoggedTiers = new HashSet<string>();
+
+        public static PokemonProfile GatherProfileFor(string speciesName, bool useCachedProfile = true)
 		{
 			string manualPath = ContentCache.GetWriteableCachePath($"res://PokemonProfiles//{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
 			string cachePath = ContentCache.GetWriteableCachePath($"pokemon_profiles/{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
@@ -1112,7 +1114,7 @@ namespace PokemonDataGenerator.Pokedex
 				string jsonProfile = File.ReadAllText(manualPath);
 				outputProfile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
 			}
-			else if (File.Exists(cachePath))
+			else if (useCachedProfile && File.Exists(cachePath))
 			{
 				Console.WriteLine($"Found '{speciesName}' profile in cache");
 
@@ -1189,6 +1191,12 @@ namespace PokemonDataGenerator.Pokedex
 				{
 					foreach (var currentSet in tierKvp.Value.Value<JArray>())
 					{
+						if(!s_LoggedTiers.Contains(tierKvp.Key))
+						{
+                            s_LoggedTiers.Add(tierKvp.Key);
+							Console.WriteLine($"Discovered Competitive Tier '{tierKvp.Key}'");
+                        }
+
 						string tierName = GameDataHelpers.FormatKeyword(tierKvp.Key);
 						PokemonCompetitiveSet compSet = PokemonCompetitiveSet.ParseFrom(tierName, currentSet.Value<JObject>());
 
@@ -1228,8 +1236,35 @@ namespace PokemonDataGenerator.Pokedex
 			return outputProfile;
 		}
 
+		public static string GetExportFilePathFor(PokemonProfile profile)
+        {
+			string folderPath = Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue\\pokemon");
+
+            if (GameDataHelpers.IsVanillaVersion)
+            {
+                folderPath = Path.Combine(folderPath, "vanilla", profile.Species[0].Substring("species_".Length).ToLower(), "vanilla_profile.json");
+
+            }
+            else
+            {
+                folderPath = Path.Combine(folderPath, "expansion", profile.Species[0].Substring("species_".Length).ToLower(), "expansion_profile.json");
+            }
+
+			return folderPath;
+        }
+
 		private static void ExportProfilesToFolder(List<PokemonProfile> profiles, string folderPath)
         {
+			if(GameDataHelpers.IsVanillaVersion)
+			{
+                folderPath = Path.Combine(folderPath, "vanilla");
+
+            }
+			else
+            {
+                folderPath = Path.Combine(folderPath, "expansion");
+            }
+
             Console.WriteLine($"Exporting profiles to folder '{folderPath}'");
 
             HashSet<string> speciesFoldersLookup = new HashSet<string>();

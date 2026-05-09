@@ -37,7 +37,9 @@ namespace PokemonDataGenerator
 			{
 				case 1:
 					Console.WriteLine("==Gathering Pokemon Data Profile==");
-					PokemonProfileGenerator.GatherProfiles();
+                    Console.WriteLine("Species name:");
+                    string raw = Console.ReadLine();
+                    NewPokemonProfileGenerator.GatherProfile(raw);
 					break;
 
 				case 2:
