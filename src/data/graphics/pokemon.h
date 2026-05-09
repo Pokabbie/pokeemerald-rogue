@@ -8318,6 +8318,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Crabominable[] = INCBIN_U32("graphics/pokemon/crabominable/shiny.gbapal.lz");
     const u8 gMonIcon_Crabominable[] = INCBIN_U8("graphics/pokemon/crabominable/icon.4bpp");
     const u8 gMonFootprint_Crabominable[] = INCBIN_U8("graphics/pokemon/crabominable/footprint.1bpp");
+
+    const u32 gMonFrontPic_CrabominableMega[] = INCBIN_U32("graphics/pokemon/crabominable/mega/front.4bpp.lz");
+    const u32 gMonPalette_CrabominableMega[] = INCBIN_U32("graphics/pokemon/crabominable/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_CrabominableMega[] = INCBIN_U32("graphics/pokemon/crabominable/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_CrabominableMega[] = INCBIN_U32("graphics/pokemon/crabominable/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_CrabominableMega[] = INCBIN_U8("graphics/pokemon/crabominable/mega/icon.4bpp");
 #endif //P_FAMILY_CRABRAWLER
 
 #if P_FAMILY_ORICORIO

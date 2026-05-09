@@ -82,7 +82,7 @@ namespace PokemonDataGenerator
 
                 foreach (string line in File.ReadLines(frontPicAnims))
                 {
-                    if (line.Contains($"static const union AnimCmd sAnim_{speciesName}"))
+                    if (line.Contains($"static const union AnimCmd sAnim_{speciesName}") || line.Contains($"PLACEHOLDER_ANIM_SINGLE_FRAME({speciesName})"))
                     {
                         output.WriteLine(line);
                         readingAnims = true;

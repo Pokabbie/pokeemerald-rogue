@@ -1433,6 +1433,14 @@ static const u16 sDecidueyeFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_ROWLET
 
+#if P_FAMILY_CRABRAWLER
+static const u16 sCrabominableFormSpeciesIdTable[] = {
+    SPECIES_CRABOMINABLE,
+    SPECIES_CRABOMINABLE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_CRABRAWLER
+
 #if P_FAMILY_ORICORIO
 static const u16 sOricorioFormSpeciesIdTable[] = {
     SPECIES_ORICORIO_BAILE,

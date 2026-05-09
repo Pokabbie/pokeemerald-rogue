@@ -1007,6 +1007,15 @@ static const struct FormChange sHoopaFormChangeTable[] = {
 };
 #endif //P_FAMILY_HOOPA
 
+#if P_FAMILY_CRABRAWLER
+static const struct FormChange sCrabominableFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CRABOMINABLE_MEGA, ITEM_CRABOMINITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_CRABOMINABLE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_CRABOMINABLE},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_CRABRAWLER
+
 #if P_FAMILY_ORICORIO
 static const struct FormChange sOricorioFormChangeTable[] = {
     {FORM_CHANGE_ITEM_USE, SPECIES_ORICORIO_BAILE,   ITEM_RED_NECTAR},
