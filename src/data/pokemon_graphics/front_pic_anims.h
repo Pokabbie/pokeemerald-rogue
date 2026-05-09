@@ -8229,6 +8229,9 @@ static const union AnimCmd sAnim_GreninjaAsh_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(GreninjaMega);
+
 #endif //P_FAMILY_FROAKIE
 
 #if P_FAMILY_BUNNELBY
@@ -12022,6 +12025,7 @@ SINGLE_ANIMATION(DelphoxMega);
 SINGLE_ANIMATION(Froakie);
 SINGLE_ANIMATION(Frogadier);
 SINGLE_ANIMATION(Greninja);
+SINGLE_ANIMATION(GreninjaMega);
 SINGLE_ANIMATION(GreninjaAsh);
 #endif //P_FAMILY_FROAKIE
 #if P_FAMILY_BUNNELBY

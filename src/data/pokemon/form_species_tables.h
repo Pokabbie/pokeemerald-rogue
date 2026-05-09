@@ -1137,11 +1137,10 @@ static const u16 sChandelureFormSpeciesIdTable[] = {
 #endif //P_FAMILY_LITWICK
 
 #if P_FAMILY_GOLETT
-static const struct FormChange sGolurkFormChangeTable[] = {
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GOLURK_MEGA, ITEM_GOLURKITE},
-    {FORM_CHANGE_FAINT,                         SPECIES_GOLURK},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_GOLURK},
-    {FORM_CHANGE_TERMINATOR},
+static const u16 sGolurkFormSpeciesIdTable[] = {
+    SPECIES_GOLURK,
+    SPECIES_GOLURK_MEGA,
+    FORM_SPECIES_END,
 };
 #endif //P_FAMILY_GOLETT
 
@@ -1222,22 +1221,18 @@ static const u16 sGenesectFormSpeciesIdTable[] = {
 #endif //P_FAMILY_GENESECT
 
 #if P_FAMILY_CHESPIN
-static const struct FormChange sChesnaughtFormChangeTable[] =
-{
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHESNAUGHT_MEGA, ITEM_CHESNAUGHTITE},
-    {FORM_CHANGE_FAINT,                         SPECIES_CHESNAUGHT},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_CHESNAUGHT},
-    {FORM_CHANGE_TERMINATOR},
+static const u16 sChesnaughtFormSpeciesIdTable[] = {
+    SPECIES_CHESNAUGHT,
+    SPECIES_CHESNAUGHT_MEGA,
+    FORM_SPECIES_END,
 };
 #endif //P_FAMILY_CHESPIN
 
 #if P_FAMILY_FENNEKIN
-static const struct FormChange sDelphoxFormChangeTable[] =
-{
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DELPHOX_MEGA, ITEM_DELPHOXITE},
-    {FORM_CHANGE_FAINT,                         SPECIES_DELPHOX},
-    {FORM_CHANGE_END_BATTLE,                    SPECIES_DELPHOX},
-    {FORM_CHANGE_TERMINATOR},
+static const u16 sDelphoxFormSpeciesIdTable[] = {
+    SPECIES_DELPHOX,
+    SPECIES_DELPHOX_MEGA,
+    FORM_SPECIES_END,
 };
 #endif //P_FAMILY_FENNEKIN
 
@@ -1246,6 +1241,7 @@ static const u16 sGreninjaFormSpeciesIdTable[] = {
     SPECIES_GRENINJA,
     SPECIES_GRENINJA_BATTLE_BOND,
     SPECIES_GRENINJA_ASH,
+    SPECIES_GRENINJA_MEGA,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_FROAKIE
