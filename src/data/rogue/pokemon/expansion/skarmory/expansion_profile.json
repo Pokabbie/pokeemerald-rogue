@@ -712,6 +712,152 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_DEFENSE",
+        "MOVE_BODY_PRESS",
+        "MOVE_ROOST",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_BODY_PRESS",
+        "MOVE_WHIRLWIND",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_ROCKY_HELMET",
+      "Nature": "NATURE_IMPISH",
+      "TeraType": "TYPE_GHOST",
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_BRAVE_BIRD",
+        "MOVE_BODY_PRESS",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
+        "MOVE_TAUNT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_IRON_HEAD",
+        "MOVE_DRILL_RUN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_IRON_HEAD",
+        "MOVE_BRAVE_BIRD"
+      ],
+      "Ability": "ABILITY_WEAK_ARMOR",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAILWIND",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SKARMORITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
   ]
 }
