@@ -10628,16 +10628,16 @@ uq4_12_t CalcTypeEffectivenessMultiplierForUI(u32 move, u32 moveType, u32 battle
     return modifier;
 }
 
-uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 abilityDef)
+uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 abilityDef, u32 otIdDef)
 {
     uq4_12_t modifier = UQ_4_12(1.0);
     u8 moveType = gBattleMoves[move].type;
 
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
-        MulByTypeEffectiveness(&modifier, move, moveType, 0, GetTypeBySpecies(speciesDef, 0, 0), 0, FALSE);
-        if (GetTypeBySpecies(speciesDef, 1, 0) != GetTypeBySpecies(speciesDef, 0, 0))
-            MulByTypeEffectiveness(&modifier, move, moveType, 0, GetTypeBySpecies(speciesDef, 1, 0), 0, FALSE);
+        MulByTypeEffectiveness(&modifier, move, moveType, 0, GetTypeBySpecies(speciesDef, 0, u32 otIdDef), 0, FALSE);
+        if (GetTypeBySpecies(speciesDef, 1, u32 otIdDef) != GetTypeBySpecies(speciesDef, 0, u32 otIdDef))
+            MulByTypeEffectiveness(&modifier, move, moveType, 0, GetTypeBySpecies(speciesDef, 1, u32 otIdDef), 0, FALSE);
 
         if (moveType == TYPE_GROUND && abilityDef == ABILITY_LEVITATE && !(gFieldStatuses & STATUS_FIELD_GRAVITY))
             modifier = UQ_4_12(0.0);

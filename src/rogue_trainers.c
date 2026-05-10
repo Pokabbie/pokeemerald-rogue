@@ -4200,6 +4200,7 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
         {
             // Select moving backwards but avoid selecting illegal choices
             u8 i;
+            u16 score;
 
             for(i = 0; i < monCount; ++i)
             {
@@ -4237,6 +4238,7 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
         {
             // Select moving backwards but avoid selecting illegal choices
             u8 i;
+            u16 score;
 
             for(i = 0; i < monCount; ++i)
             {

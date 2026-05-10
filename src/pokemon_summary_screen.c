@@ -4452,8 +4452,8 @@ static void SetMonTypeIcons(void)
     }
     else
     {
-        u8 type0 = GetTypeBySpecies(summary->species, 0, 0);
-        u8 type1 = GetTypeBySpecies(summary->species, 1, 0);
+        u8 type0 = GetTypeBySpecies(summary->species, 0, summary->OTID);
+        u8 type1 = GetTypeBySpecies(summary->species, 1, summary->OTID);
         
         SetTypeSpritePosAndPal(type0, 120, 48, SPRITE_ARR_ID_TYPE);
         if (type0 != type1)

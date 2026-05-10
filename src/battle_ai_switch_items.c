@@ -745,6 +745,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u32 battler, u16 flags, u8 modulo
     for (i = firstId; i < lastId; i++)
     {
         u16 species, monAbility;
+        u32 otId;
 
         if (!IsValidForBattle(&party[i]))
             continue;
@@ -760,8 +761,9 @@ static bool8 FindMonWithFlagsAndSuperEffective(u32 battler, u16 flags, u8 modulo
             continue;
 
         species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
+        otId = GetMonData(&party[i], MON_DATA_OT_ID);
         monAbility = GetMonAbility(&party[i]);
-        CalcPartyMonTypeEffectivenessMultiplier(gLastLandedMoves[battler], species, monAbility);
+        CalcPartyMonTypeEffectivenessMultiplier(gLastLandedMoves[battler], species, monAbility, otId);
         if (gMoveResultFlags & flags)
         {
             battlerIn1 = gLastHitBy[battler];
