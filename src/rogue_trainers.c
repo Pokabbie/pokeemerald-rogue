@@ -749,7 +749,12 @@ bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
     {
         // If all other mons have fainted just bail and dynamax now
         if(numOthersAlive == 0)
-            return TRUE;
+        {
+            u16 item = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+
+            if(!IS_GIMMICK_ITEM(item))
+                return TRUE;
+        }
 
         return (sTrainerTemp.dynamaxSlot == slot);
     }
@@ -765,9 +770,14 @@ bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
 #elif defined(ROGUE_EXPANSION)
     if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
     {
-        // If all other mons have fainted just bail and dynamax now
+        // If all other mons have fainted just bail and tera now
         if(numOthersAlive == 0)
-            return TRUE;
+        {
+            u16 item = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+
+            if(!IS_GIMMICK_ITEM(item))
+                return TRUE;
+        }
 
         return (sTrainerTemp.teraSlot == slot);
     }
@@ -3401,7 +3411,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 {
                     if(IsMegaEvolutionEnabled())
                     {
-                        currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
+                        currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
                     }
                     else
                     {
@@ -3415,7 +3425,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsMegaEvolutionEnabled())
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
                         else
                             currentScore /= 4;
                     }
@@ -3430,7 +3440,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsZMovesEnabled())
                     {
                         if(!scratch->heldItems.hasZCrystal)
-                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 16 : 4;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 24 : 4;
                         else
                             currentScore /= 4;
                     }
@@ -4084,11 +4094,7 @@ static u16 CalculateDynamaxScore(struct Pokemon *mon)
         return 0;
 
     // Ignore any banned items
-    if(
-        (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        IS_MEGA_STONE(item) ||
-        (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
-    )
+    if(IS_GIMMICK_ITEM(item))
         return 0;
 
     // Ban mega rayquaza
@@ -4132,11 +4138,7 @@ static u16 CalculateTerastallizeScore(struct Pokemon *mon)
     u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
     // Ignore any banned items
-    if(
-        (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
-        IS_MEGA_STONE(item) ||
-        (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
-    )
+    if(IS_GIMMICK_ITEM(item))
         return 0;
 
     // Ban mega rayquaza
@@ -4196,7 +4198,19 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
         }
         else
         {
-            sTrainerTemp.dynamaxSlot = monCount - 1;
+            // Select moving backwards but avoid selecting illegal choices
+            u8 i;
+
+            for(i = 0; i < monCount; ++i)
+            {
+                sTrainerTemp.dynamaxSlot = monCount - i - 1;
+
+                score = CalculateDynamaxScore(&party[sTrainerTemp.dynamaxSlot]);
+                if(score != 0)
+                {
+                    break;
+                }
+            }
         }
     }
 
@@ -4221,7 +4235,19 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
         }
         else
         {
-            sTrainerTemp.teraSlot = monCount - 1;
+            // Select moving backwards but avoid selecting illegal choices
+            u8 i;
+
+            for(i = 0; i < monCount; ++i)
+            {
+                sTrainerTemp.teraSlot = monCount - i - 1;
+
+                score = CalculateTerastallizeScore(&party[sTrainerTemp.teraSlot]);
+                if(score != 0)
+                {
+                    break;
+                }
+            }
         }
     }
 #endif

@@ -27,6 +27,7 @@ struct CustomMonData
     u8 const* nickname;
     u16 const* moves;
     u16 const* abilities;
+    u16 types[2];
     u32 otId;
     u16 movesCount;
     u16 customTrainerId;
@@ -497,9 +498,12 @@ u8 RogueGift_GetCustomMonType(u32 id, u8 i)
 {
     if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
-        struct DynamicMonData dynamicData;
-        UncompressDynamicMonData(id, &dynamicData);
-        return i == 0 ? dynamicData.ability : ABILITY_NONE;
+        //struct DynamicMonData dynamicData;
+        //UncompressDynamicMonData(id, &dynamicData);
+        //return i == 0 ? dynamicData.ability : ABILITY_NONE;
+
+        // TODO
+        return TYPE_NONE;
     }
     else
     {
@@ -508,7 +512,7 @@ u8 RogueGift_GetCustomMonType(u32 id, u8 i)
         if(id != CUSTOM_MON_NONE)
         {
             struct CustomMonData const* monData = &sCustomPokemon[id];
-            return (monData->abilities != NULL && i < NUM_ABILITY_SLOTS) ? monData->abilities[i] : ABILITY_NONE;
+            return monData->types[i];
         }
     }
 

@@ -41,6 +41,7 @@ struct CustomMonInfo
 	std::string heldItem;
 	std::string isDefaultSpawn;
 	TrainerInfo const* trainer;
+	std::vector<std::string> types;
 	std::vector<std::string> moves;
 	std::vector<std::string> abilities;
 	std::string preprocessorCondition;
@@ -187,6 +188,15 @@ void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPat
 			fileStream << c_TabSpacing2 << ".nickname = sMonNickname_" << mon.GetCodeId() << ",\n";
 		else
 			fileStream << c_TabSpacing2 << ".nickname = NULL,\n";
+
+		if (!mon.types.empty())
+		{
+			fileStream << c_TabSpacing2 << ".types = { " << mon.types[0] << ", " << mon.types[1] << " },\n";
+		}
+		else
+		{
+			fileStream << c_TabSpacing2 << ".types = { TYPE_NONE, TYPE_NONE },\n";
+		}
 
 		if (!mon.moves.empty())
 		{
@@ -365,6 +375,14 @@ static void GatherCustomMons(std::string const& dataPath, json const& rawJsonDat
 				}
 
 				monInfo.trainer = &*trainerIt;
+			}
+
+			if (monIt.contains("types"))
+			{
+				for (auto types : monIt["types"])
+				{
+					monInfo.types.push_back(GetAsString(types));
+				}
 			}
 
 			if (monIt.contains("moves"))
