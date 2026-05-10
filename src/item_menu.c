@@ -2851,6 +2851,8 @@ static void Task_KeyItemWheel(u8 taskId) {
             break;
         // use item as if it was registered
         gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItems[i - 1];
+        if (!gSpecialVar_ItemId || !CheckBagHasItem(gSpecialVar_ItemId, 1))
+            gSpecialVar_ItemId = ITEM_NONE;
         PlaySE(SE_SELECT);
         StartSpriteAffineAnim(&gSprites[data[i]], i + 4 - 1);
         data[15] = data[i];
