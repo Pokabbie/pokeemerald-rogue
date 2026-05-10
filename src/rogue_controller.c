@@ -9699,6 +9699,22 @@ static void RandomiseEnabledTrainers()
     else
         Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
 
+#ifdef ROGUE_DEBUG
+    {
+        u8 j;
+
+        for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+        {
+            for(j = 0; j < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++j)
+            {
+                if(i != j)
+                {
+                    AGB_ASSERT(trainerBuffer[i] != trainerBuffer[j]);   
+                }
+            }
+        }
+    }
+#endif
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
     {
@@ -9736,7 +9752,7 @@ static void RandomiseEnabledTrainers()
     // May only limited number of trainers active
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        while(activeTrainers > 12)
+        while(activeTrainers > 10)
         {
             i = RogueRandom() % ROGUE_MAX_ACTIVE_TRAINER_COUNT;
 

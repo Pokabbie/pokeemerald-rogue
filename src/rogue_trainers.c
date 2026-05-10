@@ -1510,7 +1510,7 @@ void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
@@ -1536,7 +1536,7 @@ void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
@@ -1564,7 +1564,7 @@ void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
