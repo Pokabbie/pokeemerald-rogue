@@ -1663,15 +1663,15 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     return flags;
 }
 
-u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
+u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility, u32 targetOtId)
 {
     s32 i = 0;
     u8 flags = 0;
     u8 type1, type2;
     u8 moveType;
     
-    type1 = GetTypeBySpecies(targetSpecies, 0, 0);
-    type2 = GetTypeBySpecies(targetSpecies, 1, 0);
+    type1 = GetTypeBySpecies(targetSpecies, 0, targetOtId);
+    type2 = GetTypeBySpecies(targetSpecies, 1, targetOtId);
 
     if (move == MOVE_STRUGGLE)
         return 0;
