@@ -902,10 +902,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GALACTIC_GRUNT_F, gTrainerPalette_GalacticGruntF),
     TRAINER_PAL(GALACTIC_CYRUS, gTrainerPalette_GalacticCyrus),
 
-    TRAINER_PAL(GALACTIC_GRUNT_M, gTrainerPalette_GalacticGruntM),
-    TRAINER_PAL(GALACTIC_GRUNT_F, gTrainerPalette_GalacticGruntF),
-    TRAINER_PAL(GALACTIC_CYRUS, gTrainerPalette_GalacticCyrus),
-
     TRAINER_PAL(PLASMA_GRUNT_M, gTrainerPalette_PlasmaGruntM),
     TRAINER_PAL(PLASMA_GRUNT_F, gTrainerPalette_PlasmaGruntF),
     TRAINER_PAL(PLASMA_GHETSIS, gTrainerPalette_PlasmaGhetsis),
