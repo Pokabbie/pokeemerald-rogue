@@ -3421,6 +3421,18 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                         currentScore /= 4;
                     }
                 }
+        
+                // Special case for Rayquaza
+                if(IsMegaEvolutionEnabled() && GET_BASE_SPECIES_ID(species) == SPECIES_RAYQUAZA)
+                {
+                    if(currPreset->moves[0] == MOVE_DRAGON_ASCENT || currPreset->moves[1] == MOVE_DRAGON_ASCENT || currPreset->moves[2] == MOVE_DRAGON_ASCENT || currPreset->moves[3] == MOVE_DRAGON_ASCENT)
+                    {
+                        if(!scratch->heldItems.hasMegaStone)
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
+                        else
+                            currentScore /= 4;
+                    }
+                }
 
                 // Handle megas
                 if(IS_MEGA_STONE(currPreset->heldItem))
@@ -3595,6 +3607,13 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
         else if(outPreset->heldItem >= ITEM_NORMALIUM_Z && outPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
         {
             scratch->heldItems.hasZCrystal = TRUE;
+        }
+        
+        if(IsMegaEvolutionEnabled() && GET_BASE_SPECIES_ID(species) == SPECIES_RAYQUAZA)
+        {
+            // Consider this as a mega stone
+            if(outPreset->moves[0] == MOVE_DRAGON_ASCENT || outPreset->moves[1] == MOVE_DRAGON_ASCENT || outPreset->moves[2] == MOVE_DRAGON_ASCENT || outPreset->moves[3] == MOVE_DRAGON_ASCENT)
+                scratch->heldItems.hasMegaStone = TRUE;
         }
 #endif
 
