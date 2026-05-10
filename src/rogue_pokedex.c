@@ -3317,10 +3317,10 @@ static void MonInfo_CreateSprites(bool8 includeType)
 
     if(includeType)
     {
-        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0), 138, 24);
+        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 0, sPokedexMenu->viewOtId), 138, 24);
 
-        if(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0) != RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1))
-            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1), 138 + 33, 24);
+        if(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 0, sPokedexMenu->viewOtId) != GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 1, sPokedexMenu->viewOtId))
+            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 1, sPokedexMenu->viewOtId), 138 + 33, 24);
     }
 }
 
