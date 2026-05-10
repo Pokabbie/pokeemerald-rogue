@@ -35,9 +35,9 @@
         "boss":
         [
             {
-                "name": "LYSANDER",
+                "name": "LYSANDRE",
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_LYSANDER",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
+                "trainer_pic": "TRAINER_PIC_FLARE_LYSANDRE",
                 "trainer_class": "TRAINER_CLASS_TEAM_FLARE_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
                 "shiny_species": "SPECIES_LYSANDER_ACE",
@@ -105,7 +105,7 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
@@ -119,7 +119,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
@@ -137,7 +137,7 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -150,7 +150,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -163,7 +163,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -176,7 +176,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -189,7 +189,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -202,7 +202,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -215,7 +215,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -228,7 +228,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -241,7 +241,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -255,7 +255,7 @@
 
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -268,7 +268,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -281,7 +281,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -294,7 +294,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -307,7 +307,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -320,7 +320,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -333,7 +333,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -346,7 +346,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -359,7 +359,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {

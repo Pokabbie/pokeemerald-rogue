@@ -5010,14 +5010,14 @@ static u16 ChooseTeamEncounterNum()
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_GALACTIC);
 
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
-    //{
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
-    //}
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
+        //RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
+    }
 
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())
@@ -5027,9 +5027,8 @@ static u16 ChooseTeamEncounterNum()
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
 
         // Temp exclude while these are incomplete
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_PLASMA);
+        // Technically TEAM_NUM_JOHTO_ROCKET should be here too
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_NEOPLASMA);
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_FLARE);
     }
 
     RogueWeightQuery_Begin();

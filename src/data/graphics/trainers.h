@@ -748,3 +748,21 @@ const u32 gTrainerPalette_GalacticGruntF[] = INCBIN_U32("graphics/trainers/front
 
 const u32 gTrainerFrontPic_GalacticCyrus[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_cyrus_front_pic.4bpp.lz");
 const u32 gTrainerPalette_GalacticCyrus[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_cyrus_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_PlasmaGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_grunt_m_front_pic.4bpp.lz");
+const u32 gTrainerPalette_PlasmaGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_grunt_m_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_PlasmaGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_grunt_f_front_pic.4bpp.lz");
+const u32 gTrainerPalette_PlasmaGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_grunt_f_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_PlasmaGhetsis[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_ghetsis_front_pic.4bpp.lz");
+const u32 gTrainerPalette_PlasmaGhetsis[] = INCBIN_U32("graphics/trainers/front_pics/team/plasma_ghetsis_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_FlareGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_grunt_m_front_pic.4bpp.lz");
+const u32 gTrainerPalette_FlareGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_grunt_m_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_FlareGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_grunt_f_front_pic.4bpp.lz");
+const u32 gTrainerPalette_FlareGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_grunt_f_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_FlareLysandre[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_lysandre_front_pic.4bpp.lz");
+const u32 gTrainerPalette_FlareLysandre[] = INCBIN_U32("graphics/trainers/front_pics/team/flare_lysandre_front_pic.gbapal.lz");

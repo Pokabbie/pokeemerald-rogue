@@ -95,12 +95,12 @@ enum
     PLAYER_OUTFIT_MAGMA_GRUNT_M,
     PLAYER_OUTFIT_GALACTIC_GRUNT_F,
     PLAYER_OUTFIT_GALACTIC_GRUNT_M,
-    PLAYER_OUTFIT_PLASMA_ADMIN_F, // placeholders
-    PLAYER_OUTFIT_PLASMA_ADMIN_M, // placeholders
-    PLAYER_OUTFIT_NEO_PLASMA_ADMIN_F, // placeholders
-    PLAYER_OUTFIT_NEO_PLASMA_ADMIN_M, // placeholders
-    PLAYER_OUTFIT_FLARE_ADMIN_F, // placeholders
-    PLAYER_OUTFIT_FLARE_ADMIN_M, // placeholders
+    PLAYER_OUTFIT_PLASMA_GRUNT_F,
+    PLAYER_OUTFIT_PLASMA_GRUNT_M,
+    PLAYER_OUTFIT_NEO_PLASMA_GRUNT_F, // placeholders
+    PLAYER_OUTFIT_NEO_PLASMA_GRUNT_M, // placeholders
+    PLAYER_OUTFIT_FLARE_GRUNT_F,
+    PLAYER_OUTFIT_FLARE_GRUNT_M,
 
 
     // Secret unlocks
@@ -227,6 +227,16 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticFNo
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticFRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticMNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticMRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlasmaFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlasmaFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlasmaMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlasmaMRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlareFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlareFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlareMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlareMRiding;
 
 
 
@@ -911,29 +921,73 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .objectEventBasePal = gObjectEventPal_Npc4,
     },
 
-    [PLAYER_OUTFIT_PLASMA_ADMIN_F] =
+    [PLAYER_OUTFIT_PLASMA_GRUNT_F] =
+    {
+        .name = _("Plasma"),
+        .trainerFrontPic = TRAINER_PIC_PLASMA_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_PLASMA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlasmaFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlasmaFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+    [PLAYER_OUTFIT_PLASMA_GRUNT_M] =
+    {
+        .name = _("Plasma"),
+        .trainerFrontPic = TRAINER_PIC_PLASMA_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_PLASMA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlasmaMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlasmaMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+    [PLAYER_OUTFIT_NEO_PLASMA_GRUNT_F] =
     {
         .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
     },
-    [PLAYER_OUTFIT_PLASMA_ADMIN_M] =
+    [PLAYER_OUTFIT_NEO_PLASMA_GRUNT_M] =
     {
         .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
     },
-    [PLAYER_OUTFIT_NEO_PLASMA_ADMIN_F] =
+    [PLAYER_OUTFIT_FLARE_GRUNT_F] =
     {
-        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+        .name = _("Flare"),
+        .trainerFrontPic = TRAINER_PIC_FLARE_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_FLARE,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_FlareFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_FlareFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc2,
     },
-    [PLAYER_OUTFIT_NEO_PLASMA_ADMIN_M] =
+    [PLAYER_OUTFIT_FLARE_GRUNT_M] =
     {
-        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
-    },
-    [PLAYER_OUTFIT_FLARE_ADMIN_F] =
-    {
-        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
-    },
-    [PLAYER_OUTFIT_FLARE_ADMIN_M] =
-    {
-        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+        .name = _("Flare"),
+        .trainerFrontPic = TRAINER_PIC_PLASMA_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_FLARE,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_FlareMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_FlareMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc2,
     },
 
 
