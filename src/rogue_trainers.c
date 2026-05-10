@@ -1510,7 +1510,7 @@ void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
@@ -1536,7 +1536,7 @@ void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
@@ -1564,7 +1564,7 @@ void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
     u8 i;
     u16 trainerNum;
-    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 historyBuffer[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
 
     memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
@@ -3414,7 +3414,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 {
                     if(IsMegaEvolutionEnabled())
                     {
-                        currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
+                        currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
                     }
                     else
                     {
@@ -3428,7 +3428,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(currPreset->moves[0] == MOVE_DRAGON_ASCENT || currPreset->moves[1] == MOVE_DRAGON_ASCENT || currPreset->moves[2] == MOVE_DRAGON_ASCENT || currPreset->moves[3] == MOVE_DRAGON_ASCENT)
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
                         else
                             currentScore /= 4;
                     }
@@ -3440,7 +3440,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsMegaEvolutionEnabled())
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 48 : 4;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
                         else
                             currentScore /= 4;
                     }
@@ -3455,7 +3455,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsZMovesEnabled())
                     {
                         if(!scratch->heldItems.hasZCrystal)
-                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 24 : 4;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 16 : 4;
                         else
                             currentScore /= 4;
                     }

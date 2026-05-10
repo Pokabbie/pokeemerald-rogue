@@ -617,6 +617,21 @@ extern const u32 gTrainerPalette_GalacticGruntF[];
 extern const u32 gTrainerFrontPic_GalacticCyrus[];
 extern const u32 gTrainerPalette_GalacticCyrus[];
 
+
+extern const u32 gTrainerFrontPic_PlasmaGruntM[];
+extern const u32 gTrainerPalette_PlasmaGruntM[];
+extern const u32 gTrainerFrontPic_PlasmaGruntF[];
+extern const u32 gTrainerPalette_PlasmaGruntF[];
+extern const u32 gTrainerFrontPic_PlasmaGhetsis[];
+extern const u32 gTrainerPalette_PlasmaGhetsis[];
+
+extern const u32 gTrainerFrontPic_FlareGruntM[];
+extern const u32 gTrainerPalette_FlareGruntM[];
+extern const u32 gTrainerFrontPic_FlareGruntF[];
+extern const u32 gTrainerPalette_FlareGruntF[];
+extern const u32 gTrainerFrontPic_FlareLysandre[];
+extern const u32 gTrainerPalette_FlareLysandre[];
+
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
 extern const u32 gTrainerFrontPic_RivalBarry[];

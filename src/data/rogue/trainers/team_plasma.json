@@ -37,17 +37,17 @@
             {
                 "name": "GHETSIS",
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GHETSIS",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GHETSIS",
                 "trainer_class": "TRAINER_CLASS_TEAM_PLASMA_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
                 "shiny_species": "SPECIES_GHETSIS_ACE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My aim is to rid our world of the vague and incomplete thing we call spirit.\\pBy freeing ourselves of that, our world can be made complete.",
-                        "PRE_BATTLE_TAUNT": "That is my justice!\\nNo one can interfere!",
-                        "POST_BATTLE_TAUNT": "I won't accept this!\\nThis can't be!",
-                        "POST_BATTLE_CLOSER": "I can't accept this!\\pNot after all the sacrifices we've made to get this far!\\pWhat of my new world?!\\nOf my new galaxy?!\\pI'll never accept this!\\pI shall never stop!\\pMark my words!"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I never would have thought a Trainer like you could interfere with my plans.\\pThis doesn't change my goal.\\pCome on! Now you'll face ME in battle!",
+                        "PRE_BATTLE_TAUNT": "I can't wait to see the look on your face when you've lost all hope!",
+                        "POST_BATTLE_TAUNT": "My careful schemes!\\nThe world should be mine!",
+                        "POST_BATTLE_CLOSER": "What?!\\pI created Team Plasma with my own hands. I'm absolutely perfect! I AM PERFECTION!\\pI am the perfect ruler of a perfect new world!\\pThis won't stop me from attaining my goal.\\pJust you wait and see!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -104,28 +104,28 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Hey!\\nYou're in my personal Space!",
-                        "POST_BATTLE_TAUNT": "My bubble is gone…",
-                        "POST_BATTLE_CLOSER": "Do you really have to stand that close!?"
+                        "PRE_BATTLE_TAUNT": "All Trainer's my willing Liberate their Pokémon!",
+                        "POST_BATTLE_TAUNT": "Calm down and follow our orders!",
+                        "POST_BATTLE_CLOSER": "It's a lot harder to Liberate your Pokémon if you battle me like that!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We will remold the Universe in our own image!",
-                        "POST_BATTLE_TAUNT": "Think of the possibilities!",
-                        "POST_BATTLE_CLOSER": "The Universe could be improved ten-fold!"
+                        "PRE_BATTLE_TAUNT": "People don't deserve Pokémon!",
+                        "POST_BATTLE_TAUNT": "Pokémon should be free!",
+                        "POST_BATTLE_CLOSER": "Pokémon should be free from the influence of people!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -136,7 +136,7 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -149,7 +149,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -162,7 +162,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -175,7 +175,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -188,20 +188,20 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "The power of Time and Space in the palm of our hands!",
-                        "POST_BATTLE_TAUNT": "Nothing will stand in our way!\\nNOTHING!",
-                        "POST_BATTLE_CLOSER": "Hello, {PLAYER}…"
+                        "PRE_BATTLE_TAUNT": "The use of Pokémon for such selfish whims! I cannot believe you!",
+                        "POST_BATTLE_TAUNT": "This changes nothing!",
+                        "POST_BATTLE_CLOSER": "Maybe not today… But ONE DAY your Pokémon will be liberated!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -214,7 +214,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -227,20 +227,20 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I'm going to make my own Space just for me!",
-                        "POST_BATTLE_TAUNT": "Aww…\\nMy space…",
-                        "POST_BATTLE_CLOSER": "I wanted a Space just for me…"
+                        "PRE_BATTLE_TAUNT": "To Liberate all Pokémon is Team Plasma's ultimate goal!",
+                        "POST_BATTLE_TAUNT": "It is just a matter of time…",
+                        "POST_BATTLE_CLOSER": "To Liberate all Pokémon is Team Plasma's ultimate goal!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -254,7 +254,7 @@
 
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -267,7 +267,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -280,7 +280,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -293,59 +293,59 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "The Universe holds all of it's secrets from us, so we will pry the answers out ourselves!",
-                        "POST_BATTLE_TAUNT": "You can never truly stop us!",
-                        "POST_BATTLE_CLOSER": "You can never truly stop us!"
+                        "PRE_BATTLE_TAUNT": "I will not allow you to torment Pokémon any further",
+                        "POST_BATTLE_TAUNT": "ALL Pokémon will be liberated!",
+                        "POST_BATTLE_CLOSER": "ALL Pokémon will be liberated!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Space!",
-                        "POST_BATTLE_TAUNT": "Spaace!\\nSpaaaacceee!",
-                        "POST_BATTLE_CLOSER": "The…\\nCake…"
+                        "PRE_BATTLE_TAUNT": "Pokémon deserve to be free!",
+                        "POST_BATTLE_TAUNT": "Freedom…",
+                        "POST_BATTLE_CLOSER": "Freedom… I can only dream."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Make like Hawking Radiation-",
-                        "POST_BATTLE_TAUNT": "-and disappear!",
-                        "POST_BATTLE_CLOSER": "You get it? Funny, right!"
+                        "PRE_BATTLE_TAUNT": "I trust in our King and his grand ambition!",
+                        "POST_BATTLE_TAUNT": "Trust the King!",
+                        "POST_BATTLE_CLOSER": "Trust the King!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_TAUNT": "If I don't understand what's going on here, what makes you think you do?!",
                         "POST_BATTLE_TAUNT": "This proves nothing!",
-                        "POST_BATTLE_CLOSER": "Something about space?"
+                        "POST_BATTLE_CLOSER": "Something about Liberation?"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -358,7 +358,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
                 "encounter_text":
                 [
                     {

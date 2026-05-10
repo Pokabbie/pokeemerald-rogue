@@ -298,43 +298,190 @@ STATIC_ASSERT(ARRAY_COUNT(sDynamicCustomMonMoves) <= 63, SizeOfDynamicCustomMonM
 
 #include "data/rogue/custom_mons.h"
 
+enum
+{
+    COMPRESSED_FORMAT_ORIGINAL = 0,
+    COMPRESSED_FORMAT_MON_TYPE,
+    COMPRESSED_FORMAT_UNUSED2,
+    COMPRESSED_FORMAT_UNUSED3,
+};
+
 struct CompressedDynamicData
+{
+    u32 data1:21;
+    u32 format:2; // COMPRESSED_FORMAT_[...]
+    u32 data2:7;
+    u32 reserved:2; // reserved for bitmask OTID_FLAG_CUSTOM_MON etc.
+};
+struct CompressedDynamicData_Original
 {
     u32 move1:7; // 127 indices
     u32 move2:7; // 127 indices
     u32 move3:7; // 127 indices
-    u32 unused:2; // 127 indices
+    u32 format:2;
     u32 ability:7; // 127 indices
-    u32 reserved:2; // reserved for bitmask OTID_FLAG_CUSTOM_MON etc.
+    u32 reserved:2;
 };
+
+struct CompressedDynamicData_MonType
+{
+    u32 type: 5;
+    u32 typeSlot:1;
+    u32 typeMoveFlip:1;
+    u32 move1:7; // 127 indices
+    u32 move2:7; // 127 indices
+    u32 format:2;
+    u32 ability:7; // 127 indices
+    u32 reserved:2;
+};
+
+
+STATIC_ASSERT(sizeof(struct CompressedDynamicData) == sizeof(struct CompressedDynamicData_Original), SizeOfCompressedDynamicData_Original);
+STATIC_ASSERT(sizeof(struct CompressedDynamicData) == sizeof(struct CompressedDynamicData_MonType), SizeOfCompressedDynamicData_MonType);
 
 struct DynamicMonData
 {
     u16 moves[MAX_MON_MOVES];
     u16 movesCount;
+    u8 types[2];
     u16 ability;
 };
 
 STATIC_ASSERT(sizeof(struct CompressedDynamicData) == sizeof(u32), SizeOfDynamicCustomMonData);
 
+static u16 SelectTypeBasedExtraMove(u8 type, u8 rng)
+{
+#ifdef ROGUE_EXPANSION
+    switch (type)
+    {        
+    case TYPE_NORMAL:
+        return rng ? MOVE_BOOMBURST : MOVE_EXTREME_SPEED;
+    case TYPE_FIGHTING:
+        return rng ? MOVE_FOCUS_BLAST : MOVE_CLOSE_COMBAT;
+    case TYPE_FLYING:
+        return rng ? MOVE_HURRICANE : MOVE_BRAVE_BIRD;
+    case TYPE_POISON:
+        return rng ? MOVE_SLUDGE_BOMB : MOVE_GUNK_SHOT;
+    case TYPE_GROUND:
+        return rng ? MOVE_EARTHQUAKE : MOVE_EARTH_POWER;
+    case TYPE_ROCK:
+        return rng ? MOVE_ROCK_SLIDE : MOVE_ANCIENT_POWER;
+    case TYPE_BUG:
+        return rng ? MOVE_LUNGE : MOVE_BUG_BUZZ;
+    case TYPE_GHOST:
+        return rng ? MOVE_SHADOW_BALL : MOVE_SHADOW_SNEAK;
+    case TYPE_STEEL:
+        return rng ? MOVE_IRON_HEAD : MOVE_MAGNET_BOMB;
+    case TYPE_FIRE:
+        return rng ? MOVE_OVERHEAT : MOVE_SACRED_FIRE;
+    case TYPE_WATER:
+        return rng ? MOVE_LIQUIDATION : MOVE_SURF;
+    case TYPE_GRASS:
+        return rng ? MOVE_GIGA_DRAIN : MOVE_LEAF_BLADE;
+    case TYPE_ELECTRIC:
+        return rng ? MOVE_THUNDERCLAP : MOVE_THUNDER;
+    case TYPE_PSYCHIC:
+        return rng ? MOVE_PSYCHIC : MOVE_PSYSHOCK;
+    case TYPE_ICE:
+        return rng ? MOVE_ICE_BEAM : MOVE_TRIPLE_AXEL;
+    case TYPE_DRAGON:
+        return rng ? MOVE_DRACO_METEOR : MOVE_DRAGON_RUSH;
+    case TYPE_DARK:
+        return rng ? MOVE_DARK_PULSE : MOVE_NIGHT_SLASH;
+    case TYPE_FAIRY:
+        return rng ? MOVE_MOONBLAST : MOVE_PLAY_ROUGH;
+    }
+#else
+
+    switch (type)
+    {        
+    case TYPE_NORMAL:
+        return rng ? MOVE_QUICK_ATTACK : MOVE_BODY_SLAM;
+    case TYPE_FIGHTING:
+        return rng ? MOVE_MACH_PUNCH : MOVE_FOCUS_PUNCH;
+    case TYPE_FLYING:
+        return rng ? MOVE_FLY : MOVE_AEROBLAST;
+    case TYPE_POISON:
+        return rng ? MOVE_TOXIC : MOVE_SLUDGE_BOMB;
+    case TYPE_GROUND:
+        return rng ? MOVE_EARTHQUAKE : MOVE_DIG;
+    case TYPE_ROCK:
+        return rng ? MOVE_ROCK_SLIDE : MOVE_SANDSTORM;
+    case TYPE_BUG:
+        return rng ? MOVE_BUG_BUZZ : MOVE_SIGNAL_BEAM;
+    case TYPE_GHOST:
+        return rng ? MOVE_SHADOW_BALL : MOVE_SHADOW_PUNCH;
+    case TYPE_STEEL:
+        return rng ? MOVE_METEOR_MASH : MOVE_IRON_DEFENSE;
+    case TYPE_FIRE:
+        return rng ? MOVE_FLAMETHROWER : MOVE_WILL_O_WISP;
+    case TYPE_WATER:
+        return rng ? MOVE_SURF : MOVE_WATER_PULSE;
+    case TYPE_GRASS:
+        return rng ? MOVE_TACKLE : MOVE_TACKLE;
+    case TYPE_ELECTRIC:
+        return rng ? MOVE_THUNDER : MOVE_VOLT_TACKLE;
+    case TYPE_PSYCHIC:
+        return rng ? MOVE_PSYCHIC : MOVE_CALM_MIND;
+    case TYPE_ICE:
+        return rng ? MOVE_ICE_BEAM : MOVE_BLIZZARD;
+    case TYPE_DRAGON:
+        return rng ? MOVE_DRAGON_BREATH : MOVE_DRAGON_CLAW;
+    case TYPE_DARK:
+        return rng ? MOVE_CRUNCH : MOVE_BITE;
+    }
+#endif
+
+    return MOVE_RETURN;
+}
+
 static void UncompressDynamicMonData(u32 customMonId, struct DynamicMonData* outData)
 {
-    struct CompressedDynamicData* compressedData = (struct CompressedDynamicData*)&customMonId;
+    struct CompressedDynamicData* compressedUntyped = (struct CompressedDynamicData*)&customMonId;
 
-    outData->ability = ((compressedData->ability - 1) < ARRAY_COUNT(sDynamicCustomMonAbilities)) ? sDynamicCustomMonAbilities[compressedData->ability - 1] : ABILITY_NONE;
+    outData->ability = ABILITY_NONE;
     outData->movesCount = 0;
+    outData->types[0] = TYPE_NONE;
+    outData->types[1] = TYPE_NONE;
 
-    if(compressedData->move1 != 0 && (compressedData->move1 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
-        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move1 - 1];
+    if(compressedUntyped->format == COMPRESSED_FORMAT_ORIGINAL)
+    {
+        struct CompressedDynamicData_Original* compressedData = (struct CompressedDynamicData_Original*)compressedUntyped;
 
-    if(compressedData->move2 != 0 && (compressedData->move2 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
-        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move2 - 1];
+        outData->ability = ((compressedData->ability - 1) < ARRAY_COUNT(sDynamicCustomMonAbilities)) ? sDynamicCustomMonAbilities[compressedData->ability - 1] : ABILITY_NONE;
 
-    if(compressedData->move3 != 0 && (compressedData->move3 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
-        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move3 - 1];
+        if(compressedData->move1 != 0 && (compressedData->move1 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+            outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move1 - 1];
 
-    //if(compressedData->move4 != 0 && (compressedData->move4 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
-    //    outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move4 - 1];
+        if(compressedData->move2 != 0 && (compressedData->move2 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+            outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move2 - 1];
+
+        if(compressedData->move3 != 0 && (compressedData->move3 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+            outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move3 - 1];
+
+        //if(compressedData->move4 != 0 && (compressedData->move4 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+        //    outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move4 - 1];
+    }
+    else if(compressedUntyped->format == COMPRESSED_FORMAT_MON_TYPE)
+    {
+        struct CompressedDynamicData_MonType* compressedData = (struct CompressedDynamicData_MonType*)compressedUntyped;
+
+        outData->ability = ((compressedData->ability - 1) < ARRAY_COUNT(sDynamicCustomMonAbilities)) ? sDynamicCustomMonAbilities[compressedData->ability - 1] : ABILITY_NONE;
+
+        outData->types[compressedData->typeSlot] = compressedData->type;
+        
+        outData->moves[outData->movesCount++] = SelectTypeBasedExtraMove(compressedData->type, compressedData->typeMoveFlip);
+
+        if(compressedData->move1 != 0 && (compressedData->move1 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+            outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move1 - 1];
+
+        if(compressedData->move2 != 0 && (compressedData->move2 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+            outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move2 - 1];
+    }
+    else
+    {
+        AGB_ASSERT(FALSE);
+    }
 };
 
 static u32 CompressedDynamicDataToCustomMonId(struct CompressedDynamicData* inData)
@@ -498,12 +645,9 @@ u8 RogueGift_GetCustomMonType(u32 id, u8 i)
 {
     if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
-        //struct DynamicMonData dynamicData;
-        //UncompressDynamicMonData(id, &dynamicData);
-        //return i == 0 ? dynamicData.ability : ABILITY_NONE;
-
-        // TODO
-        return TYPE_NONE;
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return dynamicData.types[i];
     }
     else
     {
@@ -704,7 +848,7 @@ void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 l
     }
 }
 
-static u32 SelectNextMoveIndex(struct CompressedDynamicData* compressedData, u16 species)
+static u32 SelectNextMoveIndex(u16 species)
 {
     if(RogueMiscQuery_AnyActiveElements())
     {
@@ -727,7 +871,7 @@ static u32 SelectNextMoveIndex(struct CompressedDynamicData* compressedData, u16
     return 0;
 }
 
-static u32 SelectNextAbilityIndex(struct CompressedDynamicData* compressedData, u16 species)
+static u32 SelectNextAbilityIndex(u16 species)
 {
     u8 i;
 
@@ -752,13 +896,42 @@ static u32 SelectNextAbilityIndex(struct CompressedDynamicData* compressedData, 
     return 0;
 }
 
+static u32 SelectRandomType(u16 species, u8 index)
+{
+    u8 type;
+    do
+    {
+        type = Random() % NUMBER_OF_MON_TYPES;
+    } 
+    while (type == TYPE_MYSTERY || GetTypeBySpecies(species, 0, index) == type);
+
+    return type;
+}
+
 u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
 {
     u16 i;
     u32 temp;
-    struct CompressedDynamicData compressedData = {0};
+    struct CompressedDynamicData compressedDataUntyped = {0};
     struct CustomTrainerData const* trainerData = &sCustomTrainers[sRarityToCustomTrainerIndex[rarity]];
     struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+
+    switch (RogueRandom() % 2)
+    {
+    case 0:
+        compressedDataUntyped.format = COMPRESSED_FORMAT_ORIGINAL;
+        break;
+
+    case 1:
+        compressedDataUntyped.format = COMPRESSED_FORMAT_MON_TYPE;
+        break;
+    }
+
+    // Lock this behind upgrade
+    if(compressedDataUntyped.format == COMPRESSED_FORMAT_MON_TYPE && !RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_TYPINGS))
+    {
+        compressedDataUntyped.format = COMPRESSED_FORMAT_ORIGINAL;
+    }
 
     // Start query with moves which are valid
     RogueCustomQuery_Begin();
@@ -778,46 +951,90 @@ u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, pokemonProfile->tutorMoves[i]);
     }
 
-    switch (rarity)
+    if(compressedDataUntyped.format == COMPRESSED_FORMAT_ORIGINAL)
     {
-    case UNIQUE_RARITY_COMMON:
-        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
-        break;
+        struct CompressedDynamicData_Original* compressedData = (struct CompressedDynamicData_Original*)&compressedDataUntyped;
 
-    case UNIQUE_RARITY_RARE:
-        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.ability = SelectNextAbilityIndex(&compressedData, species);
-        break;
+        switch (rarity)
+        {
+        case UNIQUE_RARITY_COMMON:
+            compressedData->move1 = SelectNextMoveIndex(species);
+            compressedData->move2 = SelectNextMoveIndex(species);
+            break;
 
-    case UNIQUE_RARITY_EPIC:
-        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move3 = SelectNextMoveIndex(&compressedData, species);
-        //compressedData.move4 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.ability = SelectNextAbilityIndex(&compressedData, species);
-        break;
+        case UNIQUE_RARITY_RARE:
+            compressedData->move1 = SelectNextMoveIndex(species);
+            compressedData->ability = SelectNextAbilityIndex(species);
+            break;
 
-    default:
+        case UNIQUE_RARITY_EPIC:
+            compressedData->move1 = SelectNextMoveIndex(species);
+            compressedData->move2 = SelectNextMoveIndex(species);
+            compressedData->move3 = SelectNextMoveIndex(species);
+            //compressedData.move4 = SelectNextMoveIndex(species);
+            compressedData->ability = SelectNextAbilityIndex(species);
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+    }
+    else if(compressedDataUntyped.format == COMPRESSED_FORMAT_MON_TYPE)
+    {
+        struct CompressedDynamicData_MonType* compressedData = (struct CompressedDynamicData_MonType*)&compressedDataUntyped;
+        compressedData->typeSlot = Random() % 1;
+        compressedData->typeMoveFlip = Random() % 1;
+
+        switch (rarity)
+        {
+        case UNIQUE_RARITY_COMMON:
+            compressedData->type = SelectRandomType(species, compressedData->typeSlot);
+            break;
+
+        case UNIQUE_RARITY_RARE:
+            compressedData->type = SelectRandomType(species, compressedData->typeSlot);
+            compressedData->move1 = SelectNextMoveIndex(species);
+            compressedData->move2 = SelectNextMoveIndex(species);
+            break;
+
+        case UNIQUE_RARITY_EPIC:
+            compressedData->type = SelectRandomType(species, compressedData->typeSlot);
+            compressedData->move1 = SelectNextMoveIndex(species);
+            compressedData->move2 = SelectNextMoveIndex(species);
+            compressedData->ability = SelectNextAbilityIndex(species);
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+    }
+    else
+    {
         AGB_ASSERT(FALSE);
-        break;
     }
 
     RogueCustomQuery_End();
 
-    temp = CompressedDynamicDataToCustomMonId(&compressedData);
+    temp = CompressedDynamicDataToCustomMonId(&compressedDataUntyped);
     temp |= (OTID_FLAG_CUSTOM_MON | OTID_FLAG_DYNAMIC_CUSTOM_MON);
 
 #ifdef ROGUE_DEBUG
     // Ensure data (un)compresses correctly
+    if(compressedDataUntyped.format == COMPRESSED_FORMAT_ORIGINAL)
     {
+        struct CompressedDynamicData_Original* compressedData = (struct CompressedDynamicData_Original*)&compressedDataUntyped;
+
         struct DynamicMonData dynamicData = {0};
-        u16 ability = (compressedData.ability == 0) ? ABILITY_NONE : sDynamicCustomMonAbilities[compressedData.ability - 1];
+        
+
+        u16 ability = (compressedData->ability == 0) ? ABILITY_NONE : sDynamicCustomMonAbilities[compressedData->ability - 1];
         u16 moves[MAX_MON_MOVES] = 
         {
-            (compressedData.move1 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move1 - 1],
-            (compressedData.move2 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move2 - 1],
-            (compressedData.move3 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move3 - 1],
+            (compressedData->move1 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData->move1 - 1],
+            (compressedData->move2 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData->move2 - 1],
+            (compressedData->move3 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData->move3 - 1],
             MOVE_NONE
             //(compressedData.move4 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move4 - 1],
         };

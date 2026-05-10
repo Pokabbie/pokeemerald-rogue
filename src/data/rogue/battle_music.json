@@ -458,9 +458,9 @@
 
         "team_plasma_leader":
         {
-            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
-            "battle": "MUS_VS_AQUA_MAGMA_LEADER",
-            "victory": "MUS_VICTORY_AQUA_MAGMA"
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GALACTIC_BOSS",
+            "victory": "MUS_DP_VICTORY_GALACTIC"
         },
         "team_plasma":
         {
@@ -478,9 +478,9 @@
 
         "team_neoplasma_leader":
         {
-            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
-            "battle": "MUS_DP_VS_GALACTIC_BOSS",
-            "victory": "MUS_DP_VICTORY_GALACTIC"
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_VS_AQUA_MAGMA_LEADER",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
         },
         "team_neoplasma":
         {
@@ -498,9 +498,9 @@
 
         "team_flare_leader":
         {
-            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
-            "battle": "MUS_RG_VS_TRAINER",
-            "victory": "MUS_RG_VICTORY_TRAINER"
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GALACTIC_COMMANDER",
+            "victory": "MUS_DP_VICTORY_GALACTIC"
         },
         "team_flare":
         {

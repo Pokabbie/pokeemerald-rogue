@@ -842,7 +842,14 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
 
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        if(songNum == MUS_VICTORY_ROAD && RogueAdv_IsViewingPath())
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                songNum = MUS_PL_DISTORTION_WORLD;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+                songNum = MUS_RG_VICTORY_ROAD;
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
             u32 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
             songNum = ModifyBattleSongByMap(songNum, mapFlags);
@@ -3949,6 +3956,11 @@ void Rogue_OnLoadMap(void)
         RandomiseSafariWildEncounters();
         //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
+    else if(Rogue_IsRunActive())
+    {
+        if(RogueAdv_IsViewingPath())
+            RogueAdv_ApplyAdventureMetatiles();
+    }
     else if(!Rogue_IsRunActive())
     {
         // Apply metatiles for the map we're in
@@ -4998,14 +5010,14 @@ static u16 ChooseTeamEncounterNum()
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_GALACTIC);
 
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
-    //{
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
-    //}
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_PLASMA);
+        //RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_NEOPLASMA);
+    }
 
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
-    //    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_FLARE);
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())
@@ -5015,9 +5027,8 @@ static u16 ChooseTeamEncounterNum()
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
 
         // Temp exclude while these are incomplete
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_PLASMA);
+        // Technically TEAM_NUM_JOHTO_ROCKET should be here too
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_NEOPLASMA);
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, TEAM_NUM_FLARE);
     }
 
     RogueWeightQuery_Begin();
@@ -6971,7 +6982,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
                     FlagSet(FLAG_IS_CHAMPION);
                     FlagSet(FLAG_ROGUE_RUN_COMPLETED);
-                    RogueQuest_SetMonMasteryFlagFromParty();
+
+                    if(!Rogue_ShouldDisableMainQuests())
+                        RogueQuest_SetMonMasteryFlagFromParty();
+                        
                     RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
                     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
 
@@ -9696,6 +9710,22 @@ static void RandomiseEnabledTrainers()
     else
         Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
 
+#ifdef ROGUE_DEBUG
+    {
+        u8 j;
+
+        for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+        {
+            for(j = 0; j < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++j)
+            {
+                if(i != j)
+                {
+                    AGB_ASSERT(trainerBuffer[i] != trainerBuffer[j]);   
+                }
+            }
+        }
+    }
+#endif
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
     {
@@ -9733,7 +9763,7 @@ static void RandomiseEnabledTrainers()
     // May only limited number of trainers active
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        while(activeTrainers > 12)
+        while(activeTrainers > 10)
         {
             i = RogueRandom() % ROGUE_MAX_ACTIVE_TRAINER_COUNT;
 

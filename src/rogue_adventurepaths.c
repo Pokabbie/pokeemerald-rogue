@@ -30,8 +30,8 @@
 #define ROOM_TO_WORLD_X 3
 #define ROOM_TO_WORLD_Y 2
 
-#define PATH_MAP_OFFSET_X (4)
-#define PATH_MAP_OFFSET_Y (4)
+#define PATH_MAP_OFFSET_X (7)
+#define PATH_MAP_OFFSET_Y (6)
 
 #define ADJUST_COORDS_X(val) (gRogueAdvPath.pathLength - val - 1)   // invert so we place the first node at the end
 #define ADJUST_COORDS_Y(val) (val - gRogueAdvPath.pathMinY + 1)     // start at coord 0
@@ -109,8 +109,8 @@ struct MetatileConnection
 
 static const struct MetatileOffset sTreeDecorationMetatiles[] = 
 {
-    { 0, 0, METATILE_GeneralHub_Tree_BottomLeft_Sparse },
-    { 1, 0, METATILE_GeneralHub_Tree_BottomRight_Sparse },
+    { 0, 0, METATILE_GeneralHub_Tree_BottomLeft_Dense },
+    { 1, 0, METATILE_GeneralHub_Tree_BottomRight_Dense },
     { 0, -1, METATILE_GeneralHub_Tree_TopLeft_Sparse },
     { 1, -1, METATILE_GeneralHub_Tree_TopRight_Sparse },
     { 0, -2, METATILE_GeneralHub_Tree_TopLeft_CapGrass },
@@ -1434,8 +1434,167 @@ static bool32 IsPathMetatile(u32 tile)
         return TRUE;
     }
 
+
     return FALSE;
 }
+
+static bool8 IsInsideMountainTile(u16 x, u16 y)
+{
+    u32 metatile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+    switch (metatile)
+    {
+    case METATILE_GeneralHub_SandPath_Centre:
+    case METATILE_GeneralHub_SandPath_Stone:
+    
+    case METATILE_GeneralHub_Mountain_Centre:
+    case METATILE_GeneralHub_Mountain_Conn_EastWest_North:
+    case METATILE_GeneralHub_Mountain_Conn_EastWest_South:
+    case METATILE_GeneralHub_Mountain_Conn_NorthEast:
+    case METATILE_GeneralHub_Mountain_Conn_NorthSouth_East:
+    case METATILE_GeneralHub_Mountain_Conn_NorthSouth_West:
+    case METATILE_GeneralHub_Mountain_Conn_NorthWest:
+    case METATILE_GeneralHub_Mountain_Conn_SouthEast:
+    case METATILE_GeneralHub_Mountain_Conn_SouthWest:
+
+    case METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside:
+    case METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside:
+
+    case METATILE_GeneralHub_MountainRaised_Conn_EastWest_North:
+    case METATILE_GeneralHub_MountainRaised_Conn_EastWest_South:
+    case METATILE_GeneralHub_MountainRaised_Conn_NorthEast:
+    case METATILE_GeneralHub_MountainRaised_Conn_NorthSouth_East:
+    case METATILE_GeneralHub_MountainRaised_Conn_NorthSouth_West:
+    case METATILE_GeneralHub_MountainRaised_Conn_NorthWest:
+    case METATILE_GeneralHub_MountainRaised_Conn_SouthEast:
+    case METATILE_GeneralHub_MountainRaised_Conn_SouthWest:
+
+    case METATILE_AdventurePaths_Mountain_Conn_EastWest_South_Grass:
+    case METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 IsInsideMountainTileInDir(u16 x, u16 y, u8 dir)
+{
+    switch (dir)
+    {
+    case DIR_NORTH:
+        return IsInsideMountainTile(x, y - 1);
+    case DIR_EAST:
+        return IsInsideMountainTile(x + 1, y);
+    case DIR_SOUTH:
+        return IsInsideMountainTile(x, y + 1);
+    case DIR_WEST:
+        return IsInsideMountainTile(x - 1, y);
+    }
+    return FALSE;
+}
+
+static void WalkCoordsInDir(u16* x, u16* y, u8 dir)
+{
+    switch (dir)
+    {
+    case DIR_NORTH:
+        *y -= 1;
+        break;
+    case DIR_EAST:
+        *x += 1;
+        break;
+    case DIR_SOUTH:
+        *y += 1;
+        break;
+    case DIR_WEST:
+        *x -= 1;
+        break;
+    }
+}
+
+#define DIR_CHANGE(from, to) (oldWalkDir == from && currWalkDir == to)
+
+static u32 GetMountainMetatileInternal(u8 oldWalkDir, u8 currWalkDir, u8 lookDir)
+{
+    if(oldWalkDir == currWalkDir)
+    {
+        switch (currWalkDir)
+        {
+        case DIR_NORTH:
+        case DIR_SOUTH:
+            return (lookDir == DIR_EAST) ? METATILE_GeneralHub_Mountain_Conn_NorthSouth_East : METATILE_GeneralHub_Mountain_Conn_NorthSouth_West;
+        case DIR_EAST:
+        case DIR_WEST:
+            return (lookDir == DIR_NORTH) ? METATILE_GeneralHub_Mountain_Conn_EastWest_North : METATILE_AdventurePaths_Mountain_Conn_EastWest_South_Grass;
+        }
+    }
+    else
+    {
+        if(DIR_CHANGE(DIR_NORTH, DIR_EAST))
+            return METATILE_GeneralHub_Mountain_Conn_SouthEast;
+
+        if(DIR_CHANGE(DIR_EAST, DIR_SOUTH))
+            return METATILE_GeneralHub_Mountain_Conn_SouthWest;
+
+        if(DIR_CHANGE(DIR_SOUTH, DIR_WEST))
+            return METATILE_GeneralHub_Mountain_Conn_NorthWest;
+
+        if(DIR_CHANGE(DIR_WEST, DIR_NORTH))
+            return METATILE_GeneralHub_Mountain_Conn_NorthEast;
+
+
+        if(DIR_CHANGE(DIR_SOUTH, DIR_EAST))
+            return METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass;
+
+        if(DIR_CHANGE(DIR_EAST, DIR_NORTH))
+            return METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass;
+            
+        if(DIR_CHANGE(DIR_WEST, DIR_SOUTH))
+            return METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside;
+            
+        if(DIR_CHANGE(DIR_NORTH, DIR_WEST))
+            return METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside;
+    }
+
+    return METATILE_GeneralHub_Mountain_Centre;
+}
+
+static u32 GetMountainMetatile(u8 oldWalkDir, u8 currWalkDir, u8 lookDir, u32 layerIndex, u32 layerCount)
+{
+    u32 metatile = GetMountainMetatileInternal(oldWalkDir, currWalkDir, lookDir);
+    u32 topLayerIndex = 0;
+    u32 bottomLayerIndex = layerCount - 1;
+
+    if(layerCount > 1)
+    {
+        if(metatile == METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass || metatile == METATILE_AdventurePaths_Mountain_Conn_EastWest_South_Grass)
+        {
+            if(layerIndex == topLayerIndex)
+                return METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass;
+            else if(layerIndex == bottomLayerIndex)
+                return layerIndex == METATILE_AdventurePaths_Mountain_Conn_EastWest_South_Grass ? METATILE_GeneralHub_Mountain_Conn_EastWest_South : METATILE_GeneralHub_MountainRaised_Conn_EastWest_South;
+            else
+                return METATILE_GeneralHub_MountainRaised_Conn_EastWest_South;
+        }
+
+        if(layerIndex != bottomLayerIndex)
+        {
+            switch (metatile)
+            {
+            case METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside:
+            case METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside:
+                break; // do nothing
+            
+            default: // default spacing is 3 apart between grass and mountain bottoms
+                return metatile + 3;
+            }
+        }
+    }
+
+    return metatile;
+}
+
+#undef DIR_CHANGE
 
 void RogueAdv_ApplyAdventureMetatiles()
 {
@@ -1443,7 +1602,7 @@ void RogueAdv_ApplyAdventureMetatiles()
     u32 metatile;
     u16 x, y;
     u16 treeCount;
-    u8 i, j;
+    u32 i, j;
     bool8 isValid;
 
     // Detect trees, as we will likely need to remove them later
@@ -1536,6 +1695,87 @@ void RogueAdv_ApplyAdventureMetatiles()
         for(i = minY; i <= maxY; ++i)
         {
             MapGridSetMetatileIdAt(x + 1, i, METATILE_GeneralHub_SandPath_Centre);
+        }
+    }
+
+    // Apply mountain outline
+    {
+        u32 layerIndex;
+        u32 layerCount = 0;
+
+        if(Rogue_GetCurrentDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY)
+            layerCount = 8;
+        else if(Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY)
+            layerCount = 3;
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+            layerCount = 1;
+
+        for(layerIndex = 0; layerIndex < layerCount; ++layerIndex)
+        {
+            bool8 foundStart;
+            u8 walkDir;
+            u8 prevWalkDir;
+            u8 lookDir;
+            u16 startX, startY;
+
+            // Find starting edge
+            foundStart = FALSE;
+            startX = 0;
+            startY = 0;
+
+            for(y = 0; y < gMapHeader.mapLayout->height && !foundStart; ++y)
+            {
+                for(x = 0; x < gMapHeader.mapLayout->width && !foundStart; ++x)
+                {
+                    if(IsInsideMountainTile(x, y))
+                    {
+                        foundStart = TRUE;
+                        break;
+                    }
+
+                    startX = x;
+                    startY = y;
+                }
+            }
+
+            walkDir = DIR_NORTH;
+            lookDir = DIR_EAST;
+            x = startX;
+            y = startY;
+
+            // Only for loop in case we somehow get stuck
+            for(i = 0; i < 1024; ++i)
+            {            
+                bool8 walkingInside = IsInsideMountainTileInDir(x, y, walkDir);
+                bool8 lookingInside = IsInsideMountainTileInDir(x, y, lookDir);
+
+                prevWalkDir = walkDir;
+
+                if(walkingInside)
+                {
+                    u8 oldLookDir = lookDir;
+                    lookDir = walkDir;
+                    walkDir = GetOppositeDirection(oldLookDir);
+                }
+                else if(!lookingInside)
+                {
+                    u8 oldWalkDir = walkDir;
+                    walkDir = lookDir;
+                    lookDir = GetOppositeDirection(oldWalkDir);
+                }
+
+                // Don't place initial tile so we finish on that tile
+                if(i != 0)
+                    MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, GetMountainMetatile(prevWalkDir, walkDir, lookDir, layerIndex, layerCount) | MAPGRID_COLLISION_MASK);
+
+                WalkCoordsInDir(&x, &y, walkDir);
+
+                if(x == startX && y == startY)
+                {
+                    MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, GetMountainMetatile(walkDir, walkDir, lookDir, layerIndex, layerCount) | MAPGRID_COLLISION_MASK);
+                    break;
+                }
+            }
         }
     }
 

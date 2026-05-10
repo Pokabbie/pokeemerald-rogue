@@ -19,7 +19,7 @@ script Rogue_AdventurePaths_OnLoad
     //special(SpawnCameraObject)
     //applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
 
-    special(RogueAdv_ApplyAdventureMetatiles)
+    //special(RogueAdv_ApplyAdventureMetatiles)
 }
 
 script Rogue_AdventurePaths_PreviewCutscene

@@ -35,9 +35,9 @@
         "boss":
         [
             {
-                "name": "LYSANDER",
+                "name": "LYSANDRE",
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_LYSANDER",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
+                "trainer_pic": "TRAINER_PIC_FLARE_LYSANDRE",
                 "trainer_class": "TRAINER_CLASS_TEAM_FLARE_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
                 "shiny_species": "SPECIES_LYSANDER_ACE",
@@ -45,10 +45,10 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My aim is to rid our world of the vague and incomplete thing we call spirit.\\pBy freeing ourselves of that, our world can be made complete.",
-                        "PRE_BATTLE_TAUNT": "That is my justice!\\nNo one can interfere!",
-                        "POST_BATTLE_TAUNT": "I won't accept this!\\nThis can't be!",
-                        "POST_BATTLE_CLOSER": "I can't accept this!\\pNot after all the sacrifices we've made to get this far!\\pWhat of my new world?!\\nOf my new galaxy?!\\pI'll never accept this!\\pI shall never stop!\\pMark my words!"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Pokémon are wonderful beings.\\pHumans have worked with Pokémon, and we have helped each other flourish.\\pBut precisely because of that, they will inevitably become tools for war and theft!\\pEnough of this.",
+                        "PRE_BATTLE_TAUNT": "I won't allow you to befoul this beautiful world!",
+                        "POST_BATTLE_TAUNT": "Fools with no vision will continue to befoul this beautiful world.",
+                        "POST_BATTLE_CLOSER": "I can only see one future.\\pOne where selfish foolish humans think about nothing other than themselves and steal more and more from one another…\\pThey will go on until the only thing left to do is squabble over the remaining scraps of hope…\\pI won't sit idle and wait for us to reach such a future.\\pTeam Flare's ambition will not end, with this defeat!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -105,28 +105,28 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Hey!\\nYou're in my personal Space!",
-                        "POST_BATTLE_TAUNT": "My bubble is gone…",
-                        "POST_BATTLE_CLOSER": "Do you really have to stand that close!?"
+                        "PRE_BATTLE_TAUNT": "How dare you sully this beautiful world!",
+                        "POST_BATTLE_TAUNT": "Ergh…",
+                        "POST_BATTLE_CLOSER": "It wasn't supposed to go like this."
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We will remold the Universe in our own image!",
-                        "POST_BATTLE_TAUNT": "Think of the possibilities!",
-                        "POST_BATTLE_CLOSER": "The Universe could be improved ten-fold!"
+                        "PRE_BATTLE_TAUNT": "We will ensure the world's beauty above all else!",
+                        "POST_BATTLE_TAUNT": "What a waste.",
+                        "POST_BATTLE_CLOSER": "Think of how beautiful the world could be, if you were to join us!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -137,7 +137,7 @@
         [
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -150,7 +150,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -163,7 +163,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -176,7 +176,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -189,20 +189,20 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "The power of Time and Space in the palm of our hands!",
-                        "POST_BATTLE_TAUNT": "Nothing will stand in our way!\\nNOTHING!",
-                        "POST_BATTLE_CLOSER": "Hello, {PLAYER}…"
+                        "PRE_BATTLE_TAUNT": "Yikes! Outfits like THAT are the exact reason I joined Team Flare.",
+                        "POST_BATTLE_TAUNT": "Your outfit is still hideous…",
+                        "POST_BATTLE_CLOSER": "Your outfit is still hideous…"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -215,7 +215,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -228,20 +228,20 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I'm going to make my own Space just for me!",
-                        "POST_BATTLE_TAUNT": "Aww…\\nMy space…",
-                        "POST_BATTLE_CLOSER": "I wanted a Space just for me…"
+                        "PRE_BATTLE_TAUNT": "B-E-A-UTIFUL!",
+                        "POST_BATTLE_TAUNT": "B- B- B-",
+                        "POST_BATTLE_CLOSER": "B- B- B-\\nNevermind…"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
                 "encounter_text":
                 [
                     {
@@ -255,7 +255,7 @@
 
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -268,7 +268,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -281,7 +281,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -294,59 +294,59 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "The Universe holds all of it's secrets from us, so we will pry the answers out ourselves!",
-                        "POST_BATTLE_TAUNT": "You can never truly stop us!",
-                        "POST_BATTLE_CLOSER": "You can never truly stop us!"
+                        "PRE_BATTLE_TAUNT": "People really do make the world uglier with their every action.",
+                        "POST_BATTLE_TAUNT": "Case and point.",
+                        "POST_BATTLE_CLOSER": "Case and point."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Space!",
-                        "POST_BATTLE_TAUNT": "Spaace!\\nSpaaaacceee!",
-                        "POST_BATTLE_CLOSER": "The…\\nCake…"
+                        "PRE_BATTLE_TAUNT": "What do you think?\\nAm I ROCKING this look?",
+                        "POST_BATTLE_TAUNT": "Sheesh…\\nYou've could've just said no.",
+                        "POST_BATTLE_CLOSER": "I do miss my long hair.\\pI do wonder why we all have to get the same hair style."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Make like Hawking Radiation-",
-                        "POST_BATTLE_TAUNT": "-and disappear!",
-                        "POST_BATTLE_CLOSER": "You get it? Funny, right!"
+                        "PRE_BATTLE_TAUNT": "Wow.\\nThat outfit is SO last season.",
+                        "POST_BATTLE_TAUNT": "Now I get a closer look at it…",
+                        "POST_BATTLE_CLOSER": "Now I get a closer look at it…\\nIt's OK. I guess."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_TAUNT": "If I don't understand what's going on here, what makes you think you do?!",
                         "POST_BATTLE_TAUNT": "This proves nothing!",
-                        "POST_BATTLE_CLOSER": "Something about space?"
+                        "POST_BATTLE_CLOSER": "Something about beauty?"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
@@ -359,7 +359,7 @@
             },
             {
                 "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
-                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
                 "encounter_text":
                 [
                     {
