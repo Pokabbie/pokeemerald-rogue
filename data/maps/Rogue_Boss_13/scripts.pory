@@ -27,6 +27,7 @@ script Rogue_Battle_Boss13
 
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss13)
+    fadeoutbgm(1)
     waitmovement(0)
 
     buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)

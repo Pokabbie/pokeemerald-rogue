@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_BOSS_13",
   "name": "Rogue_Boss_13",
   "layout": "LAYOUT_ROGUE_BOSS_13",
-  "music": "MUS_NONE",
+  "music": "MUS_PL_DISTORTION_WORLD",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
