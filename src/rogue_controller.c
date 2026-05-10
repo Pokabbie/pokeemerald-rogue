@@ -842,7 +842,14 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
 
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        if(songNum == MUS_VICTORY_ROAD && RogueAdv_IsViewingPath())
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                songNum = MUS_PL_DISTORTION_WORLD;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+                songNum = MUS_RG_VICTORY_ROAD;
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
             u32 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
             songNum = ModifyBattleSongByMap(songNum, mapFlags);
@@ -3948,6 +3955,11 @@ void Rogue_OnLoadMap(void)
 
         RandomiseSafariWildEncounters();
         //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
+    }
+    else if(Rogue_IsRunActive())
+    {
+        if(RogueAdv_IsViewingPath())
+            RogueAdv_ApplyAdventureMetatiles();
     }
     else if(!Rogue_IsRunActive())
     {

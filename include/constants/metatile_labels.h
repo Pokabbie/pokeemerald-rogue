@@ -2,14 +2,16 @@
 #define GUARD_METATILE_LABELS_H
 
 // gTileset_AdventurePaths
-#define METATILE_AdventurePaths_SandPath_Horizontal          0x200
-#define METATILE_AdventurePaths_SandPath_Horizontal_Blocked  0x202
-#define METATILE_AdventurePaths_SandPath_Horizontal_EndEast  0x205
-#define METATILE_AdventurePaths_SandPath_Horizontal_EndWest  0x204
-#define METATILE_AdventurePaths_SandPath_Vertical            0x201
-#define METATILE_AdventurePaths_SandPath_Vertical_Blocked    0x203
-#define METATILE_AdventurePaths_SandPath_Vertical_EndNorth   0x206
-#define METATILE_AdventurePaths_SandPath_Vertical_EndSouth   0x207
+#define METATILE_AdventurePaths_MountainRaised_Conn_EastWest_South_Grass  0x209
+#define METATILE_AdventurePaths_Mountain_Conn_EastWest_South_Grass        0x208
+#define METATILE_AdventurePaths_SandPath_Horizontal                       0x200
+#define METATILE_AdventurePaths_SandPath_Horizontal_Blocked               0x202
+#define METATILE_AdventurePaths_SandPath_Horizontal_EndEast               0x205
+#define METATILE_AdventurePaths_SandPath_Horizontal_EndWest               0x204
+#define METATILE_AdventurePaths_SandPath_Vertical                         0x201
+#define METATILE_AdventurePaths_SandPath_Vertical_Blocked                 0x203
+#define METATILE_AdventurePaths_SandPath_Vertical_EndNorth                0x206
+#define METATILE_AdventurePaths_SandPath_Vertical_EndSouth                0x207
 
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
@@ -235,7 +237,14 @@
 #define METATILE_GeneralHub_GrassWarpSouth                         0x026
 #define METATILE_GeneralHub_GrassWarpWest                          0x01F
 #define METATILE_GeneralHub_Grass_NorthDrop                        0x002
+#define METATILE_GeneralHub_MountainRaised_Conn_EastWest_North     0x07C
 #define METATILE_GeneralHub_MountainRaised_Conn_EastWest_South     0x06C
+#define METATILE_GeneralHub_MountainRaised_Conn_NorthEast          0x07B
+#define METATILE_GeneralHub_MountainRaised_Conn_NorthSouth_East    0x073
+#define METATILE_GeneralHub_MountainRaised_Conn_NorthSouth_West    0x075
+#define METATILE_GeneralHub_MountainRaised_Conn_NorthWest          0x07D
+#define METATILE_GeneralHub_MountainRaised_Conn_SouthEast          0x06B
+#define METATILE_GeneralHub_MountainRaised_Conn_SouthWest          0x06D
 #define METATILE_GeneralHub_Mountain_Centre                        0x071
 #define METATILE_GeneralHub_Mountain_Conn_EastWest_North           0x079
 #define METATILE_GeneralHub_Mountain_Conn_EastWest_South           0x069
