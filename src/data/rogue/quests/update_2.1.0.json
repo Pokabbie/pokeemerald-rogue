@@ -1,8 +1,9 @@
 {
     "includes":
     [
-        "2_1_0_region_style.json",
-        "2_1_0_masteries.json"
+        "2.1.0_challenges.json",
+        "2.1.0_region_style.json",
+        "2.1.0_masteries.json"
     ],
     "quest_groups":
     {

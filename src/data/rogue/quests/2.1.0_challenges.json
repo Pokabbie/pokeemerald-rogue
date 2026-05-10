@@ -1,0 +1,101 @@
+{
+    "condition": "",
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "default_challenges",
+        "flags": 
+        [
+            "CHALLENGE_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Plasma Triumph",
+                "description": "Defeat the Leader of Team Plasma.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_PLASMA" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_PLASMA",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Plasma Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_MUNNA",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Flare Triumph",
+                "description": "Defeat the Leader of Team Flare.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_FLARE" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_FLARE",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Flare Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_LITLEO",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            }
+        ]
+    }
+}
