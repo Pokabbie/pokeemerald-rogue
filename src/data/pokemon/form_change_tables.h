@@ -904,9 +904,7 @@ static const struct FormChange sChesnaughtFormChangeTable[] =
 #if P_FAMILY_FENNEKIN
 static const struct FormChange sDelphoxFormChangeTable[] =
 {
-#if P_GEN_9_MEGA_EVOLUTIONS
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DELPHOX_MEGA, ITEM_DELPHOXITE},
-#endif
     {FORM_CHANGE_FAINT,                         SPECIES_DELPHOX},
     {FORM_CHANGE_END_BATTLE,                    SPECIES_DELPHOX},
     {FORM_CHANGE_TERMINATOR},
