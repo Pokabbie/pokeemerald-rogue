@@ -473,6 +473,11 @@ text gHubUpgradeDesc_Lab_UniqueMonRarity3
     format("Allows Legendary Unique {PKMN} to be tracked.")
 }
 
+text gHubUpgradeDesc_Lab_UniqueMonTyping
+{
+    format("Unique {PKMN} can have alternative typing.")
+}
+
 
 text gHubUpgradeDesc_AdventureEntrance_RandomStarter
 {

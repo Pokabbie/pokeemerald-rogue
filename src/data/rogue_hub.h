@@ -25,6 +25,7 @@ extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity0[];
 extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity1[];
 extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity2[];
 extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity3[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonTyping[];
 extern const u8 gHubUpgradeDesc_AdventureEntrance_RandomStarter[];
 extern const u8 gHubUpgradeDesc_AdventureEntrance_AdventureReplay[];
 extern const u8 gHubUpgradeDesc_BerryField_Brewing[];
@@ -319,6 +320,21 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .isHidden = TRUE
+    },
+    [HUB_UPGRADE_LAB_UNIQUE_TYPINGS] = 
+    {
+        .upgradeName = _("Unique{PKMN} Types"),
+        .targetArea = HUB_AREA_LABS,
+#ifdef ROGUE_EXPANSION
+        // Unlocked via Quest in EX
+        .buildCost = 0,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .isHidden = TRUE
+#else
+        .buildCost = 9,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonTyping,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EXOTIC, HUB_UPGRADE_NONE },
+#endif
     },
 
     [HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS0] = 

@@ -364,6 +364,15 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 
     if(rewardInfo->customPopup != NULL)
     {
+        if(rewardInfo->type == QUEST_REWARD_HUB_UPGRADE)
+        {
+            if(RogueHub_HasUpgrade(rewardInfo->perType.hubUpgrade.upgradeId))
+            {
+                // Already have collected this so early out here
+                return TRUE;
+            }
+        }
+
         mutePopups = TRUE;
         Rogue_PushPopup_CustomPopup(rewardInfo->customPopup);
     }

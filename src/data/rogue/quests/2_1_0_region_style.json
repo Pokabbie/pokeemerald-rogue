@@ -57,6 +57,16 @@
                         "species": "SPECIES_TRAPINCH",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_TRAPINCH"
                     },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_TYPINGS",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Unique{PKMN}",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Typings Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
                     {
                         "species": "SPECIES_RIOLU",
                         "shiny": true,
