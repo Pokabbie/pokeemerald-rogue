@@ -1587,6 +1587,9 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
 {
     u8 difficulty = Rogue_GetCurrentDifficulty();
 
+    // Make sure to clear out all tracked held items here
+    memset(&scratch->heldItems, 0, sizeof(scratch->heldItems));
+
     if(gRogueRun.gameRules.forceEndGameTrainers)
     {
         difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
