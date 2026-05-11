@@ -5489,34 +5489,39 @@ static void Task_PlayMapChosenOrBattleBGM(u8 taskId)
 
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
     u8 gender = GetMonGender(mon);
-    return GetMonSpritePalFromSpecies(species, gender, shiny);
+    return GetMonSpritePalFromSpecies(species, gender, shiny, otId);
 }
 
-const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny)
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 otId)
 {
+    const u32 * value = NULL;
     species = SanitizeSpeciesId(species);
 
     if (shiny)
     {
         if (gSpeciesInfo[species].shinyPaletteFemale != NULL && gender == MON_FEMALE)
-            return gSpeciesInfo[species].shinyPaletteFemale;
+            value = gSpeciesInfo[species].shinyPaletteFemale;
         else if (gSpeciesInfo[species].shinyPalette != NULL)
-            return gSpeciesInfo[species].shinyPalette;
+            value = gSpeciesInfo[species].shinyPalette;
         else
-            return gSpeciesInfo[SPECIES_NONE].shinyPalette;
+            value = gSpeciesInfo[SPECIES_NONE].shinyPalette;
     }
     else
     {
         if (gSpeciesInfo[species].paletteFemale != NULL && gender == MON_FEMALE)
-            return gSpeciesInfo[species].paletteFemale;
+            value = gSpeciesInfo[species].paletteFemale;
         else if (gSpeciesInfo[species].palette != NULL)
-            return gSpeciesInfo[species].palette;
+            value = gSpeciesInfo[species].palette;
         else
-            return gSpeciesInfo[SPECIES_NONE].palette;
+            value = gSpeciesInfo[SPECIES_NONE].palette;
     }
+    
+    Rogue_OnPrepareMonPaletteDecompress(value, species, gender, shiny, otId);
+    return value;
 }
 
 bool32 CanUseHMMove2(u16 move)

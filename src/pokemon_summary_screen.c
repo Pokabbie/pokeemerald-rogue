@@ -4586,7 +4586,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny), summary->species2);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny, summary->OTID), summary->species2);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;

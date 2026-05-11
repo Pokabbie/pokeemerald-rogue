@@ -575,7 +575,7 @@ bool8 IsBattleSEPlaying(u8 battler)
 
 void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
 {
-    u32 monsPersonality, currentPersonality, species, paletteOffset, position;
+    u32 monsPersonality, currentPersonality, species, paletteOffset, position, otId;
     u8 gender;
     bool8 shiny;
     const void *lzPaletteData;
@@ -587,6 +587,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
         return;
 
     monsPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+    otId = GetMonData(mon, MON_DATA_OT_ID);
     gender = GetMonGender(mon);
     shiny = IsMonShiny(mon);
 
@@ -594,6 +595,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     {
         species = GetMonData(mon, MON_DATA_SPECIES);
         currentPersonality = monsPersonality;
+        otId = 0;
     }
     else
     {
@@ -602,6 +604,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
         {
             currentPersonality = gTransformedPersonalities[battler];
             shiny = gTransformedShininess[battler];
+            otId = 0;
         }
         else
         {
@@ -628,7 +631,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_NONE)
         lzPaletteData = GetMonFrontSpritePal(mon);
     else
-        lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), shiny);
+        lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), shiny, otId);
 
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
@@ -881,7 +884,7 @@ void CopyBattleSpriteInvisibility(u8 battler)
 
 void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bool8 trackEnemyPersonality)
 {
-    u32 position, paletteOffset, targetSpecies;
+    u32 position, paletteOffset, targetSpecies, otId;
     const void *lzPaletteData, *src;
     void *dst;
     bool8 isShiny;
@@ -892,6 +895,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
         position = B_POSITION_PLAYER_LEFT;
         targetSpecies = gContestResources->moveAnim->targetSpecies;
         isShiny = FALSE;
+        otId = 0;
         gender = 0; // TODO - Fix
 
         HandleLoadSpecialPokePic(FALSE,
@@ -906,12 +910,14 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
         if (GetBattlerSide(battlerDef) == B_SIDE_OPPONENT)
         {
             targetSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES);
+            otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_OT_ID);
             isShiny = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_IS_SHINY); 
             gender = GetMonGender(&gEnemyParty[gBattlerPartyIndexes[battlerDef]]);
         }
         else
         {
             targetSpecies = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES);
+            otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_OT_ID);
             isShiny = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_IS_SHINY); 
             gender = GetMonGender(&gPlayerParty[gBattlerPartyIndexes[battlerDef]]);
         }
@@ -921,11 +927,13 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
             if (B_TRANSFORM_SHINY >= GEN_4 && trackEnemyPersonality)
             {
                 isShiny = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_IS_SHINY);
+                otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
                 gender = GetMonGender(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]]);
             }
             else
             {
                 isShiny = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_IS_SHINY);
+                otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
                 gender = GetMonGender(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]]);
             }
 
@@ -939,12 +947,14 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
             if (B_TRANSFORM_SHINY >= GEN_4 && trackEnemyPersonality)
             {
                 isShiny = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_IS_SHINY);
+                otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
                 gender = GetMonGender(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]]);
 
             }
             else
             {
                 isShiny = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_IS_SHINY);
+                otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
                 gender = GetMonGender(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]]);
             }
 
@@ -958,7 +968,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     dst = (void *)(OBJ_VRAM0 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
     DmaCopy32(3, src, dst, MON_PIC_SIZE);
     paletteOffset = OBJ_PLTT_ID(battlerAtk);
-    lzPaletteData = GetMonSpritePalFromSpecies(targetSpecies, gender, isShiny);
+    lzPaletteData = GetMonSpritePalFromSpecies(targetSpecies, gender, isShiny, otId);
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
 
