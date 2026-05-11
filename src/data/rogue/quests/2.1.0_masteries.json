@@ -26,7 +26,6 @@
         "default_group":
         [
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_CLEFFA"
@@ -34,11 +33,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_CLEFABLITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CLEFABLITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_BELLSPROUT"
@@ -46,11 +44,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_VICTREEBELITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_VICTREEBELITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_STARYU"
@@ -58,11 +55,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_STARMINITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STARMINITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_DRATINI"
@@ -70,11 +66,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_DRAGONINITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGONINITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_CHIKORITA"
@@ -82,11 +77,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_MEGANIUMITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEGANIUMITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_TOTODILE"
@@ -94,11 +88,10 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_FERALIGITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FERALIGITE" }
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_SKARMORY"
@@ -106,7 +99,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_SKARMORITE" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SKARMORITE" }
                 ]
             },
             {

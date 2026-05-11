@@ -37,7 +37,7 @@
 #define HUD_TAG_SPRITE_SANDSTORM            0x120A
 #define HUD_TAG_SPRITE_DEX_PROMPT           0x120B
 
-#define MAX_OVERLAY_SPRITES 32
+#define MAX_OVERLAY_SPRITES 40
 
 // Want to sit at default priority (2) so we sort  
 
@@ -453,8 +453,9 @@ void RogueBH_CreateBattleOverlay()
             // Stealth Rock
             if(hasStealthRock)
             {
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 16, 83, SUBPRIORITY_PLAYER_ABOVE);
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 106, 93, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 41, 107, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 66, 107, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 91, 107, SUBPRIORITY_PLAYER_ABOVE);
             }
 
 
@@ -533,8 +534,9 @@ void RogueBH_CreateBattleOverlay()
             // Stealth Rock
             if(hasStealthRock)
             {
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 126, 18, SUBPRIORITY_ENEMY_ABOVE);
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 216, 38, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 151, 63, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 176, 63, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 201, 63, SUBPRIORITY_ENEMY_ABOVE);
             }
 
 

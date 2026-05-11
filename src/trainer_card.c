@@ -1021,7 +1021,7 @@ static bool8 PrintAllOnCardBack(void)
         PrintContestStringOnCard();
         break;
     case 6:
-        PrintPokemonIconsOnCard();
+        //PrintPokemonIconsOnCard();
         PrintBattleFacilityStringOnCard();
         break;
     case 7:
@@ -1392,8 +1392,6 @@ static void PrintBattleFacilityStringOnCard(void)
 static void PrintPokemonIconsOnCard(void)
 {
     u8 i;
-    u8 paletteSlots[PARTY_SIZE] = {5, 6, 7, 8, 9, 10};
-    u8 xOffsets[PARTY_SIZE] = {0, 4, 8, 12, 16, 20};
 
     if (sData->trainerCard.monSpecies[0] != SPECIES_NONE)
     {
@@ -1401,8 +1399,11 @@ static void PrintPokemonIconsOnCard(void)
         {
             if (sData->trainerCard.monSpecies[i])
             {
-                u8 monSpecies = GetMonIconPaletteIndexFromSpecies(sData->trainerCard.monSpecies[i]);
-                WriteSequenceToBgTilemapBuffer(3, 16 * i + 638, xOffsets[i] + 3, 15, 4, 4, paletteSlots[monSpecies], 1);
+                #ifdef ROGUE_EXPANSION
+                u8 spriteId = CreateMonIconNoPersonality(sData->trainerCard.monSpecies[i], SpriteCallbackDummy, 40 + 32 * i, 133, 0);
+                #else
+                u8 spriteId = CreateMonIconNoPersonality(sData->trainerCard.monSpecies[i], SpriteCallbackDummy, 40 + 32 * i, 133, 0, TRUE);
+                #endif
             }
         }
     }
@@ -1410,30 +1411,7 @@ static void PrintPokemonIconsOnCard(void)
 
 static void LoadMonIconGfx(void)
 {
-    u8 i;
-
-    CpuSet(gMonIconPalettes, sData->monIconPal, 0x60);
-    switch (sData->trainerCard.monIconTint)
-    {
-    case MON_ICON_TINT_NORMAL:
-        break;
-    case MON_ICON_TINT_BLACK:
-        TintPalette_CustomTone(sData->monIconPal, 96, 0, 0, 0);
-        break;
-    case MON_ICON_TINT_PINK:
-        TintPalette_CustomTone(sData->monIconPal, 96, 500, 330, 310);
-        break;
-    case MON_ICON_TINT_SEPIA:
-        TintPalette_SepiaTone(sData->monIconPal, 96);
-        break;
-    }
-    LoadPalette(sData->monIconPal, BG_PLTT_ID(5), 6 * PLTT_SIZE_4BPP);
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (sData->trainerCard.monSpecies[i])
-            LoadBgTiles(3, GetMonIconTiles(sData->trainerCard.monSpecies[i], 0, MON_MALE), 512, 16 * i + 32);
-    }
+    LoadMonIconPalettes();
 }
 
 static void PrintStickersOnCard(void)
@@ -1668,6 +1646,7 @@ static bool8 Task_BeginCardFlip(struct Task *task)
 {
     u32 i;
 
+    ResetSpriteData();
     HideBg(1);
     HideBg(3);
     ScanlineEffect_Stop();
@@ -1847,6 +1826,9 @@ static bool8 Task_AnimateCardFlipUp(struct Task *task)
 
 static bool8 Task_EndCardFlip(struct Task *task)
 {
+    if (sData->onBack)
+        PrintPokemonIconsOnCard();
+        
     ShowBg(1);
     ShowBg(3);
     SetHBlankCallback(NULL);
