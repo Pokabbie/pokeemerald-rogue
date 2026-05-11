@@ -78,6 +78,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
 u8 Rogue_ModifyGenderRatio(u8 genderRatio);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);
+void Rogue_OnPrepareMonPaletteDecompress(const u32 * compressedPal, u16 species, u8 gender, bool8 isShiny, u32 otId);
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
 bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot);
 

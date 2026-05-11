@@ -113,7 +113,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, bo
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(GetMonSpritePalFromSpecies(species, isShiny), 0x100 + paletteSlot * 0x10, 0x20);
+            LoadCompressedPalette(GetMonSpritePalFromSpecies(species, MON_MALE, isShiny, otId), 0x100 + paletteSlot * 0x10, 0x20);
         }
         else
         {
@@ -139,7 +139,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, bo
 static void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, bool8 isTrainer)
 {
     if (!isTrainer)
-        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), paletteSlot * 0x10, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, MON_MALE, FALSE, otId), paletteSlot * 0x10, 0x20);
     else
         LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, paletteSlot * 0x10, 0x20);
 }

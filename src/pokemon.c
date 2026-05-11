@@ -6889,22 +6889,28 @@ static void Task_PlayMapChosenOrBattleBGM(u8 taskId)
 
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalFromSpecies(species, shiny);
+    u8 gender = GetMonGender(mon);
+    return GetMonSpritePalFromSpecies(species, gender, shiny, otId);
 }
 
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny)
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 otId)
 {
     u32 shinyValue;
+    const u32 * value = NULL;
 
     if (species > NUM_SPECIES)
-        return gMonPaletteTable[SPECIES_NONE].data;
+        value = gMonPaletteTable[SPECIES_NONE].data;
 
     if (shiny)
-        return gMonShinyPaletteTable[species].data;
+        value = gMonShinyPaletteTable[species].data;
     else
-        return gMonPaletteTable[species].data;
+        value = gMonPaletteTable[species].data;
+
+    Rogue_OnPrepareMonPaletteDecompress(value, species, gender, shiny, otId);
+    return value;
 }
 
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
