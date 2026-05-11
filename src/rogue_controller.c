@@ -1732,7 +1732,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = Rogue_GetCurrentDifficulty();
-                *money = (difficulty + 1) * 1000;
+                *money = (difficulty + 1) * 2000;
             }
             else
             {
@@ -4955,7 +4955,7 @@ static void ChooseLegendarysForNewAdventure()
 
     if(spawnBox)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(2, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
     }
 
@@ -4967,7 +4967,7 @@ static void ChooseLegendarysForNewAdventure()
 
     if(spawnMinor)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_GYM_MID_DIFFICULTY - 1 + RogueRandomRange(3, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
