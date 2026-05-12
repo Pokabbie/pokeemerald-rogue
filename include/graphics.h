@@ -490,6 +490,8 @@ extern const u32 gTrainerPalette_Leaf[];
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
+extern const u32 gMonPalette_FrontPlaceholder[];
+
 extern const u32 gTrainerPalette_PlayerFrontPlaceholder[];
 extern const u32 gTrainerPalette_PlayerBackPlaceholder[];
 

@@ -3,11 +3,13 @@
 #include "constants/flags.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/rgb.h"
 #include "constants/region_map_sections.h"
 #include "event_data.h"
 #include "random.h"
 
 #include "rogue_baked.h"
+#include "rogue_colour_utils.h"
 #include "rogue_gifts.h"
 #include "rogue_hub.h"
 #include "rogue_pokedex.h"
@@ -1338,4 +1340,27 @@ u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species)
     }
 
     return 0;
+}
+
+bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16* outputPal)
+{
+    u8 type1 = RogueGift_GetCustomMonType(id, 0);
+    u8 type2 = RogueGift_GetCustomMonType(id, 1);
+
+    if(type1 != TYPE_NONE || type2 != TYPE_NONE)
+    {
+        u16 layerPal[16];
+        u16 colorsToApply[PALETTE_MODIFY_LAYER_COUNT];
+
+        colorsToApply[0] = RGB_ALPHA;
+        colorsToApply[1] = RGB_YELLOW;
+        colorsToApply[2] = RGB_ALPHA;
+
+        Rogue_GenerateLayerPaletteByHue(inputPal, layerPal);
+        Rogue_ModifyPaletteByLayers(inputPal, layerPal, outputPal, gDefaultPaletteLayerMasks, colorsToApply);
+
+        return TRUE;
+    }
+
+    return FALSE;
 }

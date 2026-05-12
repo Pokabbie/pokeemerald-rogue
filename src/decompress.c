@@ -58,7 +58,9 @@ void LoadCompressedSpritePaletteWithTag(const u32 *pal, u16 tag)
 {
     struct SpritePalette dest;
 
+    if(!Rogue_ModifyPaletteDecompress(pal, gDecompressionBuffer))
     LZ77UnCompWram(pal, gDecompressionBuffer);
+
     dest.data = (void *) gDecompressionBuffer;
     dest.tag = tag;
     LoadSpritePalette(&dest);

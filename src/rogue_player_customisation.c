@@ -12,6 +12,7 @@
 #include "random.h"
 
 #include "rogue_baked.h"
+#include "rogue_colour_utils.h"
 #include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_player_customisation.h"
@@ -129,11 +130,8 @@ enum
 
 STATIC_ASSERT(OUTFIT_UNLOCK_COUNT < 32, OutfitUnlocksFitIn32Bits);
 
-static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal, u16 const* layerColours);
 static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfit, const u32* basePalSrc, const u32* layerPalSrc, u16 const* layerColours);
-static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 playerColour);
-static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 playerColour, u16 layerColour, u16 inputColour);
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanRiding;
@@ -1286,9 +1284,9 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
 
 static const u16 sLayerMaskColours[PLAYER_OUTFIT_STYLE_COUNT] =
 {
-    [PLAYER_OUTFIT_STYLE_APPEARANCE]    = RGB_255(255, 0, 0),
-    [PLAYER_OUTFIT_STYLE_PRIMARY]       = RGB_255(0, 255, 0),
-    [PLAYER_OUTFIT_STYLE_SECONDARY]     = RGB_255(0, 0, 255),
+    [PLAYER_OUTFIT_STYLE_APPEARANCE]    = RGB(31, 0, 0),
+    [PLAYER_OUTFIT_STYLE_PRIMARY]       = RGB(0, 31, 0),
+    [PLAYER_OUTFIT_STYLE_SECONDARY]     = RGB(0, 0, 31),
 };
 
 static const struct KnownColour sKnownColours_Appearance[] = 
@@ -1777,89 +1775,23 @@ u8 RoguePlayer_GetBagGfxVariant()
     return GetCurrentOutfit()->bagVariant;
 }
 
-static u16 GreyScaleColour(u16 colour)
-{
-    u8 brightness = max(GET_R(colour), max(GET_G(colour), GET_B(colour)));
-    return RGB(brightness, brightness, brightness);
-}
-
-static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal)
-{
-    u16 layerMask = sLayerMaskColours[layer];
-    u16 layerWhitePoint = RGB(0, 0, 0);
-
-    // Check if this layer is supported for this outfit
-    if(layerMask != RGB(0, 0, 0) && outfit->supportedLayers[layer] == TRUE)
-    {
-        u8 i;
-        u16 baseCol;
-        u16 layerCol;
-        u16 currBrightness;
-        u16 maxBrightness;
-
-        // Calculate the average base colour in this layer
-        maxBrightness = 0;
-
-        for(i = 0; i < 16; ++i)
-        {
-            baseCol = basePal[i];
-            layerCol = layerPal[i];
-
-            if(layerCol == layerMask)
-            {
-                currBrightness = max(GET_R(baseCol), max(GET_G(baseCol), GET_B(baseCol)));
-
-                if(maxBrightness == 0 || currBrightness > maxBrightness)
-                {
-                    maxBrightness = currBrightness;
-                    layerWhitePoint = baseCol;
-                }
-            }
-        }
-    }
-
-    return layerWhitePoint;
-}
-
-static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal, u16 const* layerColours)
+static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal, u16 const* inLayerColours)
 {
     if(layerPal != NULL)
     {
-        // Apply the dynamic changes using the layer pal
-        u8 i, l;
-        u16 baseCol, layerCol, layerMask;
-        u16 layerWhitePoint[PLAYER_OUTFIT_STYLE_COUNT];
+        u8 i;
+        u16 supportedLayerColours[PLAYER_OUTFIT_STYLE_COUNT];
         u16* writeBuffer = (u16*)&gDecompressionBuffer[0];
 
-        // Calculate the brightest colour for each layer to act as the white point
-        // Do this in greyscale
+        for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
         {
-            for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
-            {
-                layerWhitePoint[i] = GreyScaleColour(CalculateWhitePointFor(outfit, i, basePal, layerPal));
-            }
+            if(outfit->supportedLayers[i] == TRUE)
+                supportedLayerColours[i] = inLayerColours[i];
+            else
+                supportedLayerColours[i] = RGB_ALPHA;
         }
 
-        // Calculate each colour in the palette
-        for(i = 0; i < 16; ++i)
-        {
-            baseCol = basePal[i];
-            layerCol = layerPal[i];
-
-            for(l = 0; l < PLAYER_OUTFIT_STYLE_COUNT; ++l)
-            {
-                layerMask = sLayerMaskColours[l];
-
-                if(layerCol == layerMask && ShouldModifyColourLayer(outfit, l, layerColours[l]) == TRUE)
-                {
-                    // Expect the whitepoint to already be in greyscale
-                    baseCol = ModifyColourLayer(outfit, l, layerColours[l], layerWhitePoint[l], GreyScaleColour(baseCol));
-                    break;
-                }
-            }
-
-            writeBuffer[i] = baseCol;
-        }
+        Rogue_ModifyPaletteByLayers(basePal, layerPal, writeBuffer, sLayerMaskColours, supportedLayerColours);
 
         return writeBuffer;
     }
@@ -1884,33 +1816,3 @@ static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfi
 
     return ModifyOutfitPalette(outfit, basePal, layerPal, layerColours);
 }
-
-#define COLOR_TRANSFORM_MULTIPLY_CHANNEL(value, whitePoint, target) min(31, ((((u16)value) * (u16)target) / (u16)whitePoint))
-
-static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 playerColour)
-{
-    if(outfit->supportedLayers[layer] == TRUE)
-    {
-        // If alpha, just use input colour
-        if((playerColour & RGB_ALPHA) != 0)
-            return FALSE;
-    }
-
-    return TRUE;
-}
-
-static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 playerColour, u16 layerWhitePoint, u16 inputColour)
-{
-    u8 r, g, b;
-    r = GET_R(inputColour);
-    g = GET_G(inputColour);
-    b = GET_B(inputColour);
-
-    r = COLOR_TRANSFORM_MULTIPLY_CHANNEL(r, GET_R(layerWhitePoint), GET_R(playerColour));
-    g = COLOR_TRANSFORM_MULTIPLY_CHANNEL(g, GET_G(layerWhitePoint), GET_G(playerColour));
-    b = COLOR_TRANSFORM_MULTIPLY_CHANNEL(b, GET_B(layerWhitePoint), GET_B(playerColour));
-
-    return RGB(r, g, b);
-}
-
-#undef COLOR_TRANSFORM_MULTIPLY_CHANNEL

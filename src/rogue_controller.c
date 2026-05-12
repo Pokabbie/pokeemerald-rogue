@@ -128,12 +128,19 @@ struct RogueCatchingContest
     u8 isActive : 1;
 };
 
+struct RogueUniqueMonPalette
+{
+    u16 tempPalette[16];
+};
+
+
 // Temp data only ever stored in RAM
 struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
     struct RogueGameShow gameShow;
     struct RogueCatchingContest catchingContest;
+    struct RogueUniqueMonPalette uniqueMonPalette;
     RAND_TYPE rngSeedToRestore;
     RAND_TYPE rngToRestore;
     RAND_TYPE rng2ToRestore;
@@ -1501,9 +1508,24 @@ bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
     return FALSE;
 }
 
-void Rogue_OnPrepareMonPaletteDecompress(const u32 * compressedPal, u16 species, u8 gender, bool8 isShiny, u32 otId)
-{
+extern EWRAM_DATA u8 gPaletteDecompressionBuffer[PLTT_DECOMP_BUFFER_SIZE];
 
+const u32 * Rogue_ModifyMonCompressedPalette(const u32* compressedPal, u16 species, u8 gender, bool8 isShiny, u32 otId)
+{    
+    u8 i;
+    u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+    
+    if(customMonId != 0)
+    {
+        // Perform decompress and modify here
+        u16 const* inputPal = (u16 const*)&gPaletteDecompressionBuffer[0];
+        LZ77UnCompWram(compressedPal, gPaletteDecompressionBuffer);
+        
+        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, inputPal, gRogueLocal.uniqueMonPalette.tempPalette))
+            return gMonPalette_FrontPlaceholder;
+    }
+
+    return compressedPal;
 }
 
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* buffer)
@@ -1518,6 +1540,12 @@ bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* buffer)
     if(input == gTrainerPalette_PlayerBackPlaceholder)
     {
         overrideBuffer = RoguePlayer_GetTrainerBackPalette();
+    }
+
+    // Use this overidden, already uncompressed, palette
+    if(input == gMonPalette_FrontPlaceholder)
+    {
+        overrideBuffer = gRogueLocal.uniqueMonPalette.tempPalette;
     }
 
     if(overrideBuffer != NULL)
