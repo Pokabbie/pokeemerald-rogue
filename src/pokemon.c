@@ -5520,8 +5520,7 @@ const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 o
             value = gSpeciesInfo[SPECIES_NONE].palette;
     }
     
-    Rogue_OnPrepareMonPaletteDecompress(value, species, gender, shiny, otId);
-    return value;
+    return Rogue_ModifyMonCompressedPalette(value, species, gender, shiny, otId);
 }
 
 bool32 CanUseHMMove2(u16 move)
