@@ -3297,7 +3297,7 @@ static void MonInfo_CreateSprites(bool8 includeType)
 
     sPokedexMenu->pageSprites[MON_SPRITE_FRONT_PIC] = CreateMonPicSprite_Affine(
         sPokedexMenu->viewBaseSpecies,
-        NON_SHINY_PLACEHOLDER,
+        sPokedexMenu->viewOtId,
         GetPokedexMonPersonality(sPokedexMenu->viewBaseSpecies),
 #ifdef ROGUE_EXPANSION
         GetGenderForSpecies(sPokedexMenu->viewBaseSpecies, 0),

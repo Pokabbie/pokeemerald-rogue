@@ -530,7 +530,10 @@ void Rogue_GetDynamicUniqueMonSpecies()
 
     if(RogueGift_IsDynamicMonSlotEnabled(gSpecialVar_0x8004))
     {
-        gSpecialVar_Result = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->species;
+        struct UniqueMon* mon = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004);
+        
+        gSpecialVar_Result = mon->species;
+        RogueGift_CreateMon(mon->customMonId, &gEnemyParty[0], mon->species, 1, 0);
     }
     else
     {

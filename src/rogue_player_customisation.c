@@ -1791,7 +1791,7 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
                 supportedLayerColours[i] = RGB_ALPHA;
         }
 
-        Rogue_ModifyPaletteByLayers(basePal, layerPal, writeBuffer, sLayerMaskColours, supportedLayerColours);
+        Rogue_ModifyPaletteByLayersMultiply(basePal, layerPal, writeBuffer, sLayerMaskColours, supportedLayerColours);
 
         return writeBuffer;
     }

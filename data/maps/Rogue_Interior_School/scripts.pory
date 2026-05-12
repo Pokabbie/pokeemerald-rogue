@@ -13,7 +13,7 @@ script Rogue_Interior_School_ShowSetRecommendation
     while(var(VAR_0x8004) != PARTY_SIZE)
     {
         specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-        showmonpic(VAR_RESULT, 2, 2)
+        showplayerpartypic(VAR_0x8004, 2, 2)
         playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
 
         callnative(ScriptMenu_DisplayRecommendedMonSet)

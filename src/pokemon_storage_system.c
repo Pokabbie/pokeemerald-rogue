@@ -4009,7 +4009,10 @@ static void LoadDisplayMonGfx(u16 species, u32 pid, u8 gender)
     if (species != SPECIES_NONE)
     {
         LoadSpecialPokePic(sStorage->tileBuffer, species, pid, gender, TRUE);
-        LZ77UnCompWram(sStorage->displayMonPalette, sStorage->displayMonPalBuffer);
+
+        if(!Rogue_ModifyPaletteDecompress(sStorage->displayMonPalette, sStorage->displayMonPalBuffer))
+            LZ77UnCompWram(sStorage->displayMonPalette, sStorage->displayMonPalBuffer);
+
         CpuCopy32(sStorage->tileBuffer, sStorage->displayMonTilePtr, MON_PIC_SIZE);
         LoadPalette(sStorage->displayMonPalBuffer, sStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
         sStorage->displayMonSprite->invisible = FALSE;

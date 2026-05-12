@@ -27,7 +27,7 @@ script Rogue_Encounter_Lab_PokeballCommon
     {
         turnobject(NPC_BIRCH, DIR_WEST)
 
-        showmonpic(VAR_0x8001, 10, 3)
+        showenemypartypic(VAR_0x8002, 10, 3)
         playmoncry(VAR_0x8001, CRY_MODE_NORMAL)
         waitmoncry
 

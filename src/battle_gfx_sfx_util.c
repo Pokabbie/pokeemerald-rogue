@@ -633,7 +633,9 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     else
         lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), shiny, otId);
 
-    LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gDecompressionBuffer))
+        LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
 
