@@ -1508,8 +1508,6 @@ bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
     return FALSE;
 }
 
-extern EWRAM_DATA u8 gPaletteDecompressionBuffer[PLTT_DECOMP_BUFFER_SIZE];
-
 const u32 * Rogue_ModifyMonCompressedPalette(const u32* compressedPal, u16 species, u8 gender, bool8 isShiny, u32 otId)
 {    
     u8 i;
