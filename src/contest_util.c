@@ -879,7 +879,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
     u16 species;
     u32 otId;
     u32 personality;
-    const struct CompressedSpritePalette *pokePal;
+    u8 gender;
 
     switch (gTasks[taskId].tState)
     {
@@ -891,6 +891,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
         species = gContestMons[i].species;
         personality = gContestMons[i].personality;
         otId = gContestMons[i].otId;
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         if (i == gContestPlayerMonIndex)
         {
             HandleLoadSpecialPokePic_2(
@@ -908,10 +909,9 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
                 personality);
         }
 
-        pokePal = GetMonSpritePalStructFromSpecies(species, FALSE);
-        LoadCompressedSpritePalette(pokePal);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, gender, FALSE, 0), species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
-        gMultiuseSpriteTemplate.paletteTag = pokePal->tag;
+        gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, DISPLAY_WIDTH + 32, DISPLAY_HEIGHT / 2, 10);
         gSprites[spriteId].data[1] = species;
         gSprites[spriteId].oam.priority = 0;
@@ -2559,12 +2559,12 @@ bool8 IsContestDebugActive(void)
 
 void ShowContestEntryMonPic(void)
 {
-    const struct CompressedSpritePalette *palette;
     u32 personality, otId;
     u16 species;
     u8 spriteId;
     u8 taskId;
     u8 left, top;
+    u8 gender;
 
     if (FindTaskIdByFunc(Task_ShowContestEntryMonPic) == TASK_NONE)
     {
@@ -2573,6 +2573,7 @@ void ShowContestEntryMonPic(void)
         top = 3;
         species = gContestMons[gSpecialVar_0x8006].species;
         personality = gContestMons[gSpecialVar_0x8006].personality;
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         otId = gContestMons[gSpecialVar_0x8006].otId;
         taskId = CreateTask(Task_ShowContestEntryMonPic, 0x50);
         gTasks[taskId].data[0] = 0;
@@ -2582,10 +2583,9 @@ void ShowContestEntryMonPic(void)
         else
             HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
 
-        palette = GetMonSpritePalStructFromSpecies(species, FALSE);
-        LoadCompressedSpritePalette(palette);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, gender, FALSE, 0), species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
-        gMultiuseSpriteTemplate.paletteTag = palette->tag;
+        gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, (left + 1) * 8 + 32, (top * 8) + 40, 0);
 
         if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)

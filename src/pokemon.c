@@ -6909,24 +6909,10 @@ const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 o
     else
         value = gMonPaletteTable[species].data;
 
-    Rogue_OnPrepareMonPaletteDecompress(value, species, gender, shiny, otId);
-    return value;
+    return Rogue_ModifyMonCompressedPalette(value, species, gender, shiny, otId);
 }
 
-const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
-{
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalStructFromSpecies(species, isShiny);
-}
 
-const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, bool8 isShiny)
-{
-    if (isShiny)
-        return &gMonShinyPaletteTable[species];
-    else
-        return &gMonPaletteTable[species];
-}
 
 bool32 IsHMMove2_LearnReplaceCheck(u16 move)
 {

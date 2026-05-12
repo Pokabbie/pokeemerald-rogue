@@ -735,7 +735,10 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         // Load mon palette
         species = GetMonData(mon, MON_DATA_SPECIES2);
         isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        palette = GetMonSpritePalStructFromSpecies(species, isShiny);
+        trainerId = GetMonData(mon, MON_DATA_OT_ID);
+        palette = NULL;// GetMonSpritePalStructFromSpecies(species, MON_MALE, isShiny, trainerId);
+
+        AGB_ASSERT(FALSE); // todo - fix
 
         LoadCompressedSpritePalette(palette);
         SetMultiuseSpriteTemplateToPokemon(palette->tag, B_POSITION_OPPONENT_LEFT);

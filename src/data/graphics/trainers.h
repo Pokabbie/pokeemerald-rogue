@@ -296,6 +296,8 @@ const u32 gTrainerPalette_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/
 const u32 gTrainerFrontPic_RubySapphireMay[] = INCBIN_U32("graphics/trainers/front_pics/ruby_sapphire_may_front_pic.4bpp.lz");
 const u32 gTrainerPalette_RubySapphireMay[] = INCBIN_U32("graphics/trainers/palettes/ruby_sapphire_may.gbapal.lz");
 
+const u32 gMonPalette_FrontPlaceholder[] = INCBIN_U32("graphics/rogue_palettes/placeholder_mon_front.gbapal.lz");
+
 // Player customisation
 //
 const u32 gTrainerPalette_PlayerFrontPlaceholder[] = INCBIN_U32("graphics/rogue_palettes/placeholder_trainer_front.gbapal.lz");
