@@ -298,6 +298,56 @@ static u16 const sDynamicCustomMonMoves[] =
 STATIC_ASSERT(ARRAY_COUNT(sDynamicCustomMonAbilities) <= 63, SizeOfDynamicCustomMonAbilities);
 STATIC_ASSERT(ARRAY_COUNT(sDynamicCustomMonMoves) <= 63, SizeOfDynamicCustomMonMoves);
 
+const u16 sTypeTintColors[NUMBER_OF_MON_TYPES] = 
+{
+//    [TYPE_NORMAL] = RGB_WHITE,
+//    [TYPE_FIGHTING] = RGB(26, 8, 14),
+//    [TYPE_FLYING] = RGB(31, 26, 7),
+//    [TYPE_POISON] = RGB(26, 10, 25),
+//    [TYPE_GROUND] = RGB(25, 23, 18),
+//    [TYPE_ROCK] = RGB(18, 16, 8),
+//    [TYPE_BUG] = RGB(18, 24, 6),
+//    [TYPE_GHOST] = RGB(12, 10, 16),
+//    [TYPE_STEEL] = RGB(19, 19, 20),
+//    [TYPE_MYSTERY] = RGB_WHITE,
+//    [TYPE_FIRE] = RGB(31, 20, 11),
+//    [TYPE_WATER] = RGB(10, 18, 27),
+//    [TYPE_GRASS] = RGB(12, 24, 11),
+//    [TYPE_ELECTRIC] = RGB(30, 26, 7),
+//    [TYPE_PSYCHIC] = RGB(31, 14, 15),
+//    [TYPE_ICE] = RGB(14, 26, 25),
+//    [TYPE_DRAGON] = RGB(10, 18, 27),
+//    [TYPE_DARK] = RGB(6, 5, 8),
+//#ifdef ROGUE_EXPANSION
+//    [TYPE_FAIRY] = RGB(31, 15, 21),
+//    [TYPE_STELLAR] = RGB(10, 18, 27),
+//#endif
+
+
+    [TYPE_NORMAL] = RGB_RANGE_255_TO_31(201, 143, 108),
+    [TYPE_FIGHTING] = RGB_RANGE_255_TO_31(179, 39, 27),
+    [TYPE_FLYING] = RGB_RANGE_255_TO_31(154, 217, 232),
+    [TYPE_POISON] = RGB_RANGE_255_TO_31(113, 51, 232),
+    [TYPE_GROUND] = RGB_RANGE_255_TO_31(142, 102, 59),
+    [TYPE_ROCK] = RGB_RANGE_255_TO_31(142, 125, 60),
+    [TYPE_BUG] = RGB_RANGE_255_TO_31(130, 142, 61),
+    [TYPE_GHOST] = RGB_RANGE_255_TO_31(106, 46, 142),
+    [TYPE_STEEL] = RGB_RANGE_255_TO_31(142, 142, 142),
+    [TYPE_MYSTERY] = RGB_WHITE,
+    [TYPE_FIRE] = RGB_RANGE_255_TO_31(255, 170, 71),
+    [TYPE_WATER] = RGB_RANGE_255_TO_31(37, 178, 255),
+    [TYPE_GRASS] = RGB_RANGE_255_TO_31(33, 255, 32),
+    [TYPE_ELECTRIC] = RGB_RANGE_255_TO_31(255, 227, 0),
+    [TYPE_PSYCHIC] = RGB_RANGE_255_TO_31(254, 0, 255),
+    [TYPE_ICE] = RGB_RANGE_255_TO_31(163, 255, 253),
+    [TYPE_DRAGON] = RGB_RANGE_255_TO_31(3, 0, 255),
+    [TYPE_DARK] = RGB_RANGE_255_TO_31(61, 61, 61),
+#ifdef ROGUE_EXPANSION
+    [TYPE_FAIRY] = RGB_RANGE_255_TO_31(255, 192, 234),
+    [TYPE_STELLAR] = RGB(10, 18, 27),
+#endif
+};
+
 #include "data/rogue/custom_mons.h"
 
 enum
@@ -899,7 +949,7 @@ static u32 SelectRandomType(u16 species, u8 index)
     {
         type = Random() % NUMBER_OF_MON_TYPES;
     } 
-    while (type == TYPE_MYSTERY || GetTypeBySpecies(species, 0, index) == type);
+    while (!IS_STANDARD_TYPE(type) || GetTypeBySpecies(species, 0, 0) == type || GetTypeBySpecies(species, 1, 0) == type);
 
     return type;
 }
@@ -1336,6 +1386,21 @@ u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species)
     return 0;
 }
 
+static u8 ModifyShinyType(u8 type)
+{
+    if(type == TYPE_NONE)
+        return type;
+
+    do
+    {
+        type = (type + 5) % NUMBER_OF_MON_TYPES;
+    } 
+    while (!IS_STANDARD_TYPE(type));
+
+    return type;
+    
+}
+
 bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16* outputPal)
 {
     u8 type1 = RogueGift_GetCustomMonType(id, 0);
@@ -1346,12 +1411,25 @@ bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal
         u16 layerPal[16];
         u16 colorsToApply[PALETTE_MODIFY_LAYER_COUNT];
 
+        if(isShiny)
+        {
+            // Give a psuedo random tint for shiny pal version
+            type1 = ModifyShinyType(type1);
+            type2 = ModifyShinyType(type2);
+        }
+
         colorsToApply[0] = RGB_ALPHA;
-        colorsToApply[1] = RGB_YELLOW;
+        colorsToApply[1] = RGB_ALPHA;
         colorsToApply[2] = RGB_ALPHA;
 
+        if(type1 != TYPE_NONE)
+            colorsToApply[0] = sTypeTintColors[type1];
+
+        if(type2 != TYPE_NONE)
+            colorsToApply[1] = sTypeTintColors[type2];
+
         Rogue_GenerateLayerPaletteByHue(inputPal, layerPal);
-        Rogue_ModifyPaletteByLayers(inputPal, layerPal, outputPal, gDefaultPaletteLayerMasks, colorsToApply);
+        Rogue_ModifyPaletteByLayersHueShift(inputPal, layerPal, outputPal, gDefaultPaletteLayerMasks, colorsToApply);
 
         return TRUE;
     }

@@ -598,14 +598,17 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     else
         lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), GetMonData(mon, MON_DATA_IS_SHINY, NULL), 0);
 
-    LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gDecompressionBuffer))
+        LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battlerId), PLTT_SIZE_4BPP);
 
     if (species == SPECIES_CASTFORM)
     {
         paletteOffset = 0x100 + battlerId * 16;
-        LZDecompressWram(lzPaletteData, gBattleStruct->castformPalette);
+        if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gBattleStruct->castformPalette))
+            LZDecompressWram(lzPaletteData, gBattleStruct->castformPalette);
         LoadPalette(gBattleStruct->castformPalette[gBattleMonForms[battlerId]], paletteOffset, 0x20);
     }
 
@@ -661,14 +664,17 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     else
         lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonGender(mon), GetMonData(mon, MON_DATA_IS_SHINY, NULL), 0);
 
-    LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gDecompressionBuffer))
+        LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battlerId), PLTT_SIZE_4BPP);
 
     if (species == SPECIES_CASTFORM)
     {
         paletteOffset = 0x100 + battlerId * 16;
-        LZDecompressWram(lzPaletteData, gBattleStruct->castformPalette);
+        if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gBattleStruct->castformPalette))
+            LZDecompressWram(lzPaletteData, gBattleStruct->castformPalette);
         LoadPalette(gBattleStruct->castformPalette[gBattleMonForms[battlerId]], paletteOffset, 0x20);
     }
 

@@ -1006,6 +1006,24 @@
 	.byte \obscured
 	.endm
 
+	@ Displays a box containing the accurate front sprite for the specified Pokemon in the Enemy Party.
+	.macro showplayerpartypic index:req, x:req, y:req, obscured=FALSE
+	.byte 0xcb
+	.2byte \index
+	.byte \x
+	.byte \y
+	.byte \obscured
+	.endm
+
+	@ Displays a box containing the accurate front sprite for the specified Pokemon in the Enemy Party.
+	.macro showenemypartypic index:req, x:req, y:req, obscured=FALSE
+	.byte 0xca
+	.2byte \index
+	.byte \x
+	.byte \y
+	.byte \obscured
+	.endm
+
 	@ Hides the box displayed by showmonpic.
 	.macro hidemonpic
 	.byte 0x76
