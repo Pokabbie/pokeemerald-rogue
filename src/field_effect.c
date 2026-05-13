@@ -1002,7 +1002,7 @@ u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
 
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 {
-    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, GetGenderForSpecies(species, 0), TRUE, x, y, 0, species);
+    s32 spriteId = CreateMonPicSprite(species, FALSE, 0, 0x8000, GetGenderForSpecies(species, 0), TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -1010,10 +1010,10 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
         return spriteId;
 }
 
-u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, u8 gender, s16 x, s16 y, u8 subpriority)
+u8 CreateMonSprite_FieldMove(u16 species, bool8 isShiny, u32 otId, u32 personality, u8 gender, s16 x, s16 y, u8 subpriority)
 {
     // TODO - Fixup shinyness
-    u16 spriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, x, y, 0, species);
+    u16 spriteId = CreateMonPicSprite(species, isShiny, otId, personality, gender, TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -3028,7 +3028,7 @@ static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality, u8 gend
     struct Sprite *sprite;
     noDucking = (species & SHOW_MON_CRY_NO_DUCKING) >> 16;
     species &= ~SHOW_MON_CRY_NO_DUCKING;
-    monSprite = CreateMonSprite_FieldMove(species, otId, personality, gender, 320, 80, 0);
+    monSprite = CreateMonSprite_FieldMove(species, FALSE, otId, personality, gender, 320, 80, 0);
     sprite = &gSprites[monSprite];
     sprite->callback = SpriteCallbackDummy;
     sprite->oam.priority = 0;

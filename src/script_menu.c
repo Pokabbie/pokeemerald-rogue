@@ -617,7 +617,7 @@ static void Task_PokemonPicWindow(u8 taskId)
     }
 }
 
-bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isShiny, u32 otId, u32 personality, bool8 isObscured)
+bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isShiny, u32 otId, u32 personality, u8 gender, bool8 isObscured)
 {
     u8 taskId;
     u8 spriteId;
@@ -628,7 +628,7 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isShiny, u32 otId
     }
     else
     {
-        spriteId = CreateMonSprite_FieldMove(species, isShiny, otId, personality, x * 8 + 40, y * 8 + 40, 0);
+        spriteId = CreateMonSprite_FieldMove(species, isShiny, otId, personality, gender, x * 8 + 40, y * 8 + 40, 0);
         taskId = CreateTask(Task_PokemonPicWindow, 0x50);
         gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
         gTasks[taskId].tState = 0;
