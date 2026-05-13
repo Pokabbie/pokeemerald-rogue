@@ -971,7 +971,8 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     DmaCopy32(3, src, dst, MON_PIC_SIZE);
     paletteOffset = OBJ_PLTT_ID(battlerAtk);
     lzPaletteData = GetMonSpritePalFromSpecies(targetSpecies, gender, isShiny, otId);
-    LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(lzPaletteData, gDecompressionBuffer))
+        LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
 
     if (!megaEvo)
