@@ -182,6 +182,8 @@ void RogueMP_OpenHost()
     CreatePlayerProfile(&gRogueMultiplayer->playerProfiles[gRogueMultiplayer->localPlayerId]);
 
     gRogueMultiplayer->netRequestState = NET_STATE_ACTIVE | NET_STATE_HOST;
+
+    FlagSet(FLAG_ROGUE_MULTIPLAYER_IS_HOST);
 }
 
 void RogueMP_OpenClient()
@@ -193,6 +195,8 @@ void RogueMP_OpenClient()
 
     Client_SetupHandshakeRequest();
     gRogueMultiplayer->netRequestState = NET_STATE_ACTIVE;
+
+    FlagSet(FLAG_ROGUE_MULTIPLAYER_IS_CLIENT);
 }
 
 void RogueMP_Close()
@@ -200,6 +204,9 @@ void RogueMP_Close()
     AGB_ASSERT(gRogueMultiplayer != NULL);
     RogueMP_RemoveObjectEvents();
     gRogueMultiplayer = NULL;
+
+    FlagClear(FLAG_ROGUE_MULTIPLAYER_IS_HOST);
+    FlagClear(FLAG_ROGUE_MULTIPLAYER_IS_CLIENT);
 }
 
 u8 RogueMP_GetPlayerOutfitId(u8 playerId)
