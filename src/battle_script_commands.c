@@ -3736,7 +3736,7 @@ static void Cmd_checkteamslost(void)
         }
     }
 
-    if(Rogue_TryApplyFinalQuestFinalBossTeamSwap())
+    if(gBattleOutcome != B_OUTCOME_LOST && Rogue_TryApplyFinalQuestFinalBossTeamSwap())
     {
         // Not won yet as we just spawned in a mon
     }
