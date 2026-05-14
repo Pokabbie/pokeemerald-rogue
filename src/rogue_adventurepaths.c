@@ -1233,7 +1233,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         switch (gRogueRun.gameRules.adventureGenerator)
         {
         case ADV_GENERATOR_GAUNTLET:
-            if(Rogue_GetCurrentDifficulty() == 0)
+            if(GetPathGenerationDifficulty() == 0)
                 pathSettings.totalLength = 5 + 2;
             else
                 pathSettings.totalLength = 2;
@@ -1703,11 +1703,11 @@ void RogueAdv_ApplyAdventureMetatiles()
         u32 layerIndex;
         u32 layerCount = 0;
 
-        if(Rogue_GetCurrentDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(GetPathGenerationDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY)
             layerCount = 8;
-        else if(Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY)
+        else if(GetPathGenerationDifficulty() == ROGUE_CHAMP_START_DIFFICULTY)
             layerCount = 3;
-        else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+        else if(GetPathGenerationDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
             layerCount = 1;
 
         for(layerIndex = 0; layerIndex < layerCount; ++layerIndex)

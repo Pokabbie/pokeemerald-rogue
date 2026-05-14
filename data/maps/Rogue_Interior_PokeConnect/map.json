@@ -69,6 +69,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 28,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

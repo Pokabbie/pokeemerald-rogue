@@ -160,6 +160,7 @@ struct RogueLocalData
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
     bool8 hasVersionUpdateMsgPending : 1;
+    bool8 hasMultiplayerLoadCheckOccurred : 1;
     bool8 hasNicknameMonMsgPending : 1;
     bool8 hasBattleEventOccurred : 1;
     bool8 hasUsePlayerTeamTempSave : 1;
@@ -851,7 +852,7 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
     {
         if(songNum == MUS_VICTORY_ROAD && RogueAdv_IsViewingPath())
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
                 songNum = MUS_PL_DISTORTION_WORLD;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 songNum = MUS_RG_VICTORY_ROAD;
@@ -3457,6 +3458,9 @@ extern const u8 Rogue_AskNicknameMon[];
 extern const u8 Rogue_Encounter_RestStop_RandomMan[];
 extern const u8 Rogue_EventScript_AttemptSnagBattle[];
 extern const u8 Rogue_Ridemon_PlayerIsTrapped[];
+extern const u8 RogueMP_OnHostReloadInRun[];
+extern const u8 RogueMP_OnClientReloadInRun[];
+extern const u8 RogueMP_OnClientReloadInHub[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -3558,6 +3562,45 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         else
             ScriptContext_SetupScript(Rogue_AskNicknameMon);
         return TRUE;
+    }
+    else if(!gRogueLocal.hasMultiplayerLoadCheckOccurred)
+    {
+        bool8 wasHost = FlagGet(FLAG_ROGUE_MULTIPLAYER_IS_HOST);
+        bool8 wasClient = FlagGet(FLAG_ROGUE_MULTIPLAYER_IS_CLIENT);
+
+        gRogueLocal.hasMultiplayerLoadCheckOccurred = TRUE;
+
+        if(!RogueMP_IsActiveOrConnecting())
+        {
+            // Ensure flags are cleared here
+            FlagClear(FLAG_ROGUE_MULTIPLAYER_IS_HOST);
+            FlagClear(FLAG_ROGUE_MULTIPLAYER_IS_CLIENT);
+
+            if(Rogue_IsRunActive())
+            {
+                if(wasHost)
+                {
+                    ScriptContext_SetupScript(RogueMP_OnHostReloadInRun);
+                    return TRUE;
+                }
+
+                if(wasClient)
+                {
+                    ScriptContext_SetupScript(RogueMP_OnClientReloadInRun);
+                    return TRUE;
+                }
+            }
+            else
+            {
+                // don't need to do anything special here if was host
+
+                if(wasClient)
+                {
+                    ScriptContext_SetupScript(RogueMP_OnClientReloadInHub);
+                    return TRUE;
+                }
+            }
+        }
     }
     else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
     {
