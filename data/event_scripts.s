@@ -901,3 +901,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Encounter_BattleTower/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_DragonSpiralTower/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_ChargeStoneCave/scripts.inc"
