@@ -188,10 +188,10 @@ static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
             return itemCount * (isCurse ? 40 : 50);
 
         case EFFECT_FLINCH_CHANCE:
-            return min(itemCount * (isCurse ? 10 : 15), 90);
+            return min(itemCount * (isCurse ? 10 : 20), 90);
 
         case EFFECT_SHED_SKIN_CHANCE:
-            return min(itemCount * (isCurse ? 15 : 25), 90);
+            return min(itemCount * (isCurse ? 15 : 33), 90);
 
         case EFFECT_WILD_IV_RATE:
             return itemCount * 20;
@@ -206,7 +206,7 @@ static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
             return itemCount * (isCurse ? 1 : 2);
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
-            return min(itemCount * (isCurse ? 10 : 15), 90);
+            return min(itemCount * (isCurse ? 10 : 20), 90);
 
         case EFFECT_ADAPTABILITY_RATE:
             return min(itemCount * 5, 15); // 5 means 50%

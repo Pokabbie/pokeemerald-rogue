@@ -180,7 +180,7 @@ text gItemDesc_ShopPriceCurse
 
 text gItemDesc_FlinchCharm
 {
-    format("Friendly moves have a 15% chance to flinch.")
+    format("Friendly moves have a 20% chance to flinch.")
 }
 text gItemDesc_FlinchCurse
 {
@@ -198,7 +198,7 @@ text gItemDesc_CritCurse
 
 text gItemDesc_ShedSkinCharm
 {
-    format("Friendly Pokémon have a 25% chance to cure status.")
+    format("Friendly Pokémon have a 33% chance to cure status.")
 }
 text gItemDesc_ShedSkinCurse
 {
@@ -243,7 +243,7 @@ text gItemDesc_WildCurse
 
 text gItemDesc_PriorityCharm
 {
-    format("Friendly moves have 15% chance to apply Quick Claw.")
+    format("Friendly moves have 20% chance to apply Quick Claw.")
 }
 text gItemDesc_PriorityCurse
 {
