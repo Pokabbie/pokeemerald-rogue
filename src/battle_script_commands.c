@@ -3736,16 +3736,13 @@ static void Cmd_checkteamslost(void)
         }
     }
 
-    if (HP_count == 0)
+    if(Rogue_TryApplyFinalQuestFinalBossTeamSwap())
     {
-        if(gBattleOutcome != B_OUTCOME_LOST && Rogue_ApplyFinalQuestFinalBossTeamSwap())
-        {
-            // Not won yet as we just spawned in a mon
-        }
-        else
-        {
-            gBattleOutcome |= B_OUTCOME_WON;
-        }
+        // Not won yet as we just spawned in a mon
+    }
+    else if (HP_count == 0)
+    {
+        gBattleOutcome |= B_OUTCOME_WON;
     }
 
     // For link battles that haven't ended, count number of empty battler spots

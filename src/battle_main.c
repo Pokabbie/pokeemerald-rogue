@@ -5149,7 +5149,7 @@ static void HandleEndTurn_BattleWon(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        // RogueNote: Too late for Rogue_ApplyFinalQuestFinalBossTeamSwap
+        // RogueNote: Too late for Rogue_TryApplyFinalQuestFinalBossTeamSwap
         struct Trainer trainer;
         struct RogueBattleMusic music;
 
