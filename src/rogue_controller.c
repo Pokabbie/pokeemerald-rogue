@@ -852,7 +852,7 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
     {
         if(songNum == MUS_VICTORY_ROAD && RogueAdv_IsViewingPath())
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
                 songNum = MUS_PL_DISTORTION_WORLD;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 songNum = MUS_RG_VICTORY_ROAD;
