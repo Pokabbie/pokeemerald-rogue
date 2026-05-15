@@ -93,9 +93,9 @@ struct HSV RGBtoHSV(u16 rgb)
     return hsv;
 }
 
-static bool8 IsColourExemptFromHueTint(struct HSV hsv )
+static bool8 IsColourExemptFromHueTint(u8 slot, struct HSV hsv )
 {
-    return hsv.s <= 0 || hsv.v <= 20;
+    return slot == 0 || hsv.s <= 0 || hsv.v <= 20;
 }
 
 static u8 GetHueDistance(u8 a, u8 b)
@@ -114,7 +114,7 @@ static u8 GetAverageTintHue(u16 const* inputPal)
         u16 rgb = inputPal[i];
         struct HSV hsv = RGBtoHSV(rgb);
 
-        if(!IsColourExemptFromHueTint(hsv))
+        if(!IsColourExemptFromHueTint(i ,hsv))
         {
             total += hsv.h;
             ++count;
@@ -135,7 +135,7 @@ static u8 GetFurthestTintHue(u16 const* inputPal, u8 targetHue)
         u16 rgb = inputPal[i];
         struct HSV hsv = RGBtoHSV(rgb);
 
-        if(!IsColourExemptFromHueTint(hsv))
+        if(!IsColourExemptFromHueTint(i, hsv))
         {
             u8 currDist = GetHueDistance(targetHue, hsv.h);
             if(currDist > maxDist)
@@ -160,7 +160,7 @@ static u8 GetNearestTintHue(u16 const* inputPal, u8 targetHue)
         u16 rgb = inputPal[i];
         struct HSV hsv = RGBtoHSV(rgb);
 
-        if(!IsColourExemptFromHueTint(hsv))
+        if(!IsColourExemptFromHueTint(i, hsv))
         {
             u8 currDist = GetHueDistance(targetHue, hsv.h);
             if(currDist > maxDist)
@@ -285,7 +285,7 @@ static void CalculateNearFarHues(u16 const* inputPal, u8 avgHue, u8* nearHue, u8
         u16 rgb = inputPal[i];
         struct HSV hsv = RGBtoHSV(rgb);
 
-        if(!IsColourExemptFromHueTint(hsv))
+        if(!IsColourExemptFromHueTint(i, hsv))
         {
             InsertionSort(hsv.h, sortedHues, count++, avgHue);
         }
@@ -318,7 +318,7 @@ void Rogue_GenerateLayerPaletteByHue(u16 const* inputPal, u16 const* layerRefPal
         u16 rgb = inputPal[i];
         struct HSV hsv = RGBtoHSV(rgb);
 
-        if(IsColourExemptFromHueTint(hsv))
+        if(IsColourExemptFromHueTint(i, hsv))
         {
             // Don't modify
             outputLayers[i] = RGB_BLACK;
