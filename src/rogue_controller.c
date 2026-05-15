@@ -5658,9 +5658,9 @@ void Rogue_OnWarpIntoMap(void)
         VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
         VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
 
-        FollowMon_SetGraphics(0, starters.species[0], starters.shinyState[0]);
-        FollowMon_SetGraphics(1, starters.species[1], starters.shinyState[1]);
-        FollowMon_SetGraphics(2, starters.species[2], starters.shinyState[2]);
+        FollowMon_SetGraphics(0, starters.species[0], starters.shinyState[0], 0);
+        FollowMon_SetGraphics(1, starters.species[1], starters.shinyState[1], 0);
+        FollowMon_SetGraphics(2, starters.species[2], starters.shinyState[2], 0);
     }
 
     if(Rogue_IsRunActive())
@@ -5923,7 +5923,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         species,
-                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState,
+                        0
                     );
                     break;
                 }
@@ -5936,7 +5937,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         gRogueAdvPath.currentRoomParams.perType.wildDen.species, 
-                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState,
+                        0
                     );
                     break;
                 }
@@ -5951,7 +5953,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         gRogueAdvPath.currentRoomParams.perType.honeyTree.species, 
-                        gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState,
+                        0
                     );
 
                     // Only clear the last scattered Pokeblock once we've actually entered the encounter

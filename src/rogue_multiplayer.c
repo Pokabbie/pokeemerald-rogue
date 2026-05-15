@@ -913,7 +913,7 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
 
         if(player->partnerMon != FollowMon_GetGraphics(OBJ_EVENT_GFX_MP_FOLLOW_MON - OBJ_EVENT_GFX_FOLLOW_MON_0))
         {
-            FollowMon_SetGraphicsRaw(OBJ_EVENT_GFX_MP_FOLLOW_MON - OBJ_EVENT_GFX_FOLLOW_MON_0, player->partnerMon);
+            FollowMon_SetGraphicsRaw(OBJ_EVENT_GFX_MP_FOLLOW_MON - OBJ_EVENT_GFX_FOLLOW_MON_0, player->partnerMon, 0);
 
             // Delete object and recreate
             EnsureObjectIsRemoved(followerObjectId);

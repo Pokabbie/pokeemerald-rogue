@@ -9,9 +9,10 @@ void UpdateWildEncounterChain(u16 species);
 u16 GetWildChainSpecies();
 u8 GetWildChainCount();
 
-void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny);
-void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies);
+void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny, u32 otId);
+void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies, u32 otId);
 void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon);
+void FollowMon_SetGraphicsFromBoxMon(u16 id, struct BoxPokemon* mon);
 void FollowMon_SetGraphicsFromParty();
 u16 FollowMon_GetGraphics(u16 id);
 

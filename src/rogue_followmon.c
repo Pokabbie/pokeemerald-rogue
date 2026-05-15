@@ -13,6 +13,7 @@
 #include "field_weather.h"
 #include "field_player_avatar.h"
 #include "follow_me.h"
+#include "malloc.h"
 #include "metatile_behavior.h"
 #include "pokemon.h"
 #include "safari_zone.h"
@@ -52,6 +53,7 @@ struct FollowMonData
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
+static u32* sFollowMonCustomIds = NULL;
 
 extern const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES];
 
@@ -361,21 +363,43 @@ u8 GetWildChainCount()
     return sFollowMonData.encounterChainCount;
 }
 
-void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
+void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny, u32 otId)
 {
-    u16 gfxSpecies = MonSpeciesToFollowSpecies(species, isShiny);
-    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+    FollowMon_SetGraphicsRaw(id, MonSpeciesToFollowSpecies(species, isShiny), otId);
 }
 
-void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies)
+void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies, u32 otId)
 {
+    u32 customMonId = RogueGift_GetCustomMonIdBySpecies(gfxSpecies > FOLLOWMON_SHINY_OFFSET ? (gfxSpecies - FOLLOWMON_SHINY_OFFSET) : gfxSpecies, otId);
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+
+    if(sFollowMonCustomIds != NULL)
+    {
+        sFollowMonCustomIds[id] = 0;
+    }
+
+    if(customMonId != 0)
+    {
+        if(sFollowMonCustomIds == NULL)
+        {
+            sFollowMonCustomIds = AllocZeroed(sizeof(u32) * FOLLOWMON_MAX_SPAWN_SLOTS);
+        }
+
+        if(sFollowMonCustomIds != NULL)
+        {
+            sFollowMonCustomIds[id] = customMonId;
+        }
+    }
 }
 
 void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon)
 {
-    u16 gfxSpecies = FollowMon_GetMonGraphics(mon);
-    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+    FollowMon_SetGraphicsRaw(id, FollowMon_GetMonGraphics(mon), GetMonData(mon, MON_DATA_OT_ID));
+}
+
+void FollowMon_SetGraphicsFromBoxMon(u16 id, struct BoxPokemon* mon)
+{
+    FollowMon_SetGraphicsRaw(id, FollowMon_GetBoxMonGraphics(mon), GetBoxMonData(mon, MON_DATA_OT_ID));
 }
 
 void FollowMon_SetGraphicsFromParty()
@@ -387,7 +411,7 @@ void FollowMon_SetGraphicsFromParty()
         if(i < gPlayerPartyCount)
             FollowMon_SetGraphicsFromMon(i, &gPlayerParty[i]);
         else
-            FollowMon_SetGraphics(i, SPECIES_NONE, FALSE);
+            FollowMon_SetGraphics(i, SPECIES_NONE, FALSE, 0);
     }
 }
 
@@ -415,7 +439,11 @@ u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
     {
         // Base of graphics slot
         species = FollowMon_GetGraphics(palSlot - 1);
-        // todo - support custom mon IDs
+
+        if(sFollowMonCustomIds != NULL)
+        {
+            customMonId = sFollowMonCustomIds[palSlot - 1];
+        }
     }
 
     objectEventPal = gFollowMonGraphicsInfo[species].normalPal;
@@ -851,6 +879,7 @@ static u16 NextSpawnMonSlot()
     u16 species;
     u8 level; // ignore
     bool8 isShiny;
+    u32 otId = 0;
 
     species = SPECIES_NONE;
     slot = FOLLOWMON_MAX_SPAWN_SLOTS;
@@ -892,9 +921,15 @@ static u16 NextSpawnMonSlot()
         struct RogueSafariMon* mon = RogueSafari_ChooseSafariMonForSlot(slot);
 
         if(mon != NULL)
-        {
+        {            
             species = Rogue_GetEggSpecies(mon->species);
             isShiny = mon->shinyFlag != 0;
+
+            if(mon->customMonLookup != 0)
+            {
+                u8 idx = mon->customMonLookup - 1;
+                otId = OTID_FLAG_CUSTOM_MON | gRogueSaveBlock->safariMonCustomIds[idx];
+            }
         }
     }
     else
@@ -914,7 +949,7 @@ static u16 NextSpawnMonSlot()
         return INVALID_SPAWN_SLOT;
     }
 
-    FollowMon_SetGraphics(slot, species, isShiny);
+    FollowMon_SetGraphics(slot, species, isShiny, otId);
     return slot;
 }
 

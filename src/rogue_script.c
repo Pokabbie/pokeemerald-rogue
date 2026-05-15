@@ -1751,7 +1751,7 @@ void Rogue_SetupDaycareSpeciesGraphics()
         {
             // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
             FlagClear(FLAG_TEMP_5 + i);
-            FollowMon_SetGraphicsRaw(i, FollowMon_GetBoxMonGraphics(mon));
+            FollowMon_SetGraphicsFromBoxMon(i, mon);
         }
         else
         {
