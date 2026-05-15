@@ -696,7 +696,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
                     isShiny = TRUE;
                 }
                 
-                FollowMon_SetGraphics(gfxId, species, isShiny);
+                FollowMon_SetGraphics(gfxId, species, isShiny, 0);
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_0 + gfxId, SpriteCallbackDummy, spriteX, spriteY, 0);
                 gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }

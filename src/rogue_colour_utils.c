@@ -2,6 +2,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_colour_utils.h"
+#include "rogue_settings.h"
 
 u16 const gDefaultPaletteLayerMasks[PALETTE_MODIFY_LAYER_COUNT] =
 {
@@ -302,15 +303,15 @@ static void CalculateNearFarHues(u16 const* inputPal, u8 avgHue, u8* nearHue, u8
     }
 }
 
-void Rogue_GenerateLayerPaletteByHue(u16 const* inputPal, u16* outputLayers)
+void Rogue_GenerateLayerPaletteByHue(u16 const* inputPal, u16 const* layerRefPal, u16* outputLayers)
 {
     u8 i;
     u8 nearestHue, furthestHue;
-    u8 avgHue = GetAverageTintHue(inputPal);
+    u8 avgHue = GetAverageTintHue(layerRefPal);
     //u8 nearestHue = GetNearestTintHue(inputPal, avgHue);
     //u8 furthestHue = GetFurthestTintHue(inputPal, nearestHue);
 
-    CalculateNearFarHues(inputPal, avgHue, &nearestHue, &furthestHue);
+    CalculateNearFarHues(layerRefPal, avgHue, &nearestHue, &furthestHue);
 
     for(i = 0; i < 16; ++i) // assume 16 palette slots (We currently don't have any use cases outside of this anyway)
     {
@@ -411,33 +412,45 @@ static u16 ModifyColourLayerHueShift(u16 chosenColour, u16 layerWhitePoint, u16 
     struct HSV whitePointHSV = RGBtoHSV(layerWhitePoint);
     s32 s = inputHSV.s;
     s32 sDelta = (s32)chosenHSV.s - (s32)whitePointHSV.s;
+    s32 v = inputHSV.v;
+    s32 vDelta = (s32)chosenHSV.v - (s32)whitePointHSV.v;
     
     inputHSV.h -= whitePointHSV.h;
     inputHSV.h += chosenHSV.h;
 
     s += sDelta;
     inputHSV.s = min(255, max(0, s));
+    v += vDelta;
+    inputHSV.v = min(255, max(0, v));
 
     return HSVToRGB(inputHSV);
 }
 
 #undef COLOR_TRANSFORM_MULTIPLY_CHANNEL
 
-void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours)
+void Rogue_GenerateWhitePointsPerLayers_Greyscale(u16 const* basePal, u16 const* layerPal, u16* layerWhitePoints, u16 const* layerMasks)
+{
+    u8 l;
+    for(l = 0; l < PALETTE_MODIFY_LAYER_COUNT; ++l)
+    {
+        layerWhitePoints[l] = GreyScaleColour(CalculateWhitePointFor(layerMasks[l], basePal, layerPal));
+    }
+}
+
+void Rogue_GenerateWhitePointsPerLayers(u16 const* basePal, u16 const* layerPal, u16* layerWhitePoints, u16 const* layerMasks)
+{
+    u8 l;
+    for(l = 0; l < PALETTE_MODIFY_LAYER_COUNT; ++l)
+    {
+        layerWhitePoints[l] = CalculateWhitePointFor(layerMasks[l], basePal, layerPal);
+    }
+}
+
+void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal, u16 const* layerWhitePoints, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours)
 {
     // Apply the dynamic changes using the layer pal
     u8 i, l;
     u16 baseCol, layerCol, layerMask;
-    u16 layerWhitePoint[PALETTE_MODIFY_LAYER_COUNT];
-
-    // Calculate the brightest colour for each layer to act as the white point
-    // Do this in greyscale
-    {
-        for(l = 0; l < PALETTE_MODIFY_LAYER_COUNT; ++l)
-        {
-            layerWhitePoint[l] = GreyScaleColour(CalculateWhitePointFor(layerMasks[l], basePal, layerPal));
-        }
-    }
 
     // Calculate each colour in the palette
     for(i = 0; i < 16; ++i)
@@ -452,7 +465,7 @@ void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal
             if(layerCol == layerMask && ShouldModifyColourLayer(chosenColours[l]) == TRUE)
             {
                 // Expect the whitepoint to already be in greyscale
-                baseCol = ModifyColourLayerMultiply(chosenColours[l], layerWhitePoint[l], baseCol);
+                baseCol = ModifyColourLayerMultiply(chosenColours[l], layerWhitePoints[l], baseCol);
                 break;
             }
         }
@@ -462,21 +475,11 @@ void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal
     }
 }
 
-void Rogue_ModifyPaletteByLayersHueShift(u16 const* basePal, u16 const* layerPal, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours)
+void Rogue_ModifyPaletteByLayersHueShift(u16 const* basePal, u16 const* layerPal, u16 const* layerWhitePoints, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours)
 {
     // Apply the dynamic changes using the layer pal
     u8 i, l;
     u16 baseCol, layerCol, layerMask;
-    u16 layerWhitePoint[PALETTE_MODIFY_LAYER_COUNT];
-
-    // Calculate the brightest colour for each layer to act as the white point
-    // Do this in greyscale
-    {
-        for(l = 0; l < PALETTE_MODIFY_LAYER_COUNT; ++l)
-        {
-            layerWhitePoint[l] = CalculateWhitePointFor(layerMasks[l], basePal, layerPal);
-        }
-    }
 
     // Calculate each colour in the palette
     for(i = 0; i < 16; ++i)
@@ -491,12 +494,16 @@ void Rogue_ModifyPaletteByLayersHueShift(u16 const* basePal, u16 const* layerPal
             if(layerCol == layerMask && ShouldModifyColourLayer(chosenColours[l]) == TRUE)
             {
                 // Expect the whitepoint to already be in greyscale
-                baseCol = ModifyColourLayerHueShift(chosenColours[l], layerWhitePoint[l], baseCol);
+                baseCol = ModifyColourLayerHueShift(chosenColours[l], layerWhitePoints[l], baseCol);
                 break;
             }
         }
 
         writeBuffer[i] = baseCol;
-        //writeBuffer[i] = layerCol; // debug view
+
+        if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_SPRITE_LAYERS))
+        {
+            writeBuffer[i] = layerCol;
+        }
     }
 }

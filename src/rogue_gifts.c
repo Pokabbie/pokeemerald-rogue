@@ -324,23 +324,23 @@ const u16 sTypeTintColors[NUMBER_OF_MON_TYPES] =
 //#endif
 
 
-    [TYPE_NORMAL] = RGB_RANGE_255_TO_31(201, 143, 108),
+    [TYPE_NORMAL] = RGB_RANGE_255_TO_31(255, 236, 206),
     [TYPE_FIGHTING] = RGB_RANGE_255_TO_31(179, 39, 27),
     [TYPE_FLYING] = RGB_RANGE_255_TO_31(154, 217, 232),
     [TYPE_POISON] = RGB_RANGE_255_TO_31(113, 51, 232),
     [TYPE_GROUND] = RGB_RANGE_255_TO_31(142, 102, 59),
     [TYPE_ROCK] = RGB_RANGE_255_TO_31(142, 125, 60),
     [TYPE_BUG] = RGB_RANGE_255_TO_31(130, 142, 61),
-    [TYPE_GHOST] = RGB_RANGE_255_TO_31(106, 46, 142),
+    [TYPE_GHOST] = RGB_WHITE, //RGB_RANGE_255_TO_31(106, 46, 142),
     [TYPE_STEEL] = RGB_RANGE_255_TO_31(142, 142, 142),
     [TYPE_MYSTERY] = RGB_WHITE,
     [TYPE_FIRE] = RGB_RANGE_255_TO_31(255, 170, 71),
     [TYPE_WATER] = RGB_RANGE_255_TO_31(37, 178, 255),
     [TYPE_GRASS] = RGB_RANGE_255_TO_31(33, 255, 32),
-    [TYPE_ELECTRIC] = RGB_RANGE_255_TO_31(255, 227, 0),
-    [TYPE_PSYCHIC] = RGB_RANGE_255_TO_31(254, 0, 255),
+    [TYPE_ELECTRIC] = RGB_RANGE_255_TO_31(255, 227, 20),
+    [TYPE_PSYCHIC] = RGB_RANGE_255_TO_31(254, 20, 255),
     [TYPE_ICE] = RGB_RANGE_255_TO_31(163, 255, 253),
-    [TYPE_DRAGON] = RGB_RANGE_255_TO_31(3, 0, 255),
+    [TYPE_DRAGON] = RGB_RANGE_255_TO_31(23, 20, 255),
     [TYPE_DARK] = RGB_RANGE_255_TO_31(61, 61, 61),
 #ifdef ROGUE_EXPANSION
     [TYPE_FAIRY] = RGB_RANGE_255_TO_31(255, 192, 234),
@@ -1407,7 +1407,7 @@ static u8 ModifyShinyType(u8 type)
     
 }
 
-bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16* outputPal)
+bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16 const* layerRefPal, u16* outputPal)
 {
     u8 type1 = RogueGift_GetCustomMonType(id, 0);
     u8 type2 = RogueGift_GetCustomMonType(id, 1);
@@ -1415,6 +1415,7 @@ bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal
     if(type1 != TYPE_NONE || type2 != TYPE_NONE)
     {
         u16 layerPal[16];
+        u16 layerWhitePoints[PALETTE_MODIFY_LAYER_COUNT];
         u16 colorsToApply[PALETTE_MODIFY_LAYER_COUNT];
 
         if(isShiny)
@@ -1434,8 +1435,23 @@ bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal
         if(type2 != TYPE_NONE)
             colorsToApply[1] = sTypeTintColors[type2];
 
-        Rogue_GenerateLayerPaletteByHue(inputPal, layerPal);
-        Rogue_ModifyPaletteByLayersHueShift(inputPal, layerPal, outputPal, gDefaultPaletteLayerMasks, colorsToApply);
+        if(layerRefPal == NULL)
+        {
+            // Ref and Input are the same so generate layers and whitepoints together
+            Rogue_GenerateLayerPaletteByHue(inputPal, inputPal, layerPal);
+            Rogue_GenerateWhitePointsPerLayers(inputPal, layerPal, layerWhitePoints, gDefaultPaletteLayerMasks);
+        }
+        else
+        {
+            // Generate temp layers for ref so we can generate white points
+            Rogue_GenerateLayerPaletteByHue(layerRefPal, layerRefPal, layerPal);
+            Rogue_GenerateWhitePointsPerLayers(layerRefPal, layerPal, layerWhitePoints, gDefaultPaletteLayerMasks);
+
+            // Now generate actual palette for input
+            Rogue_GenerateLayerPaletteByHue(inputPal, layerRefPal, layerPal);
+        }
+
+        Rogue_ModifyPaletteByLayersHueShift(inputPal, layerPal, layerWhitePoints, outputPal, gDefaultPaletteLayerMasks, colorsToApply);
 
         return TRUE;
     }

@@ -1538,7 +1538,7 @@ const u32 * Rogue_ModifyMonCompressedPalette(const u32* compressedPal, u16 speci
         u16 const* inputPal = (u16 const*)&gPaletteDecompressionBuffer[0];
         LZ77UnCompWram(compressedPal, gPaletteDecompressionBuffer);
         
-        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, inputPal, gRogueLocal.uniqueMonPalette.tempPalette))
+        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, inputPal, NULL, gRogueLocal.uniqueMonPalette.tempPalette))
             return gMonPalette_FrontPlaceholder;
     }
 
@@ -5656,9 +5656,9 @@ void Rogue_OnWarpIntoMap(void)
         VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
         VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
 
-        FollowMon_SetGraphics(0, starters.species[0], starters.shinyState[0]);
-        FollowMon_SetGraphics(1, starters.species[1], starters.shinyState[1]);
-        FollowMon_SetGraphics(2, starters.species[2], starters.shinyState[2]);
+        FollowMon_SetGraphics(0, starters.species[0], starters.shinyState[0], 0);
+        FollowMon_SetGraphics(1, starters.species[1], starters.shinyState[1], 0);
+        FollowMon_SetGraphics(2, starters.species[2], starters.shinyState[2], 0);
     }
 
     if(Rogue_IsRunActive())
@@ -5921,7 +5921,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         species,
-                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState,
+                        0
                     );
                     break;
                 }
@@ -5934,7 +5935,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         gRogueAdvPath.currentRoomParams.perType.wildDen.species, 
-                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState,
+                        0
                     );
                     break;
                 }
@@ -5949,7 +5951,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     FollowMon_SetGraphics(
                         0, 
                         gRogueAdvPath.currentRoomParams.perType.honeyTree.species, 
-                        gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState
+                        gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState,
+                        0
                     );
 
                     // Only clear the last scattered Pokeblock once we've actually entered the encounter
@@ -7483,6 +7486,7 @@ void Rogue_AddPartySnapshot()
             {
                 gRogueRun.partySnapshots[index].partySpeciesGfx[s] = FollowMon_GetMonGraphics(&gPlayerParty[i]);
                 gRogueRun.partySnapshots[index].partyPersonalities[s] = (GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY) & ~24); // remove nature part as that might change
+                gRogueRun.partySnapshots[index].partyOtIds[s] = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
                 ++s;
             }
         }
@@ -7518,22 +7522,26 @@ void Rogue_DebugFillPartySnapshots()
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMANDER;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
 
             for(j = 1; j < PARTY_SIZE; ++j)
             {
                 gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_NONE;
                 gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 0;
+                gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
             }
         }
         else if(i == 1)
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMELEON;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
         }
         else
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARIZARD;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
         }
 
         if(i != 0)
@@ -7545,11 +7553,13 @@ void Rogue_DebugFillPartySnapshots()
                 case 0:
                     gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                     gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                    gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
                     break;
 
                 case 1:
                     gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = 0;
                     gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = 0;
+                    gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
                     break;
 
                 default:
@@ -7565,6 +7575,7 @@ void Rogue_DebugFillPartySnapshots()
 
                         gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = RogueMiscQuery_SelectRandomElement(Random());
                         gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = gRogueRun.partySnapshots[snapshotIndex - 1].partyPersonalities[j];
+                        gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j] = gRogueRun.partySnapshots[snapshotIndex - 1].partyOtIds[j];
 
                         RogueMonQuery_End();
                     }
@@ -7572,6 +7583,7 @@ void Rogue_DebugFillPartySnapshots()
                     {
                         gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                         gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                        gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j] = 0;
                     }
                     break;
                 }

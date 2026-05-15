@@ -1940,11 +1940,11 @@ static void SetupHomeAreaFollowMons(u16 layoutId, struct RogueHubMap* hubMap)
         break;
     }
 
-    FollowMon_SetGraphicsRaw(0, hubMap->homeWanderingMonSpecies[baseIndex + 0]);
-    FollowMon_SetGraphicsRaw(1, hubMap->homeWanderingMonSpecies[baseIndex + 1]);
-    FollowMon_SetGraphicsRaw(2, hubMap->homeWanderingMonSpecies[baseIndex + 2]);
-    FollowMon_SetGraphicsRaw(3, hubMap->homeWanderingMonSpecies[baseIndex + 3]);
-    FollowMon_SetGraphicsRaw(4, hubMap->homeWanderingMonSpecies[baseIndex + 4]);
+    FollowMon_SetGraphicsRaw(0, hubMap->homeWanderingMonSpecies[baseIndex + 0], 0);
+    FollowMon_SetGraphicsRaw(1, hubMap->homeWanderingMonSpecies[baseIndex + 1], 0);
+    FollowMon_SetGraphicsRaw(2, hubMap->homeWanderingMonSpecies[baseIndex + 2], 0);
+    FollowMon_SetGraphicsRaw(3, hubMap->homeWanderingMonSpecies[baseIndex + 3], 0);
+    FollowMon_SetGraphicsRaw(4, hubMap->homeWanderingMonSpecies[baseIndex + 4], 0);
 }
 
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)

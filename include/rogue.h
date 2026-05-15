@@ -240,6 +240,7 @@ struct RogueDaycarePokemon
 struct RoguePartySnapshot
 {
     u32 partyPersonalities[PARTY_SIZE];
+    u32 partyOtIds[PARTY_SIZE];
     u16 partySpeciesGfx[PARTY_SIZE];
 };
 

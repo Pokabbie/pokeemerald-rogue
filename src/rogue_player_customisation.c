@@ -1780,6 +1780,7 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
     if(layerPal != NULL)
     {
         u8 i;
+        u16 layerWhitePoints[PALETTE_MODIFY_LAYER_COUNT];
         u16 supportedLayerColours[PLAYER_OUTFIT_STYLE_COUNT];
         u16* writeBuffer = (u16*)&gDecompressionBuffer[0];
 
@@ -1791,7 +1792,8 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
                 supportedLayerColours[i] = RGB_ALPHA;
         }
 
-        Rogue_ModifyPaletteByLayersMultiply(basePal, layerPal, writeBuffer, sLayerMaskColours, supportedLayerColours);
+        Rogue_GenerateWhitePointsPerLayers_Greyscale(basePal, layerPal, layerWhitePoints, sLayerMaskColours);
+        Rogue_ModifyPaletteByLayersMultiply(basePal, layerPal, layerWhitePoints, writeBuffer, sLayerMaskColours, supportedLayerColours);
 
         return writeBuffer;
     }

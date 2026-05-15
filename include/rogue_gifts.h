@@ -40,6 +40,6 @@ bool8 RogueGift_IsDynamicMonSlotEnabled(u8 slot);
 
 u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species);
 
-bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16* outputPal);
+bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16 const* layerRefPal, u16* outputPal);
 
 #endif // ROGUE_GIFTS_H
