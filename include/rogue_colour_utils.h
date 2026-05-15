@@ -22,8 +22,11 @@ struct HSV
 u16 HSVToRGB(struct HSV hsv);
 struct HSV RGBtoHSV(u16 rgb);
 
-void Rogue_GenerateLayerPaletteByHue(u16 const* inputPal, u16* outputLayers);
-void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours);
-void Rogue_ModifyPaletteByLayersHueShift(u16 const* basePal, u16 const* layerPal, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours);
+void Rogue_GenerateWhitePointsPerLayers_Greyscale(u16 const* basePal, u16 const* layerPal, u16* layerWhitePoints, u16 const* layerMasks);
+void Rogue_GenerateWhitePointsPerLayers(u16 const* basePal, u16 const* layerPal, u16* layerWhitePoints, u16 const* layerMasks);
+
+void Rogue_GenerateLayerPaletteByHue(u16 const* inputPal, u16 const* layerRefPal, u16* outputLayers);
+void Rogue_ModifyPaletteByLayersMultiply(u16 const* basePal, u16 const* layerPal, u16 const* layerWhitePoints, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours);
+void Rogue_ModifyPaletteByLayersHueShift(u16 const* basePal, u16 const* layerPal, u16 const* layerWhitePoints, u16* writeBuffer, u16 const* layerMasks, u16 const* chosenColours);
 
 #endif

@@ -23,8 +23,10 @@
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_baked.h"
+#include "rogue_colour_utils.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_gifts.h"
 #include "rogue_ridemon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_popup.h"
@@ -37,6 +39,7 @@
 
 struct FollowMonData
 {
+    //u32 slotUniqueIds[FOLLOWMON_MAX_SPAWN_SLOTS];
     bool8 pendingInterction;
     u8 activeCount;
     u8 encounterChainCount;
@@ -45,6 +48,7 @@ struct FollowMonData
     u16 pendingSpawnAnim;
     u16 encounterChainSpecies;
     u16 cachedPartnerMonGfx;
+    u32 cachedUniqueMonId;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -392,30 +396,51 @@ u16 FollowMon_GetGraphics(u16 id)
     return VarGet(VAR_FOLLOW_MON_0 + id);
 }
 
+extern EWRAM_DATA u8 gPaletteDecompressionBuffer[];
+
 u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
 {
     u16 species = SPECIES_NONE;
+    u16 const* objectEventPal = NULL;
+    bool8 isShiny = FALSE;
+    u32 customMonId = 0;
 
     if(palSlot == 0)
     {
         // Partner
         species = FollowMon_GetPartnerFollowSpecies(TRUE);
+        customMonId = FollowMon_GetPartnerCustomMonUniqueId();
     }
     else
     {
         // Base of graphics slot
         species = FollowMon_GetGraphics(palSlot - 1);
+        // todo - support custom mon IDs
     }
+
+    objectEventPal = gFollowMonGraphicsInfo[species].normalPal;
 
     if(species >= FOLLOWMON_SHINY_OFFSET)
     {
         species -= FOLLOWMON_SHINY_OFFSET;
+        isShiny = TRUE;
 
         if(gFollowMonGraphicsInfo[species].shinyPal != NULL)
-            return gFollowMonGraphicsInfo[species].shinyPal;
+            objectEventPal = gFollowMonGraphicsInfo[species].shinyPal;
     }
 
-    return gFollowMonGraphicsInfo[species].normalPal;
+    if(customMonId != 0)
+    {
+        u16* frontSpritePal = (u16*)&gPaletteDecompressionBuffer[0];
+        u16* outputPal = (u16*)&gPaletteDecompressionBuffer[32];
+        u32 const* compressedFrontSpritePal = GetMonSpritePalFromSpecies(species, MON_MALE, isShiny, 0); // get base pal for non unique mon
+        LZ77UnCompWram(compressedFrontSpritePal, frontSpritePal);
+
+        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, objectEventPal, frontSpritePal, outputPal))
+            return outputPal;
+    }
+
+    return objectEventPal;
 }
 
 bool8 FollowMon_IsLargeGfx(u16 gfxSpecies)
@@ -429,36 +454,40 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
-u16 GetPartnerFollowSpeciesInternal()
+static void EnsureCachedParterMonGfxValid()
 {
-    u16 species;
-
-    if(Rogue_IsRideActive())
-        species = Rogue_GetRideMonSpeciesGfx(0);
-    else
+    if(sFollowMonData.cachedPartnerMonGfx == NUM_SPECIES)
     {
-        u8 i;
-        species = SPECIES_NONE;
+        sFollowMonData.cachedPartnerMonGfx = SPECIES_NONE;
 
-        for(i = 0; i < gPlayerPartyCount; ++i)
+        if(Rogue_IsRideActive())
         {
-            if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_HP))
+            sFollowMonData.cachedPartnerMonGfx = Rogue_GetRideMonSpeciesGfx(0);
+            sFollowMonData.cachedUniqueMonId = 0;
+        }
+        else
+        {
+            u8 i;
+            sFollowMonData.cachedPartnerMonGfx = SPECIES_NONE;
+
+            for(i = 0; i < gPlayerPartyCount; ++i)
             {
-                species = FollowMon_GetMonGraphics(&gPlayerParty[i]);
-                break;
+                if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_HP))
+                {
+                    sFollowMonData.cachedPartnerMonGfx = FollowMon_GetMonGraphics(&gPlayerParty[i]);
+                    sFollowMonData.cachedUniqueMonId = RogueGift_GetCustomMonId(&gPlayerParty[i]);
+                    break;
+                }
             }
         }
     }
-
-    return species;
 }
 
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
     u16 species;
 
-    if(sFollowMonData.cachedPartnerMonGfx == NUM_SPECIES)
-        sFollowMonData.cachedPartnerMonGfx = GetPartnerFollowSpeciesInternal();
+    EnsureCachedParterMonGfxValid();
 
     species = sFollowMonData.cachedPartnerMonGfx;
 
@@ -466,6 +495,12 @@ u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
         species -= FOLLOWMON_SHINY_OFFSET;
 
     return species;
+}
+
+u32 FollowMon_GetPartnerCustomMonUniqueId()
+{
+    EnsureCachedParterMonGfxValid();
+    return sFollowMonData.cachedUniqueMonId;
 }
 
 void FollowMon_ClearCachedPartnerSpecies()

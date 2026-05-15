@@ -1155,12 +1155,14 @@ static void UpdateDisplayedSnapshots(u8 snapshotIndex)
                 {
                     if(
                         GFX_EGG_SPECIES(gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j]) == GFX_EGG_SPECIES(sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i]) &&
-                        gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] == sRogueCreditsData->previousPartySnapshot.partyPersonalities[i]
+                        gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] == sRogueCreditsData->previousPartySnapshot.partyPersonalities[i] &&
+                        gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j] == sRogueCreditsData->previousPartySnapshot.partyOtIds[i]
                     )
                     {
                         // Found the same mon
                         sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i] = gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j];
                         sRogueCreditsData->currentPartySnapshot.partyPersonalities[i] = gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j];
+                        sRogueCreditsData->currentPartySnapshot.partyOtIds[i] = gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j];
 
                         useMonIndices[j] = TRUE;
                         break;
@@ -1182,6 +1184,7 @@ static void UpdateDisplayedSnapshots(u8 snapshotIndex)
                 {
                     sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[j] = gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[i];
                     sRogueCreditsData->currentPartySnapshot.partyPersonalities[j] = gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[i];
+                    sRogueCreditsData->currentPartySnapshot.partyOtIds[j] = gRogueRun.partySnapshots[snapshotIndex].partyOtIds[i];
                     break;
                 }
             }

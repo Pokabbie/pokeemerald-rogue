@@ -1540,7 +1540,7 @@ const u32 * Rogue_ModifyMonCompressedPalette(const u32* compressedPal, u16 speci
         u16 const* inputPal = (u16 const*)&gPaletteDecompressionBuffer[0];
         LZ77UnCompWram(compressedPal, gPaletteDecompressionBuffer);
         
-        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, inputPal, gRogueLocal.uniqueMonPalette.tempPalette))
+        if(RogueGift_TryApplyPaletteModify(customMonId, isShiny, inputPal, NULL, gRogueLocal.uniqueMonPalette.tempPalette))
             return gMonPalette_FrontPlaceholder;
     }
 
@@ -7485,6 +7485,7 @@ void Rogue_AddPartySnapshot()
             {
                 gRogueRun.partySnapshots[index].partySpeciesGfx[s] = FollowMon_GetMonGraphics(&gPlayerParty[i]);
                 gRogueRun.partySnapshots[index].partyPersonalities[s] = (GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY) & ~24); // remove nature part as that might change
+                gRogueRun.partySnapshots[index].partyOtIds[s] = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
                 ++s;
             }
         }
@@ -7520,22 +7521,26 @@ void Rogue_DebugFillPartySnapshots()
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMANDER;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
 
             for(j = 1; j < PARTY_SIZE; ++j)
             {
                 gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_NONE;
                 gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 0;
+                gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
             }
         }
         else if(i == 1)
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMELEON;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
         }
         else
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARIZARD;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+            gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
         }
 
         if(i != 0)
@@ -7547,11 +7552,13 @@ void Rogue_DebugFillPartySnapshots()
                 case 0:
                     gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                     gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                    gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
                     break;
 
                 case 1:
                     gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = 0;
                     gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = 0;
+                    gRogueRun.partySnapshots[snapshotIndex].partyOtIds[0] = 0;
                     break;
 
                 default:
@@ -7567,6 +7574,7 @@ void Rogue_DebugFillPartySnapshots()
 
                         gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = RogueMiscQuery_SelectRandomElement(Random());
                         gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = gRogueRun.partySnapshots[snapshotIndex - 1].partyPersonalities[j];
+                        gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j] = gRogueRun.partySnapshots[snapshotIndex - 1].partyOtIds[j];
 
                         RogueMonQuery_End();
                     }
@@ -7574,6 +7582,7 @@ void Rogue_DebugFillPartySnapshots()
                     {
                         gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                         gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                        gRogueRun.partySnapshots[snapshotIndex].partyOtIds[j] = 0;
                     }
                     break;
                 }
