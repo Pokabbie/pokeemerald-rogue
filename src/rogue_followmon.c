@@ -301,6 +301,19 @@ void SetupFollowParterMonObjectEvent()
     if(shouldFollowMonBeVisible && VarGet(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
         shouldFollowMonBeVisible = FALSE;
 
+    // Hide follow during spinnying tiles
+    if(shouldFollowMonBeVisible)
+    {        
+        struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+        if (ObjectEventIsMovementOverridden(playerObj))
+        {
+            u8 heldMovement = ObjectEventGetHeldMovementActionId(playerObj);
+            if(heldMovement >= MOVEMENT_ACTION_SPIN_DOWN && heldMovement <= MOVEMENT_ACTION_SPIN_RIGHT)
+                shouldFollowMonBeVisible = FALSE;
+        }
+    }
+
     if(shouldFollowMonBeVisible)
     {
         if(!FollowMon_IsPartnerMonActive())

@@ -913,3 +913,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Encounter_DragonSpiralTower/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_ChargeStoneCave/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_PokeBallFactory/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_LysandreLabs/scripts.inc"
