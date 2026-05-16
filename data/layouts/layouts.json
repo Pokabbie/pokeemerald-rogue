@@ -2164,10 +2164,10 @@
     {
       "id": "LAYOUT_ROGUE_ENCOUNTER_POKE_BALL_FACTORY",
       "name": "Rogue_Encounter_PokeBallFactory_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 60,
+      "height": 81,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleArena",
+      "secondary_tileset": "gTileset_FacilityGalactic",
       "border_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/map.bin"
     },
