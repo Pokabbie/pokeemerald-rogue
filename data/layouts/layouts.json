@@ -2160,6 +2160,26 @@
       "secondary_tileset": "gTileset_CaveAlt",
       "border_filepath": "data/layouts/Rogue_Encounter_ChargeStoneCave/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_ChargeStoneCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_POKE_BALL_FACTORY",
+      "name": "Rogue_Encounter_PokeBallFactory_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_LYSANDRE_LABS",
+      "name": "Rogue_Encounter_LysandreLabs_Layout",
+      "width": 49,
+      "height": 38,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_FacilityGalactic",
+      "border_filepath": "data/layouts/Rogue_Encounter_LysandreLabs/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_LysandreLabs/map.bin"
     }
   ]
 }
