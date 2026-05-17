@@ -14,6 +14,7 @@
 #include "constants/trainer_types.h"
 #include "constants/weather.h"
 #include "data.h"
+#include "decompress.h"
 #include "gba/isagbprint.h"
 
 #include "battle.h"
@@ -3507,36 +3508,25 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
     //if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
     //    FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
-    
+
     // Total species count has changed so we need to adjust some save data
     if(gRogueSaveBlock->lastKnownNumSpecies != NUM_SPECIES)
     {
         // work backwards to reshuffle the data to make sure it's correctly placed
         u32 i, j;
         u32 prevArraySize = ROUND_BITS_TO_BYTES(gRogueSaveBlock->lastKnownNumSpecies);
-        u8* prevPokedexBitFlag1 = &gSaveBlock1Ptr->pokedexBitFlags1[0];
-        u8* prevPokedexBitFlag2 = prevPokedexBitFlag1 + prevArraySize;
+        u8* tempBuffer = gDecompressionBuffer; // borrow this buffer
 
+        AGB_ASSERT(gDecompressionBuffer >= prevArraySize * 2);
         AGB_ASSERT(gRogueSaveBlock->lastKnownNumSpecies < NUM_SPECIES); // not sure what to do if num species goes down
 
-        // Work backwards through memory to avoid needing to make a block copy 
-        // i.e. work through all of bitflag2 first then bitflag1
-        for(j = 0; j < prevArraySize; ++j)
-        {
-            i = prevArraySize - j - 1;
-            gSaveBlock1Ptr->pokedexBitFlags2[i] = prevPokedexBitFlag2[i];
-        }
-        for(j = 0; j < prevArraySize; ++j)
-        {
-            i = prevArraySize - j - 1;
-            gSaveBlock1Ptr->pokedexBitFlags1[i] = prevPokedexBitFlag1[i];
-        }
+        memcpy(tempBuffer, &gSaveBlock1Ptr->pokedexBitFlags1[0], prevArraySize * 2);
 
-        // Now clear dex data for any of the new species
-        for(i = gRogueSaveBlock->lastKnownNumSpecies; i < NUM_SPECIES; ++i)
-        {
-            GetSetPokedexSpeciesFlag(i, FLAG_SET_NONE);
-        }
+        memset(&gSaveBlock1Ptr->pokedexBitFlags1[0], 0, sizeof(gSaveBlock1Ptr->pokedexBitFlags1));
+        memset(&gSaveBlock1Ptr->pokedexBitFlags2[0], 0, sizeof(gSaveBlock1Ptr->pokedexBitFlags2));
+
+        memcpy(&gSaveBlock1Ptr->pokedexBitFlags1[0], tempBuffer, prevArraySize);
+        memcpy(&gSaveBlock1Ptr->pokedexBitFlags2[0], tempBuffer + prevArraySize, prevArraySize);
     }
 }
 
