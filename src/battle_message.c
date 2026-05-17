@@ -3946,6 +3946,11 @@ static void UNUSED ChooseTypeOfMoveUsedString(u8 *dst)
 
 void BattlePutTextOnWindow(const u8 *text, u8 windowId)
 {
+    BattlePutTextOnWindowWithSpeed(text, windowId, TEXT_SKIP_DRAW);
+}
+
+void BattlePutTextOnWindowWithSpeed(const u8* text, u8 windowId, u8 textSpeed)
+{
     const struct BattleWindowText *textInfo = sBattleTextOnWindowsInfo[gBattleScripting.windowsType];
     bool32 copyToVram;
     struct TextPrinterTemplate printerTemplate;
@@ -4008,6 +4013,11 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId)
     {
         speed = textInfo[windowId].speed;
         gTextFlags.canABSpeedUpPrint = 0;
+    }
+
+    if(textSpeed != TEXT_SKIP_DRAW)
+    {
+        speed = textSpeed;
     }
 
     AddTextPrinter(&printerTemplate, speed, NULL);

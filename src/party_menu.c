@@ -6108,8 +6108,15 @@ void ItemUseCB_MaxMushroom(u8 taskId, TaskFunc task)
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
 {
+    u16 item = gSpecialVar_ItemId;
+	
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+	
+    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+    else
+        GetMedicineItemEffectMessage(item);
+		
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
@@ -6122,8 +6129,15 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
 
 static void Task_DisplayHPRestoredMessage_StayInMenu(u8 taskId)
 {
+    u16 item = gSpecialVar_ItemId;
+
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+
+    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+    else
+        GetMedicineItemEffectMessage(item);
+
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
@@ -9004,7 +9018,7 @@ static void UpdateDisplayedItem(u8 slot)
         }
     }
         
-    if (sPartyMenuInternal->displayItemSpriteId != MAX_SPRITES)
+    if (sPartyMenuInternal->displayItemSpriteId != SPRITE_NONE)
     {
         // Move display location
         gSprites[sPartyMenuInternal->displayItemSpriteId].x = sPartyMenuBoxes[slot].spriteCoords[2] + 8;

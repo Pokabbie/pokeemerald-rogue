@@ -121,6 +121,11 @@ void GameShow_SelectRewardItem()
 
     RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, targetPrice / 5, targetPrice);
 
+    // Always include in prize pool
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ESCAPE_ROPE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_MASTER_BALL);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
+
     // Cycle RNG
     for(i = 0; i < VarGet(VAR_CURRENT_REWARD_COUNTER);++i)
         RogueRandom();
@@ -129,9 +134,13 @@ void GameShow_SelectRewardItem()
 
     RogueItemQuery_End();
 
-    if(itemId == ITEM_MASTER_BALL || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (ItemId_GetPocket(itemId) == POCKET_STONES))
+    if(itemId == ITEM_MASTER_BALL || itemId == ITEM_ESCAPE_ROPE || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || IS_GIMMICK_ITEM(itemId))
     {
         amount = 1;
+    }
+    else if(itemId == ITEM_RARE_CANDY)
+    {
+        amount = 5;
     }
     else
     {

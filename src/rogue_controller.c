@@ -3790,7 +3790,7 @@ void Rogue_MainLateCB(void)
 
 static void TryAutoItemPickup()
 {
-    u8 i;
+    u8 i, elevation;
     s16 x, y;
     struct ObjectEventTemplate * template;
 
@@ -3798,6 +3798,7 @@ static void TryAutoItemPickup()
         return;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    elevation = PlayerGetElevation();
 
     if(gRogueLocal.autoPickupLastX == x && gRogueLocal.autoPickupLastY == y)
         return;
@@ -3816,7 +3817,7 @@ static void TryAutoItemPickup()
         if (!gObjectEvents[i].active || i == gPlayerAvatar.objectEventId)
             continue;
 
-        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y)
+        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y || gObjectEvents[i].currentElevation != elevation)
             continue;
 
         // Object is directly infront of player
@@ -8896,6 +8897,10 @@ void Rogue_EndCatchingContest()
 
     // Store caught mon for later
     CopyMon(&gEnemyParty[0], &gPlayerParty[0], sizeof(struct Pokemon));
+    {
+        u32 item = ITEM_NONE; // this is why we can't have nice things, Nacho >:( /j
+        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &item);
+    }
 
     // Hack to hide follower
     ZeroMonData(&gPlayerParty[0]);
