@@ -1148,6 +1148,8 @@ void RogueDebug_FillMonMasteries()
 #endif
 }
 
+static const u8 sText_Popup_QuestUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Added");
+
 static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 toVersion)
 {
     u8 i;
@@ -1172,20 +1174,51 @@ static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 
             if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
                 continue;
 
-            GiveRewardInternal(rewardInfo);
+            if(GiveRewardInternal(rewardInfo))
+            {
+                // No popup by default, but we want to draw attention to it here
+                if(rewardInfo->type == QUEST_REWARD_QUEST_UNLOCK)
+                {
+                    struct CustomPopup popup = {0};
+                    popup.itemIcon = ITEM_QUEST_LOG;
+                    popup.soundEffect = 0;
+                    popup.fanfare = 0;
+                    popup.titleStr = RogueQuest_GetTitle(rewardInfo->perType.questUnlock.questId);
+                    popup.subtitleStr = sText_Popup_QuestUnlocked;
+                    Rogue_PushPopup_CustomPopup(&popup);
+                }
+            }
         }
     }
 }
 
-void RogueQuest_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
+void RogueQuest_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
 {
     u16 i;
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
+        // Give any newly added rewards for quests already completed
         if(RogueQuest_IsQuestUnlocked(i) && !RogueQuest_HasPendingRewards(i))
         {   
-            TryCollectAddedSaveVersionRewards(i, fromNumber, toNumber);
+            TryCollectAddedSaveVersionRewards(i, fromVersion, toVersion);
+        }
+
+        // Notify of any newly added quests (Ignore masteries)
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT) && !RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MON_MASTERY))
+        {
+            struct RogueQuestEntry const* entry = RogueQuest_GetEntry(i);
+
+            if(fromVersion < entry->addedInVersion)
+            {
+                struct CustomPopup popup = {0};
+                popup.itemIcon = ITEM_QUEST_LOG;
+                popup.soundEffect = 0;
+                popup.fanfare = 0;
+                popup.titleStr = RogueQuest_GetTitle(i);
+                popup.subtitleStr = sText_Popup_QuestUnlocked;
+                Rogue_PushPopup_CustomPopup(&popup);
+            }
         }
     }
 }

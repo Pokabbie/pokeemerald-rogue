@@ -34,7 +34,7 @@ struct RogueQuestReward
     u8 type;
     u8 visiblity;
     u8 requiredDifficulty;
-    u8 addedInVersion;
+    u16 addedInVersion;
     struct CustomPopup const* customPopup;
     union
     {
@@ -157,6 +157,7 @@ struct RogueQuestEntry
     u16 rewardCount;
     u16 triggerCount;
     u16 requirementCount;
+    u16 addedInVersion;
 };
 
 u8 const* RogueQuest_GetTitle(u16 questId);
