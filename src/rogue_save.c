@@ -156,6 +156,21 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     rogueVersion = ROGUE_VERSION;
     SerializeData(stream, &rogueVersion, sizeof(rogueVersion)); // todo - should flag if version doesn't match (make sure to handle blank/new saves)
 
+    if(saveBlock->saveVersion >= SAVE_VER_ID_2_1_0)
+    {
+        saveBlock->lastKnownNumSpecies = NUM_SPECIES;
+        SerializeData(stream, &saveBlock->lastKnownNumSpecies, sizeof(saveBlock->lastKnownNumSpecies));
+    }
+    else
+    {
+#ifdef ROGUE_EXPANSION
+        saveBlock->lastKnownNumSpecies = SPECIES_PIKIN_MEGA;
+#else
+        saveBlock->lastKnownNumSpecies = NUM_SPECIES;
+#endif
+    }
+
+
     // Quests
     SerializeArray(stream, saveBlock->questStates, sizeof(saveBlock->questStates[0]), ARRAY_COUNT(saveBlock->questStates));
 
