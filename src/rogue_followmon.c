@@ -145,26 +145,6 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
         species = SPECIES_DARMANITAN;
         break;
 
-    case SPECIES_TORNADUS_THERIAN:
-        species = SPECIES_TORNADUS;
-        break;
-
-    case SPECIES_THUNDURUS_THERIAN: // TODO
-        species = SPECIES_THUNDURUS;
-        break;
-
-    case SPECIES_LANDORUS_THERIAN: // TODO
-        species = SPECIES_LANDORUS;
-        break;
-
-    case SPECIES_KYUREM_WHITE: // TODO
-        species = SPECIES_KYUREM;
-        break;
-
-    case SPECIES_KYUREM_BLACK: // TODO
-        species = SPECIES_KYUREM;
-        break;
-
     case SPECIES_KELDEO_RESOLUTE:
         species = SPECIES_KELDEO;
         break;
