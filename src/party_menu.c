@@ -5106,7 +5106,15 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
 {
+    u16 item = gSpecialVar_ItemId;
+
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
+    
+    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+    else
+        GetMedicineItemEffectMessage(item);
+
     StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
@@ -5120,8 +5128,15 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
 
 static void Task_DisplayHPRestoredMessage_StayInMenu(u8 taskId)
 {
+    u16 item = gSpecialVar_ItemId;
+    
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+
+    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
+    else
+        GetMedicineItemEffectMessage(item);
+
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();

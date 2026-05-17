@@ -1766,7 +1766,12 @@ u32 Rogue_CalculateMovePrice(u16 move, u16 itemId)
             cost *= 2; // price experiment (keep same cost in hub)
     }
     else if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
-        cost *= 4 * 2; // *2 price experiment
+    {
+        if(Rogue_IsRunActive())
+            cost *= (4 * 6) / 5;
+        else
+            cost *= 4 * 2; // *2 price experiment
+    }
 
     return cost;
 }
