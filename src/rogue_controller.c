@@ -3503,6 +3503,8 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
         Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD);
     }
     
+    RogueQuest_NotifySaveVersionUpdated(fromNumber, toNumber);
+
     // TODO - Hook up warnings here??
     //if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
     //    FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
