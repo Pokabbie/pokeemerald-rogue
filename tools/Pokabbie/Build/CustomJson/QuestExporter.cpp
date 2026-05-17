@@ -22,6 +22,7 @@ struct QuestReward
 {
 	QuestRewardType type;
 	std::string preprocessorCondition;
+	std::string addedInVersion;
 	std::string visibility;
 	std::string requiredDifficulty;
 	struct
@@ -293,6 +294,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 			fileStream << c_TabSpacing << "{\n";
 			fileStream << c_TabSpacing2 << ".visiblity = QUEST_REWARD_VISIBLITY_" << rewardInfo.visibility << ",\n";
+			fileStream << c_TabSpacing2 << ".addedInVersion = " << rewardInfo.addedInVersion << ",\n";
 			fileStream << c_TabSpacing2 << ".requiredDifficulty = DIFFICULTY_LEVEL_" << rewardInfo.requiredDifficulty << ",\n";
 
 			if (rewardInfo.customPopup.isValid)
@@ -804,6 +806,12 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	{
 		reward.preprocessorCondition = jsonData["#if"].get<std::string>();
 	}
+
+	if (jsonData.contains("added_in_version"))
+		reward.addedInVersion = jsonData["added_in_version"].get<std::string>();
+	else
+		reward.addedInVersion = "SAVE_VER_ID_2_0_0";
+
 
 	if (jsonData.contains("visibility"))
 		reward.visibility = GetAsString(jsonData["visibility"]);

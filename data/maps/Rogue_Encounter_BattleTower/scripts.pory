@@ -2,6 +2,12 @@ const FLAG_HAS_COLLECTED = FLAG_TEMP_1
 
 mapscripts Rogue_Encounter_BattleTower_MapScripts 
 {
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_BattleTower_MapScripts_OnLoad
+}
+
+script Rogue_Encounter_BattleTower_MapScripts_OnLoad
+{
+    call(Rogue_SetDesiredWeather)
 }
 
 script Rogue_Encounter_BattleTower_TalkReward

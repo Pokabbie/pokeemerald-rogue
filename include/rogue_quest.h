@@ -34,6 +34,7 @@ struct RogueQuestReward
     u8 type;
     u8 visiblity;
     u8 requiredDifficulty;
+    u8 addedInVersion;
     struct CustomPopup const* customPopup;
     union
     {
@@ -208,5 +209,7 @@ bool8 RogueQuest_GetMonMasteryFlag(u16 species);
 void RogueQuest_SetMonMasteryFlag(u16 species);
 void RogueQuest_SetMonMasteryFlagFromParty();
 u32 RogueQuest_GetMonMasteryTotalPerc();
+
+void RogueQuest_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber);
 
 #endif

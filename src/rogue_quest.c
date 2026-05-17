@@ -24,6 +24,7 @@
 #include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
+#include "rogue_save.h"
 #include "rogue_settings.h"
 #include "rogue_popup.h"
 
@@ -1145,6 +1146,48 @@ void RogueDebug_FillMonMasteries()
 #ifdef ROGUE_DEBUG
     memset(gRogueSaveBlock->monMasteryFlags, 255, sizeof(gRogueSaveBlock->monMasteryFlags));
 #endif
+}
+
+static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 toVersion)
+{
+    u8 i;
+    struct RogueQuestReward const* rewardInfo;
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
+    u16 rewardCount = RogueQuest_GetRewardCount(questId);
+    u8 minRewardDifficulty = DIFFICULTY_LEVEL_EASY;
+    u8 maxRewardDifficulty = questState->highestCompleteDifficulty;
+
+    if(maxRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        // Not completed
+        return;
+    }
+
+    for(i = 0; i < rewardCount; ++i)
+    {
+        rewardInfo = RogueQuest_GetReward(questId, i);
+
+        if(fromVersion < rewardInfo->addedInVersion)
+        {
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
+            GiveRewardInternal(rewardInfo);
+        }
+    }
+}
+
+void RogueQuest_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_IsQuestUnlocked(i) && !RogueQuest_HasPendingRewards(i))
+        {   
+            TryCollectAddedSaveVersionRewards(i, fromNumber, toNumber);
+        }
+    }
 }
 
 // QuestCondition
