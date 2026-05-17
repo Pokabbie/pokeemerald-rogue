@@ -554,7 +554,7 @@ static void OpponentHandleChooseMove(u32 battler)
                 BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
                 break;
             case AI_CHOICE_SWITCH:
-                BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, 0xFFFF);
+                BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
                 break;
             case 6:
                 BtlController_EmitTwoReturnValues(battler, BUFFER_B, 15, gBattlerTarget);
