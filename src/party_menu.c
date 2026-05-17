@@ -7356,7 +7356,7 @@ static void UpdateDisplayedItem(u8 slot)
         }
     }
         
-    if (sPartyMenuInternal->displayItemSpriteId != MAX_SPRITES)
+    if (sPartyMenuInternal->displayItemSpriteId != SPRITE_NONE)
     {
         // Move display location
         gSprites[sPartyMenuInternal->displayItemSpriteId].x = sPartyMenuBoxes[slot].spriteCoords[2] + 8;

@@ -2084,6 +2084,8 @@ static const struct BgTemplate sDiplomaBgTemplates[2] =
 
 static void InitOverviewBg(void)
 {
+    FreeAllWindowBuffers();
+    
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sDiplomaBgTemplates, ARRAY_COUNT(sDiplomaBgTemplates));
     SetBgTilemapBuffer(1, sTilemapBufferPtr);

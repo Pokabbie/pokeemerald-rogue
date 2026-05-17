@@ -8898,6 +8898,10 @@ void Rogue_EndCatchingContest()
 
     // Store caught mon for later
     CopyMon(&gEnemyParty[0], &gPlayerParty[0], sizeof(struct Pokemon));
+    {
+        u32 item = ITEM_NONE; // this is why we can't have nice things, Nacho >:( /j
+        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &item);
+    }
 
     // Hack to hide follower
     ZeroMonData(&gPlayerParty[0]);
