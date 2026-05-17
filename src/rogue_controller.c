@@ -3517,7 +3517,7 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
         u32 prevArraySize = ROUND_BITS_TO_BYTES(gRogueSaveBlock->lastKnownNumSpecies);
         u8* tempBuffer = gDecompressionBuffer; // borrow this buffer
 
-        AGB_ASSERT(gDecompressionBuffer >= prevArraySize * 2);
+        AGB_ASSERT(sizeof(gDecompressionBuffer) >= prevArraySize * 2);
         AGB_ASSERT(gRogueSaveBlock->lastKnownNumSpecies < NUM_SPECIES); // not sure what to do if num species goes down
 
         memcpy(tempBuffer, &gSaveBlock1Ptr->pokedexBitFlags1[0], prevArraySize * 2);
