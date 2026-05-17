@@ -1192,15 +1192,31 @@ static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 
     }
 }
 
-void RogueQuest_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
+void RogueQuest_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
 {
     u16 i;
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
+        // Give any newly added rewards for quests already completed
         if(RogueQuest_IsQuestUnlocked(i) && !RogueQuest_HasPendingRewards(i))
         {   
-            TryCollectAddedSaveVersionRewards(i, fromNumber, toNumber);
+            TryCollectAddedSaveVersionRewards(i, fromVersion, toVersion);
+        }
+
+        // Notify of any newly added quests (Ignore masteries)
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT) && !RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MON_MASTERY))
+        {
+            if(fromVersion < rewardInfo->addedInVersion)
+            {
+                struct CustomPopup popup = {0};
+                popup.itemIcon = ITEM_QUEST_LOG;
+                popup.soundEffect = 0;
+                popup.fanfare = 0;
+                popup.titleStr = RogueQuest_GetTitle(i);
+                popup.subtitleStr = sText_Popup_QuestUnlocked;
+                Rogue_PushPopup_CustomPopup(&popup);
+            }
         }
     }
 }
