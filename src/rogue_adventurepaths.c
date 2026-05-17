@@ -1233,7 +1233,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         switch (gRogueRun.gameRules.adventureGenerator)
         {
         case ADV_GENERATOR_GAUNTLET:
-            if(GetPathGenerationDifficulty() == 0)
+            if(Rogue_GetCurrentDifficulty() == 0)
                 pathSettings.totalLength = 5 + 2;
             else
                 pathSettings.totalLength = 2;
