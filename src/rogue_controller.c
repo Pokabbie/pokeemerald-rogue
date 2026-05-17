@@ -6005,7 +6005,24 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_BATTLE_TOWER:
                 {
+                    u8 const battleWeather[] = 
+                    {
+                        WEATHER_NONE,
+                        WEATHER_SUNNY,
+                        WEATHER_SANDSTORM,
+                        WEATHER_DROUGHT,
+                        WEATHER_DOWNPOUR,
+                        WEATHER_LEAVES,
+                        WEATHER_RAIN_THUNDERSTORM,
+                        WEATHER_PSYCHIC_FOG,
+                        WEATHER_SNOW,
+                        WEATHER_MISTY_FOG,
+                    };
+
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, RogueRandom());
+
+                    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL) != DIFFICULTY_LEVEL_EASY)
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, battleWeather[RogueRandomRange(ARRAY_COUNT(battleWeather), 0)]);
 
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();

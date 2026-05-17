@@ -2350,7 +2350,11 @@ void Rogue_BattleTower_GiveReward()
 
     SeedRogueRng(VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA));
 
-    if(RogueRandomChance(20, 0) && AddBagItem(ITEM_MAX_POTION, 3))
+    if(RogueRandomChance(1, 0) && AddBagItem(ITEM_ESCAPE_ROPE, 1))
+    {
+        Rogue_PushPopup_AddItem(ITEM_ESCAPE_ROPE, 1);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_MAX_POTION, 3))
     {
         Rogue_PushPopup_AddItem(ITEM_MAX_POTION, 3);
     }
