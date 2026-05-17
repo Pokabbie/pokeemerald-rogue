@@ -491,9 +491,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         ICON(Croconaw, 0),
         .footprint = gMonFootprint_Croconaw,
         LEARNSETS(Croconaw),
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_FERALIGATR}),
-        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
-        .formChangeTable = sFeraligatrFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_FERALIGATR})
     },
 
     [SPECIES_FERALIGATR] =
