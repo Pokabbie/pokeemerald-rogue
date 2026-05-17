@@ -1044,7 +1044,7 @@ struct SaveBlock1
     /*0x3B14*/ struct RecordMixingGift recordMixingGift;
     /*0x988*/ u8 pokedexBitFlags1[NUM_DEX_FLAG_BYTES];
     /*0x3B24*/ u8 pokedexBitFlags2[NUM_DEX_FLAG_BYTES];
-    /*0x3B58*/ LilycoveLady lilycoveLady;
+    /*0x3B58*/ LilycoveLady lilycoveLady; // the values after here will get stomped if NUM_SPECIES is adjusted during updates
     /*0x3B98*/ struct TrainerNameRecord trainerNameRecords[20];
     /*0x3C88*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
     /*0x3D70*/ struct WaldaPhrase waldaPhrase;

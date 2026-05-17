@@ -18,6 +18,8 @@ enum
     FLAG_SET_SEEN,
     FLAG_SET_CAUGHT,
     FLAG_SET_CAUGHT_SHINY,
+    
+    FLAG_SET_NONE,
 };
 
 void ResetPokedex(void);

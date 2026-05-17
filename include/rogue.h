@@ -717,6 +717,7 @@ struct RogueSaveBlock
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;
+    u16 lastKnownNumSpecies;
     u8 seasonCounter;
 };
 

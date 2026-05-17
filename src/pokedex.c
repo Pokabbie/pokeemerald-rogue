@@ -4284,6 +4284,9 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
     {
         switch (caseId)
         {
+        case FLAG_SET_NONE:
+            dexState = DEX_STATE_NONE;
+            break;
         case FLAG_SET_SEEN:
             dexState = max(dexState, DEX_STATE_SEEN);
             break;
