@@ -1207,7 +1207,9 @@ void RogueQuest_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
         // Notify of any newly added quests (Ignore masteries)
         if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT) && !RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MON_MASTERY))
         {
-            if(fromVersion < rewardInfo->addedInVersion)
+            struct RogueQuestEntry const* entry = RogueQuest_GetEntry(i);
+
+            if(fromVersion < entry->addedInVersion)
             {
                 struct CustomPopup popup = {0};
                 popup.itemIcon = ITEM_QUEST_LOG;
