@@ -48486,7 +48486,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 	[23] = 
 	{
 		112,
-		128,
+		224,
 		128,
 		7,
 		128,
