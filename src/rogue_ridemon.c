@@ -332,6 +332,14 @@ static bool8 CanCycleRideMons()
     return !Rogue_IsRideMonFlying() && !Rogue_IsRideMonSwimming();
 }
 
+static bool8 IsSafeToSwapRideMons()
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    // Only swap when player is at a valid tile position
+    return (player->currentCoords.x == player->previousCoords.x && player->currentCoords.y == player->previousCoords.y);
+}
+
 bool8 Rogue_HandleRideMonInput()
 {
     if(Rogue_IsRideActive())
@@ -339,28 +347,31 @@ bool8 Rogue_HandleRideMonInput()
         // Cycle through mons, when pressing L or R
         if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_BASIC || (FlagGet(FLAG_SYS_RIDING_ACCESS_DAYCARE) && sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD))
         {
-            if(JOY_NEW(L_BUTTON))
+            if(IsSafeToSwapRideMons())
             {
-                if(CanCycleRideMons())
+                if(JOY_NEW(L_BUTTON))
                 {
-                    CalculateRideSpecies(-1);
-                    PlayRideMonCry();
+                    if(CanCycleRideMons())
+                    {
+                        CalculateRideSpecies(-1);
+                        PlayRideMonCry();
+                    }
+                    else
+                    {
+                        PlaySE(SE_FAILURE);
+                    }
                 }
-                else
+                else if(JOY_NEW(R_BUTTON))
                 {
-                    PlaySE(SE_FAILURE);
-                }
-            }
-            else if(JOY_NEW(R_BUTTON))
-            {
-                if(CanCycleRideMons())
-                {
-                    CalculateRideSpecies(1);
-                    PlayRideMonCry();
-                }
-                else
-                {
-                    PlaySE(SE_FAILURE);
+                    if(CanCycleRideMons())
+                    {
+                        CalculateRideSpecies(1);
+                        PlayRideMonCry();
+                    }
+                    else
+                    {
+                        PlaySE(SE_FAILURE);
+                    }
                 }
             }
         }
