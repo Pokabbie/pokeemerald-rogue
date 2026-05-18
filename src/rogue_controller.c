@@ -9033,7 +9033,8 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
     bool8 applyPriceRange = TRUE;
-    u16 randomChanceMinimum = 0;
+    u16 randomChanceMinimum = 10;
+    u16 randomChanceGymRate = 5;
     u16 maxPriceRange = 65000;
     u16 originalItemCategory = itemCategory;
     u16 randomSeed;
@@ -9189,6 +9190,8 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
             }
         }
         applyRandomChance = TRUE;
+        randomChanceMinimum = 20;
+        randomChanceGymRate = 3;
         break;
 
     case ROGUE_SHOP_HELD_ITEMS:
@@ -9377,14 +9380,12 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
 
                 if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
                 {
-                    chance = 10 + 5 * difficulty;
+                    chance = randomChanceMinimum + randomChanceGymRate * difficulty;
                 }
                 else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
                 {
                     chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
                 }
-
-                chance = max(randomChanceMinimum, chance);
 
                 if(chance < 100)
                 {
