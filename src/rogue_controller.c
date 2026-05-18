@@ -9189,7 +9189,6 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
             }
         }
         applyRandomChance = TRUE;
-        randomChanceMinimum = 50;
         break;
 
     case ROGUE_SHOP_HELD_ITEMS:
