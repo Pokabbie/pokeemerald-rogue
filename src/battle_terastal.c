@@ -436,10 +436,10 @@ static const u8 ALIGNED(4) sStellarIndicatorGfx[] = INCBIN_U8("graphics/battle_i
 static void SpriteCb_TeraIndicator(struct Sprite *sprite);
 static const s8 sIndicatorPositions[][2] =
 {
-    [B_POSITION_PLAYER_LEFT] = {53, -9},
-    [B_POSITION_OPPONENT_LEFT] = {44, -9},
-    [B_POSITION_PLAYER_RIGHT] = {52, -9},
-    [B_POSITION_OPPONENT_RIGHT] = {44, -9},
+    [B_POSITION_PLAYER_LEFT] = {49, -9},
+    [B_POSITION_OPPONENT_LEFT] = {40, -9},
+    [B_POSITION_PLAYER_RIGHT] = {48, -9},
+    [B_POSITION_OPPONENT_RIGHT] = {40, -9},
 };
 
 static const struct SpritePalette sSpritePalette_TeraIndicator =
@@ -449,8 +449,8 @@ static const struct SpritePalette sSpritePalette_TeraIndicator =
 
 static const struct OamData sOamData_TeraIndicator =
 {
-    .shape = SPRITE_SHAPE(16x16),
-    .size = SPRITE_SIZE(16x16),
+    .shape = SPRITE_SHAPE(8x16),
+    .size = SPRITE_SIZE(8x16),
     .priority = 1,
 };
 
