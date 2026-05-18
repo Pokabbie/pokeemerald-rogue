@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PokemonDataGenerator.Pokedex
 {
@@ -40,7 +42,10 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
 				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
 				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
-			}
+
+                // 2.1.1
+                fullDexes.Add(GatherResourceDexData("extras_colosseum", "Colosseum + XD", 3, "Orre Colosseum.csv"));
+            }
 			else
 			{
 				// Purposely order so the most recent regional dex is first
@@ -100,6 +105,9 @@ namespace PokemonDataGenerator.Pokedex
                 //fullDexes.Add(GatherDexData("legends_hyperspace", "Hyperspace", 9, "hyperspace")); // Not enough mons in this dex
                 fullDexes.Add(GatherDexData("legends_zafulldlc", "Z-A + DLC", 9, "lumiose-city", "hyperspace"));
                 //fullDexes.Add(GatherDexData("extras_champions", "Champions", 9, "champions"));
+
+                // 2.1.1
+                fullDexes.Add(GatherResourceDexData("extras_colosseum", "Colosseum + XD", 3, "Orre Colosseum.csv"));
             }
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
@@ -144,11 +152,11 @@ namespace PokemonDataGenerator.Pokedex
 				if (!string.IsNullOrEmpty(nextUri))
 				{
 					dex = ContentCache.GetJsonContent(nextUri.ToString());
-				}
-				else
-					break;
-			}
-		}
+                }
+                else
+                    break;
+            }
+        }
 
 		private static PokedexData GatherDexData(string name, string displayName, int genLimit, params string[] dexIds)
 		{

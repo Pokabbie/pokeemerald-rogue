@@ -732,6 +732,57 @@
                     "ABILITY_NONE",
                     "ABILITY_DRAGONIZE"
                 ]
+            },
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LUGIA",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": false,
+                "types":
+                [
+                    "TYPE_DARK",
+                    "TYPE_DARK"
+                ],
+                "moves":
+                [
+                    "MOVE_SHADOW_BALL",
+                    "MOVE_PURSUIT",
+                    "MOVE_DOOM_DESIRE",
+                    "MOVE_CRUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_LEVITATE",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LUGIA",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": false,
+                "types":
+                [
+                    "TYPE_DARK",
+                    "TYPE_DARK"
+                ],
+                "moves":
+                [
+                    "MOVE_SHADOW_SNEAK",
+                    "MOVE_PHANTOM_FORCE",
+                    "MOVE_DARK_PULSE",
+                    "MOVE_DARK_VOID"
+                ],
+                "abilities":
+                [
+                    "ABILITY_LEVITATE",
+                    "ABILITY_NONE",
+                    "ABILITY_NONE"
+                ]
             }
         ]
     }

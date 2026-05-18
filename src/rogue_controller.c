@@ -3481,7 +3481,7 @@ extern const u8 RogueMP_OnHostReloadInRun[];
 extern const u8 RogueMP_OnClientReloadInRun[];
 extern const u8 RogueMP_OnClientReloadInHub[];
 
-void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
+void Rogue_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
 {
     u32 i;
 
@@ -3496,13 +3496,13 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 
     FlagClear(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE);
 
-    if(RogueSave_GetVersionIdFor(fromNumber) < SAVE_VER_ID_2_1_0)
+    if(RogueSave_GetVersionIdFor(fromVersion) < SAVE_VER_ID_2_1_0)
     {
         // Reset mode, as we removed rainbow mode
         Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD);
     }
     
-    RogueQuest_NotifySaveVersionUpdated(fromNumber, toNumber);
+    RogueQuest_NotifySaveVersionUpdated(fromVersion, toVersion);
 
     // TODO - Hook up warnings here??
     //if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))

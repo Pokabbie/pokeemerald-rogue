@@ -19,6 +19,8 @@
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
 
+STATIC_ASSERT(ROGUE_SAVE_VERSION + 1 ==  SAVE_VER_ID_LATEST, SaveVersionMatches);
+
 #define ROGUE_SAVE_BLOCK_CAPACITY (sizeof(struct BoxPokemon) * IN_BOX_COUNT * LEFTOVER_BOXES_COUNT)
 
 enum
@@ -344,7 +346,7 @@ void RogueSave_OnSaveLoaded()
 
     if(gRogueSaveBlock->saveVersion != ROGUE_SAVE_VERSION)
     {
-        Rogue_NotifySaveVersionUpdated(gRogueSaveBlock->saveVersion, ROGUE_SAVE_VERSION);
+        Rogue_NotifySaveVersionUpdated(RogueSave_GetVersionIdFor(gRogueSaveBlock->saveVersion), RogueSave_GetVersionIdFor(ROGUE_SAVE_VERSION));
     }
 
     if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
