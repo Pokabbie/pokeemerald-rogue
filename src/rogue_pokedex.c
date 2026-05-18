@@ -4146,7 +4146,15 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
 {
 #ifdef ROGUE_EXPANSION
-    species = GET_BASE_SPECIES_ID(species);
+    switch(species)
+    {
+    // It's not but we are treating it as is it is
+    case SPECIES_FLOETTE_ETERNAL_FLOWER:
+        // don't use base species
+        break;
+    default:
+        species = GET_BASE_SPECIES_ID(species);
+    }
 #endif
 
     switch(species)

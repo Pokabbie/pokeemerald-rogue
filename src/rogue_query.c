@@ -26,7 +26,7 @@
 #include "rogue_trainers.h"
 
 #ifdef ROGUE_EXPANSION
-#define QUERY_NUM_SPECIES           PLACEHOLDER_START
+#define QUERY_NUM_SPECIES           (PLACEHOLDER_START + 1)
 #else
 #define QUERY_NUM_SPECIES           NUM_SPECIES
 #endif
