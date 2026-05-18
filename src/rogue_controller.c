@@ -6430,6 +6430,7 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots)
                 // Try to put held item back in bag
                 if(heldItem != ITEM_NONE && AddBagItem(heldItem, 1))
                 {
+                    Rogue_PushPopup_AddItem(heldItem, 1);
                     heldItem = ITEM_NONE;
                     SetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM, &heldItem);
                 }
@@ -6546,8 +6547,10 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 {
                     // Dead so give back held item
                     u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
-                    if(heldItem != ITEM_NONE)
-                        AddBagItem(heldItem, 1);
+                    if(heldItem != ITEM_NONE && AddBagItem(heldItem, 1))
+                    {
+                        Rogue_PushPopup_AddItem(heldItem, 1);
+                    }
                 }
 
                 // Only push mons if run is active
