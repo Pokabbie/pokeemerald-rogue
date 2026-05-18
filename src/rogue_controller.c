@@ -2520,7 +2520,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
             case ITEM_STARAPTITE:
             case ITEM_GARCHOMPITE_Z:
             case ITEM_LUCARIONITE_Z:
-            case ITEM_GOLURKITE:
             case ITEM_GOLISOPITE:
             case ITEM_MAGEARNITE:
             case ITEM_BAXCALIBRITE:
