@@ -11074,6 +11074,12 @@ bool32 TryBattleFormChange(u32 battler, u16 method)
         SetMonData(&party[monId], MON_DATA_SPECIES, &targetSpecies);
         gBattleMons[battler].species = targetSpecies;
         RecalcBattlerStats(battler, &party[monId]);
+
+        if(side == B_SIDE_PLAYER)
+            HandleSetPokedexFlag(targetSpecies, IsMonShiny(&party[monId]) ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+        else
+            HandleSetPokedexFlag(targetSpecies, FLAG_SET_SEEN, gBattleMons[battler].personality);
+            
         return TRUE;
     }
     else if (gBattleStruct->changedSpecies[side][monId] != SPECIES_NONE)
@@ -11098,6 +11104,12 @@ bool32 TryBattleFormChange(u32 battler, u16 method)
             TryToSetBattleFormChangeMoves(&party[monId], method);
             SetMonData(&party[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[side][monId]);
             RecalcBattlerStats(battler, &party[monId]);
+
+            if(side == B_SIDE_PLAYER)
+                HandleSetPokedexFlag(targetSpecies, IsMonShiny(&party[monId]) ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+            else
+                HandleSetPokedexFlag(targetSpecies, FLAG_SET_SEEN, gBattleMons[battler].personality);
+
             return TRUE;
         }
     }
