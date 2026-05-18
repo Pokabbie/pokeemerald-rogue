@@ -280,6 +280,12 @@ void Rogue_GenerateModeRules(struct GameModeRules* outRules)
         outRules->disableChallengeQuests = TRUE;
     }
 
+    if(AnyCharmsActive())
+    {
+        goutRules->disableMainQuests = TRUE;
+        outRules->disableChallengeQuests = TRUE;
+    }
+
     DebugPrintf("initialLevelOffset: %d", outRules->initialLevelOffset);
     DebugPrintf("levelOffsetInterval: %d", outRules->levelOffsetInterval);
     DebugPrintf("enterPartySize: %d", outRules->enterPartySize);
@@ -304,9 +310,6 @@ bool8 Rogue_ShouldDisableMainQuests()
         return TRUE;
 
     if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
-        return TRUE;
-
-    if(Rogue_IsRunActive() && AnyCharmsActive())
         return TRUE;
     
     return FALSE;
