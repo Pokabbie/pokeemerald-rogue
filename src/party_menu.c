@@ -6115,7 +6115,7 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
     if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
         StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     else
-        GetMedicineItemEffectMessage(item, STATUS1_ANY);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHealed);
 		
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
@@ -6136,7 +6136,7 @@ static void Task_DisplayHPRestoredMessage_StayInMenu(u8 taskId)
     if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
         StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     else
-        GetMedicineItemEffectMessage(item, STATUS1_ANY);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHealed);
 
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);

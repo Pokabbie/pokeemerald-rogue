@@ -519,6 +519,7 @@ extern const u8 *const gPocketNamesStringsTable[];
 
 // party menu text
 extern const u8 gText_PkmnHPRestoredByVar2[];
+extern const u8 gText_PkmnHealed[];
 extern const u8 gText_CantBeUsedOnPkmn[];
 extern const u8 gText_CancelParticipation[];
 extern const u8 gText_PkmnWasGivenItem[];
