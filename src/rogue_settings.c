@@ -282,7 +282,7 @@ void Rogue_GenerateModeRules(struct GameModeRules* outRules)
 
     if(AnyCharmsActive())
     {
-        goutRules->disableMainQuests = TRUE;
+        outRules->disableMainQuests = TRUE;
         outRules->disableChallengeQuests = TRUE;
     }
 
