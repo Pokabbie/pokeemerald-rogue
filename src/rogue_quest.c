@@ -463,7 +463,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         break;
 
     case QUEST_REWARD_QUEST_UNLOCK:
-        RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
+        state = RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
         break;
 
     case QUEST_REWARD_FLAG:
@@ -1149,6 +1149,7 @@ void RogueDebug_FillMonMasteries()
 }
 
 static const u8 sText_Popup_QuestUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Added");
+static const u8 sText_Popup_QuestReset[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Quest Reset");
 
 static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 toVersion)
 {
@@ -1204,6 +1205,28 @@ void RogueQuest_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
             TryCollectAddedSaveVersionRewards(i, fromVersion, toVersion);
         }
 
+        if(RogueQuest_IsQuestUnlocked(i))
+        {
+            struct RogueQuestEntry const* entry = RogueQuest_GetEntry(i);
+            struct RogueQuestState* state = RogueQuest_GetState(i);
+            
+            if(fromVersion < entry->resetProgressInVersion && RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+            {
+                struct CustomPopup popup = {0};
+                popup.itemIcon = ITEM_QUEST_LOG;
+                popup.soundEffect = 0;
+                popup.fanfare = 0;
+                popup.titleStr = RogueQuest_GetTitle(i);
+                popup.subtitleStr = sText_Popup_QuestReset;
+                Rogue_PushPopup_CustomPopup(&popup);
+
+                RogueQuest_SetStateFlag(i, QUEST_STATE_HAS_COMPLETE, FALSE);
+                RogueQuest_SetStateFlag(i, QUEST_STATE_PENDING_REWARDS, FALSE);
+                state->highestCompleteDifficulty = DIFFICULTY_LEVEL_NONE;
+                state->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+            }
+        }
+        
         // Notify of any newly added quests (Ignore masteries)
         if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT) && !RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MON_MASTERY))
         {

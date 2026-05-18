@@ -158,6 +158,7 @@ struct RogueQuestEntry
     u16 triggerCount;
     u16 requirementCount;
     u16 addedInVersion;
+    u16 resetProgressInVersion;
 };
 
 u8 const* RogueQuest_GetTitle(u16 questId);

@@ -3,7 +3,7 @@
 // When changing this, make sure to:
 // -bump ROGUE_SAVE_VERSION in rogue_save.h
 // -update SAVE_VER_ID_X_Y_Z enum in rogue_save.h
-const u8 gText_RogueVersion[] = _("v2.1.0");
+const u8 gText_RogueVersion[] = _("v2.1.1");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX");

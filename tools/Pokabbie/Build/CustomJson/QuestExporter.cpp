@@ -143,6 +143,7 @@ struct QuestInfo
 	std::string questId;
 	std::string preprocessorCondition;
 	std::string addedInVersion;
+	std::string resetProgressInVersion;
 	std::string displayGroup;
 	std::string displayGroupOrder;
 	bool isUnlockedViaReward;
@@ -566,6 +567,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		fileStream << c_TabSpacing2 << ".desc = gQuestDescText_" << quest.GetUniqueWriteId() << ",\n";
 		fileStream << c_TabSpacing2 << ".flags = " << FlagsToString("QUEST_CONST_", quest.flags) << ",\n";
 		fileStream << c_TabSpacing2 << ".addedInVersion = " << quest.addedInVersion << ",\n";
+		fileStream << c_TabSpacing2 << ".resetProgressInVersion = " << quest.resetProgressInVersion << ",\n";
 
 		fileStream << c_TabSpacing2 << ".triggers = sTriggers_" << quest.GetUniqueWriteId() << ",\n";
 		fileStream << c_TabSpacing2 << ".triggerCount = ARRAY_COUNT(sTriggers_" << quest.GetUniqueWriteId() << "),\n";
@@ -1072,6 +1074,11 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 				quest.addedInVersion = quest.questObj["added_in_version"].get<std::string>();
 			else
 				quest.addedInVersion = "SAVE_VER_ID_2_0_0";
+
+			if (quest.questObj.contains("reset_progress_in_version"))
+				quest.resetProgressInVersion = quest.questObj["reset_progress_in_version"].get<std::string>();
+			else
+				quest.resetProgressInVersion = "SAVE_VER_ID_2_0_0";
 
 			// Display Group Name
 			if (quest.questObj.contains("display_group"))
