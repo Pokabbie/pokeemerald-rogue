@@ -1348,7 +1348,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP)
         {
             u8 pocket = ItemId_GetPocket(itemId);
             amount = 1;
