@@ -37,7 +37,7 @@
 #define HUD_TAG_SPRITE_SANDSTORM            0x1209
 #define HUD_TAG_SPRITE_DEX_PROMPT           0x120A
 
-#define MAX_OVERLAY_SPRITES 40
+#define MAX_OVERLAY_SPRITES 42
 
 // Want to sit at default priority (2) so we sort  
 
@@ -136,7 +136,7 @@ static const struct SpriteTemplate sWhirlwindSpriteTemplate =
 {
     .tileTag = HUD_TAG_SPRITE_WHIRLWIND,
     .paletteTag = HUD_TAG_PALETTE_1,
-    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -481,7 +481,10 @@ void RogueBH_CreateBattleOverlay()
 
             // Tailwind
             if(hasTailwind)
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -64, 82, SUBPRIORITY_PLAYER_ABOVE);
+            {
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -54, 72, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -64, 92, SUBPRIORITY_PLAYER_ABOVE);
+            }
         }
 
         // Opponent
@@ -562,7 +565,10 @@ void RogueBH_CreateBattleOverlay()
 
             // Tailwind
             if(hasTailwind)
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 264, 32, SUBPRIORITY_ENEMY_ABOVE);
+            {
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 254, 22, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 264, 42, SUBPRIORITY_ENEMY_ABOVE);
+            }
         }
 
         AGB_ASSERT(spriteCount <= MAX_OVERLAY_SPRITES);
