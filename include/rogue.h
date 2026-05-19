@@ -130,7 +130,6 @@ struct RogueAdvPath
     u8 currentRoomType;
     u8 roomCount;
     u8 pathLength;
-    u8 experimental_RouteColumn; // todo maybe union this?
     s8 pathMinY;
     s8 pathMaxY;
     u8 isOverviewActive : 1;

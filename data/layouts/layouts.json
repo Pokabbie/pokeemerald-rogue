@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROGUE_ADVENTURE_PATHS",
       "name": "Rogue_AdventurePaths_Layout",
       "width": 44,
-      "height": 30,
+      "height": 44,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_AdventurePaths",
       "border_filepath": "data/layouts/Rogue_AdventurePaths/border.bin",
