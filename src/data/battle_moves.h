@@ -13912,7 +13912,7 @@ const struct BattleMove gBattleMoves_Mainline[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_MAKE_IT_RAIN] =
     {
-        .effect = EFFECT_MAKE_IT_RAIN,
+        .effect = EFFECT_PAY_DAY,
         .power = 120,
         .type = TYPE_STEEL,
         .accuracy = 100,
