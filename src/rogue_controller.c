@@ -5076,7 +5076,7 @@ static void ChooseLegendarysForNewAdventure()
         gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(2, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
 
-        if(gRogueRun.gameRules.adventureGenerator = ADV_GENERATOR_EXPERIMENTAL)
+        if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // Snap to paths where no routes are present
             gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] / 2) * 2;
@@ -5088,7 +5088,7 @@ static void ChooseLegendarysForNewAdventure()
         gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 1 + RogueRandomRange(5, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
 
-        if(gRogueRun.gameRules.adventureGenerator = ADV_GENERATOR_EXPERIMENTAL)
+        if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // Snap to paths where no routes are present
             gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = (gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] / 2) * 2;
@@ -5100,7 +5100,7 @@ static void ChooseLegendarysForNewAdventure()
         gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_GYM_MID_DIFFICULTY - 1 + RogueRandomRange(3, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
 
-        if(gRogueRun.gameRules.adventureGenerator = ADV_GENERATOR_EXPERIMENTAL)
+        if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // Snap to paths where no routes are present
             gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] / 2) * 2;
@@ -5219,7 +5219,7 @@ static void ChooseTeamEncountersForNewAdventure()
     {
         gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] = 2 + RogueRandomRange(3, 0);
 
-        if(gRogueRun.gameRules.adventureGenerator = ADV_GENERATOR_EXPERIMENTAL)
+        if(gRogueRun.gameRules.adventureGenerator == ADV_GENERATOR_EXPERIMENTAL)
         {
             // Snap to paths where no routes are present
             gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] = (gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] / 2) * 2;
