@@ -15,7 +15,7 @@ ASSUMPTIONS
 
     // Electro shot - check for rain
     //ASSUME(HIHALF(gBattleMoves[MOVE_ELECTRO_SHOT].argument) == B_WEATHER_RAIN);
-    ASSUME(gBattleMoves[MOVE_ELECTRO_SHOT].effect == EFFECT_TWO_TURNS_ATTACK);
+    ASSUME(gBattleMoves[MOVE_ELECTRO_SHOT].effect == EFFECT_ELECTRO_SHOT);
     //ASSUME(MoveHasAdditionalEffectSelf(MOVE_ELECTRO_SHOT, MOVE_EFFECT_SP_ATK_PLUS_1) == TRUE);
 }
 

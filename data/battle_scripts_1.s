@@ -848,7 +848,6 @@ BattleScript_CorrosiveGasFail:
 
 BattleScript_EffectMakeItRain::
 	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	seteffectprimary
 	goto BattleScript_SetEffectPrimaryReturn
 
 BattleScript_EffectClangingScales::
