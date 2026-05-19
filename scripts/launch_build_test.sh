@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
 
-testToRunPrefix="Make It Rain lowers special attack by one stage if it hits both"
+testToRunPrefix="Electro Shot "
 
 echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
 make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"
