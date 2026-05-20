@@ -349,19 +349,7 @@ bool8 Rogue_HandleRideMonInput()
         {
             if(IsSafeToSwapRideMons())
             {
-                if(JOY_NEW(L_BUTTON))
-                {
-                    if(CanCycleRideMons())
-                    {
-                        CalculateRideSpecies(-1);
-                        PlayRideMonCry();
-                    }
-                    else
-                    {
-                        PlaySE(SE_FAILURE);
-                    }
-                }
-                else if(JOY_NEW(R_BUTTON))
+                if(JOY_NEW(R_BUTTON))
                 {
                     if(CanCycleRideMons())
                     {

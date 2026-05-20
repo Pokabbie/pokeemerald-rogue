@@ -40,7 +40,7 @@
 
 struct FollowMonData
 {
-    //u32 slotUniqueIds[FOLLOWMON_MAX_SPAWN_SLOTS];
+    u32 slotUniqueIds[FOLLOWMON_MAX_SPAWN_SLOTS];
     bool8 pendingInterction;
     u8 activeCount;
     u8 encounterChainCount;
@@ -53,7 +53,6 @@ struct FollowMonData
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
-static u32* sFollowMonCustomIds = NULL;
 
 extern const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES];
 
@@ -365,24 +364,7 @@ void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies, u32 otId)
 {
     u32 customMonId = RogueGift_GetCustomMonIdBySpecies(gfxSpecies > FOLLOWMON_SHINY_OFFSET ? (gfxSpecies - FOLLOWMON_SHINY_OFFSET) : gfxSpecies, otId);
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
-
-    if(sFollowMonCustomIds != NULL)
-    {
-        sFollowMonCustomIds[id] = 0;
-    }
-
-    if(customMonId != 0)
-    {
-        if(sFollowMonCustomIds == NULL)
-        {
-            sFollowMonCustomIds = AllocZeroed(sizeof(u32) * FOLLOWMON_MAX_SPAWN_SLOTS);
-        }
-
-        if(sFollowMonCustomIds != NULL)
-        {
-            sFollowMonCustomIds[id] = customMonId;
-        }
-    }
+    sFollowMonData.slotUniqueIds[id] = customMonId;
 }
 
 void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon)
@@ -432,11 +414,7 @@ u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
     {
         // Base of graphics slot
         species = FollowMon_GetGraphics(palSlot - 1);
-
-        if(sFollowMonCustomIds != NULL)
-        {
-            customMonId = sFollowMonCustomIds[palSlot - 1];
-        }
+        customMonId = sFollowMonData.slotUniqueIds[palSlot - 1];
     }
 
     objectEventPal = gFollowMonGraphicsInfo[species].normalPal;

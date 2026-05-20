@@ -517,9 +517,9 @@ void RogueDebug_GiveDynamicUniqueMon()
 {
 #ifdef ROGUE_DEBUG
     struct Pokemon* mon = &gEnemyParty[0];
-    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AIPOM);
+    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AERODACTYL);
 
-    RogueGift_CreateMon(customMonId, mon, SPECIES_AIPOM, STARTER_MON_LEVEL, 0);
+    RogueGift_CreateMon(customMonId, mon, SPECIES_AERODACTYL, STARTER_MON_LEVEL, 0);
     GiveTradedMonToPlayer(mon);
 #endif
 }
