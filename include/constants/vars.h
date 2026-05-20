@@ -91,7 +91,7 @@
 #define VAR_ROGUE_COURIER_ITEM               0x4047
 #define VAR_ROGUE_COURIER_COUNT              0x4048
 #define VAR_ROGUE_ALWAYS_ZERO                0x4049 // used for map scripts in gyms
-#define VAR_UNUSED_0x404A                    0x404A
+#define VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL  0x404A
 #define VAR_UNUSED_0x404B                    0x404B
 #define VAR_UNUSED_0x404C                    0x404C
 #define VAR_UNUSED_0x404D                    0x404D

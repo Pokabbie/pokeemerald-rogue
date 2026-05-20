@@ -1818,6 +1818,11 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         //    }
         //}
 
+        if(gRogueRun.gameRules.trainerBattleWinningsPerc != 0)
+        {
+            *money = ((*money) * gRogueRun.gameRules.trainerBattleWinningsPerc) / 100;
+        }
+
         // Snap/Floor to multiple of ten
         if(*money > 100)
         {
@@ -3385,6 +3390,8 @@ void Rogue_OnNewGame(void)
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
+    FlagSet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
+    
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
     FlagClear(FLAG_ROGUE_WILD_SAFARI);
@@ -3483,6 +3490,8 @@ extern const u8 RogueMP_OnClientReloadInHub[];
 void Rogue_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
 {
     u32 i;
+
+    FlagSet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
 
     if(Rogue_IsRunActive())
         gRogueLocal.hasSaveWarningPending = TRUE;
@@ -4428,6 +4437,12 @@ static bool8 CanBringInHeldItem(u16 itemId)
 static void BeginRogueRun_ModifyParty(void)
 {
     u16 starterSpecies = VarGet(VAR_STARTER_SWAP_SPECIES);
+    u32 startLevel = STARTER_MON_LEVEL;
+
+    if(gRogueRun.gameRules.initialLevelOverride != 0)
+    {
+        startLevel = gRogueRun.gameRules.initialLevelOverride;
+    }
 
     FlagClear(FLAG_ROGUE_HAS_RANDOM_STARTER);
 
@@ -4464,7 +4479,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
 
                 // Force to starter lvl
-                exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
+                exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, startLevel);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
                 // Adjust item
@@ -4487,7 +4502,7 @@ static void BeginRogueRun_ModifyParty(void)
 
             if(species != SPECIES_NONE)
             {
-                u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, STARTER_MON_LEVEL);
+                u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, startLevel);
                 SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
                 
                 temp = 0;
@@ -4731,7 +4746,7 @@ static void BeginRogueRun(void)
     gRogueRun.currentLevelOffset = gRogueRun.gameRules.initialLevelOffset;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
-    if(gRogueRun.currentLevelOffset == 0)
+    if(gRogueRun.currentLevelOffset == 0 && gRogueRun.gameRules.initialLevelOverride != 0)
     {
         // Apply default
         gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
@@ -10210,13 +10225,13 @@ u8 GetCurrentDropRarity()
     switch (gRogueAdvPath.currentRoomType)
     {
     case ADVPATH_ROOM_ROUTE:
-        return gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
+        return gRogueRun.gameRules.itemDropRarityInc + gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
     
     case ADVPATH_ROOM_TEAM_HIDEOUT:
-        return 3;
+        return gRogueRun.gameRules.itemDropRarityInc + 3;
     }
 
-    return 0;
+    return gRogueRun.gameRules.itemDropRarityInc;
 }
 
 static void RandomiseItemContent(u8 difficultyLevel)

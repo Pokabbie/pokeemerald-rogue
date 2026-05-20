@@ -246,9 +246,12 @@ struct RoguePartySnapshot
 struct GameModeRules
 {
     u8 initialLevelOffset;
+    u8 initialLevelOverride;
     u8 levelOffsetInterval;
     u8 enterPartySize;
     u8 adventureGenerator;
+    u8 itemDropRarityInc;
+    u8 trainerBattleWinningsPerc;
     u8 trainerOrder : 2;
     u8 disableMainQuests : 1;
     u8 disableChallengeQuests : 1;
