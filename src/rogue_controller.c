@@ -3832,7 +3832,10 @@ static void TryAutoItemPickup()
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     elevation = PlayerGetElevation();
 
-    if(gRogueLocal.autoPickupLastX == x && gRogueLocal.autoPickupLastY == y || Rogue_IsRideMonFlying())
+    if(gRogueLocal.autoPickupLastX == x && gRogueLocal.autoPickupLastY == y)
+        return;
+
+    if(Rogue_IsRideMonFlying())
         return;
 
     if(Rogue_IsRunActive())
