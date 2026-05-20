@@ -1189,7 +1189,7 @@ static u16 GetDisplayedOverviewSpecies(u16 species)
 		    // Only consider regional variants
             if(gSpeciesInfo[formTable[i]].isAlolanForm || gSpeciesInfo[formTable[i]].isGalarianForm || gSpeciesInfo[formTable[i]].isHisuianForm || gSpeciesInfo[formTable[i]].isPaldeanForm)
             {
-                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN) && RoguePokedex_IsSpeciesEnabled(formTable[i]))
                 {
                     return formTable[i];
                 }
