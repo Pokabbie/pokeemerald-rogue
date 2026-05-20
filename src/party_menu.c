@@ -5091,7 +5091,7 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 f
                 DisplayPartyMenuMessage(gStringVar4, TRUE);
                 ScheduleBgCopyTilemapToVram(2);
                 if (forceStayInPartyMenu || ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1)))
-                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+                    gTasks[taskId].func = forceStayInPartyMenu ? Task_DisplayHPRestoredMessage_StayInMenu : Task_ReturnToChooseMonAfterText;
                 else
                     gTasks[taskId].func = task;
             }
@@ -5106,15 +5106,8 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
 {
-    u16 item = gSpecialVar_ItemId;
-
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
-    
-    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
-        StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
-    else
-        StringExpandPlaceholders(gStringVar4, gText_PkmnHealed);
-
+    StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
@@ -5126,12 +5119,10 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
 }
 
 static void Task_DisplayHPRestoredMessage_StayInMenu(u8 taskId)
-{
-    u16 item = gSpecialVar_ItemId;
-    
+{    
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
 
-    if(GetItemEffectType(item) == ITEM_EFFECT_HEAL_HP)
+    if(GetItemEffectType(gSpecialVar_ItemId) == ITEM_EFFECT_HEAL_HP)
         StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     else
         StringExpandPlaceholders(gStringVar4, gText_PkmnHealed);
