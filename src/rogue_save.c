@@ -166,7 +166,7 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     else
     {
 #ifdef ROGUE_EXPANSION
-        saveBlock->lastKnownNumSpecies = SPECIES_PIKIN_MEGA;
+        saveBlock->lastKnownNumSpecies = SPECIES_PIKIN_MEGA + 1;
 #else
         saveBlock->lastKnownNumSpecies = NUM_SPECIES;
 #endif
