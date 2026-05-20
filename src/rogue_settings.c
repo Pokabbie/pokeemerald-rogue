@@ -46,8 +46,9 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     [ROGUE_GAME_MODE_STANDARD] = {}, // we should never have anything here, every rule/flag should default to off in standard
     [ROGUE_GAME_MODE_GAUNTLET] = 
     {
-        .initialLevelOffset = 80,
-        .levelOffsetInterval = 10,
+        .initialLevelOverride = 100,
+        .initialLevelOffset = 0,
+        .levelOffsetInterval = 0,
         .enterPartySize = PARTY_SIZE,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
@@ -61,6 +62,8 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     },
     [ROGUE_GAME_MODE_EXPERIMENTAL] = 
     {
+        .itemDropRarityInc = 1,
+        .trainerBattleWinningsPerc = 125,
         .adventureGenerator = ADV_GENERATOR_EXPERIMENTAL,
     }
 };
@@ -248,6 +251,12 @@ void Rogue_SetConfigRange(u16 elem, u8 value)
         if(IsDifficultyRange(elem))
             config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
     }
+
+    if(elem == CONFIG_RANGE_GAME_MODE_NUM)
+    {
+        // Still need to regen in hub
+        Rogue_GenerateModeRules(&gRogueRun.gameRules);
+    }
 }
 
 u8 Rogue_GetConfigRange(u16 elem)
@@ -286,10 +295,13 @@ void Rogue_GenerateModeRules(struct GameModeRules* outRules)
         outRules->disableChallengeQuests = TRUE;
     }
 
+    DebugPrintf("initialLevelOverride: %d", outRules->initialLevelOverride);
     DebugPrintf("initialLevelOffset: %d", outRules->initialLevelOffset);
     DebugPrintf("levelOffsetInterval: %d", outRules->levelOffsetInterval);
     DebugPrintf("enterPartySize: %d", outRules->enterPartySize);
     DebugPrintf("adventureGenerator: %d", outRules->adventureGenerator);
+    DebugPrintf("itemDropRarityInc: %d", outRules->itemDropRarityInc);
+    DebugPrintf("trainerBattleWinningsPerc: %d", outRules->trainerBattleWinningsPerc);
     DebugPrintf("trainerOrder: %d", outRules->trainerOrder);
     DebugPrintf("disableMainQuests: %d", outRules->disableMainQuests);
     DebugPrintf("disableChallengeQuests: %d", outRules->disableChallengeQuests);

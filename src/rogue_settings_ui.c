@@ -79,6 +79,9 @@ enum
     TD_PREVIOUS_MENUSELECTION_TOP,
 };
 
+
+static u8 const sMenu_SparkleIcon[] = _("{SPARKLE_ICON}");
+
 static u8 const sMenuName_Back[] = _("Back");
 static u8 const sMenuName_SaveAndExit[] = _("Save & Exit");
 static u8 const sMenuName_DifficultySubmenu[] = _("Edit Difficulty");
@@ -103,7 +106,7 @@ static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT
 
 static u8 const sMenuName_GameMode_Standard[] = _("Standard");
 static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
-static u8 const sMenuName_GameMode_Experimental[] = _("Experimental");
+static u8 const sMenuName_GameMode_Experimental[] = _("Fast Path");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
@@ -1304,19 +1307,106 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
-static bool8 IsMenuOptionActive(u8 menuOption)
+enum
+{
+    SETTINGS_UNLOCK_LEVEL_DEFAULT,
+    SETTINGS_UNLOCK_LEVEL_POST_GAME,
+    SETTINGS_UNLOCK_LEVEL_FINAL_QUEST,
+};
+
+u8 GetPrevMenuUnlockLevel()
+{
+    return VarGet(VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL);
+}
+
+u8 GetActiveMenuUnlockLevel()
+{
+    if(RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST))
+        return SETTINGS_UNLOCK_LEVEL_FINAL_QUEST;
+
+    if(FlagGet(FLAG_ROGUE_MET_POKABBIE))
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
+
+    return SETTINGS_UNLOCK_LEVEL_DEFAULT;
+}
+
+u8 GetMenuItemUnlockLevel(u8 menuOption)
 {
     switch (menuOption)
     {
+        // Sub menus
     case MENUITEM_MENU_TRAINERS_SUBMENU:
-    case MENUITEM_MENU_GAME_MODES_SUBMENU:
-        return FlagGet(FLAG_ROGUE_MET_POKABBIE);
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
+
+        // Options
+    case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+    case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
+    case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
+    case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
+#ifdef ROGUE_EXPANSION
+    case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
+    case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
+    case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
+    case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
+    case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+#endif
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
-        return RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST);
+        return SETTINGS_UNLOCK_LEVEL_FINAL_QUEST;
     }
 
-    return TRUE;
+    return SETTINGS_UNLOCK_LEVEL_DEFAULT;
+}
+
+static bool8 IsMenuOptionActive(u8 menuOption)
+{
+    u8 curr = GetActiveMenuUnlockLevel();
+
+    return GetMenuItemUnlockLevel(menuOption) <= curr;
+}
+
+static bool8 ShowMenuSparkles(u8 menuOption)
+{
+    u8 prev = GetPrevMenuUnlockLevel();
+    u8 curr = GetActiveMenuUnlockLevel();
+    u8 unlockLevel = GetMenuItemUnlockLevel(menuOption);
+
+    // Options to highlight for this patch
+    if(FlagGet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT))
+    {
+        if(menuOption == MENUITEM_MENU_SLIDER_GAME_MODE_EXPERIMENTAL)
+            return TRUE;
+    }
+
+    if(prev != curr)
+    {
+        if(unlockLevel > prev)
+            return TRUE;
+    }
+
+    if(prev != curr || FlagGet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT))
+    {
+        // Show sparkle if new item in sub menu is highlighted
+        if(menuOption >= MENUITEM_MENU_DIFFICULTY_SUBMENU && menuOption <= MENUITEM_MENU_GAME_MODES_SUBMENU)
+        {
+            u8 i;
+            u8 submenu = SUBMENUITEM_DIFFICULTY + menuOption - MENUITEM_MENU_DIFFICULTY_SUBMENU;
+
+            for(i = 0; i < MAX_MENUITEM_COUNT; ++i)
+            {
+                if(menuOption == MENUITEM_CANCEL)
+                    break;
+
+                if(IsMenuOptionActive(sOptionMenuEntries[submenu].menuOptions[i]) && ShowMenuSparkles(sOptionMenuEntries[submenu].menuOptions[i]))
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
 }
 
 static u8 GetMenuItemFor(u8 submenu, u8 index)
@@ -1583,6 +1673,9 @@ static void Task_OptionMenuFadeOut(u8 taskId)
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);
         // ScriptContext_Enable(); <- handled in savedCallback
+
+        VarSet(VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL, GetActiveMenuUnlockLevel());
+        FlagClear(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
     }
 }
 
@@ -2056,9 +2149,6 @@ static void Empty_DrawChoices(u8 menuOffset, u8 selection)
 
 static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
 {
-    u8 text[64];
-    u8* str;
-
     u8 menuItem = GetMenuItemFor(submenu, selection);
 
     FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
@@ -2083,9 +2173,17 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
     }
     else
     {
+        u8 text[64];
+        u8* str;
+
         // Element name
-        str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
-        //str = StringAppend(str, gText_DifficultyDoesntAffectReward); // TODO - hookup hint?
+        if(ShowMenuSparkles(menuItem))
+        {
+            str = StringCopy(text, sMenu_SparkleIcon);
+            str = StringCopy(str, sOptionMenuItems[menuItem].itemName);
+        }
+        else
+            str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
 
         AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 8, 1, TEXT_SKIP_DRAW, NULL);
 
@@ -2143,9 +2241,20 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
 
     for (i = 0; i < MAX_MENUITEM_TO_DISPLAY; i++)
     {
+        u8 text[64];
+        u8* str;
         u8 menuItem = GetMenuItemFor(submenu, i + topIndex);
 
-        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
+        // Element name
+        if(ShowMenuSparkles(menuItem))
+        {
+            str = StringCopy(text, sMenu_SparkleIcon);
+            str = StringCopy(str, sOptionMenuItems[menuItem].itemName);
+        }
+        else
+            str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
+            
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, text, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
 
         if(menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)
             break;
