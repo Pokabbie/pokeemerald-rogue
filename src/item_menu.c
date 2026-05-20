@@ -942,7 +942,8 @@ void VBlankCB_BagMenuRun(void)
 #define tListTaskId        data[0]
 #define tListPosition      data[1]
 #define tQuantity          data[2]
-#define tDefaultMaxItemCount data[3]
+#define tNeverRead         data[3] // don't fuck with this because it's breaking some strange edge cases 
+#define tDefaultMaxItemCount data[7]
 #define tItemCount         data[8]
 #define tMsgWindowId       data[10]
 #define tPocketSwitchDir   data[11]
@@ -1034,6 +1035,7 @@ static bool8 SetupBagMenu(void)
     case 14:
         taskId = CreateBagInputHandlerTask(gBagPosition.location);
         gTasks[taskId].tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
+        gTasks[taskId].tNeverRead = 0;
         gTasks[taskId].tItemCount = 0;
         gTasks[taskId].tDefaultMaxItemCount = FALSE;
         gMain.state++;
