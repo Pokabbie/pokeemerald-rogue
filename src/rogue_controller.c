@@ -7144,7 +7144,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                     for(i = 0; i < gPlayerPartyCount; ++i)
                     {
                         u8 lvl = GetMonData(&gPlayerParty[i], MON_DATA_TUTOR_MOVE_LVL);
-                        if(lvl < TUTOR_MOVE_LVL_COUNT_RUN)
+                        if(lvl + 1 < TUTOR_MOVE_LVL_COUNT_RUN)
                         {
                             lvl++;
                             SetMonData(&gPlayerParty[i], MON_DATA_TUTOR_MOVE_LVL, &lvl);
@@ -9061,6 +9061,9 @@ static void applyMartSeed(u16 itemCategory)
         break;
     case ROGUE_SHOP_TREATS:
         SeedRogueRng(gRogueRun.subSeeds[ROGUE_SUBSEED_SHOP_TREATS]);
+        break;
+    case ROGUE_SHOP_COURIER:
+        SeedRogueRng(gRogueAdvPath.rooms[gRogueRun.adventureRoomId].rngSeed);
         break;
     
     default:

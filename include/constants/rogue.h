@@ -771,7 +771,7 @@
 #define GYM_LEVEL_CAP_JUMP 10
 #define MON_DATA_TEMP_PARTNER_RIBBON        MON_DATA_EFFORT_RIBBON
 #define MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON MON_DATA_MARINE_RIBBON
-#define TUTOR_MOVE_LVL_COUNT_RUN            4
+#define TUTOR_MOVE_LVL_COUNT_RUN            4 // only 2 bits to track this so at cap at 3
 #define TUTOR_MOVE_LVL_COUNT_HUB            2
 
 

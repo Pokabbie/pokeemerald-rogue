@@ -17,7 +17,7 @@ const u8 gText_RogueVersionSuffix[] = _("(AUTOMATION)");
 const u8 gText_RogueVersionSpacer[] = _(" - ");
 const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
-const u8 gText_RogueVersionSpacer[] = _("");
+const u8 gText_RogueVersionSpacer[] = _(" - ");
 const u8 gText_RogueVersionSuffix[] = _("Z-A Royale pt.1");
 #endif
 
