@@ -99,8 +99,8 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
     gSaveBlock2Ptr->optionsSoundChannelSE = 10;
     gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
-    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_2X;
-    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_3X;
+    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_2X;
     gSaveBlock2Ptr->optionsBossBattleScene = OPTIONS_BATTLE_SCENE_1X;
     gSaveBlock2Ptr->optionsOverworldSpeed = OPTIONS_OW_SPEED_1X;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
