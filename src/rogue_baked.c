@@ -1469,6 +1469,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->fieldUseFunc = rogueItem->fieldUseFunc;
             outItem->battleUsage = rogueItem->battleUsage;
             outItem->secondaryId = rogueItem->secondaryId;
+            outItem->importance = 0;
 
             if(IsCharmItem(itemId))
             {
