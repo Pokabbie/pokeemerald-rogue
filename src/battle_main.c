@@ -3114,6 +3114,8 @@ static void BattleStartClearSetData(void)
     gBattleStruct->safariEscapeFactor = 3;
     gBattleStruct->wildVictorySong = 0;
     gBattleStruct->moneyMultiplier = 1;
+    gBattleStruct->moneyMultiplierItem = 0;
+    gBattleStruct->moneyMultiplierMove = 0;
 
     gBattleStruct->givenExpMons = 0;
     gBattleStruct->palaceFlags = 0;

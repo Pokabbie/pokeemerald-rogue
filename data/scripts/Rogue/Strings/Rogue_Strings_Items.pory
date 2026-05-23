@@ -252,7 +252,7 @@ text gItemDesc_PriorityCurse
 
 text gItemDesc_EndureCharm
 {
-    format("Friendly Pokémon have a 40% chance to endure OHKOs.")
+    format("Friendly Pokémon have a 60% chance to endure OHKOs.")
 }
 text gItemDesc_EndureCurse
 {
@@ -292,7 +292,7 @@ text gItemDesc_AdaptabilityCharm
 }
 text gItemDesc_AdaptabilityCurse
 {
-    format("Opponent Pokémon STAB increased by 50%.")
+    format("Opponent Pokémon STAB increased by 30%.")
 }
 
 text gItemDesc_ExtraLifeCharm
