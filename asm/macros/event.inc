@@ -1213,6 +1213,12 @@
 	.2byte \category
 	.endm
 
+	.macro rogue_custompokemart products:req currency:req
+	.byte 0xf6
+	.4byte \products
+	.2byte \currency
+	.endm
+
 	@ Starts up the slot machine minigame. id is a SLOT_MACHINE_* value that influences probabilities of certain reel outcomes.
 	.macro playslotmachine id:req
 	.byte 0x89

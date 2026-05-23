@@ -2112,6 +2112,16 @@ bool8 ScrCmd_rogue_dynamicpokemart(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_rogue_custompokemart(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+    u16 currency = VarGet(ScriptReadHalfword(ctx));
+
+    CreateCustomPokemartMenu(ptr, currency);
+    ScriptContext_Stop();
+    return TRUE;
+}
+
 bool8 ScrCmd_playslotmachine(struct ScriptContext *ctx)
 {
     u8 machineId = VarGet(ScriptReadHalfword(ctx));
