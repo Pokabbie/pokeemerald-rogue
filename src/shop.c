@@ -2072,15 +2072,18 @@ static u16 QueryShopItemListCallback(u16 index)
 
         switch (sMartInfo.dynamicMartCategory)
         {
-        case ROGUE_SHOP_GENERAL:
-        case ROGUE_SHOP_BALLS:
         case ROGUE_SHOP_TMS:
         case ROGUE_SHOP_BATTLE_ENHANCERS:
         case ROGUE_SHOP_HELD_ITEMS:
-        case ROGUE_SHOP_RARE_HELD_ITEMS:
         case ROGUE_SHOP_BERRIES:
-        case ROGUE_SHOP_TREATS:
             sortMode = ITEM_SORT_MODE_NAME;
+            showInventoryChanges = TRUE;
+            break;
+
+        case ROGUE_SHOP_GENERAL:
+        case ROGUE_SHOP_BALLS:
+        case ROGUE_SHOP_RARE_HELD_ITEMS:
+        case ROGUE_SHOP_TREATS:
             showInventoryChanges = TRUE;
             break;
 
