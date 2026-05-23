@@ -7839,7 +7839,7 @@ static void Cmd_weatherdamage(void)
     if (gAbsentBattlerFlags & gBitTable[gBattlerAttacker])
         gBattleMoveDamage = 0;
 
-    if(ActiveAlphaMonEndure(gBattlerAttacker))
+    if(gBattleMoveDamage > 0 && ActiveAlphaMonEndure(gBattlerAttacker))
     {
         if(gBattleMons[gBattlerAttacker].hp != 0 && gBattleMoveDamage >= gBattleMons[gBattlerAttacker].hp)
         {
