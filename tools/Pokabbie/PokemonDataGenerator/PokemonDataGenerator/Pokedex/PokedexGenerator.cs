@@ -209,7 +209,8 @@ namespace PokemonDataGenerator.Pokedex
 			JObject dex = ContentCache.GetJsonContent(uri);
 
 			bool isHGSS = target.InternalName.Equals("johto_HGSS", StringComparison.CurrentCultureIgnoreCase);
-			bool isClassicPlus = target.InternalName.Equals("rogue_classicplus", StringComparison.CurrentCultureIgnoreCase);
+            bool isConquest = target.InternalName.Equals("extras_conquest", StringComparison.CurrentCultureIgnoreCase);
+            bool isClassicPlus = target.InternalName.Equals("rogue_classicplus", StringComparison.CurrentCultureIgnoreCase);
 
 			foreach (JObject entry in dex["pokemon_entries"])
 			{
@@ -277,7 +278,9 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
-					else if (isClassicPlus)
+                    else if(isConquest)
+                        AppendDexMon_ExtraConquest(species, target);
+                    else if (isClassicPlus)
 						AppendDexMon_ExtraClassicPlus(species, target);
 
 					if (dexId == "blueberry")
@@ -333,7 +336,16 @@ namespace PokemonDataGenerator.Pokedex
 			return;
 		}
 
-		private static void AppendDexMon_ExtraHGSS(string species, PokedexData target)
+		private static void AppendDexMon_ExtraConquest(string species, PokedexData target)
+        {
+            if (species.Equals("steelix", StringComparison.CurrentCultureIgnoreCase))
+            {
+                target.Mons.Add("weedle");
+                target.Mons.Add("kakuna");
+            }
+        }
+
+        private static void AppendDexMon_ExtraHGSS(string species, PokedexData target)
 		{
 			if (species.Equals("magneton", StringComparison.CurrentCultureIgnoreCase))
 			{
