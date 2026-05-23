@@ -6533,6 +6533,11 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots)
 
             ZeroMonData(&gPlayerParty[slot]);
 
+#ifdef ROGUE_EXPANSION
+            // avoid reverting into this species
+            gBattleStruct->changedSpecies[B_SIDE_PLAYER][slot] = SPECIES_NONE;
+#endif
+
             if(compactPartySlots)
             {
                 CompactPartySlots();
@@ -6646,6 +6651,11 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 PushFaintedMonToLab(&gPlayerParty[read]);
 
                 ZeroMonData(&gPlayerParty[read]);
+
+#ifdef ROGUE_EXPANSION
+                // avoid reverting into this species
+                gBattleStruct->changedSpecies[B_SIDE_PLAYER][read] = SPECIES_NONE;
+#endif
             }
         }
     }
