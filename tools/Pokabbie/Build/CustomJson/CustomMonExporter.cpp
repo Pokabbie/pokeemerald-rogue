@@ -358,7 +358,7 @@ static void GatherCustomMons(std::string const& dataPath, json const& rawJsonDat
 			if (monIt.contains("is_default_spawn"))
 				monInfo.isDefaultSpawn = GetAsString(monIt["is_default_spawn"]);
 			else
-				monInfo.isDefaultSpawn = "FALSE";
+				monInfo.isDefaultSpawn = "TRUE";
 
 			if (monIt.contains("trainer"))
 			{

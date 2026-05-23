@@ -304,6 +304,8 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
     else
     {
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType = whistleType;
+        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.flyingState = FALSE;
+        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.flyingHeight = 0;
 
         if(CalculateInitialRideSpecies())
         {

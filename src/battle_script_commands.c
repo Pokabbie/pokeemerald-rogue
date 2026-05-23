@@ -12420,6 +12420,14 @@ static void Cmd_weatherdamage(void)
         }
     }
 
+    if(ActiveAlphaMonEndure(gBattlerAttacker))
+    {
+        if(gBattleMons[gBattlerAttacker].hp != 0 && gBattleMoveDamage >= gBattleMons[gBattlerAttacker].hp)
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp - 1;
+        }
+    }
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

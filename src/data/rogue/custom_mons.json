@@ -402,6 +402,7 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
+                "is_default_spawn": false,
                 "moves":
                 [
                     "MOVE_FLY",
@@ -471,7 +472,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_WATER_SPOUT",
@@ -490,7 +490,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_FIRE_PUNCH",
@@ -511,7 +510,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_METEOR_MASH",
@@ -530,7 +528,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_TAIL_GLOW",
@@ -551,7 +548,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_KNOCK_OFF",
@@ -570,7 +566,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_LUNAR_BLESSING",
@@ -592,7 +587,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_CALM_MIND",
@@ -611,7 +605,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_AURA_SPHERE",
@@ -632,7 +625,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_TAIL_GLOW",
@@ -651,7 +643,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_HONE_CLAWS",
@@ -673,7 +664,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_ROLLOUT",
@@ -692,7 +682,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "moves":
                 [
                     "MOVE_MORTAL_SPIN",
@@ -713,7 +702,6 @@
                 "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
-                "is_default_spawn": true,
                 "types":
                 [
                     "TYPE_BUG",
