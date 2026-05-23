@@ -209,10 +209,10 @@ static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
             return min(itemCount * (isCurse ? 10 : 20), 90);
 
         case EFFECT_ADAPTABILITY_RATE:
-            return min(itemCount * 5, 15); // 5 means 50%
+            return min(itemCount * (isCurse ? 3 : 5), 15); // 5 means 50%
 
         case EFFECT_ENDURE_CHANCE:
-            return min(itemCount * (isCurse ? 20 : 40), 90);
+            return min(itemCount * (isCurse ? 20 : 60), 90);
     }
 
     return itemCount;
