@@ -151,17 +151,37 @@ void PrintMoneyAmountCustom(u8 windowId, u8 x, u8 y, int amount, u8 speed, const
 {
     u8 *txtPtr;
     s32 strLength;
+    s32 displayX = x;
+    u8 fontId = FONT_NORMAL;
 
     ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 6);
 
-    strLength = 6 - StringLength(gStringVar1);
+    if(expandStr == gText_PokedollarVar1)
+    {
+        strLength = 6 - StringLength(gStringVar1);
+    }
+    else
+    {
+        fontId = FONT_NARROW;
+        
+        // See what the string looks like with 0 entry
+        ConvertIntToDecimalStringN(gStringVar1, 0, STR_CONV_MODE_LEFT_ALIGN, 6);
+        StringExpandPlaceholders(gStringVar4, expandStr);
+
+        displayX += 20 - GetStringWidth(fontId, gStringVar4, - 1);
+
+        ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 6);
+
+        strLength = 6 - StringLength(gStringVar1);
+    }
+
     txtPtr = gStringVar4;
 
     while (strLength-- > 0)
         *(txtPtr++) = CHAR_SPACER;
 
     StringExpandPlaceholders(txtPtr, expandStr);
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, x, y, speed, NULL);
+    AddTextPrinterParameterized(windowId, fontId, gStringVar4, displayX, y, speed, NULL);
 }
 
 void PrintMoneyAmountInMoneyBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, int amount)
