@@ -1887,8 +1887,8 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             else if(difficulty <= 1)
                 monCount = 3;
             else if(difficulty <= ROGUE_GYM_MID_DIFFICULTY + 2)
-                monCount = 4;
-            else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY)
+                monCount = Rogue_IsRivalTrainer(trainerNum) ? 5 : 4;
+            else if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
                 monCount = 5;
             else
                 monCount = 6;
