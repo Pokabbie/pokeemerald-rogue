@@ -6381,7 +6381,61 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Eelektross, 0),
         .footprint = gMonFootprint_Eelektross,
         LEARNSETS(Eelektross),
+        .formSpeciesIdTable = sEelektrossFormSpeciesIdTable,
+        .formChangeTable = sEelektrossFormChangeTable,
     },
+
+    [SPECIES_EELEKTROSS_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 145,
+        .baseDefense   = 80,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 90,
+        .types = { TYPE_ELECTRIC, TYPE_ELECTRIC },
+        .catchRate = 30,
+        .expYield = 232,
+        .evYield_Attack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
+        .abilities = { ABILITY_EELEVATE, ABILITY_EELEVATE, ABILITY_EELEVATE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Eelektross"),
+        .cryId = CRY_EELEKTROSS,
+        .natDexNum = NATIONAL_DEX_EELEKTROSS,
+        .categoryName = _("EleFish"),
+        .height = 21,
+        .weight = 805,
+        .description = POKEDEX_DESC_STRING(
+            "They crawl out of the ocean using their\n"
+            "arms. They will attack prey on shore and\n"
+            "immediately drag it into the ocean, with\n"
+            "their sucker mouths."),
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 365,
+        .trainerOffset = 7,
+        FRONT_PIC(EelektrossMega, 64, 64),
+        .frontPicYOffset = 1,
+        .frontAnimFrames = sAnims_EelektrossMega,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL_SLOW,
+        .enemyMonElevation = 8,
+        BACK_PIC(EelektrossMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        PALETTES(EelektrossMega),
+        ICON(EelektrossMega, 0),
+        .footprint = gMonFootprint_Eelektross,
+        LEARNSETS(EelektrossMega),
+        .formSpeciesIdTable = sEelektrossFormSpeciesIdTable,
+        .formChangeTable = sEelektrossFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_TYNAMO
 
 #if P_FAMILY_ELGYEM

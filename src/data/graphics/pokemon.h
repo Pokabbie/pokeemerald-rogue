@@ -6774,6 +6774,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Eelektross[] = INCBIN_U32("graphics/pokemon/eelektross/shiny.gbapal.lz");
     const u8 gMonIcon_Eelektross[] = INCBIN_U8("graphics/pokemon/eelektross/icon.4bpp");
     const u8 gMonFootprint_Eelektross[] = INCBIN_U8("graphics/pokemon/eelektross/footprint.1bpp");
+
+    const u32 gMonFrontPic_EelektrossMega[] = INCBIN_U32("graphics/pokemon/eelektross/mega/front.4bpp.lz");
+    const u32 gMonPalette_EelektrossMega[] = INCBIN_U32("graphics/pokemon/eelektross/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_EelektrossMega[] = INCBIN_U32("graphics/pokemon/eelektross/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_EelektrossMega[] = INCBIN_U32("graphics/pokemon/eelektross/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_EelektrossMega[] = INCBIN_U8("graphics/pokemon/eelektross/mega/icon.4bpp");
 #endif //P_FAMILY_TYNAMO
 
 #if P_FAMILY_ELGYEM

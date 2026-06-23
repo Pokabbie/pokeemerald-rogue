@@ -833,6 +833,16 @@ static const struct FormChange sGarbodorFormChangeTable[] =
 };
 #endif //P_FAMILY_TRUBBISH
 
+#if P_FAMILY_TYNAMO
+static const struct FormChange sEelektrossFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EELEKTROSS_MEGA, ITEM_EELEKTROSSITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_EELEKTROSS},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_EELEKTROSS},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_TYNAMO
+
 #if P_FAMILY_LITWICK
 static const struct FormChange sChandelureFormChangeTable[] =
 {

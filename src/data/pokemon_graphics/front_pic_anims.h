@@ -7501,6 +7501,9 @@ static const union AnimCmd sAnim_Eelektross_1[] =
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(EelektrossMega);
+
 #endif //P_FAMILY_TYNAMO
 
 #if P_FAMILY_ELGYEM
@@ -11916,6 +11919,7 @@ SINGLE_ANIMATION(Klinklang);
 SINGLE_ANIMATION(Tynamo);
 SINGLE_ANIMATION(Eelektrik);
 SINGLE_ANIMATION(Eelektross);
+SINGLE_ANIMATION(EelektrossMega);
 #endif //P_FAMILY_TYNAMO
 #if P_FAMILY_ELGYEM
 SINGLE_ANIMATION(Elgyem);
