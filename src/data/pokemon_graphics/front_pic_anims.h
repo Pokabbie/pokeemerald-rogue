@@ -6826,6 +6826,9 @@ static const union AnimCmd sAnim_Scolipede_1[] =
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(ScolipedeMega);
+
 #endif //P_FAMILY_VENIPEDE
 
 #if P_FAMILY_COTTONEE
@@ -11768,6 +11771,7 @@ SINGLE_ANIMATION(Leavanny);
 SINGLE_ANIMATION(Venipede);
 SINGLE_ANIMATION(Whirlipede);
 SINGLE_ANIMATION(Scolipede);
+SINGLE_ANIMATION(ScolipedeMega);
 #endif //P_FAMILY_VENIPEDE
 #if P_FAMILY_COTTONEE
 SINGLE_ANIMATION(Cottonee);

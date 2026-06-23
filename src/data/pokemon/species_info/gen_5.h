@@ -2755,7 +2755,61 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         ICON(Scolipede, 2),
         .footprint = gMonFootprint_Scolipede,
         LEARNSETS(Scolipede),
+        .formSpeciesIdTable = sScolipedeFormSpeciesIdTable,
+        .formChangeTable = sScolipedeFormChangeTable,
     },
+
+    [SPECIES_SCOLIPEDE_MEGA] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 140,
+        .baseDefense   = 149,
+        .baseSpeed     = 62,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 99,
+        .types = { TYPE_BUG, TYPE_POISON },
+        .catchRate = 45,
+        .expYield = 218,
+        .evYield_Speed = 3,
+        .itemRare = ITEM_POISON_BARB,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
+        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Scolipede"),
+        .cryId = CRY_SCOLIPEDE,
+        .natDexNum = NATIONAL_DEX_SCOLIPEDE,
+        .categoryName = _("Megapede"),
+        .height = 25,
+        .weight = 2005,
+        .description = POKEDEX_DESC_STRING(
+            "With quick movements, it chases down\n"
+            "its foes, attacking relentlessly with its\n"
+            "horns until it prevails. Then it finishes\n"
+            "them off with deadly poison."),
+        .pokemonScale = 257,
+        .pokemonOffset = 2,
+        .trainerScale = 423,
+        .trainerOffset = 8,
+        FRONT_PIC(ScolipedeMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ScolipedeMega,
+        .frontAnimId = ANIM_H_SHAKE,
+        BACK_PIC(ScolipedeMega, 64, 64),
+        .backPicYOffset = 2,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        PALETTES(ScolipedeMega),
+        ICON(ScolipedeMega, 2),
+        .footprint = gMonFootprint_Scolipede,
+        LEARNSETS(ScolipedeMega),
+        .formSpeciesIdTable = sScolipedeFormSpeciesIdTable,
+        .formChangeTable = sScolipedeFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_VENIPEDE
 
 #if P_FAMILY_COTTONEE

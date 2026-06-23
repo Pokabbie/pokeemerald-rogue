@@ -1049,6 +1049,14 @@ static const u16 sAudinoFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_AUDINO
 
+#if P_FAMILY_VENIPEDE
+static const u16 sScolipedeFormSpeciesIdTable[] = {
+    SPECIES_SCOLIPEDE,
+    SPECIES_SCOLIPEDE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_VENIPEDE
+
 #if P_FAMILY_PETILIL
 static const u16 sLilligantFormSpeciesIdTable[] = {
     SPECIES_LILLIGANT,
