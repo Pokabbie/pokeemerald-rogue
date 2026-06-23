@@ -302,8 +302,10 @@ static const u8 sTeraShellDescription[] = _("Resistant to types at full HP.");
 static const u8 sTeraformZeroDescription[] = _("Removes weather and terrain.");
 static const u8 sPoisonPuppeteerDescription[] = _("Confuses poisoned foes.");
 static const u8 sDragonizeDescription[] = _("Normal moves turn Dragon.");
+static const u8 sEelevateDescription[] = _("Levitate and Beast Boost.");
 static const u8 sMegaSolDescription[] = _("Acts like under sun.");
 static const u8 sSpicySprayDescription[] = _("Burns the foe when damaged.");
+static const u8 sFireManeDescription[] = _("Ups Fire-type moves.");
 
 static const u8 sForecastPriorityDescription[] = _("Weather moves go first.");
 
@@ -623,9 +625,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_POISON_PUPPETEER] = _("Poison Puppeteer"),
     [ABILITY_PIERCING_DRILL] = _("Piercing Drill"),
     [ABILITY_DRAGONIZE] = _("Dragonize"),
-    [ABILITY_313] = _("-------"),
+    [ABILITY_EELEVATE] = _("Eelevate"),
     [ABILITY_MEGA_SOL] = _("Mega Sol"),
-    [ABILITY_316] = _("-------"),
+    [ABILITY_FIRE_MANE] = _("Fire Mane"),
     [ABILITY_317] = _("-------"),
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
@@ -947,9 +949,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_POISON_PUPPETEER] = _("PoisnPuppter"),
     [ABILITY_PIERCING_DRILL] = _("PiercingDril"),
     [ABILITY_DRAGONIZE] = _("Dragonize"),
-    [ABILITY_313] = _("-------"),
+    [ABILITY_EELEVATE] = _("Eelevate"),
     [ABILITY_MEGA_SOL] = _("Mega Sol"),
-    [ABILITY_316] = _("-------"),
+    [ABILITY_FIRE_MANE] = _("Fire Mane"),
     [ABILITY_317] = _("-------"),
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
@@ -1272,9 +1274,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_POISON_PUPPETEER] = sPoisonPuppeteerDescription,
     [ABILITY_PIERCING_DRILL] = sUnseenFistDescription,
     [ABILITY_DRAGONIZE] = sDragonizeDescription,
-    [ABILITY_313] = sNoneDescription,
+    [ABILITY_EELEVATE] = sEelevateDescription,
     [ABILITY_MEGA_SOL] = sMegaSolDescription,
-    [ABILITY_316] = sNoneDescription,
+    [ABILITY_FIRE_MANE] = sFireManeDescription,
     [ABILITY_317] = sNoneDescription,
     [ABILITY_SPICY_SPRAY] = sSpicySprayDescription,
     [ABILITY_FORECAST_PRIORITY] = sForecastPriorityDescription,
