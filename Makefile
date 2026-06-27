@@ -200,12 +200,13 @@ MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
 MEMORYSTATS := tools/Pokabbie/Build/MemoryStats/memorystats$(EXE)
 CUSTOMJSON := tools/Pokabbie/Build/CustomJson/customjson$(EXE)
+QUERYBAKER := tools/Pokabbie/Build/QueryBaker/querybaker$(EXE)
 
 PERL := perl
 
 
 # Inclusive list. If you don't want a tool to be built, don't add it here.
-TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc tools/Pokabbie/Build/MemoryStats tools/Pokabbie/Build/CustomJson
+TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc tools/Pokabbie/Build/MemoryStats tools/Pokabbie/Build/CustomJson tools/Pokabbie/Build/QueryBaker
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
@@ -231,6 +232,14 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Since we don't need to reload most of this makefile
 ifeq (,$(filter-out all rom compare modern libagbsyscall syms,$(MAKECMDGOALS)))
 $(call infoshell, $(MAKE) -f make_tools.mk)
+
+# If running locally and ROM has already been build, run
+ifeq ($(wildcard $(ROM)*), $(ROM))
+ifeq ("$(GITHUB_REPOSITORY_OWNER)","")
+$(call infoshell, $(MAKE) -f make_tools_local.mk)
+endif
+endif
+
 else
 NODEP ?= 1
 endif
