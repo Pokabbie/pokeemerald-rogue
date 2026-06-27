@@ -5,6 +5,22 @@
 #define __attribute__(...)
 #endif
 
+#ifndef ANIMCMD_FRAME
+#define ANIMCMD_FRAME(...) {}
+#endif
+
+#ifndef ANIMCMD_LOOP
+#define ANIMCMD_LOOP(...) {}
+#endif
+
+#ifndef ANIMCMD_JUMP
+#define ANIMCMD_JUMP(...) {}
+#endif
+
+#ifndef ANIMCMD_END
+#define ANIMCMD_END {}
+#endif
+
 #include "gba/gba.h"
 #include "constants/global.h"
 #include "constants/rogue.h"

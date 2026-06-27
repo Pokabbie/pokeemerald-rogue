@@ -8,7 +8,7 @@ ROOT_DIR ?= ../../../../
 DATA_SRC_SUBDIR ?= $(ROOT_DIR)src/data
 
 INCLUDES := -I . -I $(ROOT_DIR)include -I $(ROOT_DIR)src
-DEFINES := -D ROGUE_BAKING=1
+DEFINES := -D ROGUE_BAKING=1 -D ROGUE_EXPANSION=1
 
 
 CXXSRCS := Main.cpp

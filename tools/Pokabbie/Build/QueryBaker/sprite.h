@@ -8,4 +8,9 @@ struct SpriteTemplate
 struct Sprite
 {
     u32 stub;
+}; 
+
+union AnimCmd
+{
+    u32 stub;
 };
