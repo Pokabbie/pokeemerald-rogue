@@ -43,8 +43,11 @@ extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 #define EVOLUTIONS_END 0
 
+#ifndef ROGUE_BAKING
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct BaseStats gBaseStats[];
+#endif
+
 #endif
 
 #include "rogue_baked.h"
