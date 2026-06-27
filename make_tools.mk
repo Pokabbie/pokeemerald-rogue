@@ -6,6 +6,7 @@ TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc t
 .PHONY: all $(TOOLDIRS)
 
 all: $(TOOLDIRS)
+	@:
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
