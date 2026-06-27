@@ -71,12 +71,6 @@ script Rogue_QuickSaveRun
 
     msgbox(format("{COLOR RED}WARNING!\n{COLOR DARK_GRAY}You can only reload Quicksaves once.\pWhen the game next reloads, this Quicksave will be wiped."))
 
-    special(Rogue_IsMultiplayerActive)
-    if(var(VAR_RESULT) == YES)
-    {
-        msgbox(format("{COLOR RED}MULTIPLAYER WARNING!\n{COLOR DARK_GRAY}There is currently no method avaliable to rejoin a Multiplayer Adventure outside of {POKEMON_HUB}.\pIf you Quicksave now, you will have to play the remainder of this Adventure single player."))
-    }
-
     call(Common_EventScript_SaveGame)
 
     if(var(VAR_RESULT) == YES)
@@ -133,7 +127,7 @@ script Rogue_QuickSaveVersionUpdateMessage
         msgbox(format("WARNING!\pThis save game was detected to have come from a pre-release patch version.\pIt is not recommended to continue using this save, as you may lock yourself out of new content.\pPlease restore a backup if possible."))
     }
 
-    msgbox(format("Welcome to...\nEmerald Rogue {STR_VAR_2}!\p{STR_VAR_1} {STR_VAR_3}\pAlways remember to download from the official sources:\pPokeCommunity (posted by Pokabbie) or Discord\pFor guides, bug reporting and previews, feel free to join the official Discord:\phttps://rogue.discord.pokabbie.com"), MSGBOX_DEFAULT)
+    msgbox(format("Welcome to...\nEmerald Rogue {STR_VAR_2}!\p{STR_VAR_1} {STR_VAR_3}\pAlways remember to download from the official sources:\pPokeCommunity, Hackdex (posted by Pokabbie) or Discord\pFor guides, bug reporting and previews, feel free to join the official Discord:\phttps://rogue.discord.pokabbie.com"), MSGBOX_DEFAULT)
     msgbox(format("I hope you enjoy Emerald Rogue!"), MSGBOX_DEFAULT)
 }
 
@@ -490,10 +484,10 @@ script Rogue_EventScript_UseDayCarePhoneItem
     if(!flag(FLAG_ROGUE_RUN_ACTIVE))
     {
         // Can call unlimited times in hub
-        setflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+        setvar(VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES, 1)
     }
 
-    if(flag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED))
+    if(var(VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES) > 0)
     {
         playse(SE_POKENAV_CALL)
         message(format("{PAUSE 20}… {PAUSE 20}… {PAUSE 20}… {PAUSE 20}"))
@@ -501,29 +495,47 @@ script Rogue_EventScript_UseDayCarePhoneItem
         waitmessage
         closemessage
 
+        callnative(Rogue_OnDayCareChargeUsed)
+        call(Rogue_Common_DisplaySkippablePopups)
+        
 
         if(!flag(FLAG_ROGUE_RUN_ACTIVE))
         {
             msgbox(format("{PLAYER}? Is that you?\pThe signal is so good in {POKEMON_HUB}!\pYou'd like to swap out one of your Pokémon, would you?"))
+            setvar(VAR_RESULT, TRUE)
         }
         else
         {
             msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
+
+            specialvar(VAR_RESULT, Rogue_IsCatchingContestActive)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                msgbox(format("What's that?\pYou're in a catching contest, and you'd like to store a Pokémon you just caught even though you haven't finished the contest yet?\pWell that doesn't seem very honourable!\pI couldn't possible help you cheat!\nCall me back once you've completed your contest and I'll happily swap out a Pokémon for you."))
+                setvar(VAR_RESULT, FALSE)
+            }
+            else
+            {
+                setvar(VAR_RESULT, TRUE)
+            }
         }
 
-        message(format("Which {PKMN} slot are you interested in?"))
-        waitmessage
-
-        multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
-
-        switch(var(VAR_RESULT))
+        if(var(VAR_RESULT) == TRUE)
         {
-            case MULTI_B_PRESSED:
-                setvar(VAR_RESULT, NO)
+            message(format("Which {PKMN} slot are you interested in?"))
+            waitmessage
 
-            default:
-                copyvar(VAR_0x8005, VAR_RESULT)
-                call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+            multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case MULTI_B_PRESSED:
+                    setvar(VAR_RESULT, NO)
+
+                default:
+                    copyvar(VAR_0x8005, VAR_RESULT)
+                    call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+            }
         }
 
         playse(SE_POKENAV_HANG_UP)
@@ -531,7 +543,7 @@ script Rogue_EventScript_UseDayCarePhoneItem
     }
     else
     {
-        msgbox(format("The Pokégear is out of charge.\pEntering any Rest Stop will recharge the Pokégear."))
+        msgbox(format("The Pokégear is out of charge.\pHealing with any Nurse will recharge the Pokégear."))
     }
 
     release
@@ -542,9 +554,9 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
     special(Rogue_IsDaycareSlotEmpty)
     if(var(VAR_RESULT) == YES)
     {
-        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+        specialvar(VAR_0x8008, CalculatePlayerPartyCount)
 
-        if(var(VAR_TEMP_0) == 1)
+        if(var(VAR_0x8008) == 1)
         {
             msgbox(format("I'm afraid you can't leave any more Pokémon with the Day Care at the moment.\pIf you did, you'd be left with no Pokémon in your party!"), MSGBOX_DEFAULT)
         }
@@ -562,6 +574,8 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
                     call(Rogue_ScriptHideFollower)
                 }
 
+                subvar(VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES, 1)
+                setvar(VAR_0x8006, 0)
                 special(Rogue_SwapDaycareMon)
 
                 if(var(VAR_0x8004) == 0)
@@ -576,7 +590,6 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
 
                 closemessage
                 fadescreen(FADE_FROM_BLACK)
-                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
             }
         }
     }
@@ -599,6 +612,8 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
                     call(Rogue_ScriptHideFollower)
                 }
 
+                subvar(VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES, 1)
+                setvar(VAR_0x8006, 0)
                 special(Rogue_SwapDaycareMon)
 
                 if(var(VAR_0x8004) == 0)
@@ -613,7 +628,6 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
 
                 closemessage
                 fadescreen(FADE_FROM_BLACK)
-                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
             }
         }
         else
@@ -622,7 +636,9 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
 
             if(var(VAR_RESULT) == YES)
             {
+                subvar(VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES, 1)
                 setvar(VAR_0x8004, 5)
+                setvar(VAR_0x8006, 0)
                 special(Rogue_SwapDaycareMon)
                 msgbox(format("See you in a moment."), MSGBOX_DEFAULT)
 
@@ -632,7 +648,6 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
 
                 closemessage
                 fadescreen(FADE_FROM_BLACK)
-                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
             }
         }
     }
@@ -1100,6 +1115,7 @@ script Rogue_SpeakDaycareLady_TrySwapMon
                     call(Rogue_ScriptHideFollower)
                 }
 
+                setvar(VAR_0x8006, 1)
                 special(Rogue_SwapDaycareMon)
 
                 if(var(VAR_0x8004) == 0)
@@ -1132,6 +1148,7 @@ script Rogue_SpeakDaycareLady_TrySwapMon
                     call(Rogue_ScriptHideFollower)
                 }
 
+                setvar(VAR_0x8006, 1)
                 special(Rogue_SwapDaycareMon)
 
                 if(var(VAR_0x8004) == 0)
@@ -1149,6 +1166,7 @@ script Rogue_SpeakDaycareLady_TrySwapMon
             if(var(VAR_RESULT) == YES)
             {
                 setvar(VAR_0x8004, 5)
+                setvar(VAR_0x8006, 1)
                 special(Rogue_SwapDaycareMon)
                 msgbox(format("There you are!\pTake care!"), MSGBOX_DEFAULT)
             }

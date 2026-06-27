@@ -617,7 +617,7 @@ static void Task_PokemonPicWindow(u8 taskId)
     }
 }
 
-bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isObscured)
+bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isShiny, u32 otId, u32 personality, u8 gender, bool8 isObscured)
 {
     u8 taskId;
     u8 spriteId;
@@ -628,7 +628,7 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isObscured)
     }
     else
     {
-        spriteId = CreateMonSprite_PicBox(species, x * 8 + 40, y * 8 + 40, 0);
+        spriteId = CreateMonSprite_FieldMove(species, isShiny, otId, personality, gender, x * 8 + 40, y * 8 + 40, 0);
         taskId = CreateTask(Task_PokemonPicWindow, 0x50);
         gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
         gTasks[taskId].tState = 0;
@@ -987,6 +987,8 @@ void ScriptMenu_DisplayTextInWindow(const u8* str, u8 x, u8 y, u8 width, u8 heig
 
 static u8 const sText_UniqueMonTitle[] = _("{STR_VAR_1} {FONT_SMALL_NARROW}{COLOR BLUE}({STR_VAR_2})");
 static u8 const sText_UniqueMonTitleRare[] = _("{STR_VAR_1} {FONT_SMALL_NARROW}{COLOR RED}({STR_VAR_2})");
+static u8 const sText_UniqueMonBaseType[] = _("{STR_VAR_1}");
+static u8 const sText_UniqueMonChangedType[] = _("{COLOR BLUE}{STR_VAR_1}");
 static u8 const sText_UniqueMonAbility[] = _("A/ {COLOR GREEN}{STR_VAR_1}");
 static u8 const sText_UniqueMonMove[] = _(" -{STR_VAR_1}");
 
@@ -1007,6 +1009,29 @@ static void PrintUniqueMonInfoToWindow(u8 windowId)
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 2, 0, TEXT_SKIP_DRAW, NULL);
 
     line = 0;
+
+    // Types
+    {
+        u8 type1 = GetTypeBySpecies(species, 0, customMonId);
+        u8 type2 = GetTypeBySpecies(species, 1, customMonId);
+        u8 baseType1 = GetTypeBySpecies(species, 0, 0);
+        u8 baseType2 = GetTypeBySpecies(species, 1, 0);
+        
+        if(type1 != TYPE_NONE)
+        {
+            StringCopy(gStringVar1, gTypeNames[type1]);
+            StringExpandPlaceholders(gStringVar4, type1 == baseType1 ? sText_UniqueMonBaseType : sText_UniqueMonChangedType);
+            AddTextPrinterParameterized(windowId, FONT_SMALL, gStringVar4, 2, 13 + 13 * line, TEXT_SKIP_DRAW, NULL);
+        }
+        if(type2 != TYPE_NONE && type2 != type1)
+        {
+            StringCopy(gStringVar1, gTypeNames[type2]);
+            StringExpandPlaceholders(gStringVar4, type2 == baseType2 ? sText_UniqueMonBaseType : sText_UniqueMonChangedType);
+            AddTextPrinterParameterized(windowId, FONT_SMALL, gStringVar4, 42, 13 + 13 * line, TEXT_SKIP_DRAW, NULL);
+        }
+
+        line++;
+    }
 
     // Ability
     if(RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
@@ -1034,7 +1059,11 @@ static void PrintUniqueMonInfoToWindow(u8 windowId)
 void ScriptMenu_DisplayUniqueMonInfo()
 {
     u8 taskId;
-    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(12, 1, 14, 10, 8 * 8);
+    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(
+        12, 0, 
+        14, 12, 
+        8 * 8
+    );
 
     PrintUniqueMonInfoToWindow(windowId);
 
@@ -1184,7 +1213,7 @@ static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonC
         score += 1;
 
 #ifdef ROGUE_EXPANSION
-    if(temp >= ITEM_VENUSAURITE && temp <= ITEM_DIANCITE && !IsMegaEvolutionEnabled())
+    if((IS_MEGA_STONE(temp) || temp == ITEM_RED_ORB || temp == ITEM_BLUE_ORB) && !IsMegaEvolutionEnabled())
     {
         return 1;
     }
@@ -1206,7 +1235,7 @@ static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonC
         }
     }
 
-    return score;
+    return score * 5;
 }
 
 static struct RoguePokemonCompetitiveSet const* SelectMonPreset(struct Pokemon* mon)

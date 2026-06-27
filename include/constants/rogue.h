@@ -30,6 +30,13 @@
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
+
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+#define RAND_TYPE struct PCG32
+#else
+#define RAND_TYPE u32
+#endif
+
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
@@ -47,6 +54,19 @@
 #define UNUSED_RELEASE UNUSED
 #endif
 
+// Sub-Seeds
+//
+#define ROGUE_SUBSEED_SHOP_GENERAL              0
+#define ROGUE_SUBSEED_SHOP_BALLS                1
+#define ROGUE_SUBSEED_SHOP_TMS                  2
+#define ROGUE_SUBSEED_SHOP_BATTLE_ENHANCERS     3
+#define ROGUE_SUBSEED_SHOP_HELD_ITEMS           4
+#define ROGUE_SUBSEED_SHOP_RARE_HELD_ITEMS      5
+#define ROGUE_SUBSEED_SHOP_BERRIES              6
+#define ROGUE_SUBSEED_SHOP_TREATS               7
+#define ROGUE_SUBSEED_MOVE_TUTOR                8
+#define ROGUE_SUBSEED_COUNT                     9
+
 // Items
 //
 #define ROGUE_SHOP_NONE                 0
@@ -63,6 +83,7 @@
 #define ROGUE_SHOP_CHARMS               12
 #define ROGUE_SHOP_HUB_UPGRADES         13
 #define ROGUE_SHOP_COURIER              14
+#define ROGUE_SHOP_COUNT                15
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
@@ -229,8 +250,9 @@
 #define ADVPATH_ROOM_CATCHING_CONTEST   12
 #define ADVPATH_ROOM_SIGN               13
 #define ADVPATH_ROOM_BATTLE_SIM         14
+#define ADVPATH_ROOM_BATTLE_TOWER       15
 
-#define ADVPATH_ROOM_BOSS               15
+#define ADVPATH_ROOM_BOSS               16
 
 #define ADVPATH_ROOM_COUNT              16
 
@@ -318,8 +340,11 @@
 #define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
 #define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
 #define CLASS_FLAG_TEAM_GALACTIC                (1 << 3)
+#define CLASS_FLAG_TEAM_PLASMA                  (1 << 4)
+#define CLASS_FLAG_TEAM_NEOPLASMA               (1 << 5)
+#define CLASS_FLAG_TEAM_FLARE                   (1 << 6)
 
-#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC)
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC | CLASS_FLAG_TEAM_PLASMA | CLASS_FLAG_TEAM_NEOPLASMA | CLASS_FLAG_TEAM_FLARE)
 
 // TRAINER_FLAG_CLASS_SPECIAL
 //
@@ -339,7 +364,10 @@
 #define TEAM_NUM_AQUA           2
 #define TEAM_NUM_MAGMA          3
 #define TEAM_NUM_GALACTIC       4
-#define TEAM_NUM_COUNT          5
+#define TEAM_NUM_PLASMA         5
+#define TEAM_NUM_NEOPLASMA      6
+#define TEAM_NUM_FLARE          7
+#define TEAM_NUM_COUNT          8
 
 #define TEAM_PRE_LEGEND_MAP_OFFSET 100
 
@@ -370,6 +398,9 @@
 #define SPECIES_KATE_ACE                SPECIES_TAROUNTULA
 
 #define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
+#define SPECIES_GHETSIS_ACE             SPECIES_KYUREM
+#define SPECIES_COLRESS_ACE             SPECIES_GENESECT // needs to be gen 5 to fit if picked for BW1 dex (kinda dumb choice though)
+#define SPECIES_LYSANDER_ACE            SPECIES_ZYGARDE
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
 #define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
@@ -382,6 +413,10 @@
 #define SPECIES_KATE_ACE                SPECIES_GASTLY
 
 #define SPECIES_CYRUS_ACE               SPECIES_RAYQUAZA
+
+#define SPECIES_GHETSIS_ACE             SPECIES_RAYQUAZA
+#define SPECIES_COLRESS_ACE             SPECIES_RAYQUAZA
+#define SPECIES_LYSANDER_ACE            SPECIES_RAYQUAZA
 #endif
 
 // For final quest we're going to only show a single rival per "gym gen"
@@ -478,6 +513,9 @@
 #define MON_FLAGS_GEN9DOUBLESOU             MON_FLAG_DOUBLES_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN9MONOTYPE              MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
 
+#define MON_FLAGS_CHAMPIONS_SINGLES_S1      MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_CHAMPIONS_DOUBLES_S1      MON_FLAG_DOUBLES_STRONG | MON_FLAG_STRONG_WILD
+
 #else
 
 #define MON_FLAGS_GEN3UBERS                 MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
@@ -520,18 +558,20 @@
 #define CONFIG_TOGGLE_TRAINER_JOHTO         11
 #define CONFIG_TOGGLE_TRAINER_HOENN         12
 #ifdef ROGUE_EXPANSION
+// These still exist for vanilla, just aren't referenced
 #define CONFIG_TOGGLE_TRAINER_SINNOH        13
 #define CONFIG_TOGGLE_TRAINER_UNOVA         14
 #define CONFIG_TOGGLE_TRAINER_KALOS         15
 #define CONFIG_TOGGLE_TRAINER_ALOLA         16
 #define CONFIG_TOGGLE_TRAINER_GALAR         17
 #define CONFIG_TOGGLE_TRAINER_PALDEA        18
+#define CONFIG_TOGGLE_TRAINER_GEN10_PLACEHOLDER     19
 #endif
-#define CONFIG_TOGGLE_COUNT                 19
+#define CONFIG_TOGGLE_COUNT                 20
 #define CONFIG_TOGGLE_BYTE_COUNT            (1 + CONFIG_TOGGLE_COUNT / 8)
 
 // CONFIG_RANGE_
-#define CONFIG_RANGE_TRAINER                0
+#define CONFIG_RANGE_TRAINER_LVL            0
 #define CONFIG_RANGE_ITEM                   1 // unused
 #define CONFIG_RANGE_LEGENDARY              2 // unused
 #define CONFIG_RANGE_BATTLE_FORMAT          3
@@ -539,7 +579,8 @@
 #define CONFIG_RANGE_GAME_MODE_NUM          5
 #define CONFIG_RANGE_DIFFICULTY_PRESET      6
 #define CONFIG_RANGE_REVISION_MODE          7
-#define CONFIG_RANGE_COUNT                  8
+#define CONFIG_RANGE_TRAINER_ORDER          8
+#define CONFIG_RANGE_COUNT                  9
 
 #define DEBUG_START_VALUE           0x7FFF
 
@@ -558,7 +599,8 @@
 #define DEBUG_TOGGLE_STOP_WILD_SPAWNING             (DEBUG_START_VALUE + 11)
 #define DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT      (DEBUG_START_VALUE + 12)
 #define DEBUG_TOGGLE_FULL_BATTLE_HUD                (DEBUG_START_VALUE + 13)
-#define DEBUG_TOGGLE_COUNT                          14
+#define DEBUG_TOGGLE_SPRITE_LAYERS                  (DEBUG_START_VALUE + 14)
+#define DEBUG_TOGGLE_COUNT                          15
 #define DEBUG_TOGGLE_BYTE_COUNT                     (1 + DEBUG_TOGGLE_COUNT / 8)
 
 // DEBUG_RANGE_
@@ -582,11 +624,9 @@
 // Game Modes
 //
 #define ROGUE_GAME_MODE_STANDARD                0
-#define ROGUE_GAME_MODE_RAINBOW                 1
-#define ROGUE_GAME_MODE_OFFICIAL                2
-#define ROGUE_GAME_MODE_GAUNTLET                3
-#define ROGUE_GAME_MODE_RAINBOW_GAUNTLET        4
-#define ROGUE_GAME_MODE_COUNT                   5
+#define ROGUE_GAME_MODE_GAUNTLET                1
+#define ROGUE_GAME_MODE_EXPERIMENTAL            2
+#define ROGUE_GAME_MODE_COUNT                   3
 
 // Order
 #define TRAINER_ORDER_DEFAULT                   0
@@ -597,6 +637,7 @@
 // Generators
 #define ADV_GENERATOR_STANDARD                  0
 #define ADV_GENERATOR_GAUNTLET                  1
+#define ADV_GENERATOR_EXPERIMENTAL              2
 
 
 // Rogue Campaigns OLD
@@ -728,7 +769,10 @@
 #define STARTER_MON_LEVEL 10
 #define GYM_FIRST_LEVEL_CAP 15
 #define GYM_LEVEL_CAP_JUMP 10
-#define MON_DATA_TEMP_PARTNER_RIBBON         MON_DATA_EFFORT_RIBBON
+#define MON_DATA_TEMP_PARTNER_RIBBON        MON_DATA_EFFORT_RIBBON
+#define MON_DATA_TEMP_SAFARI_ILLEGAL_RIBBON MON_DATA_MARINE_RIBBON
+#define TUTOR_MOVE_LVL_COUNT_RUN            4 // only 2 bits to track this so at cap at 3
+#define TUTOR_MOVE_LVL_COUNT_HUB            2
 
 
 #define FOLLOWMON_SHINY_OFFSET              10000
@@ -746,7 +790,7 @@
 #define ROGUE_SAFARI_LEGENDS_START_INDEX    45
 #define ROGUE_SAFARI_TOTAL_CUSTOM_MONS      16
 
-#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 20
+#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 10
 
 #define LAB_MON_COUNT               3
 #define DAYCARE_SLOT_COUNT          3
@@ -800,10 +844,10 @@
 #define PIE_SIZE_MEDIUM     1
 #define PIE_SIZE_LARGE      2
 
-#define PIE_CRUST_AMOUNT                3
-#define PIE_SMALL_FILLING_AMOUNT        3
-#define PIE_MEDIUM_FILLING_AMOUNT       6
-#define PIE_LARGE_FILLING_AMOUNT        9
+#define PIE_CRUST_AMOUNT                2
+#define PIE_SMALL_FILLING_AMOUNT        1
+#define PIE_MEDIUM_FILLING_AMOUNT       3
+#define PIE_LARGE_FILLING_AMOUNT        6
 
 #include "rogue_pokedex.h"
 #include "rogue_quests.h"

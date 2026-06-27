@@ -100,10 +100,12 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
     gSaveBlock2Ptr->optionsSoundChannelSE = 10;
     gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
-    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_2X;
-    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_3X;
+    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_2X;
     gSaveBlock2Ptr->optionsBossBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsOverworldSpeed = OPTIONS_OW_SPEED_1X;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
+    gSaveBlock2Ptr->optionsItemPickupAutomatic = FALSE;
     gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->optionsLowHealthBeep = OPTIONS_HEALTH_BEEP_3_BEEPS;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;

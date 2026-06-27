@@ -1174,7 +1174,7 @@ void CB2_Debug_Pokemon(void)
             gSprites[data->iconspriteId].oam.priority = 0;
 
             //Overworld Sprite
-            FollowMon_SetGraphics(0, species, data->isShiny);
+            FollowMon_SetGraphics(0, species, data->isShiny, 0);
             data->overworldSpriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0, SpriteCallbackDummy, DEBUG_OVERWORLD_X, DEBUG_OVERWORLD_Y, 0);
             gSprites[data->overworldSpriteId].oam.priority = 0;
 
@@ -1730,7 +1730,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     gSprites[data->iconspriteId].oam.priority = 0;
 
     //Overworld Sprite
-    FollowMon_SetGraphics(0, species, data->isShiny);
+    FollowMon_SetGraphics(0, species, data->isShiny, 0);
     data->overworldSpriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0, SpriteCallbackDummy, DEBUG_OVERWORLD_X, DEBUG_OVERWORLD_Y, 0);
     gSprites[data->overworldSpriteId].oam.priority = 0;
 

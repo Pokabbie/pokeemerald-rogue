@@ -296,6 +296,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_EARTH_EATER] = 7,
     [ABILITY_WELL_BAKED_BODY] = 7,
+    [ABILITY_THERMAL_EXCHANGE] = 7,
+    [ABILITY_DRAGONIZE] = 8,
 
     [ABILITY_FORECAST_PRIORITY] = 9,
 };
@@ -529,20 +531,21 @@ void SetBattlerData(u32 battlerId)
 {
     if (!BattlerHasAi(battlerId))
     {
-        u32 i, species, illusionSpecies, side;
+        u32 i, species, illusionSpecies, side, otId;
         side = GetBattlerSide(battlerId);
 
         // Simulate Illusion
         species = gBattleMons[battlerId].species;
+        otId = gBattleMons[battlerId].otId;
         illusionSpecies = GetIllusionMonSpecies(battlerId);
         if (illusionSpecies != SPECIES_NONE && ShouldFailForIllusion(illusionSpecies, battlerId))
         {
             // If the battler's type has not been changed, AI assumes the types of the illusion mon.
-            if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, 0)
-                && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, 0))
+            if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, otId)
+                && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, otId))
             {
-                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, 0);
-                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, 0);
+                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, otId);
+                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, otId);
             }
             species = illusionSpecies;
         }
@@ -1397,7 +1400,7 @@ u32 AI_GetWeather(struct AiLogicData *aiData)
         return B_WEATHER_NONE;
     if (!AI_WeatherHasEffect(aiData))
         return B_WEATHER_NONE;
-    return gBattleWeather;
+    return GetWeather();
 }
 
 u32 AI_GetBattlerMoveTargetType(u32 battlerId, u32 move)

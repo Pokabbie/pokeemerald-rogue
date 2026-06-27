@@ -907,13 +907,13 @@
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "Taste the Rainbow",
-                "description": "Enable and all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "description": "Enable all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
                 "triggers":
                 [
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_TRAINER_ORDER", "TRAINER_ORDER_RAINBOW" ],
                         "fail": "FAIL"
                     },
                     {
@@ -940,13 +940,13 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "name": "Taste the Rainbow",
-                "description": "Enable and all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "description": "Enable all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
                 "triggers":
                 [
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_TRAINER_ORDER", "TRAINER_ORDER_RAINBOW" ],
                         "fail": "FAIL"
                     },
                     {
@@ -985,7 +985,7 @@
                     {
                         "on": [ "RUN_START" ],
                         "condition": "IsConfigRangeEqualToAny",
-                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET" ],
                         "fail": "FAIL"
                     },
                     {

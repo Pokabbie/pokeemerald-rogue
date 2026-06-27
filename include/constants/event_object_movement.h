@@ -249,6 +249,10 @@
 #define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA1
 #define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA2
 #define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xA3
+#define MOVEMENT_ACTION_SPIN_DOWN                       0xA4
+#define MOVEMENT_ACTION_SPIN_UP                         0xA5
+#define MOVEMENT_ACTION_SPIN_LEFT                       0xA6
+#define MOVEMENT_ACTION_SPIN_RIGHT                      0xA7
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF
@@ -275,10 +279,14 @@
 #define ANIM_STD_GO_FASTEST_EAST  19
 #define ANIM_STD_COUNT            20
 
-#define ANIM_RUN_SOUTH (ANIM_STD_COUNT + 0)
-#define ANIM_RUN_NORTH (ANIM_STD_COUNT + 1)
-#define ANIM_RUN_WEST  (ANIM_STD_COUNT + 2)
-#define ANIM_RUN_EAST  (ANIM_STD_COUNT + 3)
+#define ANIM_RUN_SOUTH                   (ANIM_STD_COUNT + 0)
+#define ANIM_RUN_NORTH                   (ANIM_STD_COUNT + 1)
+#define ANIM_RUN_WEST                    (ANIM_STD_COUNT + 2)
+#define ANIM_RUN_EAST                    (ANIM_STD_COUNT + 3)
+#define ANIM_SPIN_SOUTH                  (ANIM_STD_COUNT + 4)
+#define ANIM_SPIN_NORTH                  (ANIM_STD_COUNT + 5)
+#define ANIM_SPIN_WEST                   (ANIM_STD_COUNT + 6)
+#define ANIM_SPIN_EAST                   (ANIM_STD_COUNT + 7)
 
 #define ANIM_BUNNY_HOP_BACK_WHEEL_SOUTH         (ANIM_STD_COUNT + 0)
 #define ANIM_BUNNY_HOP_BACK_WHEEL_NORTH         (ANIM_STD_COUNT + 1)

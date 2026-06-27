@@ -145,7 +145,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Chesnaught, 1),
         .footprint = gMonFootprint_Chesnaught,
         LEARNSETS(Chesnaught),
+        .formSpeciesIdTable = sChesnaughtFormSpeciesIdTable,
+        .formChangeTable = sChesnaughtFormChangeTable,
     },
+
+    [SPECIES_CHESNAUGHT_MEGA] =
+    {
+        .baseHP        = 88,
+        .baseAttack    = 137,
+        .baseDefense   = 172,
+        .baseSpeed     = 44,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 115,
+        .types = { TYPE_GRASS, TYPE_FIGHTING },
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Defense = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_BULLETPROOF, ABILITY_BULLETPROOF, ABILITY_BULLETPROOF },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Chesnaught"),
+        .cryId = CRY_CHESNAUGHT,
+        .natDexNum = NATIONAL_DEX_CHESNAUGHT,
+        .categoryName = _("Spiny Armor"),
+        .height = 16,
+        .weight = 900,
+        .description = POKEDEX_DESC_STRING(
+            "It shields its allies from danger with\n"
+            "its own body. When it takes a defensive\n"
+            "posture with its fists guarding its face,\n"
+            "it can withstand a bomb blast."),
+        .pokemonScale = 259,
+        .pokemonOffset = 1,
+        .trainerScale = 296,
+        .trainerOffset = 1,
+        FRONT_PIC(ChesnaughtMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ChesnaughtMega,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
+        BACK_PIC(ChesnaughtMega, 64, 64),
+        .backPicYOffset = 10,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        PALETTES(ChesnaughtMega),
+        ICON(ChesnaughtMega, 1),
+        .footprint = gMonFootprint_Chesnaught,
+        LEARNSETS(ChesnaughtMega),
+        .formSpeciesIdTable = sChesnaughtFormSpeciesIdTable,
+        .formChangeTable = sChesnaughtFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_CHESPIN
 
 #if P_FAMILY_FENNEKIN
@@ -290,7 +343,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Delphox, 0),
         .footprint = gMonFootprint_Delphox,
         LEARNSETS(Delphox),
+        .formSpeciesIdTable = sDelphoxFormSpeciesIdTable,
+        .formChangeTable = sDelphoxFormChangeTable,
     },
+
+    [SPECIES_DELPHOX_MEGA] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 69,
+        .baseDefense   = 72,
+        .baseSpeed     = 134,
+        .baseSpAttack  = 159,
+        .baseSpDefense = 125,
+        .types = { TYPE_FIRE, TYPE_PSYCHIC },
+        .catchRate = 45,
+        .expYield = 240,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_LEVITATE },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Delphox"),
+        .cryId = CRY_DELPHOX,
+        .natDexNum = NATIONAL_DEX_DELPHOX,
+        .categoryName = _("Fox"),
+        .height = 15,
+        .weight = 390,
+        .description = POKEDEX_DESC_STRING(
+            "It gazes into the flame at the tip of its\n"
+            "branch to achieve a focused state, which\n"
+            "allows it to see into the future. It uses\n"
+            "psychic power to incinerate its foes."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        FRONT_PIC(DelphoxMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_DelphoxMega,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(DelphoxMega, 64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(DelphoxMega),
+        ICON(DelphoxMega, 2),
+        .footprint = gMonFootprint_Delphox,
+        LEARNSETS(DelphoxMega),
+        .formSpeciesIdTable = sDelphoxFormSpeciesIdTable,
+        .formChangeTable = sDelphoxFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_FENNEKIN
 
 #if P_FAMILY_FROAKIE
@@ -439,7 +545,56 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_PROTEAN },
         .frontAnimId = ANIM_V_STRETCH,
         .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        .formChangeTable = sGreninjaFormChangeTable,
     },
+
+    [SPECIES_GRENINJA_MEGA] =
+    {                    
+        .types = { TYPE_WATER, TYPE_DARK },
+        .catchRate = 45,                                
+        .evYield_Speed = 3,                             
+        .eggCycles = 20,                                
+        .friendship = STANDARD_FRIENDSHIP,              
+        .growthRate = GROWTH_MEDIUM_SLOW,               
+        .bodyColor = BODY_COLOR_BLUE,                   
+        .noFlip = TRUE,                                 
+        .speciesName = _("Greninja"),                   
+        .cryId = CRY_GRENINJA,                          
+        .natDexNum = NATIONAL_DEX_GRENINJA,             
+        .categoryName = _("Ninja"),                     
+        .height = 15,                                   
+        .weight = 400,                                  
+        .pokemonScale = 268,                            
+        .pokemonOffset = 2,                             
+        .trainerScale = 271,                            
+        .trainerOffset = 0,                             
+        .footprint = gMonFootprint_Greninja,            
+        LEARNSETS(GreninjaMega),
+        .baseHP        = 72,
+        .baseAttack    = 125,
+        .baseDefense   = 77,
+        .baseSpeed     = 142,
+        .baseSpAttack  = 133,
+        .baseSpDefense = 81,
+        .expYield = 239,                    
+        .description = gGreninjaPokedexText,
+        FRONT_PIC(GreninjaMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GreninjaMega, 
+        BACK_PIC(GreninjaMega, 64, 64),
+        .backPicYOffset = 11,
+        PALETTES(GreninjaMega),                 
+        ICON(GreninjaMega, 0),
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_1 },
+        .abilities = { ABILITY_PROTEAN, ABILITY_PROTEAN, ABILITY_PROTEAN },
+        .frontAnimId = ANIM_V_STRETCH,
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        .formSpeciesIdTable = sGreninjaFormSpeciesIdTable,
+        .formChangeTable = sGreninjaFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 
     [SPECIES_GRENINJA_BATTLE_BOND] =
     {
@@ -1355,6 +1510,58 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         BACK_PIC(FloetteEternalFlower, 64, 64),
         .backPicYOffset = 2,
         LEARNSETS(FloetteEternalFlower),
+        .formChangeTable = sFloetteEternalFormChangeTable,
+    },
+
+    [SPECIES_FLOETTE_MEGA] =
+    {
+        .baseHP        = 74,
+        .baseAttack    = 85,
+        .baseDefense   = 87,
+        .baseSpeed     = 102,
+        .baseSpAttack  = 155,
+        .baseSpDefense = 148,
+        .types = { TYPE_FAIRY, TYPE_FAIRY },                                    
+        .catchRate = 120,                                                       
+        .evYield_SpDefense = 2,                                                 
+        .genderRatio = MON_FEMALE,                                              
+        .eggCycles = 20,                                                        
+        .friendship = STANDARD_FRIENDSHIP,                                      
+        .growthRate = GROWTH_MEDIUM_FAST,                                       
+        .abilities = { ABILITY_FAIRY_AURA, ABILITY_FAIRY_AURA, ABILITY_FAIRY_AURA },  
+        .bodyColor = BODY_COLOR_WHITE,                                          
+        .speciesName = _("Floette"),                                            
+        .natDexNum = NATIONAL_DEX_FLOETTE,                                      
+        .categoryName = _("Single Bloom"),                                      
+        .height = 2,                                                            
+        .weight = 9,                                                            
+        .pokemonScale = 682,                                                    
+        .pokemonOffset = 24,                                                    
+        .trainerScale = 256,                                                    
+        .trainerOffset = 0,                                                     
+        .frontAnimFrames = sAnims_FloetteMega,                                      
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,                                     
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,                              
+        PALETTES(FloetteMega),                                       
+        ICON(FloetteMega, 0),                                   
+        .footprint = gMonFootprint_Floette,                                     
+        .formSpeciesIdTable = sFloetteFormSpeciesIdTable,
+        .expYield = 243,
+        .eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED },
+        .description = POKEDEX_DESC_STRING(
+            "The flower it's holding can no\n"
+            "longer be found blooming anywhere. It's\n"
+            "also thought to contain terrifying\n"
+            "power."),
+        .cryId = CRY_FLOETTE_ETERNAL_FLOWER,
+        FRONT_PIC(FloetteMega, 64, 64),
+        .frontPicYOffset = 0,
+        .enemyMonElevation = 4,
+        BACK_PIC(FloetteMega, 64, 64),
+        .backPicYOffset = 6,
+        LEARNSETS(FloetteEternalFlower),
+        .formChangeTable = sFloetteEternalFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 
 #define FLORGES_MISC_INFO(Form, iconPal)                                        \
@@ -1879,6 +2086,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         PALETTES(MeowsticMale),
         ICON(MeowsticMale, 0),
         LEARNSETS(MeowsticMale),
+        .formChangeTable = sMeowsticMFormChangeTable,
     },
 
     [SPECIES_MEOWSTIC_FEMALE] =
@@ -1898,6 +2106,80 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         PALETTES(MeowsticFemale),
         ICON(MeowsticFemale, 0),
         LEARNSETS(MeowsticFemale),
+        .formChangeTable = sMeowsticFFormChangeTable,
+    },
+    
+#define MEOWSTIC_MEGA_MISC_INFO                             \
+        .baseHP        = 74,                                \
+        .baseAttack    = 48,                                \
+        .baseDefense   = 76,                                \
+        .baseSpeed     = 124,                               \
+        .baseSpAttack  = 143,                               \
+        .baseSpDefense = 101,                               \
+        .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },            \
+        .catchRate = 75,                                    \
+        .expYield = 163,                                    \
+        .evYield_Speed = 2,                                 \
+        .eggCycles = 20,                                    \
+        .friendship = STANDARD_FRIENDSHIP,                  \
+        .growthRate = GROWTH_MEDIUM_FAST,                   \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },  \
+        .speciesName = _("Meowstic"),                       \
+        .cryId = CRY_MEOWSTIC,                              \
+        .natDexNum = NATIONAL_DEX_MEOWSTIC,                 \
+        .categoryName = _("Constraint"),                    \
+        .height = 6,                                        \
+        .weight = 85,                                       \
+        .pokemonScale = 422,                                \
+        .pokemonOffset = 12,                                \
+        .trainerScale = 256,                                \
+        .trainerOffset = 0,                                 \
+        .frontAnimFrames = sAnims_MeowsticMega,             \
+        .frontAnimId = ANIM_GROW_VIBRATE,                   \
+        .backPicYOffset = 3,                                \
+        .backAnimId = BACK_ANIM_CONCAVE_ARC_LARGE,          \
+        .footprint = gMonFootprint_Meowstic,                \
+        .formSpeciesIdTable = sMeowsticFormSpeciesIdTable,  \
+        .isMegaEvolution = TRUE
+
+    [SPECIES_MEOWSTIC_MALE_MEGA] =
+    {
+        MEOWSTIC_MEGA_MISC_INFO,
+        .genderRatio = MON_MALE,
+        .abilities = { ABILITY_TRACE, ABILITY_TRACE, ABILITY_TRACE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .description = POKEDEX_DESC_STRING(
+            "The defensive instinct of the\n"
+            "males is strong. It's when they're\n"
+            "protecting themselves or their partners\n"
+            "that they unleash their full power."),
+        FRONT_PIC(MeowsticMega, 64, 64),
+        .frontPicYOffset = 0,
+        BACK_PIC(MeowsticMega, 64, 64),
+        PALETTES(MeowsticMega),
+        ICON(MeowsticMega, 0),
+        LEARNSETS(MeowsticMale),
+        .formChangeTable = sMeowsticMFormChangeTable,
+    },
+
+    [SPECIES_MEOWSTIC_FEMALE_MEGA] =
+    {
+        MEOWSTIC_MEGA_MISC_INFO,
+        .genderRatio = MON_FEMALE,
+        .abilities = { ABILITY_TRACE, ABILITY_TRACE, ABILITY_TRACE },
+        .bodyColor = BODY_COLOR_WHITE,
+        .description = POKEDEX_DESC_STRING(
+            "Females are a bit more selfish and\n"
+            "aggressive than males. If they\n"
+            "don't get what they want, they will\n"
+            "torment you with their psychic abilities."),
+        FRONT_PIC(MeowsticMega, 64, 64),
+        .frontPicYOffset = 0,
+        BACK_PIC(MeowsticMega, 64, 64),
+        PALETTES(MeowsticMega),
+        ICON(MeowsticMega, 0),
+        LEARNSETS(MeowsticMega),
+        .formChangeTable = sMeowsticFFormChangeTable,
     },
 #endif //P_FAMILY_ESPURR
 
@@ -3017,7 +3299,65 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Hawlucha, 0),
         .footprint = gMonFootprint_Hawlucha,
         LEARNSETS(Hawlucha),
+        .formSpeciesIdTable = sHawluchaFormSpeciesIdTable,
+        .formChangeTable = sHawluchaFormChangeTable,
     },
+
+    [SPECIES_HAWLUCHA_MEGA] =
+    {
+        .baseHP        = 78,
+        .baseAttack    = 137,
+        .baseDefense   = 100,
+        .baseSpeed     = 118,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 93,
+        .types = { TYPE_FIGHTING, TYPE_FLYING },
+        .catchRate = 100,
+        .expYield = 175,
+        .evYield_Attack = 2,
+        .itemRare = ITEM_KINGS_ROCK,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        #if P_UPDATED_EGG_GROUPS >= GEN_8
+            .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_HUMAN_LIKE },
+        #else
+            .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        #endif
+        .abilities = { ABILITY_NO_GUARD, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Hawlucha"),
+        .cryId = CRY_HAWLUCHA,
+        .natDexNum = NATIONAL_DEX_HAWLUCHA,
+        .categoryName = _("Wrestling"),
+        .height = 8,
+        .weight = 215,
+        .description = POKEDEX_DESC_STRING(
+            "With its wings, it controls its position in\n"
+            "the air. Its proficient fighting skills\n"
+            "enable it to keep up with big bruisers\n"
+            "like Machamp and Hariyama."),
+        .pokemonScale = 366,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        FRONT_PIC(HawluchaMega, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_HawluchaMega,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
+        BACK_PIC(HawluchaMega, 64, 64),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(HawluchaMega),
+        ICON(HawluchaMega, 0),
+        .footprint = gMonFootprint_Hawlucha,
+        LEARNSETS(HawluchaMega),
+        .formSpeciesIdTable = sHawluchaFormSpeciesIdTable,
+        .formChangeTable = sHawluchaFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_HAWLUCHA
 
 #if P_FAMILY_DEDENNE

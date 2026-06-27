@@ -1,6 +1,8 @@
 {
   "Species": [
-    "SPECIES_RAICHU"
+    "SPECIES_RAICHU",
+    "SPECIES_RAICHU_MEGA_X",
+    "SPECIES_RAICHU_MEGA_Y"
   ],
   "LevelUpMoves": [
     {

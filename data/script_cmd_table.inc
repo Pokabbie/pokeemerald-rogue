@@ -202,8 +202,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_begindynamicmultichoice           @ 0xc7
 	.4byte ScrCmd_appenddynamicmultichoice          @ 0xc8
 	.4byte ScrCmd_showtextbox                       @ 0xc9
-	.4byte ScrCmd_nop1                              @ 0xca
-	.4byte ScrCmd_nop1                              @ 0xcb
+	.4byte ScrCmd_showenemypartypic                 @ 0xca
+	.4byte ScrCmd_showplayerpartypic                @ 0xcb
 	.4byte ScrCmd_nop1                              @ 0xcc
 	.4byte ScrCmd_setmonmodernfatefulencounter      @ 0xcd
 	.4byte ScrCmd_checkmonmodernfatefulencounter    @ 0xce
@@ -246,6 +246,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkfollower                     @ 0xf3
 	.4byte ScrCmd_multichoicedynamic                @ 0xf4
 	.4byte ScrCmd_hubupgradeunlocked                @ 0xf5
+	.4byte ScrCmd_rogue_custompokemart              @ 0xf6
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

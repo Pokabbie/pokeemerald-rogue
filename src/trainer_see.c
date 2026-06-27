@@ -236,9 +236,18 @@ static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
+    struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
 
     if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
         return FALSE;
+
+    // Cannot start trainer battle during tile spin
+    if (ObjectEventIsMovementOverridden(playerObj))
+    {
+        u8 heldMovement = ObjectEventGetHeldMovementActionId(playerObj);
+        if(heldMovement >= MOVEMENT_ACTION_SPIN_DOWN && heldMovement <= MOVEMENT_ACTION_SPIN_RIGHT)
+            return 0;
+    }
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
@@ -369,7 +378,7 @@ static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj)
     s16 x, y;
     u8 i;
     u8 approachDistance;
-
+    
     PlayerGetDestCoords(&x, &y);
     if (trainerObj->trainerType == TRAINER_TYPE_NORMAL)  // can only see in one direction
     {

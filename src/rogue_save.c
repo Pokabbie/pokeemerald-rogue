@@ -19,6 +19,8 @@
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
 
+STATIC_ASSERT(ROGUE_SAVE_VERSION + 1 ==  SAVE_VER_ID_LATEST, SaveVersionMatches);
+
 #define ROGUE_SAVE_BLOCK_CAPACITY (sizeof(struct BoxPokemon) * IN_BOX_COUNT * LEFTOVER_BOXES_COUNT)
 
 enum
@@ -155,6 +157,21 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 
     rogueVersion = ROGUE_VERSION;
     SerializeData(stream, &rogueVersion, sizeof(rogueVersion)); // todo - should flag if version doesn't match (make sure to handle blank/new saves)
+
+    if(saveBlock->saveVersion >= SAVE_VER_ID_2_1_0)
+    {
+        saveBlock->lastKnownNumSpecies = NUM_SPECIES;
+        SerializeData(stream, &saveBlock->lastKnownNumSpecies, sizeof(saveBlock->lastKnownNumSpecies));
+    }
+    else
+    {
+#ifdef ROGUE_EXPANSION
+        saveBlock->lastKnownNumSpecies = SPECIES_PIKIN_MEGA + 1;
+#else
+        saveBlock->lastKnownNumSpecies = NUM_SPECIES;
+#endif
+    }
+
 
     // Quests
     SerializeArray(stream, saveBlock->questStates, sizeof(saveBlock->questStates[0]), ARRAY_COUNT(saveBlock->questStates));
@@ -307,24 +324,13 @@ void RogueSave_FormatForReading()
 
 u16 RogueSave_GetVersionIdFor(u16 saveVersion)
 {
-    switch (saveVersion)
+    if(saveVersion + 1 <= SAVE_VER_ID_LATEST)
     {
-    case 0:
-        return SAVE_VER_ID_1_X;
-
-    case 1:
-        return SAVE_VER_ID_2_0_PRERELEASE;
-
-    case 2:
-        return SAVE_VER_ID_2_0;
-
-    case 3:
-        return SAVE_VER_ID_2_0_1;
-    
-    default:
-        AGB_ASSERT(FALSE);
-        return SAVE_VER_ID_UNKNOWN;
+        return saveVersion + 1;
     }
+
+    AGB_ASSERT(FALSE);
+    return SAVE_VER_ID_UNKNOWN;
 }
 
 u16 RogueSave_GetVersionId()
@@ -340,7 +346,7 @@ void RogueSave_OnSaveLoaded()
 
     if(gRogueSaveBlock->saveVersion != ROGUE_SAVE_VERSION)
     {
-        Rogue_NotifySaveVersionUpdated(gRogueSaveBlock->saveVersion, ROGUE_SAVE_VERSION);
+        Rogue_NotifySaveVersionUpdated(RogueSave_GetVersionIdFor(gRogueSaveBlock->saveVersion), RogueSave_GetVersionIdFor(ROGUE_SAVE_VERSION));
     }
 
     if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)

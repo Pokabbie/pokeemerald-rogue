@@ -4452,8 +4452,8 @@ static void SetMonTypeIcons(void)
     }
     else
     {
-        u8 type0 = GetTypeBySpecies(summary->species, 0, 0);
-        u8 type1 = GetTypeBySpecies(summary->species, 1, 0);
+        u8 type0 = GetTypeBySpecies(summary->species, 0, summary->OTID);
+        u8 type1 = GetTypeBySpecies(summary->species, 1, summary->OTID);
         
         SetTypeSpritePosAndPal(type0, 120, 48, SPRITE_ARR_ID_TYPE);
         if (type0 != type1)
@@ -4586,7 +4586,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny), summary->species2);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny, summary->OTID), summary->species2);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;

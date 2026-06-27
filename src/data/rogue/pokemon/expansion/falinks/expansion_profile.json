@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_FALINKS"
+    "SPECIES_FALINKS",
+    "SPECIES_FALINKS_MEGA"
   ],
   "LevelUpMoves": [
     {

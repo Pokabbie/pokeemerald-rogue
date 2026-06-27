@@ -18,50 +18,73 @@ script Rogue_Interior_SafariCave_InteractLegendSummon
     if(var(VAR_RESULT) == YES)
     {
         // ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST
-        msgbox(format("Powerful Pokémon cries echo throughout the cave.\p20 {POKEBLOCK} can be offered in order to encounter one of these Pokemon.\pWhich Pokémon would you like to make an offering to?"))
+        msgbox(format("Powerful Pokémon cries echo throughout the cave.\p10 {POKEBLOCK} can be offered in order to encounter one of these Pokemon."))
 
-        special(RogueSafari_CompactEmptyEntries)
-        special(Special_SelectSafariMonInPokedex)
-        waitstate
 
-        if(var(VAR_RESULT) != ROGUE_SAFARI_TOTAL_MONS)
+        begindynamicmultichoice
+        appenddynamicmultichoice("Make Offering", 0)
+        appenddynamicmultichoice("Dismiss Pokémon", 1)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+        message(format("What would you like to do?"))
+        waitmessage
+        enddynamicmultichoice(1, 0, 6, TRUE)
+
+        switch(var(VAR_RESULT))
         {
-            copyvar(VAR_SAFARI_INDEX, VAR_RESULT)
+            case 0:
+                special(RogueSafari_CompactEmptyEntries)
+                special(Special_SelectSafariMonInPokedex)
+                waitstate
 
-            special(Rogue_BufferSafariMonInfo)
-            msgbox(format("What would you like to offer to {STR_VAR_1}?"), MSGBOX_DEFAULT)
+                if(var(VAR_RESULT) != ROGUE_SAFARI_TOTAL_MONS)
+                {
+                    copyvar(VAR_SAFARI_INDEX, VAR_RESULT)
 
-            special(Bag_ChoosePokeblock)
-            waitstate
+                    special(Rogue_BufferSafariMonInfo)
+                    msgbox(format("What would you like to offer to {STR_VAR_1}?"), MSGBOX_DEFAULT)
 
-            if(var(VAR_ITEM_ID) != ITEM_NONE)
-            {
-                special(Rogue_CheckSafariMonLikesPokeblock)
+                    special(Bag_ChoosePokeblock)
+                    waitstate
+
+                    if(var(VAR_ITEM_ID) != ITEM_NONE)
+                    {
+                        special(Rogue_CheckSafariMonLikesPokeblock)
+                        if(var(VAR_RESULT) == YES)
+                        {
+                            bufferitemnameplural(STR_VAR_2, VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+                            checkitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+
+                            if(var(VAR_RESULT) == YES)
+                            {
+                                msgbox(format("{STR_VAR_2} were scattered near the statue…"))
+                                removeitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+
+                                closemessage
+                                special(Rogue_EnqueueSafariBattle)
+                                call(Rogue_Interior_SafariCave_BattleSummonMon)
+                            }
+                            else
+                            {
+                                msgbox(format("That is not enough {POKEBLOCK}.\p{STR_VAR_2} are needed in order to make an offering."))
+                            }
+                        }
+                        else
+                        {
+                            special(Rogue_BufferSafariMonInfo)
+                            msgbox(format("{STR_VAR_1} won't like that type of {POKEBLOCK}."))
+                        }
+                    }
+                }
+
+            case 1:
+                msgbox(format("Are you sure you want to Dismiss all the Pokémon currently in the Cave?"), MSGBOX_YESNO)
+
                 if(var(VAR_RESULT) == YES)
                 {
-                    bufferitemnameplural(STR_VAR_2, VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
-                    checkitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
-
-                    if(var(VAR_RESULT) == YES)
-                    {
-                        msgbox(format("{STR_VAR_2} were scattered near the statue…"))
-                        removeitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
-
-                        closemessage
-                        special(Rogue_EnqueueSafariBattle)
-                        call(Rogue_Interior_SafariCave_BattleSummonMon)
-                    }
-                    else
-                    {
-                        msgbox(format("That is not enough {POKEBLOCK}.\n{STR_VAR_2} are needed in order to make an offering."))
-                    }
+                    special(RogueSafari_ResetAllLegendEntries)
+                    special(ReloadWarpSilent)
                 }
-                else
-                {
-                    special(Rogue_BufferSafariMonInfo)
-                    msgbox(format("{STR_VAR_1} won't like that type of {POKEBLOCK}."))
-                }
-            }
         }
     }
     else

@@ -3979,7 +3979,7 @@ static void Task_DisplayCaughtMonDexPage(u8 taskId)
         gTasks[taskId].tState++;
         break;
     case 4:
-        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, GetGenderForSpecies(NationalPokedexNumToSpecies(dexNum), 0), TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
+        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), FALSE, 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, GetGenderForSpecies(NationalPokedexNumToSpecies(dexNum), 0), TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
         gSprites[spriteId].oam.priority = 0;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         SetVBlankCallback(gPokedexVBlankCB);
@@ -4284,6 +4284,9 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
     {
         switch (caseId)
         {
+        case FLAG_SET_NONE:
+            dexState = DEX_STATE_NONE;
+            break;
         case FLAG_SET_SEEN:
             dexState = max(dexState, DEX_STATE_SEEN);
             break;

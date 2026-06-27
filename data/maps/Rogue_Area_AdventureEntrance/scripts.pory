@@ -279,7 +279,7 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         else
         {
             // Give player the daycare phone if they didn't pick it up before exiting
-            hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+            hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE0)
             if(var(VAR_RESULT) == TRUE)
             {
                 checkitem(ITEM_DAYCARE_PHONE)

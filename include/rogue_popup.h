@@ -12,6 +12,7 @@ struct CustomPopup
 };
 
 void Rogue_ClearPopupQueue(void);
+void Rogue_RemoveCurrentShownPopup(void);
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled);
 
 void Rogue_ForceEnablePopups(bool8 allowAudio, bool8 canSkip);
@@ -38,6 +39,7 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species, bool8 fromDaycare);
 void Rogue_PushPopup_RoamerPokemonActivated(u16 species);
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);
+void Rogue_PushPopup_AddItem2(u16 itemId, u16 amount, u32 pickupType);
 void Rogue_PushPopup_LostItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddMoney(u32 amount);
@@ -57,10 +59,13 @@ void Rogue_PushPopup_FlaskRefilled();
 
 void Rogue_PushPopup_FlightChargeUsed(u32 remainingCharges, u32 totalCharges);
 void Rogue_PushPopup_FlightChargeRefilled(u32 totalCharges);
+void Rogue_PushPopup_DaycareChargeUsed(u32 remainingCharges, u32 totalCharges);
+void Rogue_PushPopup_DaycareChargeRefilled(u32 totalCharges);
 
 void Rogue_PushPopup_UnlockPokedex();
 void Rogue_PushPopup_UpgradePokedex();
 void Rogue_PushPopup_UpgradeBagCapacity();
+void Rogue_PushPopup_ToggleSpeedup(bool8 speedupEnabled);
 
 void Rogue_PushPopup_AssistantConnected();
 void Rogue_PushPopup_AssistantDisconnected();

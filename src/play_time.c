@@ -69,10 +69,11 @@ void PlayTimeCounter_Update(void)
 
 void PlayTimeCounter_SetToMax(void)
 {
-    sPlayTimeCounterState = MAXED_OUT;
+    // RogueNote: Never stop timer, keep counting up
+    sPlayTimeCounterState = RUNNING; /// MAXED_OUT
 
     gSaveBlock2Ptr->playTimeHours = 999;
-    gSaveBlock2Ptr->playTimeMinutes = 59;
-    gSaveBlock2Ptr->playTimeSeconds = 59;
-    gSaveBlock2Ptr->playTimeVBlanks = 59;
+    gSaveBlock2Ptr->playTimeMinutes = 0;
+    gSaveBlock2Ptr->playTimeSeconds = 0;
+    gSaveBlock2Ptr->playTimeVBlanks = 0;
 }

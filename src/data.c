@@ -162,6 +162,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Dawn[] =
     {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_Calem[] =
+{
+    {gTrainerBackPic_Calem + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Calem + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Calem + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Calem + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Calem + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Serena[] =
+{
+    {gTrainerBackPic_Serena + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Serena + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Serena + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Serena + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Serena + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
 {
     {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},

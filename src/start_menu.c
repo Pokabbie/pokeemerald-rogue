@@ -784,7 +784,7 @@ static bool8 HandleStartMenuInput(void)
     {
         // RogueNote: Audio music bug, wait for fanfare music to stop
         // If we don't do this music can cutout and cause soft-locks on warps
-        if(!WaitFanfare(FALSE))
+        if(!IsFanfareTaskInactive())
         {
             sBufferedAButton = TRUE;
             return FALSE;

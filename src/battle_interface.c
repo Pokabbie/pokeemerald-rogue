@@ -1700,8 +1700,8 @@ static const struct SpritePalette sMegaIndicator_SpritePalettes[] =
 
 static const struct OamData sOamData_MegaIndicator =
 {
-    .shape = SPRITE_SHAPE(16x16),
-    .size = SPRITE_SIZE(16x16),
+    .shape = SPRITE_SHAPE(8x16),
+    .size = SPRITE_SIZE(8x16),
     .priority = 1,
 };
 
@@ -1726,10 +1726,10 @@ static const u16 sMegaIndicatorTags[][2] =
 
 static const s8 sIndicatorPositions[][2] =
 {
-    [B_POSITION_PLAYER_LEFT] = {52, -9},
-    [B_POSITION_OPPONENT_LEFT] = {44, -9},
-    [B_POSITION_PLAYER_RIGHT] = {52, -9},
-    [B_POSITION_OPPONENT_RIGHT] = {44, -9},
+    [B_POSITION_PLAYER_LEFT] = {48, -9},
+    [B_POSITION_OPPONENT_LEFT] = {40, -9},
+    [B_POSITION_PLAYER_RIGHT] = {48, -9},
+    [B_POSITION_OPPONENT_RIGHT] = {40, -9},
 };
 
 // for sprite data fields

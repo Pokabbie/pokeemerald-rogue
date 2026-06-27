@@ -304,6 +304,8 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
     else
     {
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType = whistleType;
+        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.flyingState = FALSE;
+        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.flyingHeight = 0;
 
         if(CalculateInitialRideSpecies())
         {
@@ -332,6 +334,14 @@ static bool8 CanCycleRideMons()
     return !Rogue_IsRideMonFlying() && !Rogue_IsRideMonSwimming();
 }
 
+static bool8 IsSafeToSwapRideMons()
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    // Only swap when player is at a valid tile position
+    return (player->currentCoords.x == player->previousCoords.x && player->currentCoords.y == player->previousCoords.y);
+}
+
 bool8 Rogue_HandleRideMonInput()
 {
     if(Rogue_IsRideActive())
@@ -339,28 +349,19 @@ bool8 Rogue_HandleRideMonInput()
         // Cycle through mons, when pressing L or R
         if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_BASIC || (FlagGet(FLAG_SYS_RIDING_ACCESS_DAYCARE) && sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD))
         {
-            if(JOY_NEW(L_BUTTON))
+            if(IsSafeToSwapRideMons())
             {
-                if(CanCycleRideMons())
+                if(JOY_NEW(R_BUTTON))
                 {
-                    CalculateRideSpecies(-1);
-                    PlayRideMonCry();
-                }
-                else
-                {
-                    PlaySE(SE_FAILURE);
-                }
-            }
-            else if(JOY_NEW(R_BUTTON))
-            {
-                if(CanCycleRideMons())
-                {
-                    CalculateRideSpecies(1);
-                    PlayRideMonCry();
-                }
-                else
-                {
-                    PlaySE(SE_FAILURE);
+                    if(CanCycleRideMons())
+                    {
+                        CalculateRideSpecies(1);
+                        PlayRideMonCry();
+                    }
+                    else
+                    {
+                        PlaySE(SE_FAILURE);
+                    }
                 }
             }
         }
@@ -677,12 +678,9 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             rideObject->state.monGfx = rideObject->state.desiredRideSpecies;
 
             if(rideObjectId == RIDE_OBJECT_PLAYER)
-                FollowMon_ClearCachedPartnerSpecies();
-
-            if(rideObjectId)
             {
+                FollowMon_ClearCachedPartnerSpecies();
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, spriteX, spriteY, 0);
-                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
             else
             {
@@ -696,13 +694,16 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
                     isShiny = TRUE;
                 }
                 
-                FollowMon_SetGraphics(gfxId, species, isShiny);
+                FollowMon_SetGraphics(gfxId, species, isShiny, 0);
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_0 + gfxId, SpriteCallbackDummy, spriteX, spriteY, 0);
-                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
 
-            gSprites[rideObject->monSpriteId].oam.priority = 2;
-            StartSpriteAnim(&gSprites[rideObject->monSpriteId], ANIM_STD_GO_SOUTH);
+            if(rideObject->monSpriteId != SPRITE_NONE)
+            {
+                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
+                gSprites[rideObject->monSpriteId].oam.priority = 2;
+                StartSpriteAnim(&gSprites[rideObject->monSpriteId], ANIM_STD_GO_SOUTH);
+            }
             
             // Handle returning to the screen after flying
             if(IsRideObjectFlying(rideObject))
@@ -710,29 +711,6 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
                 SetShadowFieldEffectVisible(&gObjectEvents[rideObject->riderObjectEventId], TRUE);
                 gObjectEvents[rideObject->riderObjectEventId].hideReflection = TRUE;
             }
-
-            // If we're attempting to ride a mon, but for whatever reason we no longer can (e.g. released mon we were riding) unmount here
-            //if(CalculateInitialRideSpecies())
-            //{
-            //    s16 playerX, playerY;
-            //    PlayerGetDestCoords(&playerX, &playerY);
-//
-            //    rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, playerX, playerY, 0);
-            //    gSprites[rideObject->monSpriteId].oam.priority = 2;
-            //    StartSpriteAnim(&gSprites[rideObject->playerObject.monSpriteId], ANIM_STD_GO_SOUTH);
-            //    
-            //    // Handle returning to the screen after flying
-            //    if(Rogue_IsRideMonFlying())
-            //    {
-            //        SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], TRUE);
-            //        gObjectEvents[gPlayerAvatar.objectEventId].hideReflection = TRUE;
-            //    }
-            //}
-            //else
-            //{
-            //    // Force demount here
-            //    Rogue_GetOnOffRideMon(sRideMonData.playerRideState.whistleType, FALSE);
-            //}
         }
 
         if(rideObject->monSpriteId != SPRITE_NONE)
@@ -1084,11 +1062,13 @@ static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const s
     if(species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
 
-    rideSpeed = CalculateMovementModeFor(species);
-
-
     AGB_ASSERT(rideObject->monSpriteId != SPRITE_NONE);
     AGB_ASSERT(rideObject->riderSpriteId != SPRITE_NONE);
+
+    if(rideObject->monSpriteId == SPRITE_NONE || rideObject->riderSpriteId == SPRITE_NONE)
+        return;
+
+    rideSpeed = CalculateMovementModeFor(species);
 
     // Fix stairs directions
     switch (facingDirection)
@@ -1387,6 +1367,7 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
         //MOVE_SPEED_FAST_2, // water current / acro bike                   PlayerRideWaterCurrent
         //MOVE_SPEED_FASTER, // mach bike's max speed                       PlayerWalkFaster
         //MOVE_SPEED_FASTEST,                                               ??
+        //MOVE_SPEED_FASTEST_2                                              ??
 
         switch (CalculateMovementModeFor(GetCurrentRideMonSpecies()))
         {

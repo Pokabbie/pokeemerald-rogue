@@ -1,7 +1,8 @@
 {
   "Species": [
     "SPECIES_GARCHOMP",
-    "SPECIES_GARCHOMP_MEGA"
+    "SPECIES_GARCHOMP_MEGA",
+    "SPECIES_GARCHOMP_MEGA_Z"
   ],
   "LevelUpMoves": [
     {

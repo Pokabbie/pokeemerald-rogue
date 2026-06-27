@@ -14594,7 +14594,7 @@ const struct BattleMove gBattleMoves_Revised[MOVES_COUNT_DYNAMAX] =
     [MOVE_MAKE_IT_RAIN] =
     {
     #ifdef ROGUE_DRAYANO
-        .effect = EFFECT_PAY_DAY,
+        .effect = EFFECT_MAKE_IT_RAIN,
         .power = 130,
         .type = TYPE_STEEL,
         .accuracy = 90,

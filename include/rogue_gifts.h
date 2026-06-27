@@ -21,6 +21,8 @@ u16 RogueGift_GetCustomMonMoveCount(u32 id);
 u16 RogueGift_GetCustomMonAbility(u32 id, u8 i);
 u16 RogueGift_GetCustomMonAbilityCount(u32 id);
 
+u8 RogueGift_GetCustomMonType(u32 id, u8 i);
+
 bool8 RogueGift_CanRenameCustomMon(u32 id);
 
 bool8 RogueGift_DisplayCustomMonRarity(u32 id);
@@ -37,5 +39,7 @@ struct UniqueMon* RogueGift_GetDynamicUniqueMon(u8 slot);
 bool8 RogueGift_IsDynamicMonSlotEnabled(u8 slot);
 
 u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species);
+
+bool8 RogueGift_TryApplyPaletteModify(u32 id, bool8 isShiny, u16 const* inputPal, u16 const* layerRefPal, u16* outputPal);
 
 #endif // ROGUE_GIFTS_H

@@ -69,6 +69,12 @@ enum {
     WIN_QUANTITY_IN_BAG,
     WIN_QUANTITY_PRICE,
     WIN_MESSAGE,
+    WIN_MON_ICON_0,
+    WIN_MON_ICON_1,
+    WIN_MON_ICON_2,
+    WIN_MON_ICON_3,
+    WIN_MON_ICON_4,
+    WIN_MON_ICON_5,
 };
 
 enum {
@@ -103,10 +109,12 @@ struct MartInfo
     const struct MenuAction *menuActions;
     u16 (*listItemCallback)(u16);
     void const* listItemData;
+    u8* prevShopItemBits;
     u16 listItemTerminator;
     u16 itemCount;
     u16 minPrice;
     u16 dynamicMartCategory;
+    u16 currencyOverride;
     u8 windowId;
     u8 martType;
     bool8 anythingBought;
@@ -168,6 +176,7 @@ static void BuyMenuReturnToItemList(u8 taskId);
 static void Task_BuyHowManyDialogueInit(u8 taskId);
 static void BuyMenuConfirmPurchase(u8 taskId);
 static void BuyMenuPrintItemQuantityAndPrice(u8 taskId);
+static void BuyMenuPrintCraftItemQuantityAndPrice(u8 taskId);
 static bool8 BuyMenuIsBuildDirectionValid(u8 area, u8 dir);
 static void BuyMenuPrintBuildDirection(u8 taskId);
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId);
@@ -192,6 +201,8 @@ static bool8 IsZeroPriceMarkedAsFree();
 static u32 GetShopCurrencyAmount();
 static void RemoveShopCurrencyAmount(u32 amount);
 
+static void BlitMonSlotIconForItem(u8 windowId, u16 slot, u16 itemId);
+
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
     BuyMenuTryMakePurchase,
@@ -208,6 +219,12 @@ static const struct MenuAction sShopMenuActions_BuySellQuit[] =
 static const struct MenuAction sShopMenuActions_BuyQuit[] =
 {
     { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuy} },
+    { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
+};
+
+static const struct MenuAction sShopMenuActions_CraftQuit[] =
+{
+    { gText_ShopCraft, {.void_u8=Task_HandleShopMenuBuy} },
     { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
 
@@ -360,6 +377,62 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x01A2,
     },
+
+    [WIN_MON_ICON_0] = {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 2,
+        .baseBlock = 0x023A,
+    },
+    [WIN_MON_ICON_1] = {
+        .bg = 0,
+        .tilemapLeft = 5,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 3,
+        .baseBlock = 0x023A + 16 * 1,
+    },
+    [WIN_MON_ICON_2] = {
+        .bg = 0,
+        .tilemapLeft = 9,
+        .tilemapTop = 4,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 4,
+        .baseBlock = 0x023A + 16 * 2,
+    },
+    [WIN_MON_ICON_3] = {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 5,
+        .baseBlock = 0x023A + 16 * 3,
+    },
+    [WIN_MON_ICON_4] = {
+        .bg = 0,
+        .tilemapLeft = 5,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 6,
+        .baseBlock = 0x023A + 16 * 4,
+    },
+    [WIN_MON_ICON_5] = {
+        .bg = 0,
+        .tilemapLeft = 9,
+        .tilemapTop = 8,
+        .width = 4,
+        .height = 4,
+        .paletteNum = 7,
+        .baseBlock = 0x023A + 16 * 5,
+    },
+
     DUMMY_WIN_TEMPLATE
 };
 
@@ -381,7 +454,7 @@ static const u8 sShopBuyMenuTextColors[][3] =
     [COLORID_GRAY_CURSOR] = {0, 3, 2},
 };
 
-static u8 CreateShopMenu(u8 martType)
+static u8 CreateShopMenu(u8 martType, bool8 isCrafting)
 {
     int numMenuItems;
 
@@ -409,6 +482,15 @@ static u8 CreateShopMenu(u8 martType)
     {
         FadeScreen(FADE_TO_BLACK, 0);
         return CreateTask(Task_HandleShopMenuBuy, 8);
+    }
+    else if(isCrafting)
+    {
+        struct WindowTemplate winTemplate;
+        winTemplate = sShopMenuWindowTemplates[WIN_BUY_QUIT];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_CraftQuit, ARRAY_COUNT(sShopMenuActions_CraftQuit));
+        sMartInfo.windowId = AddWindow(&winTemplate);
+        sMartInfo.menuActions = sShopMenuActions_CraftQuit;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_CraftQuit);
     }
     else // MART_TYPE_PURCHASE_ONLY and DECOR
     {
@@ -443,10 +525,12 @@ static u16 StaticShopItemListCallback(u16 index)
 static void ResetMartInfo()
 {
     sMartInfo.dynamicMartCategory = 0;
+    sMartInfo.currencyOverride = 0;
     sMartInfo.minPrice = 0;
     sMartInfo.anythingBought = FALSE;
     sMartInfo.listItemCallback = NULL;
     sMartInfo.listItemData = NULL;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = 0;
     sMartInfo.itemCount = INVALID_ITEM_COUNT;
 }
@@ -454,16 +538,20 @@ static void ResetMartInfo()
 static void SetShopItemsFromStaticList(const u16 *items, u16 terminatorItem)
 {
     sMartInfo.dynamicMartCategory = 0;
+    sMartInfo.currencyOverride = 0;
     sMartInfo.listItemCallback = StaticShopItemListCallback;
     sMartInfo.listItemData = (void*)items;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = terminatorItem;
 }
 
 static void SetShopItemsFromCallback(u16 (*listItemCallback)(u16), u16 terminatorItem, void* userData)
 {
     sMartInfo.dynamicMartCategory = 0;
+    sMartInfo.currencyOverride = 0;
     sMartInfo.listItemCallback = listItemCallback;
     sMartInfo.listItemData = userData;
+    sMartInfo.prevShopItemBits = NULL;
     sMartInfo.listItemTerminator = terminatorItem;
 }
 
@@ -589,7 +677,7 @@ static void Task_ReturnToShopMenu(u8 taskId)
 
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
 {
-    CreateShopMenu(sMartInfo.martType);
+    CreateShopMenu(sMartInfo.martType, FALSE);
     DestroyTask(taskId);
 }
 
@@ -745,18 +833,38 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
     menuItem->id = item;
 }
 
+static bool8 ShowTMView()
+{
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+    {
+        return TRUE;
+    }
+
+    if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_COURIER && sMartInfo.listItemData != NULL)
+    {
+        u16 const* listPtr = (u16 const*)sMartInfo.listItemData;
+        return ItemIdToBattleMoveId(listPtr[0]) != MOVE_NONE;
+    }
+
+    return FALSE;
+}
+
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if (item != LIST_CANCEL)
-        BuyMenuAddItemIcon(item, sShopData->iconSlot);
-    else
-        BuyMenuAddItemIcon(ITEM_LIST_END, sShopData->iconSlot);
+    if(!ShowTMView())
+    {
+        if (item != LIST_CANCEL)
+            BuyMenuAddItemIcon(item, sShopData->iconSlot);
+        else
+            BuyMenuAddItemIcon(ITEM_LIST_END, sShopData->iconSlot);
 
-    BuyMenuRemoveItemIcon(item, sShopData->iconSlot ^ 1);
+        BuyMenuRemoveItemIcon(item, sShopData->iconSlot ^ 1);
+    }
+
     sShopData->iconSlot ^= 1;
     if (item != LIST_CANCEL)
     {
@@ -769,6 +877,33 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
+
+    if(ShowTMView())
+    {
+        // Blit mon icons
+        BlitMonSlotIconForItem(WIN_MON_ICON_0, 0, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_1, 1, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_2, 2, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_3, 3, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_4, 4, item);
+        BlitMonSlotIconForItem(WIN_MON_ICON_5, 5, item);
+    }
+    else
+    {
+        // Blit mon icons
+        ClearWindowTilemap(WIN_MON_ICON_0);
+        ClearWindowTilemap(WIN_MON_ICON_1);
+        ClearWindowTilemap(WIN_MON_ICON_2);
+        ClearWindowTilemap(WIN_MON_ICON_3);
+        ClearWindowTilemap(WIN_MON_ICON_4);
+        ClearWindowTilemap(WIN_MON_ICON_5);
+        CopyWindowToVram(WIN_MON_ICON_0, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_1, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_2, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_3, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_4, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_5, COPYWIN_GFX);
+    }
 }
 
 static u32 Mart_GetItemPrice(u16 itemId)
@@ -830,7 +965,9 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
                 STR_CONV_MODE_LEFT_ALIGN,
                 5);
 
-            if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+            if(sMartInfo.currencyOverride != 0)
+                StringExpandPlaceholders(gStringVar4, gText_CraftVar1);
+            else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
                 StringExpandPlaceholders(gStringVar4, gText_BuildVar1);
             else
                 StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
@@ -953,8 +1090,17 @@ static void BuyMenuInitBgs(void)
 
 static void BuyMenuDecompressBgGraphics(void)
 {
-    DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
-    LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    if(ShowTMView())
+    {
+        DecompressAndCopyTileDataToVram(1, gShopMenu_TM_Gfx, 0x3A0, 0x3E3, 0);
+        LZDecompressWram(gShopMenu_TM_Tilemap, sShopData->tilemapBuffers[0]);
+    }
+    else
+    {
+        DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
+        LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    }
+
     LoadCompressedPalette(gShopMenu_Pal, BG_PLTT_ID(12), PLTT_SIZE_4BPP);
 }
 
@@ -967,6 +1113,12 @@ static void BuyMenuInitWindows(void)
     PutWindowTilemap(WIN_MONEY);
     PutWindowTilemap(WIN_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
 }
 
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet)
@@ -988,7 +1140,12 @@ static void BuyMenuDrawGraphics(void)
     BuyMenuCopyMenuBgToBg1TilemapBuffer();
     AddMoneyLabelObject(19, 11);
 
-    if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    if(sMartInfo.currencyOverride != 0)
+    {
+        CopyItemName(sMartInfo.currencyOverride, gStringVar2);
+        PrintMoneyAmountInMoneyBoxWithBorderCustom(0, 1, 13, GetShopCurrencyAmount(), gText_CraftVar1Var2);
+    }
+    else if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
         PrintMoneyAmountInMoneyBoxWithBorderCustom(0, 1, 13, GetShopCurrencyAmount(), gText_BuildVar1);
     else
         PrintMoneyAmountInMoneyBoxWithBorder(0, 1, 13, GetShopCurrencyAmount());
@@ -1001,9 +1158,19 @@ static void BuyMenuDrawGraphics(void)
 
 static void BuyMenuDrawMapGraphics(void)
 {
-    BuyMenuCollectObjectEventData();
-    BuyMenuDrawObjectEvents();
-    BuyMenuDrawMapBg();
+    if(ShowTMView())
+    {
+        u8 i;
+
+        for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+            sShopData->viewportObjects[i][OBJ_EVENT_ID] = OBJECT_EVENTS_COUNT;
+    }
+    else
+    {
+        BuyMenuCollectObjectEventData();
+        BuyMenuDrawObjectEvents();
+        BuyMenuDrawMapBg();
+    }
 }
 
 static void BuyMenuDrawMapBg(void)
@@ -1305,7 +1472,9 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     tItemCount = 1;
     DrawStdFrameWithCustomTileAndPalette(WIN_QUANTITY_PRICE, FALSE, 1, 13);
 
-    if(sMartInfo.martType == MART_TYPE_HUB_AREAS)
+    if(sMartInfo.currencyOverride != 0)
+        BuyMenuPrintCraftItemQuantityAndPrice(taskId);
+    else if(sMartInfo.martType == MART_TYPE_HUB_AREAS)
         BuyMenuPrintBuildDirection(taskId);
     else
         BuyMenuPrintItemQuantityAndPrice(taskId);
@@ -1348,6 +1517,21 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     }
 }
 
+static void Task_RefreshMonSlotsThenBuyMenuConfirmPurchase(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    
+    // Tthe in bag window previously overlapped us
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
+
+    BuyMenuDisplayMessage(taskId, sMartInfo.currencyOverride ? gText_CraftVar1AndYouWantedVar2 : gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+}
+
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1355,7 +1539,11 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
     if (AdjustQuantityAccordingToDPadInput(&tItemCount, sShopData->maxQuantity) == TRUE)
     {
         sShopData->totalCost = GetShopItemPrice(tItemId) * tItemCount;
-        BuyMenuPrintItemQuantityAndPrice(taskId);
+
+        if(sMartInfo.currencyOverride != 0)
+            BuyMenuPrintCraftItemQuantityAndPrice(taskId);
+        else
+            BuyMenuPrintItemQuantityAndPrice(taskId);
     }
     else
     {
@@ -1364,13 +1552,28 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             ClearStdWindowAndFrameToTransparent(WIN_QUANTITY_PRICE, FALSE);
             ClearStdWindowAndFrameToTransparent(WIN_QUANTITY_IN_BAG, FALSE);
+            
             ClearWindowTilemap(WIN_QUANTITY_PRICE);
             ClearWindowTilemap(WIN_QUANTITY_IN_BAG);
             PutWindowTilemap(WIN_ITEM_LIST);
             CopyShopItemName(tItemId, gStringVar1);
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, SHOP_ITEM_CAPACITY_DIGITS);
-            ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
-            BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+            
+            if(sMartInfo.currencyOverride != 0)
+                CopyItemNameHandlePlural(sMartInfo.currencyOverride, gStringVar3, sShopData->totalCost);
+            else
+                ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+            
+
+            if(ShowTMView())
+            {
+                gTasks[taskId].func = Task_RefreshMonSlotsThenBuyMenuConfirmPurchase;
+            }
+            else
+            {
+                BuyMenuDisplayMessage(taskId, sMartInfo.currencyOverride ? gText_CraftVar1AndYouWantedVar2 : gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
+            }
+            
         }
         else if (JOY_NEW(B_BUTTON))
         {
@@ -1538,7 +1741,12 @@ static void BuyMenuSubtractMoney(u8 taskId)
 
     sMartInfo.anythingBought = TRUE;
 
-    if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    if(sMartInfo.currencyOverride != 0)
+    {
+        CopyItemName(sMartInfo.currencyOverride, gStringVar2);
+        PrintMoneyAmountInMoneyBoxCustom(0, GetShopCurrencyAmount(), 0, gText_CraftVar1Var2);
+    }
+    else if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
         PrintMoneyAmountInMoneyBoxCustom(0, GetShopCurrencyAmount(), 0, gText_BuildVar1);
     else
         PrintMoneyAmountInMoneyBox(0, GetShopCurrencyAmount(), 0);
@@ -1561,7 +1769,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW(A_BUTTON | B_BUTTON) || Rogue_IsRunActive())
     {
         if (sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
         {
@@ -1634,6 +1842,12 @@ static void BuyMenuReturnToItemList(u8 taskId)
     BuyMenuPrintCursor(tListTaskId, COLORID_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+    PutWindowTilemap(WIN_MON_ICON_0);
+    PutWindowTilemap(WIN_MON_ICON_1);
+    PutWindowTilemap(WIN_MON_ICON_2);
+    PutWindowTilemap(WIN_MON_ICON_3);
+    PutWindowTilemap(WIN_MON_ICON_4);
+    PutWindowTilemap(WIN_MON_ICON_5);
     ScheduleBgCopyTilemapToVram(0);
     BuyMenuAddScrollIndicatorArrows();
     gTasks[taskId].func = Task_BuyMenu;
@@ -1645,6 +1859,17 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
 
     FillWindowPixelBuffer(WIN_QUANTITY_PRICE, PIXEL_FILL(1));
     PrintMoneyAmount(WIN_QUANTITY_PRICE, 38, 1, sShopData->totalCost, TEXT_SKIP_DRAW);
+    ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, SHOP_ITEM_CAPACITY_DIGITS);
+    StringExpandPlaceholders(gStringVar4, gText_xVar1);
+    BuyMenuPrint(WIN_QUANTITY_PRICE, gStringVar4, 0, 1, 0, COLORID_NORMAL);
+}
+
+static void BuyMenuPrintCraftItemQuantityAndPrice(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    FillWindowPixelBuffer(WIN_QUANTITY_PRICE, PIXEL_FILL(1));
+    PrintMoneyAmountCustom(WIN_QUANTITY_PRICE, 32, 1, sShopData->totalCost, TEXT_SKIP_DRAW, gText_CraftVar1);
     ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, SHOP_ITEM_CAPACITY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     BuyMenuPrint(WIN_QUANTITY_PRICE, gStringVar4, 0, 1, 0, COLORID_NORMAL);
@@ -1774,7 +1999,7 @@ void CreatePokemartMenu(const u16 *itemsForSale)
     CheckPokemartState();
     ResetMartInfo();
 
-    CreateShopMenu(MART_TYPE_NORMAL);
+    CreateShopMenu(MART_TYPE_NORMAL, FALSE);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
@@ -1785,7 +2010,7 @@ void CreateDecorationShop1Menu(const u16 *itemsForSale)
     CheckPokemartState();
     ResetMartInfo();
 
-    CreateShopMenu(MART_TYPE_DECOR);
+    CreateShopMenu(MART_TYPE_DECOR, FALSE);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     SetShopMenuCallback(ScriptContext_Enable);
 }
@@ -1795,7 +2020,7 @@ void CreateDecorationShop2Menu(const u16 *itemsForSale)
     CheckPokemartState();
     ResetMartInfo();
 
-    CreateShopMenu(MART_TYPE_DECOR2);
+    CreateShopMenu(MART_TYPE_DECOR2, FALSE);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     SetShopMenuCallback(ScriptContext_Enable);
 }
@@ -1807,7 +2032,7 @@ void CreatePokemartMenuWithMinPrice(const u16 *itemsForSale, u16 minPrice)
 
     sMartInfo.minPrice = minPrice;
 
-    CreateShopMenu(MART_TYPE_NORMAL);
+    CreateShopMenu(MART_TYPE_NORMAL, FALSE);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
@@ -1871,7 +2096,14 @@ static void FreeQueryShopItemList()
     {
         RogueListQuery_End();
         Rogue_CloseMartQuery();
+        RogueItemQuery_End();
         sMartInfo.listItemData = NULL;
+
+        if(sMartInfo.prevShopItemBits != NULL)
+        {
+            Free(sMartInfo.prevShopItemBits);
+            sMartInfo.prevShopItemBits = NULL;
+        }
     }
 }
 
@@ -1882,33 +2114,70 @@ static u16 QueryShopItemListCallback(u16 index)
     // Run the query once and cache it for later
     if(sMartInfo.listItemData == NULL)
     {
-        Rogue_OpenMartQuery(sMartInfo.dynamicMartCategory, &sMartInfo.minPrice);
+        u8 prevDifficulty;
+        u8 currDifficulty;
+        u8 sortMode = ITEM_SORT_MODE_TYPE;
+        bool8 flipSort = FALSE;
+        bool8 showInventoryChanges = FALSE;
+
+        currDifficulty = Rogue_GetCurrentDifficulty();
+        prevDifficulty = currDifficulty;
+
+        switch (sMartInfo.dynamicMartCategory)
         {
-            u8 sortMode = ITEM_SORT_MODE_TYPE;
-            bool8 flipSort = FALSE;
+        case ROGUE_SHOP_TMS:
+        case ROGUE_SHOP_BATTLE_ENHANCERS:
+        case ROGUE_SHOP_HELD_ITEMS:
+        case ROGUE_SHOP_BERRIES:
+            sortMode = ITEM_SORT_MODE_NAME;
+            showInventoryChanges = TRUE;
+            break;
 
-            switch (sMartInfo.dynamicMartCategory)
-            {
-            case ROGUE_SHOP_BERRIES:
-            case ROGUE_SHOP_HELD_ITEMS:
-            case ROGUE_SHOP_BATTLE_ENHANCERS:
-            case ROGUE_SHOP_CHARMS:
-            case ROGUE_SHOP_CURSES:
-            case ROGUE_SHOP_TMS:
-            case ROGUE_SHOP_COURIER:
-                sortMode = ITEM_SORT_MODE_NAME;
-                break;
+        case ROGUE_SHOP_GENERAL:
+        case ROGUE_SHOP_BALLS:
+        case ROGUE_SHOP_RARE_HELD_ITEMS:
+        case ROGUE_SHOP_TREATS:
+            showInventoryChanges = TRUE;
+            break;
 
-            //case ROGUE_SHOP_BALLS:
-            //    sortMode = ITEM_SORT_MODE_VALUE;
-            //    flipSort = TRUE;
-            //    break;
-            }
-
-            RogueListQuery_Begin();
-            sMartInfo.listItemData = RogueListQuery_CollapseItems(sortMode, flipSort);
+        case ROGUE_SHOP_COURIER:
+        case ROGUE_SHOP_CHARMS:
+        case ROGUE_SHOP_CURSES:
+        case ROGUE_SHOP_HUB_UPGRADES:
+        case ROGUE_SHOP_QUEST_REWARDS:
+            sortMode = ITEM_SORT_MODE_NAME;
+            break;
         }
 
+        if(Rogue_IsRunActive())
+        {
+            prevDifficulty = gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory];
+
+            if(prevDifficulty >= ROGUE_MAX_BOSS_COUNT)
+            {
+                // Never visited shop so far
+                showInventoryChanges = FALSE;
+            }
+
+            gRogueRun.lastShopVisitDifficulty[sMartInfo.dynamicMartCategory] = currDifficulty;
+        }
+
+        if(showInventoryChanges && prevDifficulty != currDifficulty)
+        {
+            u16 temp = 0;
+
+            RogueItemQuery_Begin();
+            Rogue_OpenMartQuery(prevDifficulty, sMartInfo.dynamicMartCategory, &temp);
+            
+            sMartInfo.prevShopItemBits = RogueItemQuery_EndWithBitwiseCloneAlloc();
+        }
+        
+        RogueItemQuery_Begin();
+        Rogue_OpenMartQuery(currDifficulty, sMartInfo.dynamicMartCategory, &sMartInfo.minPrice);
+
+        RogueListQuery_Begin();
+        sMartInfo.listItemData = RogueListQuery_CollapseItems(sortMode, flipSort, sMartInfo.prevShopItemBits);
+        
         // End inner and outer query when we leave shop, as we might need some dynamic allocs
         sFreeCallback = FreeQueryShopItemList;
     }
@@ -1925,7 +2194,7 @@ void CreateDynamicPokemartMenu(const u16 category)
 
     if(category == ROGUE_SHOP_HUB_UPGRADES)
     {
-        CreateShopMenu(MART_TYPE_HUB_UPGRADES);
+        CreateShopMenu(MART_TYPE_HUB_UPGRADES, TRUE);
         SetShopItemsFromCallback(HubUpgradeShopItemListCallback, HUB_UPGRADE_NONE, NULL);
         sMartInfo.dynamicMartCategory = category;
     }
@@ -1939,7 +2208,7 @@ void CreateDynamicPokemartMenu(const u16 category)
         if(category == ROGUE_SHOP_COURIER)
             martType = MART_TYPE_SINGLE_PURCHASE;
 
-        CreateShopMenu(martType);
+        CreateShopMenu(martType, FALSE);
         SetShopItemsFromCallback(QueryShopItemListCallback, ITEM_NONE, NULL);
         sMartInfo.dynamicMartCategory = category;
         ClearItemPurchases();
@@ -1947,14 +2216,51 @@ void CreateDynamicPokemartMenu(const u16 category)
     SetShopMenuCallback(ScriptContext_Enable);
 }
 
+static u16 StaticCustomShopItemListCallback(u16 index)
+{
+    const u16* items = (const u16*)sMartInfo.listItemData;
+    return items[index * 2];
+}
+
+static void SetCustomShopItemsFromStaticList(const u16 *items, u16 terminatorItem, u16 currency)
+{
+    sMartInfo.dynamicMartCategory = 0;
+    sMartInfo.currencyOverride = currency;
+    sMartInfo.listItemCallback = StaticCustomShopItemListCallback;
+    sMartInfo.listItemData = (void*)items;
+    sMartInfo.prevShopItemBits = NULL;
+    sMartInfo.listItemTerminator = terminatorItem;
+}
+
+void CreateCustomPokemartMenu(const u16 * buffer, u16 currency)
+{
+    CheckPokemartState();
+    ResetMartInfo();
+
+    CreateShopMenu(MART_TYPE_PURCHASE_ONLY, TRUE);
+    SetCustomShopItemsFromStaticList(buffer, ITEM_NONE, currency);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+}
+
 // Item type callbacks
 //
+
+static u8 const sString_NewItemIndicator[] = _("{SPARKLE_ICON}");
 
 static void CopyShopItemName(u16 item, u8* name)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
-        CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
+        if(sMartInfo.prevShopItemBits != NULL && !RogueMiscQuery_CheckStateCustom(item, sMartInfo.prevShopItemBits))
+        {
+            StringCopyN(name, sString_NewItemIndicator, ITEM_NAME_LENGTH + 4);
+            CopyItemNameN(item, name + 1, ITEM_NAME_LENGTH + 3);
+        }
+        else
+        {
+            CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
+        }
         return;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)
@@ -2003,11 +2309,29 @@ static const u8* GetShopItemDescription(u16 item)
 
 static u32 GetShopItemPrice(u16 item)
 {
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
+    if(sMartInfo.currencyOverride != 0)
+    {
+        u16 i;
+        const u16* items = (const u16*)sMartInfo.listItemData;
+
+        for(i = 0; items[i] != ITEM_NONE; i += 2)
+        {
+            u16 checkItem = items[i + 0];
+            u16 price = items[i + 1];
+        
+            if(checkItem == item)
+                return price;
+        }
+
+        // Some obviously broken value
+        //AGB_ASSERT(FALSE);
+        return items[1];
+    }
+    else if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         u32 price = Mart_GetItemPrice(item) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
 
-        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        if(ShowTMView())
         {
             // Override TMs/HMs price if we have them
             if(item >= ITEM_TM01 && item <= ITEM_HM08 && CheckBagHasItem(item, 1))
@@ -2036,7 +2360,7 @@ static bool8 IsZeroPriceMarkedAsFree()
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
-        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        if(ShowTMView())
         {
             // Theses aren't free just mark as already bought
             return FALSE;
@@ -2049,7 +2373,11 @@ static bool8 IsZeroPriceMarkedAsFree()
 
 static bool8 BuyShopItem(u16 item, u16 count)
 {
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if(sMartInfo.currencyOverride != 0)
+    {
+        return AddBagItem(item, count);
+    }
+    else if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
         IncrementGameStat(GAME_STAT_ITEMS_BOUGHT); // todo - make this item count
         return AddBagItem(item, count);
@@ -2079,7 +2407,11 @@ static bool8 BuyShopItem(u16 item, u16 count)
 
 static u32 GetShopCurrencyAmount()
 {
-    if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    if(sMartInfo.currencyOverride != 0)
+    {
+        return GetItemCountInBag(sMartInfo.currencyOverride);
+    }
+    else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
         return GetItemCountInBag(ITEM_BUILDING_SUPPLIES);
     }
@@ -2089,7 +2421,12 @@ static u32 GetShopCurrencyAmount()
 
 static void RemoveShopCurrencyAmount(u32 amount)
 {
-    if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    
+    if(sMartInfo.currencyOverride != 0)
+    {
+        RemoveBagItem(sMartInfo.currencyOverride, amount);
+    }
+    else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
         RemoveBagItem(ITEM_BUILDING_SUPPLIES, amount);
     }
@@ -2098,4 +2435,24 @@ static void RemoveShopCurrencyAmount(u32 amount)
         RemoveMoney(&gSaveBlock1Ptr->money, amount);
         Rogue_OnSpendMoney(amount);
     }
+}
+
+static void BlitMonSlotIconForItem(u8 windowId, u16 slot, u16 itemId)
+{
+    u16 species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+
+    if(species != SPECIES_NONE)
+    {
+        BlitPokemonIconToWindow(species, windowId, 0, 0, NULL);
+
+        if(!CanSpeciesLearnTM(species, itemId))
+        {
+            // Make grey if can't teach move
+            TintPalette_GrayScale2(&gPlttBufferUnfaded[BG_PLTT_ID(gWindows[windowId].window.paletteNum)], PLTT_SIZE_4BPP);
+            TintPalette_GrayScale2(&gPlttBufferFaded[BG_PLTT_ID(gWindows[windowId].window.paletteNum)], PLTT_SIZE_4BPP);
+        }
+    }
+
+    CopyWindowToVram(windowId, COPYWIN_GFX);
 }

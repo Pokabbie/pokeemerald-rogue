@@ -1,10 +1,9 @@
 
 
 // When changing this, make sure to:
-// -bump ROGUE_SAVE_VERSION in rogue_save.c
+// -bump ROGUE_SAVE_VERSION in rogue_save.h
 // -update SAVE_VER_ID_X_Y_Z enum in rogue_save.h
-// -update RogueSave_GetVersionIdFor()
-const u8 gText_RogueVersion[] = _("v2.0.1a");
+const u8 gText_RogueVersion[] = _("v2.1.2");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX");
@@ -18,8 +17,8 @@ const u8 gText_RogueVersionSuffix[] = _("(AUTOMATION)");
 const u8 gText_RogueVersionSpacer[] = _(" - ");
 const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
-const u8 gText_RogueVersionSpacer[] = _("");
-const u8 gText_RogueVersionSuffix[] = _(""); // no subtitle for 2.0
+const u8 gText_RogueVersionSpacer[] = _(" - ");
+const u8 gText_RogueVersionSuffix[] = _("Z-A Royale pt.1");
 #endif
 
 // UI String

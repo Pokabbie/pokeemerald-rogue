@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROGUE_ADVENTURE_PATHS",
       "name": "Rogue_AdventurePaths_Layout",
       "width": 44,
-      "height": 30,
+      "height": 44,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_AdventurePaths",
       "border_filepath": "data/layouts/Rogue_AdventurePaths/border.bin",
@@ -2130,6 +2130,56 @@
       "secondary_tileset": "gTileset_CaveAlt",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_BATTLE_TOWER",
+      "name": "Rogue_Encounter_BattleTower_Layout",
+      "width": 18,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/Rogue_Encounter_BattleTower/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_BattleTower/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_DRAGON_SPIRAL_TOWER",
+      "name": "Rogue_Encounter_DragonSpiralTower_Layout",
+      "width": 69,
+      "height": 69,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/Rogue_Encounter_DragonSpiralTower/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_DragonSpiralTower/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_CHARGE_STONE_CAVE",
+      "name": "Rogue_Encounter_ChargeStoneCave_Layout",
+      "width": 82,
+      "height": 61,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_CaveAlt",
+      "border_filepath": "data/layouts/Rogue_Encounter_ChargeStoneCave/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_ChargeStoneCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_POKE_BALL_FACTORY",
+      "name": "Rogue_Encounter_PokeBallFactory_Layout",
+      "width": 60,
+      "height": 81,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FacilityGalactic",
+      "border_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_PokeBallFactory/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_LYSANDRE_LABS",
+      "name": "Rogue_Encounter_LysandreLabs_Layout",
+      "width": 49,
+      "height": 38,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_FacilityGalactic",
+      "border_filepath": "data/layouts/Rogue_Encounter_LysandreLabs/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_LysandreLabs/map.bin"
     }
   ]
 }
