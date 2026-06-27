@@ -331,7 +331,7 @@ int main(int argc, char* argv[])
 		output<< "\n";
 		output<< "const u16 gRogueBake_MegaItemToSpecies[ITEMS_COUNT - ITEM_VENUSAURITE] =\n{\n";
 
-		for (int i = 0; i < megaItemToSpecies.size(); ++i)
+		for (size_t i = 0; i < megaItemToSpecies.size(); ++i)
 		{
 			output<< "\t[" << i << "] = " << megaItemToSpecies[i] << ",\n";
 		}
