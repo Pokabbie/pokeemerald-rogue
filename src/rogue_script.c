@@ -74,6 +74,7 @@ static const u8 sTypeNames[NUMBER_OF_MON_TYPES][10] = // alt version of gTypeNam
     [TYPE_DARK] = _("Dark"),
 #ifdef ROGUE_EXPANSION
     [TYPE_FAIRY] = _("Fairy"),
+    [TYPE_SOUND] = _("Sound"),
 #endif
 };
 
@@ -679,6 +680,13 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
 
         case ITEM_APICOT_BERRY:
             return BERRY_BUFF_SPDEF;
+
+        case ITEM_CHERI_BERRY:
+        case ITEM_CHESTO_BERRY:
+        case ITEM_PECHA_BERRY:
+        case ITEM_RAWST_BERRY:
+        case ITEM_ASPEAR_BERRY:
+            return BERRY_BUFF_SPD;
 #endif
         default:
             return BERRY_BUFF_FRIEND;

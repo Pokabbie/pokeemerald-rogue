@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": [ "Windows" ]
+        }
+      }
+    },
+    {
+      "name": "linux-base",
+      "hidden": true,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "debug-base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/cmake-build-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release-base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/cmake-build-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "linux-debug",
+      "inherits": [ "linux-base", "debug-base" ],
+      "displayName": "Linux Debug",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "linux-release",
+      "inherits": [ "linux-base", "release-base" ],
+      "displayName": "Linux Release",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "win-debug",
+      "inherits": [ "windows-base", "debug-base" ],
+      "generator": "Ninja"
+    },
+    {
+      "name": "win-release",
+      "inherits": [ "windows-base", "release-base" ],
+      "generator": "Ninja"
+    }
+  ]
+}

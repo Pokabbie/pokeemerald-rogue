@@ -475,6 +475,9 @@ struct BattleMove
     u32 parentalBondBanned:1;
     u32 skyBattleBanned:1;
     u32 sketchBanned:1;
+
+    // D2D
+    u32 breathMove:1;
 };
 
 #define SPINDA_SPOT_WIDTH 16

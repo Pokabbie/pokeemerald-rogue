@@ -424,6 +424,7 @@ void RogueMonQuery_IsSpeciesActive()
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
+        DebugPrintf( "test %d", 1 );
         SetQueryBitFlag(species, Query_IsSpeciesEnabled(species));
     }
 }
@@ -435,6 +436,7 @@ void RogueMonQuery_IsBaseSpeciesInCurrentDex(u8 func)
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 2 );
         if(GetQueryBitFlag(species))
         {
             bool8 inDex = RoguePokedex_IsBaseSpeciesEnabled(species);
@@ -460,6 +462,7 @@ void RogueMonQuery_IsSeenInPokedex(u8 func)
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 3 );
         if(GetQueryBitFlag(species))
         {
             bool8 inDex = GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN);
@@ -486,6 +489,7 @@ void RogueMonQuery_TransformIntoEggSpecies()
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 4 );
         if(GetQueryBitFlag(species))
         {
             eggSpecies = Query_GetEggSpecies(species);
@@ -506,6 +510,7 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 5 );
         if(Rogue_GetMaxEvolutionCount(species) != 0 && GetQueryBitFlag(species))
         {
             Query_ApplyEvolutions(species, levelLimit, includeItemEvos, !keepSourceSpecies);
@@ -523,6 +528,7 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
     
     for(i = 0; i < evoCount; ++i)
     {
+        DebugPrintf( "test %d", 6 );
         Rogue_ModifyEvolution(species, i, &evo);
 
         if(evo.method == 0 || evo.targetSpecies == SPECIES_NONE)
@@ -619,6 +625,7 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 7 );
         if(GetQueryBitFlag(species))
         {
             speciesFlags = 0;
@@ -655,6 +662,7 @@ void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 8 );
         if(GetQueryBitFlag(species))
         {
             speciesFlags = MON_GEN_TO_FLAGS(SpeciesToGen(species));
@@ -690,6 +698,7 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 9 );
         if(GetQueryBitFlag(species))
         {
             containsAnyType = (typeFlags & Rogue_GetSpeciesEvolutionChainTypeFlags(species)) != 0;
@@ -725,6 +734,7 @@ void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 10 );
         if(GetQueryBitFlag(species))
         {
             speciesFlags = Rogue_GetMonFlags(species);
@@ -755,6 +765,7 @@ void RogueMonQuery_IsLegendary(u8 func)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 11 );
         if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species) != checkState)
         {
             SetQueryBitFlag(species, FALSE);
@@ -775,6 +786,7 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 12 );
         if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             speciesFlags = Rogue_GetMonFlags(species);
@@ -806,6 +818,7 @@ void RogueMonQuery_IsBoxLegendary(u8 func)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 13 );
         if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             valid = RoguePokedex_IsSpeciesValidBoxLegendary(species);
@@ -837,6 +850,7 @@ void RogueMonQuery_IsRoamerLegendary(u8 func)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 14 );
         if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             valid = RoguePokedex_IsSpeciesValidRoamerLegendary(species);
@@ -870,6 +884,7 @@ void RogueMonQuery_AnyActiveEvos(u8 func)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 15 );
         if(GetQueryBitFlag(species))
         {
             hasValidEvo = FALSE;
@@ -911,6 +926,7 @@ void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData)
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
+        DebugPrintf( "test %d", 16 );
         if(GetQueryBitFlag(species) && !filterFunc(species, usrData))
         {
             SetQueryBitFlag(species, FALSE);

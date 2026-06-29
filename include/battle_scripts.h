@@ -290,6 +290,7 @@ extern const u8 BattleScript_FellStingerRaisesStat[];
 extern const u8 BattleScript_SnowWarningActivatesHail[];
 extern const u8 BattleScript_SnowWarningActivatesSnow[];
 extern const u8 BattleScript_HarvestActivates[];
+extern const u8 BattleScript_GreenhouseActivates[];
 extern const u8 BattleScript_ImposterActivates[];
 extern const u8 BattleScript_SelectingNotAllowedMoveAssaultVest[];
 extern const u8 BattleScript_SelectingNotAllowedMoveAssaultVestInPalace[];
@@ -509,6 +510,9 @@ extern const u8 BattleScript_ItemRestoreHP_Party[];
 // d2d moves
 // extern const u8 BattleScript_SturdyRootsStatsUp[];
 extern const u8 BattleScript_EffectSunnyDay[];
+extern const u8 BattleScript_BlendInActivates[];
+extern const u8 BattleScript_ElementalActivates[];
+extern const u8 BattleScript_AnticipationStatBoost[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

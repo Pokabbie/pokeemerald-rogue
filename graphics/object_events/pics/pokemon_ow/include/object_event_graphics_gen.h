@@ -3529,3 +3529,24 @@ const u16 gObjectEventPal_Overworld_hydrapple_shiny[] = INCBIN_U16("graphics/obj
 const u32 gObjectEventPic_Overworld_raging_bolt[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/raging_bolt.4bpp");
 const u16 gObjectEventPal_Overworld_raging_bolt[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/raging_bolt.gbapal");
 const u16 gObjectEventPal_Overworld_raging_bolt_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/raging_bolt_shiny.gbapal");
+
+// D2D Custom Pokémon Overworld Graphics
+const u32 gObjectEventPic_Overworld_tropisaur[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/tropius.4bpp");
+const u16 gObjectEventPal_Overworld_tropisaur[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/tropius.gbapal");
+const u16 gObjectEventPal_Overworld_tropisaur_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/tropius_shiny.gbapal");
+
+const u32 gObjectEventPic_Overworld_unohm[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/unohm.4bpp");
+const u16 gObjectEventPal_Overworld_unohm[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/unohm.gbapal");
+const u16 gObjectEventPal_Overworld_unohm_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/unohm.gbapal");
+
+const u32 gObjectEventPic_Overworld_bayanette[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/banette.4bpp");
+const u16 gObjectEventPal_Overworld_bayanette[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/banette.gbapal");
+const u16 gObjectEventPal_Overworld_bayanette_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/banette_shiny.gbapal");
+
+// const u32 gObjectEventPic_Overworld_hatchlin[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/axew.4bpp");
+// const u16 gObjectEventPal_Overworld_hatchlin[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/axew.gbapal");
+// const u16 gObjectEventPal_Overworld_hatchlin_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/axew_shiny.gbapal");
+
+// const u32 gObjectEventPic_Overworld_teerax[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/haxorus.4bpp");
+// const u16 gObjectEventPal_Overworld_teerax[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/haxorus.gbapal");
+// const u16 gObjectEventPal_Overworld_teerax_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/haxorus_shiny.gbapal");

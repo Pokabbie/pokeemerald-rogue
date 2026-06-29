@@ -72,6 +72,7 @@ static u16 GetBattlerPokeballItemId(u8 battlerId);
 #define GFX_TAG_BEAST_BALL   55025
 #define GFX_TAG_CHERISH_BALL 55026
 #define GFX_TAG_ROGUEBALL    55027
+// #define GFX_TAG_D2D_POWERBALL    55028
 
 const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
 {
@@ -103,6 +104,7 @@ const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
     [BALL_BEAST]   = {gBallGfx_Beast,   384, GFX_TAG_BEAST_BALL},
     [BALL_CHERISH] = {gBallGfx_Cherish, 384, GFX_TAG_CHERISH_BALL},
     [BALL_ROGUE]   = {gBallGfx_Rogue,   384, GFX_TAG_ROGUEBALL},
+    // [BALL_POWER]   = {gBallGfx_Power,   384, GFX_TAG_POWERBALL},
 };
 
 const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
@@ -135,6 +137,7 @@ const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
     [BALL_BEAST]   = {gBallPal_Beast,   GFX_TAG_BEAST_BALL},
     [BALL_CHERISH] = {gBallPal_Cherish, GFX_TAG_CHERISH_BALL},
     [BALL_ROGUE]   = {gBallPal_Rogue,   GFX_TAG_ROGUEBALL},
+    // [BALL_POWER]   = {gBallPal_Power,   GFX_TAG_POWERBALL},
 };
 
 static const struct OamData sBallOamData =
@@ -532,6 +535,16 @@ const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
         .affineAnims = sAffineAnim_BallRotate,
         .callback = SpriteCB_BallThrow,
     },
+    // [BALL_POWER] =
+    // {
+    //     .tileTag = GFX_TAG_POWERBALL,
+    //     .paletteTag = GFX_TAG_POWERBALL,
+    //     .oam = &sBallOamData,
+    //     .anims = sBallAnimSequences,
+    //     .images = NULL,
+    //     .affineAnims = sAffineAnim_BallRotate,
+    //     .callback = SpriteCB_BallThrow,
+    // },
 };
 
 #define tFrames          data[0]

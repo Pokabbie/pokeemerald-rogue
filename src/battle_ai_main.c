@@ -797,7 +797,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
     if (IS_TARGETING_PARTNER(battlerAtk, battlerDef))
         return score;
 
-    SetTypeBeforeUsingMove(move, battlerAtk);
+    SetTypeBeforeUsingMove(move, battlerAtk, battlerDef);
     GET_MOVE_TYPE(move, moveType);
 
     // check non-user target
@@ -1204,6 +1204,36 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             else if (B_CHARGE_SPDEF_RAISE >= GEN_5
               && !BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPDEF))
+                ADJUST_SCORE(-5);
+            break;
+        case EFFECT_D2D_IMBUE_FIRE:
+            if (gStatuses4[battlerAtk] & STATUS4_D2D_ENFLAME)
+                ADJUST_SCORE(-20);
+            else if (!HasMoveWithType(battlerAtk, TYPE_NORMAL))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_ATK))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPATK))
+                ADJUST_SCORE(-5);
+            break;
+        case EFFECT_D2D_IMBUE_ICE:
+            if (gStatuses4[battlerAtk] & STATUS4_D2D_ENFROST)
+                ADJUST_SCORE(-20);
+            else if (!HasMoveWithType(battlerAtk, TYPE_NORMAL))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_ATK))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPATK))
+                ADJUST_SCORE(-5);
+            break;
+        case EFFECT_D2D_IMBUE_ELECTRIC:
+            if (gStatuses4[battlerAtk] & STATUS4_D2D_ENTHUNDER)
+                ADJUST_SCORE(-20);
+            else if (!HasMoveWithType(battlerAtk, TYPE_NORMAL))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_ATK))
+                ADJUST_SCORE(-5);
+            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPATK))
                 ADJUST_SCORE(-5);
             break;
         case EFFECT_QUIVER_DANCE:
@@ -1727,6 +1757,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             break;
         case EFFECT_HIT_ESCAPE:
             break;
+        case EFFECT_D2D_SCATTERBLAST:
         case EFFECT_RAPID_SPIN:
             if ((gBattleMons[battlerAtk].status2 & STATUS2_WRAPPED) || (gStatuses3[battlerAtk] & STATUS3_LEECHSEED))
                 break;  // check damage/accuracy
@@ -1813,7 +1844,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_AQUA_RING:
-            if (gStatuses3[battlerAtk] & STATUS3_AQUA_RING)
+            if ((gStatuses3[battlerAtk] & STATUS3_AQUA_RING) && (gStatuses3[BATTLE_PARTNER(battlerAtk)] & STATUS3_AQUA_RING))
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_RECYCLE:
@@ -2532,6 +2563,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             }
             break;
         case EFFECT_HEAL_PULSE: // and floral healing
+        case EFFECT_D2D_ENERGIZE:
+        case EFFECT_D2D_ICE_BATH:
             if (!IS_TARGETING_PARTNER(battlerAtk, battlerDef)) // Don't heal enemies
             {
                 ADJUST_SCORE(-10);
@@ -2730,6 +2763,13 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             && !(gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 & STATUS1_ANY))
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_D2D_BLOODLETTING:
+            if (!(gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 & STATUS1_POISON)
+            && !(gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 & STATUS1_TOXIC_POISON))
+                ADJUST_SCORE(-10);
+            if (!IS_TARGETING_PARTNER(battlerAtk, battlerDef)) // Don't heal enemies
+                ADJUST_SCORE(-10);
+            break;
         case EFFECT_TAKE_HEART:
             if ((!(gBattleMons[battlerAtk].status1 & STATUS1_ANY)
              || PartnerMoveIs(BATTLE_PARTNER(battlerAtk), aiData->partnerMove, MOVE_JUNGLE_HEALING)
@@ -2801,7 +2841,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
     bool32 partnerHasBadAbility = (GetAbilityRating(atkPartnerAbility) < 0);
     u32 predictedMove = aiData->predictedMoves[battlerDef];
 
-    SetTypeBeforeUsingMove(move, battlerAtk);
+    SetTypeBeforeUsingMove(move, battlerAtk, battlerDef);
     GET_MOVE_TYPE(move, moveType);
 
     // check what effect partner is using
@@ -3746,6 +3786,10 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         break;
     case EFFECT_CONFUSE:
         IncreaseConfusionScore(battlerAtk, battlerDef, move, &score);
+        break;
+    case EFFECT_D2D_RIGHT_HOOK:
+        if (gStatuses3[battlerDef] & STATUS2_CONFUSION)
+            ADJUST_SCORE(2);
         break;
     case EFFECT_PARALYZE:
         IncreaseParalyzeScore(battlerAtk, battlerDef, move, &score);
@@ -5222,12 +5266,12 @@ static s32 AI_HPAware(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
     u32 effect = gBattleMoves[move].effect;
     u32 moveType = gBattleMoves[move].type;
 
-    SetTypeBeforeUsingMove(move, battlerAtk);
+    SetTypeBeforeUsingMove(move, battlerAtk, battlerDef);
     GET_MOVE_TYPE(move, moveType);
 
     if (IS_TARGETING_PARTNER(battlerAtk, battlerDef))
     {
-        if ((effect == EFFECT_HEAL_PULSE || effect == EFFECT_HIT_ENEMY_HEAL_ALLY)
+        if ((effect == EFFECT_HEAL_PULSE || effect == EFFECT_HIT_ENEMY_HEAL_ALLY || effect == EFFECT_D2D_BLOODLETTING)
          || (moveType == TYPE_ELECTRIC && AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_VOLT_ABSORB)
          || (moveType == TYPE_WATER && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_DRY_SKIN || AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_WATER_ABSORB))
          || (moveType == TYPE_GROUND && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_EARTH_EATER)))

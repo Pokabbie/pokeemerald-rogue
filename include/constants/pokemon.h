@@ -23,7 +23,9 @@
 #define TYPE_DARK             17
 #define TYPE_FAIRY            18
 #define TYPE_STELLAR          19
-#define NUMBER_OF_MON_TYPES   20
+#define TYPE_SOUND            20
+#define NUMBER_OF_MON_TYPES   21
+#define NUMBER_OF_D2D_CUSTOM_TYPES	  1
 
 #ifdef ROGUE_EXPANSION
 #define IS_STANDARD_TYPE(type) (type != TYPE_NONE && type != TYPE_MYSTERY && type != TYPE_STELLAR)

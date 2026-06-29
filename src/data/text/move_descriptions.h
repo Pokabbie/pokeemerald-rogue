@@ -25,8 +25,8 @@ static const u8 sCometPunchDescription[] = _(
     "2 to 5 times.");
 
 static const u8 sMegaPunchDescription[] = _(
-    "A strong punch thrown with\n"
-    "incredible power.");
+    "A strong punch that also\n"
+    "deals Fighting damage.");
 
 static const u8 sPayDayDescription[] = _(
     "Throws coins at the foe.\n"
@@ -273,8 +273,12 @@ static const u8 sAuroraBeamDescription[] = _(
     "beam that may lower Attack.");
 
 static const u8 sHyperBeamDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Powerful, but the user must\n"
+    "recharge if it fails to KO.");
+
+static const u8 sGigaImpactDescription[] = _(
+    "Powerful, but the user must\n"
+    "recharge if it fails to KO.");
 
 static const u8 sPeckDescription[] = _(
     "Attacks the foe with a\n"
@@ -501,8 +505,8 @@ static const u8 sMirrorMoveDescription[] = _(
     "with the same move.");
 
 static const u8 sSelfDestructDescription[] = _(
-    "Inflicts severe damage but\n"
-    "makes the user faint.");
+    "Powerful, but user is left\n"
+    "with 1 HP and must recharge.");
 
 static const u8 sEggBombDescription[] = _(
     "An egg is forcibly hurled at\n"
@@ -633,8 +637,8 @@ static const u8 sCrabhammerDescription[] = _(
     "high critical-hit ratio.");
 
 static const u8 sExplosionDescription[] = _(
-    "Inflicts severe damage but\n"
-    "makes the user faint.");
+    "Powerful, but user is left\n"
+    "with 1 HP and must recharge.");
 
 static const u8 sFurySwipesDescription[] = _(
     "Rakes the foe with sharp\n"
@@ -889,8 +893,8 @@ static const u8 sReturnDescription[] = _(
     "in power with friendship.");
 
 static const u8 sPresentDescription[] = _(
-    "A gift in the form of a\n"
-    "bomb. May restore HP.");
+    "Type is random. Increased\n"
+    "chance to heal allies.");
 
 static const u8 sFrustrationDescription[] = _(
     "An attack that is stronger\n"
@@ -1101,8 +1105,8 @@ static const u8 sNaturePowerDescription[] = _(
     "depending on the location.");
 
 static const u8 sChargeDescription[] = _(
-    "Charges power to boost the\n"
-    "electric move used next.");
+    "Charges power to double the\n"
+    "next Electric move's power.");
 
 static const u8 sTauntDescription[] = _(
     "Taunts the foe into only\n"
@@ -1261,12 +1265,12 @@ static const u8 sCrushClawDescription[] = _(
     "claws. May lower Defense.");
 
 static const u8 sBlastBurnDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Powerful, but the user must\n"
+    "recharge if it fails to KO.");
 
 static const u8 sHydroCannonDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Powerful, but the user must\n"
+    "recharge if it fails to KO.");
 
 static const u8 sMeteorMashDescription[] = _(
     "Fires a meteor-like punch.\n"
@@ -1385,8 +1389,8 @@ static const u8 sDragonClawDescription[] = _(
     "claws.");
 
 static const u8 sFrenzyPlantDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Powerful, but the user must\n"
+    "recharge if it fails to KO.");
 
 static const u8 sBulkUpDescription[] = _(
     "Bulks up the body to boost\n"
@@ -3336,6 +3340,8 @@ static const u8 sMalignantChainDescription[] = _(
     "A corrosive chain attack\n"
     "that may badly poison.");
 
+// D2D Move Descriptions
+
 static const u8 sCloudburstDescription[] = _(
     "A violent downpour\n"
     "comes crashing down.");
@@ -3346,17 +3352,133 @@ static const u8 sSunflareDescription[] = _(
 
 static const u8 sWhiteoutDescription[] = _(
     "Damages both foes, then\n"
-    "summons hail.");
+    "summons snow.");
 
 static const u8 sDownpourDescription[] = _(
     "Damages both foes, then\n"
     "summons rain.");
+
+static const u8 sDustDevilDescription[] = _(
+    "Damages both foes, then\n"
+    "summons a sandstorm.");
 
 static const u8 sSkybreakerDescription[] = _(
     "Removed weather determines\n"
     "type. Fails if no weather.");
     // "Removes active weather with\n"
     // "a violent conclusion.");
+
+static const u8 sBitterColdDescription[] = _(
+    "May cause frostbite, or\n"
+    "turn frostbite into freeze.");
+
+static const u8 sIceBathDescription[] = _(
+    "Ups foe's Speed and Attack,\n"
+    "doubled in cold weather.");
+
+static const u8 sEnergizeDescription[] = _(
+    "A transfer of energy that\n"
+    "sharply raises Speed.");
+    // "Sharply raises foe's Speed.\n"
+    // "Allies take halved damage.");
+
+static const u8 sZapDescription[] = _(
+    "Lowers the target's Speed.\n"
+    "Always strikes first.");
+
+static const u8 sScarecrowDescription[] = _(
+    "A 1st-turn, 1st-strike move\n"
+    "that forces a switch-out.");
+
+static const u8 sFatalStingDescription[] = _(
+    "Powerful, but user is left\n"
+    "with 1 HP and must recharge.");
+
+static const u8 sBladeSlashDescription[] = _(
+    "Super effective on Grass-\n"
+    "types. High crit chance.");
+
+static const u8 sBloodlettingDescription[] = _(
+    "After damage, recovers HP\n"
+    "and cures poison.");
+
+static const u8 sDevourDescription[] = _(
+    "Recovers 1/2 of the user's\n"
+    "max HP on knock-out.");
+
+static const u8 sCamoClawDescription[] = _(
+    "Type matches the user's\n"
+    "type(s). High crit chance.");
+
+static const u8 sProteanLickDescription[] = _(
+    "Changes the foe's type(s)\n"
+    "to match the user's.");
+
+static const u8 sSynesthesiaDescription[] = _(
+    "Everyone's type gets\n"
+    "randomized!");
+
+static const u8 sLeftHookDescription[] = _(
+    "A swift jab that is sure to\n"
+    "confuse the foe.");
+
+static const u8 sRightHookDescription[] = _(
+    "Guaranteed to hit confused\n"
+    "foes. High crit chance.");
+
+static const u8 sImbueFlameDescription[] = _(
+    "Imbues Normal moves with\n"
+    "the power of Fire.");
+
+static const u8 sImbueFrostDescription[] = _(
+    "Imbues Normal moves with\n"
+    "the power of Ice.");
+
+static const u8 sImbueChargeDescription[] = _(
+    "Imbues Normal moves with\n"
+    "the power of Electricity.");
+
+static const u8 sBeamDescription[] = _(
+    "A simple beam with no\n"
+    "added effect.");
+
+static const u8 sPowerBeamDescription[] = _(
+    "A simple but powerful beam\n"
+    "with no added effect.");
+
+static const u8 sScatterblastDescription[] = _(
+    "Clears all hazards. If\n"
+    "successful, damage doubles.");
+
+static const u8 sMach5Description[] = _(
+    "Damage increases based on\n"
+    "the user's Speed.");
+
+static const u8 sScavengeDescription[] = _(
+    "Recovers some HP. User may\n"
+    "find a knocked-off item.");
+
+static const u8 sMoneyShotDescription[] = _(
+    "Deals damage based on the\n"
+    "trainer's held money.");
+
+static const u8 sUrgentCareDescription[] = _(
+    "Fully heals and cures the\n"
+    "target. Always moves first.");
+
+static const u8 sSewShutDescription[] = _(
+    "Disables the foe's last\n"
+    "used move.");
+
+static const u8 sBellowDescription[] = _(
+    // "Doubles the power of the\n"
+    // "next breath or sound move.");
+    "Sharply raises Sp.Atk and\n"
+    "powers up breath moves."
+
+static const u8 sHideDescription[] = _(
+    "Hides behind the ally, for-\n"
+    "cing foes to target them.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -3782,7 +3904,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BRAVE_BIRD - 1] = sBraveBirdDescription,
     [MOVE_EARTH_POWER - 1] = sEarthPowerDescription,
     [MOVE_SWITCHEROO - 1] = sSwitcherooDescription,
-    [MOVE_GIGA_IMPACT - 1] = sHyperBeamDescription,
+    [MOVE_GIGA_IMPACT - 1] = sGigaImpactDescription,
     [MOVE_NASTY_PLOT - 1] = sNastyPlotDescription,
     [MOVE_BULLET_PUNCH - 1] = sBulletPunchDescription,
     [MOVE_AVALANCHE - 1] = sRevengeDescription,
@@ -4220,6 +4342,35 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_D2D_SUNFLARE - 1] = sSunflareDescription,
     [MOVE_D2D_WHITEOUT - 1] = sWhiteoutDescription,
     [MOVE_D2D_DOWNPOUR - 1] = sDownpourDescription,
+    [MOVE_D2D_DUST_DEVIL - 1] = sDustDevilDescription,
     [MOVE_D2D_SKYBREAKER - 1] = sSkybreakerDescription,
     [MOVE_D2D_STURDY_ROOTS - 1] = sSturdyRootsDescription,
+    [MOVE_D2D_BITTER_COLD - 1] = sBitterColdDescription,
+    [MOVE_D2D_ICE_BATH - 1] = sIceBathDescription,
+    [MOVE_D2D_ENERGIZE - 1] = sEnergizeDescription,
+    [MOVE_D2D_ZAP - 1] = sZapDescription,
+    [MOVE_D2D_SCARECROW - 1] = sScarecrowDescription,
+    [MOVE_D2D_FATAL_STING - 1] = sFatalStingDescription,
+    [MOVE_D2D_BLADE_SLASH - 1] = sBladeSlashDescription,
+    [MOVE_D2D_BLOODLETTING - 1] = sBloodlettingDescription,
+    [MOVE_D2D_DEVOUR - 1] = sDevourDescription,
+    [MOVE_D2D_IMPLOSION - 1] = sExplosionDescription,
+    [MOVE_D2D_CAMO_CLAW - 1] = sCamoClawDescription,
+    [MOVE_D2D_PROTEAN_LICK - 1] = sProteanLickDescription,
+    [MOVE_D2D_SYNESTHESIA - 1] = sSynesthesiaDescription,
+    [MOVE_D2D_LEFT_HOOK - 1] = sLeftHookDescription,
+    [MOVE_D2D_RIGHT_HOOK - 1] = sRightHookDescription,
+    [MOVE_D2D_ENFLAME - 1] = sImbueFlameDescription,
+    [MOVE_D2D_ENFROST - 1] = sImbueFrostDescription,
+    [MOVE_D2D_ENTHUNDER - 1] = sImbueChargeDescription,
+    [MOVE_D2D_BEAM - 1] = sBeamDescription,
+    [MOVE_D2D_POWER_BEAM - 1] = sPowerBeamDescription,
+    [MOVE_D2D_SCATTERBLAST - 1] = sScatterblastDescription,
+    [MOVE_D2D_MACH_5 - 1] = sMach5Description,
+    [MOVE_D2D_SCAVENGE - 1] = sScavengeDescription,
+    [MOVE_D2D_MONEY_SHOT - 1] = sMoneyShotDescription,
+    [MOVE_D2D_URGENT_CARE - 1] = sUrgentCareDescription,
+    [MOVE_D2D_HIDE - 1] = sHideDescription,
+    [MOVE_D2D_SEW_SHUT - 1] = sSewShutDescription,
+    [MOVE_D2D_BELLOW - 1] = sBellowDescription,
 };

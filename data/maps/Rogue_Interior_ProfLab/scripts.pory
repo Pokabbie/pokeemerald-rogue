@@ -137,13 +137,236 @@ script Rogue_Interior_ProfLab_TalkBirch
 {
     lock
     faceplayer
-    msgbox(format("ELM: Hi {PLAYER}!\pDid you want me to explain how Adventures work?"), MSGBOX_YESNO)
+    // msgbox(format("ELM: Hi {PLAYER}!\pDid you want me to explain how Adventures work?"), MSGBOX_YESNO)
 
+    // if(var(VAR_RESULT) == YES)
+    // {
+    //     call(Rogue_Interior_ProfLab_TalkBirch_AdventureExplain)
+    // }
+
+    msgbox(format("ELM: Hey {PLAYER}. Would you like to experiment with some of your new discoveries?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)
     {
-        call(Rogue_Interior_ProfLab_TalkBirch_AdventureExplain)
-    }
+        msgbox(format("Would you like some rare candies?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            giveitem(ITEM_RARE_CANDY, 99)
+        }
 
+        msgbox(format("Would you like some berries?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            giveitem(ITEM_CHERI_BERRY, 99)
+            giveitem(ITEM_CHESTO_BERRY, 99)
+            giveitem(ITEM_RAWST_BERRY, 99)
+            giveitem(ITEM_PECHA_BERRY, 99)
+            giveitem(ITEM_ASPEAR_BERRY, 99)
+            giveitem(ITEM_PERSIM_BERRY, 99)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like some Ability Patches?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            giveitem(ITEM_ABILITY_CAPSULE, 99)
+            giveitem(ITEM_ABILITY_PATCH, 99)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Shuppet?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_SHUPPET, 50)
+            giveitem(ITEM_REAPER_CLOTH, 1)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        // msgbox(format("Would you like an Unohm?"), MSGBOX_YESNO)
+        // if(var(VAR_RESULT) == YES)
+        // {
+        //     // givemon(SPECIES_UNOHM, 42)
+        //     msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        // }
+
+        msgbox(format("Would you like an Unown?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_UNOWN_D, 42)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like an Inkay?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_INKAY, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Golett?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_GOLETT, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Frillish?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_FRILLISH, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Honedge?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_HONEDGE, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Luvdisc?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_LUVDISC, 35)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Meowth?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_MEOWTH, 28)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like an Onix?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_ONIX, 50)
+            giveitem(ITEM_METAL_COAT, 1)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Baltoy?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_BALTOY, 36)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Porygon?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_PORYGON, 55)
+            giveitem(ITEM_UPGRADE, 1)
+            giveitem(ITEM_DUBIOUS_DISC, 1)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Hitmonchan?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_HITMONCHAN, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Kecleon?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_KECLEON, 55)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Duskull?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_DUSKULL, 50)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Voltorb?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_VOLTORB, 50)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Delibird?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_DELIBIRD, 55)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Scyther?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_SCYTHER, 35)
+            giveitem(ITEM_METAL_COAT, 1)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Nincada?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_NINCADA, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Cacnea?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_CACNEA, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        msgbox(format("Would you like a Mareep?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_MAREEP, 5)
+            // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        }
+
+        // msgbox(format("Would you like a Plusle?"), MSGBOX_YESNO)
+        // if(var(VAR_RESULT) == YES)
+        // {
+        //     givemon(SPECIES_PLUSLE, 5)
+        //     // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        // }
+
+        // msgbox(format("Would you like some Cheri berries?"), MSGBOX_YESNO)
+        // if(var(VAR_RESULT) == YES)
+        // {
+        //     giveitem(ITEM_CHERI_BERRY, 5)
+        //     // msgbox(format("Oh, my apologies.\pI don't have a specimen to share with you just yet."), MSGBOX_DEFAULT)
+        // }
+
+        // msgbox(format("Would you like a Whismur?"), MSGBOX_YESNO)
+        // if(var(VAR_RESULT) == YES)
+        // {
+        //     givemon(SPECIES_WHISMUR, 20)
+        // }
+
+        msgbox(format("Would you like a Castform?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_CASTFORM, 55)
+        }
+
+        msgbox(format("Would you like a Lileep?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_LILEEP, 5)
+        }
+
+        msgbox(format("Would you like a Tropius?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            givemon(SPECIES_TROPIUS, 10)
+            giveitem(ITEM_SITRUS_BERRY, 99)
+            giveitem(ITEM_SUN_STONE, 1)
+        }
+
+        msgbox(format("There you go! Good luck with your experiments."), MSGBOX_DEFAULT)
+    }
 
     release
 }

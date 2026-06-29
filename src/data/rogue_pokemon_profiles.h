@@ -3251,6 +3251,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CHARIZARD[] =
 	{ .move=MOVE_SLASH, .level=24 },
 	{ .move=MOVE_FLAMETHROWER, .level=30 },
 	{ .move=MOVE_SCARY_FACE, .level=39 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_FIRE_SPIN, .level=46 },
 	{ .move=MOVE_INFERNO, .level=54 },
 	{ .move=MOVE_FLARE_BLITZ, .level=62 },
@@ -6347,6 +6348,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BEEDRILL[] =
 	{ .move=MOVE_FOCUS_ENERGY, .level=20 },
 	{ .move=MOVE_VENOSHOCK, .level=23 },
 	{ .move=MOVE_ASSURANCE, .level=26 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=28 },
 	{ .move=MOVE_TOXIC_SPIKES, .level=29 },
 	{ .move=MOVE_PIN_MISSILE, .level=32 },
 	{ .move=MOVE_POISON_JAB, .level=35 },
@@ -6828,6 +6830,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PIDGEOTTO[] =
 	{ .move=MOVE_WING_ATTACK, .level=37 },
 	{ .move=MOVE_ROOST, .level=42 },
 	{ .move=MOVE_TAILWIND, .level=47 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_MIRROR_MOVE, .level=52 },
 	{ .move=MOVE_AIR_SLASH, .level=57 },
 	{ .move=MOVE_HURRICANE, .level=62 },
@@ -7645,6 +7648,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FEAROW[] =
 	{ .move=MOVE_FOCUS_ENERGY, .level=32 },
 	{ .move=MOVE_ROOST, .level=36 },
 	{ .move=MOVE_DRILL_PECK, .level=41 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -8085,6 +8089,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PIKACHU[] =
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_SWEET_KISS, .level=1 },
 	{ .move=MOVE_CHARM, .level=1 },
 	{ .move=MOVE_NASTY_PLOT, .level=1 },
@@ -8096,6 +8101,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PIKACHU[] =
 	{ .move=MOVE_FEINT, .level=16 },
 	{ .move=MOVE_SPARK, .level=20 },
 	{ .move=MOVE_AGILITY, .level=24 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_IRON_TAIL, .level=28 },
 	{ .move=MOVE_DISCHARGE, .level=32 },
 	{ .move=MOVE_THUNDERBOLT, .level=36 },
@@ -8342,7 +8348,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_RAICHU[] =
 	{ .move=MOVE_THUNDER_WAVE, .level=1 },
 	{ .move=MOVE_THUNDER, .level=1 },
 	{ .move=MOVE_AGILITY, .level=1 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_DOUBLE_TEAM, .level=1 },
 	{ .move=MOVE_LIGHT_SCREEN, .level=1 },
 	{ .move=MOVE_SWEET_KISS, .level=1 },
@@ -10438,6 +10446,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CLEFAIRY[] =
 	{ .move=MOVE_COSMIC_POWER, .level=40 },
 	{ .move=MOVE_MOONBLAST, .level=44 },
 	{ .move=MOVE_HEALING_WISH, .level=48 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -12826,6 +12835,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ZUBAT[] =
 	{ .move=MOVE_VENOSHOCK, .level=40 },
 	{ .move=MOVE_CONFUSE_RAY, .level=45 },
 	{ .move=MOVE_AIR_SLASH, .level=50 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_LEECH_LIFE, .level=55 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -12932,6 +12942,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GOLBAT[] =
 	{ .move=MOVE_BITE, .level=34 },
 	{ .move=MOVE_HAZE, .level=41 },
 	{ .move=MOVE_VENOSHOCK, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_CONFUSE_RAY, .level=55 },
 	{ .move=MOVE_AIR_SLASH, .level=62 },
 	{ .move=MOVE_LEECH_LIFE, .level=69 },
@@ -13582,6 +13593,7 @@ static u16 const sTutorMoves_SPECIES_PARAS[] =
 	MOVE_ENDURE,
 	MOVE_ENERGY_BALL,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_FALSE_SWIPE,
 	MOVE_FELL_STINGER,
 	MOVE_FLAIL,
@@ -14831,7 +14843,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_MEOWTH[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PERSIAN[] = 
 {
-	{ .move=MOVE_POWER_GEM, .level=0 },
+	{ .move=MOVE_D2D_MONEY_SHOT, .level=0 },
 	{ .move=MOVE_SCRATCH, .level=1 },
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_FAKE_OUT, .level=1 },
@@ -14841,6 +14853,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PERSIAN[] =
 	{ .move=MOVE_BITE, .level=16 },
 	{ .move=MOVE_TAUNT, .level=20 },
 	{ .move=MOVE_ASSURANCE, .level=24 },
+	{ .move=MOVE_POWER_GEM, .level=28 },
 	{ .move=MOVE_FURY_SWIPES, .level=31 },
 	{ .move=MOVE_SCREECH, .level=36 },
 	{ .move=MOVE_SLASH, .level=42 },
@@ -18389,6 +18402,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MACHOP[] =
 	{ .move=MOVE_KNOCK_OFF, .level=16 },
 	{ .move=MOVE_SCARY_FACE, .level=20 },
 	{ .move=MOVE_VITAL_THROW, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_STRENGTH, .level=29 },
 	{ .move=MOVE_DUAL_CHOP, .level=32 },
 	{ .move=MOVE_BULK_UP, .level=36 },
@@ -18521,6 +18536,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MACHOKE[] =
 	{ .move=MOVE_KNOCK_OFF, .level=16 },
 	{ .move=MOVE_SCARY_FACE, .level=20 },
 	{ .move=MOVE_VITAL_THROW, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_STRENGTH, .level=31 },
 	{ .move=MOVE_DUAL_CHOP, .level=36 },
 	{ .move=MOVE_BULK_UP, .level=42 },
@@ -18666,6 +18683,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MACHAMP[] =
 	{ .move=MOVE_KNOCK_OFF, .level=16 },
 	{ .move=MOVE_SCARY_FACE, .level=20 },
 	{ .move=MOVE_VITAL_THROW, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_STRENGTH, .level=31 },
 	{ .move=MOVE_DUAL_CHOP, .level=36 },
 	{ .move=MOVE_BULK_UP, .level=42 },
@@ -22873,6 +22892,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAGNETON[] =
 	{ .move=MOVE_GYRO_BALL, .level=16 },
 	{ .move=MOVE_SPARK, .level=20 },
 	{ .move=MOVE_SCREECH, .level=24 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_MAGNET_RISE, .level=28 },
 	{ .move=MOVE_FLASH_CANNON, .level=34 },
 	{ .move=MOVE_DISCHARGE, .level=40 },
@@ -23733,6 +23753,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SEEL[] =
 	{ .move=MOVE_ICE_SHARD, .level=17 },
 	{ .move=MOVE_REST, .level=21 },
 	{ .move=MOVE_AQUA_RING, .level=23 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_AURORA_BEAM, .level=27 },
 	{ .move=MOVE_AQUA_JET, .level=31 },
 	{ .move=MOVE_BRINE, .level=33 },
@@ -23864,6 +23885,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DEWGONG[] =
 	{ .move=MOVE_ICE_SHARD, .level=17 },
 	{ .move=MOVE_REST, .level=21 },
 	{ .move=MOVE_AQUA_RING, .level=23 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_AURORA_BEAM, .level=27 },
 	{ .move=MOVE_AQUA_JET, .level=31 },
 	{ .move=MOVE_BRINE, .level=33 },
@@ -24488,6 +24510,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SHELLDER[] =
 	{ .move=MOVE_WHIRLPOOL, .level=16 },
 	{ .move=MOVE_SUPERSONIC, .level=20 },
 	{ .move=MOVE_AURORA_BEAM, .level=24 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_PROTECT, .level=28 },
 	{ .move=MOVE_RAZOR_SHELL, .level=32 },
 	{ .move=MOVE_IRON_DEFENSE, .level=36 },
@@ -24676,6 +24699,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CLOYSTER[] =
 	{ .move=MOVE_HYDRO_PUMP, .level=1 },
 	{ .move=MOVE_ICE_BEAM, .level=1 },
 	{ .move=MOVE_AURORA_BEAM, .level=1 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=1 },
 	{ .move=MOVE_WITHDRAW, .level=1 },
 	{ .move=MOVE_PROTECT, .level=1 },
 	{ .move=MOVE_SPIKES, .level=1 },
@@ -25344,9 +25368,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GASTLY[] =
 	{ .move=MOVE_NIGHT_SHADE, .level=28 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=32 },
 	{ .move=MOVE_DARK_PULSE, .level=36 },
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=36 },
 	{ .move=MOVE_SHADOW_BALL, .level=40 },
 	{ .move=MOVE_DESTINY_BOND, .level=44 },
 	{ .move=MOVE_DREAM_EATER, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -25598,8 +25624,10 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HAUNTER[] =
 	{ .move=MOVE_HEX, .level=24 },
 	{ .move=MOVE_NIGHT_SHADE, .level=30 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=36 },
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=36 },
 	{ .move=MOVE_DARK_PULSE, .level=42 },
 	{ .move=MOVE_SHADOW_BALL, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_DESTINY_BOND, .level=54 },
 	{ .move=MOVE_DREAM_EATER, .level=60 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -25875,6 +25903,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GENGAR[] =
 	{ .move=MOVE_SHADOW_BALL, .level=48 },
 	{ .move=MOVE_DESTINY_BOND, .level=54 },
 	{ .move=MOVE_DREAM_EATER, .level=60 },
+	{ .move=MOVE_D2D_DEVOUR, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -28461,31 +28490,41 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_KINGLER[
 static struct LevelUpMove const sLevelUpMoves_SPECIES_VOLTORB[] = 
 {
 	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_CHARGE, .level=1 },
-	{ .move=MOVE_THUNDER_SHOCK, .level=4 },
-	{ .move=MOVE_EERIE_IMPULSE, .level=6 },
-	{ .move=MOVE_SPARK, .level=9 },
-	{ .move=MOVE_ROLLOUT, .level=11 },
-	{ .move=MOVE_SCREECH, .level=13 },
-	{ .move=MOVE_CHARGE_BEAM, .level=16 },
-	{ .move=MOVE_SWIFT, .level=20 },
-	{ .move=MOVE_ELECTRO_BALL, .level=22 },
-	{ .move=MOVE_SELF_DESTRUCT, .level=26 },
-	{ .move=MOVE_LIGHT_SCREEN, .level=29 },
-	{ .move=MOVE_MAGNET_RISE, .level=34 },
-	{ .move=MOVE_DISCHARGE, .level=37 },
-	{ .move=MOVE_EXPLOSION, .level=41 },
-	{ .move=MOVE_GYRO_BALL, .level=46 },
-	{ .move=MOVE_MIRROR_COAT, .level=50 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
+	{ .move=MOVE_SELF_DESTRUCT, .level=1 },
+	{ .move=MOVE_SPARK, .level=10 },
+	{ .move=MOVE_DEFENSE_CURL, .level=12 },
+	{ .move=MOVE_ROLLOUT, .level=12 },
+
+	{ .move=MOVE_CHARGE, .level=19 },
+	{ .move=MOVE_THUNDER_WAVE, .level=22 },
+	{ .move=MOVE_SWIFT, .level=25 },
+
+	{ .move=MOVE_D2D_ENERGIZE, .level=29 },
+	{ .move=MOVE_DISCHARGE, .level=32 },
+	{ .move=MOVE_DOUBLE_EDGE, .level=35 },
+
+	{ .move=MOVE_MAGNET_RISE, .level=39 },
+	{ .move=MOVE_THUNDERBOLT, .level=42 },
+	{ .move=MOVE_EXTREME_SPEED, .level=45 },
+
+	{ .move=MOVE_NASTY_PLOT, .level=49 },
+	{ .move=MOVE_EXPLOSION, .level=50 },
+	{ .move=MOVE_THUNDER, .level=52 },
+	{ .move=MOVE_GIGA_IMPACT, .level=55 },
+	{ .move=MOVE_HYPER_BEAM, .level=55 },
+
+	{ .move=MOVE_SUCKER_PUNCH, .level=70 },
+
+	{ .move=MOVE_DESTINY_BOND, .level=100 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
 static u16 const sTutorMoves_SPECIES_VOLTORB[] = 
 {
 	MOVE_AGILITY,
-	MOVE_CHARGE,
 	MOVE_CHARGE_BEAM,
-	MOVE_DOUBLE_EDGE,
 	MOVE_EERIE_IMPULSE,
 	MOVE_ELECTRIC_TERRAIN,
 	MOVE_ELECTRO_BALL,
@@ -28498,6 +28537,7 @@ static u16 const sTutorMoves_SPECIES_VOLTORB[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_LIGHT_SCREEN,
 	MOVE_METAL_SOUND,
+	MOVE_MIRROR_COAT,
 	MOVE_PROTECT,
 	MOVE_RAIN_DANCE,
 	MOVE_RECYCLE,
@@ -28607,30 +28647,42 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_VOLTORB[
 static struct LevelUpMove const sLevelUpMoves_SPECIES_ELECTRODE[] = 
 {
 	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
-	{ .move=MOVE_CHARGE, .level=1 },
-	{ .move=MOVE_EERIE_IMPULSE, .level=1 },
-	{ .move=MOVE_MAGNETIC_FLUX, .level=1 },
-	{ .move=MOVE_SPARK, .level=9 },
-	{ .move=MOVE_ROLLOUT, .level=11 },
-	{ .move=MOVE_SCREECH, .level=13 },
-	{ .move=MOVE_CHARGE_BEAM, .level=16 },
-	{ .move=MOVE_SWIFT, .level=20 },
-	{ .move=MOVE_ELECTRO_BALL, .level=22 },
-	{ .move=MOVE_SELF_DESTRUCT, .level=26 },
-	{ .move=MOVE_LIGHT_SCREEN, .level=29 },
-	{ .move=MOVE_MAGNET_RISE, .level=36 },
-	{ .move=MOVE_DISCHARGE, .level=41 },
-	{ .move=MOVE_EXPLOSION, .level=47 },
-	{ .move=MOVE_GYRO_BALL, .level=54 },
-	{ .move=MOVE_MIRROR_COAT, .level=58 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
+	{ .move=MOVE_SELF_DESTRUCT, .level=1 },
+	{ .move=MOVE_SPARK, .level=10 },
+	{ .move=MOVE_DEFENSE_CURL, .level=12 },
+	{ .move=MOVE_ROLLOUT, .level=12 },
+
+	{ .move=MOVE_CHARGE, .level=19 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=19 },
+	{ .move=MOVE_THUNDER_WAVE, .level=22 },
+	{ .move=MOVE_SWIFT, .level=25 },
+
+	{ .move=MOVE_D2D_ENERGIZE, .level=29 },
+	{ .move=MOVE_EXPLOSION, .level=0 },
+	{ .move=MOVE_DISCHARGE, .level=32 },
+	{ .move=MOVE_DOUBLE_EDGE, .level=35 },
+
+	{ .move=MOVE_MAGNET_RISE, .level=39 },
+	{ .move=MOVE_THUNDERBOLT, .level=42 },
+	{ .move=MOVE_EXTREME_SPEED, .level=45 },
+
+	{ .move=MOVE_NASTY_PLOT, .level=49 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=50 },
+	{ .move=MOVE_THUNDER, .level=52 },
+	{ .move=MOVE_GIGA_IMPACT, .level=55 },
+	{ .move=MOVE_HYPER_BEAM, .level=55 },
+
+	{ .move=MOVE_SUCKER_PUNCH, .level=70 },
+
+	{ .move=MOVE_DESTINY_BOND, .level=100 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
 static u16 const sTutorMoves_SPECIES_ELECTRODE[] = 
 {
 	MOVE_AGILITY,
-	MOVE_CHARGE,
 	MOVE_CHARGE_BEAM,
 	MOVE_CURSE,
 	MOVE_DOUBLE_EDGE,
@@ -28641,13 +28693,14 @@ static u16 const sTutorMoves_SPECIES_ELECTRODE[] =
 	MOVE_ENDURE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
-	MOVE_GIGA_IMPACT,
 	MOVE_GYRO_BALL,
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
-	MOVE_HYPER_BEAM,
 	MOVE_LIGHT_SCREEN,
+	MOVE_D2D_MACH_5,
+	MOVE_MAGNETIC_FLUX,
 	MOVE_METAL_SOUND,
+	MOVE_MIRROR_COAT,
 	MOVE_PROTECT,
 	MOVE_RAIN_DANCE,
 	MOVE_REFLECT,
@@ -28657,7 +28710,6 @@ static u16 const sTutorMoves_SPECIES_ELECTRODE[] =
 	MOVE_SLEEP_TALK,
 	MOVE_SUBSTITUTE,
 	MOVE_SUPERCELL_SLAM,
-	MOVE_SWIFT,
 	MOVE_TAKE_DOWN,
 	MOVE_TAUNT,
 	MOVE_TERA_BLAST,
@@ -29980,13 +30032,18 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HITMONCHAN[] =
 	{ .move=MOVE_MACH_PUNCH, .level=4 },
 	{ .move=MOVE_VACUUM_WAVE, .level=8 },
 	{ .move=MOVE_DETECT, .level=12 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=15 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=15 },
 	{ .move=MOVE_BULLET_PUNCH, .level=16 },
 	{ .move=MOVE_QUICK_GUARD, .level=21 },
 	{ .move=MOVE_FIRE_PUNCH, .level=24 },
 	{ .move=MOVE_ICE_PUNCH, .level=24 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=24 },
+	{ .move=MOVE_D2D_ENFLAME, .level=25 },
+	{ .move=MOVE_D2D_ENFROST, .level=25 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=25 },
+	{ .move=MOVE_MEGA_PUNCH, .level=25 },
 	{ .move=MOVE_AGILITY, .level=28 },
-	{ .move=MOVE_MEGA_PUNCH, .level=32 },
 	{ .move=MOVE_CLOSE_COMBAT, .level=36 },
 	{ .move=MOVE_COUNTER, .level=40 },
 	{ .move=MOVE_FOCUS_PUNCH, .level=44 },
@@ -30228,6 +30285,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LICKITUNG[] =
 	{ .move=MOVE_KNOCK_OFF, .level=36 },
 	{ .move=MOVE_SCREECH, .level=42 },
 	{ .move=MOVE_SLAM, .level=48 },
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=50 },
 	{ .move=MOVE_POWER_WHIP, .level=54 },
 	{ .move=MOVE_BELLY_DRUM, .level=60 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -30546,6 +30604,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WEEZING[] =
 	{ .move=MOVE_SELF_DESTRUCT, .level=28 },
 	{ .move=MOVE_SLUDGE_BOMB, .level=32 },
 	{ .move=MOVE_TOXIC, .level=38 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_BELCH, .level=44 },
 	{ .move=MOVE_EXPLOSION, .level=50 },
 	{ .move=MOVE_MEMENTO, .level=56 },
@@ -34224,6 +34283,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SCYTHER[] =
 	{ .move=MOVE_SLASH, .level=24 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=28 },
 	{ .move=MOVE_AGILITY, .level=32 },
+	{ .move=MOVE_D2D_MACH_5, .level=35 },
 	{ .move=MOVE_AIR_SLASH, .level=36 },
 	{ .move=MOVE_X_SCISSOR, .level=40 },
 	{ .move=MOVE_SWORDS_DANCE, .level=44 },
@@ -34248,6 +34308,7 @@ static u16 const sTutorMoves_SPECIES_SCYTHER[] =
 	MOVE_ENDURE,
 	MOVE_FACADE,
 	MOVE_FALSE_SWIPE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_FEINT,
 	MOVE_GIGA_IMPACT,
 	MOVE_HELPING_HAND,
@@ -34576,6 +34637,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_JYNX[] =
 	{ .move=MOVE_SING, .level=20 },
 	{ .move=MOVE_FAKE_TEARS, .level=24 },
 	{ .move=MOVE_ICE_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENFROST, .level=28 },
 	{ .move=MOVE_PSYCHIC, .level=34 },
 	{ .move=MOVE_LOVELY_KISS, .level=40 },
 	{ .move=MOVE_MEAN_LOOK, .level=46 },
@@ -34826,14 +34888,15 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_JYNX[] =
 static struct LevelUpMove const sLevelUpMoves_SPECIES_ELECTABUZZ[] = 
 {
 	{ .move=MOVE_LEER, .level=1 },
-	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_CHARGE, .level=1 },
 	{ .move=MOVE_SWIFT, .level=12 },
 	{ .move=MOVE_SHOCK_WAVE, .level=16 },
 	{ .move=MOVE_THUNDER_WAVE, .level=20 },
 	{ .move=MOVE_SCREECH, .level=24 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=28 },
 	{ .move=MOVE_DISCHARGE, .level=34 },
 	{ .move=MOVE_LOW_KICK, .level=40 },
 	{ .move=MOVE_THUNDERBOLT, .level=46 },
@@ -35011,6 +35074,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAGMAR[] =
 	{ .move=MOVE_CONFUSE_RAY, .level=20 },
 	{ .move=MOVE_SCARY_FACE, .level=24 },
 	{ .move=MOVE_FIRE_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENFLAME, .level=28 },
 	{ .move=MOVE_LAVA_PLUME, .level=34 },
 	{ .move=MOVE_LOW_KICK, .level=40 },
 	{ .move=MOVE_FLAMETHROWER, .level=46 },
@@ -35955,6 +36019,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GYARADOS[] =
 	{ .move=MOVE_AQUA_TAIL, .level=32 },
 	{ .move=MOVE_DRAGON_DANCE, .level=36 },
 	{ .move=MOVE_HYDRO_PUMP, .level=40 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_HURRICANE, .level=44 },
 	{ .move=MOVE_THRASH, .level=48 },
 	{ .move=MOVE_HYPER_BEAM, .level=52 },
@@ -37185,6 +37250,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LAPRAS[] =
 	{ .move=MOVE_HYDRO_PUMP, .level=55 },
 	{ .move=MOVE_PERISH_SONG, .level=60 },
 	{ .move=MOVE_SHEER_COLD, .level=65 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -37220,6 +37286,7 @@ static u16 const sTutorMoves_SPECIES_LAPRAS[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICICLE_SPEAR,
 	MOVE_ICY_WIND,
@@ -37940,6 +38007,7 @@ static u16 const sTutorMoves_SPECIES_VAPOREON[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LIQUIDATION,
@@ -38219,6 +38287,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_JOLTEON[] =
 	{ .move=MOVE_COPYCAT, .level=1 },
 	{ .move=MOVE_SAND_ATTACK, .level=5 },
 	{ .move=MOVE_QUICK_ATTACK, .level=10 },
+	{ .move=MOVE_D2D_ZAP, .level=10 },
 	{ .move=MOVE_BABY_DOLL_EYES, .level=15 },
 	{ .move=MOVE_THUNDER_WAVE, .level=20 },
 	{ .move=MOVE_DOUBLE_KICK, .level=25 },
@@ -38773,20 +38842,34 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_FLAREON[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PORYGON[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
+	{ .move=MOVE_D2D_BEAM, .level=1 },
 	{ .move=MOVE_CONVERSION, .level=1 },
-	{ .move=MOVE_RECYCLE, .level=5 },
 	{ .move=MOVE_MAGNET_RISE, .level=10 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=15 },
-	{ .move=MOVE_PSYBEAM, .level=20 },
-	{ .move=MOVE_CONVERSION_2, .level=25 },
-	{ .move=MOVE_AGILITY, .level=30 },
-	{ .move=MOVE_RECOVER, .level=35 },
-	{ .move=MOVE_DISCHARGE, .level=40 },
-	{ .move=MOVE_TRI_ATTACK, .level=45 },
-	{ .move=MOVE_DOUBLE_EDGE, .level=50 },
-	{ .move=MOVE_LOCK_ON, .level=55 },
-	{ .move=MOVE_ZAP_CANNON, .level=60 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
+
+	{ .move=MOVE_D2D_ENFLAME, .level=16 },
+	{ .move=MOVE_D2D_ENFROST, .level=19 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=22 },
+	{ .move=MOVE_TRI_ATTACK, .level=25 },
+
+	{ .move=MOVE_CHARGE_BEAM, .level=26 },
+	{ .move=MOVE_BUBBLE_BEAM, .level=29 },
+	{ .move=MOVE_SIGNAL_BEAM, .level=32 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
+
+	{ .move=MOVE_PSYBEAM, .level=36 },
+	{ .move=MOVE_THUNDERBOLT, .level=39 },
+	{ .move=MOVE_RECOVER, .level=42 },
+	{ .move=MOVE_HIDDEN_POWER, .level=45 },
+
+	{ .move=MOVE_ICE_BEAM, .level=46 },
+	{ .move=MOVE_SOLAR_BEAM, .level=49 },
+	{ .move=MOVE_METEOR_BEAM, .level=52 },
+	{ .move=MOVE_HYPER_BEAM, .level=55 },
+
+	{ .move=MOVE_D2D_IMPLOSION, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -38796,6 +38879,7 @@ static u16 const sTutorMoves_SPECIES_PORYGON[] =
 	MOVE_BLIZZARD,
 	MOVE_CHARGE,
 	MOVE_CHARGE_BEAM,
+	MOVE_DISCHARGE,
 	MOVE_DOUBLE_EDGE,
 	MOVE_EERIE_IMPULSE,
 	MOVE_ELECTROWEB,
@@ -39649,6 +39733,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_KABUTOPS[] =
 	{ .move=MOVE_MUD_SHOT, .level=25 },
 	{ .move=MOVE_ANCIENT_POWER, .level=30 },
 	{ .move=MOVE_BRINE, .level=35 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_PROTECT, .level=43 },
 	{ .move=MOVE_LEECH_LIFE, .level=49 },
 	{ .move=MOVE_LIQUIDATION, .level=56 },
@@ -39963,6 +40048,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AERODACTYL[] =
 	{ .move=MOVE_TAKE_DOWN, .level=40 },
 	{ .move=MOVE_STONE_EDGE, .level=45 },
 	{ .move=MOVE_AGILITY, .level=50 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_HYPER_BEAM, .level=55 },
 	{ .move=MOVE_GIGA_IMPACT, .level=60 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -40865,6 +40951,7 @@ static u16 const sTutorMoves_SPECIES_SNORLAX[] =
 	MOVE_SEED_BOMB,
 	MOVE_SELF_DESTRUCT,
 	MOVE_SHADOW_BALL,
+	MOVE_SLACK_OFF,
 	MOVE_SLEEP_TALK,
 	MOVE_SMACK_DOWN,
 	MOVE_SOLAR_BEAM,
@@ -41598,6 +41685,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ARTICUNO[] =
 	{ .move=MOVE_HAZE, .level=60 },
 	{ .move=MOVE_BLIZZARD, .level=65 },
 	{ .move=MOVE_SHEER_COLD, .level=70 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -41629,6 +41717,7 @@ static u16 const sTutorMoves_SPECIES_ARTICUNO[] =
 	MOVE_ICICLE_SPEAR,
 	MOVE_ICY_WIND,
 	MOVE_LIGHT_SCREEN,
+	MOVE_D2D_MACH_5,
 	MOVE_MIRROR_COAT,
 	MOVE_PROTECT,
 	MOVE_RAIN_DANCE,
@@ -42074,10 +42163,12 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ZAPDOS[] =
 	{ .move=MOVE_AGILITY, .level=20 },
 	{ .move=MOVE_ANCIENT_POWER, .level=25 },
 	{ .move=MOVE_CHARGE, .level=30 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=30 },
 	{ .move=MOVE_DRILL_PECK, .level=35 },
 	{ .move=MOVE_ROOST, .level=40 },
 	{ .move=MOVE_DISCHARGE, .level=45 },
 	{ .move=MOVE_RAIN_DANCE, .level=50 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_THUNDER, .level=55 },
 	{ .move=MOVE_DETECT, .level=60 },
 	{ .move=MOVE_MAGNETIC_FLUX, .level=65 },
@@ -43434,6 +43525,7 @@ static u16 const sTutorMoves_SPECIES_MOLTRES[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HURRICANE,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_MACH_5,
 	MOVE_MYSTICAL_FIRE,
 	MOVE_OVERHEAT,
 	MOVE_PROTECT,
@@ -44142,6 +44234,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DRAGONITE[] =
 	{ .move=MOVE_HURRICANE, .level=0 },
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
+	{ .move=MOVE_D2D_ENFLAME, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_WING_ATTACK, .level=1 },
 	{ .move=MOVE_WRAP, .level=1 },
 	{ .move=MOVE_LEER, .level=1 },
@@ -44154,10 +44248,12 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DRAGONITE[] =
 	{ .move=MOVE_SLAM, .level=25 },
 	{ .move=MOVE_AQUA_TAIL, .level=33 },
 	{ .move=MOVE_DRAGON_RUSH, .level=39 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_OUTRAGE, .level=41 },
 	{ .move=MOVE_SAFEGUARD, .level=46 },
 	{ .move=MOVE_RAIN_DANCE, .level=53 },
 	{ .move=MOVE_DRAGON_DANCE, .level=62 },
+	{ .move=MOVE_D2D_MACH_5, .level=70 },
 	{ .move=MOVE_HYPER_BEAM, .level=80 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -44176,6 +44272,7 @@ static u16 const sTutorMoves_SPECIES_DRAGONITE[] =
 	MOVE_BULLDOZE,
 	MOVE_CHILLING_WATER,
 	MOVE_DRACO_METEOR,
+	MOVE_DRAGON_BREATH,
 	MOVE_DRAGON_CHEER,
 	MOVE_DRAGON_CLAW,
 	MOVE_DRAGON_DANCE,
@@ -45701,6 +45798,7 @@ static u16 const sTutorMoves_SPECIES_MEW[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICE_PUNCH,
@@ -47646,6 +47744,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FERALIGATR[] =
 	{ .move=MOVE_CRUNCH, .level=32 },
 	{ .move=MOVE_SLASH, .level=37 },
 	{ .move=MOVE_SCREECH, .level=44 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_THRASH, .level=51 },
 	{ .move=MOVE_AQUA_TAIL, .level=59 },
 	{ .move=MOVE_SUPERPOWER, .level=65 },
@@ -48083,12 +48182,14 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HOOTHOOT[] =
 	{ .move=MOVE_CONFUSION, .level=9 },
 	{ .move=MOVE_REFLECT, .level=12 },
 	{ .move=MOVE_DEFOG, .level=15 },
+	{ .move=MOVE_D2D_BEAM, .level=15 },
 	{ .move=MOVE_AIR_SLASH, .level=18 },
 	{ .move=MOVE_EXTRASENSORY, .level=21 },
 	{ .move=MOVE_TAKE_DOWN, .level=24 },
 	{ .move=MOVE_UPROAR, .level=27 },
 	{ .move=MOVE_ROOST, .level=30 },
 	{ .move=MOVE_MOONBLAST, .level=33 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
 	{ .move=MOVE_HYPNOSIS, .level=36 },
 	{ .move=MOVE_DREAM_EATER, .level=39 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -48179,10 +48280,12 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_NOCTOWL[] =
 	{ .move=MOVE_ECHOED_VOICE, .level=1 },
 	{ .move=MOVE_CONFUSION, .level=9 },
 	{ .move=MOVE_REFLECT, .level=12 },
+	{ .move=MOVE_D2D_BEAM, .level=15 },
 	{ .move=MOVE_AIR_SLASH, .level=18 },
 	{ .move=MOVE_EXTRASENSORY, .level=23 },
 	{ .move=MOVE_TAKE_DOWN, .level=28 },
 	{ .move=MOVE_UPROAR, .level=33 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
 	{ .move=MOVE_ROOST, .level=38 },
 	{ .move=MOVE_MOONBLAST, .level=43 },
 	{ .move=MOVE_HYPNOSIS, .level=48 },
@@ -48361,6 +48464,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LEDYBA[] =
 	{ .move=MOVE_MACH_PUNCH, .level=15 },
 	{ .move=MOVE_SILVER_WIND, .level=19 },
 	{ .move=MOVE_COMET_PUNCH, .level=22 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_BATON_PASS, .level=26 },
 	{ .move=MOVE_AGILITY, .level=29 },
 	{ .move=MOVE_BUG_BUZZ, .level=33 },
@@ -48680,6 +48785,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ARIADOS[] =
 	{ .move=MOVE_SUCKER_PUNCH, .level=28 },
 	{ .move=MOVE_AGILITY, .level=31 },
 	{ .move=MOVE_PIN_MISSILE, .level=35 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=38 },
 	{ .move=MOVE_PSYCHIC, .level=41 },
 	{ .move=MOVE_POISON_JAB, .level=46 },
 	{ .move=MOVE_CROSS_POISON, .level=50 },
@@ -48855,8 +48961,10 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CROBAT[] =
 	{ .move=MOVE_QUICK_GUARD, .level=20 },
 	{ .move=MOVE_AIR_CUTTER, .level=27 },
 	{ .move=MOVE_BITE, .level=34 },
+	{ .move=MOVE_D2D_MACH_5, .level=35 },
 	{ .move=MOVE_HAZE, .level=41 },
 	{ .move=MOVE_VENOSHOCK, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_CONFUSE_RAY, .level=55 },
 	{ .move=MOVE_AIR_SLASH, .level=62 },
 	{ .move=MOVE_LEECH_LIFE, .level=69 },
@@ -49511,6 +49619,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LANTURN[] =
 	{ .move=MOVE_CONFUSE_RAY, .level=16 },
 	{ .move=MOVE_SPARK, .level=20 },
 	{ .move=MOVE_CHARGE, .level=24 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=24 },
 	{ .move=MOVE_DISCHARGE, .level=30 },
 	{ .move=MOVE_AQUA_RING, .level=36 },
 	{ .move=MOVE_FLAIL, .level=42 },
@@ -49830,6 +49939,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PICHU[] =
 	{ .move=MOVE_NUZZLE, .level=12 },
 	{ .move=MOVE_NASTY_PLOT, .level=16 },
 	{ .move=MOVE_CHARM, .level=20 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -50104,6 +50214,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_TOGEPI[] =
 	{ .move=MOVE_METRONOME, .level=24 },
 	{ .move=MOVE_AFTER_YOU, .level=28 },
 	{ .move=MOVE_DOUBLE_EDGE, .level=32 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=35 },
 	{ .move=MOVE_SAFEGUARD, .level=36 },
 	{ .move=MOVE_FOLLOW_ME, .level=40 },
 	{ .move=MOVE_BATON_PASS, .level=44 },
@@ -50206,6 +50317,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_TOGETIC[] =
 	{ .move=MOVE_METRONOME, .level=24 },
 	{ .move=MOVE_AFTER_YOU, .level=28 },
 	{ .move=MOVE_DOUBLE_EDGE, .level=32 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=35 },
 	{ .move=MOVE_SAFEGUARD, .level=36 },
 	{ .move=MOVE_FOLLOW_ME, .level=40 },
 	{ .move=MOVE_BATON_PASS, .level=44 },
@@ -51049,6 +51161,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAREEP[] =
 	{ .move=MOVE_TAKE_DOWN, .level=18 },
 	{ .move=MOVE_ELECTRO_BALL, .level=22 },
 	{ .move=MOVE_CONFUSE_RAY, .level=25 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_POWER_GEM, .level=29 },
 	{ .move=MOVE_DISCHARGE, .level=32 },
 	{ .move=MOVE_COTTON_GUARD, .level=36 },
@@ -51150,6 +51263,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FLAAFFY[] =
 	{ .move=MOVE_CHARGE, .level=16 },
 	{ .move=MOVE_TAKE_DOWN, .level=20 },
 	{ .move=MOVE_ELECTRO_BALL, .level=25 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_CONFUSE_RAY, .level=29 },
 	{ .move=MOVE_POWER_GEM, .level=34 },
 	{ .move=MOVE_DISCHARGE, .level=38 },
@@ -51220,7 +51334,8 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_FLAAFFY[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_AMPHAROS[] = 
 {
-	{ .move=MOVE_THUNDER_PUNCH, .level=0 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=0 },
+	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_TACKLE, .level=1 },
 	{ .move=MOVE_GROWL, .level=1 },
@@ -51233,6 +51348,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AMPHAROS[] =
 	{ .move=MOVE_CHARGE, .level=16 },
 	{ .move=MOVE_TAKE_DOWN, .level=20 },
 	{ .move=MOVE_ELECTRO_BALL, .level=25 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_CONFUSE_RAY, .level=29 },
 	{ .move=MOVE_POWER_GEM, .level=35 },
 	{ .move=MOVE_DISCHARGE, .level=40 },
@@ -51240,6 +51356,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AMPHAROS[] =
 	{ .move=MOVE_DAZZLING_GLEAM, .level=51 },
 	{ .move=MOVE_LIGHT_SCREEN, .level=57 },
 	{ .move=MOVE_THUNDER, .level=62 },
+	{ .move=MOVE_TAIL_GLOW, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -51302,6 +51419,7 @@ static u16 const sTutorMoves_SPECIES_AMPHAROS[] =
 	MOVE_TRAILBLAZE,
 	MOVE_VOLT_SWITCH,
 	MOVE_WILD_CHARGE,
+	MOVE_D2D_ZAP,
 	MOVE_NONE,
 };
 
@@ -53127,6 +53245,7 @@ static u16 const sTutorMoves_SPECIES_POLITOED[] =
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
 	MOVE_HYPNOSIS,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICY_WIND,
@@ -54237,6 +54356,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SUNFLORA[] =
 	{ .move=MOVE_SUNNY_DAY, .level=39 },
 	{ .move=MOVE_LEAF_STORM, .level=43 },
 	{ .move=MOVE_PETAL_BLIZZARD, .level=50 },
+	{ .move=MOVE_D2D_SUNFLARE, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -54350,6 +54470,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_YANMA[] =
 	{ .move=MOVE_ANCIENT_POWER, .level=33 },
 	{ .move=MOVE_HYPNOSIS, .level=38 },
 	{ .move=MOVE_WING_ATTACK, .level=43 },
+	{ .move=MOVE_D2D_MACH_5, .level=45 },
 	{ .move=MOVE_SCREECH, .level=46 },
 	{ .move=MOVE_U_TURN, .level=49 },
 	{ .move=MOVE_AIR_SLASH, .level=54 },
@@ -54450,6 +54571,7 @@ static u16 const sTutorMoves_SPECIES_WOOPER[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LIQUIDATION,
@@ -54591,6 +54713,7 @@ static u16 const sTutorMoves_SPECIES_QUAGSIRE[] =
 	MOVE_HIGH_HORSEPOWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICY_WIND,
@@ -56958,13 +57081,27 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_MISDREAV
 static struct LevelUpMove const sLevelUpMoves_SPECIES_UNOWN[] = 
 {
 	{ .move=MOVE_HIDDEN_POWER, .level=1 },
+	// { .move=MOVE_AGILITY, .level=15 },
+
+	// { .move=MOVE_PROTECT, .level=16 },
+	// { .move=MOVE_RECOVER, .level=19 },
+	// { .move=MOVE_HEAL_BELL, .level=22 },
+	// { .move=MOVE_SAFEGUARD, .level=25 },
+
+	// { .move=MOVE_D2D_ENFIRE, .level=26 },
+	// { .move=MOVE_D2D_ENFROST, .level=26 },
+	// { .move=MOVE_D2D_ENTHUNDER, .level=26 },
+	// { .move=MOVE_SWORDS_DANCE, .level=29 },
+	// { .move=MOVE_NASTY_PLOT, .level=32 },
+	// { .move=MOVE_REFLECT_TYPE, .level=35 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
 static u16 const sTutorMoves_SPECIES_UNOWN[] = 
 {
 	MOVE_HIDDEN_POWER,
-	MOVE_TERA_BLAST,
+	// MOVE_TERA_BLAST,
 	MOVE_NONE,
 };
 
@@ -56983,6 +57120,41 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_UNOWN[] 
 		},
 	},
 };
+
+// #ifdef APPEND_MON_FLAGS_SPECIES_UNOHM
+// #define MON_FLAGS_SPECIES_UNOWN (APPEND_MON_FLAGS_SPECIES_UNOHM | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU)
+// #else
+// #define MON_FLAGS_SPECIES_UNOWN (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU)
+// #endif
+
+// static struct LevelUpMove const sLevelUpMoves_SPECIES_UNOHM[] = 
+// {
+// 	{ .move=MOVE_HIDDEN_POWER, .level=1 },
+// 	{ .move=MOVE_NONE, .level=0 },
+// };
+
+// static u16 const sTutorMoves_SPECIES_UNOHM[] = 
+// {
+// 	MOVE_HIDDEN_POWER,
+// 	MOVE_TERA_BLAST,
+// 	MOVE_NONE,
+// };
+
+// static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_UNOHM[] = 
+// {
+// 	{
+// 		.flags= (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU),
+// 		.heldItem=ITEM_CHOICE_SPECS,
+// 		.ability=ABILITY_LEVITATE,
+// 		.hiddenPowerType=TYPE_PSYCHIC,
+// 		.teraType=TYPE_NONE,
+// 		.nature=NATURE_MODEST,
+// 		.moves=
+// 		{
+// 			MOVE_HIDDEN_POWER,
+// 		},
+// 	},
+// };
 
 #ifdef APPEND_MON_FLAGS_SPECIES_WOBBUFFET
 #define MON_FLAGS_SPECIES_WOBBUFFET (APPEND_MON_FLAGS_SPECIES_WOBBUFFET | MON_FLAGS_GEN6UBERS | MON_FLAGS_GEN6PU | MON_FLAGS_GEN6BATTLESPOTSINGLES | MON_FLAGS_GEN7UBERS | MON_FLAGS_GEN7PU | MON_FLAGS_GEN8ZU)
@@ -57122,10 +57294,12 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GIRAFARIG[] =
 	{ .move=MOVE_CONFUSION, .level=5 },
 	{ .move=MOVE_ASSURANCE, .level=10 },
 	{ .move=MOVE_STOMP, .level=14 },
+	{ .move=MOVE_D2D_BEAM, .level=15 },
 	{ .move=MOVE_PSYBEAM, .level=19 },
 	{ .move=MOVE_AGILITY, .level=23 },
 	{ .move=MOVE_DOUBLE_HIT, .level=28 },
 	{ .move=MOVE_TWIN_BEAM, .level=32 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
 	{ .move=MOVE_CRUNCH, .level=37 },
 	{ .move=MOVE_BATON_PASS, .level=41 },
 	{ .move=MOVE_NASTY_PLOT, .level=46 },
@@ -58149,6 +58323,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_GLIGAR[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_STEELIX[] = 
 {
+	{ .move=MOVE_GYRO_BALL, .level=1 },
 	{ .move=MOVE_BIND, .level=1 },
 	{ .move=MOVE_TACKLE, .level=1 },
 	{ .move=MOVE_ROCK_THROW, .level=1 },
@@ -58173,6 +58348,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_STEELIX[] =
 	{ .move=MOVE_STONE_EDGE, .level=52 },
 	{ .move=MOVE_DOUBLE_EDGE, .level=56 },
 	{ .move=MOVE_MAGNET_RISE, .level=60 },
+	{ .move=MOVE_D2D_DUST_DEVIL, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -59159,6 +59335,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_QWILFISH[] =
 	{ .move=MOVE_SPIT_UP, .level=40 },
 	{ .move=MOVE_TOXIC, .level=44 },
 	{ .move=MOVE_AQUA_TAIL, .level=48 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=50 },
 	{ .move=MOVE_ACUPRESSURE, .level=52 },
 	{ .move=MOVE_DESTINY_BOND, .level=56 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -59495,7 +59672,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_QWILFISH
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_SCIZOR[] = 
 {
-	{ .move=MOVE_BULLET_PUNCH, .level=0 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=0 },
 	{ .move=MOVE_WING_ATTACK, .level=1 },
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_AGILITY, .level=1 },
@@ -59503,6 +59680,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SCIZOR[] =
 	{ .move=MOVE_FALSE_SWIPE, .level=1 },
 	{ .move=MOVE_FURY_CUTTER, .level=1 },
 	{ .move=MOVE_AIR_SLASH, .level=1 },
+	{ .move=MOVE_BULLET_PUNCH, .level=1 },
 	{ .move=MOVE_METAL_CLAW, .level=12 },
 	{ .move=MOVE_DOUBLE_TEAM, .level=16 },
 	{ .move=MOVE_DOUBLE_HIT, .level=20 },
@@ -59533,6 +59711,7 @@ static u16 const sTutorMoves_SPECIES_SCIZOR[] =
 	MOVE_ENDURE,
 	MOVE_FACADE,
 	MOVE_FALSE_SWIPE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_FLASH_CANNON,
 	MOVE_FLING,
 	MOVE_GIGA_IMPACT,
@@ -62380,6 +62559,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SNEASEL[] =
 	{ .move=MOVE_QUICK_ATTACK, .level=12 },
 	{ .move=MOVE_METAL_CLAW, .level=18 },
 	{ .move=MOVE_ICY_WIND, .level=24 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_FURY_SWIPES, .level=30 },
 	{ .move=MOVE_HONE_CLAWS, .level=36 },
 	{ .move=MOVE_BEAT_UP, .level=42 },
@@ -62395,6 +62575,7 @@ static u16 const sTutorMoves_SPECIES_SNEASEL[] =
 	MOVE_AGILITY,
 	MOVE_AVALANCHE,
 	MOVE_BITE,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BLIZZARD,
 	MOVE_BRICK_BREAK,
 	MOVE_CALM_MIND,
@@ -64210,8 +64391,30 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_OCTILLER
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_DELIBIRD[] = 
 {
+	{ .move=MOVE_POWDER_SNOW, .level=1 },
+	{ .move=MOVE_PECK, .level=1 },
 	{ .move=MOVE_PRESENT, .level=1 },
-	{ .move=MOVE_DRILL_PECK, .level=25 },
+	{ .move=MOVE_HELPING_HAND, .level=1 },
+
+	{ .move=MOVE_ICY_WIND, .level=19 },
+	{ .move=MOVE_PLUCK, .level=22 },
+	{ .move=MOVE_SNOWSCAPE, .level=25 },
+
+	{ .move=MOVE_FEATHER_DANCE, .level=29 },
+	{ .move=MOVE_ENCORE, .level=32 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=35 },
+
+	{ .move=MOVE_AIR_SLASH, .level=39 },
+	{ .move=MOVE_TAILWIND, .level=42 },
+	{ .move=MOVE_AURORA_VEIL, .level=45 },
+
+	{ .move=MOVE_SKY_DROP, .level=49 },
+	{ .move=MOVE_ROOST, .level=52 },
+	{ .move=MOVE_BLIZZARD, .level=55 },
+
+	{ .move=MOVE_HURRICANE, .level=70 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -64221,20 +64424,16 @@ static u16 const sTutorMoves_SPECIES_DELIBIRD[] =
 	MOVE_AERIAL_ACE,
 	MOVE_AGILITY,
 	MOVE_AIR_CUTTER,
-	MOVE_AIR_SLASH,
 	MOVE_AURORA_BEAM,
-	MOVE_AURORA_VEIL,
 	MOVE_AVALANCHE,
 	MOVE_BATON_PASS,
-	MOVE_BLIZZARD,
 	MOVE_BODY_SLAM,
 	MOVE_BRAVE_BIRD,
-	MOVE_BRICK_BREAK,
+	MOVE_CHATTER,
 	MOVE_CHILLING_WATER,
-	MOVE_COUNTER,
-	MOVE_DESTINY_BOND,
-	MOVE_DRILL_RUN,
+	MOVE_CHILLY_RECEPTION,
 	MOVE_DUAL_WINGBEAT,
+	MOVE_DRILL_RUN,
 	MOVE_ENDEAVOR,
 	MOVE_ENDURE,
 	MOVE_FACADE,
@@ -64242,41 +64441,27 @@ static u16 const sTutorMoves_SPECIES_DELIBIRD[] =
 	MOVE_FEATHER_DANCE,
 	MOVE_FLING,
 	MOVE_FLY,
-	MOVE_FOCUS_PUNCH,
-	MOVE_FOUL_PLAY,
 	MOVE_FREEZE_DRY,
-	MOVE_GIGA_IMPACT,
-	MOVE_GUNK_SHOT,
 	MOVE_HAZE,
-	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
-	MOVE_HYPER_BEAM,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICE_SHARD,
 	MOVE_ICE_SPINNER,
 	MOVE_ICICLE_SPEAR,
-	MOVE_ICY_WIND,
 	MOVE_MEMENTO,
 	MOVE_PROTECT,
 	MOVE_QUICK_ATTACK,
-	MOVE_RAIN_DANCE,
 	MOVE_RAPID_SPIN,
 	MOVE_REST,
-	MOVE_REVERSAL,
 	MOVE_SEED_BOMB,
 	MOVE_SLEEP_TALK,
-	MOVE_SNOWSCAPE,
 	MOVE_SPIKES,
-	MOVE_SPLASH,
 	MOVE_SUBSTITUTE,
 	MOVE_SWIFT,
-	MOVE_TAILWIND,
 	MOVE_TAKE_DOWN,
 	MOVE_TERA_BLAST,
 	MOVE_THIEF,
-	MOVE_TRAILBLAZE,
-	MOVE_TRIPLE_AXEL,
 	MOVE_WATER_PULSE,
 	MOVE_WEATHER_BALL,
 	MOVE_NONE,
@@ -64286,47 +64471,47 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_DELIBIRD
 {
 	{
 		.flags= (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU),
-		.heldItem=ITEM_FOCUS_SASH,
-		.ability=ABILITY_VITAL_SPIRIT,
+		.heldItem=ITEM_HEAVY_DUTY_BOOTS,
+		.ability=ABILITY_SNOW_WARNING,
 		.hiddenPowerType=TYPE_NONE,
 		.teraType=TYPE_NONE,
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_SPIKES,
-			MOVE_RAPID_SPIN,
-			MOVE_ICY_WIND,
-			MOVE_DESTINY_BOND,
+			MOVE_BLIZZARD,
+			MOVE_HURRICANE,
+			MOVE_PRESENT,
+			MOVE_AURORA_VEIL,
 		},
 	},
 	{
 		.flags= (0 | MON_FLAGS_GEN8ZU),
-		.heldItem=ITEM_FOCUS_SASH,
-		.ability=ABILITY_VITAL_SPIRIT,
+		.heldItem=ITEM_HEAVY_DUTY_BOOTS,
+		.ability=ABILITY_SNOW_WARNING,
 		.hiddenPowerType=TYPE_NONE,
 		.teraType=TYPE_NONE,
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_SPIKES,
-			MOVE_RAPID_SPIN,
-			MOVE_MEMENTO,
-			MOVE_FREEZE_DRY,
+			MOVE_BLIZZARD,
+			MOVE_HURRICANE,
+			MOVE_PRESENT,
+			MOVE_AURORA_VEIL,
 		},
 	},
 	{
 		.flags= (0 | MON_FLAGS_GEN9ZU),
 		.heldItem=ITEM_HEAVY_DUTY_BOOTS,
-		.ability=ABILITY_VITAL_SPIRIT,
+		.ability=ABILITY_SNOW_WARNING,
 		.hiddenPowerType=TYPE_NONE,
 		.teraType=TYPE_NONE,
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_RAPID_SPIN,
-			MOVE_SPIKES,
-			MOVE_DESTINY_BOND,
-			MOVE_FREEZE_DRY,
+			MOVE_BLIZZARD,
+			MOVE_HURRICANE,
+			MOVE_PRESENT,
+			MOVE_AURORA_VEIL,
 		},
 	},
 };
@@ -64740,10 +64925,12 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SKARMORY[] =
 	{ .move=MOVE_SLASH, .level=24 },
 	{ .move=MOVE_STEEL_WING, .level=28 },
 	{ .move=MOVE_PAYBACK, .level=32 },
+	{ .move=MOVE_D2D_MACH_5, .level=35 },
 	{ .move=MOVE_DRILL_PECK, .level=36 },
 	{ .move=MOVE_METAL_SOUND, .level=40 },
 	{ .move=MOVE_SPIKES, .level=44 },
 	{ .move=MOVE_IRON_DEFENSE, .level=48 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=50 },
 	{ .move=MOVE_BRAVE_BIRD, .level=52 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -67313,21 +67500,36 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_DONPHAN[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PORYGON2[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_DEFENSE_CURL, .level=1 },
+	{ .move=MOVE_CONVERSION_2, .level=0 },
+
+	{ .move=MOVE_D2D_BEAM, .level=1 },
 	{ .move=MOVE_CONVERSION, .level=1 },
-	{ .move=MOVE_RECYCLE, .level=1 },
-	{ .move=MOVE_MAGNET_RISE, .level=1 },
+	{ .move=MOVE_MAGNET_RISE, .level=10 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=15 },
-	{ .move=MOVE_PSYBEAM, .level=20 },
-	{ .move=MOVE_CONVERSION_2, .level=25 },
-	{ .move=MOVE_AGILITY, .level=30 },
-	{ .move=MOVE_RECOVER, .level=35 },
-	{ .move=MOVE_DISCHARGE, .level=40 },
-	{ .move=MOVE_TRI_ATTACK, .level=45 },
-	{ .move=MOVE_LOCK_ON, .level=50 },
-	{ .move=MOVE_ZAP_CANNON, .level=55 },
-	{ .move=MOVE_HYPER_BEAM, .level=60 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
+
+	{ .move=MOVE_D2D_ENFLAME, .level=16 },
+	{ .move=MOVE_D2D_ENFROST, .level=19 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=22 },
+	{ .move=MOVE_TRI_ATTACK, .level=25 },
+
+	{ .move=MOVE_CHARGE_BEAM, .level=26 },
+	{ .move=MOVE_BUBBLE_BEAM, .level=29 },
+	{ .move=MOVE_SIGNAL_BEAM, .level=32 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
+
+	{ .move=MOVE_PSYBEAM, .level=36 },
+	{ .move=MOVE_THUNDERBOLT, .level=39 },
+	{ .move=MOVE_RECOVER, .level=42 },
+	{ .move=MOVE_HIDDEN_POWER, .level=45 },
+
+	{ .move=MOVE_ICE_BEAM, .level=46 },
+	{ .move=MOVE_SOLAR_BEAM, .level=49 },
+	{ .move=MOVE_METEOR_BEAM, .level=52 },
+	{ .move=MOVE_HYPER_BEAM, .level=55 },
+
+	{ .move=MOVE_D2D_IMPLOSION, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -67337,6 +67539,7 @@ static u16 const sTutorMoves_SPECIES_PORYGON2[] =
 	MOVE_BLIZZARD,
 	MOVE_CHARGE,
 	MOVE_CHARGE_BEAM,
+	MOVE_DISCHARGE,
 	MOVE_DOUBLE_EDGE,
 	MOVE_EERIE_IMPULSE,
 	MOVE_ELECTROWEB,
@@ -69188,6 +69391,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SMOOCHUM[] =
 	{ .move=MOVE_SING, .level=20 },
 	{ .move=MOVE_FAKE_TEARS, .level=24 },
 	{ .move=MOVE_ICE_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENFROST, .level=28 },
 	{ .move=MOVE_PSYCHIC, .level=32 },
 	{ .move=MOVE_SWEET_KISS, .level=36 },
 	{ .move=MOVE_MEAN_LOOK, .level=40 },
@@ -69309,6 +69513,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ELEKID[] =
 {
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=4 },
 	{ .move=MOVE_CHARGE, .level=8 },
 	{ .move=MOVE_SWIFT, .level=12 },
@@ -69316,6 +69521,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ELEKID[] =
 	{ .move=MOVE_THUNDER_WAVE, .level=20 },
 	{ .move=MOVE_SCREECH, .level=24 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=28 },
 	{ .move=MOVE_DISCHARGE, .level=32 },
 	{ .move=MOVE_LOW_KICK, .level=36 },
 	{ .move=MOVE_THUNDERBOLT, .level=40 },
@@ -69517,6 +69723,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAGBY[] =
 	{ .move=MOVE_CONFUSE_RAY, .level=20 },
 	{ .move=MOVE_SCARY_FACE, .level=24 },
 	{ .move=MOVE_FIRE_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENFLAME, .level=28 },
 	{ .move=MOVE_LAVA_PLUME, .level=32 },
 	{ .move=MOVE_LOW_KICK, .level=36 },
 	{ .move=MOVE_FLAMETHROWER, .level=40 },
@@ -69672,6 +69879,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MILTANK[] =
 	{ .move=MOVE_BODY_SLAM, .level=40 },
 	{ .move=MOVE_PLAY_ROUGH, .level=45 },
 	{ .move=MOVE_CHARM, .level=50 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=50 },
 	{ .move=MOVE_HIGH_HORSEPOWER, .level=55 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -69902,12 +70110,14 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BLISSEY[] =
 	{ .move=MOVE_SING, .level=16 },
 	{ .move=MOVE_FLING, .level=20 },
 	{ .move=MOVE_TAKE_DOWN, .level=24 },
+	{ .move=MOVE_D2D_BEAM, .level=25 },
 	{ .move=MOVE_HEAL_PULSE, .level=28 },
 	{ .move=MOVE_HELPING_HAND, .level=32 },
 	{ .move=MOVE_LIGHT_SCREEN, .level=36 },
 	{ .move=MOVE_DOUBLE_EDGE, .level=40 },
 	{ .move=MOVE_SOFT_BOILED, .level=44 },
 	{ .move=MOVE_LAST_RESORT, .level=48 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=50 },
 	{ .move=MOVE_HEALING_WISH, .level=52 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -70609,8 +70819,10 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_RAIKOU[] =
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_EXTREME_SPEED, .level=1 },
 	{ .move=MOVE_CHARGE, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_SPARK, .level=6 },
 	{ .move=MOVE_BITE, .level=12 },
 	{ .move=MOVE_CALM_MIND, .level=18 },
@@ -71570,6 +71782,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SUICUNE[] =
 	{ .move=MOVE_SURF, .level=54 },
 	{ .move=MOVE_MIRROR_COAT, .level=60 },
 	{ .move=MOVE_RAIN_DANCE, .level=66 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_HYDRO_PUMP, .level=72 },
 	{ .move=MOVE_BLIZZARD, .level=78 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -71594,6 +71807,7 @@ static u16 const sTutorMoves_SPECIES_SUICUNE[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICY_WIND,
@@ -74189,6 +74403,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LUGIA[] =
 	{ .move=MOVE_RECOVER, .level=45 },
 	{ .move=MOVE_AEROBLAST, .level=54 },
 	{ .move=MOVE_RAIN_DANCE, .level=63 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_HYDRO_PUMP, .level=72 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=81 },
 	{ .move=MOVE_SKY_ATTACK, .level=90 },
@@ -74228,6 +74443,7 @@ static u16 const sTutorMoves_SPECIES_LUGIA[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_IMPRISON,
@@ -74468,6 +74684,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HO_OH[] =
 	{ .move=MOVE_CALM_MIND, .level=27 },
 	{ .move=MOVE_EXTRASENSORY, .level=36 },
 	{ .move=MOVE_RECOVER, .level=45 },
+	{ .move=MOVE_REVIVAL_BLESSING, .level=50 },
 	{ .move=MOVE_SACRED_FIRE, .level=54 },
 	{ .move=MOVE_SUNNY_DAY, .level=63 },
 	{ .move=MOVE_FIRE_BLAST, .level=72 },
@@ -75651,6 +75868,7 @@ static u16 const sTutorMoves_SPECIES_SCEPTILE[] =
 	MOVE_ACROBATICS,
 	MOVE_AERIAL_ACE,
 	MOVE_AGILITY,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BODY_SLAM,
 	MOVE_BREAKING_SWIPE,
 	MOVE_BRICK_BREAK,
@@ -76760,6 +76978,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BLAZIKEN[] =
 	{ .move=MOVE_FOCUS_ENERGY, .level=35 },
 	{ .move=MOVE_BULK_UP, .level=42 },
 	{ .move=MOVE_REVERSAL, .level=49 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_FLARE_BLITZ, .level=56 },
 	{ .move=MOVE_BRAVE_BIRD, .level=63 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -78987,6 +79206,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MIGHTYENA[] =
 	{ .move=MOVE_SWAGGER, .level=20 },
 	{ .move=MOVE_ASSURANCE, .level=24 },
 	{ .move=MOVE_SCARY_FACE, .level=28 },
+	{ .move=MOVE_D2D_DEVOUR, .level=35 },
 	{ .move=MOVE_TAUNT, .level=36 },
 	{ .move=MOVE_YAWN, .level=44 },
 	{ .move=MOVE_TAKE_DOWN, .level=48 },
@@ -79692,6 +79912,7 @@ static u16 const sTutorMoves_SPECIES_LOTAD[] =
 	MOVE_GRASSY_GLIDE,
 	MOVE_GRASSY_TERRAIN,
 	MOVE_HIDDEN_POWER,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_MAGICAL_LEAF,
@@ -79809,6 +80030,7 @@ static u16 const sTutorMoves_SPECIES_LOMBRE[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICY_WIND,
@@ -79861,6 +80083,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LUDICOLO[] =
 	{ .move=MOVE_BUBBLE_BEAM, .level=1 },
 	{ .move=MOVE_RAIN_DANCE, .level=1 },
 	{ .move=MOVE_FAKE_OUT, .level=1 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -79898,6 +80121,7 @@ static u16 const sTutorMoves_SPECIES_LUDICOLO[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICE_SPINNER,
@@ -80371,6 +80595,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SEEDOT[] =
 	{ .move=MOVE_SYNTHESIS, .level=27 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=30 },
 	{ .move=MOVE_EXPLOSION, .level=33 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -81316,6 +81541,7 @@ static u16 const sTutorMoves_SPECIES_WINGULL[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HURRICANE,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_KNOCK_OFF,
@@ -81419,6 +81645,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PELIPPER[] =
 	{ .move=MOVE_ROOST, .level=48 },
 	{ .move=MOVE_HURRICANE, .level=55 },
 	{ .move=MOVE_HYDRO_PUMP, .level=62 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -81447,6 +81674,7 @@ static u16 const sTutorMoves_SPECIES_PELIPPER[] =
 	MOVE_HURRICANE,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_KNOCK_OFF,
@@ -83550,6 +83778,7 @@ static u16 const sTutorMoves_SPECIES_SURSKIT[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LEECH_LIFE,
@@ -83665,6 +83894,7 @@ static u16 const sTutorMoves_SPECIES_MASQUERAIN[] =
 	MOVE_HURRICANE,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LEECH_LIFE,
@@ -85005,6 +85235,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_NINCADA[] =
 	{ .move=MOVE_METAL_CLAW, .level=25 },
 	{ .move=MOVE_FURY_SWIPES, .level=30 },
 	{ .move=MOVE_MIND_READER, .level=35 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=38 }, // secret Shedinja with Fatal Sting unlock method
 	{ .move=MOVE_DIG, .level=40 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -85065,9 +85296,9 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_NINCADA[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_NINJASK[] = 
 {
-	{ .move=MOVE_SCREECH, .level=0 },
-	{ .move=MOVE_DOUBLE_TEAM, .level=0 },
-	{ .move=MOVE_FURY_CUTTER, .level=0 },
+	{ .move=MOVE_D2D_MACH_5, .level=0 },
+	{ .move=MOVE_DOUBLE_TEAM, .level=1 },
+	{ .move=MOVE_FURY_CUTTER, .level=1 },
 	{ .move=MOVE_SCRATCH, .level=1 },
 	{ .move=MOVE_SAND_ATTACK, .level=1 },
 	{ .move=MOVE_DIG, .level=1 },
@@ -85080,7 +85311,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_NINJASK[] =
 	{ .move=MOVE_AGILITY, .level=15 },
 	{ .move=MOVE_ABSORB, .level=23 },
 	{ .move=MOVE_BUG_BITE, .level=29 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_FURY_SWIPES, .level=36 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=38 },
 	{ .move=MOVE_MIND_READER, .level=43 },
 	{ .move=MOVE_SLASH, .level=50 },
 	{ .move=MOVE_SWORDS_DANCE, .level=57 },
@@ -85339,40 +85572,67 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SHEDINJA[] =
 	{ .move=MOVE_HARDEN, .level=1 },
 	{ .move=MOVE_MUD_SLAP, .level=1 },
 	{ .move=MOVE_FALSE_SWIPE, .level=1 },
-	{ .move=MOVE_METAL_CLAW, .level=1 },
 	{ .move=MOVE_GRUDGE, .level=1 },
-	{ .move=MOVE_SHADOW_CLAW, .level=1 },
-	{ .move=MOVE_CONFUSE_RAY, .level=15 },
-	{ .move=MOVE_ABSORB, .level=23 },
-	{ .move=MOVE_SHADOW_SNEAK, .level=29 },
-	{ .move=MOVE_FURY_SWIPES, .level=36 },
-	{ .move=MOVE_MIND_READER, .level=43 },
-	{ .move=MOVE_SHADOW_BALL, .level=50 },
-	{ .move=MOVE_SPITE, .level=57 },
-	{ .move=MOVE_PHANTOM_FORCE, .level=64 },
+
+	{ .move=MOVE_AGILITY, .level=16 },
+	{ .move=MOVE_CONFUSE_RAY, .level=19 },
+	{ .move=MOVE_RAZOR_LEAF, .level=22 },
+	{ .move=MOVE_SHADOW_SNEAK, .level=25 },
+
+	{ .move=MOVE_SHADOW_BALL, .level=26 },
+	{ .move=MOVE_SHADOW_CLAW, .level=29 },
+	{ .move=MOVE_DETECT, .level=32 },
+	{ .move=MOVE_SWORDS_DANCE, .level=35 },
+
+	{ .move=MOVE_DISABLE, .level=36 },
+	{ .move=MOVE_WILL_O_WISP, .level=39 },
+	{ .move=MOVE_GLARE, .level=42 },
+	{ .move=MOVE_HEX, .level=45 },
+
+	{ .move=MOVE_SILVER_WIND, .level=46 },
+	{ .move=MOVE_OMINOUS_WIND, .level=49 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=52 },
+	{ .move=MOVE_POLTERGEIST, .level=55 },
+
+	{ .move=MOVE_SUCKER_PUNCH, .level=56 },
+	{ .move=MOVE_X_SCISSOR, .level=59 },
+	{ .move=MOVE_NASTY_PLOT, .level=62 },
+	{ .move=MOVE_PHANTOM_FORCE, .level=65 },
+
+	{ .move=MOVE_D2D_SEW_SHUT, .level=70 },
+
+	{ .move=MOVE_REFLECT_TYPE, .level=88 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
 static u16 const sTutorMoves_SPECIES_SHEDINJA[] = 
 {
-	MOVE_AGILITY,
 	MOVE_ALLY_SWITCH,
 	MOVE_BATON_PASS,
 	MOVE_BUG_BUZZ,
+	MOVE_D2D_BLOODLETTING,
+	MOVE_CURSE,
+	MOVE_DESTINY_BOND,
 	MOVE_DIG,
 	MOVE_ENDURE,
 	MOVE_FACADE,
 	MOVE_FALSE_SWIPE,
 	MOVE_GIGA_DRAIN,
 	MOVE_GIGA_IMPACT,
+	MOVE_GRASS_WHISTLE,
 	MOVE_HEAL_BLOCK,
-	MOVE_HEX,
 	MOVE_HYPER_BEAM,
 	MOVE_LEECH_LIFE,
+	MOVE_METAL_CLAW,
+	MOVE_MEMENTO,
+	MOVE_METRONOME,
 	MOVE_MIMIC,
+	MOVE_NASTY_PLOT,
 	MOVE_PHANTOM_FORCE,
 	MOVE_POLTERGEIST,
 	MOVE_PROTECT,
+	MOVE_QUIVER_DANCE,
 	MOVE_REST,
 	MOVE_ROUND,
 	MOVE_SANDSTORM,
@@ -85382,11 +85642,12 @@ static u16 const sTutorMoves_SPECIES_SHEDINJA[] =
 	MOVE_SKITTER_SMACK,
 	MOVE_SLEEP_TALK,
 	MOVE_SNORE,
-	MOVE_SOLAR_BEAM,
+	MOVE_SPITE,
 	MOVE_SUBSTITUTE,
 	MOVE_SUNNY_DAY,
 	MOVE_SWORDS_DANCE,
 	MOVE_THIEF,
+	MOVE_TORMENT,
 	MOVE_TRICK,
 	MOVE_WILL_O_WISP,
 	MOVE_X_SCISSOR,
@@ -85747,6 +86008,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WHISMUR[] =
 	{ .move=MOVE_UPROAR, .level=35 },
 	{ .move=MOVE_SCREECH, .level=40 },
 	{ .move=MOVE_HYPER_VOICE, .level=45 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -85834,6 +86096,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LOUDRED[] =
 	{ .move=MOVE_SUPERSONIC, .level=36 },
 	{ .move=MOVE_UPROAR, .level=43 },
 	{ .move=MOVE_SCREECH, .level=50 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=50 },
 	{ .move=MOVE_HYPER_VOICE, .level=57 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -85910,9 +86173,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_EXPLOUD[] =
 	{ .move=MOVE_STOMP, .level=23 },
 	{ .move=MOVE_ROAR, .level=29 },
 	{ .move=MOVE_SUPERSONIC, .level=36 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_UPROAR, .level=45 },
 	{ .move=MOVE_SCREECH, .level=54 },
 	{ .move=MOVE_HYPER_VOICE, .level=63 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=70 },
 	{ .move=MOVE_BOOMBURST, .level=72 },
 	{ .move=MOVE_HYPER_BEAM, .level=81 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -86089,6 +86354,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAKUHITA[] =
 	{ .move=MOVE_KNOCK_OFF, .level=19 },
 	{ .move=MOVE_BULK_UP, .level=22 },
 	{ .move=MOVE_BELLY_DRUM, .level=25 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_DETECT, .level=28 },
 	{ .move=MOVE_SEISMIC_TOSS, .level=31 },
 	{ .move=MOVE_FOCUS_PUNCH, .level=34 },
@@ -86197,6 +86464,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HARIYAMA[] =
 	{ .move=MOVE_WHIRLWIND, .level=16 },
 	{ .move=MOVE_KNOCK_OFF, .level=19 },
 	{ .move=MOVE_BULK_UP, .level=22 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_BELLY_DRUM, .level=26 },
 	{ .move=MOVE_DETECT, .level=30 },
 	{ .move=MOVE_SEISMIC_TOSS, .level=34 },
@@ -86937,6 +87206,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DELCATTY[] =
 	{ .move=MOVE_SING, .level=1 },
 	{ .move=MOVE_ATTRACT, .level=1 },
 	{ .move=MOVE_FAKE_OUT, .level=1 },
+	{ .move=MOVE_D2D_MONEY_SHOT, .level=25 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -87046,6 +87316,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SABLEYE[] =
 	{ .move=MOVE_DETECT, .level=18 },
 	{ .move=MOVE_NIGHT_SHADE, .level=21 },
 	{ .move=MOVE_FURY_SWIPES, .level=24 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_KNOCK_OFF, .level=27 },
 	{ .move=MOVE_QUASH, .level=30 },
 	{ .move=MOVE_SHADOW_CLAW, .level=33 },
@@ -87054,6 +87325,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SABLEYE[] =
 	{ .move=MOVE_ZEN_HEADBUTT, .level=42 },
 	{ .move=MOVE_SHADOW_BALL, .level=45 },
 	{ .move=MOVE_FOUL_PLAY, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -88019,6 +88291,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAWILE[] =
 	{ .move=MOVE_SWALLOW, .level=16 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=20 },
 	{ .move=MOVE_IRON_DEFENSE, .level=24 },
+	{ .move=MOVE_D2D_DEVOUR, .level=25 },
 	{ .move=MOVE_CRUNCH, .level=28 },
 	{ .move=MOVE_SWEET_SCENT, .level=32 },
 	{ .move=MOVE_IRON_HEAD, .level=36 },
@@ -89966,6 +90239,10 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MEDICHAM[] =
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_ICE_PUNCH, .level=1 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
+	{ .move=MOVE_D2D_ENFLAME, .level=1 },
+	{ .move=MOVE_D2D_ENFROST, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
+	{ .move=MOVE_MEGA_PUNCH, .level=1 },
 	{ .move=MOVE_CONFUSION, .level=1 },
 	{ .move=MOVE_DETECT, .level=1 },
 	{ .move=MOVE_WORK_UP, .level=1 },
@@ -89975,6 +90252,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MEDICHAM[] =
 	{ .move=MOVE_PSYBEAM, .level=20 },
 	{ .move=MOVE_CALM_MIND, .level=23 },
 	{ .move=MOVE_ZEN_HEADBUTT, .level=25 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_HIGH_JUMP_KICK, .level=28 },
 	{ .move=MOVE_PSYCH_UP, .level=31 },
 	{ .move=MOVE_ACUPRESSURE, .level=33 },
@@ -90388,9 +90667,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ELECTRIKE[] =
 	{ .move=MOVE_SHOCK_WAVE, .level=16 },
 	{ .move=MOVE_BITE, .level=20 },
 	{ .move=MOVE_THUNDER_FANG, .level=24 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_ROAR, .level=28 },
 	{ .move=MOVE_DISCHARGE, .level=32 },
 	{ .move=MOVE_CHARGE, .level=36 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=36 },
 	{ .move=MOVE_WILD_CHARGE, .level=40 },
 	{ .move=MOVE_THUNDER, .level=44 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -90490,9 +90771,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MANECTRIC[] =
 	{ .move=MOVE_SHOCK_WAVE, .level=16 },
 	{ .move=MOVE_BITE, .level=20 },
 	{ .move=MOVE_THUNDER_FANG, .level=24 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_ROAR, .level=30 },
 	{ .move=MOVE_DISCHARGE, .level=36 },
 	{ .move=MOVE_CHARGE, .level=42 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=42 },
 	{ .move=MOVE_WILD_CHARGE, .level=48 },
 	{ .move=MOVE_THUNDER, .level=54 },
 	{ .move=MOVE_ELECTRIC_TERRAIN, .level=60 },
@@ -91147,6 +91430,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PLUSLE[] =
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_THUNDER_WAVE, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_PLAY_NICE, .level=1 },
 	{ .move=MOVE_HELPING_HAND, .level=4 },
 	{ .move=MOVE_SPARK, .level=7 },
@@ -91155,7 +91439,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PLUSLE[] =
 	{ .move=MOVE_SWIFT, .level=16 },
 	{ .move=MOVE_ELECTRO_BALL, .level=19 },
 	{ .move=MOVE_COPYCAT, .level=22 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_CHARGE, .level=26 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=26 },
 	{ .move=MOVE_DISCHARGE, .level=31 },
 	{ .move=MOVE_BATON_PASS, .level=34 },
 	{ .move=MOVE_AGILITY, .level=37 },
@@ -91259,6 +91545,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MINUN[] =
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_THUNDER_WAVE, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_PLAY_NICE, .level=1 },
 	{ .move=MOVE_HELPING_HAND, .level=4 },
 	{ .move=MOVE_SPARK, .level=7 },
@@ -91267,7 +91554,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MINUN[] =
 	{ .move=MOVE_SWIFT, .level=16 },
 	{ .move=MOVE_ELECTRO_BALL, .level=19 },
 	{ .move=MOVE_COPYCAT, .level=22 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_CHARGE, .level=26 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=26 },
 	{ .move=MOVE_DISCHARGE, .level=31 },
 	{ .move=MOVE_BATON_PASS, .level=34 },
 	{ .move=MOVE_AGILITY, .level=37 },
@@ -91764,6 +92053,7 @@ static u16 const sTutorMoves_SPECIES_ROSELIA[] =
 	MOVE_ENERGY_BALL,
 	MOVE_EXTRASENSORY,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_GIGA_DRAIN,
 	MOVE_GRASS_KNOT,
 	MOVE_GRASSY_GLIDE,
@@ -92481,6 +92771,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SHARPEDO[] =
 	{ .move=MOVE_CRUNCH, .level=34 },
 	{ .move=MOVE_AGILITY, .level=40 },
 	{ .move=MOVE_LIQUIDATION, .level=46 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_TAKE_DOWN, .level=52 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -93059,6 +93350,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WAILORD[] =
 	{ .move=MOVE_AMNESIA, .level=44 },
 	{ .move=MOVE_HYDRO_PUMP, .level=49 },
 	{ .move=MOVE_WATER_SPOUT, .level=54 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -93969,6 +94261,7 @@ static u16 const sTutorMoves_SPECIES_TORKOAL[] =
 	MOVE_ROCK_TOMB,
 	MOVE_SANDSTORM,
 	MOVE_SCORCHING_SANDS,
+	MOVE_SELF_DESTRUCT,
 	MOVE_SLEEP_TALK,
 	MOVE_SLUDGE_BOMB,
 	MOVE_SOLAR_BEAM,
@@ -94955,15 +95248,18 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SPINDA[] =
 	{ .move=MOVE_COPYCAT, .level=5 },
 	{ .move=MOVE_FEINT_ATTACK, .level=10 },
 	{ .move=MOVE_PSYBEAM, .level=14 },
+	{ .move=MOVE_D2D_BEAM, .level=15 },
 	{ .move=MOVE_HYPNOSIS, .level=19 },
 	{ .move=MOVE_DIZZY_PUNCH, .level=23 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=28 },
 	{ .move=MOVE_TEETER_DANCE, .level=32 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
 	{ .move=MOVE_UPROAR, .level=37 },
 	{ .move=MOVE_PSYCH_UP, .level=41 },
-	{ .move=MOVE_DOUBLE_EDGE, .level=46 },
+	{ .move=MOVE_DOUBLE_EDGE, .level=45 },
 	{ .move=MOVE_FLAIL, .level=50 },
 	{ .move=MOVE_THRASH, .level=55 },
+	{ .move=MOVE_D2D_SYNESTHESIA, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -94981,6 +95277,9 @@ static u16 const sTutorMoves_SPECIES_SPINDA[] =
 	MOVE_DRAIN_PUNCH,
 	MOVE_DREAM_EATER,
 	MOVE_ENCORE,
+	MOVE_D2D_ENFLAME,
+	MOVE_D2D_ENFROST,
+	MOVE_D2D_ENTHUNDER,
 	MOVE_FACADE,
 	MOVE_FAKE_OUT,
 	MOVE_FAKE_TEARS,
@@ -95094,6 +95393,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_TRAPINCH[] =
 	{ .move=MOVE_EARTHQUAKE, .level=40 },
 	{ .move=MOVE_SUPERPOWER, .level=44 },
 	{ .move=MOVE_FISSURE, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -95361,9 +95661,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FLYGON[] =
 	{ .move=MOVE_BUG_BUZZ, .level=28 },
 	{ .move=MOVE_SANDSTORM, .level=32 },
 	{ .move=MOVE_EARTH_POWER, .level=38 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_EARTHQUAKE, .level=44 },
 	{ .move=MOVE_UPROAR, .level=52 },
 	{ .move=MOVE_DRAGON_RUSH, .level=60 },
+	{ .move=MOVE_D2D_DUST_DEVIL, .level=64 },
 	{ .move=MOVE_BOOMBURST, .level=68 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -95928,7 +96230,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CACNEA[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CACTURNE[] = 
 {
-	{ .move=MOVE_SPIKY_SHIELD, .level=0 },
+	{ .move=MOVE_D2D_SCARECROW, .level=0 },
 	{ .move=MOVE_POISON_STING, .level=1 },
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_ABSORB, .level=1 },
@@ -95941,11 +96243,13 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CACTURNE[] =
 	{ .move=MOVE_INGRAIN, .level=22 },
 	{ .move=MOVE_PAYBACK, .level=26 },
 	{ .move=MOVE_SPIKES, .level=30 },
+	{ .move=MOVE_SPIKY_SHIELD, .level=32 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=35 },
 	{ .move=MOVE_PIN_MISSILE, .level=38 },
 	{ .move=MOVE_ENERGY_BALL, .level=44 },
 	{ .move=MOVE_COTTON_SPORE, .level=49 },
 	{ .move=MOVE_SANDSTORM, .level=54 },
+	{ .move=MOVE_D2D_DUST_DEVIL, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -95964,6 +96268,7 @@ static u16 const sTutorMoves_SPECIES_CACTURNE[] =
 	MOVE_ENDURE,
 	MOVE_ENERGY_BALL,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_FLING,
 	MOVE_FOCUS_BLAST,
 	MOVE_FOCUS_PUNCH,
@@ -97287,6 +97592,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ZANGOOSE[] =
 	{ .move=MOVE_CRUSH_CLAW, .level=26 },
 	{ .move=MOVE_FALSE_SWIPE, .level=29 },
 	{ .move=MOVE_SWITCHEROO, .level=33 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_DETECT, .level=36 },
 	{ .move=MOVE_X_SCISSOR, .level=40 },
 	{ .move=MOVE_TAUNT, .level=43 },
@@ -97493,6 +97799,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SEVIPER[] =
 	{ .move=MOVE_BELCH, .level=41 },
 	{ .move=MOVE_COIL, .level=44 },
 	{ .move=MOVE_SLUDGE_BOMB, .level=46 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -97667,22 +97974,38 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_SEVIPER[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_LUNATONE[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_ROCK_THROW, .level=1 },
 	{ .move=MOVE_CONFUSION, .level=1 },
+	{ .move=MOVE_ROCK_THROW, .level=1 },
+	{ .move=MOVE_BUBBLE, .level=1 },
 	{ .move=MOVE_HARDEN, .level=1 },
-	{ .move=MOVE_MOONLIGHT, .level=1 },
-	{ .move=MOVE_MOONBLAST, .level=1 },
-	{ .move=MOVE_HYPNOSIS, .level=5 },
-	{ .move=MOVE_ROCK_POLISH, .level=10 },
-	{ .move=MOVE_ROCK_SLIDE, .level=15 },
-	{ .move=MOVE_PSYSHOCK, .level=20 },
+
+	{ .move=MOVE_HYPNOSIS, .level=6 },
+	{ .move=MOVE_ROCK_POLISH, .level=9 },
+	{ .move=MOVE_AQUA_RING, .level=12 },
+	{ .move=MOVE_MOONLIGHT, .level=15 },
+
+	{ .move=MOVE_PSYBEAM, .level=16 },
+	{ .move=MOVE_ROCK_SLIDE, .level=19 },
+	{ .move=MOVE_STEALTH_ROCK, .level=22 },
 	{ .move=MOVE_COSMIC_POWER, .level=25 },
-	{ .move=MOVE_PSYCHIC, .level=30 },
-	{ .move=MOVE_STONE_EDGE, .level=35 },
-	{ .move=MOVE_FUTURE_SIGHT, .level=40 },
-	{ .move=MOVE_MAGIC_ROOM, .level=45 },
+
+	{ .move=MOVE_EXTRASENSORY, .level=26 },
+	{ .move=MOVE_ANCIENT_POWER, .level=29 },
+	{ .move=MOVE_SURF, .level=32 },
+	{ .move=MOVE_MOONBLAST, .level=35 },
+
+	{ .move=MOVE_PSYCHIC, .level=36 },
+	{ .move=MOVE_METEOR_BEAM, .level=39 },
+	{ .move=MOVE_LIFE_DEW, .level=42 },
+	{ .move=MOVE_LUNAR_BLESSING, .level=45 },
+
+	{ .move=MOVE_FUTURE_SIGHT, .level=46 },
 	{ .move=MOVE_EXPLOSION, .level=50 },
+	{ .move=MOVE_HYDRO_PUMP, .level=52 },
+	{ .move=MOVE_METEOR_MASH, .level=55 },
+
+	{ .move=MOVE_LUNAR_DANCE, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -97697,6 +98020,7 @@ static u16 const sTutorMoves_SPECIES_LUNATONE[] =
 	MOVE_BULLDOZE,
 	MOVE_CALM_MIND,
 	MOVE_COSMIC_POWER,
+	MOVE_D2D_DOWNPOUR,
 	MOVE_EARTH_POWER,
 	MOVE_EARTHQUAKE,
 	MOVE_ENDURE,
@@ -97865,28 +98189,37 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_LUNATONE
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_SOLROCK[] = 
 {
-	{ .move=MOVE_SUNNY_DAY, .level=1 },
-	{ .move=MOVE_MORNING_SUN, .level=1 },
+	{ .move=MOVE_PSYBEAM, .level=1 },
 	{ .move=MOVE_ROCK_THROW, .level=1 },
-	{ .move=MOVE_CONFUSION, .level=10 },
-	{ .move=MOVE_FLARE_BLITZ, .level=15 },
+	{ .move=MOVE_BUBBLE, .level=1 },
+	{ .move=MOVE_HARDEN, .level=1 },
 
-	{ .move=MOVE_COSMIC_POWER, .level=16 },
+	{ .move=MOVE_HYPNOSIS, .level=6 },
+	{ .move=MOVE_ROCK_POLISH, .level=9 },
+	{ .move=MOVE_FIRE_SPIN, .level=12 },
+	{ .move=MOVE_SUNNY_DAY, .level=15 },
 
-	{ .move=MOVE_RAPID_SPIN, .level=1 },
-	{ .move=MOVE_FLARE_BLITZ, .level=1 },
-	{ .move=MOVE_HYPNOSIS, .level=5 },
-	{ .move=MOVE_ROCK_POLISH, .level=10 },
-	{ .move=MOVE_ROCK_SLIDE, .level=15 },
-	{ .move=MOVE_ZEN_HEADBUTT, .level=20 },
-	{ .move=MOVE_PSYCHIC, .level=30 },
-	{ .move=MOVE_HEAD_SMASH, .level=35 },
+	{ .move=MOVE_ZEN_HEADBUTT, .level=16 },
+	{ .move=MOVE_ROCK_SLIDE, .level=19 },
+	{ .move=MOVE_STEALTH_ROCK, .level=22 },
+	{ .move=MOVE_COSMIC_POWER, .level=25 },
 
-	{ .move=MOVE_D2D_SUNFLARE, .level=40 },
+	{ .move=MOVE_EXTRASENSORY, .level=26 },
+	{ .move=MOVE_ANCIENT_POWER, .level=29 },
+	{ .move=MOVE_HEAT_WAVE, .level=32 },
+	{ .move=MOVE_NASTY_PLOT, .level=35 },
+
+	{ .move=MOVE_PSYCHIC, .level=36 },
+	{ .move=MOVE_STONE_EDGE, .level=39 },
+	{ .move=MOVE_FLARE_BLITZ, .level=42 },
 	{ .move=MOVE_SOLAR_BEAM, .level=45 },
-	{ .move=MOVE_METEOR_MASH, .level=50 },
-	{ .move=MOVE_WONDER_ROOM, .level=55 },
-	{ .move=MOVE_EXPLOSION, .level=60 },
+
+	{ .move=MOVE_FUTURE_SIGHT, .level=46 },
+	{ .move=MOVE_EXPLOSION, .level=50 },
+	{ .move=MOVE_HEAD_SMASH, .level=52 },
+	{ .move=MOVE_METEOR_MASH, .level=55 },
+
+	{ .move=MOVE_D2D_SUNFLARE, .level=70 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -97911,7 +98244,6 @@ static u16 const sTutorMoves_SPECIES_SOLROCK[] =
 	MOVE_GIGA_IMPACT,
 	MOVE_GRASS_KNOT,
 	MOVE_GYRO_BALL,
-	MOVE_HEAT_WAVE,
 	MOVE_HELPING_HAND,
 	MOVE_HYPER_BEAM,
 	MOVE_IRON_DEFENSE,
@@ -97946,6 +98278,7 @@ static u16 const sTutorMoves_SPECIES_SOLROCK[] =
 	MOVE_STONE_EDGE,
 	MOVE_STORED_POWER,
 	MOVE_SUBSTITUTE,
+	MOVE_D2D_SUNFLARE,
 	MOVE_SUNNY_DAY,
 	MOVE_SWIFT,
 	MOVE_SWORDS_DANCE,
@@ -99150,6 +99483,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BALTOY[] =
 	{ .move=MOVE_POWER_SPLIT, .level=36 },
 	{ .move=MOVE_SANDSTORM, .level=39 },
 	{ .move=MOVE_EXPLOSION, .level=42 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -99293,7 +99627,6 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_BALTOY[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CLAYDOL[] = 
 {
-	{ .move=MOVE_HYPER_BEAM, .level=0 },
 	{ .move=MOVE_CONFUSION, .level=1 },
 	{ .move=MOVE_TELEPORT, .level=1 },
 	{ .move=MOVE_HARDEN, .level=1 },
@@ -99308,10 +99641,13 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CLAYDOL[] =
 	{ .move=MOVE_EXTRASENSORY, .level=27 },
 	{ .move=MOVE_EARTH_POWER, .level=30 },
 	{ .move=MOVE_SELF_DESTRUCT, .level=33 },
+	{ .move=MOVE_D2D_SCATTERBLAST, .level=0 },
 	{ .move=MOVE_GUARD_SPLIT, .level=38 },
 	{ .move=MOVE_POWER_SPLIT, .level=38 },
 	{ .move=MOVE_SANDSTORM, .level=43 },
+	{ .move=MOVE_HYPER_BEAM, .level=45 },
 	{ .move=MOVE_EXPLOSION, .level=48 },
+	{ .move=MOVE_D2D_IMPLOSION, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -99508,7 +99844,6 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CLAYDOL[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_LILEEP[] = 
 {
-	{ .move=MOVE_D2D_STURDY_ROOTS, .level=0 },
 	{ .move=MOVE_WRAP, .level=1 },
 	{ .move=MOVE_ASTONISH, .level=1 },
 	{ .move=MOVE_ACID, .level=4 },
@@ -99638,7 +99973,6 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_LILEEP[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CRADILY[] = 
 {
-	{ .move=MOVE_D2D_STURDY_ROOTS, .level=0 },
 	{ .move=MOVE_WRAP, .level=1 },
 	{ .move=MOVE_ACID, .level=1 },
 	{ .move=MOVE_LEECH_SEED, .level=1 },
@@ -99651,10 +99985,13 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CRADILY[] =
 	{ .move=MOVE_AMNESIA, .level=28 },
 	{ .move=MOVE_GASTRO_ACID, .level=32 },
 	{ .move=MOVE_GIGA_DRAIN, .level=36 },
+	{ .move=MOVE_D2D_STURDY_ROOTS, .level=0 },
 	{ .move=MOVE_STOCKPILE, .level=43 },
 	{ .move=MOVE_SPIT_UP, .level=43 },
 	{ .move=MOVE_SWALLOW, .level=43 },
 	{ .move=MOVE_ENERGY_BALL, .level=48 },
+	{ .move=MOVE_TOXIC, .level=52 },
+	{ .move=MOVE_STRENGTH_SAP, .level=56 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -99700,6 +100037,7 @@ static u16 const sTutorMoves_SPECIES_CRADILY[] =
 	MOVE_SUBSTITUTE,
 	MOVE_SUNNY_DAY,
 	MOVE_SWORDS_DANCE,
+	MOVE_VENOM_DRENCH,
 	MOVE_NONE,
 };
 
@@ -99711,238 +100049,13 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CRADILY[
 		.ability=ABILITY_STORM_DRAIN,
 		.hiddenPowerType=TYPE_NONE,
 		.teraType=TYPE_NONE,
-		.nature=NATURE_SASSY,
-		.moves=
-		{
-			MOVE_STEALTH_ROCK,
-			MOVE_RECOVER,
-			MOVE_GIGA_DRAIN,
-			MOVE_ROCK_SLIDE,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN6NU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CALM,
-		.moves=
-		{
-			MOVE_GIGA_DRAIN,
-			MOVE_RECOVER,
-			MOVE_STEALTH_ROCK,
-			MOVE_SUBSTITUTE,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN7ZU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CALM,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_SUBSTITUTE,
-			MOVE_GIGA_DRAIN,
-			MOVE_STEALTH_ROCK,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7PU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_STEALTH_ROCK,
-			MOVE_RECOVER,
-			MOVE_SUBSTITUTE,
-			MOVE_ROCK_SLIDE,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7PU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CALM,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_STEALTH_ROCK,
-			MOVE_SUBSTITUTE,
-			MOVE_GIGA_DRAIN,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7ZU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_BOLD,
-		.moves=
-		{
-			MOVE_GIGA_DRAIN,
-			MOVE_SUBSTITUTE,
-			MOVE_STEALTH_ROCK,
-			MOVE_RECOVER,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7DOUBLESOU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_MODEST,
-		.moves=
-		{
-			MOVE_ANCIENT_POWER,
-			MOVE_GIGA_DRAIN,
-			MOVE_EARTH_POWER,
-			MOVE_RECOVER,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7MONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_STEALTH_ROCK,
-			MOVE_RECOVER,
-			MOVE_ROCK_SLIDE,
-			MOVE_SUBSTITUTE,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7MONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_BOLD,
-		.moves=
-		{
-			MOVE_GIGA_DRAIN,
-			MOVE_RECOVER,
-			MOVE_STEALTH_ROCK,
-			MOVE_MIRROR_COAT,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7MONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_SUBSTITUTE,
-			MOVE_GIGA_DRAIN,
-			MOVE_STEALTH_ROCK,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8PU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
 		.nature=NATURE_MODEST,
 		.moves=
 		{
 			MOVE_GIGA_DRAIN,
-			MOVE_RECOVER,
-			MOVE_EARTH_POWER,
-			MOVE_LEECH_SEED,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8ZU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CALM,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_GIGA_DRAIN,
-			MOVE_STEALTH_ROCK,
-			MOVE_LEECH_SEED,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8DOUBLESOU),
-		.heldItem=ITEM_BIG_ROOT,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_BOLD,
-		.moves=
-		{
-			MOVE_LEECH_SEED,
-			MOVE_GIGA_DRAIN,
-			MOVE_ANCIENT_POWER,
-			MOVE_EARTH_POWER,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8MONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_ROCK_BLAST,
-			MOVE_STEALTH_ROCK,
+			MOVE_TOXIC,
+			MOVE_D2D_STURDY_ROOTS,
 			MOVE_SUBSTITUTE,
-			MOVE_RECOVER,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8MONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_STEALTH_ROCK,
-			MOVE_GIGA_DRAIN,
-			MOVE_ANCIENT_POWER,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN8NATIONALDEXMONOTYPE),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_STORM_DRAIN,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_CAREFUL,
-		.moves=
-		{
-			MOVE_RECOVER,
-			MOVE_STEALTH_ROCK,
-			MOVE_GIGA_DRAIN,
-			MOVE_LEECH_SEED,
 		},
 	},
 };
@@ -100123,6 +100236,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ARMALDO[] =
 	{ .move=MOVE_BRINE, .level=24 },
 	{ .move=MOVE_SLASH, .level=28 },
 	{ .move=MOVE_CRUSH_CLAW, .level=32 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_ROCK_BLAST, .level=36 },
 	{ .move=MOVE_PROTECT, .level=43 },
 	{ .move=MOVE_X_SCISSOR, .level=48 },
@@ -100458,6 +100572,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MILOTIC[] =
 	{ .move=MOVE_RAIN_DANCE, .level=44 },
 	{ .move=MOVE_COIL, .level=48 },
 	{ .move=MOVE_HYDRO_PUMP, .level=52 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -100489,6 +100604,7 @@ static u16 const sTutorMoves_SPECIES_MILOTIC[] =
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPNOSIS,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_IMPRISON,
@@ -100983,14 +101099,16 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_MILOTIC[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CASTFORM[] = 
 {
+	{ .move=MOVE_D2D_BEAM, .level=1 },
 	{ .move=MOVE_GUST, .level=1 },
+
 	{ .move=MOVE_EMBER, .level=10 },
 	{ .move=MOVE_POWDER_SNOW, .level=10 },
 	{ .move=MOVE_BUBBLE, .level=10 },
 	{ .move=MOVE_TRI_ATTACK, .level=15 },
 
 	{ .move=MOVE_SUNNY_DAY, .level=16 },
-	{ .move=MOVE_HAIL, .level=19 },
+	{ .move=MOVE_SNOWSCAPE, .level=19 },
 	{ .move=MOVE_RAIN_DANCE, .level=22 },
 	{ .move=MOVE_WEATHER_BALL, .level=25 },
 
@@ -101001,10 +101119,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CASTFORM[] =
 
 	{ .move=MOVE_SANDSTORM, .level=36 },
 	{ .move=MOVE_SCORCHING_SANDS, .level=39 },
-	{ .move=MOVE_SHORE_UP, .level=42},
+	{ .move=MOVE_SHORE_UP, .level=42 },
 	{ .move=MOVE_EARTH_POWER, .level=45 },
-
-	{ .move=MOVE_EARTHQUAKE, .level=50 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -101014,19 +101130,23 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_ALLY_SWITCH,
 	MOVE_AMNESIA,
 	MOVE_ATTRACT,
+	MOVE_D2D_BEAM,
 	MOVE_CHILLING_WATER,
 	MOVE_CLEAR_SMOG,
 	MOVE_CONFIDE,
 	MOVE_COSMIC_POWER,
-	MOVE_COTTON_GUARD,
 	MOVE_DEFOG,
 	MOVE_DISABLE,
 	MOVE_DOUBLE_TEAM,
 	MOVE_ENERGY_BALL,
+	MOVE_D2D_ENFLAME,
+	MOVE_D2D_ENFROST,
+	MOVE_D2D_ENTHUNDER,
 	MOVE_FAIRY_WIND,
 	MOVE_FLAMETHROWER,
 	MOVE_FRUSTRATION,
 	MOVE_FUTURE_SIGHT,
+	MOVE_HAIL,
 	MOVE_HEX,
 	MOVE_HIDDEN_POWER,
 	MOVE_ICE_BEAM,
@@ -101034,14 +101154,14 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_LAST_RESORT,
 	MOVE_LIFE_DEW,
 	MOVE_LUCKY_CHANT,
+	MOVE_MUD_SPORT,
 	MOVE_OMINOUS_WIND,
+	MOVE_D2D_POWER_BEAM,
 	MOVE_PROTECT,
 	MOVE_PSYCH_UP,
 	MOVE_RAIN_DANCE,
 	MOVE_REFLECT_TYPE,
 	MOVE_REST,
-	MOVE_RETURN,
-	MOVE_ROUND,
 	MOVE_SCALD,
 	MOVE_SHADOW_BALL,
 	MOVE_SHOCK_WAVE,
@@ -101057,6 +101177,7 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_THUNDERBOLT,
 	MOVE_TWISTER,
 	MOVE_WATER_PULSE,
+	MOVE_WATER_SPORT,
 	MOVE_NONE,
 };
 
@@ -101088,13 +101209,15 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CLOUDFORM[] = 
 {
 	{ .move=MOVE_GUST, .level=1 },
+	{ .move=MOVE_D2D_BEAM, .level=1 },
+
 	{ .move=MOVE_EMBER, .level=10 },
 	{ .move=MOVE_POWDER_SNOW, .level=10 },
 	{ .move=MOVE_BUBBLE, .level=10 },
 	{ .move=MOVE_TRI_ATTACK, .level=15 },
 
 	{ .move=MOVE_SUNNY_DAY, .level=16 },
-	{ .move=MOVE_HAIL, .level=19 },
+	{ .move=MOVE_SNOWSCAPE, .level=19 },
 	{ .move=MOVE_RAIN_DANCE, .level=22 },
 	{ .move=MOVE_WEATHER_BALL, .level=25 },
 
@@ -101106,13 +101229,13 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CLOUDFORM[] =
 	// HERE STARTS CLOUDFORM'S MOVESET
 	{ .move=MOVE_HURRICANE, .level=0 },
 
-	{ .move=MOVE_D2D_SUNFLARE, .level=37 },
-	{ .move=MOVE_MORNING_SUN, .level=39 },
+	{ .move=MOVE_D2D_SUNFLARE, .level=40 },
+	{ .move=MOVE_MORNING_SUN, .level=40 },
 	{ .move=MOVE_ERUPTION, .level=42 },
 	{ .move=MOVE_SOLAR_BEAM, .level=45 },
 
 	{ .move=MOVE_D2D_WHITEOUT, .level=46 },
-	{ .move=MOVE_TAILWIND, .level=49 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=49 },
 	{ .move=MOVE_AURORA_VEIL, .level=52 },
 	{ .move=MOVE_BLIZZARD, .level=55 },
 
@@ -101120,6 +101243,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CLOUDFORM[] =
 	{ .move=MOVE_WATER_SPOUT, .level=59 },
 	{ .move=MOVE_THUNDER, .level=62 },
 	{ .move=MOVE_D2D_SKYBREAKER, .level=65 },
+
+	{ .move=MOVE_D2D_DUST_DEVIL, .level=66 },
+	{ .move=MOVE_SCORCHING_SANDS, .level=69 },
+	{ .move=MOVE_SHORE_UP, .level=72 },
+	{ .move=MOVE_EARTH_POWER, .level=75 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -101129,7 +101257,6 @@ static u16 const sTutorMoves_SPECIES_CLOUDFORM[] =
 	MOVE_ALLY_SWITCH,
 	MOVE_AMNESIA,
 	MOVE_ATTRACT,
-	MOVE_BLIZZARD,
 	MOVE_CHILLING_WATER,
 	MOVE_CLEAR_SMOG,
 	MOVE_CONFIDE,
@@ -101138,12 +101265,19 @@ static u16 const sTutorMoves_SPECIES_CLOUDFORM[] =
 	MOVE_DEFOG,
 	MOVE_DISABLE,
 	MOVE_DOUBLE_TEAM,
+	MOVE_EARTHQUAKE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_ENERGY_BALL,
+	MOVE_D2D_ENFLAME,
+	MOVE_D2D_ENFROST,
+	MOVE_D2D_ENTHUNDER,
 	MOVE_FAIRY_WIND,
 	MOVE_FIRE_BLAST,
 	MOVE_FLAMETHROWER,
+	MOVE_FREEZE_DRY,
 	MOVE_FRUSTRATION,
 	MOVE_FUTURE_SIGHT,
+	MOVE_HAIL,
 	MOVE_HEX,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
@@ -101152,15 +101286,15 @@ static u16 const sTutorMoves_SPECIES_CLOUDFORM[] =
 	MOVE_LAST_RESORT,
 	MOVE_LIFE_DEW,
 	MOVE_LUCKY_CHANT,
+	MOVE_MUD_SPORT,
 	MOVE_OMINOUS_WIND,
+	MOVE_D2D_POWER_BEAM,
 	MOVE_PROTECT,
 	MOVE_PSYCH_UP,
 	MOVE_RAIN_DANCE,
 	MOVE_REFLECT_TYPE,
 	MOVE_REST,
-	MOVE_RETURN,
 	MOVE_ROOST,
-	MOVE_ROUND,
 	MOVE_SCALD,
 	MOVE_SHADOW_BALL,
 	MOVE_SHOCK_WAVE,
@@ -101168,9 +101302,9 @@ static u16 const sTutorMoves_SPECIES_CLOUDFORM[] =
 	MOVE_SLEEP_TALK,
 	MOVE_SNORE,
 	MOVE_SNOWSCAPE,
-	MOVE_SOLAR_BEAM,
 	MOVE_SUBSTITUTE,
 	MOVE_SUNNY_DAY,
+	MOVE_SURF,
 	MOVE_SWAGGER,
 	MOVE_TAILWIND,
 	MOVE_TERA_BLAST,
@@ -101178,7 +101312,7 @@ static u16 const sTutorMoves_SPECIES_CLOUDFORM[] =
 	MOVE_THUNDERBOLT,
 	MOVE_TWISTER,
 	MOVE_WATER_PULSE,
-	MOVE_WATER_SPOUT,
+	MOVE_WATER_SPORT,
 	MOVE_NONE,
 };
 
@@ -101254,25 +101388,33 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CLOUDFOR
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_KECLEON[] = 
 {
-	{ .move=MOVE_SCRATCH, .level=1 },
-	{ .move=MOVE_TAIL_WHIP, .level=1 },
-	{ .move=MOVE_LICK, .level=1 },
-	{ .move=MOVE_THIEF, .level=1 },
-	{ .move=MOVE_ASTONISH, .level=1 },
-	{ .move=MOVE_BIND, .level=4 },
-	{ .move=MOVE_SHADOW_SNEAK, .level=7 },
-	{ .move=MOVE_FEINT, .level=10 },
-	{ .move=MOVE_FURY_SWIPES, .level=13 },
-	{ .move=MOVE_FEINT_ATTACK, .level=16 },
-	{ .move=MOVE_PSYBEAM, .level=18 },
-	{ .move=MOVE_ANCIENT_POWER, .level=21 },
-	{ .move=MOVE_SLASH, .level=25 },
-	{ .move=MOVE_CAMOUFLAGE, .level=30 },
-	{ .move=MOVE_SHADOW_CLAW, .level=33 },
-	{ .move=MOVE_SCREECH, .level=38 },
-	{ .move=MOVE_SUBSTITUTE, .level=42 },
-	{ .move=MOVE_SUCKER_PUNCH, .level=46 },
-	{ .move=MOVE_SYNCHRONOISE, .level=50 },
+	{ .move=MOVE_FURY_SWIPES, .level=1 },
+	{ .move=MOVE_COPYCAT, .level=1 },
+	{ .move=MOVE_REFLECT_TYPE, .level=10 },
+	{ .move=MOVE_D2D_CAMO_CLAW, .level=15 },
+
+	{ .move=MOVE_DOUBLE_TEAM, .level=16 },
+	{ .move=MOVE_MIMIC, .level=19 },
+	{ .move=MOVE_CONVERSION, .level=22 },
+	{ .move=MOVE_METRONOME, .level=25 },
+
+	{ .move=MOVE_ROLE_PLAY, .level=26 },
+	{ .move=MOVE_ME_FIRST, .level=29 },
+	{ .move=MOVE_ENTRAINMENT, .level=32 },
+	{ .move=MOVE_SUCKER_PUNCH, .level=35 },
+
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=36 },
+	{ .move=MOVE_AGILITY, .level=39 },
+	{ .move=MOVE_CONVERSION_2, .level=42 },
+	{ .move=MOVE_SKETCH, .level=45 },
+
+	{ .move=MOVE_SWORDS_DANCE, .level=46 },
+	{ .move=MOVE_PROTECT, .level=49 },
+	{ .move=MOVE_SKILL_SWAP, .level=52 },
+	{ .move=MOVE_D2D_SYNESTHESIA, .level=55 },
+
+	{ .move=MOVE_TRANSFORM, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -101280,8 +101422,10 @@ static u16 const sTutorMoves_SPECIES_KECLEON[] =
 {
 	MOVE_AERIAL_ACE,
 	MOVE_AFTER_YOU,
+	MOVE_AGILITY,
 	MOVE_AQUA_TAIL,
 	MOVE_ATTRACT,
+	MOVE_D2D_BEAM,
 	MOVE_BIND,
 	MOVE_BLIZZARD,
 	MOVE_BRICK_BREAK,
@@ -101292,6 +101436,9 @@ static u16 const sTutorMoves_SPECIES_KECLEON[] =
 	MOVE_DIZZY_PUNCH,
 	MOVE_DOUBLE_TEAM,
 	MOVE_DRAIN_PUNCH,
+	MOVE_D2D_ENFLAME,
+	MOVE_D2D_ENFROST,
+	MOVE_D2D_ENTHUNDER,
 	MOVE_FACADE,
 	MOVE_FAKE_OUT,
 	MOVE_FIRE_BLAST,
@@ -101301,6 +101448,7 @@ static u16 const sTutorMoves_SPECIES_KECLEON[] =
 	MOVE_FOCUS_PUNCH,
 	MOVE_FOUL_PLAY,
 	MOVE_FRUSTRATION,
+	MOVE_GIGA_DRAIN,
 	MOVE_GRASS_KNOT,
 	MOVE_HIDDEN_POWER,
 	MOVE_ICE_BEAM,
@@ -101309,17 +101457,21 @@ static u16 const sTutorMoves_SPECIES_KECLEON[] =
 	MOVE_IRON_TAIL,
 	MOVE_KNOCK_OFF,
 	MOVE_LAST_RESORT,
+	MOVE_D2D_LEFT_HOOK,
+	MOVE_LIGHT_SCREEN,
 	MOVE_LOW_KICK,
 	MOVE_MAGIC_COAT,
 	MOVE_NASTY_PLOT,
+	MOVE_D2D_POWER_BEAM,
 	MOVE_POWER_UP_PUNCH,
 	MOVE_PROTECT,
-	MOVE_PSYCH_UP,
 	MOVE_RAIN_DANCE,
 	MOVE_RECOVER,
 	MOVE_RECYCLE,
+	MOVE_REFLECT,
 	MOVE_REST,
 	MOVE_RETURN,
+	MOVE_D2D_RIGHT_HOOK,
 	MOVE_ROCK_SLIDE,
 	MOVE_ROCK_TOMB,
 	MOVE_ROLE_PLAY,
@@ -101337,6 +101489,7 @@ static u16 const sTutorMoves_SPECIES_KECLEON[] =
 	MOVE_SUNNY_DAY,
 	MOVE_SWAGGER,
 	MOVE_TERA_BLAST,
+	MOVE_TEETER_DANCE,
 	MOVE_THIEF,
 	MOVE_THUNDER,
 	MOVE_THUNDER_PUNCH,
@@ -101459,12 +101612,14 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SHUPPET[] =
 	{ .move=MOVE_WILL_O_WISP, .level=16 },
 	{ .move=MOVE_SHADOW_SNEAK, .level=19 },
 	{ .move=MOVE_HEX, .level=22 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_CURSE, .level=26 },
 	{ .move=MOVE_SHADOW_BALL, .level=30 },
 	{ .move=MOVE_ROLE_PLAY, .level=34 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=38 },
 	{ .move=MOVE_TRICK, .level=42 },
 	{ .move=MOVE_PHANTOM_FORCE, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -101562,6 +101717,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BANETTE[] =
 	{ .move=MOVE_ROLE_PLAY, .level=34 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=40 },
 	{ .move=MOVE_TRICK, .level=46 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_PHANTOM_FORCE, .level=53 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -101917,6 +102073,108 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_BANETTE[
 	},
 };
 
+#ifdef APPEND_MON_FLAGS_SPECIES_BAYANETTE
+#define MON_FLAGS_SPECIES_BAYANETTE (APPEND_MON_FLAGS_SPECIES_BAYANETTE | MON_FLAGS_GEN6UU | MON_FLAGS_GEN6RU | MON_FLAGS_GEN6PU | MON_FLAGS_GEN6ZU | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN7UU | MON_FLAGS_GEN7RU | MON_FLAGS_GEN7PU | MON_FLAGS_GEN7ZU | MON_FLAGS_GEN9ZU | MON_FLAGS_GEN9NATIONALDEX)
+#else
+#define MON_FLAGS_SPECIES_BAYANETTE (0 | MON_FLAGS_GEN6UU | MON_FLAGS_GEN6RU | MON_FLAGS_GEN6PU | MON_FLAGS_GEN6ZU | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN7UU | MON_FLAGS_GEN7RU | MON_FLAGS_GEN7PU | MON_FLAGS_GEN7ZU | MON_FLAGS_GEN9ZU | MON_FLAGS_GEN9NATIONALDEX)
+#endif
+
+static struct LevelUpMove const sLevelUpMoves_SPECIES_BAYANETTE[] = 
+{	
+	{ .move=MOVE_NIGHT_SHADE, .level=1 },
+	{ .move=MOVE_SCREECH, .level=1 },
+	{ .move=MOVE_SPITE, .level=1 },
+	{ .move=MOVE_WILL_O_WISP, .level=16 },
+	{ .move=MOVE_SHADOW_SNEAK, .level=19 },
+	{ .move=MOVE_HEX, .level=22 },
+	{ .move=MOVE_CURSE, .level=26 },
+	{ .move=MOVE_SHADOW_BALL, .level=30 },
+	{ .move=MOVE_ROLE_PLAY, .level=34 },
+	{ .move=MOVE_KNOCK_OFF, .level=37 },
+	{ .move=MOVE_MEAN_LOOK, .level=37 },
+
+	{ .move=MOVE_D2D_SEW_SHUT, .level=0 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=0 },
+
+	{ .move=MOVE_SHADOW_CLAW, .level=39 },
+	{ .move=MOVE_NIGHT_SLASH, .level=42 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=45 },
+
+	{ .move=MOVE_SWORDS_DANCE, .level=46 },
+	{ .move=MOVE_FOCUS_ENERGY, .level=49 },
+	{ .move=MOVE_D2D_DEVOUR, .level=52 },
+	{ .move=MOVE_PHANTOM_FORCE, .level=55 },
+
+	{ .move=MOVE_DETECT, .level=56 },
+	{ .move=MOVE_SUCKER_PUNCH, .level=59 },
+	{ .move=MOVE_LEECH_LIFE, .level=62 },
+	{ .move=MOVE_PERISH_SONG, .level=65 },
+
+	{ .move=MOVE_NONE, .level=0 },
+};
+
+static u16 const sTutorMoves_SPECIES_BAYANETTE[] = 
+{
+	MOVE_AERIAL_ACE,
+	MOVE_AGILITY,
+	MOVE_BURNING_JEALOUSY,
+	MOVE_CONFUSE_RAY,
+	MOVE_CURSE,
+	MOVE_DARK_PULSE,
+	MOVE_DESTINY_BOND,
+	MOVE_DOUBLE_TEAM,
+	MOVE_ENDURE,
+	MOVE_FACADE,
+	MOVE_FLING,
+	MOVE_FOUL_PLAY,
+	MOVE_HEX,
+	MOVE_HIDDEN_POWER,
+	MOVE_HYPER_BEAM,
+	MOVE_ICY_WIND,
+	MOVE_IMPRISON,
+	MOVE_LASH_OUT,
+	MOVE_NASTY_PLOT,
+	MOVE_NIGHT_SHADE,
+	MOVE_PAIN_SPLIT,
+	MOVE_POLTERGEIST,
+	MOVE_PROTECT,
+	MOVE_PSYBEAM,
+	MOVE_PSYCH_UP,
+	MOVE_PSYCHO_CUT,
+	MOVE_PSYCHIC,
+	MOVE_SCARY_FACE,
+	MOVE_SKILL_SWAP,
+	MOVE_SKITTER_SMACK,
+	MOVE_SPITE,
+	MOVE_SUBSTITUTE,
+	MOVE_TAUNT,
+	MOVE_TERA_BLAST,
+	MOVE_THIEF,
+	MOVE_THROAT_CHOP,
+	MOVE_TRICK,
+	MOVE_TRICK_ROOM,
+	MOVE_NONE,
+};
+
+static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_BAYANETTE[] = 
+{
+	{
+		.flags= (0 | MON_FLAGS_GEN6UU),
+		.heldItem=ITEM_LIFE_ORB,
+		.ability=ABILITY_MOXIE,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_ADAMANT,
+		.moves=
+		{
+			MOVE_D2D_SEW_SHUT,
+			MOVE_LEECH_LIFE,
+			MOVE_SWORDS_DANCE,
+			MOVE_D2D_BLADE_SLASH,
+		},
+	},
+};
+
 #ifdef APPEND_MON_FLAGS_SPECIES_DUSKULL
 #define MON_FLAGS_SPECIES_DUSKULL (APPEND_MON_FLAGS_SPECIES_DUSKULL | MON_FLAGS_GEN6LC | MON_FLAGS_GEN7LC | MON_FLAGS_GEN8LC | MON_FLAGS_GEN9LC)
 #else
@@ -101938,6 +102196,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DUSKULL[] =
 	{ .move=MOVE_CURSE, .level=36 },
 	{ .move=MOVE_SHADOW_BALL, .level=40 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=44 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -102095,6 +102354,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DUSCLOPS[] =
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_ICE_PUNCH, .level=1 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
+	{ .move=MOVE_D2D_ENFLAME, .level=1 },
+	{ .move=MOVE_D2D_ENFROST, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_BIND, .level=1 },
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_DISABLE, .level=1 },
@@ -102110,6 +102372,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DUSCLOPS[] =
 	{ .move=MOVE_CURSE, .level=36 },
 	{ .move=MOVE_SHADOW_BALL, .level=42 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -102392,22 +102655,32 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_DUSCLOPS
 #endif
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_TROPIUS[] = 
-{
-	{ .move=MOVE_GUST, .level=1 },
-	{ .move=MOVE_LEER, .level=1 },
+{	// Tropius' learnset consists mostly of utility and sustain moves, with a bare minimum of
+	// attack moves so it can at least stand its ground. For the bulk of its offensive moves
+	// though, it should evolve into Tropisaur.
+
+	// Certain key unlocks like Giga Drain and Tail Glow are deliberately locked behind high
+	// levels, so the player has an incentive to not evolve into Tropisaur too early.
+
+	{ .move=MOVE_STOMP, .level=1 },
 	{ .move=MOVE_GROWTH, .level=1 },
-	{ .move=MOVE_RAZOR_LEAF, .level=1 },
-	{ .move=MOVE_LEAF_STORM, .level=1 },
-	{ .move=MOVE_SWEET_SCENT, .level=6 },
-	{ .move=MOVE_STOMP, .level=10 },
-	{ .move=MOVE_MAGICAL_LEAF, .level=16 },
-	{ .move=MOVE_WHIRLWIND, .level=21 },
-	{ .move=MOVE_WIDE_GUARD, .level=30 },
-	{ .move=MOVE_AIR_SLASH, .level=36 },
-	{ .move=MOVE_BODY_SLAM, .level=41 },
-	{ .move=MOVE_OUTRAGE, .level=46 },
-	{ .move=MOVE_SYNTHESIS, .level=50 },
-	{ .move=MOVE_SOLAR_BEAM, .level=56 },
+	{ .move=MOVE_SWEET_SCENT, .level=5 },
+	{ .move=MOVE_RAZOR_LEAF, .level=10 },
+	{ .move=MOVE_GUST, .level=13 },
+	{ .move=MOVE_SYNTHESIS, .level=15 },
+
+	{ .move=MOVE_BODY_SLAM, .level=16 },
+	{ .move=MOVE_BESTOW, .level=19 },
+	{ .move=MOVE_AROMATHERAPY, .level=22 },
+	{ .move=MOVE_MEGA_DRAIN, .level=25 },
+
+	{ .move=MOVE_AIR_SLASH, .level=26 },
+	{ .move=MOVE_TAILWIND, .level=29 },
+	{ .move=MOVE_POLLEN_PUFF, .level=32 },
+	{ .move=MOVE_GIGA_DRAIN, .level=35 },
+
+	{ .move=MOVE_TAIL_GLOW, .level=45 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -102465,11 +102738,189 @@ static u16 const sTutorMoves_SPECIES_TROPIUS[] =
 	MOVE_TERA_BLAST,
 	MOVE_TRAILBLAZE,
 	MOVE_U_TURN,
+	MOVE_WHIRLWIND,
+	MOVE_WIDE_GUARD,
 	MOVE_ZEN_HEADBUTT,
 	MOVE_NONE,
 };
 
 static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_TROPIUS[] = 
+{
+	{
+		.flags= (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU),
+		.heldItem=ITEM_SITRUS_BERRY,
+		.ability=ABILITY_HARVEST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_BOLD,
+		.moves=
+		{
+			MOVE_LEECH_SEED,
+			MOVE_SUBSTITUTE,
+			MOVE_AIR_SLASH,
+			MOVE_PROTECT,
+		},
+	},
+	{
+		.flags= (0 | MON_FLAGS_GEN6PU),
+		.heldItem=ITEM_SITRUS_BERRY,
+		.ability=ABILITY_HARVEST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_CALM,
+		.moves=
+		{
+			MOVE_LEECH_SEED,
+			MOVE_AIR_SLASH,
+			MOVE_SUBSTITUTE,
+			MOVE_PROTECT,
+		},
+	},
+	{
+		.flags= (0 | MON_FLAGS_GEN9PU),
+		.heldItem=ITEM_SITRUS_BERRY,
+		.ability=ABILITY_HARVEST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_CALM,
+		.moves=
+		{
+			MOVE_LEECH_SEED,
+			MOVE_SUBSTITUTE,
+			MOVE_AIR_SLASH,
+			MOVE_PROTECT,
+		},
+	},
+	{
+		.flags= (0 | MON_FLAGS_GEN9ZU),
+		.heldItem=ITEM_SITRUS_BERRY,
+		.ability=ABILITY_HARVEST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_CALM,
+		.moves=
+		{
+			MOVE_LEECH_SEED,
+			MOVE_SUBSTITUTE,
+			MOVE_PROTECT,
+			MOVE_AIR_SLASH,
+		},
+	},
+};
+
+#ifdef APPEND_MON_FLAGS_SPECIES_TROPISAUR
+#define MON_FLAGS_SPECIES_TROPISAUR (APPEND_MON_FLAGS_SPECIES_TROPISAUR | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU | MON_FLAGS_GEN9PU | MON_FLAGS_GEN9ZU)
+#else
+#define MON_FLAGS_SPECIES_TROPISAUR (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU | MON_FLAGS_GEN9PU | MON_FLAGS_GEN9ZU)
+#endif
+
+static struct LevelUpMove const sLevelUpMoves_SPECIES_TROPISAUR[] = 
+{
+	{ .move=MOVE_STOMP, .level=1 },
+	{ .move=MOVE_GROWTH, .level=1 },
+	{ .move=MOVE_SWEET_SCENT, .level=5 },
+	{ .move=MOVE_RAZOR_LEAF, .level=10 },
+	{ .move=MOVE_GUST, .level=13 },
+	{ .move=MOVE_SYNTHESIS, .level=15 },
+
+	{ .move=MOVE_BODY_SLAM, .level=16 },
+	{ .move=MOVE_BESTOW, .level=19 },
+	{ .move=MOVE_AROMATHERAPY, .level=22 },
+	{ .move=MOVE_MEGA_DRAIN, .level=25 },
+
+	{ .move=MOVE_AIR_SLASH, .level=26 },
+	{ .move=MOVE_TAILWIND, .level=29 },
+	{ .move=MOVE_POLLEN_PUFF, .level=32 },
+	{ .move=MOVE_GIGA_DRAIN, .level=35 },
+
+	{ .move=MOVE_D2D_BELLOW, .level=0 },
+	{ .move=MOVE_DRAGON_BREATH, .level=0 },
+
+	{ .move=MOVE_DRAGON_TAIL, .level=39 },
+	{ .move=MOVE_CURSE, .level=39 },
+	{ .move=MOVE_LEAF_BLADE, .level=42 },
+	{ .move=MOVE_LEAF_STORM, .level=45 },
+
+	{ .move=MOVE_HURRICANE, .level=46 },
+	{ .move=MOVE_DRAGON_HAMMER, .level=49 },
+	{ .move=MOVE_WOOD_HAMMER, .level=52 },
+	{ .move=MOVE_SOLAR_BEAM, .level=55 },
+
+	{ .move=MOVE_SOLAR_BLADE, .level=56 },
+	{ .move=MOVE_DRAGON_DANCE, .level=59 },
+	{ .move=MOVE_IRON_TAIL, .level=62 },
+	{ .move=MOVE_FLAMETHROWER, .level=65 },
+
+	{ .move=MOVE_TAIL_GLOW, .level=70 },
+
+	{ .move=MOVE_NONE, .level=0 },
+};
+
+static u16 const sTutorMoves_SPECIES_TROPISAUR[] = 
+{
+	MOVE_AERIAL_ACE,
+	MOVE_AIR_CUTTER,
+	MOVE_AIR_SLASH,
+	MOVE_BELCH,
+	MOVE_BODY_PRESS,
+	MOVE_BODY_SLAM,
+	MOVE_BULLDOZE,
+	MOVE_BULLET_SEED,
+	MOVE_CURSE,
+	MOVE_DOUBLE_EDGE,
+	MOVE_DRAGON_DANCE,
+	MOVE_DRAGON_PULSE,
+	MOVE_DRAGON_RUSH,
+	MOVE_DRAGON_TAIL,
+	MOVE_DUAL_WINGBEAT,
+	MOVE_EARTHQUAKE,
+	MOVE_ENDURE,
+	MOVE_ENERGY_BALL,
+	MOVE_FACADE,
+	MOVE_FLAMETHROWER,
+	MOVE_FLY,
+	MOVE_GIGA_DRAIN,
+	MOVE_GIGA_IMPACT,
+	MOVE_GRASS_KNOT,
+	MOVE_GRASSY_TERRAIN,
+	MOVE_HEADBUTT,
+	MOVE_HELPING_HAND,
+	MOVE_HIDDEN_POWER,
+	MOVE_HURRICANE,
+	MOVE_HYPER_BEAM,
+	MOVE_LEECH_SEED,
+	MOVE_LIGHT_SCREEN,
+	MOVE_MAGICAL_LEAF,
+	MOVE_OUTRAGE,
+	MOVE_PETAL_BLIZZARD,
+	MOVE_PROTECT,
+	MOVE_RAIN_DANCE,
+	MOVE_REST,
+	MOVE_REFLECT,
+	MOVE_ROAR,
+	MOVE_SEED_BOMB,
+	MOVE_SLAM,
+	MOVE_SLEEP_TALK,
+	MOVE_SOLAR_BEAM,
+	MOVE_SOLAR_BLADE,
+	MOVE_SPITE,
+	MOVE_STOMPING_TANTRUM,
+	MOVE_STRENGTH_SAP,
+	MOVE_SUBSTITUTE,
+	MOVE_SUNNY_DAY,
+	MOVE_SWORDS_DANCE,
+	MOVE_TAILWIND,
+	MOVE_TAKE_DOWN,
+	MOVE_TERA_BLAST,
+	MOVE_TRAILBLAZE,
+	MOVE_U_TURN,
+	MOVE_WHIRLWIND,
+	MOVE_WIDE_GUARD,
+	MOVE_ZEN_HEADBUTT,
+	MOVE_NONE,
+};
+
+static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_TROPISAUR[] = 
 {
 	{
 		.flags= (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU),
@@ -102776,6 +103227,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ABSOL[] =
 	{ .move=MOVE_SLASH, .level=25 },
 	{ .move=MOVE_NIGHT_SLASH, .level=30 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=35 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_SUCKER_PUNCH, .level=40 },
 	{ .move=MOVE_SWORDS_DANCE, .level=45 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=50 },
@@ -103306,6 +103758,7 @@ static u16 const sTutorMoves_SPECIES_SNORUNT[] =
 	MOVE_HELPING_HAND,
 	MOVE_HEX,
 	MOVE_HIDDEN_POWER,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICE_SPINNER,
@@ -103388,9 +103841,11 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GLALIE[] =
 	{ .move=MOVE_BITE, .level=35 },
 	{ .move=MOVE_ICE_FANG, .level=40 },
 	{ .move=MOVE_SNOWSCAPE, .level=47 },
+	{ .move=MOVE_CRUNCH, .level=51 },
 	{ .move=MOVE_WEATHER_BALL, .level=54 },
-	{ .move=MOVE_CRUNCH, .level=61 },
+	{ .move=MOVE_D2D_DEVOUR, .level=62 },
 	{ .move=MOVE_BLIZZARD, .level=68 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -103416,6 +103871,7 @@ static u16 const sTutorMoves_SPECIES_GLALIE[] =
 	MOVE_HEX,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICE_SPINNER,
@@ -103428,6 +103884,7 @@ static u16 const sTutorMoves_SPECIES_GLALIE[] =
 	MOVE_REST,
 	MOVE_RETURN,
 	MOVE_SCARY_FACE,
+	MOVE_SELF_DESTRUCT,
 	MOVE_SHADOW_BALL,
 	MOVE_SLEEP_TALK,
 	MOVE_SNOWSCAPE,
@@ -103794,6 +104251,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SPHEAL[] =
 	{ .move=MOVE_REST, .level=16 },
 	{ .move=MOVE_SNORE, .level=20 },
 	{ .move=MOVE_BRINE, .level=24 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_AURORA_BEAM, .level=28 },
 	{ .move=MOVE_ENCORE, .level=33 },
 	{ .move=MOVE_BODY_SLAM, .level=36 },
@@ -103883,6 +104341,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SEALEO[] =
 	{ .move=MOVE_REST, .level=16 },
 	{ .move=MOVE_SNORE, .level=20 },
 	{ .move=MOVE_BRINE, .level=24 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_AURORA_BEAM, .level=28 },
 	{ .move=MOVE_ENCORE, .level=35 },
 	{ .move=MOVE_BODY_SLAM, .level=40 },
@@ -103949,6 +104408,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WALREIN[] =
 	{ .move=MOVE_REST, .level=16 },
 	{ .move=MOVE_SNORE, .level=20 },
 	{ .move=MOVE_BRINE, .level=24 },
+	{ .move=MOVE_D2D_ICE_BATH, .level=25 },
 	{ .move=MOVE_AURORA_BEAM, .level=28 },
 	{ .move=MOVE_ENCORE, .level=35 },
 	{ .move=MOVE_BODY_SLAM, .level=40 },
@@ -103956,6 +104416,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WALREIN[] =
 	{ .move=MOVE_BLIZZARD, .level=56 },
 	{ .move=MOVE_SNOWSCAPE, .level=64 },
 	{ .move=MOVE_SHEER_COLD, .level=72 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=80 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -104749,22 +105210,29 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_RELICANT
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_LUVDISC[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
+	{ .move=MOVE_BUBBLE, .level=1 },
 	{ .move=MOVE_CHARM, .level=1 },
-	{ .move=MOVE_WATER_GUN, .level=4 },
-	{ .move=MOVE_AGILITY, .level=7 },
-	{ .move=MOVE_WISH, .level=13 },
-	{ .move=MOVE_WATER_PULSE, .level=17 },
-	{ .move=MOVE_ATTRACT, .level=20 },
-	{ .move=MOVE_DRAINING_KISS, .level=22 },
-	{ .move=MOVE_FLAIL, .level=26 },
-	{ .move=MOVE_SWEET_KISS, .level=31 },
-	{ .move=MOVE_TAKE_DOWN, .level=34 },
-	{ .move=MOVE_BABY_DOLL_EYES, .level=37 },
-	{ .move=MOVE_AQUA_RING, .level=40 },
-	{ .move=MOVE_SOAK, .level=42 },
-	{ .move=MOVE_HYDRO_PUMP, .level=46 },
-	{ .move=MOVE_SAFEGUARD, .level=49 },
+	{ .move=MOVE_ASTONISH, .level=1 },
+	{ .move=MOVE_D2D_HIDE, .level=1 },
+	{ .move=MOVE_AGILITY, .level=10 },
+	{ .move=MOVE_WISH, .level=12 },
+	{ .move=MOVE_AQUA_RING, .level=15 },
+
+	{ .move=MOVE_WATER_PULSE, .level=16 },
+	{ .move=MOVE_ATTRACT, .level=19 },
+	{ .move=MOVE_SWEET_KISS, .level=22 },
+	{ .move=MOVE_HEAL_PULSE, .level=25 },
+
+	{ .move=MOVE_DRAINING_KISS, .level=26 },
+	{ .move=MOVE_SING, .level=29 },
+	{ .move=MOVE_SAFEGUARD, .level=32 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=35 },
+
+	{ .move=MOVE_PLAY_ROUGH, .level=36 },
+	{ .move=MOVE_REST, .level=39 },
+	{ .move=MOVE_PROTECT, .level=42 },
+	{ .move=MOVE_HEART_STAMP, .level=45 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -105161,6 +105629,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SALAMENCE[] =
 	{ .move=MOVE_CRUNCH, .level=25 },
 	{ .move=MOVE_DRAGON_CLAW, .level=33 },
 	{ .move=MOVE_ZEN_HEADBUTT, .level=39 },
+	{ .move=MOVE_D2D_BELLOW, .level=40 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=46 },
 	{ .move=MOVE_FLAMETHROWER, .level=55 },
 	{ .move=MOVE_DOUBLE_EDGE, .level=73 },
@@ -106280,6 +106749,8 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_SALAMENC
 static struct LevelUpMove const sLevelUpMoves_SPECIES_BELDUM[] = 
 {
 	{ .move=MOVE_TACKLE, .level=1 },
+	{ .move=MOVE_SELF_DESTRUCT, .level=25 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -106317,6 +106788,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_METANG[] =
 	{ .move=MOVE_FLASH_CANNON, .level=18 },
 	{ .move=MOVE_TAKE_DOWN, .level=26 },
 	{ .move=MOVE_PSYCHIC, .level=34 },
+	{ .move=MOVE_SELF_DESTRUCT, .level=35 },
 	{ .move=MOVE_SCARY_FACE, .level=42 },
 	{ .move=MOVE_METEOR_MASH, .level=50 },
 	{ .move=MOVE_IRON_DEFENSE, .level=58 },
@@ -106554,6 +107026,7 @@ static u16 const sTutorMoves_SPECIES_METAGROSS[] =
 	MOVE_ROCK_TOMB,
 	MOVE_SANDSTORM,
 	MOVE_SCARY_FACE,
+	MOVE_SELF_DESTRUCT,
 	MOVE_SHADOW_BALL,
 	MOVE_SHADOW_CLAW,
 	MOVE_SLEEP_TALK,
@@ -107868,6 +108341,166 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_METAGROS
 		},
 	},
 };
+
+// #ifdef APPEND_MON_FLAGS_SPECIES_HATCHLIN
+// #define MON_FLAGS_SPECIES_HATCHLIN (APPEND_MON_FLAGS_SPECIES_HATCHLIN | MON_FLAGS_GEN6OU | MON_FLAGS_GEN6UU | MON_FLAGS_GEN7UU | MON_FLAGS_GEN6DOUBLESOU | MON_FLAGS_GEN6BATTLESPOTSINGLES | MON_FLAGS_GEN7BATTLESPOTSINGLES | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN6BATTLESPOTDOUBLES | MON_FLAGS_GEN61V1 | MON_FLAGS_GEN7UBERS | MON_FLAGS_GEN7RU | MON_FLAGS_GEN8MONOTYPE | MON_FLAGS_GEN7DOUBLESOU | MON_FLAGS_GEN7BATTLESPOTDOUBLES | MON_FLAGS_GEN7VGC2017 | MON_FLAGS_GEN7VGC2018 | MON_FLAGS_GEN71V1 | MON_FLAGS_GEN7ANYTHINGGOES | MON_FLAGS_GEN7MONOTYPE | MON_FLAGS_GEN8NATIONALDEXMONOTYPE | MON_FLAGS_GEN8OU | MON_FLAGS_GEN8UU | MON_FLAGS_GEN8RU | MON_FLAGS_GEN8NATIONALDEX | MON_FLAGS_GEN8DOUBLESOU | MON_FLAGS_GEN8BATTLESTADIUMSINGLES | MON_FLAGS_GEN81V1 | MON_FLAGS_GEN9UU | MON_FLAGS_GEN91V1 | MON_FLAGS_GEN9MONOTYPE | MON_FLAGS_GEN9NATIONALDEXMONOTYPE)
+// #else
+// #define MON_FLAGS_SPECIES_HATCHLIN (0 | MON_FLAGS_GEN6OU | MON_FLAGS_GEN6UU | MON_FLAGS_GEN7UU | MON_FLAGS_GEN6DOUBLESOU | MON_FLAGS_GEN6BATTLESPOTSINGLES | MON_FLAGS_GEN7BATTLESPOTSINGLES | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN6BATTLESPOTDOUBLES | MON_FLAGS_GEN61V1 | MON_FLAGS_GEN7UBERS | MON_FLAGS_GEN7RU | MON_FLAGS_GEN8MONOTYPE | MON_FLAGS_GEN7DOUBLESOU | MON_FLAGS_GEN7BATTLESPOTDOUBLES | MON_FLAGS_GEN7VGC2017 | MON_FLAGS_GEN7VGC2018 | MON_FLAGS_GEN71V1 | MON_FLAGS_GEN7ANYTHINGGOES | MON_FLAGS_GEN7MONOTYPE | MON_FLAGS_GEN8NATIONALDEXMONOTYPE | MON_FLAGS_GEN8OU | MON_FLAGS_GEN8UU | MON_FLAGS_GEN8RU | MON_FLAGS_GEN8NATIONALDEX | MON_FLAGS_GEN8DOUBLESOU | MON_FLAGS_GEN8BATTLESTADIUMSINGLES | MON_FLAGS_GEN81V1 | MON_FLAGS_GEN9UU | MON_FLAGS_GEN91V1 | MON_FLAGS_GEN9MONOTYPE | MON_FLAGS_GEN9NATIONALDEXMONOTYPE)
+// #endif
+
+// static struct LevelUpMove const sLevelUpMoves_SPECIES_HATCHLIN[] = 
+// {
+// 	{ .move=MOVE_CUT, .level=1 },
+// 	{ .move=MOVE_METAL_CLAW, .level=1 },
+// 	{ .move=MOVE_FOCUS_ENERGY, .level=9 },
+// 	{ .move=MOVE_FURY_CUTTER, .level=12 },
+// 	{ .move=MOVE_QUICK_ATTACK, .level=15 },
+
+// 	{ .move=MOVE_METAL_SOUND, .level=16 },
+// 	{ .move=MOVE_PECK, .level=19 },
+// 	{ .move=MOVE_RAZOR_LEAF, .level=22 },
+// 	{ .move=MOVE_SLASH, .level=25 },
+
+// 	{ .move=MOVE_IRON_DEFENSE, .level=26 },
+// 	{ .move=MOVE_NIGHT_SLASH, .level=29 },
+// 	{ .move=MOVE_DETECT, .level=32 },
+// 	{ .move=MOVE_IRON_HEAD, .level=35 },
+
+// 	{ .move=MOVE_AUTOTOMIZE, .level=36 },
+// 	{ .move=MOVE_X_SCISSOR, .level=39 },
+// 	{ .move=MOVE_LEAF_BLADE, .level=42 },
+// 	{ .move=MOVE_EXTREME_SPEED, .level=45 },
+
+// 	{ .move=MOVE_SWORDS_DANCE, .level=46 },
+// 	{ .move=MOVE_CROSS_POISON, .level=49 },
+// 	{ .move=MOVE_PLUCK, .level=52 },
+// 	{ .move=MOVE_HARD_PRESS, .level=55 },
+
+// 	{ .move=MOVE_DRAGON_DANCE, .level=56 },
+// 	{ .move=MOVE_AQUA_CUTTER, .level=59 },
+// 	{ .move=MOVE_SOLAR_BLADE, .level=62 },
+// 	{ .move=MOVE_SACRED_SWORD, .level=65 },
+
+// 	{ .move=MOVE_AERIAL_ACE, .level=72 },
+
+// 	{ .move=MOVE_NONE, .level=0 },
+// };
+
+// static u16 const sTutorMoves_SPECIES_HATCHLIN[] = 
+// {
+// 	MOVE_BODY_SLAM,
+// 	MOVE_ENDURE,
+// 	MOVE_FACADE,
+// 	MOVE_FALSE_SWIPE,
+// 	MOVE_FEATHER_DANCE,
+// 	MOVE_IRON_DEFENSE,
+// 	MOVE_KNOCK_OFF,
+// 	MOVE_PROTECT,
+// 	MOVE_PURSUIT,
+// 	MOVE_SUBSTITUTE,
+// 	MOVE_NONE,
+// };
+
+// static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_HATCHLIN[] = 
+// {
+// 	{
+// 		.flags= (0 | MON_FLAGS_GEN6OU),
+// 		.heldItem=ITEM_EVIOLITE,
+// 		.ability=ABILITY_SHARPNESS,
+// 		.hiddenPowerType=TYPE_NONE,
+// 		.teraType=TYPE_NONE,
+// 		.nature=NATURE_ADAMANT,
+// 		.moves=
+// 		{
+// 			MOVE_SLASH,
+// 			MOVE_D2D_BLADE_SLASH,
+// 			MOVE_DETECT,
+// 			MOVE_AERIAL_ACE,
+// 		},
+// 	},
+// };
+
+// #ifdef APPEND_MON_FLAGS_SPECIES_TEERAX
+// #define MON_FLAGS_SPECIES_TEERAX (APPEND_MON_FLAGS_SPECIES_TEERAX | MON_FLAGS_GEN6OU | MON_FLAGS_GEN6UU | MON_FLAGS_GEN7UU | MON_FLAGS_GEN6DOUBLESOU | MON_FLAGS_GEN6BATTLESPOTSINGLES | MON_FLAGS_GEN7BATTLESPOTSINGLES | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN6BATTLESPOTDOUBLES | MON_FLAGS_GEN61V1 | MON_FLAGS_GEN7UBERS | MON_FLAGS_GEN7RU | MON_FLAGS_GEN8MONOTYPE | MON_FLAGS_GEN7DOUBLESOU | MON_FLAGS_GEN7BATTLESPOTDOUBLES | MON_FLAGS_GEN7VGC2017 | MON_FLAGS_GEN7VGC2018 | MON_FLAGS_GEN71V1 | MON_FLAGS_GEN7ANYTHINGGOES | MON_FLAGS_GEN7MONOTYPE | MON_FLAGS_GEN8NATIONALDEXMONOTYPE | MON_FLAGS_GEN8OU | MON_FLAGS_GEN8UU | MON_FLAGS_GEN8RU | MON_FLAGS_GEN8NATIONALDEX | MON_FLAGS_GEN8DOUBLESOU | MON_FLAGS_GEN8BATTLESTADIUMSINGLES | MON_FLAGS_GEN81V1 | MON_FLAGS_GEN9UU | MON_FLAGS_GEN91V1 | MON_FLAGS_GEN9MONOTYPE | MON_FLAGS_GEN9NATIONALDEXMONOTYPE)
+// #else
+// #define MON_FLAGS_SPECIES_TEERAX (0 | MON_FLAGS_GEN6OU | MON_FLAGS_GEN6UU | MON_FLAGS_GEN7UU | MON_FLAGS_GEN6DOUBLESOU | MON_FLAGS_GEN6BATTLESPOTSINGLES | MON_FLAGS_GEN7BATTLESPOTSINGLES | MON_FLAGS_GEN6MONOTYPE | MON_FLAGS_GEN6BATTLESPOTDOUBLES | MON_FLAGS_GEN61V1 | MON_FLAGS_GEN7UBERS | MON_FLAGS_GEN7RU | MON_FLAGS_GEN8MONOTYPE | MON_FLAGS_GEN7DOUBLESOU | MON_FLAGS_GEN7BATTLESPOTDOUBLES | MON_FLAGS_GEN7VGC2017 | MON_FLAGS_GEN7VGC2018 | MON_FLAGS_GEN71V1 | MON_FLAGS_GEN7ANYTHINGGOES | MON_FLAGS_GEN7MONOTYPE | MON_FLAGS_GEN8NATIONALDEXMONOTYPE | MON_FLAGS_GEN8OU | MON_FLAGS_GEN8UU | MON_FLAGS_GEN8RU | MON_FLAGS_GEN8NATIONALDEX | MON_FLAGS_GEN8DOUBLESOU | MON_FLAGS_GEN8BATTLESTADIUMSINGLES | MON_FLAGS_GEN81V1 | MON_FLAGS_GEN9UU | MON_FLAGS_GEN91V1 | MON_FLAGS_GEN9MONOTYPE | MON_FLAGS_GEN9NATIONALDEXMONOTYPE)
+// #endif
+
+// static struct LevelUpMove const sLevelUpMoves_SPECIES_TEERAX[] = 
+// {
+// 	{ .move=MOVE_CUT, .level=1 },
+// 	{ .move=MOVE_METAL_CLAW, .level=1 },
+// 	{ .move=MOVE_FOCUS_ENERGY, .level=9 },
+// 	{ .move=MOVE_FURY_CUTTER, .level=12 },
+// 	{ .move=MOVE_QUICK_ATTACK, .level=15 },
+
+// 	{ .move=MOVE_METAL_SOUND, .level=16 },
+// 	{ .move=MOVE_PECK, .level=19 },
+// 	{ .move=MOVE_RAZOR_LEAF, .level=22 },
+// 	{ .move=MOVE_SLASH, .level=25 },
+
+// 	{ .move=MOVE_IRON_DEFENSE, .level=26 },
+// 	{ .move=MOVE_NIGHT_SLASH, .level=29 },
+// 	{ .move=MOVE_DETECT, .level=32 },
+// 	{ .move=MOVE_IRON_HEAD, .level=35 },
+
+// 	{ .move=MOVE_AUTOTOMIZE, .level=36 },
+// 	{ .move=MOVE_X_SCISSOR, .level=39 },
+// 	{ .move=MOVE_LEAF_BLADE, .level=42 },
+// 	{ .move=MOVE_EXTREME_SPEED, .level=45 },
+
+// 	{ .move=MOVE_SWORDS_DANCE, .level=46 },
+// 	{ .move=MOVE_CROSS_POISON, .level=49 },
+// 	{ .move=MOVE_PLUCK, .level=52 },
+// 	{ .move=MOVE_HARD_PRESS, .level=55 },
+
+// 	{ .move=MOVE_DRAGON_DANCE, .level=56 },
+// 	{ .move=MOVE_AQUA_CUTTER, .level=59 },
+// 	{ .move=MOVE_SOLAR_BLADE, .level=62 },
+// 	{ .move=MOVE_SACRED_SWORD, .level=65 },
+
+// 	{ .move=MOVE_AERIAL_ACE, .level=72 },
+
+// 	{ .move=MOVE_NONE, .level=0 },
+// };
+
+// static u16 const sTutorMoves_SPECIES_TEERAX[] = 
+// {
+// 	MOVE_BODY_SLAM,
+// 	MOVE_BRICK_BREAK,
+// 	MOVE_DOUBLE_EDGE,
+// 	MOVE_ENDURE,
+// 	MOVE_FACADE,
+// 	MOVE_FALSE_SWIPE,
+// 	MOVE_FEATHER_DANCE,
+// 	MOVE_GIGA_IMPACT,
+// 	MOVE_IRON_DEFENSE,
+// 	MOVE_KNOCK_OFF,
+// 	MOVE_PROTECT,
+// 	MOVE_PURSUIT,
+// 	MOVE_STONE_EDGE,
+// 	MOVE_SUBSTITUTE,
+// 	MOVE_NONE,
+// };
+
+// static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_TEERAX[] = 
+// {
+// 	{
+// 		.flags= (0 | MON_FLAGS_GEN6OU),
+// 		.heldItem=ITEM_EVIOLITE,
+// 		.ability=ABILITY_SHARPNESS,
+// 		.hiddenPowerType=TYPE_NONE,
+// 		.teraType=TYPE_NONE,
+// 		.nature=NATURE_ADAMANT,
+// 		.moves=
+// 		{
+// 			MOVE_SLASH,
+// 			MOVE_D2D_BLADE_SLASH,
+// 			MOVE_DETECT,
+// 			MOVE_AERIAL_ACE,
+// 		},
+// 	},
+// };
 
 #ifdef APPEND_MON_FLAGS_SPECIES_REGIROCK
 #define MON_FLAGS_SPECIES_REGIROCK (APPEND_MON_FLAGS_SPECIES_REGIROCK | MON_FLAGS_GEN6NU | MON_FLAGS_GEN7NU | MON_FLAGS_GEN7PU | MON_FLAGS_GEN7VGC2018 | MON_FLAGS_GEN8NU | MON_FLAGS_GEN8PU | MON_FLAGS_GEN81V1 | MON_FLAGS_GEN9PU | MON_FLAGS_GEN9ZU)
@@ -110746,6 +111379,7 @@ static u16 const sTutorMoves_SPECIES_KYOGRE[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_IRON_HEAD,
@@ -113233,6 +113867,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_JIRACHI[] =
 	{ .move=MOVE_GRAVITY, .level=35 },
 	{ .move=MOVE_PSYCHIC, .level=42 },
 	{ .move=MOVE_METEOR_MASH, .level=49 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=50 },
 	{ .move=MOVE_HEALING_WISH, .level=56 },
 	{ .move=MOVE_REST, .level=63 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=70 },
@@ -115914,6 +116549,7 @@ static u16 const sTutorMoves_SPECIES_PIPLUP[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_SPINNER,
 	MOVE_ICY_WIND,
@@ -116009,6 +116645,7 @@ static u16 const sTutorMoves_SPECIES_PRINPLUP[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_SPINNER,
 	MOVE_ICY_WIND,
@@ -116137,6 +116774,7 @@ static u16 const sTutorMoves_SPECIES_EMPOLEON[] =
 	MOVE_HYDRO_CANNON,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_SPINNER,
 	MOVE_ICY_WIND,
@@ -116753,6 +117391,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_STARAPTOR[] =
 	{ .move=MOVE_WHIRLWIND, .level=23 },
 	{ .move=MOVE_AERIAL_ACE, .level=28 },
 	{ .move=MOVE_TAKE_DOWN, .level=33 },
+	{ .move=MOVE_D2D_MACH_5, .level=35 },
 	{ .move=MOVE_AGILITY, .level=41 },
 	{ .move=MOVE_BRAVE_BIRD, .level=49 },
 	{ .move=MOVE_FINAL_GAMBIT, .level=57 },
@@ -117508,7 +118147,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_SHINX[] =
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=4 },
 	{ .move=MOVE_CHARGE, .level=8 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=8 },
 	{ .move=MOVE_BITE, .level=12 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
 	{ .move=MOVE_SPARK, .level=16 },
 	{ .move=MOVE_ROAR, .level=20 },
 	{ .move=MOVE_VOLT_SWITCH, .level=24 },
@@ -117617,7 +118258,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LUXIO[] =
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_CHARGE, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_BITE, .level=12 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
 	{ .move=MOVE_SPARK, .level=18 },
 	{ .move=MOVE_ROAR, .level=24 },
 	{ .move=MOVE_VOLT_SWITCH, .level=31 },
@@ -117690,8 +118333,10 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LUXRAY[] =
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_CHARGE, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_ELECTRIC_TERRAIN, .level=1 },
 	{ .move=MOVE_BITE, .level=12 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
 	{ .move=MOVE_SPARK, .level=18 },
 	{ .move=MOVE_ROAR, .level=24 },
 	{ .move=MOVE_VOLT_SWITCH, .level=33 },
@@ -118053,6 +118698,7 @@ static u16 const sTutorMoves_SPECIES_ROSERADE[] =
 	MOVE_ENERGY_BALL,
 	MOVE_EXTRASENSORY,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_GIGA_DRAIN,
 	MOVE_GIGA_IMPACT,
 	MOVE_GRASS_KNOT,
@@ -119319,6 +119965,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_VESPIQUEN[] =
 	{ .move=MOVE_ATTACK_ORDER, .level=40 },
 	{ .move=MOVE_DEFEND_ORDER, .level=40 },
 	{ .move=MOVE_DESTINY_BOND, .level=44 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -119449,6 +120096,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PACHIRISU[] =
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=5 },
+	{ .move=MOVE_D2D_ZAP, .level=5 },
 	{ .move=MOVE_CHARM, .level=9 },
 	{ .move=MOVE_SPARK, .level=13 },
 	{ .move=MOVE_ENDURE, .level=17 },
@@ -120414,6 +121062,7 @@ static u16 const sTutorMoves_SPECIES_SHELLOS[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LIQUIDATION,
@@ -120586,6 +121235,7 @@ static u16 const sTutorMoves_SPECIES_GASTRODON[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_LIQUIDATION,
@@ -121579,6 +122229,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AMBIPOM[] =
 	{ .move=MOVE_FLING, .level=36 },
 	{ .move=MOVE_NASTY_PLOT, .level=39 },
 	{ .move=MOVE_LAST_RESORT, .level=43 },
+	{ .move=MOVE_D2D_MONEY_SHOT, .level=50 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -125078,6 +125729,7 @@ static u16 const sTutorMoves_SPECIES_BRONZONG[] =
 	MOVE_ROCK_SLIDE,
 	MOVE_ROCK_TOMB,
 	MOVE_SANDSTORM,
+	MOVE_SELF_DESTRUCT,
 	MOVE_SHADOW_BALL,
 	MOVE_SKILL_SWAP,
 	MOVE_SLEEP_TALK,
@@ -126620,6 +127272,7 @@ static u16 const sTutorMoves_SPECIES_GARCHOMP[] =
 {
 	MOVE_AERIAL_ACE,
 	MOVE_AQUA_TAIL,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BODY_SLAM,
 	MOVE_BREAKING_SWIPE,
 	MOVE_BRICK_BREAK,
@@ -128257,6 +128910,7 @@ static u16 const sTutorMoves_SPECIES_MUNCHLAX[] =
 	MOVE_SANDSTORM,
 	MOVE_SEED_BOMB,
 	MOVE_SHADOW_BALL,
+	MOVE_SLACK_OFF,
 	MOVE_SLEEP_TALK,
 	MOVE_SOLAR_BEAM,
 	MOVE_STOMPING_TANTRUM,
@@ -130496,6 +131150,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DRAPION[] =
 	{ .move=MOVE_CROSS_POISON, .level=39 },
 	{ .move=MOVE_X_SCISSOR, .level=44 },
 	{ .move=MOVE_ACUPRESSURE, .level=49 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=50 },
 	{ .move=MOVE_CRUNCH, .level=54 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -132075,6 +132730,7 @@ static u16 const sTutorMoves_SPECIES_SNOVER[] =
 	MOVE_GROWTH,
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICE_SPINNER,
@@ -132265,6 +132921,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_SNOVER[]
 static struct LevelUpMove const sLevelUpMoves_SPECIES_ABOMASNOW[] = 
 {
 	{ .move=MOVE_ICE_PUNCH, .level=0 },
+	{ .move=MOVE_D2D_ENFROST, .level=0 },
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_MIST, .level=1 },
 	{ .move=MOVE_POWDER_SNOW, .level=1 },
@@ -132278,6 +132935,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ABOMASNOW[] =
 	{ .move=MOVE_WOOD_HAMMER, .level=43 },
 	{ .move=MOVE_BLIZZARD, .level=49 },
 	{ .move=MOVE_SHEER_COLD, .level=56 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -132309,6 +132967,7 @@ static u16 const sTutorMoves_SPECIES_ABOMASNOW[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_PUNCH,
 	MOVE_ICE_SPINNER,
@@ -132979,6 +133638,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_WEAVILE[] =
 	{ .move=MOVE_ICE_SHARD, .level=1 },
 	{ .move=MOVE_METAL_CLAW, .level=18 },
 	{ .move=MOVE_ICY_WIND, .level=24 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_FURY_SWIPES, .level=30 },
 	{ .move=MOVE_HONE_CLAWS, .level=36 },
 	{ .move=MOVE_FLING, .level=42 },
@@ -132995,6 +133655,7 @@ static u16 const sTutorMoves_SPECIES_WEAVILE[] =
 	MOVE_AGILITY,
 	MOVE_AVALANCHE,
 	MOVE_BATON_PASS,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BLIZZARD,
 	MOVE_BRICK_BREAK,
 	MOVE_CALM_MIND,
@@ -133757,6 +134418,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAGNEZONE[] =
 	{ .move=MOVE_GYRO_BALL, .level=16 },
 	{ .move=MOVE_SPARK, .level=20 },
 	{ .move=MOVE_SCREECH, .level=24 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=25 },
 	{ .move=MOVE_MAGNET_RISE, .level=28 },
 	{ .move=MOVE_FLASH_CANNON, .level=34 },
 	{ .move=MOVE_DISCHARGE, .level=40 },
@@ -134618,6 +135280,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_LICKILICKY[] =
 	{ .move=MOVE_KNOCK_OFF, .level=36 },
 	{ .move=MOVE_SCREECH, .level=42 },
 	{ .move=MOVE_SLAM, .level=48 },
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=50 },
 	{ .move=MOVE_POWER_WHIP, .level=54 },
 	{ .move=MOVE_BELLY_DRUM, .level=60 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -135763,11 +136426,15 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ELECTIVIRE[] =
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_CHARGE, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_SWIFT, .level=12 },
 	{ .move=MOVE_SHOCK_WAVE, .level=16 },
 	{ .move=MOVE_THUNDER_WAVE, .level=20 },
 	{ .move=MOVE_SCREECH, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=28 },
 	{ .move=MOVE_DISCHARGE, .level=34 },
 	{ .move=MOVE_LOW_KICK, .level=40 },
@@ -136030,6 +136697,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MAGMORTAR[] =
 	{ .move=MOVE_CONFUSE_RAY, .level=20 },
 	{ .move=MOVE_SCARY_FACE, .level=24 },
 	{ .move=MOVE_FIRE_PUNCH, .level=28 },
+	{ .move=MOVE_D2D_ENFLAME, .level=28 },
 	{ .move=MOVE_LAVA_PLUME, .level=34 },
 	{ .move=MOVE_LOW_KICK, .level=40 },
 	{ .move=MOVE_FLAMETHROWER, .level=46 },
@@ -136289,6 +136957,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_TOGEKISS[] =
 	{ .move=MOVE_AFTER_YOU, .level=1 },
 	{ .move=MOVE_FAIRY_WIND, .level=1 },
 	{ .move=MOVE_LIFE_DEW, .level=1 },
+	{ .move=MOVE_D2D_URGENT_CARE, .level=35 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -137808,6 +138477,7 @@ static u16 const sTutorMoves_SPECIES_GLACEON[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYPER_BEAM,
 	MOVE_HYPER_VOICE,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICICLE_SPEAR,
@@ -139401,24 +140071,36 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_MAMOSWIN
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PORYGON_Z[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_DEFENSE_CURL, .level=1 },
+	{ .move=MOVE_REFLECT_TYPE, .level=0 },
+
+	{ .move=MOVE_D2D_BEAM, .level=1 },
 	{ .move=MOVE_CONVERSION, .level=1 },
-	{ .move=MOVE_RECYCLE, .level=1 },
-	{ .move=MOVE_MAGNET_RISE, .level=1 },
-	{ .move=MOVE_NASTY_PLOT, .level=1 },
-	{ .move=MOVE_TRICK_ROOM, .level=1 },
+	{ .move=MOVE_MAGNET_RISE, .level=10 },
 	{ .move=MOVE_THUNDER_SHOCK, .level=15 },
-	{ .move=MOVE_PSYBEAM, .level=20 },
-	{ .move=MOVE_CONVERSION_2, .level=25 },
-	{ .move=MOVE_AGILITY, .level=30 },
-	{ .move=MOVE_RECOVER, .level=35 },
-	{ .move=MOVE_DISCHARGE, .level=40 },
-	{ .move=MOVE_TRI_ATTACK, .level=45 },
-	{ .move=MOVE_DOUBLE_EDGE, .level=50 },
-	{ .move=MOVE_LOCK_ON, .level=55 },
-	{ .move=MOVE_ZAP_CANNON, .level=60 },
-	{ .move=MOVE_HYPER_BEAM, .level=65 },
+	{ .move=MOVE_D2D_ZAP, .level=15 },
+
+	{ .move=MOVE_D2D_ENFLAME, .level=16 },
+	{ .move=MOVE_D2D_ENFROST, .level=19 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=22 },
+	{ .move=MOVE_TRI_ATTACK, .level=25 },
+
+	{ .move=MOVE_CHARGE_BEAM, .level=26 },
+	{ .move=MOVE_BUBBLE_BEAM, .level=29 },
+	{ .move=MOVE_SIGNAL_BEAM, .level=32 },
+	{ .move=MOVE_D2D_POWER_BEAM, .level=35 },
+
+	{ .move=MOVE_PSYBEAM, .level=36 },
+	{ .move=MOVE_THUNDERBOLT, .level=39 },
+	{ .move=MOVE_RECOVER, .level=42 },
+	{ .move=MOVE_CONVERSION_2, .level=45 },
+
+	{ .move=MOVE_ICE_BEAM, .level=46 },
+	{ .move=MOVE_SOLAR_BEAM, .level=49 },
+	{ .move=MOVE_METEOR_BEAM, .level=52 },
+	{ .move=MOVE_HYPER_BEAM, .level=55 },
+
+	{ .move=MOVE_D2D_IMPLOSION, .level=70 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -139429,10 +140111,12 @@ static u16 const sTutorMoves_SPECIES_PORYGON_Z[] =
 	MOVE_CHARGE,
 	MOVE_CHARGE_BEAM,
 	MOVE_DARK_PULSE,
+	MOVE_DISCHARGE,
 	MOVE_DOUBLE_EDGE,
 	MOVE_EERIE_IMPULSE,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_EXPLOSION,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_GIGA_IMPACT,
@@ -140168,6 +140852,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GALLADE[] =
 	{ .move=MOVE_FALSE_SWIPE, .level=23 },
 	{ .move=MOVE_PROTECT, .level=28 },
 	{ .move=MOVE_SWORDS_DANCE, .level=35 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_PSYCHO_CUT, .level=42 },
 	{ .move=MOVE_HEAL_PULSE, .level=49 },
 	{ .move=MOVE_WIDE_GUARD, .level=56 },
@@ -141129,6 +141814,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DUSKNOIR[] =
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_ICE_PUNCH, .level=1 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
+	{ .move=MOVE_D2D_ENFLAME, .level=1 },
+	{ .move=MOVE_D2D_ENFROST, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_BIND, .level=1 },
 	{ .move=MOVE_LEER, .level=1 },
 	{ .move=MOVE_DISABLE, .level=1 },
@@ -141145,6 +141833,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DUSKNOIR[] =
 	{ .move=MOVE_CURSE, .level=36 },
 	{ .move=MOVE_SHADOW_BALL, .level=42 },
 	{ .move=MOVE_FUTURE_SIGHT, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_DESTINY_BOND, .level=54 },
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -141441,6 +142130,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FROSLASS[] =
 	{ .move=MOVE_AURORA_VEIL, .level=54 },
 	{ .move=MOVE_SHADOW_BALL, .level=61 },
 	{ .move=MOVE_BLIZZARD, .level=68 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=70 },
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -141465,6 +142155,7 @@ static u16 const sTutorMoves_SPECIES_FROSLASS[] =
 	MOVE_HEX,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICE_FANG,
 	MOVE_ICE_PUNCH,
@@ -141911,6 +142602,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ROTOM[] =
 	{ .move=MOVE_THUNDER_SHOCK, .level=5 },
 	{ .move=MOVE_CONFUSE_RAY, .level=10 },
 	{ .move=MOVE_CHARGE, .level=15 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=15 },
 	{ .move=MOVE_ELECTRO_BALL, .level=20 },
 	{ .move=MOVE_THUNDER_WAVE, .level=25 },
 	{ .move=MOVE_SHOCK_WAVE, .level=30 },
@@ -141934,6 +142626,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -143587,6 +144280,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DIALGA[] =
 static u16 const sTutorMoves_SPECIES_DIALGA[] = 
 {
 	MOVE_AURA_SPHERE,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BLIZZARD,
 	MOVE_BODY_PRESS,
 	MOVE_BODY_SLAM,
@@ -146830,6 +147524,7 @@ static u16 const sTutorMoves_SPECIES_PHIONE[] =
 	MOVE_HELPING_HAND,
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_KNOCK_OFF,
@@ -146946,6 +147641,7 @@ static u16 const sTutorMoves_SPECIES_MANAPHY[] =
 	MOVE_HIDDEN_POWER,
 	MOVE_HYDRO_PUMP,
 	MOVE_HYPER_BEAM,
+	MOVE_D2D_ICE_BATH,
 	MOVE_ICE_BEAM,
 	MOVE_ICY_WIND,
 	MOVE_KNOCK_OFF,
@@ -150677,6 +151373,7 @@ static u16 const sTutorMoves_SPECIES_SAMUROTT[] =
 	MOVE_AIR_SLASH,
 	MOVE_AQUA_CUTTER,
 	MOVE_AVALANCHE,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BLIZZARD,
 	MOVE_BODY_SLAM,
 	MOVE_BRICK_BREAK,
@@ -155051,6 +155748,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_EXCADRILL[] =
 	{ .move=MOVE_CRUSH_CLAW, .level=24 },
 	{ .move=MOVE_ROCK_SLIDE, .level=28 },
 	{ .move=MOVE_DIG, .level=34 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_SWORDS_DANCE, .level=40 },
 	{ .move=MOVE_DRILL_RUN, .level=46 },
 	{ .move=MOVE_EARTHQUAKE, .level=52 },
@@ -158126,6 +158824,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_THROH[] =
 	{ .move=MOVE_WIDE_GUARD, .level=15 },
 	{ .move=MOVE_REVENGE, .level=20 },
 	{ .move=MOVE_BULK_UP, .level=25 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_STORM_THROW, .level=30 },
 	{ .move=MOVE_VITAL_THROW, .level=35 },
 	{ .move=MOVE_SEISMIC_TOSS, .level=40 },
@@ -159299,6 +159999,7 @@ static u16 const sTutorMoves_SPECIES_SCOLIPEDE[] =
 	MOVE_ENDEAVOR,
 	MOVE_ENDURE,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_GIGA_IMPACT,
 	MOVE_GYRO_BALL,
 	MOVE_HEX,
@@ -161735,6 +162436,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_KROOKODILE[] =
 	{ .move=MOVE_SANDSTORM, .level=32 },
 	{ .move=MOVE_FOUL_PLAY, .level=35 },
 	{ .move=MOVE_EARTHQUAKE, .level=44 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_THRASH, .level=51 },
 	{ .move=MOVE_OUTRAGE, .level=58 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -162739,6 +163441,7 @@ static u16 const sTutorMoves_SPECIES_MARACTUS[] =
 	MOVE_ENDURE,
 	MOVE_ENERGY_BALL,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_GIGA_DRAIN,
 	MOVE_GRASS_KNOT,
 	MOVE_GRASSY_GLIDE,
@@ -171862,21 +172565,39 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_JELLICEN
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_ALOMOMOLA[] = 
 {
-	{ .move=MOVE_POUND, .level=1 },
-	{ .move=MOVE_PLAY_NICE, .level=1 },
-	{ .move=MOVE_AQUA_RING, .level=5 },
+	{ .move=MOVE_BUBBLE, .level=1 },
+	{ .move=MOVE_CHARM, .level=1 },
+	{ .move=MOVE_ASTONISH, .level=1 },
+	{ .move=MOVE_D2D_HIDE, .level=1 },
+	{ .move=MOVE_AGILITY, .level=10 },
+	{ .move=MOVE_WISH, .level=12 },
+	{ .move=MOVE_AQUA_RING, .level=15 },
+
+	{ .move=MOVE_WATER_PULSE, .level=16 },
+	{ .move=MOVE_ATTRACT, .level=19 },
+	{ .move=MOVE_SWEET_KISS, .level=22 },
+	{ .move=MOVE_HEAL_PULSE, .level=25 },
+
+	{ .move=MOVE_DRAINING_KISS, .level=26 },
+	{ .move=MOVE_SING, .level=29 },
+	{ .move=MOVE_SAFEGUARD, .level=32 },
+	{ .move=MOVE_LIFE_DEW, .level=35 },
+
+	{ .move=MOVE_D2D_URGENT_CARE, .level=0 },
+
+	// moves that Alomomola learned separately from Luvdisc
+
 	{ .move=MOVE_AQUA_JET, .level=9 },
 	{ .move=MOVE_HELPING_HAND, .level=13 },
 	{ .move=MOVE_WIDE_GUARD, .level=13 },
-	{ .move=MOVE_PROTECT, .level=21 },
-	{ .move=MOVE_WATER_PULSE, .level=25 },
 	{ .move=MOVE_HEALING_WISH, .level=29 },
-	{ .move=MOVE_SOAK, .level=33 },
-	{ .move=MOVE_WISH, .level=37 },
-	{ .move=MOVE_BRINE, .level=41 },
-	{ .move=MOVE_SAFEGUARD, .level=45 },
-	{ .move=MOVE_WHIRLPOOL, .level=49 },
-	{ .move=MOVE_HYDRO_PUMP, .level=55 },
+	// end
+
+	{ .move=MOVE_PLAY_ROUGH, .level=36 },
+	{ .move=MOVE_REST, .level=39 },
+	{ .move=MOVE_PROTECT, .level=42 },
+	{ .move=MOVE_HEART_STAMP, .level=45 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -173082,6 +173803,7 @@ static u16 const sTutorMoves_SPECIES_FERROTHORN[] =
 	MOVE_ENDURE,
 	MOVE_ENERGY_BALL,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_FLASH_CANNON,
 	MOVE_GIGA_DRAIN,
 	MOVE_GIGA_IMPACT,
@@ -176045,6 +176767,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AXEW[] =
 	{ .move=MOVE_DRAGON_DANCE, .level=27 },
 	{ .move=MOVE_BREAKING_SWIPE, .level=30 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=33 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_DRAGON_PULSE, .level=36 },
 	{ .move=MOVE_SWORDS_DANCE, .level=39 },
 	{ .move=MOVE_OUTRAGE, .level=42 },
@@ -176254,6 +176977,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_FRAXURE[] =
 	{ .move=MOVE_DRAGON_DANCE, .level=27 },
 	{ .move=MOVE_BREAKING_SWIPE, .level=30 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=33 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_DRAGON_PULSE, .level=36 },
 	{ .move=MOVE_SWORDS_DANCE, .level=41 },
 	{ .move=MOVE_OUTRAGE, .level=46 },
@@ -176460,6 +177184,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HAXORUS[] =
 	{ .move=MOVE_DRAGON_DANCE, .level=27 },
 	{ .move=MOVE_BREAKING_SWIPE, .level=30 },
 	{ .move=MOVE_FOCUS_ENERGY, .level=33 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=35 },
 	{ .move=MOVE_DRAGON_PULSE, .level=36 },
 	{ .move=MOVE_SWORDS_DANCE, .level=41 },
 	{ .move=MOVE_OUTRAGE, .level=46 },
@@ -179559,6 +180284,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PAWNIARD[] =
 	{ .move=MOVE_TORMENT, .level=15 },
 	{ .move=MOVE_SCARY_FACE, .level=20 },
 	{ .move=MOVE_ASSURANCE, .level=25 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_METAL_SOUND, .level=30 },
 	{ .move=MOVE_SLASH, .level=35 },
 	{ .move=MOVE_NIGHT_SLASH, .level=40 },
@@ -179899,6 +180625,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_BISHARP[] =
 	{ .move=MOVE_TORMENT, .level=15 },
 	{ .move=MOVE_SCARY_FACE, .level=20 },
 	{ .move=MOVE_ASSURANCE, .level=25 },
+	{ .move=MOVE_D2D_BLOODLETTING, .level=25 },
 	{ .move=MOVE_METAL_SOUND, .level=30 },
 	{ .move=MOVE_SLASH, .level=35 },
 	{ .move=MOVE_NIGHT_SLASH, .level=40 },
@@ -181534,6 +182261,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MANDIBUZZ[] =
 	{ .move=MOVE_WHIRLWIND, .level=36 },
 	{ .move=MOVE_AIR_SLASH, .level=42 },
 	{ .move=MOVE_DARK_PULSE, .level=48 },
+	{ .move=MOVE_D2D_DEVOUR, .level=50 },
 	{ .move=MOVE_NASTY_PLOT, .level=57 },
 	{ .move=MOVE_DEFOG, .level=64 },
 	{ .move=MOVE_ATTRACT, .level=72 },
@@ -192522,6 +193250,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_GRENINJA[] =
 	{ .move=MOVE_AERIAL_ACE, .level=33 },
 	{ .move=MOVE_SUBSTITUTE, .level=42 },
 	{ .move=MOVE_EXTRASENSORY, .level=49 },
+	{ .move=MOVE_D2D_PROTEAN_LICK, .level=50 },
 	{ .move=MOVE_DOUBLE_TEAM, .level=56 },
 	{ .move=MOVE_HYDRO_PUMP, .level=68 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -196297,6 +197026,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PANCHAM[] =
 	{ .move=MOVE_LOW_SWEEP, .level=16 },
 	{ .move=MOVE_WORK_UP, .level=20 },
 	{ .move=MOVE_SLASH, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_VITAL_THROW, .level=28 },
 	{ .move=MOVE_CRUNCH, .level=33 },
 	{ .move=MOVE_BODY_SLAM, .level=36 },
@@ -196463,6 +197194,8 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PANGORO[] =
 	{ .move=MOVE_LOW_SWEEP, .level=16 },
 	{ .move=MOVE_WORK_UP, .level=20 },
 	{ .move=MOVE_SLASH, .level=24 },
+	{ .move=MOVE_D2D_LEFT_HOOK, .level=25 },
+	{ .move=MOVE_D2D_RIGHT_HOOK, .level=25 },
 	{ .move=MOVE_VITAL_THROW, .level=28 },
 	{ .move=MOVE_CRUNCH, .level=35 },
 	{ .move=MOVE_BODY_SLAM, .level=40 },
@@ -197293,6 +198026,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_HONEDGE[] =
 	{ .move=MOVE_METAL_SOUND, .level=16 },
 	{ .move=MOVE_SLASH, .level=20 },
 	{ .move=MOVE_NIGHT_SLASH, .level=24 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=25 },
 	{ .move=MOVE_RETALIATE, .level=28 },
 	{ .move=MOVE_IRON_DEFENSE, .level=32 },
 	{ .move=MOVE_IRON_HEAD, .level=36 },
@@ -197419,6 +198153,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_DOUBLADE[] =
 	{ .move=MOVE_METAL_SOUND, .level=16 },
 	{ .move=MOVE_SLASH, .level=20 },
 	{ .move=MOVE_NIGHT_SLASH, .level=24 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=25 },
 	{ .move=MOVE_RETALIATE, .level=28 },
 	{ .move=MOVE_IRON_DEFENSE, .level=32 },
 	{ .move=MOVE_IRON_HEAD, .level=38 },
@@ -197633,6 +198368,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_AEGISLASH[] =
 	{ .move=MOVE_IRON_DEFENSE, .level=1 },
 	{ .move=MOVE_POWER_TRICK, .level=1 },
 	{ .move=MOVE_NIGHT_SLASH, .level=1 },
+	{ .move=MOVE_D2D_BLADE_SLASH, .level=1 },
 	{ .move=MOVE_SHADOW_SNEAK, .level=1 },
 	{ .move=MOVE_IRON_HEAD, .level=1 },
 	{ .move=MOVE_HEAD_SMASH, .level=1 },
@@ -216212,6 +216948,7 @@ static u16 const sTutorMoves_SPECIES_TOXAPEX[] =
 	MOVE_CHILLING_WATER,
 	MOVE_ENDURE,
 	MOVE_FACADE,
+	MOVE_D2D_FATAL_STING,
 	MOVE_GIGA_IMPACT,
 	MOVE_GUNK_SHOT,
 	MOVE_HAZE,
@@ -233137,6 +233874,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_MARSHADOW[] =
 	{ .move=MOVE_FIRE_PUNCH, .level=1 },
 	{ .move=MOVE_ICE_PUNCH, .level=1 },
 	{ .move=MOVE_THUNDER_PUNCH, .level=1 },
+	{ .move=MOVE_D2D_ENFLAME, .level=1 },
+	{ .move=MOVE_D2D_ENFROST, .level=1 },
+	{ .move=MOVE_D2D_ENTHUNDER, .level=1 },
 	{ .move=MOVE_COUNTER, .level=1 },
 	{ .move=MOVE_FEINT, .level=1 },
 	{ .move=MOVE_COPYCAT, .level=1 },
@@ -244285,7 +245025,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_OBSTAGOO
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PERRSERKER[] = 
 {
-	{ .move=MOVE_IRON_HEAD, .level=0 },
+	{ .move=MOVE_D2D_MONEY_SHOT, .level=0 },
 	{ .move=MOVE_SCRATCH, .level=1 },
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_FAKE_OUT, .level=1 },
@@ -244296,6 +245036,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PERRSERKER[] =
 	{ .move=MOVE_METAL_CLAW, .level=16 },
 	{ .move=MOVE_TAUNT, .level=20 },
 	{ .move=MOVE_SWAGGER, .level=24 },
+	{ .move=MOVE_IRON_HEAD, .level=28 },
 	{ .move=MOVE_FURY_SWIPES, .level=31 },
 	{ .move=MOVE_SCREECH, .level=36 },
 	{ .move=MOVE_SLASH, .level=42 },
@@ -253277,6 +254018,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_OVERQWIL[] =
 	{ .move=MOVE_SPIT_UP, .level=40 },
 	{ .move=MOVE_TOXIC, .level=44 },
 	{ .move=MOVE_CRUNCH, .level=48 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=50 },
 	{ .move=MOVE_ACUPRESSURE, .level=52 },
 	{ .move=MOVE_DESTINY_BOND, .level=56 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -253900,7 +254642,9 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_RAICHU_ALOLAN[] =
 	{ .move=MOVE_THUNDER_WAVE, .level=1 },
 	{ .move=MOVE_THUNDER, .level=1 },
 	{ .move=MOVE_AGILITY, .level=1 },
+	{ .move=MOVE_D2D_ENERGIZE, .level=1 },
 	{ .move=MOVE_QUICK_ATTACK, .level=1 },
+	{ .move=MOVE_D2D_ZAP, .level=1 },
 	{ .move=MOVE_DOUBLE_TEAM, .level=1 },
 	{ .move=MOVE_LIGHT_SCREEN, .level=1 },
 	{ .move=MOVE_SWEET_KISS, .level=1 },
@@ -256133,7 +256877,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_MEOWTH_A
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_PERSIAN_ALOLAN[] = 
 {
-	{ .move=MOVE_POWER_GEM, .level=0 },
+	{ .move=MOVE_D2D_MONEY_SHOT, .level=0 },
 	{ .move=MOVE_SCRATCH, .level=1 },
 	{ .move=MOVE_GROWL, .level=1 },
 	{ .move=MOVE_FAKE_OUT, .level=1 },
@@ -256144,6 +256888,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_PERSIAN_ALOLAN[] =
 	{ .move=MOVE_BITE, .level=16 },
 	{ .move=MOVE_TAUNT, .level=20 },
 	{ .move=MOVE_ASSURANCE, .level=24 },
+	{ .move=MOVE_POWER_GEM, .level=28 },
 	{ .move=MOVE_FURY_SWIPES, .level=31 },
 	{ .move=MOVE_SCREECH, .level=36 },
 	{ .move=MOVE_NIGHT_SLASH, .level=42 },
@@ -259796,6 +260541,7 @@ static u16 const sTutorMoves_SPECIES_ARTICUNO_GALARIAN[] =
 	MOVE_HYPER_VOICE,
 	MOVE_IMPRISON,
 	MOVE_LIGHT_SCREEN,
+	MOVE_D2D_MACH_5,
 	MOVE_PROTECT,
 	MOVE_PSYBEAM,
 	MOVE_PSYCHIC,
@@ -259995,6 +260741,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_ZAPDOS_GALARIAN[] =
 	{ .move=MOVE_QUICK_GUARD, .level=40 },
 	{ .move=MOVE_THUNDEROUS_KICK, .level=45 },
 	{ .move=MOVE_BULK_UP, .level=50 },
+	{ .move=MOVE_D2D_MACH_5, .level=50 },
 	{ .move=MOVE_COUNTER, .level=55 },
 	{ .move=MOVE_DETECT, .level=60 },
 	{ .move=MOVE_CLOSE_COMBAT, .level=65 },
@@ -260433,6 +261180,7 @@ static u16 const sTutorMoves_SPECIES_MOLTRES_GALARIAN[] =
 	MOVE_HYPER_VOICE,
 	MOVE_IMPRISON,
 	MOVE_LASH_OUT,
+	MOVE_D2D_MACH_5,
 	MOVE_NASTY_PLOT,
 	MOVE_PAIN_SPLIT,
 	MOVE_PROTECT,
@@ -263040,6 +263788,7 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_QWILFISH_HISUIAN[] =
 	{ .move=MOVE_SPIT_UP, .level=40 },
 	{ .move=MOVE_TOXIC, .level=44 },
 	{ .move=MOVE_CRUNCH, .level=48 },
+	{ .move=MOVE_D2D_FATAL_STING, .level=50 },
 	{ .move=MOVE_ACUPRESSURE, .level=52 },
 	{ .move=MOVE_DESTINY_BOND, .level=56 },
 	{ .move=MOVE_NONE, .level=0 },
@@ -263229,6 +263978,7 @@ static u16 const sTutorMoves_SPECIES_SNEASEL_HISUIAN[] =
 	MOVE_ACID_SPRAY,
 	MOVE_AERIAL_ACE,
 	MOVE_AGILITY,
+	MOVE_D2D_BLADE_SLASH,
 	MOVE_BRICK_BREAK,
 	MOVE_BULK_UP,
 	MOVE_CALM_MIND,
@@ -267599,6 +268349,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM_HEAT[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -268334,6 +269085,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM_WASH[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -269265,6 +270017,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM_FROST[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -269565,6 +270318,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM_FAN[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -269819,6 +270573,7 @@ static u16 const sTutorMoves_SPECIES_ROTOM_MOW[] =
 	MOVE_ELECTRO_BALL,
 	MOVE_ELECTROWEB,
 	MOVE_ENDURE,
+	MOVE_D2D_ENERGIZE,
 	MOVE_FACADE,
 	MOVE_FOUL_PLAY,
 	MOVE_HELPING_HAND,
@@ -305909,6 +306664,14 @@ struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] =
 		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_BANETTE),
 		.monFlags = MON_FLAGS_SPECIES_BANETTE,
 	},
+	[SPECIES_BAYANETTE] = 
+	{
+		.levelUpMoves = sLevelUpMoves_SPECIES_BAYANETTE,
+		.tutorMoves = sTutorMoves_SPECIES_BAYANETTE,
+		.competitiveSets = sCompetitiveSets_SPECIES_BAYANETTE,
+		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_BAYANETTE),
+		.monFlags = MON_FLAGS_SPECIES_BAYANETTE,
+	},
 	[SPECIES_DUSKULL] = 
 	{
 		.levelUpMoves = sLevelUpMoves_SPECIES_DUSKULL,
@@ -305932,6 +306695,14 @@ struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] =
 		.competitiveSets = sCompetitiveSets_SPECIES_TROPIUS,
 		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_TROPIUS),
 		.monFlags = MON_FLAGS_SPECIES_TROPIUS,
+	},
+	[SPECIES_TROPISAUR] = 
+	{
+		.levelUpMoves = sLevelUpMoves_SPECIES_TROPISAUR,
+		.tutorMoves = sTutorMoves_SPECIES_TROPISAUR,
+		.competitiveSets = sCompetitiveSets_SPECIES_TROPISAUR,
+		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_TROPISAUR),
+		.monFlags = MON_FLAGS_SPECIES_TROPISAUR,
 	},
 	[SPECIES_CHIMECHO] = 
 	{
@@ -306085,6 +306856,22 @@ struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] =
 		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_METAGROSS),
 		.monFlags = MON_FLAGS_SPECIES_METAGROSS,
 	},
+	// [SPECIES_HATCHLIN] = 
+	// {
+	// 	.levelUpMoves = sLevelUpMoves_SPECIES_HATCHLIN,
+	// 	.tutorMoves = sTutorMoves_SPECIES_HATCHLIN,
+	// 	.competitiveSets = sCompetitiveSets_SPECIES_HATCHLIN,
+	// 	.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_HATCHLIN),
+	// 	.monFlags = MON_FLAGS_SPECIES_HATCHLIN,
+	// },
+	// [SPECIES_TEERAX] = 
+	// {
+	// 	.levelUpMoves = sLevelUpMoves_SPECIES_TEERAX,
+	// 	.tutorMoves = sTutorMoves_SPECIES_TEERAX,
+	// 	.competitiveSets = sCompetitiveSets_SPECIES_TEERAX,
+	// 	.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_TEERAX),
+	// 	.monFlags = MON_FLAGS_SPECIES_TEERAX,
+	// },
 	[SPECIES_REGIROCK] = 
 	{
 		.levelUpMoves = sLevelUpMoves_SPECIES_REGIROCK,

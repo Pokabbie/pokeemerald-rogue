@@ -181,6 +181,7 @@ enum RandomTag
 
 u32 RandomUniform(enum RandomTag, u32 lo, u32 hi);
 u32 RandomUniformExcept(enum RandomTag, u32 lo, u32 hi, bool32 (*reject)(u32));
+u32 RandomInfinityMove(enum RandomTag, u32 lo, u32 hi, u32 battler, bool32 (*reject)(u32, u32));
 u32 RandomWeightedArray(enum RandomTag, u32 sum, u32 n, const u8 *weights);
 const void *RandomElementArray(enum RandomTag, const void *array, size_t size, size_t count);
 

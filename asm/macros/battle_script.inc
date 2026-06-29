@@ -1500,6 +1500,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trycopytypetotarget failInstr:req
+	callnative BS_TryCopyTypeToTarget
+	.4byte \failInstr
+	.endm
+
 	@ Used to active a different Max Move effects.
 	.macro setmaxmoveeffect
 	callnative BS_SetMaxMoveEffect
@@ -1587,6 +1592,10 @@
 
 	.macro removeweather
 	callnative BS_RemoveWeather
+	.endm
+
+	.macro atksurvivewithonehp
+	callnative BS_AtkSurviveWithOneHP
 	.endm
 
 @ various command changed to more readable macros
@@ -1771,6 +1780,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro setabilityowntempo battler:req, failInstr:req
+	various \battler VARIOUS_SET_ABILITY_OWN_TEMPO
+	.4byte \failInstr
+	.endm
+
 	.macro tryentrainment failInstr:req
 	various BS_ATTACKER, VARIOUS_TRY_ENTRAINMENT
 	.4byte \failInstr
@@ -1813,6 +1827,50 @@
 	various BS_ATTACKER, VARIOUS_TRY_ELECTRIFY
 	.4byte \failInstr
 	.endm
+
+@ D2D stuff start
+
+	.macro setimbuetype failInstr:req
+	various BS_ATTACKER, VARIOUS_SET_IMBUE_TYPE
+	.4byte \failInstr
+	.endm
+
+	.macro forcerecharge
+	various BS_ATTACKER, VARIOUS_FORCE_RECHARGE 
+	.endm
+
+	.macro determinemachfivespeed
+	various BS_ATTACKER, VARIOUS_DETERMINE_MACH_FIVE_SPEED
+	.endm
+
+	.macro tryscavenge failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_SCAVENGE
+	.endm
+
+	.macro tryfullheal battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_FULL_HEAL
+	.4byte \failInstr
+	.endm
+
+	.macro tryhidebehindally failInstr:req
+	various BS_ATTACKER, VARIOUS_HIDE_BEHIND_ALLY
+	.4byte \failInstr
+	.endm
+
+	.macro randomizeallmoves
+	various BS_ATTACKER, VARIOUS_RANDOMIZE_MOVES
+	.endm
+
+	.macro jumpifhpoverhalf battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_HP_OVER_HALF
+	.4byte \failInstr
+	.endm
+
+	.macro setbellow
+	various BS_ATTACKER, VARIOUS_SET_BELLOW
+	.endm
+
+@ D2D stuff end
 
 	.macro trysoak failInstr:req
 	various BS_ATTACKER, VARIOUS_TRY_SOAK
@@ -1870,6 +1928,10 @@
 	various \battler, VARIOUS_CURE_STATUS
 	.endm
 
+	.macro cureconfusion battler:req
+	various \battler, VARIOUS_CURE_CONFUSION
+	.endm
+
 	.macro powertrick battler:req
 	various \battler, VARIOUS_POWER_TRICK
 	.endm
@@ -1902,6 +1964,11 @@
 
 	.macro trysetthirdtype battler:req, failInstr:req
 	various \battler, VARIOUS_TRY_THIRD_TYPE
+	.4byte \failInstr
+	.endm
+
+	.macro tryrandomizetype battler:req, failInstr:req
+	various \battler, VARIOUS_RANDOMIZE_TYPE
 	.4byte \failInstr
 	.endm
 
@@ -2340,6 +2407,10 @@
 
 	.macro dmg_1_2_attackerhp
 	manipulatedamage DMG_1_2_ATTACKER_HP
+	.endm
+
+	.macro dmg_set_hp_to_one
+	manipulatedamage DMG_SURVIVE_WITH_1_HP
 	.endm
 
 	.macro jumpifflowerveil jumpInstr:req

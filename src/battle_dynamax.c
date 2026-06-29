@@ -45,6 +45,7 @@ static const u16 sMaxMoveTable[NUMBER_OF_MON_TYPES] =
     [TYPE_DRAGON] = MOVE_MAX_WYRMWIND,
     [TYPE_DARK] = MOVE_MAX_DARKNESS,
     [TYPE_FAIRY] = MOVE_MAX_STARFALL,
+    [TYPE_SOUND] = MOVE_MAX_STRIKE,
 };
 
 struct GMaxMove

@@ -1213,7 +1213,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[201] =
 	{
 		.eggSpecies = 201,
-		.evolutionCount = 0,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[202] =
@@ -2114,7 +2114,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	{
 		.eggSpecies = 351,
 		.evolutionCount = 1,
-		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags = 5,
 	},
 	[352] =
 	{
@@ -2131,7 +2131,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[354] =
 	{
 		.eggSpecies = 353,
-		.evolutionCount = 0,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[355] =
@@ -2149,8 +2149,8 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[357] =
 	{
 		.eggSpecies = 357,
-		.evolutionCount = 0,
-		.evolutionChainTypeFlags = 2052,
+		.evolutionCount = 2,
+		.evolutionChainTypeFlags = 34820,
 	},
 	[358] =
 	{
@@ -2227,7 +2227,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[370] =
 	{
 		.eggSpecies = 370,
-		.evolutionCount = 0,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[371] =
@@ -3570,7 +3570,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	},
 	[594] =
 	{
-		.eggSpecies = 594,
+		.eggSpecies = 370,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 1024,
 	},
@@ -9164,8 +9164,62 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	{
 		.eggSpecies = 351,
 		.evolutionCount = 0,
-		.evolutionChainTypeFlags = 4,
+		.evolutionChainTypeFlags = 5, // normal (1) + flying (4)
 	},
+	[1527] = // Cloudform Sunny
+	{
+		.eggSpecies = 1527,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 5,
+	},
+	[1528] = // Cloudform Rainy
+	{
+		.eggSpecies = 1528,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 5,
+	},
+	[1529] = // Cloudform Snowy
+	{
+		.eggSpecies = 1529,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 5,
+	},
+	[1530] = // Cloudform Sandy
+	{
+		.eggSpecies = 1530,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 5,
+	},
+	[1531] = // Tropisaur
+	{
+		.eggSpecies = 357,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 34820, // grass (2048) + flying (4) + dragon (32768)
+	},
+	// [1532] = // Unohm
+	// {
+	// 	.eggSpecies = 201,
+	// 	.evolutionCount = 0,
+	// 	.evolutionChainTypeFlags = 8192,
+	// },
+	[1532] = // Bayanette
+	{
+		.eggSpecies = 353,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 128,
+	},
+	// [1532] = // Hatchlin
+	// {
+	// 	.eggSpecies = 1532,
+	// 	.evolutionCount = 0,
+	// 	.evolutionChainTypeFlags = 257, // normal (1) + steel (256)
+	// },
+	// [1533] = // Teerax
+	// {
+	// 	.eggSpecies = 1533,
+	// 	.evolutionCount = 0,
+	// 	.evolutionChainTypeFlags = 257, // normal (1) + steel (256)
+	// },
 };
 
 const u16 gRogueBake_FinalEvoSpecies[] =
@@ -9283,6 +9337,7 @@ const u16 gRogueBake_FinalEvoSpecies[] =
 	199,
 	985,
 	201,
+	// 1532, // UNOHM
 	202,
 	205,
 	208,
@@ -9363,8 +9418,10 @@ const u16 gRogueBake_FinalEvoSpecies[] =
 	// 351,
 	1526, // CLOUDFORM
 	352,
-	354,
-	357,
+	// 354,
+	1532, // BAYANETTE
+	// 357,
+	1531, // TROPISAUR
 	358,
 	359,
 	362,
@@ -9372,7 +9429,7 @@ const u16 gRogueBake_FinalEvoSpecies[] =
 	367,
 	368,
 	369,
-	370,
+	// 370, // LUVDISC
 	373,
 	376,
 	377,
@@ -9777,6 +9834,7 @@ const u16 gRogueBake_FinalEvoSpecies[] =
 	1430,
 	1431,
 	1434,
+	// 1533, // UNOHM
 };
 const u16 gRogueBake_FinalEvoSpecies_Count = ARRAY_COUNT(gRogueBake_FinalEvoSpecies);
 
@@ -9984,11 +10042,11 @@ const u16 gRogueBake_EggSpecies[] =
 	345,
 	347,
 	349,
-	351,
+	351, // Castform is now a baby
 	352,
 	353,
 	355,
-	357,
+	357, // Tropius should now also be a baby
 	433,
 	359,
 	361,
@@ -10103,7 +10161,7 @@ const u16 gRogueBake_EggSpecies[] =
 	588,
 	590,
 	592,
-	594,
+	// 594, alomomola now has Luvdisc as a pre-evo
 	595,
 	597,
 	599,
@@ -10351,6 +10409,7 @@ const u16 gRogueBake_EggSpecies[] =
 	1430,
 	1431,
 	1434,
+	1532,
 };
 const u16 gRogueBake_EggSpecies_Count = ARRAY_COUNT(gRogueBake_EggSpecies);
 

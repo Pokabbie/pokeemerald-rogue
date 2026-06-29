@@ -272,7 +272,7 @@
 #define VAR_UNUSED_0x40F7                    0x40F7
 #define VAR_ROGUE_DESIRED_CAMPAIGN           0x40F8
 #define VAR_ROGUE_ACTIVE_CAMPAIGN            0x40F9
-#define VAR_UNUSED_0x40FA                    0x40FA 
+#define VAR_ROGUE_DAYCARE_SPECIAL            0x40FA 
 #define VAR_UNUSED_0x40FB                    0x40FB 
 #define VAR_UNUSED_0x40FC                    0x40FC 
 #define VAR_UNUSED_0x40FD                    0x40FD 

@@ -1901,189 +1901,189 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
     },
 #endif //P_FAMILY_ESPURR
 
-#if P_FAMILY_HONEDGE
-    [SPECIES_HONEDGE] =
-    {
-        .baseHP        = 45,
-        .baseAttack    = 80,
-        .baseDefense   = 100,
-        .baseSpeed     = 28,
-        .baseSpAttack  = 35,
-        .baseSpDefense = 37,
-        .types = { TYPE_STEEL, TYPE_GHOST },
-        .catchRate = 180,
-        .expYield = 65,
-        .evYield_Defense = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-        .abilities = { ABILITY_NO_GUARD, ABILITY_NONE },
-        .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Honedge"),
-        .cryId = CRY_HONEDGE,
-        .natDexNum = NATIONAL_DEX_HONEDGE,
-        .categoryName = _("Sword"),
-        .height = 8,
-        .weight = 20,
-        .description = POKEDEX_DESC_STRING(
-            "If anyone dares to grab its hilt, it\n"
-            "wraps a blue cloth around that person's\n"
-            "arm and drains that person's life\n"
-            "energy completely."),
-        .pokemonScale = 366,
-        .pokemonOffset = 7,
-        .trainerScale = 257,
-        .trainerOffset = 0,
-        FRONT_PIC(Honedge, 64, 56),
-        .frontPicYOffset = 4,
-        .frontAnimFrames = sAnims_Honedge,
-        .frontAnimId = ANIM_SWING_CONVEX,
-        .enemyMonElevation = 4,
-        BACK_PIC(Honedge, 48, 56),
-        .backPicYOffset = 4,
-        .backAnimId = BACK_ANIM_V_SHAKE,
-        PALETTES(Honedge),
-        ICON(Honedge, 2),
-        .footprint = gMonFootprint_Honedge,
-        LEARNSETS(Honedge),
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_DOUBLADE}),
-    },
+// #if P_FAMILY_HONEDGE
+//     [SPECIES_HONEDGE] =
+//     {
+//         .baseHP        = 45,
+//         .baseAttack    = 80,
+//         .baseDefense   = 100,
+//         .baseSpeed     = 28,
+//         .baseSpAttack  = 35,
+//         .baseSpDefense = 37,
+//         .types = { TYPE_STEEL, TYPE_GHOST },
+//         .catchRate = 180,
+//         .expYield = 65,
+//         .evYield_Defense = 1,
+//         .genderRatio = PERCENT_FEMALE(50),
+//         .eggCycles = 20,
+//         .friendship = STANDARD_FRIENDSHIP,
+//         .growthRate = GROWTH_MEDIUM_FAST,
+//         .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+//         .abilities = { ABILITY_NO_GUARD, ABILITY_NONE },
+//         .bodyColor = BODY_COLOR_BROWN,
+//         .speciesName = _("Honedge"),
+//         .cryId = CRY_HONEDGE,
+//         .natDexNum = NATIONAL_DEX_HONEDGE,
+//         .categoryName = _("Sword"),
+//         .height = 8,
+//         .weight = 20,
+//         .description = POKEDEX_DESC_STRING(
+//             "If anyone dares to grab its hilt, it\n"
+//             "wraps a blue cloth around that person's\n"
+//             "arm and drains that person's life\n"
+//             "energy completely."),
+//         .pokemonScale = 366,
+//         .pokemonOffset = 7,
+//         .trainerScale = 257,
+//         .trainerOffset = 0,
+//         FRONT_PIC(Honedge, 64, 56),
+//         .frontPicYOffset = 4,
+//         .frontAnimFrames = sAnims_Honedge,
+//         .frontAnimId = ANIM_SWING_CONVEX,
+//         .enemyMonElevation = 4,
+//         BACK_PIC(Honedge, 48, 56),
+//         .backPicYOffset = 4,
+//         .backAnimId = BACK_ANIM_V_SHAKE,
+//         PALETTES(Honedge),
+//         ICON(Honedge, 2),
+//         .footprint = gMonFootprint_Honedge,
+//         LEARNSETS(Honedge),
+//         .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_DOUBLADE}),
+//     },
 
-    [SPECIES_DOUBLADE] =
-    {
-        .baseHP        = 59,
-        .baseAttack    = 110,
-        .baseDefense   = 150,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 49,
-        .types = { TYPE_STEEL, TYPE_GHOST },
-        .catchRate = 90,
-        .expYield = 157,
-        .evYield_Defense = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-        .abilities = { ABILITY_NO_GUARD, ABILITY_NONE },
-        .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Doublade"),
-        .cryId = CRY_DOUBLADE,
-        .natDexNum = NATIONAL_DEX_DOUBLADE,
-        .categoryName = _("Sword"),
-        .height = 8,
-        .weight = 45,
-        .description = POKEDEX_DESC_STRING(
-            "When Honedge evolves, it divides into\n"
-            "two swords. The complex attack patterns\n"
-            "of its two swords are unstoppable, even\n"
-            "against those skilled at swordplay."),
-        .pokemonScale = 366,
-        .pokemonOffset = 7,
-        .trainerScale = 257,
-        .trainerOffset = 0,
-        FRONT_PIC(Doublade, 64, 64),
-        .frontPicYOffset = 5,
-        .frontAnimFrames = sAnims_Doublade,
-        .frontAnimId = ANIM_GROW_VIBRATE,
-        .enemyMonElevation = 5,
-        BACK_PIC(Doublade, 64, 64),
-        .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_H_SHAKE,
-        PALETTES(Doublade),
-        ICON(Doublade, 2),
-        .footprint = gMonFootprint_Doublade,
-        LEARNSETS(Doublade),
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_AEGISLASH_SHIELD}),
-    },
+//     [SPECIES_DOUBLADE] =
+//     {
+//         .baseHP        = 59,
+//         .baseAttack    = 110,
+//         .baseDefense   = 150,
+//         .baseSpeed     = 35,
+//         .baseSpAttack  = 45,
+//         .baseSpDefense = 49,
+//         .types = { TYPE_STEEL, TYPE_GHOST },
+//         .catchRate = 90,
+//         .expYield = 157,
+//         .evYield_Defense = 2,
+//         .genderRatio = PERCENT_FEMALE(50),
+//         .eggCycles = 20,
+//         .friendship = STANDARD_FRIENDSHIP,
+//         .growthRate = GROWTH_MEDIUM_FAST,
+//         .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+//         .abilities = { ABILITY_NO_GUARD, ABILITY_NONE },
+//         .bodyColor = BODY_COLOR_BROWN,
+//         .speciesName = _("Doublade"),
+//         .cryId = CRY_DOUBLADE,
+//         .natDexNum = NATIONAL_DEX_DOUBLADE,
+//         .categoryName = _("Sword"),
+//         .height = 8,
+//         .weight = 45,
+//         .description = POKEDEX_DESC_STRING(
+//             "When Honedge evolves, it divides into\n"
+//             "two swords. The complex attack patterns\n"
+//             "of its two swords are unstoppable, even\n"
+//             "against those skilled at swordplay."),
+//         .pokemonScale = 366,
+//         .pokemonOffset = 7,
+//         .trainerScale = 257,
+//         .trainerOffset = 0,
+//         FRONT_PIC(Doublade, 64, 64),
+//         .frontPicYOffset = 5,
+//         .frontAnimFrames = sAnims_Doublade,
+//         .frontAnimId = ANIM_GROW_VIBRATE,
+//         .enemyMonElevation = 5,
+//         BACK_PIC(Doublade, 64, 64),
+//         .backPicYOffset = 7,
+//         .backAnimId = BACK_ANIM_H_SHAKE,
+//         PALETTES(Doublade),
+//         ICON(Doublade, 2),
+//         .footprint = gMonFootprint_Doublade,
+//         LEARNSETS(Doublade),
+//         .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_AEGISLASH_SHIELD}),
+//     },
 
-#define AEGISLASH_MISC_INFO                                     \
-        .types = { TYPE_STEEL, TYPE_GHOST },                    \
-        .catchRate = 45,                                        \
-        .expYield = 234,                                        \
-        .genderRatio = PERCENT_FEMALE(50),                      \
-        .eggCycles = 20,                                        \
-        .friendship = STANDARD_FRIENDSHIP,                      \
-        .growthRate = GROWTH_MEDIUM_FAST,                       \
-        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },  \
-        .abilities = { ABILITY_STANCE_CHANGE, ABILITY_NONE },   \
-        .bodyColor = BODY_COLOR_BROWN,                          \
-        .speciesName = _("Aegislash"),                          \
-        .cryId = CRY_AEGISLASH,                                 \
-        .natDexNum = NATIONAL_DEX_AEGISLASH,                    \
-        .categoryName = _("Royal Sword"),                       \
-        .height = 17,                                           \
-        .weight = 530,                                          \
-        .pokemonScale = 259,                                    \
-        .pokemonOffset = 0,                                     \
-        .trainerScale = 290,                                    \
-        .trainerOffset = 1,                                     \
-        .footprint = gMonFootprint_Aegislash,                   \
-        LEARNSETS(Aegislash),                                   \
-        .formSpeciesIdTable = sAegislashFormSpeciesIdTable,     \
-        .formChangeTable = sAegislashFormChangeTable
+// #define AEGISLASH_MISC_INFO                                     \
+//         .types = { TYPE_STEEL, TYPE_GHOST },                    \
+//         .catchRate = 45,                                        \
+//         .expYield = 234,                                        \
+//         .genderRatio = PERCENT_FEMALE(50),                      \
+//         .eggCycles = 20,                                        \
+//         .friendship = STANDARD_FRIENDSHIP,                      \
+//         .growthRate = GROWTH_MEDIUM_FAST,                       \
+//         .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },  \
+//         .abilities = { ABILITY_STANCE_CHANGE, ABILITY_NONE },   \
+//         .bodyColor = BODY_COLOR_BROWN,                          \
+//         .speciesName = _("Aegislash"),                          \
+//         .cryId = CRY_AEGISLASH,                                 \
+//         .natDexNum = NATIONAL_DEX_AEGISLASH,                    \
+//         .categoryName = _("Royal Sword"),                       \
+//         .height = 17,                                           \
+//         .weight = 530,                                          \
+//         .pokemonScale = 259,                                    \
+//         .pokemonOffset = 0,                                     \
+//         .trainerScale = 290,                                    \
+//         .trainerOffset = 1,                                     \
+//         .footprint = gMonFootprint_Aegislash,                   \
+//         LEARNSETS(Aegislash),                                   \
+//         .formSpeciesIdTable = sAegislashFormSpeciesIdTable,     \
+//         .formChangeTable = sAegislashFormChangeTable
 
-#define AEGISLASH_MAIN_STAT (P_UPDATED_STATS >= GEN_8 ? 140 : 150)
+// #define AEGISLASH_MAIN_STAT (P_UPDATED_STATS >= GEN_8 ? 140 : 150)
 
-    [SPECIES_AEGISLASH_SHIELD] =
-    {
-        AEGISLASH_MISC_INFO,
-        .baseHP        = 60,
-        .baseAttack    = 50,
-        .baseDefense   = AEGISLASH_MAIN_STAT,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 50,
-        .baseSpDefense = AEGISLASH_MAIN_STAT,
-        .evYield_Defense = 2,
-        .evYield_SpDefense = 1,
-        .description = POKEDEX_DESC_STRING(
-            "In this defensive stance,\n"
-            "Aegislash uses its steel body and a force\n"
-            "field of spectral power to reduce the\n"
-            "damage of any attack."),
-        FRONT_PIC(AegislashShield, 56, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_AegislashShield,
-        .frontAnimId = ANIM_H_VIBRATE,
-        .enemyMonElevation = 3,
-        BACK_PIC(AegislashShield, 64, 64),
-        .backPicYOffset = 9,
-        .backAnimId = BACK_ANIM_H_VIBRATE,
-        PALETTES(AegislashShield),
-        ICON(AegislashShield, 2),
-    },
+//     [SPECIES_AEGISLASH_SHIELD] =
+//     {
+//         AEGISLASH_MISC_INFO,
+//         .baseHP        = 60,
+//         .baseAttack    = 50,
+//         .baseDefense   = AEGISLASH_MAIN_STAT,
+//         .baseSpeed     = 60,
+//         .baseSpAttack  = 50,
+//         .baseSpDefense = AEGISLASH_MAIN_STAT,
+//         .evYield_Defense = 2,
+//         .evYield_SpDefense = 1,
+//         .description = POKEDEX_DESC_STRING(
+//             "In this defensive stance,\n"
+//             "Aegislash uses its steel body and a force\n"
+//             "field of spectral power to reduce the\n"
+//             "damage of any attack."),
+//         FRONT_PIC(AegislashShield, 56, 64),
+//         .frontPicYOffset = 0,
+//         .frontAnimFrames = sAnims_AegislashShield,
+//         .frontAnimId = ANIM_H_VIBRATE,
+//         .enemyMonElevation = 3,
+//         BACK_PIC(AegislashShield, 64, 64),
+//         .backPicYOffset = 9,
+//         .backAnimId = BACK_ANIM_H_VIBRATE,
+//         PALETTES(AegislashShield),
+//         ICON(AegislashShield, 2),
+//     },
 
-    [SPECIES_AEGISLASH_BLADE] =
-    {
-        AEGISLASH_MISC_INFO,
-        .baseHP        = 60,
-        .baseAttack    = AEGISLASH_MAIN_STAT,
-        .baseDefense   = 50,
-        .baseSpeed     = 60,
-        .baseSpAttack  = AEGISLASH_MAIN_STAT,
-        .baseSpDefense = 50,
-        .evYield_Attack = 2,
-        .evYield_SpAttack = 1,
-        .description = POKEDEX_DESC_STRING(
-            "Once upon a time, a king with an\n"
-            "Aegislash reigned over the land. His\n"
-            "Pokémon eventually drained him of\n"
-            "life, and his kingdom fell with him."),
-        FRONT_PIC(AegislashBlade, 64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_AegislashBlade,
-        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
-        .enemyMonElevation = 3,
-        BACK_PIC(AegislashBlade, 64, 64),
-        .backPicYOffset = 9,
-        .backAnimId = BACK_ANIM_JOLT_RIGHT,
-        PALETTES(AegislashBlade),
-        ICON(AegislashBlade, 2),
-    },
-#endif //P_FAMILY_HONEDGE
+//     [SPECIES_AEGISLASH_BLADE] =
+//     {
+//         AEGISLASH_MISC_INFO,
+//         .baseHP        = 60,
+//         .baseAttack    = AEGISLASH_MAIN_STAT,
+//         .baseDefense   = 50,
+//         .baseSpeed     = 60,
+//         .baseSpAttack  = AEGISLASH_MAIN_STAT,
+//         .baseSpDefense = 50,
+//         .evYield_Attack = 2,
+//         .evYield_SpAttack = 1,
+//         .description = POKEDEX_DESC_STRING(
+//             "Once upon a time, a king with an\n"
+//             "Aegislash reigned over the land. His\n"
+//             "Pokémon eventually drained him of\n"
+//             "life, and his kingdom fell with him."),
+//         FRONT_PIC(AegislashBlade, 64, 64),
+//         .frontPicYOffset = 0,
+//         .frontAnimFrames = sAnims_AegislashBlade,
+//         .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
+//         .enemyMonElevation = 3,
+//         BACK_PIC(AegislashBlade, 64, 64),
+//         .backPicYOffset = 9,
+//         .backAnimId = BACK_ANIM_JOLT_RIGHT,
+//         PALETTES(AegislashBlade),
+//         ICON(AegislashBlade, 2),
+//     },
+// #endif //P_FAMILY_HONEDGE
 
 #if P_FAMILY_SPRITZEE
     [SPECIES_SPRITZEE] =
@@ -2282,103 +2282,103 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
     },
 #endif //P_FAMILY_SWIRLIX
 
-#if P_FAMILY_INKAY
-    [SPECIES_INKAY] =
-    {
-        .baseHP        = 53,
-        .baseAttack    = 54,
-        .baseDefense   = 53,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 37,
-        .baseSpDefense = 46,
-        .types = { TYPE_DARK, TYPE_PSYCHIC },
-        .catchRate = 190,
-        .expYield = 58,
-        .evYield_Attack = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
-        .abilities = { ABILITY_CONTRARY, ABILITY_SUCTION_CUPS, ABILITY_INFILTRATOR },
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Inkay"),
-        .cryId = CRY_INKAY,
-        .natDexNum = NATIONAL_DEX_INKAY,
-        .categoryName = _("Revolving"),
-        .height = 4,
-        .weight = 35,
-        .description = POKEDEX_DESC_STRING(
-            "It flashes the light-emitting spots on its\n"
-            "body, which drains its opponent's will\n"
-            "to fight. It takes the opportunity to\n"
-            "scuttle away and hide."),
-        .pokemonScale = 491,
-        .pokemonOffset = 12,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-        FRONT_PIC(Inkay, 48, 48),
-        .frontPicYOffset = 14,
-        .frontAnimFrames = sAnims_Inkay,
-        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
-        .enemyMonElevation = 14,
-        BACK_PIC(Inkay, 56, 64),
-        .backPicYOffset = 9,
-        .backAnimId = BACK_ANIM_SHRINK_GROW,
-        PALETTES(Inkay),
-        ICON(Inkay, 0),
-        .footprint = gMonFootprint_Inkay,
-        LEARNSETS(Inkay),
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MALAMAR}),
-    },
+// #if P_FAMILY_INKAY
+//     [SPECIES_INKAY] =
+//     {
+//         .baseHP        = 53,
+//         .baseAttack    = 54,
+//         .baseDefense   = 53,
+//         .baseSpeed     = 45,
+//         .baseSpAttack  = 37,
+//         .baseSpDefense = 46,
+//         .types = { TYPE_DARK, TYPE_PSYCHIC },
+//         .catchRate = 190,
+//         .expYield = 58,
+//         .evYield_Attack = 1,
+//         .genderRatio = PERCENT_FEMALE(50),
+//         .eggCycles = 20,
+//         .friendship = STANDARD_FRIENDSHIP,
+//         .growthRate = GROWTH_MEDIUM_FAST,
+//         .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
+//         .abilities = { ABILITY_CONTRARY, ABILITY_SUCTION_CUPS, ABILITY_INFILTRATOR },
+//         .bodyColor = BODY_COLOR_BLUE,
+//         .speciesName = _("Inkay"),
+//         .cryId = CRY_INKAY,
+//         .natDexNum = NATIONAL_DEX_INKAY,
+//         .categoryName = _("Revolving"),
+//         .height = 4,
+//         .weight = 35,
+//         .description = POKEDEX_DESC_STRING(
+//             "It flashes the light-emitting spots on its\n"
+//             "body, which drains its opponent's will\n"
+//             "to fight. It takes the opportunity to\n"
+//             "scuttle away and hide."),
+//         .pokemonScale = 491,
+//         .pokemonOffset = 12,
+//         .trainerScale = 256,
+//         .trainerOffset = 0,
+//         FRONT_PIC(Inkay, 48, 48),
+//         .frontPicYOffset = 14,
+//         .frontAnimFrames = sAnims_Inkay,
+//         .frontAnimId = ANIM_V_SLIDE_WOBBLE,
+//         .enemyMonElevation = 14,
+//         BACK_PIC(Inkay, 56, 64),
+//         .backPicYOffset = 9,
+//         .backAnimId = BACK_ANIM_SHRINK_GROW,
+//         PALETTES(Inkay),
+//         ICON(Inkay, 0),
+//         .footprint = gMonFootprint_Inkay,
+//         LEARNSETS(Inkay),
+//         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MALAMAR}),
+//     },
 
-    [SPECIES_MALAMAR] =
-    {
-        .baseHP        = 86,
-        .baseAttack    = 92,
-        .baseDefense   = 88,
-        .baseSpeed     = 73,
-        .baseSpAttack  = 68,
-        .baseSpDefense = 75,
-        .types = { TYPE_DARK, TYPE_PSYCHIC },
-        .catchRate = 80,
-        .expYield = 169,
-        .evYield_Attack = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
-        .abilities = { ABILITY_CONTRARY, ABILITY_SUCTION_CUPS, ABILITY_INFILTRATOR },
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Malamar"),
-        .cryId = CRY_MALAMAR,
-        .natDexNum = NATIONAL_DEX_MALAMAR,
-        .categoryName = _("Overturning"),
-        .height = 15,
-        .weight = 470,
-        .description = POKEDEX_DESC_STRING(
-            "It lures prey close with hypnotic motions,\n"
-            "then wraps its tentacles around it before\n"
-            "finishing it off with digestive fluids. It\n"
-            "forces others to do whatever it wants."),
-        .pokemonScale = 268,
-        .pokemonOffset = 2,
-        .trainerScale = 271,
-        .trainerOffset = 0,
-        FRONT_PIC(Malamar, 64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_Malamar,
-        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
-        BACK_PIC(Malamar, 64, 56),
-        .backPicYOffset = 8,
-        .backAnimId = BACK_ANIM_V_STRETCH,
-        PALETTES(Malamar),
-        ICON(Malamar, 2),
-        .footprint = gMonFootprint_Malamar,
-        LEARNSETS(Malamar),
-    },
-#endif //P_FAMILY_INKAY
+//     [SPECIES_MALAMAR] =
+//     {
+//         .baseHP        = 86,
+//         .baseAttack    = 92,
+//         .baseDefense   = 88,
+//         .baseSpeed     = 73,
+//         .baseSpAttack  = 68,
+//         .baseSpDefense = 75,
+//         .types = { TYPE_DARK, TYPE_PSYCHIC },
+//         .catchRate = 80,
+//         .expYield = 169,
+//         .evYield_Attack = 2,
+//         .genderRatio = PERCENT_FEMALE(50),
+//         .eggCycles = 20,
+//         .friendship = STANDARD_FRIENDSHIP,
+//         .growthRate = GROWTH_MEDIUM_FAST,
+//         .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
+//         .abilities = { ABILITY_CONTRARY, ABILITY_SUCTION_CUPS, ABILITY_INFILTRATOR },
+//         .bodyColor = BODY_COLOR_BLUE,
+//         .speciesName = _("Malamar"),
+//         .cryId = CRY_MALAMAR,
+//         .natDexNum = NATIONAL_DEX_MALAMAR,
+//         .categoryName = _("Overturning"),
+//         .height = 15,
+//         .weight = 470,
+//         .description = POKEDEX_DESC_STRING(
+//             "It lures prey close with hypnotic motions,\n"
+//             "then wraps its tentacles around it before\n"
+//             "finishing it off with digestive fluids. It\n"
+//             "forces others to do whatever it wants."),
+//         .pokemonScale = 268,
+//         .pokemonOffset = 2,
+//         .trainerScale = 271,
+//         .trainerOffset = 0,
+//         FRONT_PIC(Malamar, 64, 64),
+//         .frontPicYOffset = 0,
+//         .frontAnimFrames = sAnims_Malamar,
+//         .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+//         BACK_PIC(Malamar, 64, 56),
+//         .backPicYOffset = 8,
+//         .backAnimId = BACK_ANIM_V_STRETCH,
+//         PALETTES(Malamar),
+//         ICON(Malamar, 2),
+//         .footprint = gMonFootprint_Malamar,
+//         LEARNSETS(Malamar),
+//     },
+// #endif //P_FAMILY_INKAY
 
 #if P_FAMILY_BINACLE
     [SPECIES_BINACLE] =

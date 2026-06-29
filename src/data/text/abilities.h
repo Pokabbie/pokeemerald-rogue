@@ -49,7 +49,7 @@ static const u8 sThickFatDescription[] = _("Heat-and-cold protection.");
 static const u8 sEarlyBirdDescription[] = _("Awakens quickly from sleep.");
 static const u8 sFlameBodyDescription[] = _("Burns the foe on contact.");
 static const u8 sRunAwayDescription[] = _("Makes escaping easier.");
-static const u8 sKeenEyeDescription[] = _("Prevents loss of accuracy.");
+static const u8 sKeenEyeDescription[] = _("Ignores target's evasion.");
 static const u8 sHyperCutterDescription[] = _("Prevents Attack reduction.");
 static const u8 sPickupDescription[] = _("May pick up items.");
 static const u8 sTruantDescription[] = _("Moves only every two turns.");
@@ -63,9 +63,9 @@ static const u8 sShedSkinDescription[] = _("Heals the body by shedding.");
 static const u8 sGutsDescription[] = _("Ups Attack if suffering.");
 static const u8 sMarvelScaleDescription[] = _("Ups Defense if suffering.");
 static const u8 sLiquidOozeDescription[] = _("Draining causes injury.");
-static const u8 sOvergrowDescription[] = _("Ups Grass moves in a pinch.");
-static const u8 sBlazeDescription[] = _("Ups Fire moves in a pinch.");
-static const u8 sTorrentDescription[] = _("Ups Water moves in a pinch.");
+static const u8 sOvergrowDescription[] = _("Grass moves never miss.");
+static const u8 sBlazeDescription[] = _("Fire moves never miss.");
+static const u8 sTorrentDescription[] = _("Water moves never miss.");
 static const u8 sSwarmDescription[] = _("Ups Bug moves in a pinch.");
 static const u8 sRockHeadDescription[] = _("Prevents recoil damage.");
 static const u8 sDroughtDescription[] = _("Summons sunlight in battle.");
@@ -303,6 +303,15 @@ static const u8 sTeraformZeroDescription[] = _("Removes weather and terrain.");
 static const u8 sPoisonPuppeteerDescription[] = _("Confuses poisoned foes.");
 
 static const u8 sForecastPriorityDescription[] = _("Weather moves go first.");
+
+// D2D Ability Descriptions
+static const u8 sBomberDescription[] = _("Adaptive explosion damage.");
+static const u8 sGreenhouseDescription[] = _("Grows berries to share.");
+static const u8 sBlendInDescription[] = _("Type matches opponent's.");
+static const u8 sCloneDescription[] = _("Transforms into its ally.");
+static const u8 sBellowDescription[] = _("Powers up breath moves.");
+static const u8 sElementalDescription[] = _("Normal moves match type.");
+static const u8 sInfinityDescription[] = _("Random moves every turn.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -620,6 +629,14 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_POISON_PUPPETEER] = _("Poison Puppeteer"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
+
+    [ABILITY_D2D_BOMBER] = _("Bomber"),
+    [ABILITY_D2D_GREENHOUSE] = _("Greenhouse"),
+    [ABILITY_D2D_BLEND_IN] = _("Blend In"),
+    [ABILITY_D2D_CLONE] = _("Clone"),
+    [ABILITY_D2D_BELLOW] = _("Bellow"),
+    [ABILITY_D2D_ELEMENTAL] = _("Elemental"),
+    [ABILITY_D2D_INFINITY] = _("Infinity"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -937,6 +954,14 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_POISON_PUPPETEER] = _("PoisnPuppter"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
+
+    [ABILITY_D2D_BOMBER] = _("Bomber"),
+    [ABILITY_D2D_GREENHOUSE] = _("Greenhouse"),
+    [ABILITY_D2D_BLEND_IN] = _("Blend In"),
+    [ABILITY_D2D_CLONE] = _("Clone"),
+    [ABILITY_D2D_BELLOW] = _("Bellow"),
+    [ABILITY_D2D_ELEMENTAL] = _("Elemental"),
+    [ABILITY_D2D_INFINITY] = _("Infinity"),
 };
 #endif
 
@@ -1255,4 +1280,12 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_POISON_PUPPETEER] = sPoisonPuppeteerDescription,
     
     [ABILITY_FORECAST_PRIORITY] = sForecastPriorityDescription,
+
+    [ABILITY_D2D_BOMBER] = sBomberDescription,
+    [ABILITY_D2D_GREENHOUSE] = sGreenhouseDescription,
+    [ABILITY_D2D_BLEND_IN] = sBlendInDescription,
+    [ABILITY_D2D_CLONE] = sCloneDescription,
+    [ABILITY_D2D_BELLOW] = sBellowDescription,
+    [ABILITY_D2D_ELEMENTAL] = sElementalDescription,
+    [ABILITY_D2D_INFINITY] = sInfinityDescription,
 };

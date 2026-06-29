@@ -178,12 +178,41 @@ script Rogue_Battle_Boss0_Hint
     {
         if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1) == TYPE_NONE)
         {
-            msgbox(format("A Gym Leader who specialises in various types awaits…"), MSGBOX_DEFAULT)
+            msgbox(format("A Gym Leader who specialises in various types awaits..."), MSGBOX_DEFAULT)
         }
         else
         {
             call(Rogue_Boss_BufferTypeHint)
-            msgbox(format("A Gym Leader who specialises in {STR_VAR_1} type Pokémon awaits…"), MSGBOX_DEFAULT)
+            msgbox(format("A Gym Leader who specialises in {STR_VAR_1} type Pokémon awaits."), MSGBOX_DEFAULT)
+
+            // show hints of weather/terrain, as well
+            // if (var(VAR_ROGUE_DIFFICULTY) > 4)
+            // {
+            //     switch(var(STR_VAR_1))
+            //     {
+            //         // weather
+            //         case "Water":
+            //             msgbox(format("There might be rain..."), MSGBOX_DEFAULT)
+            //         case "Electric":
+            //             msgbox(format("There might be rain on an electric terrain..."), MSGBOX_DEFAULT)
+            //         case "Fire":
+            //             msgbox(format("There might be harsh sunlight..."), MSGBOX_DEFAULT)
+            //         case "Ice":
+            //             msgbox(format("There might be cold weather..."), MSGBOX_DEFAULT)
+            //         case "Ground":
+            //         case "Rock":
+            //         case "Steel":
+            //             msgbox(format("There might be a sandstorm..."), MSGBOX_DEFAULT)
+
+            //         // terrain
+            //         case "Psychic":
+            //             msgbox(format("There might be psychic terrain..."), MSGBOX_DEFAULT)
+            //         case "Grass":
+            //             msgbox(format("There might be grassy terrain..."), MSGBOX_DEFAULT)
+            //         case "Fairy":
+            //             msgbox(format("There might be misty terrain..."), MSGBOX_DEFAULT)
+            //     }
+            // }
         }
     }
 

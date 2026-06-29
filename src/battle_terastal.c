@@ -187,7 +187,7 @@ uq4_12_t GetTeraMultiplier(u32 battler, u32 type)
 }
 
 // Most values pulled from the Tera type icon palette.
-const u16 sTeraTypeRGBValues[NUMBER_OF_MON_TYPES] = {
+const u16 sTeraTypeRGBValues[NUMBER_OF_MON_TYPES-NUMBER_OF_D2D_CUSTOM_TYPES] = {
     [TYPE_NORMAL] = RGB_WHITE, // custom
     [TYPE_FIGHTING] = RGB(26, 8, 14),
     [TYPE_FLYING] = RGB(31, 26, 7),

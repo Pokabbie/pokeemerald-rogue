@@ -243,6 +243,17 @@
 #define VARIOUS_TRY_REVIVAL_BLESSING                 150
 #define VARIOUS_APPLY_TERASTALLIZATION               151
 #define VARIOUS_JUMP_IF_NOT_WEATHER_AFFECTED		 152
+#define VARIOUS_SET_ABILITY_OWN_TEMPO				 153
+#define VARIOUS_CURE_CONFUSION                       154
+#define VARIOUS_RANDOMIZE_TYPE						 155
+#define VARIOUS_SET_IMBUE_TYPE						 156
+#define VARIOUS_FORCE_RECHARGE						 157
+#define VARIOUS_DETERMINE_MACH_FIVE_SPEED			 158
+#define VARIOUS_TRY_SCAVENGE						 159
+#define VARIOUS_TRY_FULL_HEAL						 160
+#define VARIOUS_HIDE_BEHIND_ALLY					 161
+#define VARIOUS_JUMP_IF_HP_OVER_HALF				 162
+#define VARIOUS_SET_BELLOW							 163
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
@@ -254,6 +265,7 @@
 #define DMG_BIG_ROOT               6
 #define DMG_1_2_ATTACKER_HP        7
 #define DMG_RECOIL_FROM_IMMUNE     8 // Used to calculate recoil for the Gen 4 version of Jump Kick
+#define DMG_SURVIVE_WITH_1_HP	   9
 
 // Cmd_jumpifcantswitch
 #define SWITCH_IGNORE_ESCAPE_PREVENTION   (1 << 7)

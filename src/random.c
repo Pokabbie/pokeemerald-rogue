@@ -181,6 +181,16 @@ u32 RandomUniformExceptDefault(enum RandomTag tag, u32 lo, u32 hi, bool32 (*reje
     }
 }
 
+u32 RandomInfinityMove(enum RandomTag tag, u32 lo, u32 hi, u32 battler, bool32 (*reject)(u32, u32))
+{
+    while (TRUE)
+    {
+        u32 n = RandomUniformDefault(tag, lo, hi);
+        if (!reject(battler, n))
+            return n;
+    }
+}
+
 u32 RandomWeightedArrayDefault(enum RandomTag tag, u32 sum, u32 n, const u8 *weights)
 {
     s32 i, targetSum;

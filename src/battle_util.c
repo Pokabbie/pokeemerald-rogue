@@ -54,6 +54,9 @@
 #include "rogue_safari.h"
 #include "rogue_quest.h"
 
+// D2D-related includes
+#include "money.h"
+
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
 are actually part of battle_main.c. They needed to be moved to this file in order to
@@ -130,6 +133,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_ILLUSION,
     ABILITY_ZEN_MODE,
     ABILITY_IMPOSTER,
+    ABILITY_D2D_CLONE,
     ABILITY_STANCE_CHANGE,
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
@@ -213,6 +217,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_ZEN_MODE,
     ABILITY_ILLUSION,
     ABILITY_IMPOSTER,
+    ABILITY_D2D_CLONE,
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
     ABILITY_DISGUISE,
@@ -352,7 +357,7 @@ void HandleAction_UseMove(void)
     }
 
     // Set dynamic move type.
-    SetTypeBeforeUsingMove(gChosenMove, gBattlerAttacker);
+    SetTypeBeforeUsingMove(gChosenMove, gBattlerAttacker, gBattlerTarget);
     GET_MOVE_TYPE(gChosenMove, moveType);
 
     // check max move used
@@ -1068,6 +1073,7 @@ static const u8 sHoldEffectToType[][2] =
     {HOLD_EFFECT_DRAGON_POWER, TYPE_DRAGON},
     {HOLD_EFFECT_NORMAL_POWER, TYPE_NORMAL},
     {HOLD_EFFECT_FAIRY_POWER, TYPE_FAIRY},
+    // {HOLD_EFFECT_SOUND_POWER, TYPE_SOUND},
 };
 
 // percent in UQ_4_12 format
@@ -1181,35 +1187,36 @@ static const uq4_12_t sPercentToModifier[] =
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                   Defender -->
- //  Attacker         Normal  Fighting Flying  Poison  Ground   Rock    Bug     Ghost   Steel  Mystery  Fire   Water   Grass  Electric Psychic   Ice   Dragon   Dark   Fairy   Stellar
-    [TYPE_NORMAL]   = {______, ______, ______, ______, ______, X(0.5), ______, X(0.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
-    [TYPE_FIGHTING] = {X(2.0), ______, X(0.5), X(0.5), ______, X(2.0), X(0.5), X(0.0), X(2.0), ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), X(0.5), ______},
-    [TYPE_FLYING]   = {______, X(2.0), ______, ______, ______, X(0.5), X(2.0), ______, X(0.5), ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______},
-    [TYPE_POISON]   = {______, ______, ______, X(0.5), X(0.5), X(0.5), ______, X(0.5), X(0.0), ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, X(2.0), ______},
-    [TYPE_GROUND]   = {______, ______, X(0.0), X(2.0), ______, X(2.0), X(0.5), ______, X(2.0), ______, X(2.0), ______, X(0.5), X(2.0), ______, ______, ______, ______, ______, ______},
-    [TYPE_ROCK]     = {______, X(0.5), X(2.0), ______, X(0.5), ______, X(2.0), ______, X(0.5), ______, X(2.0), ______, ______, ______, ______, X(2.0), ______, ______, ______, ______},
-    [TYPE_BUG]      = {______, X(0.5), X(0.5), X(0.5), ______, ______, ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, X(2.0), ______, ______, X(2.0), X(0.5), ______},
+ //  Attacker         Normal  Fighting Flying  Poison  Ground   Rock    Bug     Ghost   Steel  Mystery  Fire   Water   Grass  Electric Psychic   Ice   Dragon   Dark   Fairy   Stellar  Sound
+    [TYPE_NORMAL]   = {______, ______, ______, ______, ______, X(0.5), ______, X(0.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FIGHTING] = {X(2.0), ______, X(0.5), X(0.5), ______, X(2.0), X(0.5), X(0.0), X(2.0), ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), X(0.5), ______, ______},
+    [TYPE_FLYING]   = {______, X(2.0), ______, ______, ______, X(0.5), X(2.0), ______, X(0.5), ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______, X(0.5)},
+    [TYPE_POISON]   = {______, ______, ______, X(0.5), X(0.5), X(0.5), ______, X(0.5), X(0.0), ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, X(2.0), ______, X(2.0)},
+    [TYPE_GROUND]   = {______, ______, X(0.0), X(2.0), ______, X(2.0), X(0.5), ______, X(2.0), ______, X(2.0), ______, X(0.5), X(2.0), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_ROCK]     = {______, X(0.5), X(2.0), ______, X(0.5), ______, X(2.0), ______, X(0.5), ______, X(2.0), ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______},
+    [TYPE_BUG]      = {______, X(0.5), X(0.5), X(0.5), ______, ______, ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, X(2.0), ______, ______, X(2.0), X(0.5), ______, X(2.0)},
 #if B_STEEL_RESISTANCES >= GEN_6
-    [TYPE_GHOST]    = {X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, ______},
+    [TYPE_GHOST]    = {X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, ______, ______},
 #else
-    [TYPE_GHOST]    = {X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, ______},
+    [TYPE_GHOST]    = {X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, ______, ______},
 #endif
-    [TYPE_STEEL]    = {______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, ______, X(2.0), ______},
-    [TYPE_MYSTERY]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
-    [TYPE_FIRE]     = {______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(2.0), X(0.5), ______, ______, ______},
-    [TYPE_WATER]    = {______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_GRASS]    = {______, ______, X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), ______, X(0.5), ______, X(0.5), X(2.0), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_ELECTRIC] = {______, ______, X(2.0), ______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_PSYCHIC]  = {______, X(2.0), ______, X(2.0), ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, X(0.5), ______, ______, X(0.0), ______, ______},
-    [TYPE_ICE]      = {______, ______, X(2.0), ______, X(2.0), ______, ______, ______, X(0.5), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(0.5), X(2.0), ______, ______, ______},
-    [TYPE_DRAGON]   = {______, ______, ______, ______, ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, X(2.0), ______, X(0.0), ______},
+    [TYPE_STEEL]    = {______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, ______, X(2.0), ______, ______},
+    [TYPE_MYSTERY]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FIRE]     = {______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(2.0), X(0.5), ______, ______, ______, ______},
+    [TYPE_WATER]    = {______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______, ______},
+    [TYPE_GRASS]    = {______, ______, X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), ______, X(0.5), ______, X(0.5), X(2.0), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______, ______},
+    [TYPE_ELECTRIC] = {______, ______, X(2.0), ______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, X(0.5), ______, ______, ______, ______},
+    [TYPE_PSYCHIC]  = {______, X(2.0), ______, X(2.0), ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, X(0.5), ______, ______, X(0.0), ______, ______, X(0.5)},
+    [TYPE_ICE]      = {______, ______, X(2.0), ______, X(2.0), ______, ______, ______, X(0.5), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(0.5), X(2.0), ______, ______, ______, X(2.0)},
+    [TYPE_DRAGON]   = {______, ______, ______, ______, ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, X(2.0), ______, X(0.0), ______, ______},
 #if B_STEEL_RESISTANCES >= GEN_6
-    [TYPE_DARK]     = {______, X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______},
+    [TYPE_DARK]     = {______, X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______, X(0.5)},
 #else
-    [TYPE_DARK]     = {______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______},
+    [TYPE_DARK]     = {______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______, X(0.5)},
 #endif
-    [TYPE_FAIRY]    = {______, X(2.0), ______, X(0.5), ______, ______, ______, ______, X(0.5), ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______},
-    [TYPE_STELLAR]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FAIRY]    = {X(0.5), X(2.0), ______, X(0.5), ______, ______, ______, ______, X(0.5), ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______},
+    [TYPE_STELLAR]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_SOUND]    = {______, ______, X(2.0), ______, X(0.5), X(0.5), ______, X(0.5), X(2.0), ______, ______, X(2.0), X(0.5), ______, X(2.0), X(0.5), ______, ______, ______, ______, X(2.0)},
 };
 
 #undef ______
@@ -1554,6 +1561,41 @@ static bool32 IsBelchPreventingMove(u32 battler, u32 move)
         return FALSE;
 
     return !(gBattleStruct->ateBerry[battler & BIT_SIDE] & gBitTable[gBattlerPartyIndexes[battler]]);
+}
+
+static bool32 InvalidInfinityMove(u32 battler, u32 move)
+{
+    u8 powerCap = 10 + (gBattleMons[battler].level * 2);
+    // lvl 15 --> 40
+    // lvl 25 --> 60
+    // lvl 35 --> 80
+    // lvl 45 --> 100
+    // lvl 55 --> 120
+    // lvl 65 --> 140
+    // lvl 75 --> 160
+    // lvl 85 --> 180
+    // lvl 95 --> 200
+    if (gBattleMons[battler].level == 100)
+    {
+        powerCap = 255;
+    }
+
+    // u8 isWrongLetter = TRUE;
+    // u16 species = gBattleMons[battler].species;
+    // if (species >= SPECIES_UNOWN && species <= SPECIES_UNOWN_Z)
+    // {
+    //     char letter = 'A' + (species - SPECIES_UNOWN);
+    //     DebugPrintf("Letter: %s", letter);
+    //     DebugPrintf("Move name: %s", gMoveNames[move]);
+    //     if (gMoveNames[move][0] == letter)
+    //     {
+    //         isWrongLetter = FALSE;
+    //     }
+    // }
+
+    // return isWrongLetter || (gBattleMoves[move].effect == EFFECT_PLACEHOLDER || gBattleMoves[move].metronomeBanned)
+    return (gBattleMoves[move].effect == EFFECT_PLACEHOLDER || gBattleMoves[move].metronomeBanned)
+    || (gBattleMoves[move].split != SPLIT_STATUS && gBattleMoves[move].power > powerCap);
 }
 
 // Dynamax bypasses all selection prevention except Taunt and Assault Vest.
@@ -3317,7 +3359,7 @@ bool32 HandleWishPerishSongOnTurnEnd(void)
                 gBattlerAttacker = gWishFutureKnock.futureSightAttacker[battler];
                 gSpecialStatuses[gBattlerTarget].shellBellDmg = IGNORE_SHELL_BELL;
                 gCurrentMove = gWishFutureKnock.futureSightMove[battler];
-                SetTypeBeforeUsingMove(gCurrentMove, battler);
+                SetTypeBeforeUsingMove(gCurrentMove, battler, gBattlerTarget);
                 BattleScriptExecute(BattleScript_MonTookFutureAttack);
 
                 if (gWishFutureKnock.futureSightCounter[battler] == 0
@@ -4477,6 +4519,47 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_D2D_CLONE:
+            if (IsBattlerAlive(BATTLE_PARTNER(battler))
+                && !(gBattleMons[BATTLE_PARTNER(battler)].status2 & (STATUS2_TRANSFORMED | STATUS2_SUBSTITUTE))
+                && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
+                && !(gBattleStruct->illusion[BATTLE_PARTNER(battler)].on)
+                && !(gStatuses3[BATTLE_PARTNER(battler)] & STATUS3_SEMI_INVULNERABLE))
+            {
+                gBattlerAttacker = battler;
+                gBattlerTarget = BATTLE_PARTNER(battler);
+                BattleScriptPushCursorAndCallback(BattleScript_ImposterActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_D2D_INFINITY:
+            int i;
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                #if B_METRONOME_MOVES >= GEN_9
+                    u32 moveCount = MOVES_COUNT_GEN9;
+                #elif B_METRONOME_MOVES >= GEN_8
+                    u32 moveCount = MOVES_COUNT_GEN8;
+                #elif B_METRONOME_MOVES >= GEN_7
+                    u32 moveCount = MOVES_COUNT_GEN7;
+                #elif B_METRONOME_MOVES >= GEN_6
+                    u32 moveCount = MOVES_COUNT_GEN6;
+                #elif B_METRONOME_MOVES >= GEN_5
+                    u32 moveCount = MOVES_COUNT_GEN5;
+                #elif B_METRONOME_MOVES >= GEN_4
+                    u32 moveCount = MOVES_COUNT_GEN4;
+                #elif B_METRONOME_MOVES >= GEN_3
+                    u32 moveCount = MOVES_COUNT_GEN3;
+                #elif B_METRONOME_MOVES >= GEN_2
+                    u32 moveCount = MOVES_COUNT_GEN2;
+                #else
+                    u32 moveCount = MOVES_COUNT_GEN1;
+                #endif
+
+                gBattleMons[battler].moves[i] = RandomInfinityMove(RNG_METRONOME, 1, moveCount - 1, battler, InvalidInfinityMove);
+                gBattleMons[battler].pp[i] = 1;
+            }
+            break;
         case ABILITY_MOLD_BREAKER:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
@@ -4580,7 +4663,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 {
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_ANTICIPATION;
                     gSpecialStatuses[battler].switchInAbilityDone = TRUE;
-                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    BattleScriptPushCursorAndCallback(BattleScript_AnticipationStatBoost);
                 }
             }
             break;
@@ -4600,6 +4683,60 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_FOREWARN;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
+        case ABILITY_D2D_BLEND_IN:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+
+                u32 partnerBattler, opposingBattler, battlerToCopy;
+                partnerBattler = BATTLE_PARTNER(battler);
+                opposingBattler = BATTLE_OPPOSITE(battler);
+
+                if (IsBattlerAlive(partnerBattler) || IsBattlerAlive(opposingBattler))
+                {
+                    if (IsBattlerAlive(opposingBattler))
+                    {
+                        battlerToCopy = opposingBattler;
+                    }
+                    else
+                    {
+                        u32 opponent_left = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+                        u32 opponent_right = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+
+                        if (IsBattlerAlive(opponent_left))
+                        {
+                            battlerToCopy = opponent_left;
+                        }
+                        else if (IsBattlerAlive(opponent_right))
+                        {
+                            battlerToCopy = opponent_right;
+                        }
+                        else
+                        {
+                            battlerToCopy = partnerBattler;
+                        }
+                    }
+
+                    gBattleMons[battler].type1 = gBattleMons[battlerToCopy].type1;
+                    gBattleMons[battler].type2 = gBattleMons[battlerToCopy].type2;
+                    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, battlerToCopy, gBattlerPartyIndexes[battlerToCopy]);
+
+                    // BattleScriptPushCursor();
+                    // gBattlescriptCurrInstr = BattleScript_BlendInActivates;
+                    BattleScriptPushCursorAndCallback(BattleScript_BlendInActivates); // Try activate
+                    effect++;
+                }
+            }
+            break;
+        case ABILITY_D2D_ELEMENTAL:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                // PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMons[battler].type1);
+                BattleScriptPushCursorAndCallback(BattleScript_ElementalActivates); // Show switch-in message
                 effect++;
             }
             break;
@@ -5050,6 +5187,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             {
             case ABILITY_HARVEST:
                 if ((IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || Random() % 2 == 0)
+                 && !IsBattlerWeatherAffected(battler, B_WEATHER_HAIL)
                  && gBattleMons[battler].item == ITEM_NONE
                  && gBattleStruct->changedItems[battler] == ITEM_NONE   // Will not inherit an item
                  && ItemId_GetPocket(GetUsedHeldItem(battler)) == POCKET_BERRIES)
@@ -5057,6 +5195,62 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gLastUsedItem = GetUsedHeldItem(battler);
                     BattleScriptPushCursorAndCallback(BattleScript_HarvestActivates);
                     effect++;
+                }
+                break;
+            case ABILITY_D2D_GREENHOUSE:
+                // if Tropisaur holds a berry and has a living ally without an item, give them its berry
+                // DebugPrintf( "Pocket: %d (should be %d)", ItemId_GetPocket(gBattleMons[battler].item), POCKET_BERRIES );
+                // DebugPrintf( "Partner alive: %b", IsBattlerAlive(BATTLE_PARTNER(battler)) );
+                // DebugPrintf( "Partner item: %d (should be %d)", gBattleMons[BATTLE_PARTNER(battler)].item, ITEM_NONE );
+                if (ItemId_GetPocket(gBattleMons[battler].item) == POCKET_BERRIES
+                    && IsBattlerAlive(BATTLE_PARTNER(battler))
+                    && gBattleMons[BATTLE_PARTNER(battler)].item == ITEM_NONE)
+                    // && gBattleStruct->changedItems[BATTLE_PARTNER(battler)] == ITEM_NONE)   // "Will not inherit an item"
+                {
+                    gBattleMons[BATTLE_PARTNER(battler)].item = GetUsedHeldItem(battler);
+                    gBattleMons[battler].item = ITEM_NONE;
+
+                    BattleScriptPushCursorAndCallback(BattleScript_GreenhouseActivates);
+                    effect++;
+                }
+                // otherwise, try recycling berry
+                else if ((IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || Random() % 2 == 0)
+                    && !IsBattlerWeatherAffected(battler, B_WEATHER_HAIL)
+                    && gBattleMons[battler].item == ITEM_NONE
+                    && gBattleStruct->changedItems[battler] == ITEM_NONE
+                    && ItemId_GetPocket(GetUsedHeldItem(battler)) == POCKET_BERRIES)
+                {
+                    gLastUsedItem = GetUsedHeldItem(battler);
+                    BattleScriptPushCursorAndCallback(BattleScript_HarvestActivates);
+                    effect++;
+                }
+                break;
+            case ABILITY_D2D_INFINITY:
+                int i;
+                for (i = 0; i < MAX_MON_MOVES; i++)
+                {
+                    #if B_METRONOME_MOVES >= GEN_9
+                        u32 moveCount = MOVES_COUNT_GEN9;
+                    #elif B_METRONOME_MOVES >= GEN_8
+                        u32 moveCount = MOVES_COUNT_GEN8;
+                    #elif B_METRONOME_MOVES >= GEN_7
+                        u32 moveCount = MOVES_COUNT_GEN7;
+                    #elif B_METRONOME_MOVES >= GEN_6
+                        u32 moveCount = MOVES_COUNT_GEN6;
+                    #elif B_METRONOME_MOVES >= GEN_5
+                        u32 moveCount = MOVES_COUNT_GEN5;
+                    #elif B_METRONOME_MOVES >= GEN_4
+                        u32 moveCount = MOVES_COUNT_GEN4;
+                    #elif B_METRONOME_MOVES >= GEN_3
+                        u32 moveCount = MOVES_COUNT_GEN3;
+                    #elif B_METRONOME_MOVES >= GEN_2
+                        u32 moveCount = MOVES_COUNT_GEN2;
+                    #else
+                        u32 moveCount = MOVES_COUNT_GEN1;
+                    #endif
+
+                    gBattleMons[battler].moves[i] = RandomInfinityMove(RNG_METRONOME, 1, moveCount - 1, battler, InvalidInfinityMove);
+                    gBattleMons[battler].pp[i] = 1;
                 }
                 break;
             case ABILITY_DRY_SKIN:
@@ -8914,7 +9108,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = gBattleStruct->magnitudeBasePower;
         break;
     case EFFECT_PRESENT:
-        basePower = gBattleStruct->presentBasePower;
+        // basePower = gBattleStruct->presentBasePower;
         break;
     case EFFECT_TRIPLE_KICK:
         if (gMultiHitCounter == 0) // Calc damage with max BP for move consideration
@@ -8958,6 +9152,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_INFERNAL_PARADE:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY || abilityDef == ABILITY_COMATOSE)
             basePower *= 2;
+        break;
+    case EFFECT_D2D_SCATTERBLAST:
+        if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY)
+            basePower*= 2;
         break;
     case EFFECT_ASSURANCE:
         if (gProtectStructs[battlerDef].physicalDmg != 0 || gProtectStructs[battlerDef].specialDmg != 0 || gProtectStructs[battlerDef].confusionSelfDmg)
@@ -9013,9 +9211,16 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = sSpeedDiffPowerTable[speed];
         break;
     case EFFECT_GYRO_BALL:
-        basePower = ((25 * GetBattlerTotalSpeedStat(battlerDef)) / GetBattlerTotalSpeedStat(battlerAtk)) + 1;
-        if (basePower > 150)
-            basePower = 150;
+        u8 baseSpeedDiff = gSpeciesInfo[gBattleMons[battlerDef].species].baseSpeed - gSpeciesInfo[gBattleMons[battlerAtk].species].baseSpeed;
+        int8_t speedBoostDiff = gBattleMons[battlerDef].statStages[STAT_SPEED] - gBattleMons[battlerAtk].statStages[STAT_SPEED];
+        basePower = ( 20 + baseSpeedDiff ) * ( 1.0 + ( speedBoostDiff * 0.25 ) );
+        DebugPrintf( "Gyro Ball had %d base power (diffs: %d / %d)", basePower, baseSpeedDiff, speedBoostDiff );
+
+        // basePower = ((25 * GetBattlerTotalSpeedStat(battlerDef)) / GetBattlerTotalSpeedStat(battlerAtk)) + 1;
+        // // if (basePower < 0)
+        //     // basePower = 10
+        // if (basePower > 150)
+        //     basePower = 150;
         break;
     case EFFECT_ECHOED_VOICE:
         // gBattleStruct->sameMoveTurns incremented in ppreduce
@@ -9120,6 +9325,30 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_LAST_RESPECTS:
         basePower += (basePower * min(100, GetBattlerSideFaintCounter(battlerAtk)));
         break;
+    case EFFECT_D2D_MACH_5:
+        int8_t speedBoosts = gBattleMons[battlerAtk].statStages[STAT_SPEED] - 6;
+        if (gBattleMons[battlerAtk].status1 & STATUS1_PARALYSIS)
+            speedBoosts -= 2;
+        if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_TAILWIND)
+            speedBoosts += 2;
+        basePower = 20 + ( ( gSpeciesInfo[gBattleMons[battlerAtk].species].baseSpeed * 0.25 ) + ( speedBoosts * 20 ) );
+        PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 3, basePower);
+
+        // DebugPrintf( "Mach 5 had %d base power (%d speed boosts)", basePower, speedBoosts );
+        // with 80 base speed (blaziken): 40 base power. each +1 Speed increase adds an extra 20 base power (160 BP max)
+        // with 160 base speed (ninjask): 60 base power. each +1 Speed increase adds an extra 20 base power (180 BP max)
+        break;
+    case EFFECT_D2D_MONEY_SHOT:
+        u32 money = GetMoney(&gSaveBlock1Ptr->money);
+        if (money <= 100000)
+        {
+            basePower = 20 + (money * 0.0008);
+        }
+        else
+        {
+            basePower = 100 + (money * 0.0001);
+        }
+        break;
     }
 
     // Move-specific base power changes
@@ -9189,6 +9418,12 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             && CanBattlerGetOrLoseItem(battlerDef, gBattleMons[battlerDef].item))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
+    // case EFFECT_D2D_ENERGIZE:
+    // case EFFECT_D2D_ICE_BATH:
+    // case EFFECT_D2D_BLOODLETTING:
+    //     if ( GetBattlerSide(battlerAtk) == GetBattlerSide(battlerDef) )
+    //         modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+    //     break;
     }
 
     // various effects
@@ -9197,6 +9432,8 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     if (gSpecialStatuses[battlerAtk].gemBoost)
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.0) + sPercentToModifier[gSpecialStatuses[battlerAtk].gemParam]);
     if (gStatuses3[battlerAtk] & STATUS3_CHARGED_UP && moveType == TYPE_ELECTRIC)
+        modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+    if (gStatuses4[battlerAtk] & STATUS4_D2D_BELLOW && (gBattleMoves[move].breathMove || gBattleMoves[move].soundMove))
         modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
     if (gStatuses3[battlerAtk] & STATUS3_ME_FIRST)
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
@@ -9355,6 +9592,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break;
     case ABILITY_SUPREME_OVERLORD:
         modifier = uq4_12_multiply(modifier, GetSupremeOverlordModifier(battlerAtk));
+        break;
+    case ABILITY_D2D_BELLOW:
+        if (gBattleMoves[move].breathMove)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     }
 
@@ -9986,6 +10227,15 @@ static inline uq4_12_t GetBurnOrFrostBiteModifier(u32 battlerAtk, u32 move, u32 
     return UQ_4_12(1.0);
 }
 
+static inline uq4_12_t GetD2DImbueModifier(u32 battlerAtk)
+{
+    if ((gStatuses4[battlerAtk] & STATUS4_D2D_ENFLAME)
+        || (gStatuses4[battlerAtk] & STATUS4_D2D_ENFROST)
+        || (gStatuses4[battlerAtk] & STATUS4_D2D_ENTHUNDER))
+        return UQ_4_12(1.0);
+    return UQ_4_12(1.0);
+}
+
 static inline uq4_12_t GetCriticalModifier(bool32 isCrit)
 {
     if (isCrit)
@@ -10253,6 +10503,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     }
     DAMAGE_APPLY_MODIFIER(typeEffectivenessModifier);
     DAMAGE_APPLY_MODIFIER(GetBurnOrFrostBiteModifier(battlerAtk, move, abilityAtk));
+    DAMAGE_APPLY_MODIFIER(GetD2DImbueModifier(battlerAtk));
     DAMAGE_APPLY_MODIFIER(GetZMaxMoveAgainstProtectionModifier(battlerDef, move));
     DAMAGE_APPLY_MODIFIER(GetOtherModifiers(move, moveType, battlerAtk, battlerDef, isCrit, typeEffectivenessModifier, updateFlags, abilityAtk, abilityDef, holdEffectAtk, holdEffectDef));
 
@@ -10330,6 +10581,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_D2D_BLADE_SLASH && defType == TYPE_GRASS)
         mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
@@ -10464,11 +10717,85 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE)
-            modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        {
+            if (move == MOVE_D2D_CAMO_CLAW)
+            {
+                u8 type1 = GetBattlerType(battlerAtk, 0, FALSE);
+                u8 type2 = GetBattlerType(battlerAtk, 1, FALSE);
+                if (type1 != type2)
+                {
+                    modifier = CalcTypeEffectivenessMultiplierInternal(move, type2, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+                }
+            }
+            else
+            {
+                modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+            }
+        }
+        // // below code makes imbues add Fire/Ice/Electric to ANY move
+        // else if (moveType != TYPE_NORMAL)
+        // {
+        //     if ((gStatuses4[battlerAtk] & STATUS4_D2D_ENFLAME) && moveType != TYPE_FIRE)
+        //     {
+        //         modifier = CalcTypeEffectivenessMultiplierInternal(move, TYPE_FIRE, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //     }
+        //     else if ((gStatuses4[battlerAtk] & STATUS4_D2D_ENFROST) && moveType != TYPE_ICE)
+        //     {
+        //         modifier = CalcTypeEffectivenessMultiplierInternal(move, TYPE_ICE, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //     }
+        //     else if ((gStatuses4[battlerAtk] & STATUS4_D2D_ENTHUNDER) && moveType != TYPE_ELECTRIC)
+        //     {
+        //         modifier = CalcTypeEffectivenessMultiplierInternal(move, TYPE_ELECTRIC, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //     }
+        // }
+        // // below code was an attempt to make the Bomber explosion adapt to secondary types as well
+        // else if (gBattleMons[battlerAtk].ability == ABILITY_D2D_BOMBER && gBattleMoves[move].effect == EFFECT_EXPLOSION)
+        // {
+        //     u8 type1 = GetBattlerType(battlerAtk, 0, FALSE);
+        //     u8 type2 = GetBattlerType(battlerAtk, 1, FALSE);
+        //     if (type1 != type2)
+        //     {
+        //         uq4_12_t mtp1 = CalcPartyMonTypeEffectivenessMtpByType(move, type1, battlerDef, gBattleMons[battlerDef].ability);
+        //         uq4_12_t mtp2 = CalcPartyMonTypeEffectivenessMtpByType(move, type2, battlerDef, gBattleMons[battlerDef].ability);
+        //         // if the defender is weaker against the user's secondary type, use the secondary type
+        //         if (mtp2 > mtp1)
+        //         {
+        //             modifier = CalcTypeEffectivenessMultiplierInternal(move, type2, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //         }
+        //         // otherwise, just use the primary type
+        //         else
+        //         {
+        //             modifier = CalcTypeEffectivenessMultiplierInternal(move, type1, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        //     }
+        // }
     }
 
     if (recordAbilities)
         UpdateMoveResultFlags(modifier);
+    return modifier;
+}
+
+uq4_12_t CalcPartyMonTypeEffectivenessMtpByType(u16 move, u8 moveType, u16 speciesDef, u16 abilityDef)
+{
+    uq4_12_t modifier = UQ_4_12(1.0);
+
+    if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
+    {
+        MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[0], 0, FALSE);
+        if (gSpeciesInfo[speciesDef].types[1] != gSpeciesInfo[speciesDef].types[0])
+            MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[1], 0, FALSE);
+
+        if (moveType == TYPE_GROUND && abilityDef == ABILITY_LEVITATE && !(gFieldStatuses & STATUS_FIELD_GRAVITY))
+            modifier = UQ_4_12(0.0);
+        if (abilityDef == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0) && gBattleMoves[move].power)
+            modifier = UQ_4_12(0.0);
+    }
+
     return modifier;
 }
 

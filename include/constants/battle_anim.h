@@ -567,6 +567,7 @@
 #define B_ANIM_SWAMP                    44
 #define B_ANIM_TERA_CHARGE              45
 #define B_ANIM_TERA_ACTIVATE            46
+#define B_ANIM_GREENHOUSE				47
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

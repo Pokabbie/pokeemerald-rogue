@@ -709,8 +709,18 @@
 
 // D2D Custom Strings
 #define STRINGID_D2D_WEATHERCLEARED					  707
+#define STRINGID_D2D_SHAREDBERRY                      708
+#define STRINGID_PROTEANLICKEFFECT					  709
+#define STRINGID_PKMNACQUIREDOWNTEMPO				  710
+#define STRINGID_D2D_STATUSIMBUED					  711
+#define STRINGID_D2D_BLENDINACTIVATES				  712
+#define STRINGID_D2D_MACH5SPEED						  713
+#define STRINGID_D2D_SCAVENGEITEMFOUND				  714
+#define STRINGID_D2D_ELEMENTALACTIVATES				  715
+#define STRINGID_D2D_PKMNHIDEBEHINDALLY				  716
+#define STRINGID_D2D_PKMNDEEPBREATH					  717
 
-#define BATTLESTRINGS_COUNT                           708
+#define BATTLESTRINGS_COUNT                           718
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

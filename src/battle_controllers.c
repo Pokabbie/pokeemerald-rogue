@@ -2707,10 +2707,10 @@ void BtlController_HandleHealthBarUpdate(u32 battler, bool32 updateHpText)
     }
     else
     {
-        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 0, hpVal);
+        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 1, hpVal);
         if (updateHpText)
-            UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], HP_CURRENT, 0, maxHP);
-        TestRunner_Battle_RecordHP(battler, curHP, 0);
+            UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], HP_CURRENT, 1, maxHP);
+        TestRunner_Battle_RecordHP(battler, curHP, 1);
     }
 
     gBattlerControllerFuncs[battler] = Controller_WaitForHealthBar;

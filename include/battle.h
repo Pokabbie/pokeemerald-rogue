@@ -765,6 +765,9 @@ struct BattleStruct
     u8 supersweetSyrup[NUM_BATTLE_SIDES];
     u8 supremeOverlordCounter[MAX_BATTLERS_COUNT];
     u8 distortedTypeMatchups;
+    
+    // D2D
+    u16 lastKnockedOffItem;
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,
@@ -1108,6 +1111,9 @@ extern u8 gLastUsedBall;
 extern u16 gBallToDisplay;
 extern bool8 gLastUsedBallMenuPresent;
 extern u8 gPartyCriticalHits[PARTY_SIZE];
+
+// D2D
+extern u16 lastKnockedOffItem;
 
 static inline u32 GetBattlerPosition(u32 battler)
 {

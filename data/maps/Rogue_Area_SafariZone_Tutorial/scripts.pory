@@ -88,7 +88,7 @@ script Rogue_Area_SafariZone_Tutorial_FrameEnter
         warp(MAP_ROGUE_INTERIOR_PROF_LAB, 2)
 
         // D2D STUFF
-        givemon(SPECIES_CASTFORM_NORMAL, 5)
+        // givemon(SPECIES_CASTFORM_NORMAL, 5)
 
         release
     }

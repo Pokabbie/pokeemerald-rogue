@@ -2685,28 +2685,28 @@ static const u8 sUtilityUmbrellaDesc[] = _(
 
 // Berries
 static const u8 sCheriBerryDesc[] = _(
-    "A hold item that\n"
-    "heals paralysis\n"
+    "Heals paralysis\n"
+    "and raises Speed\n"
     "in battle.");
 
 static const u8 sChestoBerryDesc[] = _(
-    "A hold item that\n"
-    "awakens Pokémon\n"
+    "Awakens Pokémon\n"
+    "and raises Speed\n"
     "in battle.");
 
 static const u8 sPechaBerryDesc[] = _(
-    "A hold item that\n"
-    "heals poisoning\n"
+    "Heals poisoning\n"
+    "and raises Speed\n"
     "in battle.");
 
 static const u8 sRawstBerryDesc[] = _(
-    "A hold item that\n"
-    "heals a burn in\n"
+    "Heals a burn and\n"
+    "raises Speed in\n"
     "battle.");
 
 static const u8 sAspearBerryDesc[] = _(
-    "A hold item that\n"
-    "defrosts Pokémon\n"
+    "Defrosts Pokémon\n"
+    "and raises Speed\n"
     "in battle.");
 
 static const u8 sLeppaBerryDesc[] = _(
@@ -2720,8 +2720,8 @@ static const u8 sOranBerryDesc[] = _(
     "battle.");
 
 static const u8 sPersimBerryDesc[] = _(
-    "A hold item that\n"
-    "heals confusion\n"
+    "Heals confusion\n"
+    "and raises Speed\n"
     "in battle.");
 
 static const u8 sLumBerryDesc[] = _(

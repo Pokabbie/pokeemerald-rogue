@@ -1054,21 +1054,320 @@ script Rogue_SpeakDaycareLady
 {
     lock
     faceplayer
-    msgbox(format("Why hello dear!\nI'm the Day Care Lady.\pI can hold onto Pokémon for you, if you'd like."), MSGBOX_DEFAULT)
+    msgbox(format("Why hello dear!\nI'm the Day Care Lady.\pI can hold onto Pokémon for you, if you'd like?"), MSGBOX_YESNO)
 
-    message(format("Which {PKMN} slot are you interested in?"))
-    waitmessage
-
-    multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
-
-    switch(var(VAR_RESULT))
+    if(var(VAR_RESULT) == YES)
     {
-        case MULTI_B_PRESSED:
-            setvar(VAR_RESULT, NO)
+        message(format("Which {PKMN} slot are you interested in?"))
+        waitmessage
 
-        default:
-            copyvar(VAR_0x8005, VAR_RESULT)
-            call(Rogue_SpeakDaycareLady_TrySwapMon)
+        multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+
+            default:
+                copyvar(VAR_0x8005, VAR_RESULT)
+                call(Rogue_SpeakDaycareLady_TrySwapMon)
+        }
+    }
+    else
+    {
+        msgbox(format("Hmmm... come to think of it...\pWe regularly find young Pokémon left behind by their trainers..."), MSGBOX_DEFAULT)
+        msgbox(format("Would you be interested in adopting one?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            showmoneybox(0, 0)
+
+            switch(var(VAR_ROGUE_DIFFICULTY))
+            {
+                case 0:
+                    checkconstantmoney(2500)
+                    bufferconstantnumberstring(STR_VAR_1, 2500)
+                case 1:
+                    checkconstantmoney(5000)
+                    bufferconstantnumberstring(STR_VAR_1, 5000)
+                case 2:
+                    checkconstantmoney(7500)
+                    bufferconstantnumberstring(STR_VAR_1, 7500)
+                case 3:
+                    checkconstantmoney(10000)
+                    bufferconstantnumberstring(STR_VAR_1, 10000)
+                case 4:
+                    checkconstantmoney(12500)
+                    bufferconstantnumberstring(STR_VAR_1, 12500)
+                case 5:
+                    checkconstantmoney(15000)
+                    bufferconstantnumberstring(STR_VAR_1, 15000)
+                case 6:
+                    checkconstantmoney(17500)
+                    bufferconstantnumberstring(STR_VAR_1, 17500)
+                default:
+                    checkconstantmoney(20000)
+                    bufferconstantnumberstring(STR_VAR_1, 20000)
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Ah, you're too sweet!\pSo if you don't mind, I'd like to ask you\pfor a small donation. It helps me with\pknowing whether you'll be able to properly\ptake care of these Pokémon."), MSGBOX_DEFAULT)
+                msgbox(format("How does ¥{STR_VAR_1} sound?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    playse(SE_VEND)
+                    switch(var(VAR_ROGUE_DIFFICULTY))
+                    {
+                        case 0:
+                            removeconstantmoney(2500)
+                        case 1:
+                            removeconstantmoney(5000)
+                        case 2:
+                            removeconstantmoney(7500)
+                        case 3:
+                            removeconstantmoney(10000)
+                        case 4:
+                            removeconstantmoney(12500)
+                        case 5:
+                            removeconstantmoney(15000)
+                        case 6:
+                            removeconstantmoney(17500)
+                        default:
+                            removeconstantmoney(20000)
+                    }
+
+                    msgbox(format("Thank you!"), MSGBOX_DEFAULT)
+
+                    // begindynamicmultichoice(24)
+                    // appenddynamicmultichoice("Delibird", SPECIES_DELIBIRD)
+                    // appenddynamicmultichoice("Scyther", SPECIES_SCYTHER)
+                    // appenddynamicmultichoice("Nincada", SPECIES_NINCADA)
+                    // appenddynamicmultichoice("Cacnea", SPECIES_CACNEA)
+                    // appenddynamicmultichoice("Mareep", SPECIES_MAREEP)
+                    // appenddynamicmultichoice("Lileep", SPECIES_LILEEP)
+                    // appenddynamicmultichoice("Castform", SPECIES_CASTFORM)
+                    // appenddynamicmultichoice("Tropius", SPECIES_TROPIUS)
+                    // message(format("Now, which Pokémon would you like?"))
+                    // waitmessage
+                    // enddynamicmultichoice(1, 0, 6, TRUE)
+
+                    // multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+                    // switch(var(VAR_RESULT))
+                    // {
+                    //     case MULTI_B_PRESSED:
+                    //         setvar(VAR_RESULT, NO)
+
+                    //     default:
+                    //         copyvar(VAR_0x8005, VAR_RESULT)
+                    //         call(Rogue_SpeakDaycareLady_TrySwapMon)
+                    // }
+
+
+                    hidemoneybox
+
+                    msgbox(format("Would you like an Unown?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        givemon(SPECIES_UNOWN_D, 5)
+                    }
+                    else
+                    {
+                        msgbox(format("Would you like an Inkay?"), MSGBOX_YESNO)
+                        if(var(VAR_RESULT) == YES)
+                        {
+                            givemon(SPECIES_INKAY, 5)
+                        }
+                        else
+                        {
+                            msgbox(format("Would you like a Golett?"), MSGBOX_YESNO)
+                            if(var(VAR_RESULT) == YES)
+                            {
+                                givemon(SPECIES_GOLETT, 5)
+                            }
+                            else
+                            {
+                                msgbox(format("Would you like a Frillish?"), MSGBOX_YESNO)
+                                if(var(VAR_RESULT) == YES)
+                                {
+                                    givemon(SPECIES_FRILLISH, 5)
+                                }
+                                else
+                                {
+                                    msgbox(format("Would you like a Honedge?"), MSGBOX_YESNO)
+                                    if(var(VAR_RESULT) == YES)
+                                    {
+                                        givemon(SPECIES_HONEDGE, 5)
+                                    }
+                                    else
+                                    {
+                                        msgbox(format("Would you like a Luvdisc?"), MSGBOX_YESNO)
+                                        if(var(VAR_RESULT) == YES)
+                                        {
+                                            givemon(SPECIES_LUVDISC, 5)
+                                        }
+                                        else
+                                        {
+                                            msgbox(format("Would you like a Meowth?"), MSGBOX_YESNO)
+                                            if(var(VAR_RESULT) == YES)
+                                            {
+                                                givemon(SPECIES_MEOWTH, 5)
+                                            }
+                                            else
+                                            {
+                                                msgbox(format("Would you like an Onix?"), MSGBOX_YESNO)
+                                                if(var(VAR_RESULT) == YES)
+                                                {
+                                                    givemon(SPECIES_ONIX, 5)
+                                                }
+                                                else
+                                                {
+                                                    msgbox(format("Would you like a Baltoy?"), MSGBOX_YESNO)
+                                                    if(var(VAR_RESULT) == YES)
+                                                    {
+                                                        givemon(SPECIES_BALTOY, 5)
+                                                    }
+                                                    else
+                                                    {
+                                                        msgbox(format("Would you like a Porygon?"), MSGBOX_YESNO)
+                                                        if(var(VAR_RESULT) == YES)
+                                                        {
+                                                            givemon(SPECIES_PORYGON, 5)
+                                                        }
+                                                        else
+                                                        {
+                                                            msgbox(format("Would you like a Hitmonchan?"), MSGBOX_YESNO)
+                                                            if(var(VAR_RESULT) == YES)
+                                                            {
+                                                                givemon(SPECIES_HITMONCHAN, 5)
+                                                            }
+                                                            else
+                                                            {
+                                                                msgbox(format("Would you like a Kecleon?"), MSGBOX_YESNO)
+                                                                if(var(VAR_RESULT) == YES)
+                                                                {
+                                                                    givemon(SPECIES_KECLEON, 5)
+                                                                }
+                                                                else
+                                                                {
+                                                                    msgbox(format("Would you like a Duskull?"), MSGBOX_YESNO)
+                                                                    if(var(VAR_RESULT) == YES)
+                                                                    {
+                                                                        givemon(SPECIES_DUSKULL, 5)
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        msgbox(format("Would you like a Shuppet?"), MSGBOX_YESNO)
+                                                                        if(var(VAR_RESULT) == YES)
+                                                                        {
+                                                                            givemon(SPECIES_SHUPPET, 5)
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            msgbox(format("Would you like a Voltorb?"), MSGBOX_YESNO)
+                                                                            if(var(VAR_RESULT) == YES)
+                                                                            {
+                                                                                givemon(SPECIES_SHUPPET, 5)
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                msgbox(format("Would you like a Delibird?"), MSGBOX_YESNO)
+                                                                                if(var(VAR_RESULT) == YES)
+                                                                                {
+                                                                                    givemon(SPECIES_DELIBIRD, 5)
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    msgbox(format("Would you like a Scyther?"), MSGBOX_YESNO)
+                                                                                    if(var(VAR_RESULT) == YES)
+                                                                                    {
+                                                                                        givemon(SPECIES_SCYTHER, 5)
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        msgbox(format("Would you like a Nincada?"), MSGBOX_YESNO)
+                                                                                        if(var(VAR_RESULT) == YES)
+                                                                                        {
+                                                                                            givemon(SPECIES_NINCADA, 5)
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            msgbox(format("Would you like a Cacnea?"), MSGBOX_YESNO)
+                                                                                            if(var(VAR_RESULT) == YES)
+                                                                                            {
+                                                                                                givemon(SPECIES_CACNEA, 5)
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                msgbox(format("Would you like a Mareep?"), MSGBOX_YESNO)
+                                                                                                if(var(VAR_RESULT) == YES)
+                                                                                                {
+                                                                                                    givemon(SPECIES_MAREEP, 5)
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    msgbox(format("Would you like a Castform?"), MSGBOX_YESNO)
+                                                                                                    if(var(VAR_RESULT) == YES)
+                                                                                                    {
+                                                                                                        givemon(SPECIES_CASTFORM, 5)
+                                                                                                    }
+                                                                                                    else
+                                                                                                    {
+                                                                                                        msgbox(format("Would you like a Lileep?"), MSGBOX_YESNO)
+                                                                                                        if(var(VAR_RESULT) == YES)
+                                                                                                        {
+                                                                                                            givemon(SPECIES_LILEEP, 5)
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            msgbox(format("Would you like a Tropius?"), MSGBOX_YESNO)
+                                                                                                            if(var(VAR_RESULT) == YES)
+                                                                                                            {
+                                                                                                                givemon(SPECIES_TROPIUS, 5)
+                                                                                                            } 
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                    msgbox(format("Here, have some of these as well!"), MSGBOX_DEFAULT)
+                    giveitem(ITEM_RARE_CANDY, 5)
+                    giveitem(ITEM_ABILITY_CAPSULE, 1)
+                    giveitem(ITEM_ABILITY_PATCH, 1)
+
+                    msgbox(format("Have a good run, you two!"), MSGBOX_DEFAULT)
+                }
+                else
+                {
+                    hidemoneybox
+                    msgbox(format("That's alright. Have a nice day, dear!"), MSGBOX_DEFAULT)
+                }
+            }
+            else
+            {
+                hidemoneybox
+                msgbox(format("Oh, but I'm sorry dear.\pYou're gonna need a bit more money\pto properly care for these Pokémon..."), MSGBOX_DEFAULT)
+            }
+        }
     }
 
     release

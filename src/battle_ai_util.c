@@ -670,7 +670,7 @@ bool32 MovesWithSplitUnusable(u32 attacker, u32 target, u32 split)
             && GetBattleMoveSplit(moves[i]) == split
             && !(unusable & gBitTable[i]))
         {
-            SetTypeBeforeUsingMove(moves[i], attacker);
+            SetTypeBeforeUsingMove(moves[i], attacker, target);
             GET_MOVE_TYPE(moves[i], moveType);
             if (CalcTypeEffectivenessMultiplier(moves[i], moveType, attacker, target, AI_DATA->abilities[target], FALSE) != 0)
                 usable |= gBitTable[i];
@@ -733,7 +733,7 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
     gBattleStruct->dynamicMoveType = 0;
 
 
-    SetTypeBeforeUsingMove(move, battlerAtk);
+    SetTypeBeforeUsingMove(move, battlerAtk, battlerDef);
     GET_MOVE_TYPE(move, moveType);
 
     effectivenessMultiplier = CalcTypeEffectivenessMultiplier(move, moveType, battlerAtk, battlerDef, aiData->abilities[battlerDef], FALSE);
@@ -871,15 +871,23 @@ static bool32 AI_IsMoveEffectInPlus(u32 battlerAtk, u32 battlerDef, u32 move, s3
 
     switch (gBattleMoves[move].effect)
     {
-    case EFFECT_HIT:
     default:
         return FALSE;
+    case EFFECT_HIT:
+        if (abilityAtk == ABILITY_D2D_BELLOW && move == MOVE_HYDRO_PUMP)
+            return TRUE;
+        else
+            return FALSE;
     case EFFECT_PARALYZE_HIT:
         if (AI_CanParalyze(battlerAtk, battlerDef, abilityDef, move, MOVE_NONE))
+            return TRUE;
+        if (abilityAtk == ABILITY_D2D_BELLOW && move == MOVE_DRAGON_BREATH)
             return TRUE;
         break;
     case EFFECT_BURN_HIT:
         if (AI_CanBurn(battlerAtk, battlerDef, abilityDef, BATTLE_PARTNER(battlerAtk), move, MOVE_NONE))
+            return TRUE;
+        if (abilityAtk == ABILITY_D2D_BELLOW && move == MOVE_FLAMETHROWER)
             return TRUE;
         break;
     case EFFECT_POISON_HIT:
@@ -1002,6 +1010,7 @@ static bool32 AI_IsMoveEffectInMinus(u32 battlerAtk, u32 battlerDef, u32 move, s
         if (AI_IsDamagedByRecoil(battlerAtk))
             return TRUE;
         break;
+    case EFFECT_D2D_RECHARGE_CONDITIONAL:
     case EFFECT_SPEED_DOWN_HIT:
     case EFFECT_ATTACK_DOWN_HIT:
     case EFFECT_DEFENSE_DOWN_HIT:
@@ -1086,7 +1095,7 @@ uq4_12_t AI_GetTypeEffectiveness(u32 move, u32 battlerAtk, u32 battlerDef)
     SetBattlerData(battlerDef);
 
     gBattleStruct->dynamicMoveType = 0;
-    SetTypeBeforeUsingMove(move, battlerAtk);
+    SetTypeBeforeUsingMove(move, battlerAtk, battlerDef);
     GET_MOVE_TYPE(move, moveType);
     typeEffectiveness = CalcTypeEffectivenessMultiplier(move, moveType, battlerAtk, battlerDef, AI_DATA->abilities[battlerDef], FALSE);
 
@@ -1516,10 +1525,11 @@ bool32 IsMoveEncouragedToHit(u32 battlerAtk, u32 battlerDef, u32 move)
 
     // increased accuracy but don't always hit
     if ((((weather & B_WEATHER_RAIN) && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE || gBattleMoves[move].effect == EFFECT_D2D_CLOUDBURST))
-            || (((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && move == MOVE_BLIZZARD)))
+            || (((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && (move == MOVE_BLIZZARD || move == MOVE_HURRICANE)))
+            || (((weather & (B_WEATHER_SANDSTORM)) && (move == MOVE_HURRICANE)))
         || (gBattleMoves[move].effect == EFFECT_VITAL_THROW)
         || (B_MINIMIZE_DMG_ACC >= GEN_6 && (gStatuses3[battlerDef] & STATUS3_MINIMIZED) && gBattleMoves[move].minimizeDoubleDamage)
-        || (gBattleMoves[move].accuracy == 0))
+        || (gBattleMoves[move].accuracy == 0)))
     {
         return TRUE;
     }

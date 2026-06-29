@@ -2686,7 +2686,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .baseSpAttack  = 80,
         .baseSpDefense = 85,
         .expYield = 270,
-        .abilities = { ABILITY_SAND_VEIL, ABILITY_NONE, ABILITY_ROUGH_SKIN },
+        .abilities = { ABILITY_SAND_VEIL, ABILITY_D2D_BELLOW, ABILITY_ROUGH_SKIN },
         .cryId = CRY_GARCHOMP,
         .description = POKEDEX_DESC_STRING(
             "When it folds up its body and extends its\n"

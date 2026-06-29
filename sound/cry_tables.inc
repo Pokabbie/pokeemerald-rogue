@@ -967,6 +967,7 @@ gCryTable::
 .if P_FAMILY_SHUPPET == TRUE
 	cry Cry_Shuppet
 	cry Cry_Banette
+	cry Cry_Bayanette
 .if P_MEGA_EVOLUTIONS == TRUE
 	cry Cry_BanetteMega
 .endif @ P_MEGA_EVOLUTIONS
@@ -980,6 +981,7 @@ gCryTable::
 .endif @ P_FAMILY_DUSKULL
 .if P_FAMILY_TROPIUS == TRUE
 	cry Cry_Tropius
+	cry Cry_Tropisaur
 .endif @ P_FAMILY_TROPIUS
 .if P_FAMILY_CHIMECHO == TRUE
 .if P_GEN_4_CROSS_EVOS == TRUE
@@ -3393,6 +3395,7 @@ gCryTable_Reverse::
 .if P_FAMILY_SHUPPET == TRUE
 	cry_reverse Cry_Shuppet
 	cry_reverse Cry_Banette
+	cry_reverse Cry_Bayanette
 .if P_MEGA_EVOLUTIONS == TRUE
 	cry_reverse Cry_BanetteMega
 .endif @ P_MEGA_EVOLUTIONS

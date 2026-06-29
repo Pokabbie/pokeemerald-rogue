@@ -1,0 +1,30 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" TreatAsLocalProperty="Platform">
+  <PropertyGroup>
+    <IncludeNuGetImports>false</IncludeNuGetImports>
+  </PropertyGroup>
+  <PropertyGroup>
+    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">obj\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath Condition="!HasTrailingSlash('$(BaseIntermediateOutputPath)')">$(BaseIntermediateOutputPath)\</BaseIntermediateOutputPath>
+    <_InitialBaseIntermediateOutputPath>$(BaseIntermediateOutputPath)</_InitialBaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath >$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <!--
+        Import paths that are relative default to be relative to the importing file.  However, since MSBuildExtensionsPath
+        defaults to BaseIntermediateOutputPath we expect it to be relative to the project directory.  So if the path is relative
+        it needs to be made absolute based on the project directory.
+    -->
+    <MSBuildProjectExtensionsPath Condition="'$([System.IO.Path]::IsPathRooted($(MSBuildProjectExtensionsPath)))' == 'false'">$([System.IO.Path]::Combine('$(MSBuildProjectDirectory)', '$(MSBuildProjectExtensionsPath)'))</MSBuildProjectExtensionsPath>
+    <MSBuildProjectExtensionsPath Condition="!HasTrailingSlash('$(MSBuildProjectExtensionsPath)')">$(MSBuildProjectExtensionsPath)\</MSBuildProjectExtensionsPath>
+    <!--
+        Don't import project extensions during restore because NuGet restore generates them.  Importing them during restore will embed
+        the pre-restore files in the binary log and then NuGet won't be able to embed the generated one after restore.  If some other
+        project extension mechanism wants to import project extensions during restore, they need to explicitly set ImportProjectExtensionProps
+    -->
+    <ImportProjectExtensionProps Condition="$([MSBuild]::AreFeaturesEnabled('17.10')) And '$(ImportProjectExtensionProps)' == '' And '$(MSBuildIsRestoring)' == 'true'">false</ImportProjectExtensionProps>
+    <ImportProjectExtensionProps Condition="'$(ImportProjectExtensionProps)' == ''">true</ImportProjectExtensionProps>
+    <_InitialMSBuildProjectExtensionsPath Condition=" '$(ImportProjectExtensionProps)' == 'true' ">$(MSBuildProjectExtensionsPath)</_InitialMSBuildProjectExtensionsPath>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildBinPath)\NuGet.targets" Condition="exists('$(MSBuildBinPath)\NuGet.targets')"/>
+  <Import Project="$(MSBuildProjectExtensionsPath)$(MSBuildProjectFile).*.props" Condition="exists('$(MSBuildProjectExtensionsPath)')" />
+  <Import Project="$(MSBuildProjectExtensionsPath)$(MSBuildProjectFile).*.targets" Condition="exists('$(MSBuildProjectExtensionsPath)')" />
+</Project>

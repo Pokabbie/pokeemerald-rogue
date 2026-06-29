@@ -1016,6 +1016,12 @@ static u32 GetMonMasteryIndex(u16 species)
     u32 i;
     u16 eggSpecies;
 
+    // u32 typeFlags = 0;
+
+    // typeFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[0]);
+    // typeFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[1]);
+    // DebugPrintf( "type flags found for %S: %d", gRogueSpeciesInfo[species].speciesName, (int)typeFlags );
+
 #ifdef ROGUE_EXPANSION
     if(species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE)
         species = SPECIES_DARMANITAN_GALARIAN;
@@ -1023,6 +1029,9 @@ static u32 GetMonMasteryIndex(u16 species)
     if(!gRogueSpeciesInfo[species].isAlolanForm && !gRogueSpeciesInfo[species].isGalarianForm && !gRogueSpeciesInfo[species].isHisuianForm && !gRogueSpeciesInfo[species].isPaldeanForm)
     {
         species = GET_BASE_SPECIES_ID(species);
+
+        // DebugPrintf( "Running test #1 for %S. SPECIES_ID: %d", gRogueSpeciesInfo[species].speciesName, species );
+        // TODO: DISABLE DEBUGGING IN CONFIG.H BEFORE BUILDING TO 3DS
     }
 
     if(gRogueSpeciesInfo[species].baseHP == 0)
@@ -1033,6 +1042,7 @@ static u32 GetMonMasteryIndex(u16 species)
 #endif
 
     eggSpecies = Rogue_GetEggSpecies(species);
+    // DebugPrintf( "Running test #2 for %S. eggSpecies #1: %d", gRogueSpeciesInfo[species].speciesName, eggSpecies );
 
     for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
     {
@@ -1044,6 +1054,8 @@ static u32 GetMonMasteryIndex(u16 species)
     // Failed to get this species so try grab the base egg species
     species = eggSpecies;
     eggSpecies = GET_BASE_SPECIES_ID(eggSpecies);
+
+    // DebugPrintf( "Running test #3 for %S. eggSpecies #2: %d", gRogueSpeciesInfo[species].speciesName, eggSpecies );
 
     if(eggSpecies != species)
     {

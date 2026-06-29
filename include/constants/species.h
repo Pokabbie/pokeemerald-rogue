@@ -1779,15 +1779,20 @@
 #define SPECIES_D2D_START								SPECIES_PIKIN_MEGA
 
 // D2D Species
-#define SPECIES_CASTFORM_SANDY                          SPECIES_D2D_START + 1
-#define SPECIES_CLOUDFORM  		                        SPECIES_CLOUDFORM_NORMAL
-#define SPECIES_CLOUDFORM_NORMAL                        SPECIES_D2D_START + 2
-#define SPECIES_CLOUDFORM_SUNNY                         SPECIES_D2D_START + 3
-#define SPECIES_CLOUDFORM_RAINY                         SPECIES_D2D_START + 4
-#define SPECIES_CLOUDFORM_SNOWY                         SPECIES_D2D_START + 5
-#define SPECIES_CLOUDFORM_SANDY                         SPECIES_D2D_START + 6
+#define SPECIES_CASTFORM_SANDY                          SPECIES_D2D_START + 1 // 1525
+#define SPECIES_CLOUDFORM  		                        SPECIES_CLOUDFORM_NORMAL // 1526
+#define SPECIES_CLOUDFORM_NORMAL                        SPECIES_D2D_START + 2 // 1526
+#define SPECIES_CLOUDFORM_SUNNY                         SPECIES_D2D_START + 3 // 1527
+#define SPECIES_CLOUDFORM_RAINY                         SPECIES_D2D_START + 4 // 1528
+#define SPECIES_CLOUDFORM_SNOWY                         SPECIES_D2D_START + 5 // 1529
+#define SPECIES_CLOUDFORM_SANDY                         SPECIES_D2D_START + 6 // 1530
+#define SPECIES_TROPISAUR	                            SPECIES_D2D_START + 7 // 1531
+#define SPECIES_BAYANETTE	                            SPECIES_D2D_START + 8 // 1532
+// #define SPECIES_UNOHM		                            SPECIES_D2D_START + 9 // 1533
+// #define SPECIES_HATCHLIN	                            SPECIES_D2D_START + 8
+// #define SPECIES_TEERAX		                            SPECIES_D2D_START + 9
 
-#define SPECIES_EGG 									SPECIES_D2D_START + 7 // "1525" in default rogue_bake_data
+#define SPECIES_EGG 									SPECIES_D2D_START + 9 // "1525" in default rogue_bake_data
 
 #define NUM_SPECIES 									SPECIES_EGG
 
