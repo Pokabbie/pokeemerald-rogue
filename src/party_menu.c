@@ -3974,7 +3974,15 @@ static void CursorCb_QuickHeal(u8 taskId)
 
         if(healingItemId != ITEM_NONE)
         {
-            u32 healAmount = ItemId_GetHoldEffectParam(healingItemId);
+            u32 healAmount = 10;
+            if(healingItemId == ITEM_SITRUS_BERRY)
+            {
+                healAmount = maxHp * 0.25;
+            }
+            else
+            {
+                healAmount = ItemId_GetHoldEffectParam(healingItemId);
+            }
 
             if(healAmount == 255)
             {
