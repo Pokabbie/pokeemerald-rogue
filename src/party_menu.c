@@ -553,6 +553,8 @@ static void Task_HandleWhichMoveInput(u8 taskId);
 static bool32 CannotUsePartyBattleItem(u16 itemId, struct Pokemon* mon);
 static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu);
 static void UpdateDisplayedItem(u8 slot);
+// D2D additions
+static void UseQuickHealPPRecovery(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu);
 
 // static const data
 #include "data/party_menu.h"
@@ -3936,6 +3938,29 @@ static const u16 sPrioritisedStatusItems_Paralysis[] =
     ITEM_LUM_BERRY,
 };
 
+static const u16 sPrioritisedPpRestoreItems[] =
+{
+    ITEM_MAX_ELIXIR,
+    ITEM_ELIXIR,
+    ITEM_MAX_ETHER,
+    ITEM_ETHER,
+    ITEM_LEPPA_BERRY,
+    // this array had to be reversed, for some reason
+};
+
+static bool8 IsPPRecoveryItem(u16 item)
+{
+    const u8 *effect = GetItemEffect(item);
+
+    if (effect == NULL)
+        return FALSE;
+
+    if (effect[4] & ITEM4_HEAL_PP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static void CursorCb_QuickHeal(u8 taskId)
 {
     u16 healingItemId = ITEM_NONE;
@@ -3995,7 +4020,7 @@ static void CursorCb_QuickHeal(u8 taskId)
             }
         }
     }
-    else // try apply status items if at full health
+    else if(status != STATUS1_NONE) // try apply status items if at full health
     {
         u16 const *prioritisedStatusItems = NULL;
         u32 prioritisedStatusItemCount = 0;
@@ -4041,6 +4066,60 @@ static void CursorCb_QuickHeal(u8 taskId)
             }
         }
     }
+    else // try restore PP if at full health without status
+    {
+        u32 mostPpMissing = 0;
+        u32 restoreAmount = 10;
+        u32 i;
+
+        for(i = 0; i < ARRAY_COUNT(sPrioritisedPpRestoreItems); ++i)
+        {
+            if(CheckBagHasItem(sPrioritisedPpRestoreItems[i], 1))
+            {
+                healingItemId = sPrioritisedPpRestoreItems[i];
+                restoreAmount = ItemId_GetHoldEffectParam(healingItemId);
+            }
+        }
+        if (healingItemId != ITEM_NONE)
+        {
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                u32 currentPp = GetMonData(mon, MON_DATA_PP1 + i);
+                u32 maxPp = CalculatePPWithBonus(GetMonData(mon, MON_DATA_MOVE1 + i), GetMonData(mon, MON_DATA_PP_BONUSES), i);
+                u32 missingPp = maxPp - currentPp;
+                if (missingPp > mostPpMissing)
+                    mostPpMissing = missingPp;
+
+                // if the optimal item is a (Max) Elixir, handle item count separately outside of this loop
+                if (missingPp > 0 && (healingItemId != ITEM_ELIXIR && healingItemId != ITEM_MAX_ELIXIR))
+                {
+                    if (restoreAmount == 255)
+                    {
+                        healingItemCount += 1;
+                        break;
+                    }
+                    else
+                    {
+                        healingItemCount += 1 + ((missingPp - 1) / restoreAmount);
+                        break;
+                    }
+                }
+            }
+        }
+        // special-cases for (Max) Elixirs
+        if (mostPpMissing > 0)
+        {
+            if (healingItemId == ITEM_ELIXIR)
+            {
+                u32 restoreAmount = ItemId_GetHoldEffectParam(ITEM_ELIXIR);
+                healingItemCount += 1 + ((mostPpMissing - 1) / restoreAmount);
+            }
+            else if (healingItemId == ITEM_MAX_ELIXIR)
+            {
+                healingItemCount = 1;
+            }
+        }
+    }
 
     if(healingItemId == ITEM_NONE || healingItemCount == 0)
     {
@@ -4082,7 +4161,15 @@ static void Task_QuickHealSelectedMonYesNoInput(u8 taskId)
     {
     case 0:
         PlaySE(SE_SELECT);
-        UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000, TRUE);
+
+        if (IsPPRecoveryItem(gSpecialVar_ItemId))
+        {
+            UseQuickHealPPRecovery(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000, TRUE);
+        }
+        else
+        {
+            UseMedicineInternal(taskId, Task_TryCreateSelectionWindow, gSpecialVar_0x8000, TRUE);
+        }
         gSpecialVar_ItemId = ITEM_NONE;
         break;
     case MENU_B_PRESSED:
@@ -5495,6 +5582,55 @@ static void UseMedicineInternal(u8 taskId, TaskFunc task, u32 itemCount, bool8 f
     }
 }
 
+static void UseQuickHealPPRecovery(u8 taskId, TaskFunc task, u32 itemCount, bool8 forceStayInPartyMenu)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 item = gSpecialVar_ItemId;
+    
+    u32 remainingItemCount = itemCount;
+    u32 restoredAnyPp = FALSE;
+    u32 i, j;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u32 recoveryItemCountForThisMove = 0;
+        u32 currentPp = GetMonData(mon, MON_DATA_PP1 + i);
+        u32 maxPp = CalculatePPWithBonus(GetMonData(mon, MON_DATA_MOVE1 + i), GetMonData(mon, MON_DATA_PP_BONUSES), i);
+        u32 missingPp = maxPp - currentPp;
+
+        u32 restoreAmount = ItemId_GetHoldEffectParam(item);
+
+        if (missingPp > 0)
+        {
+            if (restoreAmount == 255)
+            {
+                recoveryItemCountForThisMove = 1;
+            }
+            else
+            {
+                recoveryItemCountForThisMove = 1 + ((missingPp - 1) / restoreAmount);
+            }
+
+            for (j = 0; j < recoveryItemCountForThisMove; j++)
+            {
+                if (remainingItemCount > 0)
+                {
+                    gPartyMenu.data1 = i;
+                    TryUseItemOnMove(taskId);
+                    restoredAnyPp = TRUE;
+                    remainingItemCount--;
+                }
+            }
+        }
+    }
+
+    if (restoredAnyPp == TRUE)
+    {
+        GetMonNickname(mon, gStringVar1);
+        GetMedicineItemEffectMessage(item, STATUS1_NONE);
+    }
+}
+
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 {
     UseMedicineInternal(taskId, task, 1, FALSE);
@@ -6116,7 +6252,7 @@ void ItemUseCB_MaxMushroom(u8 taskId, TaskFunc task)
 #undef tOldFunc
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)
-{	
+{   
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_PkmnHPRestoredByVar2);
     DisplayPartyMenuMessage(gStringVar4, FALSE);
@@ -6380,13 +6516,14 @@ static void TryUseItemOnMove(u8 taskId)
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
 
-        if(Rogue_AllowItemUse(item))
-            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
-        else
-            DisplayPartyMenuMessage(gText_CantBeUsedNot, TRUE);
+            if(Rogue_AllowItemUse(item))
+                DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+            else
+                DisplayPartyMenuMessage(gText_CantBeUsedNot, TRUE);
 
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            // gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         }
         else
         {
@@ -6398,7 +6535,8 @@ static void TryUseItemOnMove(u8 taskId)
             GetMedicineItemEffectMessage(item, 0);
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            // gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         }
     }
 }
