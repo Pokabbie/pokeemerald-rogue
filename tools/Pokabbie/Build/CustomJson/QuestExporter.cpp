@@ -755,7 +755,10 @@ void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath
 		auto const& quest = *it;
 
 		fileStream << "text gQuestDescText_" << quest.GetUniqueWriteId() << "\n{\n";
-		fileStream << c_TabSpacing << "format(\"" << GetQuestDescription(quest) << "\")\n";
+		std::string questDesc = GetQuestDescription(quest);
+		strutil::replace_all(questDesc, "\r\n", "\\n");
+		strutil::replace_all(questDesc, "\n", "\\n");
+		fileStream << c_TabSpacing << "format(\"" << questDesc << "\")\n";
 		fileStream << "}\n\n";
 	}
 }
