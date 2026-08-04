@@ -27,7 +27,6 @@
 #include "text_window.h"
 #include "window.h"
 #include "constants/event_objects.h"
-#include "constants/lilycove_lady.h"
 #include "constants/mauville_old_man.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"

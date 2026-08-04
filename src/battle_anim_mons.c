@@ -3,7 +3,6 @@
 #include "battle_anim.h"
 #include "battle_interface.h"
 #include "bg.h"
-#include "contest.h"
 #include "data.h"
 #include "decompress.h"
 #include "dma3.h"
@@ -111,10 +110,7 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
     default:
         if (IsContest())
         {
-            if (gContestResources->moveAnim->hasTargetAnim)
-                species = gContestResources->moveAnim->targetSpecies;
-            else
-                species = gContestResources->moveAnim->species;
+            AGB_ASSERT(FALSE);
         }
         else
         {
@@ -155,10 +151,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         {
             if (IsContest())
             {
-                if (gContestResources->moveAnim->hasTargetAnim)
-                    personality = gContestResources->moveAnim->targetPersonality;
-                else
-                    personality = gContestResources->moveAnim->personality;
+                AGB_ASSERT(FALSE);
             }
             else
             {
@@ -237,10 +230,7 @@ u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType)
     {
         if (IsContest())
         {
-            if (gContestResources->moveAnim->hasTargetAnim)
-                species = gContestResources->moveAnim->targetSpecies;
-            else
-                species = gContestResources->moveAnim->species;
+            AGB_ASSERT(FALSE);
         }
         else
         {
@@ -1880,8 +1870,8 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
         {
             if (IsContest())
             {
-                species = gContestResources->moveAnim->species;
-                return gSpeciesInfo[species].backPicYOffset;
+                AGB_ASSERT(FALSE);
+                return 0;
             }
             else
             {
@@ -2113,23 +2103,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
 
     if (IsContest())
     {
-        if (gContestResources->moveAnim->hasTargetAnim)
-        {
-            species = gContestResources->moveAnim->targetSpecies;
-            personality = gContestResources->moveAnim->targetPersonality;
-            gender = MON_MALE; // fixme
-        }
-        else
-        {
-            species = gContestResources->moveAnim->species;
-            personality = gContestResources->moveAnim->personality;
-            gender = MON_MALE; // fixme
-        }
-        species = SanitizeSpeciesId(species);
-        if (species == SPECIES_UNOWN)
-            species = GetUnownSpeciesId(personality);
-        size = gSpeciesInfo[species].backPicSize;
-        y_offset = gSpeciesInfo[species].backPicYOffset;
+        AGB_ASSERT(FALSE);
     }
     else
     {
