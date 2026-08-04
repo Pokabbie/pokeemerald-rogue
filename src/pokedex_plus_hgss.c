@@ -2,7 +2,6 @@
 #include "battle_main.h"
 #include "battle_util.h"
 #include "bg.h"
-#include "contest_effect.h"
 #include "data.h"
 #include "daycare.h"
 #include "decompress.h"

@@ -929,6 +929,7 @@ void AnimTask_MetallicShine(u8 taskId)
     if (IsContest())
     {
         AGB_ASSERT(FALSE);
+        species = 0;
     }
     else
     {

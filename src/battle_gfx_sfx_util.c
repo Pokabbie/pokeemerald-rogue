@@ -891,11 +891,6 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     bool8 isShiny;
     u8 gender;
 
-    if (IsContest())
-    {
-            AGB_ASSERT(FALSE);
-    }
-    else
     {
         position = GetBattlerPosition(battlerAtk);
 

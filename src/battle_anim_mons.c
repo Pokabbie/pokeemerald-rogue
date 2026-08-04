@@ -111,6 +111,7 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
         if (IsContest())
         {
             AGB_ASSERT(FALSE);
+            species = 0;
         }
         else
         {
@@ -152,6 +153,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
             if (IsContest())
             {
                 AGB_ASSERT(FALSE);
+                personality = 0;
             }
             else
             {
@@ -231,6 +233,7 @@ u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType)
         if (IsContest())
         {
             AGB_ASSERT(FALSE);
+            species = 0;
         }
         else
         {
@@ -2104,6 +2107,8 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
     if (IsContest())
     {
         AGB_ASSERT(FALSE);
+        size = 0;
+        y_offset = 0;
     }
     else
     {
