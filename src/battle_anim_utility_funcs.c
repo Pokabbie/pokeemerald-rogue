@@ -1,6 +1,5 @@
 #include "global.h"
 #include "battle_anim.h"
-#include "contest.h"
 #include "gpu_regs.h"
 #include "graphics.h"
 #include "malloc.h"
@@ -318,7 +317,8 @@ void AnimTask_DrawFallingWhiteLinesOnAttacker(u8 taskId)
 
     if (IsContest())
     {
-        species = gContestResources->moveAnim->species;
+        AGB_ASSERT(FALSE);
+        species = 0;
     }
     else
     {
@@ -440,7 +440,7 @@ static void StatsChangeAnimation_Step1(u8 taskId)
 
     if (IsContest())
     {
-        sAnimStatsChangeData->species = gContestResources->moveAnim->species;
+        AGB_ASSERT(FALSE);
     }
     else
     {
@@ -805,7 +805,8 @@ void StartMonScrollingBgMask(u8 taskId, int unused, u16 scrollSpeed, u8 battler,
 
     if (IsContest())
     {
-        species = gContestResources->moveAnim->species;
+        AGB_ASSERT(FALSE);
+        species = 0;
     }
     else
     {

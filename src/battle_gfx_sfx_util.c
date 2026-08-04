@@ -21,7 +21,6 @@
 #include "decompress.h"
 #include "data.h"
 #include "palette.h"
-#include "contest.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
@@ -945,15 +944,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 castform)
 
         if (IsContest())
         {
-            position = B_POSITION_PLAYER_LEFT;
-            targetSpecies = gContestResources->moveAnim->targetSpecies;
-            personalityValue = gContestResources->moveAnim->personality;
-            otId = gContestResources->moveAnim->otId;
-
-            HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[targetSpecies],
-                                                      gMonSpritesGfxPtr->sprites.ptr[position],
-                                                      targetSpecies,
-                                                      gContestResources->moveAnim->targetPersonality);
+            AGB_ASSERT(FALSE);
         }
         else
         {

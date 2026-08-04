@@ -191,7 +191,6 @@ LilycoveCity_ContestLobby_EventScript_DeclineInterview::
 
 LilycoveCity_ContestLobby_EventScript_SubmitResponse::
 	setvar VAR_0x8004, 24
-	special SetContestCategoryStringVarForInterview
 	msgbox LilycoveCity_ContestLobby_Text_WhatImageWhenYouHearX, MSGBOX_DEFAULT
 	setvar VAR_0x8004, EASY_CHAT_TYPE_CONTEST_INTERVIEW
 	copyvar VAR_0x8005, VAR_0x8009

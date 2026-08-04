@@ -2,7 +2,6 @@
 #include "battle.h"
 #include "battle_anim.h"
 #include "bg.h"
-#include "contest.h"
 #include "data.h"
 #include "decompress.h"
 #include "dma3.h"
@@ -135,10 +134,7 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
     default:
         if (IsContest())
         {
-            if (gContestResources->moveAnim->hasTargetAnim)
-                species = gContestResources->moveAnim->targetSpecies;
-            else
-                species = gContestResources->moveAnim->species;
+            AGB_ASSERT(FALSE);
         }
         else
         {
@@ -183,10 +179,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         {
             if (IsContest())
             {
-                if (gContestResources->moveAnim->hasTargetAnim)
-                    personality = gContestResources->moveAnim->targetPersonality;
-                else
-                    personality = gContestResources->moveAnim->personality;
+                AGB_ASSERT(FALSE);
             }
             else
             {
@@ -300,10 +293,7 @@ u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType)
     {
         if (IsContest())
         {
-            if (gContestResources->moveAnim->hasTargetAnim)
-                species = gContestResources->moveAnim->targetSpecies;
-            else
-                species = gContestResources->moveAnim->species;
+            AGB_ASSERT(FALSE);
         }
         else
         {
@@ -1914,8 +1904,8 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
         {
             if (IsContest())
             {
-                species = gContestResources->moveAnim->species;
-                return gMonBackPicCoords[species].y_offset;
+                AGB_ASSERT(FALSE);
+                return 0;
             }
             else
             {
@@ -2168,37 +2158,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
 
     if (IsContest())
     {
-        if (gContestResources->moveAnim->hasTargetAnim)
-        {
-            species = gContestResources->moveAnim->targetSpecies;
-            personality = gContestResources->moveAnim->targetPersonality;
-        }
-        else
-        {
-            species = gContestResources->moveAnim->species;
-            personality = gContestResources->moveAnim->personality;
-        }
-        if (species == SPECIES_UNOWN)
-        {
-            letter = GET_UNOWN_LETTER(personality);
-            if (!letter)
-                unownSpecies = SPECIES_UNOWN;
-            else
-                unownSpecies = letter + SPECIES_UNOWN_B - 1;
-            coords = &gMonBackPicCoords[unownSpecies];
-        }
-        else if (species == SPECIES_CASTFORM)
-        {
-            coords = &gCastformFrontSpriteCoords[gBattleMonForms[battlerId]];
-        }
-        else if (species <= SPECIES_EGG)
-        {
-            coords = &gMonBackPicCoords[species];
-        }
-        else
-        {
-            coords = &gMonBackPicCoords[0];
-        }
+        AGB_ASSERT(FALSE);
     }
     else
     {

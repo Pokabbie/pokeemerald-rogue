@@ -87,29 +87,11 @@ gSpecials::
 	def_special InterviewBefore
 	def_special InterviewAfter
 	def_special IsLeadMonNicknamedOrNotEnglish
-	def_special SetContestCategoryStringVarForInterview
 	def_special GetNextActiveShowIfMassOutbreak
 	def_special IsTVShowAlreadyInQueue
 	def_special CheckForPlayersHouseNews
 	def_special GetMomOrDadStringForTVMessage
 	def_special ResetTVShowState
-	def_special GetContestWinnerId
-	def_special GetContestPlayerId
-	def_special GetNpcContestantLocalId
-	def_special BufferContestWinnerTrainerName
-	def_special BufferContestWinnerMonName
-	def_special BufferContestTrainerAndMonNames
-	def_special GetContestMonConditionRanking
-	def_special SetContestTrainerGfxIds
-	def_special TryEnterContestMon
-	def_special GetContestantNamesAtRank
-	def_special SetLinkContestPlayerGfx
-	def_special GetContestMonCondition
-	def_special HasMonWonThisContestBefore
-	def_special GiveMonContestRibbon
-	def_special IsContestDebugActive
-	def_special GiveMonArtistRibbon
-	def_special TryContestGModeLinkup
 	def_special SaveGame
 	def_special ForceSaveGame
 	def_special DoWateringBerryTreeAnim
@@ -154,11 +136,6 @@ gSpecials::
 	def_special CalculatePlayerPartyCount
 	def_special CountPartyNonEggMons
 	def_special CountPartyAliveNonEggMons_IgnoreVar0x8004Slot
-	def_special ShouldReadyContestArtist
-	def_special SaveMuseumContestPainting
-	def_special DoesContestCategoryHaveMuseumPainting
-	def_special CountPlayerMuseumPaintings
-	def_special ShowContestPainting  @ Unused, redundant with showcontestpainting command
 	def_special MauvilleGymSetDefaultBarriers
 	def_special MauvilleGymPressSwitch
 	def_special ShowFieldMessageStringVar4
@@ -508,7 +485,6 @@ gSpecials::
 	def_special InitRoamer
 	def_special TryUpdateRusturfTunnelState
 	def_special IsGrassTypeInParty
-	def_special DoContestHallWarp
 	def_special PutZigzagoonInPlayerParty
 	def_special IsStarterInParty
 	def_special CopyCurSecretBaseOwnerName_StrVar1
@@ -529,13 +505,10 @@ gSpecials::
 	def_special StartDroughtWeatherBlend
 	def_special DoDiveWarp
 	def_special DoFallWarp
-	def_special ShowContestEntryMonPic
-	def_special HideContestEntryMonPic
 	def_special SetEReaderTrainerGfxId
 	def_special BattleSetup_StartLatiBattle
 	def_special SetRoute119Weather
 	def_special SetRoute123Weather
-	def_special GetContestMultiplayerId
 	def_special ScriptGetPartyMonSpecies
 	def_special IsSelectedMonEgg
 	def_special TryInitBattleTowerAwardManObjectEvent
@@ -549,7 +522,6 @@ gSpecials::
 	def_special BufferLottoTicketNumber
 	def_special TryHideBattleTowerReporter
 	def_special DoesPartyHaveEnigmaBerry
-	def_special GenerateContestRand
 	def_special SetChampionSaveWarp
 	def_special TryPutTreasureInvestigatorsOnAir
 	def_special TryPutLotteryWinnerReportOnAir
@@ -571,48 +543,7 @@ gSpecials::
 	def_special CheckInteractedWithFriendsFurnitureMiddle
 	def_special CheckInteractedWithFriendsFurnitureTop
 	def_special CheckInteractedWithFriendsPosterDecor
-	def_special SetLilycoveLadyGfx
-	def_special Script_GetLilycoveLadyId
-	def_special GetFavorLadyState
-	def_special BufferFavorLadyRequest
-	def_special HasAnotherPlayerGivenFavorLadyItem
-	def_special BufferFavorLadyItemName
-	def_special BufferFavorLadyPlayerName
-	def_special DidFavorLadyLikeItem
-	def_special Script_FavorLadyOpenBagMenu
-	def_special Script_DoesFavorLadyLikeItem
-	def_special IsFavorLadyThresholdMet
-	def_special FavorLadyGetPrize
-	def_special SetFavorLadyState_Complete
-	def_special GetQuizLadyState
-	def_special GetQuizAuthor
-	def_special IsQuizLadyWaitingForChallenger
-	def_special QuizLadyShowQuizQuestion
-	def_special QuizLadyGetPlayerAnswer
-	def_special IsQuizAnswerCorrect
-	def_special BufferQuizPrizeItem
-	def_special SetQuizLadyState_Complete
-	def_special BufferQuizAuthorNameAndCheckIfLady
-	def_special SetQuizLadyState_GivePrize
-	def_special ClearQuizLadyPlayerAnswer
-	def_special Script_QuizLadyOpenBagMenu
-	def_special ClearQuizLadyQuestionAndAnswer
-	def_special QuizLadySetCustomQuestion
-	def_special QuizLadyTakePrizeForCustomQuiz
 	def_special GetMysteryGiftCardStat
-	def_special QuizLadyRecordCustomQuizData
-	def_special QuizLadySetWaitingForChallenger
-	def_special BufferQuizCorrectAnswer
-	def_special BufferQuizPrizeName
-	def_special QuizLadyPickNewQuestion
-	def_special ShouldContestLadyShowGoOnAir
-	def_special HasPlayerGivenContestLadyPokeblock
-	def_special Script_BufferContestLadyCategoryAndMonName
-	def_special OpenPokeblockCaseForContestLady
-	def_special SetContestLadyGivenPokeblock
-	def_special GetContestLadyMonSpecies
-	def_special GetContestLadyCategory
-	def_special PutLilycoveContestLadyShowOnTheAir
 	def_special CloseBattlePikeCurtain
 	def_special CallApprenticeFunction
 	def_special ShouldTryGetTrainerScript
@@ -640,17 +571,10 @@ gSpecials::
 	def_special OffsetCameraForBattle
 	def_special GetDeptStoreDefaultFloorChoice
 	def_special BufferVarsForIVRater
-	def_special LinkContestWaitForConnection
 	def_special GetWirelessCommType
-	def_special LinkContestTryShowWirelessIndicator
-	def_special LinkContestTryHideWirelessIndicator
-	def_special IsWirelessContest
 	def_special ShowRankingHallRecordsWindow
 	def_special ScrollRankingHallRecordsWindow
 	def_special ShowFrontierManiacMessage
-	def_special IsContestWithRSPlayer
-	def_special ClearLinkContestFlags
-	def_special TryContestEModeLinkup
 	def_special ShowScrollableMultichoice
 	def_special ScrollableMultichoice_TryReturnToList
 	def_special BufferBattleTowerElevatorFloors
@@ -722,7 +646,6 @@ gSpecials::
 	def_special TryGetWallpaperWithWaldaPhrase
 	def_special PlayerNotAtTrainerHillEntrance
 	def_special GetBattlePyramidHint
-	def_special LoadLinkContestPlayerPalettes
 	def_special ShowTrainerHillRecords
 	def_special PlayerFaceTrainerAfterBattle
 	def_special ResetHealLocationFromDewford
