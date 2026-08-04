@@ -9290,7 +9290,7 @@ void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice)
         }
         applyRandomChance = TRUE;
         randomChanceMinimum = 20;
-        randomChanceGymRate = 3;
+        randomChanceGymRate = 14;
         break;
 
     case ROGUE_SHOP_HELD_ITEMS:
