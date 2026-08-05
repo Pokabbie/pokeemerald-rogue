@@ -686,5 +686,45 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANECTRIC": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 105,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_MINUS"
+      ]
+    },
+    "SPECIES_MANECTRIC_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 80,
+        "Speed": 135,
+        "SpAttack": 135,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

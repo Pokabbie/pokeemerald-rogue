@@ -115,5 +115,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NUMEL": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 40,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

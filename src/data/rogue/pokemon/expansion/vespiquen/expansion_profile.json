@@ -187,5 +187,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VESPIQUEN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 80,
+        "Defense": 102,
+        "Speed": 40,
+        "SpAttack": 80,
+        "SpDefense": 102
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

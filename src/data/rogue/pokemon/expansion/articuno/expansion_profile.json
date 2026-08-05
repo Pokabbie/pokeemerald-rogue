@@ -497,5 +497,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARTICUNO": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 85,
+        "Defense": 100,
+        "Speed": 85,
+        "SpAttack": 95,
+        "SpDefense": 125
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_SNOW_CLOAK"
+      ]
+    }
+  }
 }

@@ -129,5 +129,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STONJOURNER": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 135,
+        "Speed": 70,
+        "SpAttack": 20,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_POWER_SPOT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

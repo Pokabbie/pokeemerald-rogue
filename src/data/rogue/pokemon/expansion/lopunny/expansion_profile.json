@@ -667,5 +667,45 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LOPUNNY": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 76,
+        "Defense": 84,
+        "Speed": 105,
+        "SpAttack": 54,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_KLUTZ",
+        "ABILITY_LIMBER"
+      ]
+    },
+    "SPECIES_LOPUNNY_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 136,
+        "Defense": 94,
+        "Speed": 135,
+        "SpAttack": 54,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SCRAPPY",
+        "ABILITY_SCRAPPY",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

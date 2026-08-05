@@ -331,5 +331,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DONPHAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_NONE",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

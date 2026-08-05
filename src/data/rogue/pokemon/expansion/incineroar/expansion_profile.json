@@ -620,5 +620,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_INCINEROAR": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 115,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 80,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

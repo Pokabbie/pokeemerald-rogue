@@ -420,5 +420,64 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ABSOL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 75,
+        "SpAttack": 75,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_JUSTIFIED"
+      ]
+    },
+    "SPECIES_ABSOL_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 150,
+        "Defense": 60,
+        "Speed": 115,
+        "SpAttack": 115,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    },
+    "SPECIES_ABSOL_MEGA_Z": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

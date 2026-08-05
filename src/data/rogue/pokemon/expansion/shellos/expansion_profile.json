@@ -184,5 +184,45 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHELLOS": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 48,
+        "Defense": 48,
+        "Speed": 34,
+        "SpAttack": 57,
+        "SpDefense": 62
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_SAND_FORCE"
+      ]
+    },
+    "SPECIES_SHELLOS_EAST_SEA": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 48,
+        "Defense": 48,
+        "Speed": 34,
+        "SpAttack": 57,
+        "SpDefense": 62
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

@@ -231,5 +231,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HONCHKROW": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 52,
+        "Speed": 71,
+        "SpAttack": 105,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_MOXIE"
+      ]
+    }
+  }
 }

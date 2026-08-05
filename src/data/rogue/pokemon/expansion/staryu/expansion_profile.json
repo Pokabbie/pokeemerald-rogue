@@ -231,5 +231,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STARYU": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 45,
+        "Defense": 55,
+        "Speed": 85,
+        "SpAttack": 70,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

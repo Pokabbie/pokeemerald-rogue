@@ -91,5 +91,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MARILL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 20,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 20,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  }
 }

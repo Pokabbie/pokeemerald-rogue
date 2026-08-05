@@ -239,5 +239,26 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUNALA": {
+      "BaseStats": {
+        "HP": 137,
+        "Attack": 113,
+        "Defense": 89,
+        "Speed": 97,
+        "SpAttack": 137,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_SHADOW_SHIELD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -159,5 +159,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GARDEVOIR": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 80,
+        "SpAttack": 125,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_TRACE"
+      ]
+    }
+  }
 }

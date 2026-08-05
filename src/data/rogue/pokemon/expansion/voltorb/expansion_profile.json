@@ -180,5 +180,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VOLTORB": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 30,
+        "Defense": 50,
+        "Speed": 100,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_STATIC",
+        "ABILITY_AFTERMATH"
+      ]
+    }
+  }
 }

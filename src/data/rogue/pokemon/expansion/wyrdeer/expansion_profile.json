@@ -138,5 +138,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WYRDEER": {
+      "BaseStats": {
+        "HP": 103,
+        "Attack": 105,
+        "Defense": 72,
+        "Speed": 65,
+        "SpAttack": 105,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_FRISK",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

@@ -139,5 +139,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HELIOPTILE": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 33,
+        "Speed": 70,
+        "SpAttack": 61,
+        "SpDefense": 43
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_DRY_SKIN",
+        "ABILITY_SAND_VEIL",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  }
 }

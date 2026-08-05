@@ -13,5 +13,25 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CATERPIE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 30,
+        "Defense": 35,
+        "Speed": 45,
+        "SpAttack": 20,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

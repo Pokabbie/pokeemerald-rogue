@@ -63,5 +63,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MELTAN": {
+      "BaseStats": {
+        "HP": 46,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 34,
+        "SpAttack": 55,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -275,5 +275,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHINCHOU": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 38,
+        "Defense": 38,
+        "Speed": 67,
+        "SpAttack": 56,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_ILLUMINATE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

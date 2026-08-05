@@ -94,5 +94,26 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEWADDLE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 53,
+        "Defense": 70,
+        "Speed": 42,
+        "SpAttack": 40,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

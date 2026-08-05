@@ -131,5 +131,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEADRA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 65,
+        "Defense": 95,
+        "Speed": 85,
+        "SpAttack": 95,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

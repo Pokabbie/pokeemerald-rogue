@@ -329,5 +329,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUSKNOIR": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 100,
+        "Defense": 135,
+        "Speed": 45,
+        "SpAttack": 65,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

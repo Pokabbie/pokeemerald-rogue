@@ -745,5 +745,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PORYGON_Z": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 135,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_DOWNLOAD",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

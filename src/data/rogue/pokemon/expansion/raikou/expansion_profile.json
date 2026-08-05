@@ -535,5 +535,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAIKOU": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 85,
+        "Defense": 75,
+        "Speed": 115,
+        "SpAttack": 115,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

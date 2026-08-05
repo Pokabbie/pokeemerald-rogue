@@ -298,5 +298,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PALOSSAND": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 75,
+        "Defense": 110,
+        "Speed": 35,
+        "SpAttack": 100,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_COMPACTION",
+        "ABILITY_NONE",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

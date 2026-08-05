@@ -109,5 +109,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VIBRAVA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 70,
+        "Defense": 50,
+        "Speed": 70,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
 }

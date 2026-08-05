@@ -21,7 +21,6 @@
 #include "decompress.h"
 #include "data.h"
 #include "palette.h"
-#include "contest.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
@@ -892,20 +891,6 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     bool8 isShiny;
     u8 gender;
 
-    if (IsContest())
-    {
-        position = B_POSITION_PLAYER_LEFT;
-        targetSpecies = gContestResources->moveAnim->targetSpecies;
-        isShiny = FALSE;
-        otId = 0;
-        gender = 0; // TODO - Fix
-
-        HandleLoadSpecialPokePic(FALSE,
-                                 gMonSpritesGfxPtr->sprites.ptr[position],
-                                 targetSpecies,
-                                 gContestResources->moveAnim->targetPersonality, gender);
-    }
-    else
     {
         position = GetBattlerPosition(battlerAtk);
 

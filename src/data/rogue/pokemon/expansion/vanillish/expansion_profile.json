@@ -87,5 +87,26 @@
     "MOVE_TAUNT",
     "MOVE_UPROAR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_VANILLISH": {
+      "BaseStats": {
+        "HP": 51,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 59,
+        "SpAttack": 80,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_ICE_BODY",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

@@ -366,5 +366,45 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ETERNATUS": {
+      "BaseStats": {
+        "HP": 140,
+        "Attack": 85,
+        "Defense": 95,
+        "Speed": 130,
+        "SpAttack": 145,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ETERNATUS_ETERNAMAX": {
+      "BaseStats": {
+        "HP": 255,
+        "Attack": 115,
+        "Defense": 250,
+        "Speed": 130,
+        "SpAttack": 125,
+        "SpDefense": 250
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -89,5 +89,26 @@
     "MOVE_TRICK_ROOM",
     "MOVE_UPROAR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_POLTCHAGEIST_ARTISAN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 74,
+        "SpDefense": 54
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_HOSPITALITY",
+        "ABILITY_NONE",
+        "ABILITY_HEATPROOF"
+      ]
+    }
+  }
 }

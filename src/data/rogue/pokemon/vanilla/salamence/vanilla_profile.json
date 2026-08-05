@@ -214,5 +214,25 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SALAMENCE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 135,
+        "Defense": 80,
+        "Speed": 100,
+        "SpAttack": 110,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

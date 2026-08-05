@@ -219,5 +219,45 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEOWTH": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 90,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_UNNERVE"
+      ]
+    },
+    "SPECIES_MEOWTH_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 90,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

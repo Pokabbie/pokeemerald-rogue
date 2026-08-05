@@ -84,5 +84,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DELIBIRD": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 55,
+        "Defense": 45,
+        "Speed": 75,
+        "SpAttack": 65,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

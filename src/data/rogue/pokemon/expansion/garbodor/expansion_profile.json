@@ -266,5 +266,45 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GARBODOR": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 95,
+        "Defense": 82,
+        "Speed": 75,
+        "SpAttack": 60,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_AFTERMATH"
+      ]
+    },
+    "SPECIES_GARBODOR_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 95,
+        "Defense": 82,
+        "Speed": 75,
+        "SpAttack": 60,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_AFTERMATH"
+      ]
+    }
+  }
 }

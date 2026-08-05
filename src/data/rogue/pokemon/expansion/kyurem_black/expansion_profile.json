@@ -574,5 +574,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KYUREM_BLACK": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 170,
+        "Defense": 100,
+        "Speed": 95,
+        "SpAttack": 120,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_TERAVOLT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

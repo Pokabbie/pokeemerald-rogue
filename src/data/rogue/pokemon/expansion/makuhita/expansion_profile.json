@@ -145,5 +145,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAKUHITA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 60,
+        "Defense": 30,
+        "Speed": 25,
+        "SpAttack": 20,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_GUTS",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

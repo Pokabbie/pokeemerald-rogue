@@ -100,5 +100,25 @@
     "MOVE_WATERFALL",
     "MOVE_YAWN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SQUIRTLE": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 48,
+        "Defense": 65,
+        "Speed": 43,
+        "SpAttack": 50,
+        "SpDefense": 64
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

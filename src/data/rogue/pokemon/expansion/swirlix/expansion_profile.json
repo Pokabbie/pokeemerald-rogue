@@ -98,5 +98,26 @@
     "MOVE_THUNDERBOLT",
     "MOVE_YAWN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SWIRLIX": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 48,
+        "Defense": 66,
+        "Speed": 49,
+        "SpAttack": 59,
+        "SpDefense": 57
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_UNBURDEN"
+      ]
+    }
+  }
 }

@@ -183,5 +183,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAILLOW": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 55,
+        "Defense": 30,
+        "Speed": 85,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NONE",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

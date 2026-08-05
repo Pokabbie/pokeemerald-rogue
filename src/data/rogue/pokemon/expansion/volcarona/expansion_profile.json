@@ -1122,5 +1122,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VOLCARONA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 60,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 135,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_SWARM"
+      ]
+    }
+  }
 }

@@ -493,5 +493,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHESNAUGHT": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 107,
+        "Defense": 122,
+        "Speed": 64,
+        "SpAttack": 74,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_BULLETPROOF"
+      ]
+    },
+    "SPECIES_CHESNAUGHT_MEGA": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 137,
+        "Defense": 172,
+        "Speed": 44,
+        "SpAttack": 74,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BULLETPROOF",
+        "ABILITY_BULLETPROOF",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  }
 }

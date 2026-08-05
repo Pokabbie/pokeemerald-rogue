@@ -418,5 +418,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NINETALES": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 76,
+        "Defense": 75,
+        "Speed": 100,
+        "SpAttack": 81,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE",
+        "ABILITY_DROUGHT"
+      ]
+    }
+  }
 }

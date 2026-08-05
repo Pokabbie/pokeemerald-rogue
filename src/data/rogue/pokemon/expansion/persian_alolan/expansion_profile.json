@@ -384,5 +384,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PERSIAN_ALOLAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 115,
+        "SpAttack": 75,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

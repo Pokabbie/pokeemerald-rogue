@@ -149,5 +149,26 @@
     "MOVE_WILD_CHARGE",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DUDUNSPARCE_THREE_SEGMENT": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 100,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_RUN_AWAY",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

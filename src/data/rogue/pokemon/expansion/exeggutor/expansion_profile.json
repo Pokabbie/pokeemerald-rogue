@@ -314,5 +314,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXEGGUTOR": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 85,
+        "Speed": 55,
+        "SpAttack": 125,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

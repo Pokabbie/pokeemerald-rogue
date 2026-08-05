@@ -114,5 +114,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MURKROW": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 42,
+        "Speed": 91,
+        "SpAttack": 85,
+        "SpDefense": 42
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

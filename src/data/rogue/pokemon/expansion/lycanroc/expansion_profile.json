@@ -356,5 +356,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LYCANROC": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 112,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SAND_RUSH",
+        "ABILITY_STEADFAST"
+      ]
+    }
+  }
 }

@@ -421,5 +421,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZYGARDE_COMPLETE": {
+      "BaseStats": {
+        "HP": 216,
+        "Attack": 100,
+        "Defense": 121,
+        "Speed": 85,
+        "SpAttack": 91,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_POWER_CONSTRUCT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -1,7 +1,6 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
-#include "contest.h"
 #include "m4a.h"
 #include "sound.h"
 #include "task.h"
@@ -137,14 +136,7 @@ void SoundTask_PlayCryHighPitch(u8 taskId)
     s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
     if (IsContest())
     {
-        if (gBattleAnimArgs[0] == ANIM_ATTACKER)
-            species = gContestResources->moveAnim->species;
-    // Destroying the task twice (here and at end of function)
-    // results in an incorrect value for gAnimVisualTaskCount
-    #ifndef BUGFIX
-        else
-            DestroyAnimVisualTask(taskId);
-    #endif
+        AGB_ASSERT(FALSE);
     }
     else
     {
@@ -185,14 +177,7 @@ void SoundTask_PlayDoubleCry(u8 taskId)
     s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
     if (IsContest())
     {
-        if (gBattleAnimArgs[0] == ANIM_ATTACKER)
-            species = gContestResources->moveAnim->species;
-    // Destroying the task twice (here and at end of function)
-    // results in an incorrect value for gAnimVisualTaskCount
-    #ifndef BUGFIX
-        else
-            DestroyAnimVisualTask(taskId);
-    #endif
+        AGB_ASSERT(FALSE);
     }
     else
     {
@@ -303,7 +288,10 @@ void SoundTask_PlayCryWithEcho(u8 taskId)
     pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
 
     if (IsContest())
-        species = gContestResources->moveAnim->species;
+    {
+        AGB_ASSERT(FALSE);
+        species = 0;
+    }
     else
         species = gAnimBattlerSpecies[gBattleAnimAttacker];
 

@@ -120,5 +120,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIPLUP": {
+      "BaseStats": {
+        "HP": 53,
+        "Attack": 51,
+        "Defense": 53,
+        "Speed": 40,
+        "SpAttack": 61,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  }
 }

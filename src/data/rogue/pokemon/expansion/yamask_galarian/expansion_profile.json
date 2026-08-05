@@ -109,5 +109,26 @@
     "MOVE_WONDER_ROOM",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_YAMASK_GALARIAN": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 55,
+        "Defense": 85,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WANDERING_SPIRIT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -112,5 +112,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TENTACOOL": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 35,
+        "Speed": 70,
+        "SpAttack": 50,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_LIQUID_OOZE"
+      ]
+    }
+  }
 }

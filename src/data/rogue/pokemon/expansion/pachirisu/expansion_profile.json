@@ -180,5 +180,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PACHIRISU": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 45,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_PICKUP",
+        "ABILITY_VOLT_ABSORB"
+      ]
+    }
+  }
 }

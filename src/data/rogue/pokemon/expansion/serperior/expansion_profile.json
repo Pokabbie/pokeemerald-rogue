@@ -626,5 +626,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SERPERIOR": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 75,
+        "Defense": 95,
+        "Speed": 113,
+        "SpAttack": 75,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

@@ -135,5 +135,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LEDIAN": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 35,
+        "Defense": 50,
+        "Speed": 85,
+        "SpAttack": 55,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

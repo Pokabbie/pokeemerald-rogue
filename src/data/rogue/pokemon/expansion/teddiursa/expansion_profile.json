@@ -163,5 +163,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TEDDIURSA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_QUICK_FEET",
+        "ABILITY_HONEY_GATHER"
+      ]
+    }
+  }
 }

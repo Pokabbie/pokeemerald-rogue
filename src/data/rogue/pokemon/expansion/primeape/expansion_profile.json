@@ -338,5 +338,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PRIMEAPE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 105,
+        "Defense": 60,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_ANGER_POINT",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

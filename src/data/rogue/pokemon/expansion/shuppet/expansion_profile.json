@@ -124,5 +124,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHUPPET": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 75,
+        "Defense": 35,
+        "Speed": 45,
+        "SpAttack": 63,
+        "SpDefense": 33
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_FRISK",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

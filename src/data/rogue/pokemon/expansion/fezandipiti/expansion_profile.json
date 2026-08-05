@@ -158,5 +158,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FEZANDIPITI": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 91,
+        "Defense": 82,
+        "Speed": 99,
+        "SpAttack": 70,
+        "SpDefense": 125
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_TOXIC_CHAIN",
+        "ABILITY_NONE",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

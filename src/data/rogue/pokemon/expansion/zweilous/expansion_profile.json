@@ -202,5 +202,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZWEILOUS": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 58,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

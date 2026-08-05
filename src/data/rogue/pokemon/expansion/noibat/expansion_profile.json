@@ -124,5 +124,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NOIBAT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 30,
+        "Defense": 35,
+        "Speed": 55,
+        "SpAttack": 45,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_FRISK",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

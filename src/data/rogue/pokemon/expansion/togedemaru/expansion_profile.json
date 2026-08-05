@@ -310,5 +310,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOGEDEMARU": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 98,
+        "Defense": 63,
+        "Speed": 96,
+        "SpAttack": 40,
+        "SpDefense": 73
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_BARBS",
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

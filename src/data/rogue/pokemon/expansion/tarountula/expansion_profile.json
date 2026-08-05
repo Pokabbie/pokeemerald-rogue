@@ -97,5 +97,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_X_SCISSOR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TAROUNTULA": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 41,
+        "Defense": 45,
+        "Speed": 20,
+        "SpAttack": 29,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_NONE",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  }
 }

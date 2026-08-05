@@ -123,5 +123,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FUECOCO": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 45,
+        "Defense": 59,
+        "Speed": 36,
+        "SpAttack": 63,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_UNAWARE"
+      ]
+    }
+  }
 }

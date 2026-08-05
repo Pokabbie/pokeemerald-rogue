@@ -660,5 +660,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PRIMARINA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 74,
+        "Defense": 74,
+        "Speed": 60,
+        "SpAttack": 126,
+        "SpDefense": 116
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_LIQUID_VOICE"
+      ]
+    }
+  }
 }

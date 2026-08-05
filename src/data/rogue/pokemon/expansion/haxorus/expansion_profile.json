@@ -662,5 +662,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HAXORUS": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 147,
+        "Defense": 90,
+        "Speed": 97,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

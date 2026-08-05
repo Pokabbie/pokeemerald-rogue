@@ -183,5 +183,45 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_COPPERAJAH": {
+      "BaseStats": {
+        "HP": 122,
+        "Attack": 130,
+        "Defense": 69,
+        "Speed": 30,
+        "SpAttack": 80,
+        "SpDefense": 69
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_HEAVY_METAL"
+      ]
+    },
+    "SPECIES_COPPERAJAH_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 122,
+        "Attack": 130,
+        "Defense": 69,
+        "Speed": 30,
+        "SpAttack": 80,
+        "SpDefense": 69
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_HEAVY_METAL"
+      ]
+    }
+  }
 }

@@ -252,5 +252,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZAMAZENTA": {
+      "BaseStats": {
+        "HP": 92,
+        "Attack": 120,
+        "Defense": 115,
+        "Speed": 138,
+        "SpAttack": 80,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_DAUNTLESS_SHIELD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

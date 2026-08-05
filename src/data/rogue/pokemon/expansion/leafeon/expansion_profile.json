@@ -405,5 +405,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LEAFEON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 110,
+        "Defense": 130,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_CHLOROPHYLL"
+      ]
+    }
+  }
 }

@@ -105,5 +105,26 @@
     "MOVE_U_TURN",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TANDEMAUS": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 45,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_PICKUP",
+        "ABILITY_OWN_TEMPO"
+      ]
+    }
+  }
 }

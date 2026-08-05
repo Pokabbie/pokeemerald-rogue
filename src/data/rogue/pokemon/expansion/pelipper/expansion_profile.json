@@ -781,5 +781,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PELIPPER": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 100,
+        "Speed": 65,
+        "SpAttack": 95,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_DRIZZLE",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

@@ -318,5 +318,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRABOMINABLE": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 132,
+        "Defense": 77,
+        "Speed": 43,
+        "SpAttack": 62,
+        "SpDefense": 67
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_IRON_FIST",
+        "ABILITY_ANGER_POINT"
+      ]
+    },
+    "SPECIES_CRABOMINABLE_MEGA": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 157,
+        "Defense": 122,
+        "Speed": 33,
+        "SpAttack": 62,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_IRON_FIST",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

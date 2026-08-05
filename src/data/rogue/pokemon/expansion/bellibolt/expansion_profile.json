@@ -218,5 +218,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BELLIBOLT": {
+      "BaseStats": {
+        "HP": 109,
+        "Attack": 64,
+        "Defense": 91,
+        "Speed": 45,
+        "SpAttack": 103,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_ELECTROMORPHOSIS",
+        "ABILITY_STATIC",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

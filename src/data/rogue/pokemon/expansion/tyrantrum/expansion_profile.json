@@ -350,5 +350,26 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYRANTRUM": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 121,
+        "Defense": 119,
+        "Speed": 71,
+        "SpAttack": 69,
+        "SpDefense": 59
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_NONE",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

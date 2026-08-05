@@ -84,5 +84,26 @@
     "MOVE_U_TURN",
     "MOVE_UPROAR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_STARAVIA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 75,
+        "Defense": 50,
+        "Speed": 80,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE",
+        "ABILITY_RECKLESS"
+      ]
+    }
+  }
 }

@@ -347,5 +347,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HELIOLISK": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 55,
+        "Defense": 52,
+        "Speed": 109,
+        "SpAttack": 109,
+        "SpDefense": 94
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_DRY_SKIN",
+        "ABILITY_SAND_VEIL",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  }
 }

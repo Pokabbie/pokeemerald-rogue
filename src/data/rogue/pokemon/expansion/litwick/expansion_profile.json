@@ -170,5 +170,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LITWICK": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 30,
+        "Defense": 55,
+        "Speed": 20,
+        "SpAttack": 65,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

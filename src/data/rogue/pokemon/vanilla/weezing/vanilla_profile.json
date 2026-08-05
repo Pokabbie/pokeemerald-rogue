@@ -114,5 +114,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WEEZING": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 120,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

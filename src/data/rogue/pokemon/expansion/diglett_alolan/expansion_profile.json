@@ -151,5 +151,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DIGLETT_ALOLAN": {
+      "BaseStats": {
+        "HP": 10,
+        "Attack": 55,
+        "Defense": 30,
+        "Speed": 90,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_TANGLING_HAIR",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

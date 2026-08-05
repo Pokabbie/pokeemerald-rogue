@@ -142,5 +142,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EISCUE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 110,
+        "Speed": 50,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_ICE_FACE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_EISCUE_NOICE_FACE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 130,
+        "SpAttack": 65,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_ICE_FACE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

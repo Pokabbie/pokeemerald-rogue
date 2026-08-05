@@ -262,5 +262,26 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PALKIA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 150,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

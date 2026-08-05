@@ -124,5 +124,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MARILL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 20,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 20,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_HUGE_POWER",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

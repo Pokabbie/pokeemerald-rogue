@@ -301,5 +301,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRACOZOLT": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 100,
+        "Defense": 90,
+        "Speed": 75,
+        "SpAttack": 80,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_HUSTLE",
+        "ABILITY_SAND_RUSH"
+      ]
+    }
+  }
 }

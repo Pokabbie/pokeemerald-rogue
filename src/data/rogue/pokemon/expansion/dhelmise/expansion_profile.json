@@ -327,5 +327,26 @@
         "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DHELMISE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 131,
+        "Defense": 100,
+        "Speed": 40,
+        "SpAttack": 86,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_STEELWORKER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

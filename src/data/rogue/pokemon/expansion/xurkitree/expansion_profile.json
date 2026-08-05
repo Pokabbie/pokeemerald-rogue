@@ -441,5 +441,26 @@
         "GEN8NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_XURKITREE": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 89,
+        "Defense": 71,
+        "Speed": 83,
+        "SpAttack": 173,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

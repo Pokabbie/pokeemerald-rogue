@@ -107,5 +107,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLEFFA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 25,
+        "Defense": 28,
+        "Speed": 15,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    }
+  }
 }

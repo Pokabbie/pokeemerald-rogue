@@ -657,5 +657,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TORKOAL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 140,
+        "Speed": 20,
+        "SpAttack": 85,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_WHITE_SMOKE",
+        "ABILITY_DROUGHT",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

@@ -577,5 +577,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BLACEPHALON": {
+      "BaseStats": {
+        "HP": 53,
+        "Attack": 127,
+        "Defense": 53,
+        "Speed": 107,
+        "SpAttack": 151,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -117,5 +117,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NIDORAN_M": {
+      "BaseStats": {
+        "HP": 46,
+        "Attack": 57,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_RIVALRY",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

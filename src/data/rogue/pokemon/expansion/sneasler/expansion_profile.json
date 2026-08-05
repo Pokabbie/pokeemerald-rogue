@@ -252,5 +252,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNEASLER": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 120,
+        "SpAttack": 40,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_UNBURDEN",
+        "ABILITY_POISON_TOUCH"
+      ]
+    }
+  }
 }

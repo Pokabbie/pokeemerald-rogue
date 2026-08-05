@@ -141,5 +141,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUMINEON": {
+      "BaseStats": {
+        "HP": 69,
+        "Attack": 69,
+        "Defense": 76,
+        "Speed": 91,
+        "SpAttack": 69,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }

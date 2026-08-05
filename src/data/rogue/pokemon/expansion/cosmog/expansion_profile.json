@@ -13,5 +13,26 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_COSMOG": {
+      "BaseStats": {
+        "HP": 43,
+        "Attack": 29,
+        "Defense": 31,
+        "Speed": 37,
+        "SpAttack": 29,
+        "SpDefense": 31
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_UNAWARE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

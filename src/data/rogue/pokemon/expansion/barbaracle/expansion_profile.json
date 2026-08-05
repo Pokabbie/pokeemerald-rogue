@@ -257,5 +257,45 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BARBARACLE": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 105,
+        "Defense": 115,
+        "Speed": 68,
+        "SpAttack": 54,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_SNIPER",
+        "ABILITY_PICKPOCKET"
+      ]
+    },
+    "SPECIES_BARBARACLE_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

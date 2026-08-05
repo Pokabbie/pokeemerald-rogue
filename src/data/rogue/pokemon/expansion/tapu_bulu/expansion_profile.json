@@ -703,5 +703,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAPU_BULU": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 130,
+        "Defense": 115,
+        "Speed": 75,
+        "SpAttack": 85,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_GRASSY_SURGE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

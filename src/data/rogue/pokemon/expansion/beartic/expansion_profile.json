@@ -277,5 +277,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BEARTIC": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 50,
+        "SpAttack": 70,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SLUSH_RUSH",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

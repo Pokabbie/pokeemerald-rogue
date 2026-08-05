@@ -180,5 +180,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_LEAVES": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 130,
+        "Defense": 88,
+        "Speed": 104,
+        "SpAttack": 70,
+        "SpDefense": 108
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

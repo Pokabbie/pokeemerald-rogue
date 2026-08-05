@@ -189,5 +189,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_THROH": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 100,
+        "Defense": 85,
+        "Speed": 45,
+        "SpAttack": 30,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

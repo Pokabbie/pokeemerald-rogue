@@ -146,5 +146,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RATICATE_ALOLAN": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 71,
+        "Defense": 70,
+        "Speed": 77,
+        "SpAttack": 40,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_GLUTTONY",
+        "ABILITY_HUSTLE",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

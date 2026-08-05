@@ -161,5 +161,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LARVITAR": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 64,
+        "Defense": 50,
+        "Speed": 41,
+        "SpAttack": 45,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NONE",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

@@ -420,5 +420,26 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AURORUS": {
+      "BaseStats": {
+        "HP": 123,
+        "Attack": 77,
+        "Defense": 72,
+        "Speed": 58,
+        "SpAttack": 99,
+        "SpDefense": 92
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_REFRIGERATE",
+        "ABILITY_NONE",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

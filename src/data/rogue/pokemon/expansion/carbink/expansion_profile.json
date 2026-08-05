@@ -308,5 +308,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CARBINK": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 150,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

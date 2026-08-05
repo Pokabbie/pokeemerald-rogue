@@ -314,5 +314,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAGING_BOLT": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 73,
+        "Defense": 91,
+        "Speed": 75,
+        "SpAttack": 137,
+        "SpDefense": 89
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

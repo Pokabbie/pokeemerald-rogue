@@ -132,5 +132,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KINGDRA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 85,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

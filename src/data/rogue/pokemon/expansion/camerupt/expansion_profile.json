@@ -544,5 +544,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CAMERUPT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 105,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_MAGMA_ARMOR",
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_ANGER_POINT"
+      ]
+    },
+    "SPECIES_CAMERUPT_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 120,
+        "Defense": 100,
+        "Speed": 20,
+        "SpAttack": 145,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

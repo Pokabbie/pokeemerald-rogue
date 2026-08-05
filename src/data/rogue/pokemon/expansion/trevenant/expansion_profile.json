@@ -359,5 +359,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TREVENANT": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 110,
+        "Defense": 76,
+        "Speed": 56,
+        "SpAttack": 65,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_FRISK",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

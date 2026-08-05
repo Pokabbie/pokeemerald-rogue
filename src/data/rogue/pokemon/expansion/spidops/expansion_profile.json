@@ -126,5 +126,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPIDOPS": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 79,
+        "Defense": 92,
+        "Speed": 35,
+        "SpAttack": 52,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_NONE",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  }
 }

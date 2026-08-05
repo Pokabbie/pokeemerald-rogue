@@ -324,5 +324,26 @@
         "GEN8NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TANGROWTH": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 125,
+        "Speed": 50,
+        "SpAttack": 110,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

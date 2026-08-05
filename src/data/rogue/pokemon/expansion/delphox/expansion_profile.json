@@ -461,5 +461,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DELPHOX": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 69,
+        "Defense": 72,
+        "Speed": 104,
+        "SpAttack": 114,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_MAGICIAN"
+      ]
+    },
+    "SPECIES_DELPHOX_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 69,
+        "Defense": 72,
+        "Speed": 134,
+        "SpAttack": 159,
+        "SpDefense": 125
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
 }

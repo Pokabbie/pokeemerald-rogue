@@ -461,5 +461,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_COBALION": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 90,
+        "Defense": 129,
+        "Speed": 108,
+        "SpAttack": 90,
+        "SpDefense": 72
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_JUSTIFIED",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

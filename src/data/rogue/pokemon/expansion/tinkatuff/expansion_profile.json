@@ -120,5 +120,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TINKATUFF": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 78,
+        "SpAttack": 45,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

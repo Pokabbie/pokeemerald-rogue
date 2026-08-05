@@ -628,5 +628,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LANDORUS": {
+      "BaseStats": {
+        "HP": 89,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 101,
+        "SpAttack": 115,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

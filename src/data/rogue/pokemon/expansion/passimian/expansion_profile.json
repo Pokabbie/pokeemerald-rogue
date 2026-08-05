@@ -263,5 +263,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PASSIMIAN": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 120,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 40,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_RECEIVER",
+        "ABILITY_NONE",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

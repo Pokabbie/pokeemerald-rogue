@@ -87,5 +87,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BEAUTIFLY": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 70,
+        "Defense": 50,
+        "Speed": 65,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

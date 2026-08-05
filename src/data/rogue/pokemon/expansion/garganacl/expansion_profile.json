@@ -309,5 +309,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GARGANACL": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 130,
+        "Speed": 35,
+        "SpAttack": 45,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_PURIFYING_SALT",
+        "ABILITY_STURDY",
+        "ABILITY_CLEAR_BODY"
+      ]
+    }
+  }
 }

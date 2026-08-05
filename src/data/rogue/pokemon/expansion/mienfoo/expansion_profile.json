@@ -292,5 +292,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MIENFOO": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 65,
+        "SpAttack": 55,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_REGENERATOR",
+        "ABILITY_RECKLESS"
+      ]
+    }
+  }
 }

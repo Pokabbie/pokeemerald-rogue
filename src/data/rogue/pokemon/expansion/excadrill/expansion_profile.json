@@ -1377,5 +1377,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXCADRILL": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 135,
+        "Defense": 60,
+        "Speed": 88,
+        "SpAttack": 50,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_RUSH",
+        "ABILITY_SAND_FORCE",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    },
+    "SPECIES_EXCADRILL_MEGA": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 165,
+        "Defense": 100,
+        "Speed": 103,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PIERCING_DRILL",
+        "ABILITY_PIERCING_DRILL",
+        "ABILITY_PIERCING_DRILL"
+      ]
+    }
+  }
 }

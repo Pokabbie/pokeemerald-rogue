@@ -144,5 +144,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPINDA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -183,5 +183,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SALANDIT": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 44,
+        "Defense": 40,
+        "Speed": 77,
+        "SpAttack": 71,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_CORROSION",
+        "ABILITY_NONE",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

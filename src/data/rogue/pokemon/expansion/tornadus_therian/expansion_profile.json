@@ -541,5 +541,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TORNADUS_THERIAN": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 100,
+        "Defense": 80,
+        "Speed": 121,
+        "SpAttack": 110,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_REGENERATOR",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

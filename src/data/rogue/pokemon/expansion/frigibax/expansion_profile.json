@@ -88,5 +88,26 @@
     "MOVE_TAKE_DOWN",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FRIGIBAX": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 75,
+        "Defense": 45,
+        "Speed": 55,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THERMAL_EXCHANGE",
+        "ABILITY_NONE",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  }
 }

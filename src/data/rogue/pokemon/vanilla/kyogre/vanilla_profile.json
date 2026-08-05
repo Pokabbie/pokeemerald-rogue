@@ -191,5 +191,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KYOGRE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 150,
+        "SpDefense": 140
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_DRIZZLE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -145,5 +145,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLIGGOO_HISUIAN": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 75,
+        "Defense": 83,
+        "Speed": 40,
+        "SpAttack": 83,
+        "SpDefense": 113
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_GOOEY"
+      ]
+    }
+  }
 }

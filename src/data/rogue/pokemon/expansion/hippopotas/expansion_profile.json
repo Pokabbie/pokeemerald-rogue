@@ -294,5 +294,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HIPPOPOTAS": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 72,
+        "Defense": 78,
+        "Speed": 32,
+        "SpAttack": 38,
+        "SpDefense": 42
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_NONE",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

@@ -315,5 +315,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRUMPIG": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 45,
+        "Defense": 65,
+        "Speed": 80,
+        "SpAttack": 90,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

@@ -7,8 +7,6 @@
 #include "battle_tent.h"
 #include "battle_factory.h"
 #include "bg.h"
-#include "contest.h"
-#include "contest_effect.h"
 #include "data.h"
 #include "daycare.h"
 #include "decompress.h"
@@ -3048,37 +3046,7 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
 
 static void DrawContestMoveHearts(u16 move)
 {
-    u16 *tilemap = sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_CONTEST_MOVES][1];
-    u8 i;
-
-    if (move != MOVE_NONE)
-    {
-        // Draw appeal hearts
-        u8 effectValue = gContestEffects[gContestMoves[move].effect].appeal;
-        if (effectValue != 0xFF)
-            effectValue /= 10;
-
-        for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        {
-            if (effectValue != 0xFF && i < effectValue)
-                tilemap[(i / 4 * 32) + (i & 3) + 0x1E6] = TILE_FILLED_APPEAL_HEART;
-            else
-                tilemap[(i / 4 * 32) + (i & 3) + 0x1E6] = TILE_EMPTY_APPEAL_HEART;
-        }
-
-        // Draw jam hearts
-        effectValue = gContestEffects[gContestMoves[move].effect].jam;
-        if (effectValue != 0xFF)
-            effectValue /= 10;
-
-        for (i = 0; i < MAX_CONTEST_MOVE_HEARTS; i++)
-        {
-            if (effectValue != 0xFF && i < effectValue)
-                tilemap[(i / 4 * 32) + (i & 3) + 0x226] = TILE_FILLED_JAM_HEART;
-            else
-                tilemap[(i / 4 * 32) + (i & 3) + 0x226] = TILE_EMPTY_JAM_HEART;
-        }
-    }
+    AGB_ASSERT(FALSE);
 }
 
 static void LimitEggSummaryPageDisplay(void) // If the pokemon is an egg, limit the number of pages displayed to 1
@@ -4216,18 +4184,7 @@ static void Task_PrintContestMoves(u8 taskId)
 
 static void PrintContestMoveDescription(u8 moveSlot)
 {
-    u16 move;
-
-    if (moveSlot == MAX_MON_MOVES)
-        move = sMonSummaryScreen->newMove;
-    else
-        move = sMonSummaryScreen->summary.moves[moveSlot];
-
-    if (move != MOVE_NONE)
-    {
-        u8 windowId = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_DESCRIPTION);
-        PrintTextOnWindow(windowId, gContestEffectDescriptionPointers[gContestMoves[move].effect], 6, 1, 0, 0);
-    }
+    AGB_ASSERT(FALSE);
 }
 
 static void PrintMoveDetails(u16 move)
@@ -4260,7 +4217,7 @@ static void PrintMoveDetails(u16 move)
         }
         else
         {
-            PrintTextOnWindow(windowId, gContestEffectDescriptionPointers[gContestMoves[move].effect], 6, 1, 0, 0);
+            AGB_ASSERT(FALSE);
         }
         PutWindowTilemap(windowId);
     }
@@ -4495,15 +4452,7 @@ static void SetMoveTypeIcons(void)
 
 static void SetContestMoveTypeIcons(void)
 {
-    u8 i;
-    struct PokeSummary *summary = &sMonSummaryScreen->summary;
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (summary->moves[i] != MOVE_NONE)
-            SetTypeSpritePosAndPal(NUMBER_OF_MON_TYPES + gContestMoves[summary->moves[i]].contestCategory, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
-        else
-            SetSpriteInvisibility(i + SPRITE_ARR_ID_TYPE, TRUE);
-    }
+    AGB_ASSERT(FALSE);
 }
 
 static void SetNewMoveTypeIcon(void)
@@ -4524,7 +4473,9 @@ static void SetNewMoveTypeIcon(void)
                 SetTypeSpritePosAndPal(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, SPRITE_ARR_ID_TYPE + 4);
         }
         else
-            SetTypeSpritePosAndPal(NUMBER_OF_MON_TYPES + gContestMoves[sMonSummaryScreen->newMove].contestCategory, 85, 96, SPRITE_ARR_ID_TYPE + 4);
+        {
+            AGB_ASSERT(FALSE);
+        }
     }
 }
 

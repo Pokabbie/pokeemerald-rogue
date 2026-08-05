@@ -361,5 +361,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PAWNIARD": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 60,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_PRESSURE"
+      ]
+    }
+  }
 }

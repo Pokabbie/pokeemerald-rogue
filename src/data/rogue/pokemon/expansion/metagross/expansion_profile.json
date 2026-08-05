@@ -1357,5 +1357,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_METAGROSS": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 135,
+        "Defense": 130,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_LIGHT_METAL"
+      ]
+    },
+    "SPECIES_METAGROSS_MEGA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 145,
+        "Defense": 150,
+        "Speed": 110,
+        "SpAttack": 105,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS"
+      ]
+    }
+  }
 }

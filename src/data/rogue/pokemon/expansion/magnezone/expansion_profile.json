@@ -887,5 +887,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGNEZONE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 115,
+        "Speed": 60,
+        "SpAttack": 130,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_STURDY",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

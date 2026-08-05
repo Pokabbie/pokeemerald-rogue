@@ -185,5 +185,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BUIZEL": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 65,
+        "Defense": 35,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }

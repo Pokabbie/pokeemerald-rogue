@@ -322,5 +322,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXEGGUTOR_ALOLAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 105,
+        "Defense": 85,
+        "Speed": 45,
+        "SpAttack": 125,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_FRISK",
+        "ABILITY_NONE",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

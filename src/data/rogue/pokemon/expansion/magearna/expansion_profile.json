@@ -372,5 +372,83 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGEARNA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 65,
+        "SpAttack": 130,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SOUL_HEART",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MAGEARNA_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MAGEARNA_ORIGINAL_COLOR": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 65,
+        "SpAttack": 130,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SOUL_HEART",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MAGEARNA_ORIGINAL_COLOR_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

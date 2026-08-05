@@ -235,5 +235,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLURPUFF": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 80,
+        "Defense": 86,
+        "Speed": 72,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_UNBURDEN"
+      ]
+    }
+  }
 }

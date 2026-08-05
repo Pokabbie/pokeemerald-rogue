@@ -145,5 +145,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PINECO": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 90,
+        "Speed": 15,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

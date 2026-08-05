@@ -207,5 +207,45 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OGERPON": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 84,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_OGERPON_TEAL_MASK_TERA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 84,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_EMBODY_ASPECT_TEAL",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

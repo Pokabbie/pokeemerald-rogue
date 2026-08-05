@@ -132,5 +132,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOGEPI": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 20,
+        "Defense": 65,
+        "Speed": 20,
+        "SpAttack": 40,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_SUPER_LUCK"
+      ]
+    }
+  }
 }

@@ -133,5 +133,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNORUNT": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_ICE_BODY",
+        "ABILITY_MOODY"
+      ]
+    }
+  }
 }

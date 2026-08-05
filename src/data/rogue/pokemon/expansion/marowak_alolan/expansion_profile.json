@@ -452,5 +452,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAROWAK_ALOLAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 80,
+        "Defense": 110,
+        "Speed": 45,
+        "SpAttack": 50,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_CURSED_BODY",
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

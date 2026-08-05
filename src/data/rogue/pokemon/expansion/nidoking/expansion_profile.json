@@ -489,5 +489,26 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NIDOKING": {
+      "BaseStats": {
+        "HP": 81,
+        "Attack": 102,
+        "Defense": 77,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_RIVALRY",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

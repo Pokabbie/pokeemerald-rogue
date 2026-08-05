@@ -284,5 +284,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUDUNSPARCE": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 100,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_RUN_AWAY",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

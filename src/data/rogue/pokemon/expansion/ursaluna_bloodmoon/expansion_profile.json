@@ -267,5 +267,26 @@
         "GEN9ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_URSALUNA_BLOODMOON": {
+      "BaseStats": {
+        "HP": 113,
+        "Attack": 70,
+        "Defense": 120,
+        "Speed": 52,
+        "SpAttack": 135,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_MINDS_EYE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

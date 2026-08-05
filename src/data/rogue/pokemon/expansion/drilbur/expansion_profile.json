@@ -229,5 +229,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRILBUR": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 40,
+        "Speed": 68,
+        "SpAttack": 30,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_RUSH",
+        "ABILITY_SAND_FORCE",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

@@ -241,5 +241,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SINISTCHA": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 60,
+        "Defense": 106,
+        "Speed": 70,
+        "SpAttack": 121,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_HOSPITALITY",
+        "ABILITY_NONE",
+        "ABILITY_HEATPROOF"
+      ]
+    }
+  }
 }

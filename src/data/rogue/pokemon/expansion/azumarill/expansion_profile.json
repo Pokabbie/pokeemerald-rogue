@@ -961,5 +961,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AZUMARILL": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 50,
+        "Defense": 80,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_HUGE_POWER",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

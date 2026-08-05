@@ -1419,5 +1419,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCIZOR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 130,
+        "Defense": 100,
+        "Speed": 65,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_LIGHT_METAL"
+      ]
+    },
+    "SPECIES_SCIZOR_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 150,
+        "Defense": 140,
+        "Speed": 75,
+        "SpAttack": 65,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_TECHNICIAN",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

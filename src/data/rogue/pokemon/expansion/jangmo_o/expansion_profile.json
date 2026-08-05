@@ -114,5 +114,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JANGMO_O": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 55,
+        "Defense": 65,
+        "Speed": 45,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_BULLETPROOF",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

@@ -214,5 +214,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KLEAVOR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 135,
+        "Defense": 95,
+        "Speed": 85,
+        "SpAttack": 45,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_SHARPNESS"
+      ]
+    }
+  }
 }

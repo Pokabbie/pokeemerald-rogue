@@ -495,5 +495,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AVALUGG": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 117,
+        "Defense": 184,
+        "Speed": 28,
+        "SpAttack": 44,
+        "SpDefense": 46
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_ICE_BODY",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

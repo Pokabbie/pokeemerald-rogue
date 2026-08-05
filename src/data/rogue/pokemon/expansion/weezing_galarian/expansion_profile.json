@@ -352,5 +352,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WEEZING_GALARIAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 120,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NEUTRALIZING_GAS",
+        "ABILITY_MISTY_SURGE"
+      ]
+    }
+  }
 }

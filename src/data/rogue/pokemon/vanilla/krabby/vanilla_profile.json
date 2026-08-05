@@ -82,5 +82,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_KRABBY": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 105,
+        "Defense": 90,
+        "Speed": 50,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

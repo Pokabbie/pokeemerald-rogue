@@ -506,5 +506,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HO_OH": {
+      "BaseStats": {
+        "HP": 106,
+        "Attack": 130,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 110,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

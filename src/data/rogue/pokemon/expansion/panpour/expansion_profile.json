@@ -153,5 +153,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PANPOUR": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 53,
+        "Defense": 48,
+        "Speed": 64,
+        "SpAttack": 53,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GLUTTONY",
+        "ABILITY_NONE",
+        "ABILITY_TORRENT"
+      ]
+    }
+  }
 }

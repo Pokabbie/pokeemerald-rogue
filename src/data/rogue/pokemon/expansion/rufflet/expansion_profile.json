@@ -173,5 +173,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RUFFLET": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 83,
+        "Defense": 50,
+        "Speed": 60,
+        "SpAttack": 37,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

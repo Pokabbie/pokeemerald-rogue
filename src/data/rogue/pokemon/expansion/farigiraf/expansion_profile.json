@@ -253,5 +253,26 @@
         "GEN9DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FARIGIRAF": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 90,
+        "Defense": 70,
+        "Speed": 60,
+        "SpAttack": 110,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CUD_CHEW",
+        "ABILITY_ARMOR_TAIL",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

@@ -365,5 +365,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCYTHER": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 105,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_STEADFAST"
+      ]
+    }
+  }
 }

@@ -211,5 +211,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYPHLOSION_HISUIAN": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 84,
+        "Defense": 78,
+        "Speed": 95,
+        "SpAttack": 119,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

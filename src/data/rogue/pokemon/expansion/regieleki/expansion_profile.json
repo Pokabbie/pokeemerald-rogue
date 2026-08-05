@@ -493,5 +493,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGIELEKI": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 50,
+        "Speed": 200,
+        "SpAttack": 100,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_TRANSISTOR",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

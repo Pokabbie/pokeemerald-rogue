@@ -238,5 +238,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RATICATE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 81,
+        "Defense": 60,
+        "Speed": 97,
+        "SpAttack": 50,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_GUTS",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

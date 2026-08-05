@@ -962,7 +962,6 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     },
-
     {
       "Moves": [
         "MOVE_FOLLOW_ME",
@@ -1033,5 +1032,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLEFABLE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 70,
+        "Defense": 73,
+        "Speed": 60,
+        "SpAttack": 95,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_UNAWARE"
+      ]
+    },
+    "SPECIES_CLEFABLE_MEGA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 80,
+        "Defense": 93,
+        "Speed": 70,
+        "SpAttack": 135,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

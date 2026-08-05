@@ -281,5 +281,349 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SILVALLY": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_FIGHTING": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_FLYING": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_POISON": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_GROUND": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_ROCK": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_BUG": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_GHOST": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_STEEL": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_FIRE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_WATER": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_GRASS": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_ELECTRIC": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_PSYCHIC": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_ICE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_DRAGON": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_DARK": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_SILVALLY_FAIRY": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_RKS_SYSTEM",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

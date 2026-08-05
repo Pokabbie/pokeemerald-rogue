@@ -86,5 +86,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BUDEW": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 30,
+        "Defense": 35,
+        "Speed": 55,
+        "SpAttack": 50,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_POISON_POINT",
+        "ABILITY_LEAF_GUARD"
+      ]
+    }
+  }
 }

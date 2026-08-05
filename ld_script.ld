@@ -175,7 +175,6 @@ SECTIONS {
         src/record_mixing.o(.text);
         src/secret_base.o(.text);
         src/tv.o(.text);
-        src/contest_util.o(.text);
         src/script_pokemon_util.o(.text);
         src/field_poison.o(.text);
         src/pokemon_size_record.o(.text);
@@ -217,7 +216,6 @@ SECTIONS {
         src/image_processing_effects.o(.text);
         src/decoration.o(.text);
         src/slot_machine.o(.text);
-        src/contest_painting.o(.text);
         src/battle_ai_main.o(.text);
 		src/battle_ai_util.o(.text);
         src/trader.o(.text);
@@ -287,7 +285,6 @@ SECTIONS {
         src/battle_controller_recorded_opponent.o(.text);
         src/battle_controller_recorded_player.o(.text);
         src/trainer_pokemon_sprites.o(.text);
-        src/lilycove_lady.o(.text);
         src/battle_dome.o(.text);
         src/battle_palace.o(.text);
         src/match_call.o(.text);
@@ -558,7 +555,6 @@ SECTIONS {
         src/record_mixing.o(.rodata);
         src/secret_base.o(.rodata);
         src/tv.o(.rodata);
-        src/contest_util.o(.rodata);
         src/script_pokemon_util.o(.rodata);
         src/pokemon_size_record.o(.rodata)
         src/fldeff_misc.o(.rodata);
@@ -597,7 +593,6 @@ SECTIONS {
         src/image_processing_effects.o(.rodata);
         src/decoration.o(.rodata);
         src/slot_machine.o(.rodata);
-        src/contest_painting.o(.rodata);
         src/battle_ai_main.o(.rodata);
 		src/battle_ai_util.o(.rodata);
         src/trader.o(.rodata);
@@ -651,7 +646,6 @@ SECTIONS {
         src/battle_controller_recorded_opponent.o(.rodata);
         src/battle_controller_recorded_player.o(.rodata);
         src/trainer_pokemon_sprites.o(.rodata);
-        src/lilycove_lady.o(.rodata);
         src/battle_dome.o(.rodata);
         src/battle_palace.o(.rodata);
         src/match_call.o(.rodata);

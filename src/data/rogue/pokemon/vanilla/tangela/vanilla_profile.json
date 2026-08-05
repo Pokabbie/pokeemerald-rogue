@@ -173,5 +173,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TANGELA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 55,
+        "Defense": 115,
+        "Speed": 60,
+        "SpAttack": 100,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

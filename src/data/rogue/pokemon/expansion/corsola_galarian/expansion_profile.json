@@ -229,5 +229,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CORSOLA_GALARIAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 100,
+        "Speed": 30,
+        "SpAttack": 65,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

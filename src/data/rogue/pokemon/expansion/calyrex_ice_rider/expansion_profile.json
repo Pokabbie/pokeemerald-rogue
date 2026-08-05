@@ -308,5 +308,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CALYREX_ICE_RIDER": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 165,
+        "Defense": 150,
+        "Speed": 50,
+        "SpAttack": 85,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_AS_ONE_ICE_RIDER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

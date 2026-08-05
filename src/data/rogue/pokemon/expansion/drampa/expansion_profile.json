@@ -326,5 +326,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRAMPA": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 60,
+        "Defense": 85,
+        "Speed": 36,
+        "SpAttack": 135,
+        "SpDefense": 91
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_BERSERK",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_CLOUD_NINE"
+      ]
+    },
+    "SPECIES_DRAMPA_MEGA": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 85,
+        "Defense": 110,
+        "Speed": 36,
+        "SpAttack": 160,
+        "SpDefense": 116
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_BERSERK",
+        "ABILITY_BERSERK",
+        "ABILITY_BERSERK"
+      ]
+    }
+  }
 }

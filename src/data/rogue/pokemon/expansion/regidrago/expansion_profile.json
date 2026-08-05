@@ -423,5 +423,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGIDRAGO": {
+      "BaseStats": {
+        "HP": 200,
+        "Attack": 100,
+        "Defense": 50,
+        "Speed": 80,
+        "SpAttack": 100,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_DRAGONS_MAW",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

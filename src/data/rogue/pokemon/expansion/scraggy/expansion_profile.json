@@ -244,5 +244,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCRAGGY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 70,
+        "Speed": 48,
+        "SpAttack": 35,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_MOXIE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

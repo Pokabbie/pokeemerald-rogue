@@ -184,5 +184,26 @@
     "MOVE_WONDER_ROOM",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MR_MIME_GALARIAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 90,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_SCREEN_CLEANER",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  }
 }

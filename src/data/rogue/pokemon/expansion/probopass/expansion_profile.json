@@ -282,5 +282,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PROBOPASS": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 145,
+        "Speed": 40,
+        "SpAttack": 75,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

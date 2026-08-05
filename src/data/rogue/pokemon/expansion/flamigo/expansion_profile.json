@@ -155,5 +155,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLAMIGO": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 115,
+        "Defense": 74,
+        "Speed": 90,
+        "SpAttack": 75,
+        "SpDefense": 64
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SCRAPPY",
+        "ABILITY_TANGLED_FEET",
+        "ABILITY_COSTAR"
+      ]
+    }
+  }
 }

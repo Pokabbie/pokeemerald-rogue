@@ -179,5 +179,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TRUBBISH": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 62,
+        "Speed": 65,
+        "SpAttack": 40,
+        "SpDefense": 62
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_AFTERMATH"
+      ]
+    }
+  }
 }

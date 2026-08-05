@@ -275,5 +275,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GASTLY": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 35,
+        "Defense": 30,
+        "Speed": 80,
+        "SpAttack": 100,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

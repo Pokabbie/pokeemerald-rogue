@@ -21,5 +21,26 @@
     "MOVE_STRUGGLE_BUG",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SPEWPA": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 22,
+        "Defense": 60,
+        "Speed": 29,
+        "SpAttack": 27,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    }
+  }
 }

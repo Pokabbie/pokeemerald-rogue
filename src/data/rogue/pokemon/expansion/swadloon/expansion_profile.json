@@ -82,5 +82,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_WORRY_SEED"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SWADLOON": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 63,
+        "Defense": 90,
+        "Speed": 42,
+        "SpAttack": 50,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

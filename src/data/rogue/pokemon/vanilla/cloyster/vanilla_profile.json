@@ -94,5 +94,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLOYSTER": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 95,
+        "Defense": 180,
+        "Speed": 70,
+        "SpAttack": 85,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

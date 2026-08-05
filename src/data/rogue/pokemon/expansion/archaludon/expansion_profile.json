@@ -189,5 +189,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCHALUDON": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 105,
+        "Defense": 130,
+        "Speed": 85,
+        "SpAttack": 125,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_STAMINA",
+        "ABILITY_STURDY",
+        "ABILITY_STALWART"
+      ]
+    }
+  }
 }

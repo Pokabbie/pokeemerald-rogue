@@ -141,5 +141,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHROODLE": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 65,
+        "Defense": 35,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_UNBURDEN",
+        "ABILITY_PICKPOCKET",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

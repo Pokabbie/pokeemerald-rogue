@@ -137,5 +137,26 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCTOVISH": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 90,
+        "Defense": 100,
+        "Speed": 55,
+        "SpAttack": 80,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_ICE_BODY",
+        "ABILITY_SLUSH_RUSH"
+      ]
+    }
+  }
 }

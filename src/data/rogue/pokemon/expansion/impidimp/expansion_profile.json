@@ -137,5 +137,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IMPIDIMP": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 45,
+        "Defense": 30,
+        "Speed": 50,
+        "SpAttack": 55,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_FRISK",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

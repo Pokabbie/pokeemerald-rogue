@@ -1260,5 +1260,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HEATRAN": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 90,
+        "Defense": 106,
+        "Speed": 77,
+        "SpAttack": 130,
+        "SpDefense": 106
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE",
+        "ABILITY_FLAME_BODY"
+      ]
+    },
+    "SPECIES_HEATRAN_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

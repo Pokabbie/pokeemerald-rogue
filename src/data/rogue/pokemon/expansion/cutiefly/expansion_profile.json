@@ -93,5 +93,26 @@
     "MOVE_TRICK",
     "MOVE_U_TURN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CUTIEFLY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 84,
+        "SpAttack": 55,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HONEY_GATHER",
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
 }

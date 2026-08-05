@@ -213,5 +213,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUOSION": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 40,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 125,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

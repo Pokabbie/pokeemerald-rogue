@@ -136,5 +136,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HUNTAIL": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 104,
+        "Defense": 105,
+        "Speed": 52,
+        "SpAttack": 94,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

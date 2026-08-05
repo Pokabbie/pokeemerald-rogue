@@ -99,5 +99,25 @@
     "MOVE_TOXIC",
     "MOVE_YAWN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TEDDIURSA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

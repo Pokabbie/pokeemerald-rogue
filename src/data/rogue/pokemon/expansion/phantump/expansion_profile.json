@@ -172,5 +172,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PHANTUMP": {
+      "BaseStats": {
+        "HP": 43,
+        "Attack": 70,
+        "Defense": 48,
+        "Speed": 38,
+        "SpAttack": 50,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_FRISK",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

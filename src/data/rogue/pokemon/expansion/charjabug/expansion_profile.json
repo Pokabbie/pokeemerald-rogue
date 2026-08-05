@@ -95,5 +95,26 @@
     "MOVE_WILD_CHARGE",
     "MOVE_X_SCISSOR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CHARJABUG": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 82,
+        "Defense": 95,
+        "Speed": 36,
+        "SpAttack": 55,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_BATTERY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

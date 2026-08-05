@@ -169,5 +169,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LAIRON": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 90,
+        "Defense": 140,
+        "Speed": 40,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_HEAVY_METAL"
+      ]
+    }
+  }
 }

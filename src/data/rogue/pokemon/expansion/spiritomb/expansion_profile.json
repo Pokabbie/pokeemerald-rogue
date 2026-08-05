@@ -327,5 +327,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPIRITOMB": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 92,
+        "Defense": 108,
+        "Speed": 35,
+        "SpAttack": 92,
+        "SpDefense": 108
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

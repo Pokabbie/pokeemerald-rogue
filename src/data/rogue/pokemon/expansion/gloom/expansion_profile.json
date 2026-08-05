@@ -100,5 +100,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_VENOSHOCK"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GLOOM": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_STENCH"
+      ]
+    }
+  }
 }

@@ -217,5 +217,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BUNNELBY": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 36,
+        "Defense": 38,
+        "Speed": 57,
+        "SpAttack": 32,
+        "SpDefense": 36
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_CHEEK_POUCH",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  }
 }

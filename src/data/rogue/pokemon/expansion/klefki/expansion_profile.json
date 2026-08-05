@@ -577,5 +577,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KLEFKI": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 80,
+        "Defense": 91,
+        "Speed": 75,
+        "SpAttack": 80,
+        "SpDefense": 87
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_NONE",
+        "ABILITY_MAGICIAN"
+      ]
+    }
+  }
 }

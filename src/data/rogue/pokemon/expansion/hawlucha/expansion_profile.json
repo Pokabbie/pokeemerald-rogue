@@ -649,5 +649,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HAWLUCHA": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 92,
+        "Defense": 75,
+        "Speed": 118,
+        "SpAttack": 74,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_UNBURDEN",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    },
+    "SPECIES_HAWLUCHA_MEGA": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 137,
+        "Defense": 100,
+        "Speed": 118,
+        "SpAttack": 74,
+        "SpDefense": 93
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD"
+      ]
+    }
+  }
 }

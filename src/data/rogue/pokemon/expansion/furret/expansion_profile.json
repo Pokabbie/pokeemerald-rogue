@@ -169,5 +169,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FURRET": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 76,
+        "Defense": 64,
+        "Speed": 90,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

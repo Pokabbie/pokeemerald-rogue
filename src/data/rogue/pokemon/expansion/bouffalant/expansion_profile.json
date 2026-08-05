@@ -309,5 +309,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BOUFFALANT": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 110,
+        "Defense": 95,
+        "Speed": 55,
+        "SpAttack": 40,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RECKLESS",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SOUNDPROOF"
+      ]
+    }
+  }
 }

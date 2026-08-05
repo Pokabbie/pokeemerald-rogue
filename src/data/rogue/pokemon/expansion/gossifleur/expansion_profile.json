@@ -80,5 +80,26 @@
     "MOVE_SUNNY_DAY",
     "MOVE_WORRY_SEED"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GOSSIFLEUR": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 60,
+        "Speed": 10,
+        "SpAttack": 40,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_COTTON_DOWN",
+        "ABILITY_REGENERATOR",
+        "ABILITY_EFFECT_SPORE"
+      ]
+    }
+  }
 }

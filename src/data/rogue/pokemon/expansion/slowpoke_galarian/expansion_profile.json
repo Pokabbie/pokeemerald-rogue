@@ -131,5 +131,26 @@
     "MOVE_WHIRLPOOL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SLOWPOKE_GALARIAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 15,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_GLUTTONY",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

@@ -100,5 +100,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WYNAUT": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 23,
+        "Defense": 48,
+        "Speed": 23,
+        "SpAttack": 23,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SHADOW_TAG",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

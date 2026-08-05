@@ -172,5 +172,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SOLOSIS": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 30,
+        "Defense": 40,
+        "Speed": 20,
+        "SpAttack": 105,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

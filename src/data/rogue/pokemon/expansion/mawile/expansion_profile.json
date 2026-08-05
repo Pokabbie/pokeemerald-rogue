@@ -807,5 +807,45 @@
         "GEN8NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAWILE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 85,
+        "Defense": 85,
+        "Speed": 50,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    },
+    "SPECIES_MAWILE_MEGA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 105,
+        "Defense": 125,
+        "Speed": 50,
+        "SpAttack": 55,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HUGE_POWER",
+        "ABILITY_HUGE_POWER",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  }
 }

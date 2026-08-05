@@ -332,5 +332,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUSCLOPS": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 70,
+        "Defense": 130,
+        "Speed": 25,
+        "SpAttack": 60,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

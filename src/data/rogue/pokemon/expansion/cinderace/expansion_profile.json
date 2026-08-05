@@ -493,5 +493,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CINDERACE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 116,
+        "Defense": 75,
+        "Speed": 119,
+        "SpAttack": 65,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_LIBERO"
+      ]
+    },
+    "SPECIES_CINDERACE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 116,
+        "Defense": 75,
+        "Speed": 119,
+        "SpAttack": 65,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_LIBERO"
+      ]
+    }
+  }
 }

@@ -829,5 +829,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KOMMO_O": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 125,
+        "Speed": 85,
+        "SpAttack": 100,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BULLETPROOF",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

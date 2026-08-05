@@ -1091,5 +1091,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HYDREIGON": {
+      "BaseStats": {
+        "HP": 92,
+        "Attack": 105,
+        "Defense": 90,
+        "Speed": 98,
+        "SpAttack": 125,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

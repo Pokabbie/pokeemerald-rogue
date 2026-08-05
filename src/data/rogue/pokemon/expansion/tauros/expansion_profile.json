@@ -244,5 +244,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAUROS": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 100,
+        "Defense": 95,
+        "Speed": 110,
+        "SpAttack": 40,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_ANGER_POINT",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

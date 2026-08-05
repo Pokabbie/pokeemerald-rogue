@@ -182,5 +182,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCIZOR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 130,
+        "Defense": 100,
+        "Speed": 65,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

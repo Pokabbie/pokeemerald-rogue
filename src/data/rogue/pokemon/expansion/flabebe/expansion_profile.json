@@ -131,5 +131,102 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLABEBE": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 61,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_YELLOW_FLOWER": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 61,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_ORANGE_FLOWER": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 61,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_BLUE_FLOWER": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 61,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLABEBE_WHITE_FLOWER": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 38,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 61,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  }
 }

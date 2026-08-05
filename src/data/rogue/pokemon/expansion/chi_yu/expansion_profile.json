@@ -232,5 +232,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHI_YU": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 80,
+        "Defense": 80,
+        "Speed": 100,
+        "SpAttack": 135,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BEADS_OF_RUIN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -442,5 +442,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLYGON": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 80,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
 }

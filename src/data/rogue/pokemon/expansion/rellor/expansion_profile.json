@@ -76,5 +76,26 @@
     "MOVE_WEATHER_BALL",
     "MOVE_X_SCISSOR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_RELLOR": {
+      "BaseStats": {
+        "HP": 41,
+        "Attack": 50,
+        "Defense": 60,
+        "Speed": 30,
+        "SpAttack": 31,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE",
+        "ABILITY_SHED_SKIN"
+      ]
+    }
+  }
 }

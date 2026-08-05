@@ -254,5 +254,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SIMISAGE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 98,
+        "Defense": 63,
+        "Speed": 101,
+        "SpAttack": 98,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_GLUTTONY",
+        "ABILITY_NONE",
+        "ABILITY_OVERGROW"
+      ]
+    }
+  }
 }

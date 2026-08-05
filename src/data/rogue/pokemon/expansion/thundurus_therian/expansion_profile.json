@@ -964,5 +964,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_THUNDURUS_THERIAN": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 105,
+        "Defense": 70,
+        "Speed": 101,
+        "SpAttack": 145,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_NONE",
+        "ABILITY_VOLT_ABSORB"
+      ]
+    }
+  }
 }

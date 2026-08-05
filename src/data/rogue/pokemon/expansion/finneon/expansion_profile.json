@@ -127,5 +127,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FINNEON": {
+      "BaseStats": {
+        "HP": 49,
+        "Attack": 49,
+        "Defense": 56,
+        "Speed": 66,
+        "SpAttack": 49,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }

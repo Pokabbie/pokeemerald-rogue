@@ -162,5 +162,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MABOSSTIFF": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 90,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_GUARD_DOG",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  }
 }

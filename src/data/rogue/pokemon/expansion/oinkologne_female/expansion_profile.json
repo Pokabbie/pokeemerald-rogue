@@ -106,5 +106,26 @@
     "MOVE_UPROAR",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_OINKOLOGNE_FEMALE": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 90,
+        "Defense": 70,
+        "Speed": 65,
+        "SpAttack": 59,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_AROMA_VEIL",
+        "ABILITY_GLUTTONY",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

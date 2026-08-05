@@ -115,5 +115,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STUFFUL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 50,
+        "Speed": 50,
+        "SpAttack": 45,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_FLUFFY",
+        "ABILITY_KLUTZ",
+        "ABILITY_CUTE_CHARM"
+      ]
+    }
+  }
 }

@@ -764,5 +764,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CELESTEELA": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 101,
+        "Defense": 103,
+        "Speed": 61,
+        "SpAttack": 107,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

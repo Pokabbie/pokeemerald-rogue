@@ -127,5 +127,83 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SQUAWKABILLY": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 96,
+        "Defense": 51,
+        "Speed": 92,
+        "SpAttack": 45,
+        "SpDefense": 51
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_HUSTLE",
+        "ABILITY_GUTS"
+      ]
+    },
+    "SPECIES_SQUAWKABILLY_BLUE_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 96,
+        "Defense": 51,
+        "Speed": 92,
+        "SpAttack": 45,
+        "SpDefense": 51
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_HUSTLE",
+        "ABILITY_GUTS"
+      ]
+    },
+    "SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 96,
+        "Defense": 51,
+        "Speed": 92,
+        "SpAttack": 45,
+        "SpDefense": 51
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_HUSTLE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    },
+    "SPECIES_SQUAWKABILLY_WHITE_PLUMAGE": {
+      "BaseStats": {
+        "HP": 82,
+        "Attack": 96,
+        "Defense": 51,
+        "Speed": 92,
+        "SpAttack": 45,
+        "SpDefense": 51
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_HUSTLE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

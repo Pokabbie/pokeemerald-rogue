@@ -249,5 +249,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCEPTILE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 120,
+        "SpAttack": 105,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

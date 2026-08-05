@@ -157,5 +157,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SMOOCHUM": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 30,
+        "Defense": 15,
+        "Speed": 65,
+        "SpAttack": 85,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_FOREWARN",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  }
 }

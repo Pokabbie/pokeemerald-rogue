@@ -96,5 +96,26 @@
     "MOVE_U_TURN",
     "MOVE_UPROAR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TRUMBEAK": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SKILL_LINK",
+        "ABILITY_PICKUP"
+      ]
+    }
+  }
 }

@@ -103,5 +103,102 @@
     "MOVE_TRAILBLAZE",
     "MOVE_TRICK"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FLOETTE": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 47,
+        "Speed": 52,
+        "SpAttack": 75,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_YELLOW_FLOWER": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 47,
+        "Speed": 52,
+        "SpAttack": 75,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_ORANGE_FLOWER": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 47,
+        "Speed": 52,
+        "SpAttack": 75,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_BLUE_FLOWER": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 47,
+        "Speed": 52,
+        "SpAttack": 75,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_WHITE_FLOWER": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 47,
+        "Speed": 52,
+        "SpAttack": 75,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  }
 }

@@ -255,5 +255,102 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLORGES": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 65,
+        "Defense": 68,
+        "Speed": 75,
+        "SpAttack": 112,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLORGES_YELLOW_FLOWER": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 65,
+        "Defense": 68,
+        "Speed": 75,
+        "SpAttack": 112,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLORGES_ORANGE_FLOWER": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 65,
+        "Defense": 68,
+        "Speed": 75,
+        "SpAttack": 112,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLORGES_BLUE_FLOWER": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 65,
+        "Defense": 68,
+        "Speed": 75,
+        "SpAttack": 112,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLORGES_WHITE_FLOWER": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 65,
+        "Defense": 68,
+        "Speed": 75,
+        "SpAttack": 112,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  }
 }

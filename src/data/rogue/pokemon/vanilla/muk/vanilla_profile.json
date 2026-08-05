@@ -189,5 +189,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUK": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 105,
+        "Defense": 75,
+        "Speed": 50,
+        "SpAttack": 65,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_STICKY_HOLD"
+      ]
+    }
+  }
 }

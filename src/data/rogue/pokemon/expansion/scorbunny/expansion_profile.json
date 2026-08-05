@@ -133,5 +133,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCORBUNNY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 71,
+        "Defense": 40,
+        "Speed": 69,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_LIBERO"
+      ]
+    }
+  }
 }

@@ -186,5 +186,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PANCHAM": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 82,
+        "Defense": 62,
+        "Speed": 43,
+        "SpAttack": 46,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

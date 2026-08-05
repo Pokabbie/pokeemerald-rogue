@@ -357,5 +357,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOODRA_HISUIAN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 60,
+        "SpAttack": 110,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_GOOEY"
+      ]
+    }
+  }
 }

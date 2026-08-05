@@ -344,5 +344,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLASTRIER": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 145,
+        "Defense": 130,
+        "Speed": 30,
+        "SpAttack": 65,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_CHILLING_NEIGH",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

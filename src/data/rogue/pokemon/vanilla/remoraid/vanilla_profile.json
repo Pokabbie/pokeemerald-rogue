@@ -78,5 +78,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_REMORAID": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 65,
+        "Defense": 35,
+        "Speed": 65,
+        "SpAttack": 65,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

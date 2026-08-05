@@ -139,5 +139,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TEPIG": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 63,
+        "Defense": 45,
+        "Speed": 45,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

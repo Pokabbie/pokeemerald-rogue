@@ -249,5 +249,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FROSMOTH": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 65,
+        "SpAttack": 125,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_NONE",
+        "ABILITY_ICE_SCALES"
+      ]
+    }
+  }
 }

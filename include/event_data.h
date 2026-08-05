@@ -46,6 +46,8 @@ extern u16 gSpecialVar_LastTalked;
 extern u16 gSpecialVar_Facing;
 extern u16 gSpecialVar_MonBoxId;
 extern u16 gSpecialVar_MonBoxPos;
+extern u16 gSpecialVar_Unused_0x8010;
+extern u16 gSpecialVar_Unused_0x8011;
 extern u16 gSpecialVar_Unused_0x8014;
 
 #endif // GUARD_EVENT_DATA_H

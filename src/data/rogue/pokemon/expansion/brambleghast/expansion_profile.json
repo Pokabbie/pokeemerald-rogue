@@ -203,5 +203,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRAMBLEGHAST": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 115,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 80,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WIND_RIDER",
+        "ABILITY_NONE",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

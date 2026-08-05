@@ -95,5 +95,25 @@
     "MOVE_SWORDS_DANCE",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CHARMANDER": {
+      "BaseStats": {
+        "HP": 39,
+        "Attack": 52,
+        "Defense": 43,
+        "Speed": 65,
+        "SpAttack": 60,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

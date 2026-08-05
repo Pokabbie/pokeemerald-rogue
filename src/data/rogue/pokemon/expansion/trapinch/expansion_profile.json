@@ -151,5 +151,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TRAPINCH": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 100,
+        "Defense": 45,
+        "Speed": 10,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_ARENA_TRAP",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

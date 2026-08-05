@@ -88,5 +88,26 @@
     "MOVE_THIEF",
     "MOVE_TRAILBLAZE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SKWOVET": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 25,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CHEEK_POUCH",
+        "ABILITY_NONE",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

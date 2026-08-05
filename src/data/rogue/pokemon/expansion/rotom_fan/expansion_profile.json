@@ -272,5 +272,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROTOM_FAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 107,
+        "Speed": 86,
+        "SpAttack": 105,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

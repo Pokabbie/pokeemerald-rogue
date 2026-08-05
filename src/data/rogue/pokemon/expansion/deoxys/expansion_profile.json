@@ -162,5 +162,26 @@
         "GEN7UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEOXYS": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 150,
+        "Defense": 50,
+        "Speed": 150,
+        "SpAttack": 150,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }
