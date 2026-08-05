@@ -159,5 +159,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VOLBEAT": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 73,
+        "Defense": 55,
+        "Speed": 85,
+        "SpAttack": 47,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_SWARM"
+      ]
+    }
+  }
 }

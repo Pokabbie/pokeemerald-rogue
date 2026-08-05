@@ -128,5 +128,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HYPNO": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 73,
+        "Defense": 70,
+        "Speed": 67,
+        "SpAttack": 73,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

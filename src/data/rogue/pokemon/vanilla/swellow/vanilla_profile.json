@@ -104,5 +104,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWELLOW": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 60,
+        "Speed": 125,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

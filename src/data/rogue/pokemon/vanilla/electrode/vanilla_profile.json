@@ -113,5 +113,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELECTRODE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 70,
+        "Speed": 140,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_STATIC"
+      ]
+    }
+  }
 }

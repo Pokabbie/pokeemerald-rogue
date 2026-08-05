@@ -81,5 +81,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_POLIWHIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

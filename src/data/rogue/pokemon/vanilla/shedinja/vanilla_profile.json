@@ -160,5 +160,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHEDINJA": {
+      "BaseStats": {
+        "HP": 1,
+        "Attack": 90,
+        "Defense": 45,
+        "Speed": 40,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WONDER_GUARD",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

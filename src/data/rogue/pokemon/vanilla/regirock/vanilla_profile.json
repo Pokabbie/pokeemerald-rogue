@@ -170,5 +170,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGIROCK": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 200,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

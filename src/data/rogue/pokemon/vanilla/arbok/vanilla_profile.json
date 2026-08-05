@@ -163,5 +163,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARBOK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 69,
+        "Speed": 80,
+        "SpAttack": 65,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_SHED_SKIN"
+      ]
+    }
+  }
 }

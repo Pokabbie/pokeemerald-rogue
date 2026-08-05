@@ -89,5 +89,25 @@
     "MOVE_SWORDS_DANCE",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BULBASAUR": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 49,
+        "Defense": 49,
+        "Speed": 45,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

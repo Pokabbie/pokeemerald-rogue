@@ -72,5 +72,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SHELLDER": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 65,
+        "Defense": 100,
+        "Speed": 40,
+        "SpAttack": 45,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

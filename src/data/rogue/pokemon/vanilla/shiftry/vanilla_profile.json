@@ -180,5 +180,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHIFTRY": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 80,
+        "SpAttack": 90,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

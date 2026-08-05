@@ -180,5 +180,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELECTABUZZ": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 83,
+        "Defense": 57,
+        "Speed": 105,
+        "SpAttack": 95,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

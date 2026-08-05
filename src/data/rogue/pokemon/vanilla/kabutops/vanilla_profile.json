@@ -242,5 +242,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KABUTOPS": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 115,
+        "Defense": 105,
+        "Speed": 80,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_BATTLE_ARMOR"
+      ]
+    }
+  }
 }

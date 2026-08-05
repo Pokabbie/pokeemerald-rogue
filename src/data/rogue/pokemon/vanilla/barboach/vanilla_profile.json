@@ -83,5 +83,25 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BARBOACH": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 48,
+        "Defense": 43,
+        "Speed": 60,
+        "SpAttack": 46,
+        "SpDefense": 41
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

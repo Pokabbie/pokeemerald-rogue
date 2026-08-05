@@ -138,5 +138,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SMEARGLE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 20,
+        "Defense": 35,
+        "Speed": 75,
+        "SpAttack": 20,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

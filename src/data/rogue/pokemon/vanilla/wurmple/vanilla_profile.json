@@ -17,5 +17,25 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WURMPLE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 20,
+        "SpAttack": 20,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

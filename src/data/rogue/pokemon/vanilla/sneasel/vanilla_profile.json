@@ -142,5 +142,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNEASEL": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 95,
+        "Defense": 55,
+        "Speed": 115,
+        "SpAttack": 35,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

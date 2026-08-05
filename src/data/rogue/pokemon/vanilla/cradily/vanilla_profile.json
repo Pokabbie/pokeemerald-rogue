@@ -182,5 +182,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRADILY": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 81,
+        "Defense": 97,
+        "Speed": 43,
+        "SpAttack": 81,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SUCTION_CUPS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

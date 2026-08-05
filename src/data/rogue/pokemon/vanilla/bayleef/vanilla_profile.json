@@ -114,5 +114,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BAYLEEF": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 62,
+        "Defense": 80,
+        "Speed": 60,
+        "SpAttack": 63,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

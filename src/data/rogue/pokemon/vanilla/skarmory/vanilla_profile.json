@@ -150,5 +150,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKARMORY": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 80,
+        "Defense": 140,
+        "Speed": 70,
+        "SpAttack": 40,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

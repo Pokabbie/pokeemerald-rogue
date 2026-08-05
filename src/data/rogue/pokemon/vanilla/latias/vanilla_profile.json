@@ -151,5 +151,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LATIAS": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 80,
+        "Defense": 90,
+        "Speed": 110,
+        "SpAttack": 110,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

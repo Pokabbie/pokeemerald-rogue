@@ -166,5 +166,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANKEY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 80,
+        "Defense": 35,
+        "Speed": 70,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

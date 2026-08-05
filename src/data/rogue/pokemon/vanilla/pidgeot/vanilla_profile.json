@@ -134,5 +134,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIDGEOT": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 80,
+        "Defense": 75,
+        "Speed": 91,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

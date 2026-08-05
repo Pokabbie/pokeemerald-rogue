@@ -193,5 +193,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANTINE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 40,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 80,
+        "SpDefense": 140
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

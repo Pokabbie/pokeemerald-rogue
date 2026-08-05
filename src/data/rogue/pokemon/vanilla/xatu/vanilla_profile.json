@@ -174,5 +174,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_XATU": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 75,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

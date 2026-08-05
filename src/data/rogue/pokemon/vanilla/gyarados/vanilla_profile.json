@@ -179,5 +179,25 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GYARADOS": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 125,
+        "Defense": 79,
+        "Speed": 81,
+        "SpAttack": 60,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

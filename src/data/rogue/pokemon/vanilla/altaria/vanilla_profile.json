@@ -149,5 +149,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ALTARIA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 70,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 70,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -120,5 +120,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PORYGON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TRACE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

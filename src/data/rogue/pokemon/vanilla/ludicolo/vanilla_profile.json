@@ -156,5 +156,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUDICOLO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 90,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

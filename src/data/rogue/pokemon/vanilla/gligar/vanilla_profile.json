@@ -128,5 +128,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLIGAR": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 75,
+        "Defense": 105,
+        "Speed": 85,
+        "SpAttack": 35,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

@@ -85,5 +85,25 @@
     "MOVE_SWIFT",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_VULPIX": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 41,
+        "Defense": 40,
+        "Speed": 65,
+        "SpAttack": 50,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

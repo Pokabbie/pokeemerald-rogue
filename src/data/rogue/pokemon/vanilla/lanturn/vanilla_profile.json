@@ -158,5 +158,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LANTURN": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 58,
+        "Defense": 58,
+        "Speed": 67,
+        "SpAttack": 76,
+        "SpDefense": 76
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_ILLUMINATE"
+      ]
+    }
+  }
 }

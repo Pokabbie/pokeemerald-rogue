@@ -132,5 +132,25 @@
         "GEN3DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JOLTEON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 130,
+        "SpAttack": 110,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }
