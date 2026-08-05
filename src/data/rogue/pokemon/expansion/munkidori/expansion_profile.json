@@ -168,5 +168,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUNKIDORI": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 75,
+        "Defense": 66,
+        "Speed": 106,
+        "SpAttack": 130,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TOXIC_CHAIN",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

@@ -760,5 +760,45 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AEGISLASH": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 140,
+        "Speed": 60,
+        "SpAttack": 50,
+        "SpDefense": 140
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_STANCE_CHANGE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_AEGISLASH_BLADE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 140,
+        "Defense": 50,
+        "Speed": 60,
+        "SpAttack": 140,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_STANCE_CHANGE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

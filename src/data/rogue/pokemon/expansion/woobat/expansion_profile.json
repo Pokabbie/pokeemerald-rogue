@@ -144,5 +144,26 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WOOBAT": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 45,
+        "Defense": 43,
+        "Speed": 72,
+        "SpAttack": 55,
+        "SpDefense": 43
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_UNAWARE",
+        "ABILITY_KLUTZ",
+        "ABILITY_SIMPLE"
+      ]
+    }
+  }
 }

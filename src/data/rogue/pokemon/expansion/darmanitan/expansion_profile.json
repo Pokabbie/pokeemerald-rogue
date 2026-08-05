@@ -301,5 +301,45 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DARMANITAN": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 140,
+        "Defense": 55,
+        "Speed": 95,
+        "SpAttack": 30,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_ZEN_MODE"
+      ]
+    },
+    "SPECIES_DARMANITAN_ZEN_MODE": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 30,
+        "Defense": 105,
+        "Speed": 55,
+        "SpAttack": 140,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_ZEN_MODE"
+      ]
+    }
+  }
 }

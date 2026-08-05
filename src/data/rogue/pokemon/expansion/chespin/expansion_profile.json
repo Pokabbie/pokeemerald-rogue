@@ -195,5 +195,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHESPIN": {
+      "BaseStats": {
+        "HP": 56,
+        "Attack": 61,
+        "Defense": 65,
+        "Speed": 38,
+        "SpAttack": 48,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  }
 }

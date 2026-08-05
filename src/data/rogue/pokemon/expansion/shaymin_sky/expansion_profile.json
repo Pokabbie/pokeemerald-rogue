@@ -261,5 +261,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHAYMIN_SKY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 103,
+        "Defense": 75,
+        "Speed": 127,
+        "SpAttack": 120,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

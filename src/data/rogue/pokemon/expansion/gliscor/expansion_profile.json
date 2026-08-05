@@ -669,5 +669,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLISCOR": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 95,
+        "Defense": 125,
+        "Speed": 95,
+        "SpAttack": 45,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SAND_VEIL",
+        "ABILITY_POISON_HEAL"
+      ]
+    }
+  }
 }

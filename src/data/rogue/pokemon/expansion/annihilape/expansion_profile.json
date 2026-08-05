@@ -291,5 +291,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ANNIHILAPE": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 115,
+        "Defense": 80,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

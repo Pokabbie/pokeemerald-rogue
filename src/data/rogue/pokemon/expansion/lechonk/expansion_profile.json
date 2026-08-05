@@ -94,5 +94,26 @@
     "MOVE_UPROAR",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_LECHONK": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 35,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_AROMA_VEIL",
+        "ABILITY_GLUTTONY",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

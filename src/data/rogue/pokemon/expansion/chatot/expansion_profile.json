@@ -255,5 +255,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHATOT": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 91,
+        "SpAttack": 92,
+        "SpDefense": 42
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_TANGLED_FEET",
+        "ABILITY_BIG_PECKS"
+      ]
+    }
+  }
 }

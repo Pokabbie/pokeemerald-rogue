@@ -274,5 +274,45 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MELMETAL": {
+      "BaseStats": {
+        "HP": 135,
+        "Attack": 143,
+        "Defense": 143,
+        "Speed": 34,
+        "SpAttack": 80,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MELMETAL_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 135,
+        "Attack": 143,
+        "Defense": 143,
+        "Speed": 34,
+        "SpAttack": 80,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

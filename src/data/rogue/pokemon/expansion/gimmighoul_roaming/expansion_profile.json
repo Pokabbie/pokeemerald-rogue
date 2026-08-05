@@ -31,5 +31,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_THIEF"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GIMMIGHOUL_ROAMING": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 30,
+        "Defense": 25,
+        "Speed": 80,
+        "SpAttack": 75,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -353,5 +353,45 @@
         "GEN7MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIDGEOT": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 80,
+        "Defense": 75,
+        "Speed": 101,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_TANGLED_FEET",
+        "ABILITY_BIG_PECKS"
+      ]
+    },
+    "SPECIES_PIDGEOT_MEGA": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 80,
+        "Defense": 80,
+        "Speed": 121,
+        "SpAttack": 135,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD"
+      ]
+    }
+  }
 }

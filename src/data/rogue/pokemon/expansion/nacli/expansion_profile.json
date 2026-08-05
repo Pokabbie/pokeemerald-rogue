@@ -96,5 +96,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NACLI": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 75,
+        "Speed": 25,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_PURIFYING_SALT",
+        "ABILITY_STURDY",
+        "ABILITY_CLEAR_BODY"
+      ]
+    }
+  }
 }

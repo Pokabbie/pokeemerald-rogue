@@ -355,5 +355,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROSERADE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 70,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 125,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_POISON_POINT",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

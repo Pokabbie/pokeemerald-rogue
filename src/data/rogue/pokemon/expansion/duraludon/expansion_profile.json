@@ -222,5 +222,45 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DURALUDON": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 85,
+        "SpAttack": 120,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHT_METAL",
+        "ABILITY_HEAVY_METAL",
+        "ABILITY_STALWART"
+      ]
+    },
+    "SPECIES_DURALUDON_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 85,
+        "SpAttack": 120,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHT_METAL",
+        "ABILITY_HEAVY_METAL",
+        "ABILITY_STALWART"
+      ]
+    }
+  }
 }

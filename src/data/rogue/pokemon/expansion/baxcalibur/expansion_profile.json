@@ -267,5 +267,45 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BAXCALIBUR": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 145,
+        "Defense": 92,
+        "Speed": 87,
+        "SpAttack": 75,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THERMAL_EXCHANGE",
+        "ABILITY_NONE",
+        "ABILITY_ICE_BODY"
+      ]
+    },
+    "SPECIES_BAXCALIBUR_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

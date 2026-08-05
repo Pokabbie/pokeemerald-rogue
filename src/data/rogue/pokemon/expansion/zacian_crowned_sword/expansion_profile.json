@@ -106,5 +106,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ZACIAN_CROWNED_SWORD": {
+      "BaseStats": {
+        "HP": 92,
+        "Attack": 150,
+        "Defense": 115,
+        "Speed": 148,
+        "SpAttack": 80,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_INTREPID_SWORD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

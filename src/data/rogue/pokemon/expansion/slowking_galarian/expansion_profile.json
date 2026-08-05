@@ -442,5 +442,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLOWKING_GALARIAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 65,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 110,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CURIOUS_MEDICINE",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

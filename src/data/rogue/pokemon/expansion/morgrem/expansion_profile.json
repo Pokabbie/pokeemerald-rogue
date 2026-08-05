@@ -114,5 +114,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MORGREM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 45,
+        "Speed": 70,
+        "SpAttack": 75,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_FRISK",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

@@ -368,5 +368,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LIEPARD": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 88,
+        "Defense": 50,
+        "Speed": 106,
+        "SpAttack": 88,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_UNBURDEN",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

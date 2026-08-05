@@ -118,5 +118,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BONSLY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 80,
+        "Defense": 95,
+        "Speed": 10,
+        "SpAttack": 10,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

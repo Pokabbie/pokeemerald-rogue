@@ -311,5 +311,45 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BUTTERFREE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 70,
+        "SpAttack": 90,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE",
+        "ABILITY_TINTED_LENS"
+      ]
+    },
+    "SPECIES_BUTTERFREE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 70,
+        "SpAttack": 90,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

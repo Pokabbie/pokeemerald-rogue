@@ -180,5 +180,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELECTRODE_HISUIAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 70,
+        "Speed": 150,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_STATIC",
+        "ABILITY_AFTERMATH"
+      ]
+    }
+  }
 }

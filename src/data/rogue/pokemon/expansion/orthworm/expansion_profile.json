@@ -208,5 +208,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORTHWORM": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 145,
+        "Speed": 65,
+        "SpAttack": 60,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_EARTH_EATER",
+        "ABILITY_NONE",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

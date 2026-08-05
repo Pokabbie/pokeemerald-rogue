@@ -597,5 +597,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KROOKODILE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 117,
+        "Defense": 80,
+        "Speed": 92,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_MOXIE",
+        "ABILITY_ANGER_POINT"
+      ]
+    }
+  }
 }

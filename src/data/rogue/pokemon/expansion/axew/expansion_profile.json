@@ -243,5 +243,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AXEW": {
+      "BaseStats": {
+        "HP": 46,
+        "Attack": 87,
+        "Defense": 60,
+        "Speed": 57,
+        "SpAttack": 30,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

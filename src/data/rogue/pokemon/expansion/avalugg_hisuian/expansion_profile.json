@@ -235,5 +235,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AVALUGG_HISUIAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 127,
+        "Defense": 184,
+        "Speed": 38,
+        "SpAttack": 34,
+        "SpDefense": 36
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_ICE_BODY",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

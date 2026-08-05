@@ -223,5 +223,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEVIPER": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 65,
+        "SpAttack": 100,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

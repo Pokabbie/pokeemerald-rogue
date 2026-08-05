@@ -126,5 +126,26 @@
     "MOVE_WHIRLPOOL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PALAFIN_HERO": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 160,
+        "Defense": 97,
+        "Speed": 100,
+        "SpAttack": 106,
+        "SpDefense": 87
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_ZERO_TO_HERO",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

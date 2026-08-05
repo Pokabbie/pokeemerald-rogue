@@ -323,5 +323,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SAMUROTT_HISUIAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 108,
+        "Defense": 80,
+        "Speed": 85,
+        "SpAttack": 100,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHARPNESS"
+      ]
+    }
+  }
 }

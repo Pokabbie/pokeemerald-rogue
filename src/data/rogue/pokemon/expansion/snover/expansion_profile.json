@@ -241,5 +241,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNOVER": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 62,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 62,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_NONE",
+        "ABILITY_SOUNDPROOF"
+      ]
+    }
+  }
 }

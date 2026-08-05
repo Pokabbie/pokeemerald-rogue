@@ -109,5 +109,26 @@
     "MOVE_WHIRLPOOL",
     "MOVE_WORK_UP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ZIGZAGOON_GALARIAN": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 30,
+        "Defense": 41,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 41
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_GLUTTONY",
+        "ABILITY_QUICK_FEET"
+      ]
+    }
+  }
 }

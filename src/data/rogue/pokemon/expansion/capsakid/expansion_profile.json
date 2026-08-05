@@ -88,5 +88,26 @@
     "MOVE_WORRY_SEED",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CAPSAKID": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 62,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 62,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_INSOMNIA",
+        "ABILITY_KLUTZ"
+      ]
+    }
+  }
 }

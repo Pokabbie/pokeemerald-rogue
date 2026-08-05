@@ -831,5 +831,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNORLAX": {
+      "BaseStats": {
+        "HP": 160,
+        "Attack": 110,
+        "Defense": 65,
+        "Speed": 30,
+        "SpAttack": 65,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_IMMUNITY",
+        "ABILITY_THICK_FAT",
+        "ABILITY_GLUTTONY"
+      ]
+    },
+    "SPECIES_SNORLAX_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 160,
+        "Attack": 110,
+        "Defense": 65,
+        "Speed": 30,
+        "SpAttack": 65,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_IMMUNITY",
+        "ABILITY_THICK_FAT",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

@@ -199,5 +199,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEDENNE": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 58,
+        "Defense": 57,
+        "Speed": 101,
+        "SpAttack": 81,
+        "SpDefense": 67
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CHEEK_POUCH",
+        "ABILITY_PICKUP",
+        "ABILITY_PLUS"
+      ]
+    }
+  }
 }

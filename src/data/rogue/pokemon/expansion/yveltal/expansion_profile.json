@@ -560,5 +560,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_YVELTAL": {
+      "BaseStats": {
+        "HP": 126,
+        "Attack": 131,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 131,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DARK_AURA",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

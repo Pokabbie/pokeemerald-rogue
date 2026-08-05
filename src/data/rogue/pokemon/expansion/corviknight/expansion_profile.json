@@ -702,5 +702,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CORVIKNIGHT": {
+      "BaseStats": {
+        "HP": 98,
+        "Attack": 87,
+        "Defense": 105,
+        "Speed": 67,
+        "SpAttack": 53,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_UNNERVE",
+        "ABILITY_MIRROR_ARMOR"
+      ]
+    },
+    "SPECIES_CORVIKNIGHT_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 98,
+        "Attack": 87,
+        "Defense": 105,
+        "Speed": 67,
+        "SpAttack": 53,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_UNNERVE",
+        "ABILITY_MIRROR_ARMOR"
+      ]
+    }
+  }
 }

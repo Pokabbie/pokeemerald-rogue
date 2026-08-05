@@ -140,5 +140,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLAMEOW": {
+      "BaseStats": {
+        "HP": 49,
+        "Attack": 55,
+        "Defense": 42,
+        "Speed": 85,
+        "SpAttack": 42,
+        "SpDefense": 37
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

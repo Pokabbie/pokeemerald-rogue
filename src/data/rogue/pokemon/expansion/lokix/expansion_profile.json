@@ -235,5 +235,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LOKIX": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 102,
+        "Defense": 78,
+        "Speed": 92,
+        "SpAttack": 52,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

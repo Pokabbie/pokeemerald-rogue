@@ -190,5 +190,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SUDOWOODO": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 115,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

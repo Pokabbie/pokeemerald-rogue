@@ -442,5 +442,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DECIDUEYE": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 107,
+        "Defense": 75,
+        "Speed": 70,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_LONG_REACH"
+      ]
+    }
+  }
 }

@@ -306,5 +306,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRYOGONAL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 105,
+        "SpAttack": 95,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -284,5 +284,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLUTTER_MANE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 135,
+        "SpAttack": 135,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

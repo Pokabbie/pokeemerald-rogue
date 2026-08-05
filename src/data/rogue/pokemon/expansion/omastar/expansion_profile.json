@@ -354,5 +354,26 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OMASTAR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 125,
+        "Speed": 55,
+        "SpAttack": 115,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

@@ -186,5 +186,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUSKULL": {
+      "BaseStats": {
+        "HP": 20,
+        "Attack": 40,
+        "Defense": 90,
+        "Speed": 25,
+        "SpAttack": 30,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

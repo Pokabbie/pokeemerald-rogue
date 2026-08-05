@@ -507,5 +507,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOLURK": {
+      "BaseStats": {
+        "HP": 89,
+        "Attack": 124,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_KLUTZ",
+        "ABILITY_NO_GUARD"
+      ]
+    },
+    "SPECIES_GOLURK_MEGA": {
+      "BaseStats": {
+        "HP": 89,
+        "Attack": 159,
+        "Defense": 105,
+        "Speed": 55,
+        "SpAttack": 70,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_UNSEEN_FIST",
+        "ABILITY_UNSEEN_FIST",
+        "ABILITY_UNSEEN_FIST"
+      ]
+    }
+  }
 }

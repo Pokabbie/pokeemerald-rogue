@@ -123,5 +123,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WATTREL": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 35,
+        "Speed": 70,
+        "SpAttack": 55,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_WIND_POWER",
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  }
 }

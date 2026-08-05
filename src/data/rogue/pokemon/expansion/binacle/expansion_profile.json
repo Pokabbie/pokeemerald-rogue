@@ -151,5 +151,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BINACLE": {
+      "BaseStats": {
+        "HP": 42,
+        "Attack": 52,
+        "Defense": 67,
+        "Speed": 50,
+        "SpAttack": 39,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_SNIPER",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

@@ -141,5 +141,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RALTS": {
+      "BaseStats": {
+        "HP": 28,
+        "Attack": 25,
+        "Defense": 25,
+        "Speed": 40,
+        "SpAttack": 45,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_TRACE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

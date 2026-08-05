@@ -183,5 +183,26 @@
         "GEN71V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ILLUMISE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 47,
+        "Defense": 75,
+        "Speed": 85,
+        "SpAttack": 73,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_TINTED_LENS",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

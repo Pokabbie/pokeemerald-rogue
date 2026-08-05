@@ -699,5 +699,64 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BLASTOISE": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 83,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 85,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_RAIN_DISH"
+      ]
+    },
+    "SPECIES_BLASTOISE_MEGA": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 103,
+        "Defense": 120,
+        "Speed": 78,
+        "SpAttack": 135,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MEGA_LAUNCHER",
+        "ABILITY_MEGA_LAUNCHER",
+        "ABILITY_MEGA_LAUNCHER"
+      ]
+    },
+    "SPECIES_BLASTOISE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 83,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 85,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

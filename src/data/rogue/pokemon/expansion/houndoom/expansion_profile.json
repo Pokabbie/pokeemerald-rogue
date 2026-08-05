@@ -398,5 +398,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOUNDOOM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 50,
+        "Speed": 95,
+        "SpAttack": 110,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_UNNERVE"
+      ]
+    },
+    "SPECIES_HOUNDOOM_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 90,
+        "Speed": 115,
+        "SpAttack": 140,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_SOLAR_POWER",
+        "ABILITY_SOLAR_POWER",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  }
 }

@@ -133,5 +133,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DIPPLIN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 80,
+        "Defense": 110,
+        "Speed": 40,
+        "SpAttack": 95,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SUPERSWEET_SYRUP",
+        "ABILITY_GLUTTONY",
+        "ABILITY_STICKY_HOLD"
+      ]
+    }
+  }
 }

@@ -325,5 +325,26 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ALOMOMOLA": {
+      "BaseStats": {
+        "HP": 165,
+        "Attack": 75,
+        "Defense": 80,
+        "Speed": 65,
+        "SpAttack": 40,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_HYDRATION",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

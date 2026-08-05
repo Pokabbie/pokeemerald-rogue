@@ -131,5 +131,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZUBAT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 55,
+        "SpAttack": 30,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

@@ -784,5 +784,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WEAVILE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 120,
+        "Defense": 65,
+        "Speed": 125,
+        "SpAttack": 45,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

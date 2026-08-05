@@ -269,5 +269,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRACOVISH": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 90,
+        "Defense": 100,
+        "Speed": 75,
+        "SpAttack": 70,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_STRONG_JAW",
+        "ABILITY_SAND_RUSH"
+      ]
+    }
+  }
 }

@@ -288,5 +288,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUGTRIO_ALOLAN": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 50,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_TANGLING_HAIR",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

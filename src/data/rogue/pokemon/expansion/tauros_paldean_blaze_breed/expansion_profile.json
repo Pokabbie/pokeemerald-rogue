@@ -213,5 +213,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAUROS_PALDEAN_BLAZE_BREED": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 105,
+        "Speed": 100,
+        "SpAttack": 30,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_ANGER_POINT",
+        "ABILITY_CUD_CHEW"
+      ]
+    }
+  }
 }

@@ -14,5 +14,26 @@
     "MOVE_STICKY_WEB",
     "MOVE_SUPERSONIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BLIPBUG": {
+      "BaseStats": {
+        "HP": 25,
+        "Attack": 20,
+        "Defense": 20,
+        "Speed": 45,
+        "SpAttack": 25,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

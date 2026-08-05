@@ -74,5 +74,26 @@
     "MOVE_THUNDER_WAVE",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WOOLOO": {
+      "BaseStats": {
+        "HP": 42,
+        "Attack": 40,
+        "Defense": 55,
+        "Speed": 48,
+        "SpAttack": 40,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FLUFFY",
+        "ABILITY_RUN_AWAY",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  }
 }

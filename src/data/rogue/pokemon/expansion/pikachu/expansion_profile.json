@@ -292,5 +292,45 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIKACHU": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 55,
+        "Defense": 40,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    },
+    "SPECIES_PIKACHU_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 55,
+        "Defense": 40,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    }
+  }
 }

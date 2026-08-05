@@ -495,5 +495,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANDIBUZZ": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 65,
+        "Defense": 105,
+        "Speed": 80,
+        "SpAttack": 55,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_OVERCOAT",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

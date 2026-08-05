@@ -30,5 +30,64 @@
     "MOVE_SNORE",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BURMY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 29,
+        "Defense": 45,
+        "Speed": 36,
+        "SpAttack": 29,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    },
+    "SPECIES_BURMY_SANDY_CLOAK": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 29,
+        "Defense": 45,
+        "Speed": 36,
+        "SpAttack": 29,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    },
+    "SPECIES_BURMY_TRASH_CLOAK": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 29,
+        "Defense": 45,
+        "Speed": 36,
+        "SpAttack": 29,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

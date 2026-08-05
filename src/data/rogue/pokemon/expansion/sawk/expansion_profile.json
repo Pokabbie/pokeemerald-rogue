@@ -387,5 +387,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SAWK": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 125,
+        "Defense": 75,
+        "Speed": 85,
+        "SpAttack": 30,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

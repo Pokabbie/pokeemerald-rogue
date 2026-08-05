@@ -320,5 +320,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LILLIGANT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 90,
+        "SpAttack": 110,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_LEAF_GUARD"
+      ]
+    }
+  }
 }

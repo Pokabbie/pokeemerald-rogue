@@ -701,5 +701,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FROSLASS": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 110,
+        "SpAttack": 80,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    },
+    "SPECIES_FROSLASS_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 120,
+        "SpAttack": 140,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

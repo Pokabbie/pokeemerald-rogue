@@ -290,5 +290,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRUXISH": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 105,
+        "Defense": 70,
+        "Speed": 92,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_DAZZLING",
+        "ABILITY_STRONG_JAW",
+        "ABILITY_WONDER_SKIN"
+      ]
+    }
+  }
 }

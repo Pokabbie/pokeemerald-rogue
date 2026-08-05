@@ -104,5 +104,83 @@
     "MOVE_TRICK_ROOM",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PUMPKABOO": {
+      "BaseStats": {
+        "HP": 49,
+        "Attack": 66,
+        "Defense": 70,
+        "Speed": 51,
+        "SpAttack": 44,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_PUMPKABOO_SMALL": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 66,
+        "Defense": 70,
+        "Speed": 56,
+        "SpAttack": 44,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_PUMPKABOO_LARGE": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 66,
+        "Defense": 70,
+        "Speed": 46,
+        "SpAttack": 44,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_PUMPKABOO_SUPER": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 66,
+        "Defense": 70,
+        "Speed": 41,
+        "SpAttack": 44,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    }
+  }
 }

@@ -165,5 +165,26 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REVAVROOM": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 119,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 54,
+        "SpDefense": 67
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_NONE",
+        "ABILITY_FILTER"
+      ]
+    }
+  }
 }

@@ -334,5 +334,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOUGING_FIRE": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 115,
+        "Defense": 121,
+        "Speed": 91,
+        "SpAttack": 65,
+        "SpDefense": 93
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

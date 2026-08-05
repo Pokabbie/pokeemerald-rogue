@@ -1531,5 +1531,64 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GARCHOMP": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 130,
+        "Defense": 95,
+        "Speed": 102,
+        "SpAttack": 80,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_ROUGH_SKIN"
+      ]
+    },
+    "SPECIES_GARCHOMP_MEGA": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 170,
+        "Defense": 115,
+        "Speed": 92,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_FORCE",
+        "ABILITY_SAND_FORCE",
+        "ABILITY_SAND_FORCE"
+      ]
+    },
+    "SPECIES_GARCHOMP_MEGA_Z": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

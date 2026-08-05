@@ -178,5 +178,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ANORITH": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 95,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

@@ -138,5 +138,26 @@
         "GEN6PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PRINPLUP": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 66,
+        "Defense": 68,
+        "Speed": 50,
+        "SpAttack": 81,
+        "SpDefense": 76
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  }
 }

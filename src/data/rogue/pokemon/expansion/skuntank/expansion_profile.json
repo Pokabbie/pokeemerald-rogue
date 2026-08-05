@@ -366,5 +366,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKUNTANK": {
+      "BaseStats": {
+        "HP": 103,
+        "Attack": 93,
+        "Defense": 67,
+        "Speed": 84,
+        "SpAttack": 71,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_AFTERMATH",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

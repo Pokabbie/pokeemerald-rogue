@@ -130,5 +130,26 @@
     "MOVE_WHIRLPOOL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_LOMBRE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_RAIN_DISH",
+        "ABILITY_OWN_TEMPO"
+      ]
+    }
+  }
 }

@@ -269,5 +269,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUNCHLAX": {
+      "BaseStats": {
+        "HP": 135,
+        "Attack": 85,
+        "Defense": 40,
+        "Speed": 5,
+        "SpAttack": 40,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_THICK_FAT",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

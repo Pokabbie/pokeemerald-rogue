@@ -280,5 +280,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_APPLETUN": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 85,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIPEN",
+        "ABILITY_GLUTTONY",
+        "ABILITY_THICK_FAT"
+      ]
+    },
+    "SPECIES_APPLETUN_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 85,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIPEN",
+        "ABILITY_GLUTTONY",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

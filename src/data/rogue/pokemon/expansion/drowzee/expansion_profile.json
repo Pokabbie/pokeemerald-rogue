@@ -157,5 +157,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DROWZEE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 48,
+        "Defense": 45,
+        "Speed": 42,
+        "SpAttack": 43,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_FOREWARN",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

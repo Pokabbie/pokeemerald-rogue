@@ -432,5 +432,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EMBOAR": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 123,
+        "Defense": 65,
+        "Speed": 65,
+        "SpAttack": 100,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_RECKLESS"
+      ]
+    },
+    "SPECIES_EMBOAR_MEGA": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 148,
+        "Defense": 75,
+        "Speed": 75,
+        "SpAttack": 110,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

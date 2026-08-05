@@ -504,5 +504,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZARUDE": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 120,
+        "Defense": 105,
+        "Speed": 105,
+        "SpAttack": 70,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ZARUDE_DADA": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 120,
+        "Defense": 105,
+        "Speed": 105,
+        "SpAttack": 70,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

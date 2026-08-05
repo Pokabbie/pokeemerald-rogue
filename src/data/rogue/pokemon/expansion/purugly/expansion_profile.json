@@ -195,5 +195,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PURUGLY": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 82,
+        "Defense": 64,
+        "Speed": 112,
+        "SpAttack": 64,
+        "SpDefense": 59
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

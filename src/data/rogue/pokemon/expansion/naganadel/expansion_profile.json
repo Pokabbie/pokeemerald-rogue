@@ -374,5 +374,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NAGANADEL": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 73,
+        "Defense": 73,
+        "Speed": 121,
+        "SpAttack": 127,
+        "SpDefense": 73
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -296,5 +296,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BEWEAR": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 125,
+        "Defense": 80,
+        "Speed": 60,
+        "SpAttack": 55,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_FLUFFY",
+        "ABILITY_KLUTZ",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

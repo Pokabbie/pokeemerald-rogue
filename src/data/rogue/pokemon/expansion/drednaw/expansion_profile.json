@@ -189,5 +189,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DREDNAW": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 115,
+        "Defense": 90,
+        "Speed": 74,
+        "SpAttack": 48,
+        "SpDefense": 68
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    },
+    "SPECIES_DREDNAW_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 115,
+        "Defense": 90,
+        "Speed": 74,
+        "SpAttack": 48,
+        "SpDefense": 68
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

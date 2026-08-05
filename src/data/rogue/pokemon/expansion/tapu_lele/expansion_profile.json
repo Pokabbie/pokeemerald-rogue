@@ -774,5 +774,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAPU_LELE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 75,
+        "Speed": 95,
+        "SpAttack": 130,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PSYCHIC_SURGE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

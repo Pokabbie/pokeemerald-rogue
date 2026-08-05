@@ -252,5 +252,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWALOT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 73,
+        "Defense": 83,
+        "Speed": 55,
+        "SpAttack": 73,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

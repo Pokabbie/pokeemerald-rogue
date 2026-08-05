@@ -238,5 +238,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLITHER_WING": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 135,
+        "Defense": 79,
+        "Speed": 81,
+        "SpAttack": 85,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -514,5 +514,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HIPPOWDON": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 112,
+        "Defense": 118,
+        "Speed": 47,
+        "SpAttack": 68,
+        "SpDefense": 72
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_NONE",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

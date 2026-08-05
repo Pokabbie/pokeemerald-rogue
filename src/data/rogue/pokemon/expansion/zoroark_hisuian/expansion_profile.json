@@ -335,5 +335,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZOROARK_HISUIAN": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 100,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 125,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUSION",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

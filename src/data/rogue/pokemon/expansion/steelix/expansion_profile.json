@@ -539,5 +539,45 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STEELIX": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 85,
+        "Defense": 200,
+        "Speed": 30,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_STURDY",
+        "ABILITY_SHEER_FORCE"
+      ]
+    },
+    "SPECIES_STEELIX_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 125,
+        "Defense": 230,
+        "Speed": 30,
+        "SpAttack": 55,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_FORCE",
+        "ABILITY_SAND_FORCE",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

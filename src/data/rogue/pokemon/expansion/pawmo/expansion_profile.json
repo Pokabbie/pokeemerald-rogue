@@ -112,5 +112,26 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PAWMO": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 40,
+        "Speed": 85,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

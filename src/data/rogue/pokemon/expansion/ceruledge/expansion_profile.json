@@ -253,5 +253,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CERULEDGE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 125,
+        "Defense": 80,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

@@ -251,5 +251,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDY_SHOCKS": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 81,
+        "Defense": 97,
+        "Speed": 101,
+        "SpAttack": 121,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

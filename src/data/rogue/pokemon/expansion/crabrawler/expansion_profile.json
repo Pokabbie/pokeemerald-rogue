@@ -143,5 +143,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRABRAWLER": {
+      "BaseStats": {
+        "HP": 47,
+        "Attack": 82,
+        "Defense": 57,
+        "Speed": 63,
+        "SpAttack": 42,
+        "SpDefense": 47
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_IRON_FIST",
+        "ABILITY_ANGER_POINT"
+      ]
+    }
+  }
 }

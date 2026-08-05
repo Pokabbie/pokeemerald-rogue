@@ -136,5 +136,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RABOOT": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 86,
+        "Defense": 60,
+        "Speed": 94,
+        "SpAttack": 55,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_LIBERO"
+      ]
+    }
+  }
 }

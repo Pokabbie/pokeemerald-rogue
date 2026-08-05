@@ -282,5 +282,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRONZOR": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 24,
+        "Defense": 86,
+        "Speed": 23,
+        "SpAttack": 24,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_HEATPROOF",
+        "ABILITY_HEAVY_METAL"
+      ]
+    }
+  }
 }

@@ -322,5 +322,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGICE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 50,
+        "Defense": 100,
+        "Speed": 50,
+        "SpAttack": 100,
+        "SpDefense": 200
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  }
 }

@@ -320,5 +320,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TING_LU": {
+      "BaseStats": {
+        "HP": 155,
+        "Attack": 110,
+        "Defense": 125,
+        "Speed": 45,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_VESSEL_OF_RUIN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

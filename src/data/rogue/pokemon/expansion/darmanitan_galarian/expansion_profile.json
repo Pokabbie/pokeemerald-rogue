@@ -313,5 +313,26 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DARMANITAN_GALARIAN": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 140,
+        "Defense": 55,
+        "Speed": 95,
+        "SpAttack": 30,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_GORILLA_TACTICS",
+        "ABILITY_NONE",
+        "ABILITY_ZEN_MODE"
+      ]
+    }
+  }
 }

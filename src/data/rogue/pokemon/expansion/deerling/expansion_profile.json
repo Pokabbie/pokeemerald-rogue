@@ -173,5 +173,83 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEERLING": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_DEERLING_SUMMER": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_DEERLING_AUTUMN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_DEERLING_WINTER": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 50,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

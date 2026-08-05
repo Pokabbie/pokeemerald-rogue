@@ -238,5 +238,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DONDOZO": {
+      "BaseStats": {
+        "HP": 150,
+        "Attack": 100,
+        "Defense": 115,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_UNAWARE",
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }

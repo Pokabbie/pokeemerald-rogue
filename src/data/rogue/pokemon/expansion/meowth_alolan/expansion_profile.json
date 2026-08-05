@@ -158,5 +158,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEOWTH_ALOLAN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 35,
+        "Defense": 35,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

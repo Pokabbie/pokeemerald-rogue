@@ -275,5 +275,1223 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ALCREMIE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_BERRY_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_LOVE_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_STAR_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_CLOVER_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_FLOWER_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_RUBY_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_MATCHA_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_MINT_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_LEMON_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_SALTED_CREAM": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    },
+    "SPECIES_ALCREMIE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 64,
+        "SpAttack": 110,
+        "SpDefense": 121
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    }
+  }
 }

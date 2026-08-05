@@ -84,5 +84,26 @@
     "MOVE_VENOM_DRENCH",
     "MOVE_VENOSHOCK"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_POIPOLE": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 73,
+        "Defense": 67,
+        "Speed": 73,
+        "SpAttack": 73,
+        "SpDefense": 67
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -233,5 +233,26 @@
         "GEN9DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORANGURU": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 60,
+        "Defense": 80,
+        "Speed": 60,
+        "SpAttack": 90,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_TELEPATHY",
+        "ABILITY_SYMBIOSIS"
+      ]
+    }
+  }
 }

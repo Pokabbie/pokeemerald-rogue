@@ -139,5 +139,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CARNIVINE": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 100,
+        "Defense": 72,
+        "Speed": 46,
+        "SpAttack": 90,
+        "SpDefense": 72
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

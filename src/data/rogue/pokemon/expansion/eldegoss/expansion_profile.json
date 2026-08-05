@@ -159,5 +159,26 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELDEGOSS": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 50,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 80,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_COTTON_DOWN",
+        "ABILITY_REGENERATOR",
+        "ABILITY_EFFECT_SPORE"
+      ]
+    }
+  }
 }

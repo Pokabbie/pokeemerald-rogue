@@ -153,5 +153,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FOONGUS": {
+      "BaseStats": {
+        "HP": 69,
+        "Attack": 55,
+        "Defense": 45,
+        "Speed": 15,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

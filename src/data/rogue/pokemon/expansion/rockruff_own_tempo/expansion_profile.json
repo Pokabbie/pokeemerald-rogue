@@ -102,5 +102,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ROCKRUFF_OWN_TEMPO": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 65,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

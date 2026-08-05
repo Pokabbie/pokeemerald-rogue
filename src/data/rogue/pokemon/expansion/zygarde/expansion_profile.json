@@ -533,5 +533,64 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZYGARDE": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 100,
+        "Defense": 121,
+        "Speed": 95,
+        "SpAttack": 81,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_AURA_BREAK",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ZYGARDE_50_POWER_CONSTRUCT": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 100,
+        "Defense": 121,
+        "Speed": 95,
+        "SpAttack": 81,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_POWER_CONSTRUCT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ZYGARDE_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -250,5 +250,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DODRIO": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_TANGLED_FEET"
+      ]
+    }
+  }
 }

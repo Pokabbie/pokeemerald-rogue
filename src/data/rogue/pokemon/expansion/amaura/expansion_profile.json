@@ -221,5 +221,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AMAURA": {
+      "BaseStats": {
+        "HP": 77,
+        "Attack": 59,
+        "Defense": 50,
+        "Speed": 46,
+        "SpAttack": 67,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_REFRIGERATE",
+        "ABILITY_NONE",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

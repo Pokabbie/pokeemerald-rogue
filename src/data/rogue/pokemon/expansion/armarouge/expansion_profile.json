@@ -257,5 +257,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARMAROUGE": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 75,
+        "SpAttack": 125,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

@@ -262,5 +262,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BARRASKEWDA": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 123,
+        "Defense": 60,
+        "Speed": 136,
+        "SpAttack": 60,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE",
+        "ABILITY_PROPELLER_TAIL"
+      ]
+    }
+  }
 }

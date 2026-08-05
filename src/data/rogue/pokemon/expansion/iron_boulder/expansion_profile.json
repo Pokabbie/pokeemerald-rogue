@@ -218,5 +218,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_BOULDER": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 120,
+        "Defense": 80,
+        "Speed": 124,
+        "SpAttack": 68,
+        "SpDefense": 108
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

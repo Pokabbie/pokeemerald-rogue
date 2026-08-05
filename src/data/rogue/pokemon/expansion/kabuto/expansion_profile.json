@@ -151,5 +151,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KABUTO": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 80,
+        "Defense": 90,
+        "Speed": 55,
+        "SpAttack": 55,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

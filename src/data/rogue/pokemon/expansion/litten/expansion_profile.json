@@ -132,5 +132,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LITTEN": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 65,
+        "Defense": 40,
+        "Speed": 70,
+        "SpAttack": 60,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

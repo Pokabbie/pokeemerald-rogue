@@ -150,5 +150,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOPPIP": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 35,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 35,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

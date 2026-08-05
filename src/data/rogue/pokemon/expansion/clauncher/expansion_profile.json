@@ -153,5 +153,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLAUNCHER": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 53,
+        "Defense": 62,
+        "Speed": 44,
+        "SpAttack": 58,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MEGA_LAUNCHER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

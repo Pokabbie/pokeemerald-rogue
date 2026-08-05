@@ -231,5 +231,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_URSARING": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 130,
+        "Defense": 75,
+        "Speed": 55,
+        "SpAttack": 75,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_QUICK_FEET",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

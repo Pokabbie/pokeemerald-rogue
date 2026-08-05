@@ -402,5 +402,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOXTRICITY": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 98,
+        "Defense": 70,
+        "Speed": 75,
+        "SpAttack": 114,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_PUNK_ROCK",
+        "ABILITY_PLUS",
+        "ABILITY_TECHNICIAN"
+      ]
+    },
+    "SPECIES_TOXTRICITY_AMPED_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 98,
+        "Defense": 70,
+        "Speed": 75,
+        "SpAttack": 114,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_PUNK_ROCK",
+        "ABILITY_PLUS",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

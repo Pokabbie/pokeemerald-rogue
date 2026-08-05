@@ -123,5 +123,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CETODDLE": {
+      "BaseStats": {
+        "HP": 108,
+        "Attack": 68,
+        "Defense": 45,
+        "Speed": 43,
+        "SpAttack": 30,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

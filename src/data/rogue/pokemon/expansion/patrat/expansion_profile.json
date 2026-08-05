@@ -134,5 +134,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PATRAT": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 55,
+        "Defense": 39,
+        "Speed": 42,
+        "SpAttack": 35,
+        "SpDefense": 39
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

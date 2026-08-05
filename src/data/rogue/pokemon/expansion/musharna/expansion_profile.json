@@ -256,5 +256,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUSHARNA": {
+      "BaseStats": {
+        "HP": 116,
+        "Attack": 55,
+        "Defense": 85,
+        "Speed": 29,
+        "SpAttack": 107,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_FOREWARN",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

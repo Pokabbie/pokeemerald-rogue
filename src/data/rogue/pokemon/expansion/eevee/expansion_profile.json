@@ -188,5 +188,45 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EEVEE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 50,
+        "Speed": 55,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_ANTICIPATION"
+      ]
+    },
+    "SPECIES_EEVEE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 50,
+        "Speed": 55,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_ANTICIPATION"
+      ]
+    }
+  }
 }

@@ -41,5 +41,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_THUNDER_WAVE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DREEPY": {
+      "BaseStats": {
+        "HP": 28,
+        "Attack": 60,
+        "Defense": 30,
+        "Speed": 82,
+        "SpAttack": 40,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

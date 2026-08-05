@@ -239,5 +239,26 @@
         "GEN8NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GUZZLORD": {
+      "BaseStats": {
+        "HP": 223,
+        "Attack": 101,
+        "Defense": 53,
+        "Speed": 43,
+        "SpAttack": 97,
+        "SpDefense": 53
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

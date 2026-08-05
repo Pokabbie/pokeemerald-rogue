@@ -475,5 +475,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AMPHAROS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 75,
+        "Defense": 85,
+        "Speed": 55,
+        "SpAttack": 115,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_PLUS"
+      ]
+    },
+    "SPECIES_AMPHAROS_MEGA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 95,
+        "Defense": 105,
+        "Speed": 45,
+        "SpAttack": 165,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

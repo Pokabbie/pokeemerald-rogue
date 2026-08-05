@@ -475,5 +475,349 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCEUS": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_FIGHTING": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_FLYING": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_POISON": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_GROUND": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_ROCK": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_BUG": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_GHOST": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_STEEL": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_FIRE": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_WATER": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_GRASS": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_ELECTRIC": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_PSYCHIC": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_ICE": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_DRAGON": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_DARK": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_ARCEUS_FAIRY": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 120,
+        "SpAttack": 120,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_MULTITYPE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

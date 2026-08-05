@@ -106,5 +106,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIDOVE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 55,
+        "Defense": 50,
+        "Speed": 43,
+        "SpAttack": 36,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_RIVALRY"
+      ]
+    }
+  }
 }

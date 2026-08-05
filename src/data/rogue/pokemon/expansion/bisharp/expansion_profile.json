@@ -551,5 +551,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BISHARP": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 70,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_PRESSURE"
+      ]
+    }
+  }
 }

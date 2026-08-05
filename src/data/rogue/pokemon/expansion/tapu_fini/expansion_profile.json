@@ -783,5 +783,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAPU_FINI": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 115,
+        "Speed": 85,
+        "SpAttack": 95,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_MISTY_SURGE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

@@ -304,5 +304,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOLEM_ALOLAN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 130,
+        "Speed": 45,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_STURDY",
+        "ABILITY_GALVANIZE"
+      ]
+    }
+  }
 }

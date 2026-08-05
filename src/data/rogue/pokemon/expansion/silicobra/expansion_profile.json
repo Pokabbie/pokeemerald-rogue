@@ -86,5 +86,26 @@
     "MOVE_TAKE_DOWN",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SILICOBRA": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 57,
+        "Defense": 75,
+        "Speed": 46,
+        "SpAttack": 35,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_SPIT",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

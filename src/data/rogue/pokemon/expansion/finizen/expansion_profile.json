@@ -94,5 +94,26 @@
     "MOVE_WATERFALL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FINIZEN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 75,
+        "SpAttack": 45,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

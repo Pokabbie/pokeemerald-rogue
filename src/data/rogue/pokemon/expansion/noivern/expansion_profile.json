@@ -430,5 +430,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NOIVERN": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 70,
+        "Defense": 80,
+        "Speed": 123,
+        "SpAttack": 97,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_FRISK",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

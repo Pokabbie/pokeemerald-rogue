@@ -247,5 +247,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MILTANK": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 80,
+        "Defense": 105,
+        "Speed": 100,
+        "SpAttack": 40,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_SCRAPPY",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

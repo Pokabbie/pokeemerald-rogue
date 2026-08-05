@@ -248,5 +248,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLAREON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 65,
+        "SpAttack": 95,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

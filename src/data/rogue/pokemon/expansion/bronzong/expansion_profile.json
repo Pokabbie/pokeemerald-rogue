@@ -512,5 +512,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRONZONG": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 89,
+        "Defense": 116,
+        "Speed": 33,
+        "SpAttack": 79,
+        "SpDefense": 116
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_HEATPROOF",
+        "ABILITY_HEAVY_METAL"
+      ]
+    }
+  }
 }

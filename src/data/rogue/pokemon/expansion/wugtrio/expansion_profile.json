@@ -107,5 +107,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WUGTRIO": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 100,
+        "Defense": 50,
+        "Speed": 120,
+        "SpAttack": 50,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GOOEY",
+        "ABILITY_RATTLED",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

@@ -53,5 +53,539 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_UNOWN": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_B": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_C": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_D": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_E": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_F": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_G": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_H": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_I": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_J": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_K": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_L": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_M": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_N": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_O": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_P": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_Q": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_R": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_S": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_T": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_U": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_V": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_W": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_X": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_Y": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_Z": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_EMARK": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_UNOWN_QMARK": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

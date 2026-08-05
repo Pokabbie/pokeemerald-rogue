@@ -283,5 +283,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CROAGUNK": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 61,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 61,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_DRY_SKIN",
+        "ABILITY_POISON_TOUCH"
+      ]
+    }
+  }
 }

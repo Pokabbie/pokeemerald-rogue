@@ -288,5 +288,26 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DIALGA": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 120,
+        "Defense": 120,
+        "Speed": 90,
+        "SpAttack": 150,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

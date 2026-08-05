@@ -225,5 +225,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ESPATHRA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 101,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OPPORTUNIST",
+        "ABILITY_FRISK",
+        "ABILITY_SPEED_BOOST"
+      ]
+    }
+  }
 }

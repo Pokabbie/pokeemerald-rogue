@@ -294,5 +294,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LURANTIS": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 105,
+        "Defense": 90,
+        "Speed": 45,
+        "SpAttack": 80,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

@@ -190,5 +190,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_THORNS": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 134,
+        "Defense": 110,
+        "Speed": 72,
+        "SpAttack": 70,
+        "SpDefense": 84
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

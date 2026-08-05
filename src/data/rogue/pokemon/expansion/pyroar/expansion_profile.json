@@ -233,5 +233,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PYROAR": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 68,
+        "Defense": 72,
+        "Speed": 106,
+        "SpAttack": 109,
+        "SpDefense": 66
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_UNNERVE",
+        "ABILITY_MOXIE"
+      ]
+    },
+    "SPECIES_PYROAR_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -75,5 +75,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WIMPOD": {
+      "BaseStats": {
+        "HP": 25,
+        "Attack": 35,
+        "Defense": 40,
+        "Speed": 80,
+        "SpAttack": 20,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WIMP_OUT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

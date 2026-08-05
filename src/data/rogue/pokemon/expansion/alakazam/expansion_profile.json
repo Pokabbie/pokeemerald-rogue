@@ -590,5 +590,45 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ALAKAZAM": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 50,
+        "Defense": 45,
+        "Speed": 120,
+        "SpAttack": 135,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_MAGIC_GUARD"
+      ]
+    },
+    "SPECIES_ALAKAZAM_MEGA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 50,
+        "Defense": 65,
+        "Speed": 150,
+        "SpAttack": 175,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TRACE",
+        "ABILITY_TRACE",
+        "ABILITY_TRACE"
+      ]
+    }
+  }
 }

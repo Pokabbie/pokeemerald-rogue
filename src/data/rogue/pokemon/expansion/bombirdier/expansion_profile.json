@@ -284,5 +284,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BOMBIRDIER": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 103,
+        "Defense": 85,
+        "Speed": 82,
+        "SpAttack": 60,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_ROCKY_PAYLOAD"
+      ]
+    }
+  }
 }

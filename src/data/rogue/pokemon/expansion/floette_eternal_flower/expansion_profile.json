@@ -105,8 +105,7 @@
     "MOVE_TRICK",
     "MOVE_HYPER_BEAM"
   ],
-  "CompetitiveSets": 
-  [
+  "CompetitiveSets": [
     {
       "Moves": [
         "MOVE_DAZZLING_GLEAM",
@@ -152,5 +151,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLOETTE_ETERNAL_FLOWER": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 65,
+        "Defense": 67,
+        "Speed": 92,
+        "SpAttack": 125,
+        "SpDefense": 128
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SYMBIOSIS"
+      ]
+    },
+    "SPECIES_FLOETTE_MEGA": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 85,
+        "Defense": 87,
+        "Speed": 102,
+        "SpAttack": 155,
+        "SpDefense": 148
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FAIRY_AURA",
+        "ABILITY_FAIRY_AURA",
+        "ABILITY_FAIRY_AURA"
+      ]
+    }
+  }
 }

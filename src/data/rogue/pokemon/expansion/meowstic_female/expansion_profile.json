@@ -191,7 +191,6 @@
         "GEN7PU"
       ]
     },
-
     {
       "Moves": [
         "MOVE_PSYCHIC",
@@ -237,5 +236,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEOWSTIC_FEMALE": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 48,
+        "Defense": 76,
+        "Speed": 104,
+        "SpAttack": 83,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_COMPETITIVE"
+      ]
+    },
+    "SPECIES_MEOWSTIC_FEMALE_MEGA": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 48,
+        "Defense": 76,
+        "Speed": 124,
+        "SpAttack": 143,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TRACE",
+        "ABILITY_TRACE",
+        "ABILITY_TRACE"
+      ]
+    }
+  }
 }

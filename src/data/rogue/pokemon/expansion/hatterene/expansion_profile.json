@@ -471,5 +471,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HATTERENE": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 90,
+        "Defense": 95,
+        "Speed": 29,
+        "SpAttack": 136,
+        "SpDefense": 103
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    },
+    "SPECIES_HATTERENE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 90,
+        "Defense": 95,
+        "Speed": 29,
+        "SpAttack": 136,
+        "SpDefense": 103
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

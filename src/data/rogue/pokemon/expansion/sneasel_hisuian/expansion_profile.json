@@ -207,5 +207,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNEASEL_HISUIAN": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 95,
+        "Defense": 55,
+        "Speed": 115,
+        "SpAttack": 35,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

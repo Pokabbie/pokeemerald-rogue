@@ -497,5 +497,45 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AUDINO": {
+      "BaseStats": {
+        "HP": 103,
+        "Attack": 60,
+        "Defense": 86,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_REGENERATOR",
+        "ABILITY_KLUTZ"
+      ]
+    },
+    "SPECIES_AUDINO_MEGA": {
+      "BaseStats": {
+        "HP": 103,
+        "Attack": 60,
+        "Defense": 126,
+        "Speed": 50,
+        "SpAttack": 80,
+        "SpDefense": 126
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_HEALER",
+        "ABILITY_HEALER"
+      ]
+    }
+  }
 }

@@ -543,5 +543,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MESPRIT": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 105,
+        "Defense": 105,
+        "Speed": 80,
+        "SpAttack": 105,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

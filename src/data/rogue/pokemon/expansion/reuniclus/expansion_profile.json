@@ -486,5 +486,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REUNICLUS": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 65,
+        "Defense": 75,
+        "Speed": 30,
+        "SpAttack": 125,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

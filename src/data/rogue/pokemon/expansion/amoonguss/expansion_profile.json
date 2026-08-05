@@ -681,5 +681,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AMOONGUSS": {
+      "BaseStats": {
+        "HP": 114,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 30,
+        "SpAttack": 85,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

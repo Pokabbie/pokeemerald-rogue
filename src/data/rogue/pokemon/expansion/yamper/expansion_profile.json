@@ -81,5 +81,26 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_YAMPER": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 26,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_BALL_FETCH",
+        "ABILITY_NONE",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

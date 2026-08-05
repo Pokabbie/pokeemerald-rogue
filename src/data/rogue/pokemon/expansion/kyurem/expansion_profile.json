@@ -829,5 +829,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KYUREM": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 130,
+        "Defense": 90,
+        "Speed": 95,
+        "SpAttack": 130,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -108,5 +108,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_POLIWAG": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 90,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_DAMP",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

@@ -662,5 +662,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRIMMSNARL": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 120,
+        "Defense": 65,
+        "Speed": 60,
+        "SpAttack": 95,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_FRISK",
+        "ABILITY_PICKPOCKET"
+      ]
+    },
+    "SPECIES_GRIMMSNARL_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 120,
+        "Defense": 65,
+        "Speed": 60,
+        "SpAttack": 95,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_FRISK",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

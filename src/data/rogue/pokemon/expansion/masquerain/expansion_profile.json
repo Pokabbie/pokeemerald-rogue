@@ -229,5 +229,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MASQUERAIN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 62,
+        "Speed": 80,
+        "SpAttack": 100,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

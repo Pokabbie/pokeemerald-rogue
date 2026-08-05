@@ -223,5 +223,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SERVINE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 83,
+        "SpAttack": 60,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

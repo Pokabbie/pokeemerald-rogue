@@ -153,5 +153,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FENNEKIN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 62,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_MAGICIAN"
+      ]
+    }
+  }
 }

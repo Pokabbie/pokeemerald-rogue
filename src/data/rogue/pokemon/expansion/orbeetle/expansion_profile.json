@@ -174,5 +174,45 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORBEETLE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 80,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_FRISK",
+        "ABILITY_TELEPATHY"
+      ]
+    },
+    "SPECIES_ORBEETLE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 45,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 80,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_FRISK",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

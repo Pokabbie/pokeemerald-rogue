@@ -119,5 +119,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLAMPERL": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 64,
+        "Defense": 85,
+        "Speed": 32,
+        "SpAttack": 74,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

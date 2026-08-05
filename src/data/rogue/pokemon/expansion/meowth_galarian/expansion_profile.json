@@ -116,5 +116,26 @@
     "MOVE_U_TURN",
     "MOVE_X_SCISSOR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MEOWTH_GALARIAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 55,
+        "Speed": 40,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

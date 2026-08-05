@@ -167,5 +167,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PSYDUCK": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 52,
+        "Defense": 48,
+        "Speed": 55,
+        "SpAttack": 65,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_DAMP",
+        "ABILITY_CLOUD_NINE",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

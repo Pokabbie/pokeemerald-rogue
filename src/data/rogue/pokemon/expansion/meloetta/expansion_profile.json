@@ -554,5 +554,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MELOETTA": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 77,
+        "Defense": 77,
+        "Speed": 90,
+        "SpAttack": 128,
+        "SpDefense": 128
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MELOETTA_PIROUETTE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 128,
+        "Defense": 90,
+        "Speed": 128,
+        "SpAttack": 77,
+        "SpDefense": 77
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

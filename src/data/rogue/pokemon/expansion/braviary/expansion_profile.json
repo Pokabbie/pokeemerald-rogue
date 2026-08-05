@@ -362,5 +362,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRAVIARY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 123,
+        "Defense": 75,
+        "Speed": 80,
+        "SpAttack": 57,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

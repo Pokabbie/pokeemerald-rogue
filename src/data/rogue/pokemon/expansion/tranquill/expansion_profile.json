@@ -81,5 +81,26 @@
     "MOVE_UPROAR",
     "MOVE_WORK_UP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TRANQUILL": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 77,
+        "Defense": 62,
+        "Speed": 65,
+        "SpAttack": 50,
+        "SpDefense": 42
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_SUPER_LUCK",
+        "ABILITY_RIVALRY"
+      ]
+    }
+  }
 }

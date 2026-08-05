@@ -28,5 +28,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_THUNDER_WAVE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TYNAMO": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 55,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 45,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -222,5 +222,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KROKOROK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 82,
+        "Defense": 45,
+        "Speed": 74,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_MOXIE",
+        "ABILITY_ANGER_POINT"
+      ]
+    }
+  }
 }

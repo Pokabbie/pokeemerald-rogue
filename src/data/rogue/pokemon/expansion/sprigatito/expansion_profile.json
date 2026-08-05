@@ -97,5 +97,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_U_TURN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SPRIGATITO": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 61,
+        "Defense": 54,
+        "Speed": 65,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

@@ -106,5 +106,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ZAMAZENTA_CROWNED_SHIELD": {
+      "BaseStats": {
+        "HP": 92,
+        "Attack": 120,
+        "Defense": 140,
+        "Speed": 128,
+        "SpAttack": 80,
+        "SpDefense": 140
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DAUNTLESS_SHIELD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -83,5 +83,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_WEATHER_BALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DOLLIV": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 53,
+        "Defense": 60,
+        "Speed": 33,
+        "SpAttack": 78,
+        "SpDefense": 78
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_NONE",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

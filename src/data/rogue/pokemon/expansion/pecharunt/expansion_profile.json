@@ -291,5 +291,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PECHARUNT": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 88,
+        "Defense": 160,
+        "Speed": 88,
+        "SpAttack": 88,
+        "SpDefense": 88
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_PUPPETEER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

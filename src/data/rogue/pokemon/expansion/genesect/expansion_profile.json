@@ -357,5 +357,102 @@
         "GEN8DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GENESECT": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 120,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DOWNLOAD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GENESECT_DOUSE_DRIVE": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 120,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DOWNLOAD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GENESECT_SHOCK_DRIVE": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 120,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DOWNLOAD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GENESECT_BURN_DRIVE": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 120,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DOWNLOAD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GENESECT_CHILL_DRIVE": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 120,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 120,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DOWNLOAD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

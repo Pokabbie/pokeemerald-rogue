@@ -565,5 +565,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GREAT_TUSK": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 131,
+        "Defense": 131,
+        "Speed": 87,
+        "SpAttack": 53,
+        "SpDefense": 53
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

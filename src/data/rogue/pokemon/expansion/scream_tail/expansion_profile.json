@@ -271,5 +271,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCREAM_TAIL": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 65,
+        "Defense": 99,
+        "Speed": 111,
+        "SpAttack": 65,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

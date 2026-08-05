@@ -122,5 +122,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OINKOLOGNE": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 100,
+        "Defense": 75,
+        "Speed": 65,
+        "SpAttack": 59,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_LINGERING_AROMA",
+        "ABILITY_GLUTTONY",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

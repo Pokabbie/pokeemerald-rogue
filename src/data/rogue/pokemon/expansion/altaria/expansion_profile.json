@@ -940,5 +940,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ALTARIA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 70,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 70,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_NONE",
+        "ABILITY_CLOUD_NINE"
+      ]
+    },
+    "SPECIES_ALTARIA_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 110,
+        "Speed": 80,
+        "SpAttack": 110,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PIXILATE",
+        "ABILITY_PIXILATE",
+        "ABILITY_PIXILATE"
+      ]
+    }
+  }
 }

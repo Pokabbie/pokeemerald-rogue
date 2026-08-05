@@ -264,5 +264,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUDBRAY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 45,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_STAMINA",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

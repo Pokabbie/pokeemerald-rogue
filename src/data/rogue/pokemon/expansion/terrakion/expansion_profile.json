@@ -664,5 +664,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TERRAKION": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 129,
+        "Defense": 90,
+        "Speed": 108,
+        "SpAttack": 72,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_JUSTIFIED",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

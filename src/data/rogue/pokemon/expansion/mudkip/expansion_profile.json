@@ -128,5 +128,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUDKIP": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 70,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

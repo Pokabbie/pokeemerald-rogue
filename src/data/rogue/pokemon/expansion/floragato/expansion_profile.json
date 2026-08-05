@@ -102,5 +102,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_U_TURN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FLORAGATO": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 80,
+        "Defense": 63,
+        "Speed": 83,
+        "SpAttack": 60,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

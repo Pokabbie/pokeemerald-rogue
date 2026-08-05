@@ -133,5 +133,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GREEDENT": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 20,
+        "SpAttack": 55,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CHEEK_POUCH",
+        "ABILITY_NONE",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

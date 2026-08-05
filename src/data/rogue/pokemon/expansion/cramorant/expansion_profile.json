@@ -174,5 +174,64 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRAMORANT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 55,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GULP_MISSILE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CRAMORANT_GULPING": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 55,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GULP_MISSILE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CRAMORANT_GORGING": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 55,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GULP_MISSILE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

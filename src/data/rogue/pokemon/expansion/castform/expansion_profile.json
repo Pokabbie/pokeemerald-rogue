@@ -138,5 +138,83 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CASTFORM": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FORECAST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CASTFORM_SUNNY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FORECAST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CASTFORM_RAINY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_FORECAST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CASTFORM_SNOWY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_FORECAST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

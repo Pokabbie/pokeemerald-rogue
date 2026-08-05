@@ -190,5 +190,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_QUILLADIN": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 78,
+        "Defense": 95,
+        "Speed": 57,
+        "SpAttack": 56,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  }
 }

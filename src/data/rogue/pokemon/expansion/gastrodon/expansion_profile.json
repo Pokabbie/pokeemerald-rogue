@@ -985,5 +985,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GASTRODON": {
+      "BaseStats": {
+        "HP": 111,
+        "Attack": 83,
+        "Defense": 68,
+        "Speed": 39,
+        "SpAttack": 92,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_SAND_FORCE"
+      ]
+    },
+    "SPECIES_GASTRODON_EAST_SEA": {
+      "BaseStats": {
+        "HP": 111,
+        "Attack": 83,
+        "Defense": 68,
+        "Speed": 39,
+        "SpAttack": 92,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_STICKY_HOLD",
+        "ABILITY_STORM_DRAIN",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

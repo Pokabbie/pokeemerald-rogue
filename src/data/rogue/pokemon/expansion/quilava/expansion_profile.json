@@ -110,5 +110,26 @@
     "MOVE_WILL_O_WISP",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_QUILAVA": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 64,
+        "Defense": 58,
+        "Speed": 80,
+        "SpAttack": 80,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
 }

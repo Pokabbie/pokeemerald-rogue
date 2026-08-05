@@ -177,5 +177,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NACLSTACK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 100,
+        "Speed": 35,
+        "SpAttack": 35,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_PURIFYING_SALT",
+        "ABILITY_STURDY",
+        "ABILITY_CLEAR_BODY"
+      ]
+    }
+  }
 }

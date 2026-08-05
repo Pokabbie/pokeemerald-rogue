@@ -150,5 +150,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHIELDON": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 42,
+        "Defense": 118,
+        "Speed": 30,
+        "SpAttack": 42,
+        "SpDefense": 88
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_NONE",
+        "ABILITY_SOUNDPROOF"
+      ]
+    }
+  }
 }

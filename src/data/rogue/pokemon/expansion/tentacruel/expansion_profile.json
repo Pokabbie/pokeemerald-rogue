@@ -399,5 +399,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TENTACRUEL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 70,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

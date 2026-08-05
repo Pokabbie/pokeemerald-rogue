@@ -123,5 +123,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HORSEA": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 40,
+        "Defense": 70,
+        "Speed": 60,
+        "SpAttack": 70,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_SNIPER",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

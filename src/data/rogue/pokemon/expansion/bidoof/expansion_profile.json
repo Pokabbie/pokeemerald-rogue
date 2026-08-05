@@ -169,5 +169,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BIDOOF": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 31,
+        "SpAttack": 35,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SIMPLE",
+        "ABILITY_UNAWARE",
+        "ABILITY_MOODY"
+      ]
+    }
+  }
 }

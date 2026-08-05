@@ -69,5 +69,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CHARCADET": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 35,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_NONE",
+        "ABILITY_FLAME_BODY"
+      ]
+    }
+  }
 }

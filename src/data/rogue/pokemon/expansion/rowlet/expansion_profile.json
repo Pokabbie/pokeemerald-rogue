@@ -120,5 +120,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROWLET": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 42,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_LONG_REACH"
+      ]
+    }
+  }
 }

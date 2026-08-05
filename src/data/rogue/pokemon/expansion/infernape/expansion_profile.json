@@ -744,5 +744,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_INFERNAPE": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 104,
+        "Defense": 71,
+        "Speed": 108,
+        "SpAttack": 104,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }
