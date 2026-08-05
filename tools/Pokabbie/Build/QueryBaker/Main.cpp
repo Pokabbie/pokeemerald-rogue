@@ -1,5 +1,6 @@
 #include <string>
 #include <fstream>
+#include <filesystem>
 #include <array>
 #include <iostream>
 #include <vector>
@@ -98,9 +99,50 @@ static bool IsEvoListSpeciesValid(u16 species)
 #endif
 }
 
+static bool WriteFileIfChanged(std::string const& filePath, std::string const& newContent)
+{
+	std::string currentFileContent;
+
+	struct stat sb;
+	if (stat(filePath.c_str(), &sb) == 0)
+	{
+		std::ifstream file;
+		file.open(filePath, std::ios::in);
+
+		if (file.is_open())
+		{
+			file.seekg(0, std::ios::end);
+			size_t length = file.tellg();
+
+			currentFileContent.resize(length);
+			file.seekg(0, std::ios::beg);
+			file.read(&currentFileContent[0], length);
+		}
+
+		file.close();
+	}
+
+	if (currentFileContent.compare(newContent) != 0)
+	{
+		std::cout << "Updated '" << filePath << "'.\n";
+
+		std::ofstream file;
+		file.open(filePath, std::ios::out);
+		file << newContent;
+		file.close();
+		return true;
+	}
+	else
+	{
+		std::cout << "No changes detected for '" << filePath << "'.\n";
+		return false;
+	}
+}
+
 int main(int argc, char* argv[])
 {
-	std::string const c_OutputPath = argv[1];
+	std::string const c_OutputHeaderPath = argv[1];
+	std::string const c_OutputJsonPath = argc >= 3 ? argv[2] : "";
 
 	std::stringstream output;
 
@@ -341,38 +383,54 @@ int main(int argc, char* argv[])
 #endif
 	}
 
-	std::string inputStr;
-	std::string outputStr = output.str();
+	WriteFileIfChanged(c_OutputHeaderPath, output.str());
 
-	struct stat sb;
-	if (stat(c_OutputPath.c_str(), &sb) == 0)
+	if (!c_OutputJsonPath.empty())
 	{
-		std::ifstream file;
-		file.open(c_OutputPath, std::ios::in);
+		output = std::stringstream();
 
-		file.seekg(0, std::ios::end);
-		size_t length = file.tellg();
+		output << "{\n";
 
-		inputStr.resize(length);
-		file.seekg(0, std::ios::beg);
-		file.read(&inputStr[0], length);
+		for (int mode = 0; mode < 2; ++mode)
+		{
+			output << "\t\"" << (mode ? "revised" : "base") << "\":\n";
+			output << "\t[\n";
 
-		file.close();
+			for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+			{
+				struct RoguePokemonBaseStats stats;
+				Rogue_GetPokemonBaseStatsFor(s, &stats, mode);
+
+				//output << "\t\t" << s << ":\n";
+				output << "\t\t{\n";
+
+				output << "\t\t\t\"baseHP\":" << (int)stats.baseHP << ",\n";
+				output << "\t\t\t\"baseAttack\":" << (int)stats.baseAttack << ",\n";
+				output << "\t\t\t\"baseDefense\":" << (int)stats.baseDefense << ",\n";
+				output << "\t\t\t\"baseSpeed\":" << (int)stats.baseSpeed << ",\n";
+				output << "\t\t\t\"baseSpAttack\":" << (int)stats.baseSpAttack << ",\n";
+				output << "\t\t\t\"baseSpDefense\":" << (int)stats.baseSpDefense << ",\n";
+				output << "\t\t\t\"types\": [" << (int)stats.types[0] << ", " << (int)stats.types[1] << "],\n";
+				output << "\t\t\t\"abilities\": [";
+				
+				for (int a = 0; a < NUM_ABILITY_SLOTS; ++a)
+				{
+					output << (a == 0 ? "" : ", ") << (int)stats.abilities[a];
+				}
+				
+				output << "]\n";
+
+				output << (s + 1 == NUM_SPECIES ? "\t\t}\n" : "\t\t},\n");
+			}
+
+			output << (mode ? "\t]\n" : "\t],\n");
+		}
+
+		output << "}\n";
+
+		WriteFileIfChanged(c_OutputJsonPath, output.str());
 	}
 
-	if (inputStr.compare(outputStr) != 0)
-	{
-		std::cout << "Updated '" << c_OutputPath << "'.\n";
-
-		std::ofstream file;
-		file.open(c_OutputPath, std::ios::out);
-		file << outputStr;
-		file.close();
-	}
-	else
-	{
-		std::cout << "No changes detected for '" << c_OutputPath << "'.\n";
-	}
 
 	return 0;
 }

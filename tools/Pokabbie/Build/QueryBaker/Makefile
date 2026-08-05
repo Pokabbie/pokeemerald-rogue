@@ -41,7 +41,7 @@ querybaker$(EXE): querybaker_c querybaker_cxx
 # Now run it!
 querybaker_run: querybaker$(EXE)
 	@echo "Baking Local Data..."
-	./querybaker$(EXE) $(DATA_SRC_SUBDIR)/rogue_bake_data.h
+	./querybaker$(EXE) $(DATA_SRC_SUBDIR)/rogue_bake_data.h $(DATA_SRC_SUBDIR)/rogue_exported_stats.json
 	@echo "Finished Local Data Bake."
 
 
