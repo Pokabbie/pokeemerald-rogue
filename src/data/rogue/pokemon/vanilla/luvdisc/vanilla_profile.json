@@ -92,5 +92,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUVDISC": {
+      "BaseStats": {
+        "HP": 43,
+        "Attack": 30,
+        "Defense": 55,
+        "Speed": 97,
+        "SpAttack": 40,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

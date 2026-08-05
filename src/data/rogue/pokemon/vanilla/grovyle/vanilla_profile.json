@@ -132,5 +132,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROVYLE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 95,
+        "SpAttack": 85,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

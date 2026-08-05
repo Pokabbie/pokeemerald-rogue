@@ -96,5 +96,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GULPIN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 43,
+        "Defense": 53,
+        "Speed": 40,
+        "SpAttack": 43,
+        "SpDefense": 53
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LIQUID_OOZE",
+        "ABILITY_STICKY_HOLD"
+      ]
+    }
+  }
 }

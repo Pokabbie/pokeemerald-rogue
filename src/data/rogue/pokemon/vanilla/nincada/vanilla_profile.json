@@ -76,5 +76,25 @@
     "MOVE_SWAGGER",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NINCADA": {
+      "BaseStats": {
+        "HP": 31,
+        "Attack": 45,
+        "Defense": 90,
+        "Speed": 40,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -174,5 +174,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NOCTOWL": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 70,
+        "SpAttack": 76,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

@@ -115,5 +115,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANECTRIC": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 105,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    }
+  }
 }

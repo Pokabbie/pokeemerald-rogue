@@ -152,5 +152,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STANTLER": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 95,
+        "Defense": 62,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

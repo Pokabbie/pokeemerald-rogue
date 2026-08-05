@@ -89,5 +89,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WEEPINBELL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 50,
+        "Speed": 55,
+        "SpAttack": 85,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -210,5 +210,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CACTURNE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 115,
+        "Defense": 60,
+        "Speed": 55,
+        "SpAttack": 115,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

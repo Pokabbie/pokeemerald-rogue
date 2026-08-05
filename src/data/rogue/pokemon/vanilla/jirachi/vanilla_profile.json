@@ -242,5 +242,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JIRACHI": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

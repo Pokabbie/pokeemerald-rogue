@@ -140,5 +140,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLALIE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 80,
+        "Defense": 80,
+        "Speed": 80,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

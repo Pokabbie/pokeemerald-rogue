@@ -98,5 +98,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NATU": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 50,
+        "Defense": 45,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

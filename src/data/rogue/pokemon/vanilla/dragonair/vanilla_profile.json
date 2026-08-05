@@ -133,5 +133,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRAGONAIR": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 84,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

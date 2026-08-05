@@ -209,5 +209,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CORSOLA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 85,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NATURAL_CURE"
+      ]
+    }
+  }
 }

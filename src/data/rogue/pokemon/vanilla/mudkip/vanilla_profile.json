@@ -95,5 +95,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MUDKIP": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 70,
+        "Defense": 50,
+        "Speed": 40,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

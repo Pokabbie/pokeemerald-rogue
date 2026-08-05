@@ -71,5 +71,25 @@
     "MOVE_SWORDS_DANCE",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SUNKERN": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 30,
+        "Defense": 30,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

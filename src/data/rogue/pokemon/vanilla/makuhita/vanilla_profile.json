@@ -104,5 +104,25 @@
     "MOVE_THUNDER_PUNCH",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MAKUHITA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 60,
+        "Defense": 30,
+        "Speed": 25,
+        "SpAttack": 20,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

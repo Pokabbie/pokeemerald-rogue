@@ -9,5 +9,25 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_METAPOD": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 20,
+        "Defense": 55,
+        "Speed": 30,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

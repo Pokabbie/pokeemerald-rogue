@@ -151,5 +151,25 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VENUSAUR": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 82,
+        "Defense": 83,
+        "Speed": 80,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

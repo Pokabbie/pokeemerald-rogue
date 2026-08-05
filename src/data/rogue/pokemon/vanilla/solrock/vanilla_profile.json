@@ -137,5 +137,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SOLROCK": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 95,
+        "Defense": 85,
+        "Speed": 70,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

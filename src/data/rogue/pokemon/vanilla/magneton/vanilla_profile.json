@@ -126,5 +126,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGNETON": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 60,
+        "Defense": 95,
+        "Speed": 70,
+        "SpAttack": 120,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

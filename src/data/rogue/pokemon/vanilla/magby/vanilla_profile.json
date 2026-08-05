@@ -114,5 +114,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGBY": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 75,
+        "Defense": 37,
+        "Speed": 83,
+        "SpAttack": 70,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

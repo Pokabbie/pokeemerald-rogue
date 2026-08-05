@@ -89,5 +89,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LOTAD": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 30,
+        "Defense": 30,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

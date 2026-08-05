@@ -127,5 +127,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGCARGO": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 120,
+        "Speed": 30,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_MAGMA_ARMOR",
+        "ABILITY_FLAME_BODY"
+      ]
+    }
+  }
 }

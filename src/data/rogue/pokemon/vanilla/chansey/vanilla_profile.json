@@ -118,5 +118,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CHANSEY": {
+      "BaseStats": {
+        "HP": 250,
+        "Attack": 5,
+        "Defense": 5,
+        "Speed": 50,
+        "SpAttack": 35,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

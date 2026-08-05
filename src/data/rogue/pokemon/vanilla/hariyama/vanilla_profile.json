@@ -213,5 +213,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HARIYAMA": {
+      "BaseStats": {
+        "HP": 144,
+        "Attack": 120,
+        "Defense": 60,
+        "Speed": 50,
+        "SpAttack": 40,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

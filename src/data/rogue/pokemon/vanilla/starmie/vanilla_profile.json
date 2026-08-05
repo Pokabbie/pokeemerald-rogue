@@ -162,5 +162,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STARMIE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 85,
+        "Speed": 115,
+        "SpAttack": 100,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_NATURAL_CURE"
+      ]
+    }
+  }
 }

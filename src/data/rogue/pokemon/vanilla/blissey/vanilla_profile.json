@@ -228,5 +228,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BLISSEY": {
+      "BaseStats": {
+        "HP": 255,
+        "Attack": 10,
+        "Defense": 10,
+        "Speed": 55,
+        "SpAttack": 75,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

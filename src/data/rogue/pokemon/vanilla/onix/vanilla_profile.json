@@ -151,5 +151,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ONIX": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 45,
+        "Defense": 160,
+        "Speed": 70,
+        "SpAttack": 30,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

@@ -91,5 +91,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLAAFFY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 45,
+        "SpAttack": 80,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

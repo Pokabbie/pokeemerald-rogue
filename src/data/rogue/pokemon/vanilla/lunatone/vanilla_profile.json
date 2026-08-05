@@ -118,5 +118,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUNATONE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

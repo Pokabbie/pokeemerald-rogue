@@ -165,5 +165,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LAPRAS": {
+      "BaseStats": {
+        "HP": 130,
+        "Attack": 85,
+        "Defense": 80,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

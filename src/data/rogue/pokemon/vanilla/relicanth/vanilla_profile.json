@@ -172,5 +172,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RELICANTH": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 90,
+        "Defense": 130,
+        "Speed": 55,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

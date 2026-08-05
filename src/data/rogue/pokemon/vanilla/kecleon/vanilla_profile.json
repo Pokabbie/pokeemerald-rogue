@@ -203,5 +203,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KECLEON": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 90,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 60,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_COLOR_CHANGE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }
