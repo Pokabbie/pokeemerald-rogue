@@ -15548,7 +15548,7 @@
 			"baseSpeed":110,
 			"baseSpAttack":90,
 			"baseSpDefense":95,
-			"types": [13, 0],
+			"types": [13, 13],
 			"abilities": [226, 226, 226]
 		},
 		{
@@ -15558,7 +15558,7 @@
 			"baseSpeed":130,
 			"baseSpAttack":160,
 			"baseSpDefense":80,
-			"types": [13, 0],
+			"types": [13, 13],
 			"abilities": [99, 99, 99]
 		},
 		{

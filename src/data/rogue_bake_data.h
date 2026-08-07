@@ -10886,14 +10886,14 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	{
 		.eggSpecies = 1554,
 		.evolutionCount = 0,
-		.evolutionChainTypeFlags = 4097,
+		.evolutionChainTypeFlags = 4096,
 		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1555] =
 	{
 		.eggSpecies = 1555,
 		.evolutionCount = 0,
-		.evolutionChainTypeFlags = 4097,
+		.evolutionChainTypeFlags = 4096,
 		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1556] =
