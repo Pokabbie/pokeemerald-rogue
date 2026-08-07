@@ -8604,6 +8604,9 @@ static const union AnimCmd sAnim_Dragalge_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(DragalgeMega);
+
 #endif //P_FAMILY_SKRELP
 
 #if P_FAMILY_CLAUNCHER
@@ -12138,6 +12141,7 @@ SINGLE_ANIMATION(Barbaracle);
 #if P_FAMILY_SKRELP
 SINGLE_ANIMATION(Skrelp);
 SINGLE_ANIMATION(Dragalge);
+SINGLE_ANIMATION(DragalgeMega);
 #endif //P_FAMILY_SKRELP
 #if P_FAMILY_CLAUNCHER
 SINGLE_ANIMATION(Clauncher);

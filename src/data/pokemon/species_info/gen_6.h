@@ -2960,7 +2960,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Dragalge, 5),
         .footprint = gMonFootprint_Dragalge,
         LEARNSETS(Dragalge),
+        .formSpeciesIdTable = sDragalgeFormSpeciesIdTable,
+        .formChangeTable = sDragalgeFormChangeTable,
     },
+
+    [SPECIES_DRAGALGE_MEGA] =
+    {
+        .baseHP        = 65,
+        .baseAttack    = 85,
+        .baseDefense   = 105,
+        .baseSpeed     = 44,
+        .baseSpAttack  = 132,
+        .baseSpDefense = 163,
+        .types = { TYPE_POISON, TYPE_DRAGON },
+        .catchRate = 55,
+        .expYield = 173,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_DRAGON },
+        .abilities = { ABILITY_REGENERATOR, ABILITY_REGENERATOR, ABILITY_REGENERATOR },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Dragalge"),
+        .cryId = CRY_DRAGALGE,
+        .natDexNum = NATIONAL_DEX_DRAGALGE,
+        .categoryName = _("Mock Kelp"),
+        .height = 18,
+        .weight = 815,
+        .description = POKEDEX_DESC_STRING(
+            "Their poison is strong enough to eat\n"
+            "through the hull of a tanker. Tales are\n"
+            "told of ships that wander into seas where\n"
+            "DragalgeMega live, never to return."),
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+        FRONT_PIC(DragalgeMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_DragalgeMega,
+        .frontAnimId = ANIM_FRONT_FLIP,
+        BACK_PIC(DragalgeMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_H_STRETCH,
+        PALETTES(DragalgeMega),
+        ICON(DragalgeMega,  2),
+        .footprint = gMonFootprint_Dragalge,
+        LEARNSETS(DragalgeMega),
+        .formSpeciesIdTable = sDragalgeFormSpeciesIdTable,
+        .formChangeTable = sDragalgeFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_SKRELP
 
 #if P_FAMILY_CLAUNCHER

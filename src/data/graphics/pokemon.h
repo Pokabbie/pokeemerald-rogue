@@ -7882,6 +7882,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Dragalge[] = INCBIN_U32("graphics/pokemon/dragalge/shiny.gbapal.lz");
     const u8 gMonIcon_Dragalge[] = INCBIN_U8("graphics/pokemon/dragalge/icon.4bpp");
     const u8 gMonFootprint_Dragalge[] = INCBIN_U8("graphics/pokemon/dragalge/footprint.1bpp");
+
+    const u32 gMonFrontPic_DragalgeMega[] = INCBIN_U32("graphics/pokemon/dragalge/mega/front.4bpp.lz");
+    const u32 gMonPalette_DragalgeMega[] = INCBIN_U32("graphics/pokemon/dragalge/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_DragalgeMega[] = INCBIN_U32("graphics/pokemon/dragalge/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_DragalgeMega[] = INCBIN_U32("graphics/pokemon/dragalge/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_DragalgeMega[] = INCBIN_U8("graphics/pokemon/dragalge/mega/icon.4bpp");
 #endif //P_FAMILY_SKRELP
 
 #if P_FAMILY_CLAUNCHER

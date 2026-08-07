@@ -262,6 +262,52 @@ namespace PokemonDataGenerator
             return;
         }
 
+        private static string ExtractValueFrom(string speciesKeyword, string paramName, IEnumerable<string> lines)
+        {
+            bool readingSpeciesInfo = false;
+            bool megaFound = false;
+
+            foreach (string latestLine in lines)
+            {
+                if (!readingSpeciesInfo)
+                {
+                    if (megaFound)
+                        continue;
+
+                    if (latestLine.Contains($"[{speciesKeyword}]"))
+                    {
+                        readingSpeciesInfo = true;
+                        megaFound = true;
+                    }
+                }
+                else
+                {
+                    string trimLine = latestLine.Trim();
+
+                    if (trimLine == "},")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if(trimLine.StartsWith("." + paramName + " ") || trimLine.StartsWith("." + paramName + "="))
+                        {
+                            string valueString = string.Join("=", trimLine.Split('=').Skip(1));
+
+                            if(valueString.EndsWith(","))
+                            {
+                                valueString = valueString.Substring(0, valueString.Length - 1);
+                            }
+
+                            return valueString;
+                        }
+                    }
+                }
+            }
+
+            throw new Exception("Cannot find");
+        }
+
         private static string CorrectMegaDataLine(string speciesName, string speciesKeyword, string megaKeyword, string srcLine, string latestFile)
         {
             bool readingSpeciesInfo = false;
@@ -284,12 +330,13 @@ namespace PokemonDataGenerator
                     lineStart.Contains("backPicYOffset") ||
                     lineStart.Contains("frontAnimFrames") ||
                     lineStart.Contains("FRONT_PIC") ||
+                    lineStart.Contains("BACK_PIC")||
                     lineStart.Contains("BACK_PIC")
                     )
                 {
                     if (srcLine.Contains(speciesName + ",") || srcLine.Contains("_" + speciesName))
                     {
-                        if(srcLine.Contains("_PIC("))
+                        if (srcLine.Contains("_PIC("))
                         {
                             return srcLine.Split(',')[0].Replace(speciesName, speciesName + "Mega") + ", 64, 64),";
                         }
@@ -320,7 +367,11 @@ namespace PokemonDataGenerator
                             {
                                 if (latestLine.StartsWith(lineStart))
                                 {
-                                    if(latestLine.Contains("MON_TYPES("))
+                                    if (latestLine.Contains("MON_TYPES("))
+                                    {
+                                        return latestLine.Replace("MON_TYPES", "").Replace("(", "{ ").Replace(")", " }");
+                                    }
+                                    else if (latestLine.Contains("MON_TYPES("))
                                     {
                                         return latestLine.Replace("MON_TYPES", "").Replace("(", "{ ").Replace(")", " }");
                                     }
@@ -331,6 +382,13 @@ namespace PokemonDataGenerator
                         }
                     }
                 }
+            }
+            else if (srcLine.Contains("ICON("))
+            {
+                string value = ExtractValueFrom(speciesKeyword + "_MEGA", "iconPalIndex", File.ReadLines(latestFile));
+
+                string result = srcLine.Replace(speciesName, speciesName + "Mega");
+                return result.Split(',')[0] + ", " + value + "),";
             }
             else
             {
