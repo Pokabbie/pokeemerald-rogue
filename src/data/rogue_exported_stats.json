@@ -15542,24 +15542,24 @@
 			"abilities": [0, 0, 0]
 		},
 		{
-			"baseHP":0,
-			"baseAttack":0,
-			"baseDefense":0,
-			"baseSpeed":0,
-			"baseSpAttack":0,
-			"baseSpDefense":0,
-			"types": [0, 0],
-			"abilities": [0, 0, 0]
+			"baseHP":60,
+			"baseAttack":135,
+			"baseDefense":95,
+			"baseSpeed":110,
+			"baseSpAttack":90,
+			"baseSpDefense":95,
+			"types": [13, 0],
+			"abilities": [226, 226, 226]
 		},
 		{
-			"baseHP":0,
-			"baseAttack":0,
-			"baseDefense":0,
-			"baseSpeed":0,
-			"baseSpAttack":0,
-			"baseSpDefense":0,
-			"types": [0, 0],
-			"abilities": [0, 0, 0]
+			"baseHP":60,
+			"baseAttack":100,
+			"baseDefense":55,
+			"baseSpeed":130,
+			"baseSpAttack":160,
+			"baseSpDefense":80,
+			"types": [13, 0],
+			"abilities": [99, 99, 99]
 		},
 		{
 			"baseHP":75,
@@ -31285,24 +31285,24 @@
 			"abilities": [0, 0, 0]
 		},
 		{
-			"baseHP":0,
-			"baseAttack":0,
-			"baseDefense":0,
-			"baseSpeed":0,
-			"baseSpAttack":0,
-			"baseSpDefense":0,
+			"baseHP":60,
+			"baseAttack":135,
+			"baseDefense":95,
+			"baseSpeed":110,
+			"baseSpAttack":90,
+			"baseSpDefense":95,
 			"types": [0, 0],
-			"abilities": [0, 0, 0]
+			"abilities": [226, 226, 226]
 		},
 		{
-			"baseHP":0,
-			"baseAttack":0,
-			"baseDefense":0,
-			"baseSpeed":0,
-			"baseSpAttack":0,
-			"baseSpDefense":0,
+			"baseHP":60,
+			"baseAttack":100,
+			"baseDefense":55,
+			"baseSpeed":130,
+			"baseSpAttack":160,
+			"baseSpDefense":80,
 			"types": [0, 0],
-			"abilities": [0, 0, 0]
+			"abilities": [99, 99, 99]
 		},
 		{
 			"baseHP":75,

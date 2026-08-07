@@ -20,7 +20,9 @@ namespace PokemonDataGenerator
         public static void Run()
         {
             //GameDataToJsonRun();
-            MegaCopyRun();
+            //MegaCopyRun("mega", "Mega");
+            MegaCopyRun("mega_x", "MegaX");
+            MegaCopyRun("mega_y", "MegaY");
         }
 
         private static void GameDataToJsonRun()
@@ -97,18 +99,19 @@ namespace PokemonDataGenerator
             }
         }
 
-        private static void MegaCopyRun()
+        private static void MegaCopyRun(string megaType, string megaTypePretty)
         {
-            Console.WriteLine("Default species name (Case sensitive):");
+            Console.WriteLine($"Default species name for '{megaTypePretty}' (Case sensitive):");
 
             string speciesName = Console.ReadLine().Trim();
             string speciesKeyword = "SPECIES_" + speciesName.ToUpper();
-            string megaKeyword = speciesKeyword + "_MEGA";
+
+            string megaKeyword = speciesKeyword + "_" + megaType.ToUpper();
 
             // graphics
             {
-                string dstFolder = Path.Combine(GameDataHelpers.RootDirectory, $"graphics\\pokemon\\{speciesName.ToLower()}", "mega");
-                string srcFolder = Path.Combine(c_LatestDir, $"graphics\\pokemon\\{speciesName.ToLower()}\\mega");
+                string dstFolder = Path.Combine(GameDataHelpers.RootDirectory, $"graphics\\pokemon\\{speciesName.ToLower()}", megaType);
+                string srcFolder = Path.Combine(c_LatestDir, $"graphics\\pokemon\\{speciesName.ToLower()}", megaType);
 
                 if(Directory.Exists(dstFolder))
                 {
@@ -137,11 +140,11 @@ namespace PokemonDataGenerator
                     if (line.Contains($"const u8 gMonFootprint_{speciesName}"))
                     {
                         output.WriteLine($"");
-                        output.WriteLine($"    const u32 gMonFrontPic_{speciesName}Mega[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/mega/front.4bpp.lz\");");
-                        output.WriteLine($"    const u32 gMonPalette_{speciesName}Mega[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/mega/normal.gbapal.lz\");");
-                        output.WriteLine($"    const u32 gMonBackPic_{speciesName}Mega[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/mega/back.4bpp.lz\");");
-                        output.WriteLine($"    const u32 gMonShinyPalette_{speciesName}Mega[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/mega/shiny.gbapal.lz\");");
-                        output.WriteLine($"    const u8 gMonIcon_{speciesName}Mega[] = INCBIN_U8(\"graphics/pokemon/{speciesName.ToLower()}/mega/icon.4bpp\");");
+                        output.WriteLine($"    const u32 gMonFrontPic_{speciesName}{megaTypePretty}[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/{megaType}/front.4bpp.lz\");");
+                        output.WriteLine($"    const u32 gMonPalette_{speciesName}{megaTypePretty}[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/{megaType}/normal.gbapal.lz\");");
+                        output.WriteLine($"    const u32 gMonBackPic_{speciesName}{megaTypePretty}[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/{megaType}/back.4bpp.lz\");");
+                        output.WriteLine($"    const u32 gMonShinyPalette_{speciesName}{megaTypePretty}[] = INCBIN_U32(\"graphics/pokemon/{speciesName.ToLower()}/{megaType}/shiny.gbapal.lz\");");
+                        output.WriteLine($"    const u8 gMonIcon_{speciesName}{megaTypePretty}[] = INCBIN_U8(\"graphics/pokemon/{speciesName.ToLower()}/{megaType}/icon.4bpp\");");
                         replaceCount++;
                     }
                 }
@@ -170,7 +173,7 @@ namespace PokemonDataGenerator
                     else if(readingAnims && line.Contains($"#endif"))
                     {
                         output.WriteLine();
-                        output.WriteLine($"PLACEHOLDER_ANIM_SINGLE_FRAME({speciesName}Mega);");
+                        output.WriteLine($"PLACEHOLDER_ANIM_SINGLE_FRAME({speciesName}{megaTypePretty});");
                         output.WriteLine();
                         output.WriteLine(line);
 
@@ -180,7 +183,7 @@ namespace PokemonDataGenerator
                     else if(line.Contains($"SINGLE_ANIMATION({speciesName})"))
                     {
                         output.WriteLine(line);
-                        output.WriteLine(line.Replace(speciesName, speciesName + "Mega"));
+                        output.WriteLine(line.Replace(speciesName, speciesName + megaTypePretty));
                         replaceCount++;
                     }
                     else
@@ -245,7 +248,7 @@ namespace PokemonDataGenerator
                             {
                                 output.WriteLine(line);
 
-                                megaOutput.WriteLine(CorrectMegaDataLine(speciesName, speciesKeyword, megaKeyword, line, Path.Combine(latestFolder, Path.GetFileNameWithoutExtension(genFile) + "_families.h")));
+                                megaOutput.WriteLine(CorrectMegaDataLine(speciesName, speciesKeyword, megaKeyword, line, Path.Combine(latestFolder, Path.GetFileNameWithoutExtension(genFile) + "_families.h"), megaType, megaTypePretty));
                             }
                         }
                     }
@@ -308,7 +311,7 @@ namespace PokemonDataGenerator
             throw new Exception("Cannot find");
         }
 
-        private static string CorrectMegaDataLine(string speciesName, string speciesKeyword, string megaKeyword, string srcLine, string latestFile)
+        private static string CorrectMegaDataLine(string speciesName, string speciesKeyword, string megaKeyword, string srcLine, string latestFile, string megaType, string megaTypePretty)
         {
             bool readingSpeciesInfo = false;
             bool megaFound = false;
@@ -338,10 +341,10 @@ namespace PokemonDataGenerator
                     {
                         if (srcLine.Contains("_PIC("))
                         {
-                            return srcLine.Split(',')[0].Replace(speciesName, speciesName + "Mega") + ", 64, 64),";
+                            return srcLine.Split(',')[0].Replace(speciesName, speciesName + megaTypePretty) + ", 64, 64),";
                         }
 
-                        return srcLine.Replace(speciesName, speciesName + "Mega");
+                        return srcLine.Replace(speciesName, speciesName + megaTypePretty);
                     }
 
                     foreach (string latestLine in File.ReadLines(latestFile))
@@ -385,16 +388,16 @@ namespace PokemonDataGenerator
             }
             else if (srcLine.Contains("ICON("))
             {
-                string value = ExtractValueFrom(speciesKeyword + "_MEGA", "iconPalIndex", File.ReadLines(latestFile));
+                string value = ExtractValueFrom(megaKeyword, "iconPalIndex", File.ReadLines(latestFile));
 
-                string result = srcLine.Replace(speciesName, speciesName + "Mega");
+                string result = srcLine.Replace(speciesName, speciesName + megaTypePretty);
                 return result.Split(',')[0] + ", " + value + "),";
             }
             else
             {
                 if (srcLine.Contains(speciesName))
                 {
-                    return srcLine.Replace(speciesName, speciesName + "Mega");
+                    return srcLine.Replace(speciesName, speciesName + megaTypePretty);
                 }
             }
 

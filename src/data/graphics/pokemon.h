@@ -427,6 +427,18 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonIcon_Raichu[] = INCBIN_U8("graphics/pokemon/raichu/icon.4bpp");
     const u8 gMonFootprint_Raichu[] = INCBIN_U8("graphics/pokemon/raichu/footprint.1bpp");
 
+    const u32 gMonFrontPic_RaichuMegaY[] = INCBIN_U32("graphics/pokemon/raichu/mega_y/front.4bpp.lz");
+    const u32 gMonPalette_RaichuMegaY[] = INCBIN_U32("graphics/pokemon/raichu/mega_y/normal.gbapal.lz");
+    const u32 gMonBackPic_RaichuMegaY[] = INCBIN_U32("graphics/pokemon/raichu/mega_y/back.4bpp.lz");
+    const u32 gMonShinyPalette_RaichuMegaY[] = INCBIN_U32("graphics/pokemon/raichu/mega_y/shiny.gbapal.lz");
+    const u8 gMonIcon_RaichuMegaY[] = INCBIN_U8("graphics/pokemon/raichu/mega_y/icon.4bpp");
+
+    const u32 gMonFrontPic_RaichuMegaX[] = INCBIN_U32("graphics/pokemon/raichu/mega_x/front.4bpp.lz");
+    const u32 gMonPalette_RaichuMegaX[] = INCBIN_U32("graphics/pokemon/raichu/mega_x/normal.gbapal.lz");
+    const u32 gMonBackPic_RaichuMegaX[] = INCBIN_U32("graphics/pokemon/raichu/mega_x/back.4bpp.lz");
+    const u32 gMonShinyPalette_RaichuMegaX[] = INCBIN_U32("graphics/pokemon/raichu/mega_x/shiny.gbapal.lz");
+    const u8 gMonIcon_RaichuMegaX[] = INCBIN_U8("graphics/pokemon/raichu/mega_x/icon.4bpp");
+
     const u32 gMonFrontPic_RaichuF[] = INCBIN_U32("graphics/pokemon/raichu/anim_frontf.4bpp.lz");
 
 #if P_ALOLAN_FORMS
