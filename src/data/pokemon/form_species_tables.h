@@ -1304,6 +1304,14 @@ static const u16 sVivillonFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_SCATTERBUG
 
+#if P_FAMILY_LITLEO
+static const u16 sPyroarFormSpeciesIdTable[] = {
+    SPECIES_PYROAR,
+    SPECIES_PYROAR_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_LITLEO
+
 #if P_FAMILY_FLABEBE
 static const u16 sFlabebeFormSpeciesIdTable[] = {
     SPECIES_FLABEBE_RED_FLOWER,

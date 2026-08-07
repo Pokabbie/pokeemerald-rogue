@@ -19,8 +19,8 @@ namespace PokemonDataGenerator
 
         public static void Run()
         {
-            GameDataToJsonRun();
-            //MegaCopyRun();
+            //GameDataToJsonRun();
+            MegaCopyRun();
         }
 
         private static void GameDataToJsonRun()

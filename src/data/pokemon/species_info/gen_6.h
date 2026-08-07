@@ -1303,7 +1303,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON_FEMALE(Pyroar, 2),
         .footprint = gMonFootprint_Pyroar,
         LEARNSETS(Pyroar),
+        .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
+        .formChangeTable = sPyroarFormChangeTable,
     },
+
+    [SPECIES_PYROAR_MEGA] =
+    {
+        .baseHP        = 86,
+        .baseAttack    = 88,
+        .baseDefense   = 92,
+        .baseSpeed     = 126,
+        .baseSpAttack  = 129,
+        .baseSpDefense = 86,
+        .types = { TYPE_FIRE, TYPE_NORMAL },
+        .catchRate = 65,
+        .expYield = 177,
+        .evYield_SpAttack = 2,
+        .genderRatio = PERCENT_FEMALE(87.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_FIRE_MANE, ABILITY_FIRE_MANE, ABILITY_FIRE_MANE },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Pyroar"),
+        .cryId = CRY_PYROAR,
+        .natDexNum = NATIONAL_DEX_PYROAR,
+        .categoryName = _("Royal"),
+        .height = 15,
+        .weight = 815,
+        .description = POKEDEX_DESC_STRING(
+            "The male with the largest mane of fire\n"
+            "is the leader of the pride. The females\n"
+            "protect the pride's cubs. They viciously\n"
+            "threaten any challenger."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        FRONT_PIC(PyroarMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_PyroarMega,
+        .frontAnimId = ANIM_V_SHAKE,
+        BACK_PIC(PyroarMega, 64, 64),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_H_STRETCH,
+        PALETTES(PyroarMega),
+        ICON(PyroarMega, 2),
+        .footprint = gMonFootprint_Pyroar,
+        LEARNSETS(PyroarMega),
+        .formSpeciesIdTable = sPyroarFormSpeciesIdTable,
+        .formChangeTable = sPyroarFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_LITLEO
 
 #if P_FAMILY_FLABEBE
