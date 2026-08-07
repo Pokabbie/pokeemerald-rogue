@@ -2712,7 +2712,60 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Malamar, 2),
         .footprint = gMonFootprint_Malamar,
         LEARNSETS(Malamar),
+        .formSpeciesIdTable = sMalamarFormSpeciesIdTable,
+        .formChangeTable = sMalamarFormChangeTable,
     },
+
+    [SPECIES_MALAMAR_MEGA] =
+    {
+        .baseHP        = 86,
+        .baseAttack    = 102,
+        .baseDefense   = 88,
+        .baseSpeed     = 88,
+        .baseSpAttack  = 98,
+        .baseSpDefense = 120,
+        .types = { TYPE_DARK, TYPE_PSYCHIC },
+        .catchRate = 80,
+        .expYield = 169,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
+        .abilities = { ABILITY_CONTRARY, ABILITY_CONTRARY, ABILITY_CONTRARY },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Malamar"),
+        .cryId = CRY_MALAMAR,
+        .natDexNum = NATIONAL_DEX_MALAMAR,
+        .categoryName = _("Overturning"),
+        .height = 15,
+        .weight = 470,
+        .description = POKEDEX_DESC_STRING(
+            "It lures prey close with hypnotic motions,\n"
+            "then wraps its tentacles around it before\n"
+            "finishing it off with digestive fluids. It\n"
+            "forces others to do whatever it wants."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        FRONT_PIC(MalamarMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_MalamarMega,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+        BACK_PIC(MalamarMega, 64, 64),
+        .backPicYOffset = 8,
+        .backAnimId = BACK_ANIM_V_STRETCH,
+        PALETTES(MalamarMega),
+        ICON(MalamarMega, 0),
+        .footprint = gMonFootprint_Malamar,
+        LEARNSETS(MalamarMega),
+        .formSpeciesIdTable = sMalamarFormSpeciesIdTable,
+        .formChangeTable = sMalamarFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_INKAY
 
 #if P_FAMILY_BINACLE

@@ -1377,6 +1377,13 @@ static const u16 sAegislashFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_HONEDGE
 
+#if P_FAMILY_INKAY
+static const u16 sMalamarFormSpeciesIdTable[] = {
+    SPECIES_MALAMAR_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_INKAY
+
 #if P_FAMILY_GOOMY
 static const u16 sSliggooFormSpeciesIdTable[] = {
     SPECIES_SLIGGOO,

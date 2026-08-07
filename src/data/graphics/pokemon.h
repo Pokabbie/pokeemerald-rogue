@@ -7844,6 +7844,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Malamar[] = INCBIN_U32("graphics/pokemon/malamar/shiny.gbapal.lz");
     const u8 gMonIcon_Malamar[] = INCBIN_U8("graphics/pokemon/malamar/icon.4bpp");
     const u8 gMonFootprint_Malamar[] = INCBIN_U8("graphics/pokemon/malamar/footprint.1bpp");
+
+    const u32 gMonFrontPic_MalamarMega[] = INCBIN_U32("graphics/pokemon/malamar/mega/front.4bpp.lz");
+    const u32 gMonPalette_MalamarMega[] = INCBIN_U32("graphics/pokemon/malamar/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_MalamarMega[] = INCBIN_U32("graphics/pokemon/malamar/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_MalamarMega[] = INCBIN_U32("graphics/pokemon/malamar/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_MalamarMega[] = INCBIN_U8("graphics/pokemon/malamar/mega/icon.4bpp");
 #endif //P_FAMILY_INKAY
 
 #if P_FAMILY_BINACLE

@@ -1002,6 +1002,16 @@ static const struct FormChange sAegislashFormChangeTable[] = {
 };
 #endif //P_FAMILY_HONEDGE
 
+#if P_FAMILY_INKAY
+static const struct FormChange sMalamarFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MALAMAR_MEGA, ITEM_MALAMARITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_MALAMAR},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_MALAMAR},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_INKAY
+
 #if P_FAMILY_HAWLUCHA
 static const struct FormChange sHawluchaFormChangeTable[] =
 {
