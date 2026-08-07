@@ -1396,6 +1396,16 @@ static const struct FormChange sAlcremieFormChangeTable[] =
 };
 #endif //P_FAMILY_MILCERY
 
+#if P_FAMILY_FALINKS
+static const struct FormChange sFalinksFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FALINKS_MEGA, ITEM_FALINKSITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_FALINKS},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_FALINKS},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_FALINKS
+
 #if P_FAMILY_EISCUE
 static const struct FormChange sEiscueFormChangeTable[] = {
     {FORM_CHANGE_FAINT,             SPECIES_EISCUE_ICE_FACE},

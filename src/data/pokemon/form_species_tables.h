@@ -1831,6 +1831,14 @@ static const u16 sEiscueFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_EISCUE
 
+#if P_FAMILY_FALINKS
+static const u16 sFalinksFormSpeciesIdTable[] = {
+    SPECIES_FALINKS,
+    SPECIES_FALINKS_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_FALINKS
+
 #if P_FAMILY_INDEEDEE
 static const u16 sIndeedeeFormSpeciesIdTable[] = {
     SPECIES_INDEEDEE_MALE,

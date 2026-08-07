@@ -9808,6 +9808,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Falinks[] = INCBIN_U32("graphics/pokemon/falinks/shiny.gbapal.lz");
     const u8 gMonIcon_Falinks[] = INCBIN_U8("graphics/pokemon/falinks/icon.4bpp");
     const u8 gMonFootprint_Falinks[] = INCBIN_U8("graphics/pokemon/falinks/footprint.1bpp");
+
+    const u32 gMonFrontPic_FalinksMega[] = INCBIN_U32("graphics/pokemon/falinks/mega/front.4bpp.lz");
+    const u32 gMonPalette_FalinksMega[] = INCBIN_U32("graphics/pokemon/falinks/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_FalinksMega[] = INCBIN_U32("graphics/pokemon/falinks/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_FalinksMega[] = INCBIN_U32("graphics/pokemon/falinks/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_FalinksMega[] = INCBIN_U8("graphics/pokemon/falinks/mega/icon.4bpp");
 #endif //P_FAMILY_FALINKS
 
 #if P_FAMILY_PINCURCHIN

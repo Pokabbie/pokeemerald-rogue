@@ -10858,7 +10858,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	{
 		.eggSpecies = 1550,
 		.evolutionCount = 0,
-		.evolutionChainTypeFlags = 1,
+		.evolutionChainTypeFlags = 3,
 		.evolutionChainTypeFlags_Revised = 1,
 	},
 	[1551] =
@@ -70762,6 +70762,7 @@ const u16 gRogueBake_FormItems[] =
 	1049,
 	1050,
 	1052,
+	1053,
 	1059,
 	1064,
 	1065,
@@ -71524,7 +71525,7 @@ const u16 gRogueBake_MegaItemToSpecies[ITEMS_COUNT - ITEM_VENUSAURITE] =
 	[747] = 1545,
 	[748] = 0,
 	[749] = 1549,
-	[750] = 0,
+	[750] = 1550,
 	[751] = 0,
 	[752] = 0,
 	[753] = 0,
