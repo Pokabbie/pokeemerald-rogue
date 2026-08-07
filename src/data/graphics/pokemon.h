@@ -4917,6 +4917,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonIcon_Staraptor[] = INCBIN_U8("graphics/pokemon/staraptor/icon.4bpp");
     const u8 gMonFootprint_Staraptor[] = INCBIN_U8("graphics/pokemon/staraptor/footprint.1bpp");
 
+    const u32 gMonFrontPic_StaraptorMega[] = INCBIN_U32("graphics/pokemon/staraptor/mega/front.4bpp.lz");
+    const u32 gMonPalette_StaraptorMega[] = INCBIN_U32("graphics/pokemon/staraptor/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_StaraptorMega[] = INCBIN_U32("graphics/pokemon/staraptor/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_StaraptorMega[] = INCBIN_U32("graphics/pokemon/staraptor/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_StaraptorMega[] = INCBIN_U8("graphics/pokemon/staraptor/mega/icon.4bpp");
+
     const u32 gMonFrontPic_StaraptorF[] = INCBIN_U32("graphics/pokemon/staraptor/anim_frontf.4bpp.lz");
 #endif //P_FAMILY_STARLY
 

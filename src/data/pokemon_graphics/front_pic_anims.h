@@ -5388,6 +5388,9 @@ static const union AnimCmd sAnim_Staraptor_1[] =
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(StaraptorMega);
+
 #endif //P_FAMILY_STARLY
 
 #if P_FAMILY_BIDOOF
@@ -11518,6 +11521,7 @@ SINGLE_ANIMATION(Empoleon);
 SINGLE_ANIMATION(Starly);
 SINGLE_ANIMATION(Staravia);
 SINGLE_ANIMATION(Staraptor);
+SINGLE_ANIMATION(StaraptorMega);
 #endif //P_FAMILY_STARLY
 #if P_FAMILY_BIDOOF
 SINGLE_ANIMATION(Bidoof);
