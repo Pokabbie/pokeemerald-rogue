@@ -7866,6 +7866,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_Barbaracle[] = INCBIN_U32("graphics/pokemon/barbaracle/shiny.gbapal.lz");
     const u8 gMonIcon_Barbaracle[] = INCBIN_U8("graphics/pokemon/barbaracle/icon.4bpp");
     const u8 gMonFootprint_Barbaracle[] = INCBIN_U8("graphics/pokemon/barbaracle/footprint.1bpp");
+
+    const u32 gMonFrontPic_BarbaracleMega[] = INCBIN_U32("graphics/pokemon/barbaracle/mega/front.4bpp.lz");
+    const u32 gMonPalette_BarbaracleMega[] = INCBIN_U32("graphics/pokemon/barbaracle/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_BarbaracleMega[] = INCBIN_U32("graphics/pokemon/barbaracle/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_BarbaracleMega[] = INCBIN_U32("graphics/pokemon/barbaracle/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_BarbaracleMega[] = INCBIN_U8("graphics/pokemon/barbaracle/mega/icon.4bpp");
 #endif //P_FAMILY_BINACLE
 
 #if P_FAMILY_SKRELP

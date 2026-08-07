@@ -8580,6 +8580,9 @@ static const union AnimCmd sAnim_Barbaracle_1[] =
     ANIMCMD_FRAME(0, 15),
     ANIMCMD_END,
 };
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(BarbaracleMega);
+
 #endif //P_FAMILY_BINACLE
 
 #if P_FAMILY_SKRELP
@@ -12137,6 +12140,7 @@ SINGLE_ANIMATION(MalamarMega);
 #if P_FAMILY_BINACLE
 SINGLE_ANIMATION(Binacle);
 SINGLE_ANIMATION(Barbaracle);
+SINGLE_ANIMATION(BarbaracleMega);
 #endif //P_FAMILY_BINACLE
 #if P_FAMILY_SKRELP
 SINGLE_ANIMATION(Skrelp);

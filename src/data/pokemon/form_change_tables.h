@@ -1012,6 +1012,16 @@ static const struct FormChange sMalamarFormChangeTable[] =
 };
 #endif //P_FAMILY_INKAY
 
+#if P_FAMILY_BINACLE
+static const struct FormChange sBarbaracleFormChangeTable[] =
+{
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_BARBARACLE_MEGA, ITEM_BARBARACITE},
+    {FORM_CHANGE_FAINT,                         SPECIES_BARBARACLE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_BARBARACLE},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_BINACLE
+
 #if P_FAMILY_SKRELP
 static const struct FormChange sDragalgeFormChangeTable[] =
 {

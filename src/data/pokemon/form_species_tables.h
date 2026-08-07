@@ -1424,6 +1424,14 @@ static const u16 sAvaluggFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_BERGMITE
 
+#if P_FAMILY_BINACLE
+static const u16 sBarbaracleFormSpeciesIdTable[] = {
+    SPECIES_BARBARACLE,
+    SPECIES_BARBARACLE_MEGA,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_BINACLE
+
 #if P_FAMILY_SKRELP
 static const u16 sDragalgeFormSpeciesIdTable[] = {
     SPECIES_DRAGALGE,

@@ -2863,7 +2863,61 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         ICON(Barbaracle, 2),
         .footprint = gMonFootprint_Barbaracle,
         LEARNSETS(Barbaracle),
+        .formSpeciesIdTable = sBarbaracleFormSpeciesIdTable,
+        .formChangeTable = sBarbaracleFormChangeTable,
     },
+
+    [SPECIES_BARBARACLE_MEGA] =
+    {
+        .baseHP        = 72,
+        .baseAttack    = 140,
+        .baseDefense   = 130,
+        .baseSpeed     = 88,
+        .baseSpAttack  = 64,
+        .baseSpDefense = 106,
+        .types = { TYPE_ROCK, TYPE_FIGHTING },
+        .catchRate = 45,
+        .expYield = 175,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
+        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS },
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = TRUE,
+        .speciesName = _("Barbaracle"),
+        .cryId = CRY_BARBARACLE,
+        .natDexNum = NATIONAL_DEX_BARBARACLE,
+        .categoryName = _("Collective"),
+        .height = 13,
+        .weight = 960,
+        .description = POKEDEX_DESC_STRING(
+            "BarbaracleMega's legs and hands have minds\n"
+            "of their own, and they will move\n"
+            "independently. But they usually follow\n"
+            "the head's orders."),
+        .pokemonScale = 272,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(BarbaracleMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_BarbaracleMega,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(BarbaracleMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_SHAKE_H_SLIDE,
+        PALETTES(BarbaracleMega),
+        ICON(BarbaracleMega,  2),
+        .footprint = gMonFootprint_Barbaracle,
+        LEARNSETS(BarbaracleMega),
+        .formSpeciesIdTable = sBarbaracleFormSpeciesIdTable,
+        .formChangeTable = sBarbaracleFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_BINACLE
 
 #if P_FAMILY_SKRELP
