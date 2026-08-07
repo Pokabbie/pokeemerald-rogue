@@ -1,0 +1,130 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "%MON_SPECIES% Mastery",
+        "description": "Enter the Hall of Fame with a Pokémon from the %MON_SPECIES% line in your party.",
+        "display_group": "mon_masteries",
+        "added_in_version": "SAVE_VER_ID_2_1_0",
+        "flags": 
+        [
+            "MON_MASTERY_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ],
+        "triggers":
+        [
+            {
+                "on": [ "ENTER_HALL_OF_FAME" ],
+                "condition": "SpeciesMasteryComplete",
+                "template_params": [ "MON_SPECIES" ],
+                "pass": "SUCCESS",
+                "fail": "FAIL"
+            }
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_STARLY"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STARAPTITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_VENIPEDE"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SCOLIPITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_SCRAGGY"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SCRAFTINITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_TYNAMO"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_EELEKTROSSITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_LITLEO"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PYROARITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_INKAY"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MALAMARITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_BINACLE"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BARBARACITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_SKRELP"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGALGITE" }
+                ]
+            },
+            {
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_FALINKS"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FALINKSITE" }
+                ]
+            }
+        ]
+    }
+}
