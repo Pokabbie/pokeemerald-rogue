@@ -135,5 +135,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUNNA": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 25,
+        "Defense": 45,
+        "Speed": 24,
+        "SpAttack": 67,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_FOREWARN",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

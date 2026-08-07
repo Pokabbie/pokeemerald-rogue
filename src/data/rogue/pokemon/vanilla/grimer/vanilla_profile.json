@@ -107,5 +107,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRIMER": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 25,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_STICKY_HOLD"
+      ]
+    }
+  }
 }

@@ -139,5 +139,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OSHAWOTT": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 45,
+        "Speed": 45,
+        "SpAttack": 63,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

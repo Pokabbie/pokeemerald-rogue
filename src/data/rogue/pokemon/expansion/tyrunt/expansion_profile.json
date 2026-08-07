@@ -187,5 +187,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYRUNT": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 89,
+        "Defense": 77,
+        "Speed": 48,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_NONE",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

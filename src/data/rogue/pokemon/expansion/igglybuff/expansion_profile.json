@@ -102,5 +102,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IGGLYBUFF": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 30,
+        "Defense": 15,
+        "Speed": 15,
+        "SpAttack": 40,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_COMPETITIVE",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    }
+  }
 }

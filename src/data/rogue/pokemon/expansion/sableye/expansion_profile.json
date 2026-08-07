@@ -962,5 +962,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SABLEYE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 50,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_STALL",
+        "ABILITY_PRANKSTER"
+      ]
+    },
+    "SPECIES_SABLEYE_MEGA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 85,
+        "Defense": 125,
+        "Speed": 20,
+        "SpAttack": 85,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

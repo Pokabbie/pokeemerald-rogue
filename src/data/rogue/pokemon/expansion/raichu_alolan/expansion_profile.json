@@ -396,5 +396,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAICHU_ALOLAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 110,
+        "SpAttack": 95,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SURGE_SURFER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

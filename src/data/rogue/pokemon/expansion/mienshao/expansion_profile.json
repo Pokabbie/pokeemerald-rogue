@@ -261,5 +261,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MIENSHAO": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 125,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 95,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_REGENERATOR",
+        "ABILITY_RECKLESS"
+      ]
+    }
+  }
 }

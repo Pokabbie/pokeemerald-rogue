@@ -99,5 +99,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRIZZILE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 55,
+        "Speed": 90,
+        "SpAttack": 95,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SNIPER"
+      ]
+    }
+  }
 }

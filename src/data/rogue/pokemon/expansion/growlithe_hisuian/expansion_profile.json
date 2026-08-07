@@ -145,5 +145,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROWLITHE_HISUIAN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 45,
+        "Speed": 55,
+        "SpAttack": 65,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

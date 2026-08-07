@@ -136,5 +136,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHINX": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 65,
+        "Defense": 34,
+        "Speed": 45,
+        "SpAttack": 40,
+        "SpDefense": 34
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

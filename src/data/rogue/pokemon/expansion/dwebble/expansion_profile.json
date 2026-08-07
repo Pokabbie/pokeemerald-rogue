@@ -222,5 +222,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DWEBBLE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 85,
+        "Speed": 55,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

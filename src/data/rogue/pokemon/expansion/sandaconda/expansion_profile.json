@@ -228,5 +228,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDACONDA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 107,
+        "Defense": 125,
+        "Speed": 71,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_SPIT",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_SAND_VEIL"
+      ]
+    },
+    "SPECIES_SANDACONDA_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 107,
+        "Defense": 125,
+        "Speed": 71,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_SPIT",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

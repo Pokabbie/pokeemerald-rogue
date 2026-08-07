@@ -221,5 +221,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BUNEARY": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 66,
+        "Defense": 44,
+        "Speed": 85,
+        "SpAttack": 44,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_KLUTZ",
+        "ABILITY_LIMBER"
+      ]
+    }
+  }
 }

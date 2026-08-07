@@ -211,5 +211,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BIBAREL": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 85,
+        "Defense": 60,
+        "Speed": 71,
+        "SpAttack": 55,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SIMPLE",
+        "ABILITY_UNAWARE",
+        "ABILITY_MOODY"
+      ]
+    }
+  }
 }

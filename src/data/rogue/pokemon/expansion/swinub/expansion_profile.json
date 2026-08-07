@@ -131,5 +131,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWINUB": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

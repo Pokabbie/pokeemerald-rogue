@@ -101,5 +101,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KLINK": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 55,
+        "Defense": 70,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PLUS",
+        "ABILITY_MINUS",
+        "ABILITY_CLEAR_BODY"
+      ]
+    }
+  }
 }

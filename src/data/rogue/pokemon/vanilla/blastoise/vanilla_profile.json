@@ -161,5 +161,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BLASTOISE": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 83,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 85,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

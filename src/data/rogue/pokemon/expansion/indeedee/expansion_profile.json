@@ -285,5 +285,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_INDEEDEE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 55,
+        "Speed": 95,
+        "SpAttack": 105,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_PSYCHIC_SURGE"
+      ]
+    }
+  }
 }

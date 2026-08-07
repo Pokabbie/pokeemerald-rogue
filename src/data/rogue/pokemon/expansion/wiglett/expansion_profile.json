@@ -87,5 +87,26 @@
     "MOVE_WATER_PULSE",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WIGLETT": {
+      "BaseStats": {
+        "HP": 10,
+        "Attack": 55,
+        "Defense": 25,
+        "Speed": 95,
+        "SpAttack": 35,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_GOOEY",
+        "ABILITY_RATTLED",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

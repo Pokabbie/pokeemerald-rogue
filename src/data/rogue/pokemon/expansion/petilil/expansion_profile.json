@@ -128,5 +128,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PETILIL": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 35,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 70,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_LEAF_GUARD"
+      ]
+    }
+  }
 }

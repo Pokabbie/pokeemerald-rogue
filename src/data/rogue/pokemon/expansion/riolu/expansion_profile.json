@@ -247,5 +247,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RIOLU": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 70,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 35,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_STEADFAST",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

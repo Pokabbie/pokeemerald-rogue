@@ -276,5 +276,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KADABRA": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 35,
+        "Defense": 30,
+        "Speed": 105,
+        "SpAttack": 120,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_MAGIC_GUARD"
+      ]
+    }
+  }
 }

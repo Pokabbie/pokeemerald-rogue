@@ -121,5 +121,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYMPOLE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 64,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_HYDRATION",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

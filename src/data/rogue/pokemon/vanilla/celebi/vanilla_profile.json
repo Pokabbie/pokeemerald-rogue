@@ -229,5 +229,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CELEBI": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

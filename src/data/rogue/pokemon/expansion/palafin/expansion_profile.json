@@ -243,5 +243,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PALAFIN": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 70,
+        "Defense": 72,
+        "Speed": 100,
+        "SpAttack": 53,
+        "SpDefense": 62
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_ZERO_TO_HERO",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

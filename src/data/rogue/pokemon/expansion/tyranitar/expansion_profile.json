@@ -1665,5 +1665,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYRANITAR": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 134,
+        "Defense": 110,
+        "Speed": 61,
+        "SpAttack": 95,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_NONE",
+        "ABILITY_UNNERVE"
+      ]
+    },
+    "SPECIES_TYRANITAR_MEGA": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 164,
+        "Defense": 150,
+        "Speed": 71,
+        "SpAttack": 95,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_SAND_STREAM",
+        "ABILITY_SAND_STREAM"
+      ]
+    }
+  }
 }

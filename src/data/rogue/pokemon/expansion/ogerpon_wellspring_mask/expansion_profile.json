@@ -367,5 +367,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OGERPON_WELLSPRING_MASK": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 84,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_OGERPON_WELLSPRING_MASK_TERA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 84,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_EMBODY_ASPECT_WELLSPRING",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

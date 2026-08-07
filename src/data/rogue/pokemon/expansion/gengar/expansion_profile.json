@@ -1671,5 +1671,64 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GENGAR": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 130,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CURSED_BODY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GENGAR_MEGA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 80,
+        "Speed": 130,
+        "SpAttack": 170,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_SHADOW_TAG",
+        "ABILITY_SHADOW_TAG",
+        "ABILITY_SHADOW_TAG"
+      ]
+    },
+    "SPECIES_GENGAR_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 130,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CURSED_BODY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

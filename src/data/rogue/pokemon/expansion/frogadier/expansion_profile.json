@@ -181,5 +181,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FROGADIER": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 63,
+        "Defense": 52,
+        "Speed": 97,
+        "SpAttack": 83,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

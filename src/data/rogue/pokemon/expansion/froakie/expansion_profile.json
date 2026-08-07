@@ -209,5 +209,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FROAKIE": {
+      "BaseStats": {
+        "HP": 41,
+        "Attack": 56,
+        "Defense": 40,
+        "Speed": 71,
+        "SpAttack": 62,
+        "SpDefense": 44
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

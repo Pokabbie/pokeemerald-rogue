@@ -82,5 +82,26 @@
     "MOVE_WEATHER_BALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SOBBLE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 40,
+        "Defense": 40,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SNIPER"
+      ]
+    }
+  }
 }

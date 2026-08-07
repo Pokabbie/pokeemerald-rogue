@@ -269,5 +269,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EELEKTROSS": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 115,
+        "Defense": 80,
+        "Speed": 50,
+        "SpAttack": 105,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_EELEKTROSS_MEGA": {
+      "BaseStats": {
+        "HP": 0,
+        "Attack": 0,
+        "Defense": 0,
+        "Speed": 0,
+        "SpAttack": 0,
+        "SpDefense": 0
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NONE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

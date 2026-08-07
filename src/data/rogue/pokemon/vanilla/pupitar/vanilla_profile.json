@@ -111,5 +111,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PUPITAR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 84,
+        "Defense": 70,
+        "Speed": 51,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

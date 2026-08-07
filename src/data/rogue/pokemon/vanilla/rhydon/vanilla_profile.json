@@ -133,5 +133,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RHYDON": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 130,
+        "Defense": 120,
+        "Speed": 40,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

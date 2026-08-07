@@ -461,5 +461,26 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ENTEI": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 115,
+        "Defense": 85,
+        "Speed": 100,
+        "SpAttack": 90,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

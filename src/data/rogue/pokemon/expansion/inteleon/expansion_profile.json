@@ -252,5 +252,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_INTELEON": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 120,
+        "SpAttack": 125,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SNIPER"
+      ]
+    },
+    "SPECIES_INTELEON_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 120,
+        "SpAttack": 125,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SNIPER"
+      ]
+    }
+  }
 }

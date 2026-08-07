@@ -395,7 +395,6 @@
         "GEN8NU"
       ]
     },
-
     {
       "Moves": [
         "MOVE_LIQUIDATION",
@@ -471,5 +470,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STARMIE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 85,
+        "Speed": 115,
+        "SpAttack": 100,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_ANALYTIC"
+      ]
+    },
+    "SPECIES_STARMIE_MEGA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 100,
+        "Defense": 105,
+        "Speed": 120,
+        "SpAttack": 130,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_HUGE_POWER",
+        "ABILITY_HUGE_POWER",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  }
 }

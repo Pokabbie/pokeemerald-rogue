@@ -118,5 +118,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_YUNGOOS": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 70,
+        "Defense": 30,
+        "Speed": 45,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_STAKEOUT",
+        "ABILITY_STRONG_JAW",
+        "ABILITY_ADAPTABILITY"
+      ]
+    }
+  }
 }

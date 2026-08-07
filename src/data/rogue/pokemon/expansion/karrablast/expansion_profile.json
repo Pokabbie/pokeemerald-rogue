@@ -120,5 +120,26 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KARRABLAST": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 45,
+        "Speed": 60,
+        "SpAttack": 40,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NO_GUARD"
+      ]
+    }
+  }
 }

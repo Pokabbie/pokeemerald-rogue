@@ -326,5 +326,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KINGAMBIT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 135,
+        "Defense": 120,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_SUPREME_OVERLORD",
+        "ABILITY_PRESSURE"
+      ]
+    }
+  }
 }

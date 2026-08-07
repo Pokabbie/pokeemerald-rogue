@@ -85,5 +85,26 @@
     "MOVE_TRIPLE_AXEL",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_STEENEE": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 40,
+        "Defense": 48,
+        "Speed": 62,
+        "SpAttack": 40,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
 }

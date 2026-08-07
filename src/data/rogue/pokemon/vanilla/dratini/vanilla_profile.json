@@ -89,5 +89,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DRATINI": {
+      "BaseStats": {
+        "HP": 41,
+        "Attack": 64,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

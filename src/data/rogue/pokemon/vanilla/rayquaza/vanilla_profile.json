@@ -166,5 +166,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAYQUAZA": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 150,
+        "Defense": 90,
+        "Speed": 95,
+        "SpAttack": 150,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_AIR_LOCK",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

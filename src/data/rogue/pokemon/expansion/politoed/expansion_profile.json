@@ -466,5 +466,26 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_POLITOED": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 70,
+        "SpAttack": 90,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_DAMP",
+        "ABILITY_DRIZZLE"
+      ]
+    }
+  }
 }

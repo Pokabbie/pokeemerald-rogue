@@ -282,5 +282,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCOVILLAIN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 108,
+        "Defense": 65,
+        "Speed": 75,
+        "SpAttack": 108,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_INSOMNIA",
+        "ABILITY_MOODY"
+      ]
+    },
+    "SPECIES_SCOVILLAIN_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 138,
+        "Defense": 85,
+        "Speed": 75,
+        "SpAttack": 138,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_SPICY_SPRAY",
+        "ABILITY_SPICY_SPRAY",
+        "ABILITY_SPICY_SPRAY"
+      ]
+    }
+  }
 }

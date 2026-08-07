@@ -885,5 +885,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOGEKISS": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 50,
+        "Defense": 95,
+        "Speed": 80,
+        "SpAttack": 120,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_SUPER_LUCK"
+      ]
+    }
+  }
 }

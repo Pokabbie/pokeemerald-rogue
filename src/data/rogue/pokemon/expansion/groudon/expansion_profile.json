@@ -949,5 +949,45 @@
         "GEN9ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROUDON": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 150,
+        "Defense": 140,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_DROUGHT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_GROUDON_PRIMAL": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 180,
+        "Defense": 160,
+        "Speed": 90,
+        "SpAttack": 150,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_DESOLATE_LAND",
+        "ABILITY_DESOLATE_LAND",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

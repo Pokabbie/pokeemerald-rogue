@@ -725,5 +725,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SYLVEON": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 60,
+        "SpAttack": 110,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_PIXILATE"
+      ]
+    }
+  }
 }

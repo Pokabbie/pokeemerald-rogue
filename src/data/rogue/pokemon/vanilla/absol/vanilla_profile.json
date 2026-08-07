@@ -173,5 +173,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ABSOL": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 60,
+        "Speed": 75,
+        "SpAttack": 75,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

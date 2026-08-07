@@ -162,5 +162,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXEGGUTOR": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 85,
+        "Speed": 55,
+        "SpAttack": 125,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

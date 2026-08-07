@@ -115,5 +115,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHERUBI": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 35,
+        "Defense": 45,
+        "Speed": 35,
+        "SpAttack": 62,
+        "SpDefense": 53
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

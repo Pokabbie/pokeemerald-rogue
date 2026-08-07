@@ -119,5 +119,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROCKRUFF": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 65,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_STEADFAST"
+      ]
+    }
+  }
 }

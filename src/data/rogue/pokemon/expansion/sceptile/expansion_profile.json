@@ -727,5 +727,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCEPTILE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 120,
+        "SpAttack": 105,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_UNBURDEN"
+      ]
+    },
+    "SPECIES_SCEPTILE_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 75,
+        "Speed": 145,
+        "SpAttack": 145,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    }
+  }
 }

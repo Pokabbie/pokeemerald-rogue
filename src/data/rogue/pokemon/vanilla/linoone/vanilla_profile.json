@@ -149,5 +149,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LINOONE": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 70,
+        "Defense": 61,
+        "Speed": 100,
+        "SpAttack": 50,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

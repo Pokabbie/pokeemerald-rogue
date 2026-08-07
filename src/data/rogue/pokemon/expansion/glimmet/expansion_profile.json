@@ -142,5 +142,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLIMMET": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 35,
+        "Defense": 42,
+        "Speed": 60,
+        "SpAttack": 105,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_TOXIC_DEBRIS",
+        "ABILITY_NONE",
+        "ABILITY_CORROSION"
+      ]
+    }
+  }
 }

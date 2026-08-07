@@ -223,5 +223,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOGOAT": {
+      "BaseStats": {
+        "HP": 123,
+        "Attack": 100,
+        "Defense": 62,
+        "Speed": 68,
+        "SpAttack": 97,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_NONE",
+        "ABILITY_GRASS_PELT"
+      ]
+    }
+  }
 }

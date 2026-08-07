@@ -265,5 +265,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_COALOSSAL": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 80,
+        "Defense": 120,
+        "Speed": 30,
+        "SpAttack": 80,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_STEAM_ENGINE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_FLASH_FIRE"
+      ]
+    },
+    "SPECIES_COALOSSAL_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 80,
+        "Defense": 120,
+        "Speed": 30,
+        "SpAttack": 80,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_STEAM_ENGINE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
 }

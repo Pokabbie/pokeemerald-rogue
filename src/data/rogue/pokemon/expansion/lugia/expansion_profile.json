@@ -298,5 +298,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUGIA": {
+      "BaseStats": {
+        "HP": 106,
+        "Attack": 90,
+        "Defense": 130,
+        "Speed": 110,
+        "SpAttack": 90,
+        "SpDefense": 154
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_MULTISCALE"
+      ]
+    }
+  }
 }

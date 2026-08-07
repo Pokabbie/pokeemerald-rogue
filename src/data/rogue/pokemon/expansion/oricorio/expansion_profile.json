@@ -179,5 +179,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORICORIO": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 93,
+        "SpAttack": 98,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DANCER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

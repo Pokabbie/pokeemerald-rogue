@@ -79,5 +79,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ARROKUDA": {
+      "BaseStats": {
+        "HP": 41,
+        "Attack": 63,
+        "Defense": 40,
+        "Speed": 66,
+        "SpAttack": 40,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE",
+        "ABILITY_PROPELLER_TAIL"
+      ]
+    }
+  }
 }

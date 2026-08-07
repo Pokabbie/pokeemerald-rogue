@@ -241,7 +241,6 @@
         "GEN9RU"
       ]
     },
-
     {
       "Moves": [
         "MOVE_PROTECT",
@@ -317,5 +316,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FERALIGATR": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 105,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 79,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    },
+    "SPECIES_FERALIGATR_MEGA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 160,
+        "Defense": 125,
+        "Speed": 78,
+        "SpAttack": 89,
+        "SpDefense": 93
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_DRAGONIZE",
+        "ABILITY_DRAGONIZE",
+        "ABILITY_DRAGONIZE"
+      ]
+    }
+  }
 }

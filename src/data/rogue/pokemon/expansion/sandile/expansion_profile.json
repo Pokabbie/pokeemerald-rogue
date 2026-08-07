@@ -202,5 +202,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDILE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 72,
+        "Defense": 35,
+        "Speed": 65,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_MOXIE",
+        "ABILITY_ANGER_POINT"
+      ]
+    }
+  }
 }

@@ -169,5 +169,26 @@
         "GEN7ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRENINJA_ASH": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 145,
+        "Defense": 67,
+        "Speed": 132,
+        "SpAttack": 153,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_BOND",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

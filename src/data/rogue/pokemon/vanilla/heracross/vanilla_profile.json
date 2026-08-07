@@ -215,5 +215,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HERACROSS": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 125,
+        "Defense": 75,
+        "Speed": 85,
+        "SpAttack": 40,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

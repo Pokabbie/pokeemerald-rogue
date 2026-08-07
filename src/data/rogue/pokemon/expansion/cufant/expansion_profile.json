@@ -100,5 +100,26 @@
     "MOVE_WHIRLWIND",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CUFANT": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 80,
+        "Defense": 49,
+        "Speed": 40,
+        "SpAttack": 40,
+        "SpDefense": 49
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_NONE",
+        "ABILITY_HEAVY_METAL"
+      ]
+    }
+  }
 }

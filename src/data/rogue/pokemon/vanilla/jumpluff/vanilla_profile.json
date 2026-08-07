@@ -138,5 +138,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JUMPLUFF": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 55,
+        "Defense": 70,
+        "Speed": 110,
+        "SpAttack": 55,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

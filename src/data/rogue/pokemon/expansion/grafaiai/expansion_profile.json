@@ -221,5 +221,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRAFAIAI": {
+      "BaseStats": {
+        "HP": 63,
+        "Attack": 95,
+        "Defense": 65,
+        "Speed": 110,
+        "SpAttack": 80,
+        "SpDefense": 72
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_UNBURDEN",
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

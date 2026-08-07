@@ -174,5 +174,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DIGLETT": {
+      "BaseStats": {
+        "HP": 10,
+        "Attack": 55,
+        "Defense": 25,
+        "Speed": 95,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_ARENA_TRAP"
+      ]
+    }
+  }
 }

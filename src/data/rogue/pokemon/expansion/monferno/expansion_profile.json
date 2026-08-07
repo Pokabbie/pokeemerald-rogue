@@ -230,5 +230,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MONFERNO": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 78,
+        "Defense": 52,
+        "Speed": 81,
+        "SpAttack": 78,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

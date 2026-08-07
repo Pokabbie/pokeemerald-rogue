@@ -161,5 +161,26 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOTODILE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 64,
+        "Speed": 43,
+        "SpAttack": 44,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

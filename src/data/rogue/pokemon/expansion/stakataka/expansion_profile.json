@@ -409,5 +409,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STAKATAKA": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 131,
+        "Defense": 211,
+        "Speed": 13,
+        "SpAttack": 53,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

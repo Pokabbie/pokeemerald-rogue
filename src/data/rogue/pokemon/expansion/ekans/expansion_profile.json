@@ -151,5 +151,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EKANS": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 60,
+        "Defense": 44,
+        "Speed": 55,
+        "SpAttack": 40,
+        "SpDefense": 54
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_SHED_SKIN",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

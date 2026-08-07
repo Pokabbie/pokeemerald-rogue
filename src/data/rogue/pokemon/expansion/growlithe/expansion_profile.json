@@ -200,5 +200,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROWLITHE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 70,
+        "Defense": 45,
+        "Speed": 60,
+        "SpAttack": 70,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_JUSTIFIED"
+      ]
+    }
+  }
 }

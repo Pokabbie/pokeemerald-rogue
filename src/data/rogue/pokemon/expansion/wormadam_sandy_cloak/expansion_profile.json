@@ -140,5 +140,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WORMADAM_SANDY_CLOAK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 79,
+        "Defense": 105,
+        "Speed": 36,
+        "SpAttack": 59,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

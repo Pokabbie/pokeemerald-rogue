@@ -157,5 +157,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KLANG": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 80,
+        "Defense": 95,
+        "Speed": 50,
+        "SpAttack": 70,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_PLUS",
+        "ABILITY_MINUS",
+        "ABILITY_CLEAR_BODY"
+      ]
+    }
+  }
 }

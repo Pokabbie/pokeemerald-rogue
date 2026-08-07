@@ -314,5 +314,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BEHEEYEM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 40,
+        "SpAttack": 125,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TELEPATHY",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

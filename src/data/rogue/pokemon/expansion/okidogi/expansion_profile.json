@@ -229,5 +229,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OKIDOGI": {
+      "BaseStats": {
+        "HP": 88,
+        "Attack": 128,
+        "Defense": 115,
+        "Speed": 80,
+        "SpAttack": 58,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_TOXIC_CHAIN",
+        "ABILITY_NONE",
+        "ABILITY_GUARD_DOG"
+      ]
+    }
+  }
 }

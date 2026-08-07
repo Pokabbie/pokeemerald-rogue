@@ -799,5 +799,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TAPU_KOKO": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 115,
+        "Defense": 85,
+        "Speed": 130,
+        "SpAttack": 95,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_ELECTRIC_SURGE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

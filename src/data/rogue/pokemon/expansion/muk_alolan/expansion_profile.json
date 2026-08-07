@@ -612,5 +612,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUK_ALOLAN": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 105,
+        "Defense": 75,
+        "Speed": 50,
+        "SpAttack": 65,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_GLUTTONY",
+        "ABILITY_POWER_OF_ALCHEMY"
+      ]
+    }
+  }
 }

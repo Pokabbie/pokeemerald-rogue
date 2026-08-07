@@ -42,5 +42,26 @@
     "MOVE_SUBSTITUTE",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TOXEL": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 38,
+        "Defense": 35,
+        "Speed": 40,
+        "SpAttack": 54,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_RATTLED",
+        "ABILITY_STATIC",
+        "ABILITY_KLUTZ"
+      ]
+    }
+  }
 }

@@ -346,5 +346,26 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZEKROM": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 150,
+        "Defense": 120,
+        "Speed": 90,
+        "SpAttack": 120,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_TERAVOLT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

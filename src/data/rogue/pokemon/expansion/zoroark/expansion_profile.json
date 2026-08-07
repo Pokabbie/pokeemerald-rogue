@@ -364,5 +364,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZOROARK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 105,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 120,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUSION",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

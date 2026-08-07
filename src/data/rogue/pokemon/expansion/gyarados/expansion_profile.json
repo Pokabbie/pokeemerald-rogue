@@ -1209,5 +1209,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GYARADOS": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 125,
+        "Defense": 79,
+        "Speed": 81,
+        "SpAttack": 60,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE",
+        "ABILITY_MOXIE"
+      ]
+    },
+    "SPECIES_GYARADOS_MEGA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 155,
+        "Defense": 109,
+        "Speed": 81,
+        "SpAttack": 70,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

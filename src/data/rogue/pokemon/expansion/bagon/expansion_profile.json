@@ -172,5 +172,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BAGON": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 75,
+        "Defense": 60,
+        "Speed": 50,
+        "SpAttack": 40,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

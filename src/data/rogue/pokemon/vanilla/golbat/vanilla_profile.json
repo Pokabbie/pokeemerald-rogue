@@ -146,5 +146,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOLBAT": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 70,
+        "Speed": 90,
+        "SpAttack": 65,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

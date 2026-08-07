@@ -117,5 +117,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MASCHIFF": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 78,
+        "Defense": 60,
+        "Speed": 51,
+        "SpAttack": 40,
+        "SpDefense": 51
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_RUN_AWAY",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  }
 }

@@ -238,5 +238,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PERSIAN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 70,
+        "Defense": 60,
+        "Speed": 115,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

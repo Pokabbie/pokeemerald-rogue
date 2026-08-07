@@ -704,5 +704,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ABOMASNOW": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 92,
+        "Defense": 75,
+        "Speed": 60,
+        "SpAttack": 92,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_NONE",
+        "ABILITY_SOUNDPROOF"
+      ]
+    },
+    "SPECIES_ABOMASNOW_MEGA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 132,
+        "Defense": 105,
+        "Speed": 30,
+        "SpAttack": 132,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

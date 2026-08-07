@@ -126,5 +126,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VANILLITE": {
+      "BaseStats": {
+        "HP": 36,
+        "Attack": 50,
+        "Defense": 50,
+        "Speed": 44,
+        "SpAttack": 65,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_ICE_BODY",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

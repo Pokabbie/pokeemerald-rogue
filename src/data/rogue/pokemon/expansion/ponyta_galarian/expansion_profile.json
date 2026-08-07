@@ -122,5 +122,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PONYTA_GALARIAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 85,
+        "Defense": 55,
+        "Speed": 90,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_PASTEL_VEIL",
+        "ABILITY_ANTICIPATION"
+      ]
+    }
+  }
 }

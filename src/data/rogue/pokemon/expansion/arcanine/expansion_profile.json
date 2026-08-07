@@ -648,5 +648,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCANINE": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 95,
+        "SpAttack": 100,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_JUSTIFIED"
+      ]
+    }
+  }
 }

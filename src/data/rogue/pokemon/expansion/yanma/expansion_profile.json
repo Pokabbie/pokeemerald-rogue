@@ -101,5 +101,26 @@
     "MOVE_UPROAR",
     "MOVE_WHIRLWIND"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_YANMA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 95,
+        "SpAttack": 75,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRISK"
+      ]
+    }
+  }
 }

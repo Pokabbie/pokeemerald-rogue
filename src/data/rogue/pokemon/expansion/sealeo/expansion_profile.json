@@ -98,5 +98,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SEALEO": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 45,
+        "SpAttack": 75,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_ICE_BODY",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

@@ -658,5 +658,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHANDELURE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 145,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_INFILTRATOR"
+      ]
+    },
+    "SPECIES_CHANDELURE_MEGA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 175,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_INFILTRATOR",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

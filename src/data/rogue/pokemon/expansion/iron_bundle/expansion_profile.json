@@ -215,5 +215,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_BUNDLE": {
+      "BaseStats": {
+        "HP": 56,
+        "Attack": 80,
+        "Defense": 114,
+        "Speed": 136,
+        "SpAttack": 124,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

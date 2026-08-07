@@ -207,5 +207,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHIMECHO": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 50,
+        "Defense": 70,
+        "Speed": 65,
+        "SpAttack": 95,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -226,5 +226,26 @@
         "GEN8DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGIGIGAS": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 160,
+        "Defense": 110,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SLOW_START",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

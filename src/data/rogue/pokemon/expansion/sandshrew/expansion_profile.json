@@ -214,5 +214,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDSHREW": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 85,
+        "Speed": 40,
+        "SpAttack": 20,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_SAND_RUSH"
+      ]
+    }
+  }
 }

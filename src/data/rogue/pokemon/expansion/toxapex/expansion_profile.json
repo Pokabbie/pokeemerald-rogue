@@ -666,5 +666,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOXAPEX": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 63,
+        "Defense": 152,
+        "Speed": 35,
+        "SpAttack": 53,
+        "SpDefense": 142
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MERCILESS",
+        "ABILITY_LIMBER",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

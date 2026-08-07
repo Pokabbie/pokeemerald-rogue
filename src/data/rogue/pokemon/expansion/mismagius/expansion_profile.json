@@ -311,5 +311,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MISMAGIUS": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 105,
+        "SpAttack": 105,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

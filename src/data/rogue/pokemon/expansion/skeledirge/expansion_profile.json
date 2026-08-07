@@ -381,5 +381,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKELEDIRGE": {
+      "BaseStats": {
+        "HP": 104,
+        "Attack": 75,
+        "Defense": 100,
+        "Speed": 66,
+        "SpAttack": 110,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_UNAWARE"
+      ]
+    }
+  }
 }

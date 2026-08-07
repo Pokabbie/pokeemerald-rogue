@@ -390,5 +390,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCHEOPS": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 140,
+        "Defense": 65,
+        "Speed": 110,
+        "SpAttack": 112,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DEFEATIST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

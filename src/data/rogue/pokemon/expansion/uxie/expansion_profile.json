@@ -451,5 +451,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_UXIE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 75,
+        "Defense": 130,
+        "Speed": 95,
+        "SpAttack": 75,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

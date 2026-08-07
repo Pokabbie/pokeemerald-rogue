@@ -97,5 +97,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CARVANHA": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 90,
+        "Defense": 20,
+        "Speed": 65,
+        "SpAttack": 65,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_ROUGH_SKIN",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

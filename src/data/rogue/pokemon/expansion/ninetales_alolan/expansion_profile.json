@@ -647,5 +647,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NINETALES_ALOLAN": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 67,
+        "Defense": 75,
+        "Speed": 109,
+        "SpAttack": 81,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_NONE",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

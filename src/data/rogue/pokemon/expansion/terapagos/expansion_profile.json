@@ -151,5 +151,64 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TERAPAGOS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 65,
+        "Defense": 85,
+        "Speed": 60,
+        "SpAttack": 65,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TERA_SHIFT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_TERAPAGOS_TERASTAL": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 110,
+        "Speed": 85,
+        "SpAttack": 105,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TERA_SHELL",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_TERAPAGOS_STELLAR": {
+      "BaseStats": {
+        "HP": 160,
+        "Attack": 105,
+        "Defense": 110,
+        "Speed": 85,
+        "SpAttack": 130,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TERAFORM_ZERO",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

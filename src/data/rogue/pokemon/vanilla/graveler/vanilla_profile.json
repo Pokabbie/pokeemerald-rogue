@@ -140,5 +140,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRAVELER": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 35,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

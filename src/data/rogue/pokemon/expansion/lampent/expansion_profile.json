@@ -143,5 +143,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LAMPENT": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 40,
+        "Defense": 60,
+        "Speed": 55,
+        "SpAttack": 95,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

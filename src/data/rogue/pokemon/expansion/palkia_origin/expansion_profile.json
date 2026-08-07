@@ -156,5 +156,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PALKIA_ORIGIN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 120,
+        "SpAttack": 150,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

@@ -605,5 +605,45 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MIMIKYU": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 90,
+        "Defense": 80,
+        "Speed": 96,
+        "SpAttack": 50,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_DISGUISE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MIMIKYU_BUSTED": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 90,
+        "Defense": 80,
+        "Speed": 96,
+        "SpAttack": 50,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_DISGUISE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

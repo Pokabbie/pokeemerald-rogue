@@ -1689,5 +1689,83 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHARIZARD": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 84,
+        "Defense": 78,
+        "Speed": 100,
+        "SpAttack": 109,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_SOLAR_POWER"
+      ]
+    },
+    "SPECIES_CHARIZARD_MEGA_X": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 130,
+        "Defense": 111,
+        "Speed": 100,
+        "SpAttack": 130,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS"
+      ]
+    },
+    "SPECIES_CHARIZARD_MEGA_Y": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 104,
+        "Defense": 78,
+        "Speed": 100,
+        "SpAttack": 159,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DROUGHT",
+        "ABILITY_DROUGHT",
+        "ABILITY_DROUGHT"
+      ]
+    },
+    "SPECIES_CHARIZARD_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 84,
+        "Defense": 78,
+        "Speed": 100,
+        "SpAttack": 109,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_SOLAR_POWER"
+      ]
+    }
+  }
 }

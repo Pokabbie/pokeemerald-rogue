@@ -148,5 +148,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEGANIUM": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 82,
+        "Defense": 100,
+        "Speed": 80,
+        "SpAttack": 83,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

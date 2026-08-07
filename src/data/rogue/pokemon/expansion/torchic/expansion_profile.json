@@ -184,5 +184,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TORCHIC": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 40,
+        "Speed": 45,
+        "SpAttack": 70,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_SPEED_BOOST"
+      ]
+    }
+  }
 }

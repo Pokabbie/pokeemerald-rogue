@@ -346,5 +346,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_TREADS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 112,
+        "Defense": 120,
+        "Speed": 106,
+        "SpAttack": 72,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

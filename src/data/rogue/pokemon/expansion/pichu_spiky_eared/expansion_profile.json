@@ -74,5 +74,26 @@
     "MOVE_WILD_CHARGE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PICHU_SPIKY_EARED": {
+      "BaseStats": {
+        "HP": 20,
+        "Attack": 40,
+        "Defense": 15,
+        "Speed": 60,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    }
+  }
 }

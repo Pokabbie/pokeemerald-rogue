@@ -220,5 +220,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MR_MIME": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

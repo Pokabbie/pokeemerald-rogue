@@ -120,5 +120,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROTLE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 89,
+        "Defense": 85,
+        "Speed": 36,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

@@ -228,5 +228,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_THWACKEY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 80,
+        "SpAttack": 55,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_GRASSY_SURGE"
+      ]
+    }
+  }
 }

@@ -102,5 +102,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROGGENROLA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 75,
+        "Defense": 85,
+        "Speed": 15,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

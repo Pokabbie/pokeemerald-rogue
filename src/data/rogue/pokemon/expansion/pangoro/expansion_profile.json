@@ -295,5 +295,26 @@
         "GEN8RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PANGORO": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 124,
+        "Defense": 78,
+        "Speed": 58,
+        "SpAttack": 69,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

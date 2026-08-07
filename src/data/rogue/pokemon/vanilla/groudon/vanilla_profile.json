@@ -187,5 +187,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROUDON": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 150,
+        "Defense": 140,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_DROUGHT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

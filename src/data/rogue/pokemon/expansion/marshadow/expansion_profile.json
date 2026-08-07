@@ -294,5 +294,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MARSHADOW": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 125,
+        "Defense": 80,
+        "Speed": 125,
+        "SpAttack": 90,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_TECHNICIAN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

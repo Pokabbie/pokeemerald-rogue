@@ -152,5 +152,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CETITAN": {
+      "BaseStats": {
+        "HP": 170,
+        "Attack": 113,
+        "Defense": 65,
+        "Speed": 73,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_SLUSH_RUSH",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

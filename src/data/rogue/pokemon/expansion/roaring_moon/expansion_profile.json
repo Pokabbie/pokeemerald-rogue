@@ -336,5 +336,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROARING_MOON": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 139,
+        "Defense": 71,
+        "Speed": 119,
+        "SpAttack": 55,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

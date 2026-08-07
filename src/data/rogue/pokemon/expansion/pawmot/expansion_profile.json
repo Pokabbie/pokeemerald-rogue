@@ -246,5 +246,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PAWMOT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 115,
+        "Defense": 70,
+        "Speed": 105,
+        "SpAttack": 70,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

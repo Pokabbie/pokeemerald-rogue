@@ -474,5 +474,26 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRAWDAUNT": {
+      "BaseStats": {
+        "HP": 63,
+        "Attack": 120,
+        "Defense": 85,
+        "Speed": 55,
+        "SpAttack": 90,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_ADAPTABILITY"
+      ]
+    }
+  }
 }

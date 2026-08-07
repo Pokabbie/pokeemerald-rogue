@@ -188,5 +188,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOUNDSTONE": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 101,
+        "Defense": 100,
+        "Speed": 68,
+        "SpAttack": 50,
+        "SpDefense": 97
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_RUSH",
+        "ABILITY_NONE",
+        "ABILITY_FLUFFY"
+      ]
+    }
+  }
 }

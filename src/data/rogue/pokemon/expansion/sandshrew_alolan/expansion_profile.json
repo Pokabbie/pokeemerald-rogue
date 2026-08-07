@@ -232,5 +232,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDSHREW_ALOLAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 90,
+        "Speed": 40,
+        "SpAttack": 10,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_NONE",
+        "ABILITY_SLUSH_RUSH"
+      ]
+    }
+  }
 }

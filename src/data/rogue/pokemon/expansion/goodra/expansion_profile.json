@@ -542,5 +542,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOODRA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 80,
+        "SpAttack": 110,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_HYDRATION",
+        "ABILITY_GOOEY"
+      ]
+    }
+  }
 }

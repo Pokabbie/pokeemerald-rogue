@@ -191,5 +191,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_COTTONEE": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 27,
+        "Defense": 60,
+        "Speed": 66,
+        "SpAttack": 37,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_CHLOROPHYLL"
+      ]
+    }
+  }
 }

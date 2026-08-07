@@ -127,5 +127,26 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PIKACHU_WORLD_CAP": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 55,
+        "Defense": 40,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_LIGHTNING_ROD"
+      ]
+    }
+  }
 }

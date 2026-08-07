@@ -543,5 +543,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JELLICENT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_CURSED_BODY",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

@@ -181,5 +181,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOGETIC": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 40,
+        "Defense": 85,
+        "Speed": 40,
+        "SpAttack": 80,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

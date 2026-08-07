@@ -536,5 +536,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_VALIANT": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 130,
+        "Defense": 90,
+        "Speed": 116,
+        "SpAttack": 120,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

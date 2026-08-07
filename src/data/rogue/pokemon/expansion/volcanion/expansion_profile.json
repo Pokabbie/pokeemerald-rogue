@@ -959,5 +959,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VOLCANION": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 110,
+        "Defense": 120,
+        "Speed": 70,
+        "SpAttack": 130,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

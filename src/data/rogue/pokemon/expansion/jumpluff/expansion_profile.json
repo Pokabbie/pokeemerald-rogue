@@ -293,5 +293,26 @@
         "GEN71V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JUMPLUFF": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 55,
+        "Defense": 70,
+        "Speed": 110,
+        "SpAttack": 55,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

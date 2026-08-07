@@ -714,5 +714,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SUICUNE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 75,
+        "Defense": 115,
+        "Speed": 85,
+        "SpAttack": 90,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

@@ -1169,5 +1169,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DIANCIE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 100,
+        "Defense": 150,
+        "Speed": 50,
+        "SpAttack": 100,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_DIANCIE_MEGA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 160,
+        "Defense": 110,
+        "Speed": 110,
+        "SpAttack": 160,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

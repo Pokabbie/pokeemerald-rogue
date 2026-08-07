@@ -272,5 +272,26 @@
         "GEN9UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_COMFEY": {
+      "BaseStats": {
+        "HP": 51,
+        "Attack": 52,
+        "Defense": 90,
+        "Speed": 100,
+        "SpAttack": 82,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_VEIL",
+        "ABILITY_TRIAGE",
+        "ABILITY_NATURAL_CURE"
+      ]
+    }
+  }
 }

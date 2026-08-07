@@ -239,7 +239,6 @@
         "GEN9NU"
       ]
     },
-
     {
       "Moves": [
         "MOVE_ENCORE",
@@ -313,5 +312,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VICTREEBEL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 105,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 100,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_GLUTTONY"
+      ]
+    },
+    "SPECIES_VICTREEBEL_MEGA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 125,
+        "Defense": 85,
+        "Speed": 70,
+        "SpAttack": 135,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_INNARDS_OUT",
+        "ABILITY_INNARDS_OUT",
+        "ABILITY_INNARDS_OUT"
+      ]
+    }
+  }
 }

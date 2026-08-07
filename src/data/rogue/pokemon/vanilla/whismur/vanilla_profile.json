@@ -95,5 +95,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WHISMUR": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 51,
+        "Defense": 23,
+        "Speed": 28,
+        "SpAttack": 51,
+        "SpDefense": 23
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -204,5 +204,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_METANG": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 100,
+        "Speed": 50,
+        "SpAttack": 55,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_LIGHT_METAL"
+      ]
+    }
+  }
 }

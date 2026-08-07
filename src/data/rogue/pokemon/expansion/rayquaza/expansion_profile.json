@@ -720,5 +720,45 @@
         "GEN9ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAYQUAZA": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 150,
+        "Defense": 90,
+        "Speed": 95,
+        "SpAttack": 150,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_AIR_LOCK",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_RAYQUAZA_MEGA": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 180,
+        "Defense": 100,
+        "Speed": 115,
+        "SpAttack": 180,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DELTA_STREAM",
+        "ABILITY_DELTA_STREAM",
+        "ABILITY_DELTA_STREAM"
+      ]
+    }
+  }
 }

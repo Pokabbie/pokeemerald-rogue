@@ -221,5 +221,26 @@
         "GEN8NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXPLOUD": {
+      "BaseStats": {
+        "HP": 104,
+        "Attack": 91,
+        "Defense": 63,
+        "Speed": 68,
+        "SpAttack": 91,
+        "SpDefense": 73
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_NONE",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

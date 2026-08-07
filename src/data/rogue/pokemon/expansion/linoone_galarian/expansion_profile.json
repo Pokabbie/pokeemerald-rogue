@@ -128,5 +128,26 @@
     "MOVE_WHIRLPOOL",
     "MOVE_WORK_UP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_LINOONE_GALARIAN": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 70,
+        "Defense": 61,
+        "Speed": 100,
+        "SpAttack": 50,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_GLUTTONY",
+        "ABILITY_QUICK_FEET"
+      ]
+    }
+  }
 }

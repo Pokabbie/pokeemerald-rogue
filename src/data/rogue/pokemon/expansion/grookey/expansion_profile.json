@@ -194,5 +194,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GROOKEY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 50,
+        "Speed": 65,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_GRASSY_SURGE"
+      ]
+    }
+  }
 }

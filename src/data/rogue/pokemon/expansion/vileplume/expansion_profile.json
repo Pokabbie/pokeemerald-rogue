@@ -259,5 +259,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VILEPLUME": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 85,
+        "Speed": 50,
+        "SpAttack": 110,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_EFFECT_SPORE"
+      ]
+    }
+  }
 }

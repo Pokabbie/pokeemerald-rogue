@@ -208,5 +208,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORICORIO_POM_POM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 93,
+        "SpAttack": 98,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DANCER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

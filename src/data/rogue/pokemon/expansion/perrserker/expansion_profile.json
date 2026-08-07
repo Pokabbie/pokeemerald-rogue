@@ -201,5 +201,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PERRSERKER": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 100,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_STEELY_SPIRIT"
+      ]
+    }
+  }
 }

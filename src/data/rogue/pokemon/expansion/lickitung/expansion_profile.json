@@ -160,5 +160,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LICKITUNG": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 55,
+        "Defense": 75,
+        "Speed": 30,
+        "SpAttack": 60,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_CLOUD_NINE"
+      ]
+    }
+  }
 }

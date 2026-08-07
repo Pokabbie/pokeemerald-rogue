@@ -106,5 +106,26 @@
         "GEN6LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHELMET": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 40,
+        "Defense": 85,
+        "Speed": 25,
+        "SpAttack": 40,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_HYDRATION",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

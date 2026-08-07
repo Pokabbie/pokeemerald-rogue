@@ -187,5 +187,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NECROZMA_DAWN_WINGS": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 113,
+        "Defense": 109,
+        "Speed": 77,
+        "SpAttack": 157,
+        "SpDefense": 127
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_PRISM_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -137,5 +137,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKIDDO": {
+      "BaseStats": {
+        "HP": 66,
+        "Attack": 65,
+        "Defense": 48,
+        "Speed": 52,
+        "SpAttack": 62,
+        "SpDefense": 57
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_NONE",
+        "ABILITY_GRASS_PELT"
+      ]
+    }
+  }
 }

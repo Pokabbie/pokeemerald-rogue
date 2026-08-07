@@ -1126,5 +1126,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRENINJA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 95,
+        "Defense": 67,
+        "Speed": 122,
+        "SpAttack": 103,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    },
+    "SPECIES_GRENINJA_MEGA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 125,
+        "Defense": 77,
+        "Speed": 142,
+        "SpAttack": 133,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PROTEAN",
+        "ABILITY_PROTEAN",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

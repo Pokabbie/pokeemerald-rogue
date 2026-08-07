@@ -502,5 +502,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOXICROAK": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 106,
+        "Defense": 65,
+        "Speed": 85,
+        "SpAttack": 86,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_DRY_SKIN",
+        "ABILITY_POISON_TOUCH"
+      ]
+    }
+  }
 }

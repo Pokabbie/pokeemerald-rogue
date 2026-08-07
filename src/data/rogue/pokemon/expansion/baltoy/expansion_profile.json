@@ -193,5 +193,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BALTOY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 55,
+        "Speed": 55,
+        "SpAttack": 40,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

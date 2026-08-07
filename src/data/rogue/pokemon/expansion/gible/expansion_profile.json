@@ -172,5 +172,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GIBLE": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 70,
+        "Defense": 45,
+        "Speed": 42,
+        "SpAttack": 40,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_ROUGH_SKIN"
+      ]
+    }
+  }
 }

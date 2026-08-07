@@ -80,5 +80,26 @@
     "MOVE_THIEF",
     "MOVE_TORMENT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NICKIT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 28,
+        "Defense": 28,
+        "Speed": 50,
+        "SpAttack": 47,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_UNBURDEN",
+        "ABILITY_STAKEOUT"
+      ]
+    }
+  }
 }

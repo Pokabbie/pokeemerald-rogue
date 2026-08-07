@@ -130,5 +130,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EELEKTRIK": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 75,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -681,5 +681,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RHYPERIOR": {
+      "BaseStats": {
+        "HP": 115,
+        "Attack": 140,
+        "Defense": 130,
+        "Speed": 40,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_RECKLESS"
+      ]
+    }
+  }
 }

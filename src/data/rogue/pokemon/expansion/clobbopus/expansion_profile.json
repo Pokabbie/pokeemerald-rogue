@@ -86,5 +86,26 @@
     "MOVE_WATERFALL",
     "MOVE_WORK_UP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CLOBBOPUS": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 68,
+        "Defense": 60,
+        "Speed": 32,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_NONE",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

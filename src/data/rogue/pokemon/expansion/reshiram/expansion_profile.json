@@ -212,5 +212,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RESHIRAM": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 120,
+        "Defense": 100,
+        "Speed": 90,
+        "SpAttack": 150,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_TURBOBLAZE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -284,5 +284,83 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SAWSBUCK": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_SAWSBUCK_SUMMER": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_SAWSBUCK_AUTUMN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    },
+    "SPECIES_SAWSBUCK_WINTER": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

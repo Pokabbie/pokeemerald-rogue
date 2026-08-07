@@ -117,5 +117,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LOUDRED": {
+      "BaseStats": {
+        "HP": 84,
+        "Attack": 71,
+        "Defense": 43,
+        "Speed": 48,
+        "SpAttack": 71,
+        "SpDefense": 43
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

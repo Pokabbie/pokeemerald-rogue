@@ -182,5 +182,26 @@
         "GEN9DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_INDEEDEE_FEMALE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 65,
+        "Speed": 85,
+        "SpAttack": 95,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_PSYCHIC_SURGE"
+      ]
+    }
+  }
 }

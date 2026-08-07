@@ -115,5 +115,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_QUAXLY": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 65,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_MOXIE"
+      ]
+    }
+  }
 }

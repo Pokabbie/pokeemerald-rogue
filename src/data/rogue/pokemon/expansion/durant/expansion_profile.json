@@ -293,5 +293,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DURANT": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 109,
+        "Defense": 112,
+        "Speed": 109,
+        "SpAttack": 48,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_HUSTLE",
+        "ABILITY_TRUANT"
+      ]
+    }
+  }
 }

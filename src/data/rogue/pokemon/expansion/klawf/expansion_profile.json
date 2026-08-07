@@ -126,5 +126,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KLAWF": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 115,
+        "Speed": 75,
+        "SpAttack": 35,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_ANGER_SHELL",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

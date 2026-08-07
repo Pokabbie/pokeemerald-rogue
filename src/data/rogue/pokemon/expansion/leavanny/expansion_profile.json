@@ -242,5 +242,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LEAVANNY": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 103,
+        "Defense": 80,
+        "Speed": 92,
+        "SpAttack": 70,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

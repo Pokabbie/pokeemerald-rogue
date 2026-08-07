@@ -156,5 +156,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VELUZA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 102,
+        "Defense": 73,
+        "Speed": 70,
+        "SpAttack": 78,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_NONE",
+        "ABILITY_SHARPNESS"
+      ]
+    }
+  }
 }

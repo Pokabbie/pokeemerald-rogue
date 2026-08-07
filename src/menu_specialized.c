@@ -1,7 +1,6 @@
 #include "global.h"
 #include "malloc.h"
 #include "battle_main.h"
-#include "contest_effect.h"
 #include "data.h"
 #include "decompress.h"
 #include "gpu_regs.h"

@@ -111,5 +111,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOOMY": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 50,
+        "Defense": 35,
+        "Speed": 40,
+        "SpAttack": 55,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_HYDRATION",
+        "ABILITY_GOOEY"
+      ]
+    }
+  }
 }

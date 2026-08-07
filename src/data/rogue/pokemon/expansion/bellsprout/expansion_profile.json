@@ -176,5 +176,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BELLSPROUT": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 75,
+        "Defense": 35,
+        "Speed": 40,
+        "SpAttack": 70,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_GLUTTONY"
+      ]
+    }
+  }
 }

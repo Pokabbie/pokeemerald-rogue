@@ -559,5 +559,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KELDEO": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 72,
+        "Defense": 90,
+        "Speed": 108,
+        "SpAttack": 129,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_JUSTIFIED",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_KELDEO_RESOLUTE": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 72,
+        "Defense": 90,
+        "Speed": 108,
+        "SpAttack": 129,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_JUSTIFIED",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

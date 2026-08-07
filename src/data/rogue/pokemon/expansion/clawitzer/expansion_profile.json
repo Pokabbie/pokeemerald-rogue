@@ -239,5 +239,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLAWITZER": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 73,
+        "Defense": 88,
+        "Speed": 59,
+        "SpAttack": 120,
+        "SpDefense": 89
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MEGA_LAUNCHER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

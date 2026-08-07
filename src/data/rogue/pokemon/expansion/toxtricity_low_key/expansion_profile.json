@@ -155,5 +155,45 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TOXTRICITY_LOW_KEY": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 98,
+        "Defense": 70,
+        "Speed": 75,
+        "SpAttack": 114,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_PUNK_ROCK",
+        "ABILITY_MINUS",
+        "ABILITY_TECHNICIAN"
+      ]
+    },
+    "SPECIES_TOXTRICITY_LOW_KEY_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 98,
+        "Defense": 70,
+        "Speed": 75,
+        "SpAttack": 114,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_PUNK_ROCK",
+        "ABILITY_MINUS",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

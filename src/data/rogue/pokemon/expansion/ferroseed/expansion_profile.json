@@ -316,5 +316,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FERROSEED": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 50,
+        "Defense": 91,
+        "Speed": 10,
+        "SpAttack": 24,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_BARBS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

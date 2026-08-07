@@ -150,5 +150,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CUBCHOO": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 70,
+        "Defense": 40,
+        "Speed": 40,
+        "SpAttack": 60,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SLUSH_RUSH",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

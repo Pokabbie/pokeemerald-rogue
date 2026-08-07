@@ -129,5 +129,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEINO": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 65,
+        "Defense": 50,
+        "Speed": 38,
+        "SpAttack": 45,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -414,5 +414,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANAPHY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HYDRATION",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -165,5 +165,83 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOURGEIST": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 122,
+        "Speed": 84,
+        "SpAttack": 58,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_GOURGEIST_SMALL": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 85,
+        "Defense": 122,
+        "Speed": 99,
+        "SpAttack": 58,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_GOURGEIST_LARGE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 95,
+        "Defense": 122,
+        "Speed": 69,
+        "SpAttack": 58,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    },
+    "SPECIES_GOURGEIST_SUPER": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 100,
+        "Defense": 122,
+        "Speed": 54,
+        "SpAttack": 58,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_FRISK",
+        "ABILITY_INSOMNIA"
+      ]
+    }
+  }
 }

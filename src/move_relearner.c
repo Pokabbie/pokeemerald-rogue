@@ -2,7 +2,6 @@
 #include "main.h"
 #include "battle.h"
 #include "bg.h"
-#include "contest_effect.h"
 #include "data.h"
 #include "event_data.h"
 #include "field_screen_effect.h"
@@ -1428,38 +1427,38 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
 {
-    s32 x;
-    const u8 *str;
-    const struct ContestMove *move;
-
-    MoveRelearnerShowHideHearts(chosenMove);
-    FillWindowPixelBuffer(1, PIXEL_FILL(1));
-    str = gText_MoveRelearnerContestMovesTitle;
-    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
-
-    str = gText_MoveRelearnerAppeal;
-    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
-
-    str = gText_MoveRelearnerJam;
-    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
-
-    if (chosenMove == MENU_NOTHING_CHOSEN)
-    {
-        CopyWindowToVram(1, COPYWIN_GFX);
-        return;
-    }
-
-    move = &gContestMoves[chosenMove];
-    str = gContestMoveTypeTextPointers[move->contestCategory];
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
-
-    str = gContestEffectDescriptionPointers[move->effect];
-    AddTextPrinterParameterized(1, FONT_NARROW, str, 0, 0x41, TEXT_SKIP_DRAW, NULL);
-
-    CopyWindowToVram(1, COPYWIN_GFX);
+    //s32 x;
+    //const u8 *str;
+    //const struct ContestMove *move;
+//
+    //MoveRelearnerShowHideHearts(chosenMove);
+    //FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    //str = gText_MoveRelearnerContestMovesTitle;
+    //x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    //AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+//
+    //str = gText_MoveRelearnerAppeal;
+    //x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    //AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
+//
+    //str = gText_MoveRelearnerJam;
+    //x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    //AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
+//
+    //if (chosenMove == MENU_NOTHING_CHOSEN)
+    //{
+    //    CopyWindowToVram(1, COPYWIN_GFX);
+    //    return;
+    //}
+//
+    //move = &gContestMoves[chosenMove];
+    //str = gContestMoveTypeTextPointers[move->contestCategory];
+    //AddTextPrinterParameterized(1, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+//
+    //str = gContestEffectDescriptionPointers[move->effect];
+    //AddTextPrinterParameterized(1, FONT_NARROW, str, 0, 0x41, TEXT_SKIP_DRAW, NULL);
+//
+    //CopyWindowToVram(1, COPYWIN_GFX);
 }
 
 void MoveRelearnerShowHideHearts(s32 moveId)

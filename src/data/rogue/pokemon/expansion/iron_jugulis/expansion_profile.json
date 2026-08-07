@@ -200,5 +200,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_JUGULIS": {
+      "BaseStats": {
+        "HP": 94,
+        "Attack": 80,
+        "Defense": 86,
+        "Speed": 108,
+        "SpAttack": 122,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

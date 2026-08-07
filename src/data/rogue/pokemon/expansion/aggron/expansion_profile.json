@@ -674,5 +674,45 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AGGRON": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 180,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_HEAVY_METAL"
+      ]
+    },
+    "SPECIES_AGGRON_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 140,
+        "Defense": 230,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_FILTER",
+        "ABILITY_FILTER",
+        "ABILITY_FILTER"
+      ]
+    }
+  }
 }

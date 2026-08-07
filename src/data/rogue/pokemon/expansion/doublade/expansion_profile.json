@@ -234,5 +234,26 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DOUBLADE": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 110,
+        "Defense": 150,
+        "Speed": 35,
+        "SpAttack": 45,
+        "SpDefense": 49
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

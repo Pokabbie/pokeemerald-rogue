@@ -380,5 +380,26 @@
         "GEN8MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRUSTLE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 105,
+        "Defense": 125,
+        "Speed": 45,
+        "SpAttack": 65,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

@@ -351,5 +351,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VIKAVOLT": {
+      "BaseStats": {
+        "HP": 77,
+        "Attack": 70,
+        "Defense": 90,
+        "Speed": 43,
+        "SpAttack": 145,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

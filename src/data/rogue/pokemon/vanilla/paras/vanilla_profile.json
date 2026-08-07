@@ -81,5 +81,25 @@
     "MOVE_THIEF",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PARAS": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 70,
+        "Defense": 55,
+        "Speed": 25,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

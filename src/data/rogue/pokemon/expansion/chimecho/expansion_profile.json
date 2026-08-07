@@ -395,5 +395,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHIMECHO": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 50,
+        "Defense": 80,
+        "Speed": 65,
+        "SpAttack": 95,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CHIMECHO_MEGA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 50,
+        "Defense": 110,
+        "Speed": 65,
+        "SpAttack": 135,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
 }

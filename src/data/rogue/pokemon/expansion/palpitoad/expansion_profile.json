@@ -106,5 +106,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PALPITOAD": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 65,
+        "Defense": 55,
+        "Speed": 69,
+        "SpAttack": 65,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_HYDRATION",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

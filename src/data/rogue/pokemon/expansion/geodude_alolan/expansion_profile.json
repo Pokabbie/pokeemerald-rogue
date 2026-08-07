@@ -151,5 +151,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GEODUDE_ALOLAN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 80,
+        "Defense": 100,
+        "Speed": 20,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_STURDY",
+        "ABILITY_GALVANIZE"
+      ]
+    }
+  }
 }

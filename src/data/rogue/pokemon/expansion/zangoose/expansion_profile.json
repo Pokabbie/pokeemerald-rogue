@@ -232,5 +232,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZANGOOSE": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 115,
+        "Defense": 60,
+        "Speed": 90,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_IMMUNITY",
+        "ABILITY_NONE",
+        "ABILITY_TOXIC_BOOST"
+      ]
+    }
+  }
 }

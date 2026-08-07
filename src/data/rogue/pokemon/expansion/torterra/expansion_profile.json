@@ -462,5 +462,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TORTERRA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 109,
+        "Defense": 105,
+        "Speed": 56,
+        "SpAttack": 75,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

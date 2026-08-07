@@ -104,5 +104,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOREBYSS": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 84,
+        "Defense": 105,
+        "Speed": 52,
+        "SpAttack": 114,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -154,5 +154,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOEDSCRUEL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 70,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_MYCELIUM_MIGHT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -152,5 +152,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HONEDGE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 80,
+        "Defense": 100,
+        "Speed": 28,
+        "SpAttack": 35,
+        "SpDefense": 37
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_NO_GUARD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

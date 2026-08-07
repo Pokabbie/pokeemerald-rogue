@@ -859,5 +859,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKARMORY": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 80,
+        "Defense": 140,
+        "Speed": 70,
+        "SpAttack": 40,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_STURDY",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    },
+    "SPECIES_SKARMORY_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 140,
+        "Defense": 110,
+        "Speed": 110,
+        "SpAttack": 40,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_STALWART",
+        "ABILITY_STALWART",
+        "ABILITY_STALWART"
+      ]
+    }
+  }
 }

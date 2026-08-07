@@ -422,5 +422,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_REGISTEEL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 75,
+        "Defense": 150,
+        "Speed": 50,
+        "SpAttack": 75,
+        "SpDefense": 150
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE",
+        "ABILITY_LIGHT_METAL"
+      ]
+    }
+  }
 }

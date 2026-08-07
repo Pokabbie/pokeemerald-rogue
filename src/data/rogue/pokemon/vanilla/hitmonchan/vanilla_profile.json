@@ -208,5 +208,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HITMONCHAN": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 105,
+        "Defense": 79,
+        "Speed": 76,
+        "SpAttack": 35,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

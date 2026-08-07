@@ -83,5 +83,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NIDORINA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 62,
+        "Defense": 67,
+        "Speed": 56,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

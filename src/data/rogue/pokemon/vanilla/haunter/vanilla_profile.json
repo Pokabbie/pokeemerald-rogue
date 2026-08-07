@@ -177,5 +177,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HAUNTER": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 50,
+        "Defense": 45,
+        "Speed": 95,
+        "SpAttack": 115,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

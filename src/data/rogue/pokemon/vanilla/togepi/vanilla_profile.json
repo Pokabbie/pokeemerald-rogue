@@ -96,5 +96,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TOGEPI": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 20,
+        "Defense": 65,
+        "Speed": 20,
+        "SpAttack": 40,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_SERENE_GRACE"
+      ]
+    }
+  }
 }

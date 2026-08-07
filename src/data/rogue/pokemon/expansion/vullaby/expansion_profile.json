@@ -322,5 +322,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VULLABY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 55,
+        "Defense": 75,
+        "Speed": 60,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BIG_PECKS",
+        "ABILITY_OVERCOAT",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

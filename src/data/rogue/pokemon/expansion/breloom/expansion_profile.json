@@ -497,5 +497,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRELOOM": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 70,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_POISON_HEAL",
+        "ABILITY_TECHNICIAN"
+      ]
+    }
+  }
 }

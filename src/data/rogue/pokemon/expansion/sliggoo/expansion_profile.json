@@ -164,5 +164,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLIGGOO": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 75,
+        "Defense": 53,
+        "Speed": 60,
+        "SpAttack": 83,
+        "SpDefense": 113
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SAP_SIPPER",
+        "ABILITY_HYDRATION",
+        "ABILITY_GOOEY"
+      ]
+    }
+  }
 }

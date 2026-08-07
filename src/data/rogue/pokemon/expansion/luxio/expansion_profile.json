@@ -101,5 +101,26 @@
     "MOVE_VOLT_SWITCH",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_LUXIO": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 49,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 49
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

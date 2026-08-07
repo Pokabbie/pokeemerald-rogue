@@ -409,5 +409,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOOPA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 110,
+        "Defense": 60,
+        "Speed": 70,
+        "SpAttack": 150,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_MAGICIAN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

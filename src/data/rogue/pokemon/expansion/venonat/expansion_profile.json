@@ -141,5 +141,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VENONAT": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 50,
+        "Speed": 45,
+        "SpAttack": 40,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_TINTED_LENS",
+        "ABILITY_RUN_AWAY"
+      ]
+    }
+  }
 }

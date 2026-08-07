@@ -133,5 +133,45 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAREEP": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 40,
+        "Defense": 40,
+        "Speed": 35,
+        "SpAttack": 65,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE",
+        "ABILITY_PLUS"
+      ]
+    },
+    "SPECIES_PIKIN_MEGA": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 95,
+        "Defense": 105,
+        "Speed": 45,
+        "SpAttack": 165,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DRIZZLE",
+        "ABILITY_DRIZZLE",
+        "ABILITY_DRIZZLE"
+      ]
+    }
+  }
 }

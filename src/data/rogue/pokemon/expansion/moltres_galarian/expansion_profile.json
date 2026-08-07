@@ -467,5 +467,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MOLTRES_GALARIAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 85,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 100,
+        "SpDefense": 125
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BERSERK",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

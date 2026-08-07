@@ -179,5 +179,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HATTREM": {
+      "BaseStats": {
+        "HP": 57,
+        "Attack": 40,
+        "Defense": 65,
+        "Speed": 49,
+        "SpAttack": 86,
+        "SpDefense": 73
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

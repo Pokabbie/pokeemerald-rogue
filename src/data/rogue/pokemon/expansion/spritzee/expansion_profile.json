@@ -197,5 +197,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPRITZEE": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 52,
+        "Defense": 60,
+        "Speed": 23,
+        "SpAttack": 63,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    }
+  }
 }

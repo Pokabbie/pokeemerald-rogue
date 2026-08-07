@@ -121,5 +121,26 @@
     "MOVE_SWIFT",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ZYGARDE_10_POWER_CONSTRUCT": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 100,
+        "Defense": 71,
+        "Speed": 115,
+        "SpAttack": 61,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_POWER_CONSTRUCT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

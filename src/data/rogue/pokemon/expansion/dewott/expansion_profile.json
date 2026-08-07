@@ -127,5 +127,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEWOTT": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 75,
+        "Defense": 60,
+        "Speed": 60,
+        "SpAttack": 83,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

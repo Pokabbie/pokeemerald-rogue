@@ -117,5 +117,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CLEFAIRY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 45,
+        "Defense": 48,
+        "Speed": 35,
+        "SpAttack": 60,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

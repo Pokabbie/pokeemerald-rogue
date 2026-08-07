@@ -177,5 +177,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGMAR": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 95,
+        "Defense": 57,
+        "Speed": 93,
+        "SpAttack": 100,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  }
 }

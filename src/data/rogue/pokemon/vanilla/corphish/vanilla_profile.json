@@ -92,5 +92,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CORPHISH": {
+      "BaseStats": {
+        "HP": 43,
+        "Attack": 80,
+        "Defense": 65,
+        "Speed": 35,
+        "SpAttack": 50,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

@@ -336,5 +336,45 @@
         "GEN8RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MACHAMP": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 65,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NO_GUARD",
+        "ABILITY_STEADFAST"
+      ]
+    },
+    "SPECIES_MACHAMP_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 55,
+        "SpAttack": 65,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NO_GUARD",
+        "ABILITY_STEADFAST"
+      ]
+    }
+  }
 }

@@ -221,5 +221,197 @@
         "GEN71V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FURFROU": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_HEART_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_STAR_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_DIAMOND_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_DEBUTANTE_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_MATRON_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_DANDY_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_LA_REINE_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_KABUKI_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_FURFROU_PHARAOH_TRIM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 60,
+        "Speed": 102,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FUR_COAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

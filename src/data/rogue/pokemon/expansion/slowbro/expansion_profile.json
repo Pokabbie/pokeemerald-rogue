@@ -1169,5 +1169,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLOWBRO": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 75,
+        "Defense": 110,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_REGENERATOR"
+      ]
+    },
+    "SPECIES_SLOWBRO_MEGA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 75,
+        "Defense": 180,
+        "Speed": 30,
+        "SpAttack": 130,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

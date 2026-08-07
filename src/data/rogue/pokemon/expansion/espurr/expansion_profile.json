@@ -100,5 +100,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ESPURR": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 48,
+        "Defense": 54,
+        "Speed": 68,
+        "SpAttack": 63,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_OWN_TEMPO"
+      ]
+    }
+  }
 }

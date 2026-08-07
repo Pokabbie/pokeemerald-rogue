@@ -66,5 +66,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_AZURILL": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 20,
+        "Defense": 40,
+        "Speed": 20,
+        "SpAttack": 20,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_HUGE_POWER"
+      ]
+    }
+  }
 }

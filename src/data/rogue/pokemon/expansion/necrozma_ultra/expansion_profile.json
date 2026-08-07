@@ -201,5 +201,26 @@
         "GEN7ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NECROZMA_ULTRA": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 167,
+        "Defense": 97,
+        "Speed": 129,
+        "SpAttack": 167,
+        "SpDefense": 97
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_NEUROFORCE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

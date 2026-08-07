@@ -11,7 +11,6 @@
 #include "play_time.h"
 #include "mauville_old_man.h"
 #include "match_call.h"
-#include "lilycove_lady.h"
 #include "load_save.h"
 #include "pokeblock.h"
 #include "dewford_trend.h"
@@ -38,7 +37,6 @@
 #include "string_util.h"
 #include "link_rfu.h"
 #include "main.h"
-#include "contest.h"
 #include "item_menu.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
@@ -121,11 +119,6 @@ static void ClearPokedexFlags(void)
     gUnusedPokedexU8 = 0;
 }
 
-void ClearAllContestWinnerPics(void)
-{
-    ClearContestWinnerPicsInContestHall();
-}
-
 static void ClearFrontierRecord(void)
 {
     CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
@@ -187,9 +180,7 @@ void NewGameInitData(void)
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);
     SetCoins(0);
-    ResetLinkContestBoolean();
     ResetGameStats();
-    ClearAllContestWinnerPics();
     ClearPlayerLinkBattleRecords();
     InitSeedotSizeRecord();
     InitLotadSizeRecord();
@@ -212,14 +203,12 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
-    InitLilycoveLady();
     ResetAllApprenticeData();
     ClearRankingHallRecords();
     InitMatchCallCounters();
     ClearMysteryGift();
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
-    ResetContestLinkResults();
     Rogue_OnNewGame();
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));

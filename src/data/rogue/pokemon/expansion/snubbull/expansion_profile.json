@@ -268,5 +268,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SNUBBULL": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_RUN_AWAY",
+        "ABILITY_RATTLED"
+      ]
+    }
+  }
 }

@@ -185,5 +185,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARBOLIVA": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 69,
+        "Defense": 90,
+        "Speed": 39,
+        "SpAttack": 125,
+        "SpDefense": 109
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SEED_SOWER",
+        "ABILITY_NONE",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

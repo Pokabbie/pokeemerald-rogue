@@ -512,5 +512,45 @@
         "CHAMPIONS_DOUBLES_S1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLIMMORA": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 55,
+        "Defense": 90,
+        "Speed": 86,
+        "SpAttack": 130,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_TOXIC_DEBRIS",
+        "ABILITY_NONE",
+        "ABILITY_CORROSION"
+      ]
+    },
+    "SPECIES_GLIMMORA_MEGA": {
+      "BaseStats": {
+        "HP": 83,
+        "Attack": 90,
+        "Defense": 105,
+        "Speed": 101,
+        "SpAttack": 150,
+        "SpDefense": 96
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_ADAPTABILITY"
+      ]
+    }
+  }
 }

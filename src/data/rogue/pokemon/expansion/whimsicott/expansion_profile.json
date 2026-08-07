@@ -932,5 +932,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WHIMSICOTT": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 67,
+        "Defense": 85,
+        "Speed": 116,
+        "SpAttack": 77,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_CHLOROPHYLL"
+      ]
+    }
+  }
 }

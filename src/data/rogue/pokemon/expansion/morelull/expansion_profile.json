@@ -131,5 +131,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MORELULL": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 35,
+        "Defense": 55,
+        "Speed": 15,
+        "SpAttack": 65,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_RAIN_DISH"
+      ]
+    }
+  }
 }

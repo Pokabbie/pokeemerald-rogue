@@ -131,5 +131,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHROOMISH": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 40,
+        "Defense": 60,
+        "Speed": 35,
+        "SpAttack": 40,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_EFFECT_SPORE",
+        "ABILITY_POISON_HEAL",
+        "ABILITY_QUICK_FEET"
+      ]
+    }
+  }
 }
