@@ -145,6 +145,8 @@
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PIKANIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ALORAICHIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_RAICHUNITE_X", "added_in_version": "SAVE_VER_ID_2_2_0" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_RAICHUNITE_Y", "added_in_version": "SAVE_VER_ID_2_2_0" },
                     { 
                         "#if": "defined(ROGUE_EXPANSION)", 
                         "flag": "FLAG_ROGUE_STUB",

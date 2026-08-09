@@ -481,6 +481,156 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HAZE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLIP_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLIP_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
   ],
   "PerSpecies": {

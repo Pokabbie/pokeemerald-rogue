@@ -159,6 +159,156 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_UPPER_HAND"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_UPPER_HAND"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
   ],
   "PerSpecies": {

@@ -813,7 +813,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         // check ground immunities
         if (moveType == TYPE_GROUND
           && !IsBattlerGrounded(battlerDef)
-          && ((aiData->abilities[battlerDef] == ABILITY_LEVITATE
+          && (((aiData->abilities[battlerDef] == ABILITY_LEVITATE || aiData->abilities[battlerDef] == ABILITY_EELEVATE)
           && DoesBattlerIgnoreAbilityChecks(aiData->abilities[battlerAtk], move))
           || aiData->holdEffects[battlerDef] == HOLD_EFFECT_AIR_BALLOON
           || (gStatuses3[battlerDef] & (STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS)))
@@ -873,6 +873,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 if (moveType == TYPE_WATER)
                     RETURN_SCORE_MINUS(20);
                 break;
+            case ABILITY_LEVITATE:
+            case ABILITY_EELEVATE:
             case ABILITY_EARTH_EATER:
                 if (moveType == TYPE_GROUND)
                     RETURN_SCORE_MINUS(20);
@@ -1710,7 +1712,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_MAGNITUDE:
-            if (aiData->abilities[battlerDef] == ABILITY_LEVITATE)
+            if (aiData->abilities[battlerDef] == ABILITY_LEVITATE || aiData->abilities[battlerDef] == ABILITY_EELEVATE)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_PARTING_SHOT:
@@ -2083,7 +2085,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 {
                     if (GetBattlerSecondaryDamage(battlerAtk) >= gBattleMons[battlerAtk].hp
                       && aiData->abilities[battlerDef] != ABILITY_MOXIE
-                      && aiData->abilities[battlerDef] != ABILITY_BEAST_BOOST)
+                      && aiData->abilities[battlerDef] != ABILITY_BEAST_BOOST
+                      && aiData->abilities[battlerDef] != ABILITY_EELEVATE)
                     {
                         ADJUST_SCORE(-10); //Don't protect if you're going to faint after protecting
                     }
@@ -2946,6 +2949,8 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 break;
             case ABILITY_WATER_ABSORB:
             case ABILITY_DRY_SKIN:
+            case ABILITY_LEVITATE:
+            case ABILITY_EELEVATE:
             case ABILITY_EARTH_EATER:
             case ABILITY_WELL_BAKED_BODY:
             case ABILITY_THERMAL_EXCHANGE:

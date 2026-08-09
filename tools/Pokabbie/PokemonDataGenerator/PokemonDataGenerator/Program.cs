@@ -29,8 +29,10 @@ namespace PokemonDataGenerator
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
 			Console.WriteLine("4 - OW Sprites Palette Generator");
 			Console.WriteLine("5 - Generate Pokedex Lists");
-			Console.WriteLine("6 - Convert NPC sprites");
-			int action = ReadOption(0, 6);
+            Console.WriteLine("6 - Convert NPC sprites");
+            Console.WriteLine("7 - Latest Mega Grab");
+            Console.WriteLine("8 - Champion Mega Set Grab");
+            int action = ReadOption(0, 8);
 
 			switch(action)
             {
@@ -81,7 +83,17 @@ namespace PokemonDataGenerator
 					Console.WriteLine("==Generating NPC sprites==");
 					NpcSpriteSplitter.ExportDirectory(Path.GetFullPath("npc_in"), Path.GetFullPath("npc_out"));
 					break;
-			}
+
+				case 7:
+                    Console.WriteLine("==Running Mega Grab==");
+                    EmeraldExpansionGrab.RunMegaGrab();
+                    break;
+
+                case 8:
+                    Console.WriteLine("==Running Mega Set Grab==");
+                    ChampionsSetGrab.Run();
+                    break;
+            }
 
 
 			Console.WriteLine("Press any key to exit...");

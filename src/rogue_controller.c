@@ -2505,22 +2505,11 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         {
             switch (itemId)
             {
-            case ITEM_SCOLIPITE:
-            case ITEM_SCRAFTINITE:
-            case ITEM_EELEKTROSSITE:
-            case ITEM_PYROARITE:
-            case ITEM_MALAMARITE:
-            case ITEM_BARBARACITE:
-            case ITEM_DRAGALGITE:
             case ITEM_ZYGARDITE:
-            case ITEM_FALINKSITE:
             case ITEM_HEATRANITE:
             case ITEM_DARKRANITE:
             case ITEM_ZERAORITE:
-            case ITEM_RAICHUNITE_X:
-            case ITEM_RAICHUNITE_Y:
             case ITEM_ABSOLITE_Z:
-            case ITEM_STARAPTITE:
             case ITEM_GARCHOMPITE_Z:
             case ITEM_LUCARIONITE_Z:
             case ITEM_GOLISOPITE:
@@ -3491,7 +3480,11 @@ void Rogue_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
 {
     u32 i;
 
-    FlagSet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
+    if(RogueSave_GetVersionIdFor(fromVersion) < SAVE_VER_ID_2_2_0)
+    {
+        // Only show this once per feature highlight i.e. from 2.1.0 to 2.2.0 but not 2.2.0 to 2.2.1
+        FlagSet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
+    }
 
     if(Rogue_IsRunActive())
         gRogueLocal.hasSaveWarningPending = TRUE;
