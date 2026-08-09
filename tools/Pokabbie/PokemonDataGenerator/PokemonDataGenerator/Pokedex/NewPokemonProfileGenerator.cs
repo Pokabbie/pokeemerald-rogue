@@ -151,8 +151,8 @@ namespace PokemonDataGenerator.Pokedex
             string[] inputParts = rawLine.Split('>');
             string[] aiParts = inputParts[0].Split(' ');
 
-            output.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(aiParts[0]);
-            output.Item = "ITEM_" + GameDataHelpers.FormatKeyword(aiParts[1]);
+            output.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(string.Join(" ", aiParts.Take(aiParts.Length - 1)));
+            output.Item = "ITEM_" + GameDataHelpers.FormatKeyword(aiParts.Last());
             output.Nature = "NATURE_" + GameDataHelpers.FormatKeyword(inputParts[6].Split(':')[1].Trim());
             output.SourceTiers.Add("CHAMPIONS_SINGLES_S2");
             output.SourceTiers.Add("CHAMPIONS_DOUBLES_S2");
