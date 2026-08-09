@@ -284,7 +284,7 @@ struct RogueRunData
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     u8 lastShopVisitDifficulty[ROGUE_SHOP_COUNT];
     u8 activeEvoItemFlags[8];
-    u8 activeFormItemFlags[18]; // technically this isn't needed for Vanilla
+    u8 activeFormItemFlags[20]; // technically this isn't needed for Vanilla
     union
     {
         struct RogueCampaignData_Generic generic;

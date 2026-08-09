@@ -308,7 +308,6 @@
       "Item": "ITEM_STARAPTITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "CHAMPIONS_SINGLES_S2",
         "CHAMPIONS_DOUBLES_S2"
       ]
     },
@@ -323,7 +322,6 @@
       "Item": "ITEM_STARAPTITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "CHAMPIONS_SINGLES_S2",
         "CHAMPIONS_DOUBLES_S2"
       ]
     },
@@ -353,7 +351,6 @@
       "Item": "ITEM_STARAPTITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "CHAMPIONS_SINGLES_S2",
         "CHAMPIONS_DOUBLES_S2"
       ]
     },
@@ -398,7 +395,6 @@
       "Item": "ITEM_STARAPTITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "CHAMPIONS_SINGLES_S2",
         "CHAMPIONS_DOUBLES_S2"
       ]
     },
@@ -428,7 +424,6 @@
       "Item": "ITEM_STARAPTITE",
       "Nature": "NATURE_JOLLY",
       "SourceTiers": [
-        "CHAMPIONS_SINGLES_S2",
         "CHAMPIONS_DOUBLES_S2"
       ]
     },
