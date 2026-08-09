@@ -469,6 +469,156 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DETECT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DETECT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
   ],
   "PerSpecies": {

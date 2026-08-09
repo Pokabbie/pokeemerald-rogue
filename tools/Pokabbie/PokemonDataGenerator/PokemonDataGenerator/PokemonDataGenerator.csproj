@@ -50,6 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pokedex\ChampionsSetGrab.cs" />
     <Compile Include="ImagePalette.cs" />
     <Compile Include="OverworldSprites\NPC\NpcSpriteSplitter.cs" />
     <Compile Include="OverworldSprites\OverworldSpriteGenerator.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen8.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen9.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Hisui.cs" />
+    <Compile Include="Pokedex\EmeraldExpansionGrab.cs" />
     <Compile Include="Pokedex\NewPokemonProfileGenerator.cs" />
     <Compile Include="Pokedex\PokedexGenerator.cs" />
     <Compile Include="Pokedex\PokemonProfileGenerator.cs" />

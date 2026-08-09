@@ -1,0 +1,1881 @@
+Pokémon TCG Pocket Pokémon Champions
+Mega Scrafty
+
+620 appearances ( Regulation M-B)
+
+—
+
+Unranked
+
+132\\
+\\
+Speed #210 — rank #210 of 315. See the Speed Tiers list.")
+
+Forms: \\
+Scrafty
+
+RegulationM-B
+
+Regulation
+
+Which ruleset to show stats for.
+What are regulations? ›
+
+Regulation M-BCurrentJun 2026 – ongoingRegulation M-ANot legalApr 2026 – Jun 2026Close
+
+SourceLimitless
+
+RegulationM-B
+
+Regulation
+
+Which ruleset to show stats for.
+What are regulations? ›
+
+Regulation M-BCurrentJun 2026 – ongoingRegulation M-ANot legalApr 2026 – Jun 2026Close
+
+SourceLimitless
+
+DarkFighting
+
+HP65
+
+Atk130
+
+Def135
+
+Sp.Atk55
+
+Sp.Def135
+
+Speed68
+
+Total588
+
+Weight66.1 lbs.
+
+Intimidate\\
+\\
+When the Pokémon enters a battle, it lowers the Attack stats of\\
+opponents by 1 stage.
+Type effectiveness
+
+Weakness · 4×
+
+Fairy
+
+Weakness · 2×
+
+FightingFlying
+
+Resistance · ½×
+
+RockGhost
+
+Resistance · ¼×
+
+Dark
+
+Immunity · 0×
+
+Psychic
+Meta BuildsPopular Builds
+
+Meta Popular
+
+Builds ranked by competitive performance — higher placement at larger events scores more.
+
+Builds ranked by raw usage across all teams.
+
+#1
+
+Intimidate  Scraftinite
+
+100.0 57.9% WR · 27 teams
+
+Close Combat Fake Out Ice Punch Knock Off
+
+Stat Alignment:59% Adamant, 33% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+70%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Charcoal
+
+63%
+
+[](https://www.pokemon-zone.com/champions/pokemon/venusaur/)
+
+Venusaur
+
+Chlorophyll · Focus Sash
+
+44%
+
+[](https://www.pokemon-zone.com/champions/pokemon/pyroar/)
+
+Pyroar
+
+Unnerve · Pyroarite
+
+37%
+
+[](https://www.pokemon-zone.com/champions/pokemon/aerodactyl/)
+
+Aerodactyl
+
+Unnerve · Focus Sash
+
+30%
+
+Open in Builder
+
+Show full build▾
+
+Talon's FIGHT CLUB #92 POKEMON CHAMPIONS
+· IdleFroicker (#1) · 11–1
+
+Open in Builder
+
+\\
+\\
+Pyroar
+
+Ability Unnerve
+
+ItemPyroarite
+
+NatureTimid
+
+Protect Heat Wave Overheat Solar Beam
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemCharcoal
+
+NatureQuiet
+
+Protect Eruption Overheat Helping Hand
+
+\\
+\\
+Vileplume
+
+Ability Chlorophyll
+
+ItemFocus Sash
+
+NatureTimid
+
+Sleep Powder Leaf Storm Sludge Bomb After You
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureAdamant
+
+Fake Out Knock Off Close Combat Ice Punch
+
+\\
+\\
+Basculegion
+
+Ability Adaptability
+
+ItemChoice Scarf
+
+NatureJolly
+
+Wave Crash Flip Turn Last Respects Aqua Jet
+
+\\
+\\
+Malamar
+
+Ability Contrary
+
+ItemSitrus Berry
+
+NatureSassy
+
+Superpower Topsy-Turvy Rock Slide Trick Room
+
+Open in Builder
+
+#2
+
+Intimidate  Scraftinite
+
+87.8 52.1% WR · 23 teams
+
+Drain Punch Fake Out Protect Throat Chop
+
+Stat Alignment:52% Impish, 22% Adamant, 13% Brave, 13% CarefulOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/charizard/)
+
+Charizard
+
+Blaze · Charizardite Y
+
+57%
+
+[](https://www.pokemon-zone.com/champions/pokemon/toxapex/)
+
+Toxapex
+
+Regenerator · Leftovers
+
+48%
+
+[](https://www.pokemon-zone.com/champions/pokemon/metagross/)
+
+Metagross
+
+Clear Body · Metal Coat
+
+43%
+
+[](https://www.pokemon-zone.com/champions/pokemon/mamoswine/)
+
+Mamoswine
+
+Oblivious · Focus Sash
+
+43%
+
+[](https://www.pokemon-zone.com/champions/pokemon/dragonite/)
+
+Dragonite
+
+Multiscale · Dragon Fang
+
+43%
+
+Open in Builder
+
+Show full build▾
+
+\Sitrus-Series\\|Champions-MB\|#65
+· TytokiArts (#1) · 11–1
+
+Open in Builder
+
+\\
+\\
+Charizard
+
+Ability Blaze
+
+ItemCharizardite Y
+
+NatureTimid
+
+Heat Wave Solar Beam Weather Ball Protect
+
+\\
+\\
+Venusaur
+
+Ability Chlorophyll
+
+ItemFocus Sash
+
+NatureTimid
+
+Sludge Bomb Earth Power Sleep Powder Protect
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemColbur Berry
+
+NatureModest
+
+Psychic Thunderbolt Helping Hand Trick Room
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureImpish
+
+Throat Chop Drain Punch Fake Out Protect
+
+\\
+\\
+Sylveon
+
+Ability Pixilate
+
+ItemFairy Feather
+
+NatureModest
+
+Hyper Voice Hyper Beam Quick Attack Protect
+
+\\
+\\
+Garchomp
+
+Ability Rough Skin
+
+ItemLife Orb
+
+NatureJolly
+
+Earthquake Dragon Claw Rock Slide Protect
+
+Open in Builder
+
+#3
+
+Intimidate  Scraftinite
+
+84.6 48.7% WR · 38 teams
+
+Detect Drain Punch Fake Out Knock Off
+
+Stat Alignment:50% Adamant, 26% Careful, 21% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sinistcha/)
+
+Sinistcha
+
+Hospitality · Kasib Berry
+
+37%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+29%
+
+[](https://www.pokemon-zone.com/champions/pokemon/incineroar/)
+
+Incineroar
+
+Intimidate · Sitrus Berry
+
+29%
+
+[](https://www.pokemon-zone.com/champions/pokemon/snorlax/)
+
+Snorlax
+
+Thick Fat · Leftovers
+
+26%
+
+[](https://www.pokemon-zone.com/champions/pokemon/gengar/)
+
+Gengar
+
+Cursed Body · Gengarite
+
+26%
+
+Open in Builder
+
+Show full build▾
+
+Tenki's x MMHM - Champions M-B
+· root2iris (#1) · 11–0
+
+Open in Builder
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureCareful
+
+Knock Off Drain Punch Fake Out Detect
+
+\\
+\\
+Incineroar
+
+Ability Intimidate
+
+ItemSitrus Berry
+
+NatureRelaxed
+
+Overheat Parting Shot Fake Out Protect
+
+\\
+\\
+Snorlax
+
+Ability Thick Fat
+
+ItemLeftovers
+
+NatureRelaxed
+
+Yawn Encore Fissure Protect
+
+\\
+\\
+Dragonite
+
+Ability Multiscale
+
+ItemDragon Fang
+
+NatureAdamant
+
+Dragon Claw Low Kick Extreme Speed Protect
+
+\\
+\\
+Gengar
+
+Ability Cursed Body
+
+ItemGengarite
+
+NatureModest
+
+Sludge Bomb Shadow Ball Perish Song Protect
+
+[![Ninetales [Alolan Form]](https://assets.pokemon-zone.com/champions-assets/uicontents/scriptableobject/mdicon02/mdiconpersonal02/standard02/uiPokeIcon020038010.webp)\\
+\\
+Ninetales \[Alolan Form\]](https://www.pokemon-zone.com/champions/pokemon/ninetales-alolan-form/)
+
+Ability Snow Warning
+
+ItemFocus Sash
+
+NatureTimid
+
+Blizzard Disable Encore Protect
+
+Open in Builder
+
+#4
+
+Intimidate  Scraftinite
+
+78.4 46.4% WR · 30 teams
+
+Close Combat Fake Out Knock Off Rock Slide
+
+Stat Alignment:67% Brave, 33% AdamantOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Charcoal
+
+90%
+
+[](https://www.pokemon-zone.com/champions/pokemon/mawile/)
+
+Mawile
+
+Hyper Cutter · Mawilite
+
+60%
+
+[](https://www.pokemon-zone.com/champions/pokemon/vileplume/)
+
+Vileplume
+
+Chlorophyll · Focus Sash
+
+47%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sylveon/)
+
+Sylveon
+
+Pixilate · Life Orb
+
+33%
+
+Open in Builder
+
+Show full build▾
+
+[\[Shiny Garchomp to 1st\] The Grim Challenge #4](https://www.pokemon-zone.com/champions/tournaments/shiny-garchomp-to-1st-the-grim-challenge-4/#standing-1)
+· Tejomay (#1) · 10–0
+
+Open in Builder
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureBrave
+
+Close Combat Knock Off Rock Slide Fake Out
+
+\\
+\\
+Mawile
+
+Ability Hyper Cutter
+
+ItemMawilite
+
+NatureBrave
+
+Play Rough Sucker Punch Iron Head Protect
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemColbur Berry
+
+NatureRelaxed
+
+Thunderbolt Helping Hand Psychic Trick Room
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemCharcoal
+
+NatureQuiet
+
+Eruption Heat Wave Earth Power Protect
+
+\\
+\\
+Oranguru
+
+Ability Inner Focus
+
+ItemSitrus Berry
+
+NatureBold
+
+Energy Ball Thunderbolt Trick Room Instruct
+
+\\
+\\
+Vileplume
+
+Ability Chlorophyll
+
+ItemFocus Sash
+
+NatureTimid
+
+After You Sludge Bomb Solar Beam Sleep Powder
+
+Open in Builder
+
+#5
+
+Intimidate  Scraftinite
+
+78.3 43.4% WR · 105 teams
+
+Drain Punch Fake Out Ice Punch Knock Off
+
+Stat Alignment:83% Adamant, 16% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+89%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Heat Rock
+
+84%
+
+[](https://www.pokemon-zone.com/champions/pokemon/pyroar/)
+
+Pyroar
+
+Unnerve · Pyroarite
+
+76%
+
+[](https://www.pokemon-zone.com/champions/pokemon/venusaur/)
+
+Venusaur
+
+Chlorophyll · Life Orb
+
+55%
+
+[](https://www.pokemon-zone.com/champions/pokemon/mamoswine/)
+
+Mamoswine
+
+Oblivious · Focus Sash
+
+49%
+
+Open in Builder
+
+Show full build▾
+
+VGC Reg M-B Ingame Tour #3 (Shiny Litleo for 1st!)
+· Werma985 (#1) · 9–2
+
+Open in Builder
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemSitrus Berry
+
+NatureRelaxed
+
+Psychic Thunderbolt Helping Hand Trick Room
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureAdamant
+
+Knock Off Drain Punch Ice Punch Fake Out
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemLeftovers
+
+NatureRelaxed
+
+Heat Wave Yawn Helping Hand Protect
+
+\\
+\\
+Kingambit
+
+Ability Defiant
+
+ItemFocus Sash
+
+NatureAdamant
+
+Kowtow Cleave Sucker Punch Low Kick Protect
+
+\\
+\\
+Sneasler
+
+Ability Poison Touch
+
+ItemLife Orb
+
+NatureAdamant
+
+Close Combat Poison Jab Rock Slide Protect
+
+\\
+\\
+Pyroar
+
+Ability Unnerve
+
+ItemPyroarite
+
+NatureTimid
+
+Overheat Heat Wave Solar Beam Protect
+
+Open in Builder
+
+#1
+
+Intimidate  Scraftinite
+
+16.9% 43.4% WR · 105 teams
+
+Drain Punch Fake Out Ice Punch Knock Off
+
+Stat Alignment:83% Adamant, 16% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+89%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Heat Rock
+
+84%
+
+[](https://www.pokemon-zone.com/champions/pokemon/pyroar/)
+
+Pyroar
+
+Unnerve · Pyroarite
+
+76%
+
+[](https://www.pokemon-zone.com/champions/pokemon/venusaur/)
+
+Venusaur
+
+Chlorophyll · Life Orb
+
+55%
+
+[](https://www.pokemon-zone.com/champions/pokemon/mamoswine/)
+
+Mamoswine
+
+Oblivious · Focus Sash
+
+49%
+
+Open in Builder
+
+Show full build▾
+
+VGC Reg M-B Ingame Tour #3 (Shiny Litleo for 1st!)
+· Werma985 (#1) · 9–2
+
+Open in Builder
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemSitrus Berry
+
+NatureRelaxed
+
+Psychic Thunderbolt Helping Hand Trick Room
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureAdamant
+
+Knock Off Drain Punch Ice Punch Fake Out
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemLeftovers
+
+NatureRelaxed
+
+Heat Wave Yawn Helping Hand Protect
+
+\\
+\\
+Kingambit
+
+Ability Defiant
+
+ItemFocus Sash
+
+NatureAdamant
+
+Kowtow Cleave Sucker Punch Low Kick Protect
+
+\\
+\\
+Sneasler
+
+Ability Poison Touch
+
+ItemLife Orb
+
+NatureAdamant
+
+Close Combat Poison Jab Rock Slide Protect
+
+\\
+\\
+Pyroar
+
+Ability Unnerve
+
+ItemPyroarite
+
+NatureTimid
+
+Overheat Heat Wave Solar Beam Protect
+
+Open in Builder
+
+#2
+
+Intimidate  Scraftinite
+
+9.0% 39.5% WR · 56 teams
+
+Drain Punch Fake Out Knock Off Protect
+
+Stat Alignment:48% Adamant, 39% CarefulOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sinistcha/)
+
+Sinistcha
+
+Hospitality · Coba Berry
+
+50%
+
+[](https://www.pokemon-zone.com/champions/pokemon/raichu/)
+
+Raichu
+
+Lightning Rod · Raichunite Y
+
+36%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sneasler/)
+
+Sneasler
+
+Unburden · Life Orb
+
+32%
+
+[](https://www.pokemon-zone.com/champions/pokemon/ceruledge/)
+
+Ceruledge
+
+Flash Fire · Colbur Berry
+
+30%
+
+[](https://www.pokemon-zone.com/champions/pokemon/milotic/)
+
+Milotic
+
+Competitive · Leftovers
+
+29%
+
+Open in Builder
+
+Show full build▾
+
+The Grand Champions Festival Encore
+· Thedarkknight (#314) · 7–4
+
+Open in Builder
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemCharcoal
+
+NatureQuiet
+
+Eruption Weather Ball Protect Helping Hand
+
+\\
+\\
+Venusaur
+
+Ability Chlorophyll
+
+ItemLife Orb
+
+NatureModest
+
+Energy Ball Sludge Bomb Earth Power Protect
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureBrave
+
+Drain Punch Fake Out Knock Off Protect
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemSitrus Berry
+
+NatureRelaxed
+
+Psychic Thunderbolt Protect Trick Room
+
+\\
+\\
+Pyroar
+
+Ability Unnerve
+
+ItemPyroarite
+
+NatureTimid
+
+Heat Wave Overheat Protect Solar Beam
+
+\\
+\\
+Mamoswine
+
+Ability Oblivious
+
+ItemFocus Sash
+
+NatureJolly
+
+Ice Shard Protect High Horsepower Rock Slide
+
+Open in Builder
+
+#3
+
+Intimidate  Scraftinite
+
+7.7% 40.0% WR · 48 teams
+
+Close Combat Fake Out Knock Off Protect
+
+Stat Alignment:48% Adamant, 40% Brave, 12% CarefulOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Mental Herb
+
+42%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Charcoal
+
+31%
+
+[](https://www.pokemon-zone.com/champions/pokemon/mawile/)
+
+Mawile
+
+Intimidate · Mawilite
+
+25%
+
+[](https://www.pokemon-zone.com/champions/pokemon/dragonite/)
+
+Dragonite
+
+Multiscale · Dragon Fang
+
+25%
+
+[](https://www.pokemon-zone.com/champions/pokemon/basculegion/)
+
+Basculegion
+
+Adaptability · Choice Scarf
+
+21%
+
+Open in Builder
+
+Show full build▾
+
+The Wide League Saturday Night Rumble #87 REG M-B
+· Cloudzin (#5) · 7–2
+
+Open in Builder
+
+\\
+\\
+Mawile
+
+Ability Intimidate
+
+ItemMawilite
+
+NatureBrave
+
+Play Rough Protect Sucker Punch Iron Head
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureBrave
+
+Fake Out Knock Off Close Combat Protect
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemSitrus Berry
+
+NatureSassy
+
+Trick Room Psychic Helping Hand Protect
+
+\\
+\\
+Whimsicott
+
+Ability Prankster
+
+ItemFocus Sash
+
+NatureSassy
+
+Moonblast Helping Hand Protect Trick Room
+
+\\
+\\
+Primarina
+
+Ability Liquid Voice
+
+ItemLife Orb
+
+NatureQuiet
+
+Hyper Voice Dazzling Gleam Protect Blizzard
+
+\\
+\\
+Abomasnow
+
+Ability Snow Warning
+
+ItemOcca Berry
+
+NatureRelaxed
+
+Blizzard Energy Ball Protect Earth Power
+
+Open in Builder
+
+#4
+
+Intimidate  Scraftinite
+
+7.3% 44.1% WR · 45 teams
+
+Close Combat Fake Out Iron Head Knock Off
+
+Stat Alignment:87% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/torkoal/)
+
+Torkoal
+
+Drought · Charcoal
+
+91%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sylveon/)
+
+Sylveon
+
+Pixilate · Fairy Feather
+
+80%
+
+[](https://www.pokemon-zone.com/champions/pokemon/staraptor/)
+
+Staraptor
+
+Intimidate · Choice Scarf
+
+76%
+
+[](https://www.pokemon-zone.com/champions/pokemon/vileplume/)
+
+Vileplume
+
+Chlorophyll · Focus Sash
+
+73%
+
+Open in Builder
+
+Show full build▾
+
+The Drywall Series #11
+· Bingobangobongo (#4) · 7–2
+
+Open in Builder
+
+\\
+\\
+Venusaur
+
+Ability Chlorophyll
+
+ItemLife Orb
+
+NatureModest
+
+Energy Ball Sludge Bomb Earth Power Protect
+
+\\
+\\
+Farigiraf
+
+Ability Armor Tail
+
+ItemSitrus Berry
+
+NatureQuiet
+
+Twin Beam Thunderbolt Trick Room Helping Hand
+
+\\
+\\
+Pyroar
+
+Ability Unnerve
+
+ItemPyroarite
+
+NatureTimid
+
+Heat Wave Overheat Solar Beam Protect
+
+\\
+\\
+Torkoal
+
+Ability Drought
+
+ItemCharcoal
+
+NatureQuiet
+
+Eruption Weather Ball Helping Hand Protect
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureBrave
+
+Fake Out Iron Head Close Combat Knock Off
+
+\\
+\\
+Mamoswine
+
+Ability Oblivious
+
+ItemFocus Sash
+
+NatureJolly
+
+High Horsepower Rock Slide Ice Shard Protect
+
+Open in Builder
+
+#5
+
+Intimidate  Scraftinite
+
+6.1% 48.7% WR · 38 teams
+
+Detect Drain Punch Fake Out Knock Off
+
+Stat Alignment:50% Adamant, 26% Careful, 21% BraveOpen in Builder
+
+Team
+
+[](https://www.pokemon-zone.com/champions/pokemon/scrafty-mega-scrafty/)
+
+Mega Scrafty
+
+· Scraftinite
+
+100%
+
+[](https://www.pokemon-zone.com/champions/pokemon/sinistcha/)
+
+Sinistcha
+
+Hospitality · Kasib Berry
+
+37%
+
+[](https://www.pokemon-zone.com/champions/pokemon/farigiraf/)
+
+Farigiraf
+
+Armor Tail · Sitrus Berry
+
+29%
+
+[](https://www.pokemon-zone.com/champions/pokemon/incineroar/)
+
+Incineroar
+
+Intimidate · Sitrus Berry
+
+29%
+
+[](https://www.pokemon-zone.com/champions/pokemon/snorlax/)
+
+Snorlax
+
+Thick Fat · Leftovers
+
+26%
+
+[](https://www.pokemon-zone.com/champions/pokemon/gengar/)
+
+Gengar
+
+Cursed Body · Gengarite
+
+26%
+
+Open in Builder
+
+Show full build▾
+
+Tenki's x MMHM - Champions M-B
+· root2iris (#1) · 11–0
+
+Open in Builder
+
+\\
+\\
+Scrafty
+
+Ability Intimidate
+
+ItemScraftinite
+
+NatureCareful
+
+Knock Off Drain Punch Fake Out Detect
+
+\\
+\\
+Incineroar
+
+Ability Intimidate
+
+ItemSitrus Berry
+
+NatureRelaxed
+
+Overheat Parting Shot Fake Out Protect
+
+\\
+\\
+Snorlax
+
+Ability Thick Fat
+
+ItemLeftovers
+
+NatureRelaxed
+
+Yawn Encore Fissure Protect
+
+\\
+\\
+Dragonite
+
+Ability Multiscale
+
+ItemDragon Fang
+
+NatureAdamant
+
+Dragon Claw Low Kick Extreme Speed Protect
+
+\\
+\\
+Gengar
+
+Ability Cursed Body
+
+ItemGengarite
+
+NatureModest
+
+Sludge Bomb Shadow Ball Perish Song Protect
+
+[![Ninetales [Alolan Form]](https://assets.pokemon-zone.com/champions-assets/uicontents/scriptableobject/mdicon02/mdiconpersonal02/standard02/uiPokeIcon020038010.webp)\\
+\\
+Ninetales \[Alolan Form\]](https://www.pokemon-zone.com/champions/pokemon/ninetales-alolan-form/)
+
+Ability Snow Warning
+
+ItemFocus Sash
+
+NatureTimid
+
+Blizzard Disable Encore Protect
+
+Open in Builder
+Tournament Stats
+
+Submissions that don't match in-game data (typos, renamed moves or abilities) are discarded during import, so the counts here can differ from the total appearance count above.
+Most Common Teammates
+
+\\
+\\
+Farigiraf\\
+\\
+NormalPsychic\\
+\\
+57.4% usage · WR 45.2% \\
+\\
+Torkoal\\
+\\
+Fire\\
+\\
+46.0% usage · WR 44.7% \\
+\\
+Sylveon\\
+\\
+Fairy\\
+\\
+21.3% usage · WR 43.1% \\
+\\
+Pyroar\\
+\\
+FireNormal\\
+\\
+20.3% usage · WR 50.7% \\
+\\
+Venusaur\\
+\\
+GrassPoison\\
+\\
+20.0% usage · WR 48.4% \\
+\\
+Sinistcha\\
+\\
+GrassGhost\\
+\\
+19.5% usage · WR 40.5% \\
+\\
+Vileplume\\
+\\
+GrassPoison\\
+\\
+14.8% usage · WR 47.4% \\
+\\
+Garchomp\\
+\\
+DragonGround\\
+\\
+14.2% usage · WR 45.4%
+Most Common Moves
+
+Fake Out
+
+587 (94.7%)
+
+Knock Off
+
+548 (88.4%)
+
+Drain Punch
+
+367 (59.2%)
+
+Close Combat
+
+238 (38.4%)
+
+Protect
+
+157 (25.3%)
+
+Ice Punch
+
+146 (23.5%)
+
+Detect
+
+75 (12.1%)
+
+Rock Slide
+
+63 (10.2%)
+
+Iron Head
+
+60 (9.7%)
+
+Throat Chop
+
+53 (8.5%)
+Most Common Items
+
+Scraftinite
+
+620 (100.0%)
+Most Common Stat Points  Ranked Season
+
+Season 5 — Doubles ladder — separate from the tournament stats. Mega inherits its base form's spread, shown as Scrafty. Full breakdown →
+
+| Use | HP | Atk | Def | SpA | SpD | Spe |
+| --- | --- | --- | --- | --- | --- | --- |
+| 23.4% | 32 | 32 | · | · | 2 | · |
+| 10.8% | 32 | 32 | 2 | · | · | · |
+| 10.6% | 32 | 32 | 1 | · | 1 | · |
+| 5.6% | 31 | 30 | · | · | 1 | 4 |
+| 4.5% | 32 | 32 | · | · | · | 2 |
+| 2.6% | 2 | 32 | · | · | · | 32 |
+Learnable Moves
+
+| Move | Type | Cat. | Pow | Acc | PP |
+| --- | --- | --- | --- | --- | --- |
+| Acid Spray | Poison | Special | 40 | 100 | 20 |
+| Amnesia | Psychic | Status | - | 101 | 20 |
+| Assurance | Dark | Physical | 60 | 100 | 12 |
+| Beat Up | Dark | Physical | 1 | 100 | 12 |
+| Body Slam | Normal | Physical | 85 | 100 | 16 |
+| Brick Break | Fighting | Physical | 75 | 100 | 16 |
+| Bulk Up | Fighting | Status | - | 101 | 20 |
+| Close Combat | Fighting | Physical | 120 | 100 | 8 |
+| Coaching | Fighting | Status | - | 101 | 12 |
+| Counter | Fighting | Physical | 1 | 100 | 20 |
+| Crunch | Dark | Physical | 80 | 100 | 16 |
+| Curse | Ghost | Status | - | 101 | 12 |
+| Dark Pulse | Dark | Special | 80 | 100 | 16 |
+| Detect | Fighting | Status | - | 101 | 8 |
+| Dig | Ground | Physical | 80 | 100 | 12 |
+| Double-Edge | Normal | Physical | 120 | 100 | 16 |
+| Dragon Claw | Dragon | Physical | 80 | 100 | 16 |
+| Dragon Dance | Dragon | Status | - | 101 | 20 |
+| Dragon Pulse | Dragon | Special | 85 | 100 | 12 |
+| Dragon Tail | Dragon | Physical | 60 | 90 | 12 |
+| Drain Punch | Fighting | Physical | 75 | 100 | 12 |
+| Dynamic Punch | Fighting | Physical | 100 | 50 | 8 |
+| Encore | Normal | Status | - | 100 | 8 |
+| Endeavor | Normal | Physical | 1 | 100 | 8 |
+| Endure | Normal | Status | - | 101 | 12 |
+| Facade | Normal | Physical | 70 | 100 | 20 |
+| Fake Out | Normal | Physical | 40 | 100 | 12 |
+| Fake Tears | Dark | Status | - | 100 | 20 |
+| Fire Punch | Fire | Physical | 75 | 100 | 16 |
+| Fling | Dark | Physical | 1 | 100 | 12 |
+| Focus Blast | Fighting | Special | 120 | 70 | 8 |
+| Focus Punch | Fighting | Physical | 150 | 100 | 20 |
+| Foul Play | Dark | Physical | 95 | 100 | 16 |
+| Giga Impact | Normal | Physical | 150 | 90 | 8 |
+| Grass Knot | Grass | Special | 1 | 100 | 20 |
+| Head Smash | Rock | Physical | 150 | 80 | 8 |
+| Helping Hand | Normal | Status | - | 101 | 20 |
+| High Jump Kick | Fighting | Physical | 130 | 90 | 12 |
+| Hyper Beam | Normal | Special | 150 | 90 | 8 |
+| Ice Punch | Ice | Physical | 75 | 100 | 16 |
+| Iron Defense | Steel | Status | - | 101 | 16 |
+
+| Move | Type | Cat. | Pow | Acc | PP |
+| --- | --- | --- | --- | --- | --- |
+| Iron Head | Steel | Physical | 80 | 100 | 16 |
+| Iron Tail | Steel | Physical | 100 | 75 | 16 |
+| Knock Off | Dark | Physical | 65 | 100 | 20 |
+| Lash Out | Dark | Physical | 75 | 100 | 8 |
+| Low Kick | Fighting | Physical | 1 | 100 | 20 |
+| Low Sweep | Fighting | Physical | 65 | 100 | 20 |
+| Mega Kick | Normal | Physical | 120 | 75 | 8 |
+| Outrage | Dragon | Physical | 120 | 100 | 12 |
+| Payback | Dark | Physical | 50 | 100 | 12 |
+| Poison Jab | Poison | Physical | 80 | 100 | 20 |
+| Protect | Normal | Status | - | 101 | 8 |
+| Quick Guard | Fighting | Status | - | 101 | 16 |
+| Rain Dance | Water | Status | - | 101 | 8 |
+| Rest | Psychic | Status | - | 101 | 8 |
+| Reversal | Fighting | Physical | 1 | 100 | 16 |
+| Roar | Normal | Status | - | 101 | 20 |
+| Rock Slide | Rock | Physical | 75 | 90 | 12 |
+| Rock Tomb | Rock | Physical | 60 | 95 | 16 |
+| Round | Normal | Special | 60 | 100 | 16 |
+| Scary Face | Normal | Status | - | 100 | 12 |
+| Sleep Talk | Normal | Status | - | 101 | 12 |
+| Sludge Bomb | Poison | Special | 90 | 100 | 12 |
+| Smack Down | Rock | Physical | 50 | 100 | 16 |
+| Snarl | Dark | Special | 55 | 95 | 16 |
+| Snore | Normal | Special | 50 | 100 | 16 |
+| Spite | Ghost | Status | - | 100 | 12 |
+| Stone Edge | Rock | Physical | 100 | 80 | 8 |
+| Substitute | Normal | Status | - | 101 | 12 |
+| Sunny Day | Fire | Status | - | 101 | 8 |
+| Super Fang | Normal | Physical | 1 | 90 | 12 |
+| Swagger | Normal | Status | - | 85 | 16 |
+| Swords Dance | Normal | Status | - | 101 | 20 |
+| Taunt | Dark | Status | - | 100 | 20 |
+| Thief | Dark | Physical | 60 | 100 | 20 |
+| Throat Chop | Dark | Physical | 80 | 100 | 16 |
+| Thunder Punch | Electric | Physical | 75 | 100 | 16 |
+| Torment | Dark | Status | - | 100 | 16 |
+| Trailblaze | Grass | Physical | 50 | 100 | 20 |
+| Upper Hand | Fighting | Physical | 65 | 100 | 16 |
+| Uproar | Normal | Special | 90 | 100 | 12 |
+| Zen Headbutt | Psychic | Physical | 80 | 90 | 16 |
+Notable Placements
+
+#1
+
+Nisanth 8-2-0
+
+Sketch Academy Pride Month/MMHM Qualifier -Reg M-B · Jun 22, 2026
+
+Builder
+
+TorkoalTorkoalCharcoal VileplumeVileplumeFocus Sash FarigirafFarigirafSitrus Berry ScraftyScraftyScraftinite GalladeGalladeIron Ball MawileMawileMawilite
+
+#1
+
+root2iris 11-0-0
+
+Tenki's x MMHM - Champions M-B · Jun 25, 2026
+
+Builder
+
+ScraftyScraftyScraftinite IncineroarIncineroarSitrus Berry SnorlaxSnorlaxLeftovers DragoniteDragoniteDragon Fang GengarGengarGengarite [![Ninetales [Alolan Form]](https://assets.pokemon-zone.com/champions-assets/uicontents/scriptableobject/mdicon02/mdiconpersonal02/standard02/uiPokeIcon020038010.webp)Ninetales \[Alolan Form\]Ninetales \[Alolan Form\]Focus Sash](https://www.pokemon-zone.com/champions/pokemon/ninetales-alolan-form/)
+
+#1
+
+Werma985 9-2-0
+
+VGC Reg M-B Ingame Tour #3 (Shiny Litleo for 1st!) · Aug 03, 2026
+
+Builder
+
+FarigirafFarigirafSitrus Berry ScraftyScraftyScraftinite TorkoalTorkoalLeftovers KingambitKingambitFocus Sash SneaslerSneaslerLife Orb PyroarPyroarPyroarite
+
+#1
+
+TytokiArts 11-1-0
+
+\Sitrus-Series\\|Champions-MB\|#65 · Jul 01, 2026
+
+Builder
+
+CharizardCharizardCharizardite Y VenusaurVenusaurFocus Sash FarigirafFarigirafColbur Berry ScraftyScraftyScraftinite SylveonSylveonFairy Feather GarchompGarchompLife Orb
+
+#1
+
+IdleFroicker 11-1-0
+
+Talon's FIGHT CLUB #92 POKEMON CHAMPIONS · Jul 09, 2026
+
+Builder
+
+PyroarPyroarPyroarite TorkoalTorkoalCharcoal VileplumeVileplumeFocus Sash ScraftyScraftyScraftinite BasculegionBasculegionChoice Scarf MalamarMalamarSitrus Berry
+
+#3
+
+gslong00 8-1-0
+
+Wolfey Patreon Tournament - Pokémon Champions #4 · Jun 20, 2026
+
+Builder
+
+ScraftyScraftyScraftinite GholdengoGholdengoLife Orb WhimsicottWhimsicottFocus Sash GarchompGarchompSitrus Berry CharizardCharizardCharizardite Y BasculegionBasculegionMystic Water
+
+#4
+
+Trevie 8-3-0
+
+Pokémon Champions #1 - (Floette Eternal Flower) · Jul 12, 2026
+
+Builder
+
+ScraftyScraftyScraftinite PyroarPyroarPyroarite VenusaurVenusaurLife Orb TorkoalTorkoalCharcoal MamoswineMamoswineFocus Sash FarigirafFarigirafSitrus Berry
+
+#4
+
+Bingobangobongo 7-2-0
+
+The Drywall Series #11 · Jul 13, 2026
+
+Builder
+
+VenusaurVenusaurLife Orb FarigirafFarigirafSitrus Berry PyroarPyroarPyroarite TorkoalTorkoalCharcoal ScraftyScraftyScraftinite MamoswineMamoswineFocus Sash
+
+#7
+
+ilaw 6-2-0
+
+Sketch Academy Pride Month/MMHM Qualifier -Reg M-B · Jun 22, 2026
+
+Builder
+
+ScraftyScraftyScraftinite GholdengoGholdengoLife Orb CharizardCharizardCharizardite Y GarchompGarchompSitrus Berry BasculegionBasculegionMystic Water WhimsicottWhimsicottFocus Sash
+
+#7
+
+Scraftionite 7-3-0
+
+Talon's FIGHT CLUB #92 POKEMON CHAMPIONS · Jul 09, 2026
+
+Builder
+
+ScraftyScraftyScraftinite CeruledgeCeruledgeColbur Berry SinistchaSinistchaCoba Berry MiloticMiloticLeftovers SneaslerSneaslerLife Orb RaichuRaichuRaichunite Y
+
+#8
+
+MartinB 6-3-0
+
+King's Gambit #7 \| Reg M-B · Jul 05, 2026
+
+Builder
+
+PyroarPyroarPyroarite ScraftyScraftyScraftinite FarigirafFarigirafSitrus Berry TorkoalTorkoalHeat Rock VenusaurVenusaurLife Orb MamoswineMamoswineFocus Sash
+
+#11
+
+finnhead22 4-3-0
+
+🍋Sitrus-Series🍋\|Champions-MB\|#70 · Aug 05, 2026
+
+Builder
+
+[![Zoroark [Hisuian Form]](https://assets.pokemon-zone.com/champions-assets/uicontents/scriptableobject/mdicon02/mdiconpersonal02/standard02/uiPokeIcon020571010.webp)Zoroark \[Hisuian Form\]Zoroark \[Hisuian Form\]Focus Sash](https://www.pokemon-zone.com/champions/pokemon/zoroark-hisuian-form/) FloetteFloetteFloettite GholdengoGholdengoMetal Coat WhimsicottWhimsicottFairy Feather GarchompGarchompLife Orb ScraftyScraftyScraftinite
+
+RegulationM-B
+
+Regulation
+
+Which ruleset to show stats for.
+What are regulations? ›
+
+Regulation M-BCurrentJun 2026 – ongoingRegulation M-ANot legalApr 2026 – Jun 2026Close
+
+SourceLimitless
+
+Data source
+
+Pick where the Champions stats are compiled from.
+
+OnlineActivelimitlesstcg.comCompiles data of completed tournaments organized on the online tournament platform Limitless.354 tournaments76,050 battlesVGCpokedata.ovhCompiles data of real life Video Game Championships.No data for this regulationClose
+
+Data source
+
+Pick where the Champions stats are compiled from.
+
+OnlineActivelimitlesstcg.comCompiles data of completed tournaments organized on the online tournament platform Limitless.354 tournaments76,050 battlesVGCpokedata.ovhCompiles data of real life Video Game Championships.No data for this regulationClose
+
+Data source
+
+Pick where the Champions stats are compiled from.
+
+OnlineActivelimitlesstcg.comCompiles data of completed tournaments organized on the online tournament platform Limitless.354 tournaments76,050 battlesVGCpokedata.ovhCompiles data of real life Video Game Championships.No data for this regulationClose
+
+Data source
+
+Pick where the Champions stats are compiled from.
+
+OnlineActivelimitlesstcg.comCompiles data of completed tournaments organized on the online tournament platform Limitless.354 tournaments76,050 battlesVGCpokedata.ovhCompiles data of real life Video Game Championships.No data for this regulationClose
+
+Data source
+
+Pick where the Champions stats are compiled from.
+
+OnlineActivelimitlesstcg.comCompiles data of completed tournaments organized on the online tournament platform Limitless.354 tournaments76,050 battlesVGCpokedata.ovhCompiles data of real life Video Game Championships.No data for this regulationClose
