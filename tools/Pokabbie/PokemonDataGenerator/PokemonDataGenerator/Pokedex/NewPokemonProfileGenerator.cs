@@ -97,7 +97,6 @@ namespace PokemonDataGenerator.Pokedex
             {
                 bool isReadingSets = false;
                 string line;
-                int setCount = 0;
 
                 while ((line = NextNonBlankLine(reader)) != null)
                 {
@@ -117,8 +116,7 @@ namespace PokemonDataGenerator.Pokedex
 
                         if (line.StartsWith("#"))
                         {
-                            setCount++;
-                            newSets.Add(ChampsParseSet(line.Substring(setCount >= 10 ? "#10".Length : "#1".Length)));
+                            newSets.Add(ChampsParseSet(line.Substring("#1".Length)));
                         }
                         else if (line.StartsWith("Submissions that don't match in-game data"))
                             break; // finished
