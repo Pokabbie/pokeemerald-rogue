@@ -1389,6 +1389,7 @@ static const u16 sAegislashFormSpeciesIdTable[] = {
 
 #if P_FAMILY_INKAY
 static const u16 sMalamarFormSpeciesIdTable[] = {
+    SPECIES_MALAMAR,
     SPECIES_MALAMAR_MEGA,
     FORM_SPECIES_END,
 };
