@@ -147,6 +147,8 @@ namespace PokemonDataGenerator.Pokedex
         {
             PokemonCompetitiveSet output = new PokemonCompetitiveSet();
             string[] inputParts = rawLine.Split('>');
+            inputParts[0] = inputParts[0].Replace("e X", "e_X").Replace("e Y", "e_Y").Replace("e Z", "e_Z");
+
             string[] aiParts = inputParts[0].Split(' ');
 
             output.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(string.Join(" ", aiParts.Take(aiParts.Length - 1)));

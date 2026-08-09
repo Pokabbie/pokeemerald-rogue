@@ -32,7 +32,11 @@ namespace PokemonDataGenerator.Pokedex
             string speciesName = Console.ReadLine().Trim();
             string speciesKeyword = "SPECIES_" + speciesName.ToUpper();
 
-            List<PokemonCompetitiveSet> newSets = NewPokemonProfileGenerator.GrabChampionsSets(speciesName, speciesKeyword, "");
+            List<PokemonCompetitiveSet> newSets = new List<PokemonCompetitiveSet>();
+            //newSets.AddRange(NewPokemonProfileGenerator.GrabChampionsSets(speciesName, speciesKeyword, ""));
+            newSets.AddRange(NewPokemonProfileGenerator.GrabChampionsSets(speciesName, speciesKeyword, "-x"));
+            newSets.AddRange(NewPokemonProfileGenerator.GrabChampionsSets(speciesName, speciesKeyword, "-y"));
+
             string pokemonProfilePath = Path.Combine(GameDataHelpers.PokemonProfilesDirectory, speciesName, "expansion_profile.json");
 
             JsonSerializer internalSerializer = JsonSerializer.Create(c_JsonSettings);
