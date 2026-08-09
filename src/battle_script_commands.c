@@ -8530,17 +8530,45 @@ u32 IsAbilityStatusProtected(u32 battler)
 
 u32 GetHighestStatId(u32 battler)
 {
-    u32 i, highestId = STAT_ATK, highestStat = gBattleMons[battler].attack;
+    u16 stat;
+    u16 highestId = STAT_ATK;
+    bool32 wonderRoom = (gFieldStatuses & STATUS_FIELD_WONDER_ROOM) != 0;
+    u32 highestStat = gBattleMons[battler].attack;
 
-    for (i = STAT_DEF; i < NUM_STATS; i++)
+    for (u16 stat = STAT_DEF; stat < NUM_STATS; stat++)
     {
-        u16 *statVal = &gBattleMons[battler].attack + (i - 1);
-        if (*statVal > highestStat)
+        if (stat == STAT_SPEED)
+            continue;
+
+        u32 statVal;
+        switch (stat)
         {
-            highestStat = *statVal;
-            highestId = i;
+        case STAT_ATK:
+            statVal = gBattleMons[battler].attack;
+            break;
+        case STAT_DEF:
+            statVal = wonderRoom ? gBattleMons[battler].spDefense : gBattleMons[battler].defense;
+            break;
+        case STAT_SPATK:
+            statVal = gBattleMons[battler].spAttack;
+            break;
+        case STAT_SPDEF:
+            statVal = wonderRoom ? gBattleMons[battler].defense : gBattleMons[battler].spDefense;
+            break;
+        default:
+            continue;
+        }
+
+        if (statVal > highestStat)
+        {
+            highestStat = statVal;
+            highestId = stat;
         }
     }
+
+    if (gBattleMons[battler].speed > highestStat)
+        highestId = STAT_SPEED;
+
     return highestId;
 }
 
@@ -9442,7 +9470,7 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS();
         i = GetHighestStatId(battler);
-        if (GetBattlerAbility(battler) == ABILITY_BEAST_BOOST
+        if ((GetBattlerAbility(battler) == ABILITY_BEAST_BOOST || GetBattlerAbility(battler) == ABILITY_EELEVATE)
             && HasAttackerFaintedTarget()
             && !NoAliveMonsForEitherParty()
             && CompareStat(gBattlerAttacker, i, MAX_STAT_STAGE, CMP_LESS_THAN))

@@ -72,9 +72,14 @@ namespace PokemonDataGenerator.Utils
 					s_RootDirectory = Path.GetFullPath(s_RootDirectory);
 				}
 			}
-		}
+        }
 
-		public static Dictionary<string, string> SpeciesDefines
+        public static string PokemonProfilesDirectory
+		{
+            get => Path.Combine(RootDirectory, "src\\data\\rogue\\pokemon", IsVanillaVersion ? "vanilla" : "expansion");
+        }
+
+        public static Dictionary<string, string> SpeciesDefines
 		{
 			get
 			{

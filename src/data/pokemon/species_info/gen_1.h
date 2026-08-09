@@ -2139,6 +2139,81 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         PALETTES(Raichu),
         ICON(Raichu, 0),
         LEARNSETS(Raichu),
+        .formChangeTable = sRaichuFormChangeTable
+    },
+
+    [SPECIES_RAICHU_MEGA_X] =
+    {
+        RAICHU_MISC_INFO,
+        .baseHP        = 60,
+        .baseAttack    = 135,
+        .baseDefense   = 95,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 95,
+        .types = { TYPE_ELECTRIC, TYPE_ELECTRIC },
+        .abilities = { ABILITY_ELECTRIC_SURGE, ABILITY_ELECTRIC_SURGE, ABILITY_ELECTRIC_SURGE },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .height = 8,
+        .weight = 300,
+        .description = POKEDEX_DESC_STRING(
+            "If it stores too much electricity, its\n"
+            "behavior turns aggressive. To avoid this,\n"
+            "it occasionally discharges excess energy\n"
+            "and calms itself down."),
+        .pokemonScale = 426,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(RaichuMegaX, 64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_RaichuMegaX,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(RaichuMegaX, 64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        PALETTES(RaichuMegaX),
+        ICON(RaichuMegaX,  0),
+        LEARNSETS(RaichuMegaX),
+        .formChangeTable = sRaichuFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
+    [SPECIES_RAICHU_MEGA_Y] =
+    {
+        RAICHU_MISC_INFO,
+        .baseHP        = 60,
+        .baseAttack    = 100,
+        .baseDefense   = 55,
+        .baseSpeed     = 130,
+        .baseSpAttack  = 160,
+        .baseSpDefense = 80,
+        .types = { TYPE_ELECTRIC, TYPE_ELECTRIC },
+        .abilities = { ABILITY_NO_GUARD, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .height = 8,
+        .weight = 300,
+        .description = POKEDEX_DESC_STRING(
+            "If it stores too much electricity, its\n"
+            "behavior turns aggressive. To avoid this,\n"
+            "it occasionally discharges excess energy\n"
+            "and calms itself down."),
+        .pokemonScale = 426,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(RaichuMegaY, 64, 64),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_RaichuMegaY,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(RaichuMegaY, 64, 64),
+        .backPicYOffset = 2,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        PALETTES(RaichuMegaY),
+        ICON(RaichuMegaY,  0),
+        LEARNSETS(RaichuMegaY),
+        .formChangeTable = sRaichuFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 
 #if P_ALOLAN_FORMS
