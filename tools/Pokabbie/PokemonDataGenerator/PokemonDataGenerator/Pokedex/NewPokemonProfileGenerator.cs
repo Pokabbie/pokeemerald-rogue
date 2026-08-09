@@ -79,85 +79,90 @@ namespace PokemonDataGenerator.Pokedex
             }
         }
 
-        public static Stream ToStream(string s)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(s);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
-        }
-
         private static void AppendChampionsSets(string speciesName, string speciesKeyword, PokemonProfileGenerator.PokemonProfile newProfile)
         {
-            string httpContent = ContentCache.GetHttpContent($"https://www.pokemon-zone.com/champions/pokemon/{speciesName.ToLower()}-mega-{speciesName.ToLower()}/");
-            int nextIndex = 0;
-
-            while(nextIndex != -1)
+            foreach(var newSet in GrabChampionsSets(speciesName, speciesKeyword))
             {
-                nextIndex = httpContent.IndexOf("<div class=\"build-card__full-member", nextIndex);
+                if (!newProfile.HasCompatibleCompetitiveSet(newSet))
+                    newProfile.CompetitiveSets.Add(newSet);
+            }
+        }
 
-                if (nextIndex == -1)
-                    break;
+        public static List<PokemonCompetitiveSet> GrabChampionsSets(string speciesName, string speciesKeyword, string suffix = "")
+        {
+            string httpContent = ContentCache.ParseHttpContentPlainText($"https://www.pokemon-zone.com/champions/pokemon/{speciesName.ToLower()}-mega-{speciesName.ToLower()}{suffix}/");
+            List<PokemonCompetitiveSet> newSets = new List<PokemonCompetitiveSet>();
+            
+            using (StringReader reader = new StringReader(httpContent))
+            {
+                bool isReadingSets = false;
+                string line;
 
-                string monData = ExtractXmlNode(httpContent, ref nextIndex);
-
-                string currSpecies = "";
-                string currAbility = "";
-                string currItem = "";
-
-                // Read mon entry
+                while ((line = NextNonBlankLine(reader)) != null)
                 {
-                    int headIndex = monData.IndexOf("<div class=\"build-card__full-member-info\"", 0);
-                    string headData = ExtractXmlNode(monData, ref headIndex);
-
-                    using (XmlReader xml = XmlReader.Create(ToStream(headData)))
+                    if (line.StartsWith("Builds ranked by raw usage across all teams.>"))
                     {
-                        while(xml.Read())
+                        line = line.Substring("Builds ranked by raw usage across all teams.>".Length);
+                        isReadingSets = true;
+                    }
+            
+                    if (isReadingSets)
+                    {
+                        int splitIndex = line.IndexOf("Open in Builder#");
+                        if(splitIndex != -1)
                         {
-                            if (xml.Name == "a")
-                            {
-                                currSpecies = xml.ReadInnerXml();
-                            }
-                            if (xml.Name == "span")
-                            {
-                                currAbility = xml.ReadInnerXml();
-                                break;
-                            }
+                            line = line.Substring(splitIndex + "Open in Builder".Length);
                         }
+
+                        if (line.StartsWith("#"))
+                        {
+                            newSets.Add(ChampsParseSet(line.Substring("#1".Length)));
+                        }
+                        else if (line.StartsWith("Submissions that don't match in-game data"))
+                            break; // finished
                     }
-
-                    string[] parts = headData.Replace('>', '<').Split('<');
-                    currItem = parts[20].Trim();
-                }
-
-                if(speciesKeyword == "SPECIES_" + GameDataHelpers.FormatKeyword(currSpecies))
-                {
-                    PokemonCompetitiveSet newSet = new PokemonCompetitiveSet();
-                    newSet.Nature = "NATURE_TODO";
-                    newSet.SourceTiers.Add("CHAMPIONS_SINGLES_S1");
-                    newSet.SourceTiers.Add("CHAMPIONS_DOUBLES_S1");
-                    newSet.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(currAbility);
-                    newSet.Item = "ITEM_" + GameDataHelpers.FormatKeyword(currItem);
-
-                    // Read moves
-                    {
-                        int movesIndex = monData.IndexOf("<div class=\"build-card__full-member-moves\"", 0);
-                        string movesData = ExtractXmlNode(monData, ref movesIndex);
-
-                        string[] parts = movesData.Replace('>', '<').Split('<');
-
-                        newSet.Moves.Add("MOVE_" + GameDataHelpers.FormatKeyword(parts[6].Trim()));
-                        newSet.Moves.Add("MOVE_" + GameDataHelpers.FormatKeyword(parts[12].Trim()));
-                        newSet.Moves.Add("MOVE_" + GameDataHelpers.FormatKeyword(parts[18].Trim()));
-                        newSet.Moves.Add("MOVE_" + GameDataHelpers.FormatKeyword(parts[24].Trim()));
-                    }
-
-                    if (!newProfile.HasCompatibleCompetitiveSet(newSet))
-                        newProfile.CompetitiveSets.Add(newSet);
                 }
             }
+
+            return newSets;
+        }
+
+        private static string NextNonBlankLine(StringReader reader)
+        {
+            while (true)
+            {
+                string line = reader.ReadLine();
+
+                if(line == null)
+                    return null;
+
+                if (string.IsNullOrEmpty(line))
+                    continue;
+
+                return line.Trim().Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ");
+            }
+        }
+
+        private static PokemonCompetitiveSet ChampsParseSet(string rawLine)
+        {
+            PokemonCompetitiveSet output = new PokemonCompetitiveSet();
+            string[] inputParts = rawLine.Split('>');
+            inputParts[0] = inputParts[0].Replace("e X", "e_X").Replace("e Y", "e_Y").Replace("e Z", "e_Z");
+
+            string[] aiParts = inputParts[0].Split(' ');
+
+            output.Ability = "ABILITY_" + GameDataHelpers.FormatKeyword(string.Join(" ", aiParts.Take(aiParts.Length - 1)));
+            output.Item = "ITEM_" + GameDataHelpers.FormatKeyword(aiParts.Last());
+            output.Nature = "NATURE_" + GameDataHelpers.FormatKeyword(inputParts[6].Split(':')[1].Trim());
+            output.SourceTiers.Add("CHAMPIONS_SINGLES_S2");
+            output.SourceTiers.Add("CHAMPIONS_DOUBLES_S2");
+
+            for(int m = 0; m < 4; ++m)
+            {
+                output.Moves.Add("MOVE_" + GameDataHelpers.FormatKeyword(inputParts[m + 2]));
+            }
+
+            return output;
         }
 
         private static string ExtractXmlNode(string source, ref int index)
