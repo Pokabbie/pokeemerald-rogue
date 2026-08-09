@@ -232,6 +232,156 @@
       "SourceTiers": [
         "GEN9ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
   ],
   "PerSpecies": {

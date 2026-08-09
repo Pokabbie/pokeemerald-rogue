@@ -411,7 +411,7 @@
         "MOVE_PROTECT",
         "MOVE_THUNDERBOLT"
       ],
-      "Ability": "ABILITY_ELEVATE",
+      "Ability": "ABILITY_EELEVATE",
       "Item": "ITEM_EELEKTROSSITE",
       "Nature": "NATURE_MODEST",
       "SourceTiers": [
