@@ -56,11 +56,13 @@ script Rogue_Encounter_GameShow_TriggerIntro
 
     playbgm(MUS_HG_GAME_CORNER, TRUE)
 
-    msgbox(format("Welcome to my ever so lovingly setup Game Show!"), MSGBOX_DEFAULT)
+    msgbox(format("Welcome to my ever so lovingly setup Game Show!\pToday, you could earn some of these wonderful prizes!"), MSGBOX_DEFAULT)
 
     closemessage
     playse(SE_APPLAUSE)
     //waitse
+    
+    special(GameShow_UpdateRewardVisibility)
 
     msgbox(format("Now, contestant!\nAre you aware how this Game Show runs?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)
@@ -105,22 +107,23 @@ script Rogue_Encounter_GameShow_TriggerIntro
     waitmovement(0)
 
     msgbox(format("That's all for now folks!\nKe ke ke"), MSGBOX_DEFAULT)
+    special(GameShow_UpdateRewardVisibility)
 
-    if(var(VAR_CURRENT_ROUND) != FAIL_ROUND_COUNTER)
-    {
-        // Place reward
-        clearflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
-        setobjectxy(NPC_REWARD, 7, 8)
-        setobjectxyperm(NPC_REWARD, 7, 8)
-    }
-    else
-    {
-        // Hide reward 
-        hideobjectat(NPC_REWARD, MAP_ROGUE_ENCOUNTER_GAME_SHOW)
-        setflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
-        setobjectxy(NPC_REWARD, 0, 0)
-        setobjectxyperm(NPC_REWARD, 0, 0)
-    }
+    //if(var(VAR_CURRENT_ROUND) != FAIL_ROUND_COUNTER)
+    //{
+    //    // Place reward
+    //    clearflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
+    //    setobjectxy(NPC_REWARD, 7, 8)
+    //    setobjectxyperm(NPC_REWARD, 7, 8)
+    //}
+    //else
+    //{
+    //    // Hide reward 
+    //    hideobjectat(NPC_REWARD, MAP_ROGUE_ENCOUNTER_GAME_SHOW)
+    //    setflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
+    //    setobjectxy(NPC_REWARD, 0, 0)
+    //    setobjectxyperm(NPC_REWARD, 0, 0)
+    //}
 
     applymovement(NPC_HOST, GameShow_Host_Exit)
     waitmovement(0)
@@ -408,6 +411,8 @@ script Rogue_Encounter_GameShow_TeamTrivia_GetResult
 
 script Rogue_Encounter_GameShow_DisplayReward
 {
+    special(GameShow_UpdateRewardVisibility)
+
     copyvar(VAR_0x8004, VAR_CURRENT_REWARD_ITEM)
     copyvar(VAR_0x8005, VAR_CURRENT_REWARD_COUNT)
     special(GameShow_SelectRewardItem)
@@ -416,7 +421,7 @@ script Rogue_Encounter_GameShow_DisplayReward
 
     if(var(VAR_CURRENT_REWARD_ITEM) == ITEM_NONE)
     {
-        msgbox(format("If you stop now, you can win yourself…\p{STR_VAR_1}!\pOr you can risk it to upgrade your prize to…\p{STR_VAR_2}!\nOr even better!\nAll or nothing!\pSo, do you want to risk it and play another round?"), MSGBOX_YESNO)
+        msgbox(format("If you stop now, you can win yourself…\p{STR_VAR_1}!\pOr you can risk it to gain an additional prize of…\p{STR_VAR_2}!\nOr even better!\nAll or nothing!\pSo, do you want to risk it and play another round?"), MSGBOX_YESNO)
     
         if(var(VAR_RESULT) == NO)
         {
@@ -439,7 +444,7 @@ script Rogue_Encounter_GameShow_DisplayReward
         }
         else
         {
-            msgbox(format("You just won yourself…\p{STR_VAR_1}!\pNext round you could upgrade your prize to…\p{STR_VAR_2}!\pDo you want to risk it and play another round?"), MSGBOX_YESNO)
+            msgbox(format("You just won yourself…\p{STR_VAR_1}!\pNext round you could gain an additional prize of…\p{STR_VAR_2}!\pDo you want to risk it and play another round?"), MSGBOX_YESNO)
         
             if(var(VAR_RESULT) == NO)
             {
