@@ -1348,7 +1348,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
         {
             u8 pocket = ItemId_GetPocket(itemId);
             amount = 1;
@@ -3845,7 +3845,7 @@ static void TryAutoItemPickup()
         if (!gObjectEvents[i].active || i == gPlayerAvatar.objectEventId)
             continue;
 
-        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y || gObjectEvents[i].currentElevation != elevation)
+        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y || gObjectEvents[i].currentElevation != elevation || gObjectEvents[i].invisible)
             continue;
 
         // Object is directly infront of player
@@ -3938,11 +3938,20 @@ static void TryAutoItemPickup()
                     }
                 }
             }
-            else if(template->graphicsId == OBJ_EVENT_GFX_BREAKABLE_ROCK || template->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE || template->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            else if(template->graphicsId == OBJ_EVENT_GFX_BREAKABLE_ROCK || template->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
             {
                 gSelectedObjectEvent = i;
                 gSpecialVar_LastTalked = gObjectEvents[i].localId;
                 ScriptContext_SetupScript(template->script);
+            }
+            else if(template->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            {
+                if(!FlagGet(FLAG_SYS_USE_STRENGTH))
+                {
+                    gSelectedObjectEvent = i;
+                    gSpecialVar_LastTalked = gObjectEvents[i].localId;
+                    ScriptContext_SetupScript(template->script);
+                }
             }
         }
 
@@ -6129,6 +6138,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_GAMESHOW:
                 {
                     FlagClear(FLAG_ROGUE_HIDE_GAMESHOW_REWARD);
+                    
+                    RandomiseEnabledItems();
                     break;
                 }
 
@@ -6201,7 +6212,7 @@ static bool8 IsHubMapGroup()
 
 static bool8 ShouldAdjustRouteObjectEvents()
 {
-    return gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER;
+    return gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW;
 }
 
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
@@ -6268,6 +6279,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_RARE_CANDY;
                         }
+                        else if(itemId == ITEM_ESCAPE_ROPE)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_ESCAPE_ROPE;
+                        }
 #ifdef ROGUE_EXPANSION
                         else if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
                         {
@@ -6281,6 +6296,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         else if(Rogue_IsEvolutionItem(itemId))
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_EVO_STONE;
+                        }
+                        else if(Rogue_IsTreasureItem(itemId))
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_TREASURE;
                         }
                         else
                         {
@@ -10243,6 +10262,18 @@ static u8 RouteItems_CalculateWeight(u16 index, u16 itemId, void* data)
     u8 pocket = ItemId_GetPocket(itemId);
     u8 weight;
 
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
+    {
+        switch (itemId)
+        {
+        case ITEM_MASTER_BALL:
+            return 1;
+
+        case ITEM_ESCAPE_ROPE:
+            return 2;
+        }
+    }
+
     switch (pocket)
     {
     case POCKET_TM_HM:
@@ -10328,6 +10359,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ESCAPE_ROPE);
         }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ESCAPE_ROPE);
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_MASTER_BALL);
+            //RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
+        }
 
         RogueWeightQuery_Begin();
         {
@@ -10359,17 +10396,30 @@ static void RandomiseEnabledItems(void)
         difficultyLevel = ROGUE_MAX_BOSS_COUNT - 1;
     }
 
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
+    {
+        difficultyLevel = min(ROGUE_MAX_BOSS_COUNT - 1, 2 + difficultyLevel * 2);
+    }
+
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
-        if(RogueRandomChanceItem())
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
         {
-            // Clear flag to show
+            // show everything by default, so it spawns in on the map
             FlagClear(FLAG_ROGUE_ITEM_START + i);
         }
         else
         {
-            // Set flag to hide
-            FlagSet(FLAG_ROGUE_ITEM_START + i);
+            if(RogueRandomChanceItem())
+            {
+                // Clear flag to show
+                FlagClear(FLAG_ROGUE_ITEM_START + i);
+            }
+            else
+            {
+                // Set flag to hide
+                FlagSet(FLAG_ROGUE_ITEM_START + i);
+            }
         }
     }
 

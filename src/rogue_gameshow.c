@@ -2,15 +2,21 @@
 #include "constants/item.h"
 #include "easy_chat.h"
 #include "event_data.h"
+#include "event_object_movement.h"
 #include "item.h"
 #include "random.h"
 #include "script_menu.h"
 #include "string_util.h"
 
 #include "rogue_baked.h"
+#include "rogue_controller.h"
 #include "rogue_gameshow.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
+
+#define OBJ_LOCAL_ID_ITEM_START     11
+
+#define FAIL_ROUND_COUNTER          100
 
 #define VAR_CURRENT_ROUND           VAR_TEMP_0
 #define VAR_CURRENT_REWARD_COUNTER  VAR_TEMP_2
@@ -102,54 +108,23 @@ void GameShow_AppendSpeciesMultichoiceOptions()
 
 void GameShow_SelectRewardItem()
 {
-    u8 i;
-    u16 itemId;
-    u16 amount;
-    u32 targetPrice = 2000 + VarGet(VAR_CURRENT_REWARD_COUNTER) * 2000;
-    RAND_TYPE startSeed = gRngRogueValue;
-
-    RogueItemQuery_Begin();
-    RogueItemQuery_IsItemActive();
-
-    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
-    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
-    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
-
-#if !defined(ROGUE_EXPANSION)
-    RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HM01, ITEM_HM08);
-#endif
-
-    RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, targetPrice / 5, targetPrice);
-
-    // Always include in prize pool
-    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ESCAPE_ROPE);
-    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_MASTER_BALL);
-    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
-
-    // Cycle RNG
-    for(i = 0; i < VarGet(VAR_CURRENT_REWARD_COUNTER);++i)
-        RogueRandom();
-
-    itemId = RogueMiscQuery_SelectRandomElement(RogueRandom());
-
-    RogueItemQuery_End();
-
-    if(itemId == ITEM_MASTER_BALL || itemId == ITEM_ESCAPE_ROPE || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || IS_GIMMICK_ITEM(itemId))
-    {
-        amount = 1;
-    }
-    else if(itemId == ITEM_RARE_CANDY)
-    {
-        amount = 5;
-    }
-    else
-    {
-        amount = targetPrice / ItemId_GetPrice(itemId);
-    }
-
+    u16 roundIndex = VarGet(VAR_CURRENT_ROUND) - 1;
+    u16 itemId = VarGet(VAR_ROGUE_ITEM_START + roundIndex);
     VarSet(VAR_CURRENT_REWARD_ITEM, itemId);
-    VarSet(VAR_CURRENT_REWARD_COUNT, amount);
-    gRngRogueValue = startSeed;
+    VarSet(VAR_CURRENT_REWARD_COUNT, Rogue_ModifyItemPickupAmount(itemId, 1));
+}
+
+void GameShow_UpdateRewardVisibility()
+{
+    u16 i;
+    u16 currRound = VarGet(VAR_CURRENT_ROUND);
+    u16 rewardCounter = VarGet(VAR_CURRENT_REWARD_COUNTER);
+
+    for(i = 0; i < 6; ++i)
+    {
+        bool32 showItem = (currRound == FAIL_ROUND_COUNTER) ? FALSE : (i < rewardCounter);
+        SetObjectInvisibility(OBJ_LOCAL_ID_ITEM_START + i , gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, !showItem);
+    }
 }
 
 void GameShow_IsTeamTriviaRoundValid()
