@@ -3378,7 +3378,7 @@ void Rogue_OnNewGame(void)
     
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
-
+    
     FlagSet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
     
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
@@ -3441,6 +3441,9 @@ void Rogue_OnNewGame(void)
     memset(gRogueSaveBlock->daycarePokemon, 0, sizeof(gRogueSaveBlock->daycarePokemon));
     memset(gRogueSaveBlock->adventureReplay, 0, sizeof(gRogueSaveBlock->adventureReplay));
     memset(gRogueSaveBlock->monMasteryFlags, 0, sizeof(gRogueSaveBlock->monMasteryFlags));
+    
+    // set fast path as default
+    Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_FAST_PATH);
 
     Rogue_ClearPopupQueue();
 }
